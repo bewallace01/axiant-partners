@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axiant Partners - Find Your Perfect Loan</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <img src="logo.jpg" alt="Axiant Partners Logo" class="nav-logo">
+                <span>Axiant Partners</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">About</a>
+                <a href="match.html" class="active">Find Match</a>
+            </div>
+        </nav>
+
+        <header>
+            <h1>Axiant Partners</h1>
+            <p class="tagline">Your personal loan concierge service</p>
+        </header>
+
+        <div id="applicationForm" class="form-container">
+            <h2>Tell us about your loan needs</h2>
+            <p class="results-intro">Share your information and we'll connect you with the perfect lender. Our team will review your profile and personally match you with banks eager to work with you.</p>
+
+            <form id="loanForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required placeholder="(555) 123-4567">
+                </div>
+
+                <div class="form-group">
+                    <label for="loanAmount">Loan Amount ($)</label>
+                    <input type="number" id="loanAmount" required min="1000" step="1000" placeholder="e.g., 50000">
+                </div>
+
+                <div class="form-group">
+                    <label for="loanType">Loan Type</label>
+                    <select id="loanType" required>
+                        <option value="">Select loan type</option>
+                        <option value="personal">Personal Loan</option>
+                        <option value="home">Home Loan / Mortgage</option>
+                        <option value="auto">Auto Loan</option>
+                        <option value="business">Business Loan</option>
+                        <option value="student">Student Loan</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="creditScore">Credit Score</label>
+                    <select id="creditScore" required>
+                        <option value="">Select your credit score range</option>
+                        <option value="excellent">Excellent (750+)</option>
+                        <option value="good">Good (700-749)</option>
+                        <option value="fair">Fair (650-699)</option>
+                        <option value="poor">Poor (600-649)</option>
+                        <option value="verypoor">Very Poor (<600)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="income">Annual Income ($)</label>
+                    <input type="number" id="income" required min="0" step="1000" placeholder="e.g., 75000">
+                </div>
+
+                <div class="form-group">
+                    <label for="employment">Employment Status</label>
+                    <select id="employment" required>
+                        <option value="">Select employment status</option>
+                        <option value="fulltime">Full-time Employed</option>
+                        <option value="parttime">Part-time Employed</option>
+                        <option value="selfemployed">Self-employed</option>
+                        <option value="retired">Retired</option>
+                        <option value="unemployed">Unemployed</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="loanPurpose">Loan Purpose</label>
+                    <textarea id="loanPurpose" rows="3" placeholder="Brief description of how you'll use the loan"></textarea>
+                </div>
+
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="agreeToTerms" required>
+                        <span>I agree to the <a href="Axiant_PrivacyPolicy_UPDATED.pdf" target="_blank">Privacy Policy</a> and <a href="Axiant_TermsAndConditions_UPDATED.pdf" target="_blank">Terms and Conditions</a></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-primary">Submit Application</button>
+            </form>
+        </div>
+
+        <div id="thankYouContainer" class="results-container" style="display: none;">
+            <div class="success-message">
+                <div class="success-icon">✓</div>
+                <h2>Thank You for Choosing Axiant Partners!</h2>
+                <p>We've received your loan application and our team is already working on finding your perfect match.</p>
+
+                <div class="bank-info" style="margin-top: 30px;">
+                    <h4 style="color: #0f2942; margin-bottom: 20px; text-align: center;">What Happens Next:</h4>
+                    <div class="info-row">
+                        <span class="label" style="flex: 0 0 50px; text-align: center; font-size: 1.5rem;">1</span>
+                        <span class="value" style="text-align: left;">Our team will review your profile and match you with the top 3 lending institutions</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label" style="flex: 0 0 50px; text-align: center; font-size: 1.5rem;">2</span>
+                        <span class="value" style="text-align: left;">We'll call you within 24-48 hours to discuss your options and answer any questions</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label" style="flex: 0 0 50px; text-align: center; font-size: 1.5rem;">3</span>
+                        <span class="value" style="text-align: left;">We'll connect you directly with the banks most likely to approve your loan</span>
+                    </div>
+                </div>
+
+                <p style="margin-top: 30px;"><strong>Application Reference:</strong> <span id="referenceNumber"></span></p>
+                <p style="font-size: 0.9rem; color: #718096; margin-top: 20px;">Our service is completely free for borrowers. We're here to help you succeed.</p>
+
+                <button id="newApplication" class="btn-primary">Submit Another Application</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="Axiant_PrivacyPolicy_UPDATED.pdf" target="_blank">Privacy Policy</a> | <a href="Axiant_TermsAndConditions_UPDATED.pdf" target="_blank">Terms and Conditions</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
