@@ -4,7 +4,7 @@ A premium loan concierge service website that connects borrowers with the right 
 
 ## About
 
-Axiant Partners acts as a personal advocate in the lending process, using expertise and banking relationships to match borrowers with lenders eager to approve their loans—completely free of charge.
+Axiant Partners acts as a personal advocate in the lending process, using expertise and banking relationships to match borrowers with lenders eager to approve their loans.
 
 ## Features
 
