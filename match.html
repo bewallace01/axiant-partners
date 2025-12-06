@@ -22,12 +22,12 @@
 
         <header>
             <h1>Axiant Partners</h1>
-            <p class="tagline">Your personal loan concierge service</p>
+            <p class="tagline">Your business loan concierge service</p>
         </header>
 
         <div id="applicationForm" class="form-container">
-            <h2>Tell us about your loan needs</h2>
-            <p class="results-intro">Share your information and we'll connect you with the perfect lender. Our team will review your profile and personally match you with banks eager to work with you.</p>
+            <h2>Tell us about your business loan needs</h2>
+            <p class="results-intro">Share your business information and we'll connect you with the perfect lender. Our team will review your profile and personally match you with banks eager to finance your business.</p>
 
             <form id="loanForm">
                 <div class="form-row">
@@ -52,14 +52,21 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="loanType">Loan Type</label>
+                    <label for="businessName">Business Name</label>
+                    <input type="text" id="businessName" required placeholder="e.g., Acme Corporation">
+                </div>
+
+                <div class="form-group">
+                    <label for="loanType">Business Loan Type</label>
                     <select id="loanType" required>
                         <option value="">Select loan type</option>
-                        <option value="personal">Personal Loan</option>
-                        <option value="home">Home Loan / Mortgage</option>
-                        <option value="auto">Auto Loan</option>
-                        <option value="business">Business Loan</option>
-                        <option value="student">Student Loan</option>
+                        <option value="sba">SBA Loan</option>
+                        <option value="equipment">Equipment Financing</option>
+                        <option value="working-capital">Working Capital</option>
+                        <option value="real-estate">Commercial Real Estate</option>
+                        <option value="line-of-credit">Line of Credit</option>
+                        <option value="expansion">Business Expansion</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
 
@@ -76,25 +83,34 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="income">Annual Income ($)</label>
-                    <input type="number" id="income" required min="0" step="1000" placeholder="e.g., 75000">
+                    <label for="revenue">Annual Business Revenue ($)</label>
+                    <input type="number" id="revenue" required min="0" step="1000" placeholder="e.g., 500000">
                 </div>
 
                 <div class="form-group">
-                    <label for="employment">Employment Status</label>
-                    <select id="employment" required>
-                        <option value="">Select employment status</option>
-                        <option value="fulltime">Full-time Employed</option>
-                        <option value="parttime">Part-time Employed</option>
-                        <option value="selfemployed">Self-employed</option>
-                        <option value="retired">Retired</option>
-                        <option value="unemployed">Unemployed</option>
+                    <label for="yearsInBusiness">Years in Business</label>
+                    <input type="number" id="yearsInBusiness" required min="0" step="0.5" placeholder="e.g., 5">
+                </div>
+
+                <div class="form-group">
+                    <label for="industry">Industry</label>
+                    <select id="industry" required>
+                        <option value="">Select industry</option>
+                        <option value="retail">Retail</option>
+                        <option value="restaurant">Restaurant/Food Service</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="construction">Construction</option>
+                        <option value="professional-services">Professional Services</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="technology">Technology</option>
+                        <option value="real-estate">Real Estate</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="loanPurpose">Loan Purpose</label>
-                    <textarea id="loanPurpose" rows="3" placeholder="Brief description of how you'll use the loan"></textarea>
+                    <textarea id="loanPurpose" rows="3" placeholder="Brief description of how you'll use the business loan"></textarea>
                 </div>
 
                 <div class="checkbox-group">

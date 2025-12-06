@@ -1,10 +1,10 @@
 # Axiant Partners
 
-A premium loan concierge service website that connects borrowers with the right lending institutions.
+A premium business loan concierge service website that connects business owners with the right lending institutions.
 
 ## About
 
-Axiant Partners acts as a personal advocate in the lending process, using expertise and banking relationships to match borrowers with lenders eager to approve their loans.
+Axiant Partners acts as a personal advocate in the business lending process, using expertise and banking relationships to match business owners with lenders eager to approve their business loans.
 
 ## Features
 
@@ -17,10 +17,10 @@ Axiant Partners acts as a personal advocate in the lending process, using expert
 
 ## How It Works
 
-1. **Customer Submits Information**: Fills out application with loan needs and financial details
-2. **Internal Matching**: Axiant team analyzes profile and identifies top 3 lending matches
-3. **Personal Contact**: Axiant specialist calls customer within 24-48 hours
-4. **Bank Connection**: Customer is connected directly with pre-qualified lenders
+1. **Business Owner Submits Information**: Fills out application with business loan needs and company financial details
+2. **Internal Matching**: Axiant team analyzes business profile and identifies top 3 lending matches
+3. **Personal Contact**: Axiant specialist calls business owner within 24-48 hours
+4. **Bank Connection**: Business owner is connected directly with pre-qualified business lenders
 
 ## Tech Stack
 
