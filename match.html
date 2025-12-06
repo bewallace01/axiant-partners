@@ -66,6 +66,7 @@
                         <option value="real-estate">Commercial Real Estate</option>
                         <option value="line-of-credit">Line of Credit</option>
                         <option value="expansion">Business Expansion</option>
+                        <option value="refinance">Refinance</option>
                         <option value="other">Other</option>
                     </select>
                 </div>
@@ -93,24 +94,20 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="industry">Industry</label>
-                    <select id="industry" required>
-                        <option value="">Select industry</option>
-                        <option value="retail">Retail</option>
-                        <option value="restaurant">Restaurant/Food Service</option>
-                        <option value="manufacturing">Manufacturing</option>
-                        <option value="construction">Construction</option>
-                        <option value="professional-services">Professional Services</option>
-                        <option value="healthcare">Healthcare</option>
-                        <option value="technology">Technology</option>
-                        <option value="real-estate">Real Estate</option>
-                        <option value="other">Other</option>
-                    </select>
+                    <label for="equipmentDescription">Equipment Being Financed (if applicable)</label>
+                    <input type="text" id="equipmentDescription" placeholder="e.g., Construction equipment, Manufacturing machinery, etc.">
                 </div>
 
                 <div class="form-group">
                     <label for="loanPurpose">Loan Purpose</label>
                     <textarea id="loanPurpose" rows="3" placeholder="Brief description of how you'll use the business loan"></textarea>
+                </div>
+
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="isRefinance">
+                        <span>This is a refinance</span>
+                    </label>
                 </div>
 
                 <div class="checkbox-group">
