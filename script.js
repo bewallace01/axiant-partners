@@ -272,10 +272,12 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
         email: document.getElementById('email').value,
         phone: document.getElementById('phone').value,
         loanAmount: parseInt(document.getElementById('loanAmount').value),
+        businessName: document.getElementById('businessName').value,
         loanType: document.getElementById('loanType').value,
         creditScore: document.getElementById('creditScore').value,
-        income: parseInt(document.getElementById('income').value),
-        employment: document.getElementById('employment').value,
+        revenue: parseInt(document.getElementById('revenue').value),
+        yearsInBusiness: parseFloat(document.getElementById('yearsInBusiness').value),
+        industry: document.getElementById('industry').value,
         loanPurpose: document.getElementById('loanPurpose').value
     };
 
