@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Axiant Partners</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <img src="logo.jpg" alt="Axiant Partners Logo" class="nav-logo">
+                <span>Axiant Partners</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">About</a>
+                <a href="match.html">Find Match</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+        </nav>
+
+        <header>
+            <h1>Contact Us</h1>
+            <p class="tagline">We're here to help you find the perfect business loan</p>
+        </header>
+
+        <div class="form-container contact-content">
+            <h2>Get in Touch</h2>
+            <p class="results-intro">Have questions about our service? Want to discuss your loan needs before applying? Our team is ready to help you find the right financing solution for your business.</p>
+
+            <form id="contactForm" class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contactName">Full Name</label>
+                        <input type="text" id="contactName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Email Address</label>
+                        <input type="email" id="contactEmail" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactPhone">Phone Number</label>
+                    <input type="tel" id="contactPhone" placeholder="(555) 123-4567">
+                </div>
+
+                <div class="form-group">
+                    <label for="contactSubject">Subject</label>
+                    <select id="contactSubject" required>
+                        <option value="">Select a topic</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="loan-question">Question About Loan Options</option>
+                        <option value="application-status">Application Status</option>
+                        <option value="partnership">Partnership Opportunities</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactMessage">Message</label>
+                    <textarea id="contactMessage" rows="6" required placeholder="Tell us how we can help you..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+
+            <div id="contactThankYou" class="contact-thank-you" style="display: none;">
+                <div class="success-icon"></div>
+                <h3>Thank You for Contacting Us!</h3>
+                <p>We've received your message and will get back to you within 24 hours.</p>
+                <button id="newContactMessage" class="btn-primary">Send Another Message</button>
+            </div>
+
+            <div class="contact-info-section">
+                <h3>Other Ways to Reach Us</h3>
+                <div class="contact-info-grid">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">📧</div>
+                        <h4>Email</h4>
+                        <p>info@axiantpartners.com</p>
+                    </div>
+                    <div class="contact-info-card">
+                        <div class="contact-icon">📞</div>
+                        <h4>Phone</h4>
+                        <p>(555) 123-4567</p>
+                    </div>
+                    <div class="contact-info-card">
+                        <div class="contact-icon">⏰</div>
+                        <h4>Business Hours</h4>
+                        <p>Monday - Friday<br>9:00 AM - 6:00 PM EST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="Axiant_PrivacyPolicy_UPDATED.pdf" target="_blank">Privacy Policy</a> | <a href="Axiant_TermsAndConditions_UPDATED.pdf" target="_blank">Terms and Conditions</a></p>
+    </footer>
+
+    <script>
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Collect contact data
+            const contactData = {
+                name: document.getElementById('contactName').value,
+                email: document.getElementById('contactEmail').value,
+                phone: document.getElementById('contactPhone').value,
+                subject: document.getElementById('contactSubject').value,
+                message: document.getElementById('contactMessage').value
+            };
+
+            // In a real implementation, this would send data to your server
+            console.log('Contact form submitted:', contactData);
+
+            // Hide form, show thank you message
+            document.querySelector('.contact-form').style.display = 'none';
+            document.getElementById('contactThankYou').style.display = 'block';
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // New message button
+        document.getElementById('newContactMessage').addEventListener('click', function() {
+            document.querySelector('.contact-form').style.display = 'block';
+            document.getElementById('contactThankYou').style.display = 'none';
+            document.getElementById('contactForm').reset();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
