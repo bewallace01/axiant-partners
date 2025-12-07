@@ -53,7 +53,7 @@
 
                 <div class="form-group">
                     <label for="businessName">Business Name</label>
-                    <input type="text" id="businessName" required placeholder="e.g., Acme Corporation">
+                    <input type="text" id="businessName" placeholder="e.g., Acme Corporation">
                 </div>
 
                 <div class="form-group">
@@ -86,24 +86,26 @@
 
                 <div class="form-group">
                     <label for="revenue">Annual Business Revenue ($)</label>
-                    <input type="number" id="revenue" required min="0" step="1000" placeholder="e.g., 500000">
+                    <select id="revenue" required>
+                        <option value="">Select revenue range</option>
+                        <option value="$0 to $500,000">$0 to $500,000</option>
+                        <option value="$500,000 to $1,000,000">$500,000 to $1,000,000</option>
+                        <option value="$1,000,000 to $2,000,000">$1,000,000 to $2,000,000</option>
+                        <option value="$2,000,000 to $4,000,000">$2,000,000 to $4,000,000</option>
+                        <option value="$4,000,000 to $7,000,000">$4,000,000 to $7,000,000</option>
+                        <option value="$7,000,000 to $10,000,000">$7,000,000 to $10,000,000</option>
+                        <option value="$10,000,000+">$10,000,000+</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label for="yearsInBusiness">Years in Business</label>
-                    <input type="number" id="yearsInBusiness" required min="0" step="0.5" placeholder="e.g., 5">
+                    <input type="number" id="yearsInBusiness" min="0" step="0.5" placeholder="e.g., 5">
                 </div>
 
                 <div class="form-group">
                     <label for="equipmentDescription">Equipment Being Financed (if applicable)</label>
                     <input type="text" id="equipmentDescription" placeholder="e.g., Construction equipment, Manufacturing machinery, etc.">
-                </div>
-
-                <div class="checkbox-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="isRefinance">
-                        <span>This is a refinance</span>
-                    </label>
                 </div>
 
                 <div class="checkbox-group">

@@ -275,10 +275,9 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
         businessName: document.getElementById('businessName').value,
         loanType: document.getElementById('loanType').value,
         creditScore: document.getElementById('creditScore').value,
-        revenue: parseInt(document.getElementById('revenue').value),
+        revenue: document.getElementById('revenue').value,
         yearsInBusiness: parseFloat(document.getElementById('yearsInBusiness').value),
-        equipmentDescription: document.getElementById('equipmentDescription').value,
-        isRefinance: document.getElementById('isRefinance').checked
+        equipmentDescription: document.getElementById('equipmentDescription').value
     };
 
     // In a real implementation, this would send data to your server
