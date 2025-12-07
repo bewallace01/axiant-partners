@@ -276,7 +276,7 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
         loanType: document.getElementById('loanType').value,
         creditScore: document.getElementById('creditScore').value,
         revenue: document.getElementById('revenue').value,
-        yearsInBusiness: parseFloat(document.getElementById('yearsInBusiness').value),
+        yearsInBusiness: document.getElementById('yearsInBusiness').value,
         equipmentDescription: document.getElementById('equipmentDescription').value
     };
 
