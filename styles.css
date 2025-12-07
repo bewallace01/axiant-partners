@@ -10,9 +10,10 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #0f2942 0%, #1a3a52 50%, #0f2942 100%);
     min-height: 100vh;
-    padding: 20px;
+    padding: 30px 20px;
     line-height: 1.7;
     color: #2c3e50;
+    font-size: 16px;
     letter-spacing: -0.01em;
     position: relative;
     overflow-x: hidden;
@@ -46,8 +47,9 @@ body::after {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 40px;
     position: relative;
     z-index: 2;
 }
@@ -91,9 +93,9 @@ header h1::after {
 
 .form-container, .results-container {
     background: #ffffff;
-    border-radius: 4px;
-    padding: 50px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border-radius: 8px;
+    padding: 60px 70px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
     border: 1px solid #e2e8f0;
     animation: fadeInUp 0.6s ease-out;
 }
@@ -101,12 +103,12 @@ header h1::after {
 .form-container h2, .results-container h2 {
     font-family: 'Playfair Display', serif;
     color: #0f2942;
-    margin-bottom: 35px;
-    font-size: 2rem;
+    margin-bottom: 40px;
+    font-size: 2.25rem;
     font-weight: 600;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
     position: relative;
-    padding-bottom: 15px;
+    padding-bottom: 18px;
 }
 
 .form-container h2::after {
@@ -162,15 +164,15 @@ header h1::after {
 
 .btn-primary, .btn-secondary, .btn-apply {
     width: 100%;
-    padding: 16px 32px;
+    padding: 18px 32px;
     border: none;
-    border-radius: 2px;
-    font-size: 0.875rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     margin-top: 15px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
@@ -676,10 +678,11 @@ header h1::after {
 
 .step-card, .benefit-card {
     background: #f7fafc;
-    padding: 30px;
-    border-radius: 2px;
-    border-left: 3px solid #3ca6d8;
+    padding: 35px;
+    border-radius: 8px;
+    border-left: 4px solid #3ca6d8;
     transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .step-card:hover, .benefit-card:hover {
@@ -736,10 +739,11 @@ header h1::after {
 
 .cta-section {
     text-align: center;
-    padding: 40px;
+    padding: 50px 40px;
     background: #f7fafc;
-    border-radius: 4px;
+    border-radius: 8px;
     border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .cta-section h2 {
