@@ -826,14 +826,16 @@ header h1 {
     flex-shrink: 0;
 }
 
-.testimonial-info h4 {
+.testimonial-info h4,
+.author-name {
     color: #1a1a1a;
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 4px;
 }
 
-.testimonial-info p {
+.testimonial-info p,
+.author-title {
     color: #999999;
     font-size: 0.9rem;
 }
