@@ -93,6 +93,30 @@ header {
     color: #ffffff;
     padding: 120px 60px;
     margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
 }
 
 header h1 {
@@ -102,6 +126,8 @@ header h1 {
     font-weight: 600;
     letter-spacing: -0.03em;
     color: #ffffff;
+    position: relative;
+    z-index: 1;
 }
 
 .tagline {
@@ -110,6 +136,8 @@ header h1 {
     color: rgba(255, 255, 255, 0.9);
     max-width: 600px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 /* Form Container */
@@ -275,13 +303,21 @@ header h1 {
 
 /* About Page */
 .about-content {
-    max-width: 1100px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 60px 0;
+    padding: 0;
 }
 
 .about-section {
-    margin-bottom: 80px;
+    padding: 80px 60px;
+}
+
+.about-section:nth-child(odd) {
+    background: #ffffff;
+}
+
+.about-section:nth-child(even) {
+    background: #f8f9fa;
 }
 
 .about-section h2 {
@@ -291,6 +327,20 @@ header h1 {
     margin-bottom: 24px;
     font-weight: 600;
     letter-spacing: -0.02em;
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.about-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #2d7fb8, #1e3a5f);
 }
 
 .about-section p {
@@ -298,34 +348,63 @@ header h1 {
     line-height: 1.8;
     margin-bottom: 20px;
     font-size: 1.05rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .steps-grid, .benefits-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
-    margin-top: 40px;
+    margin-top: 60px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .step-card, .benefit-card {
-    background: #fafafa;
+    background: #ffffff;
     padding: 50px 40px;
     transition: all 0.3s ease;
-    border-left: 3px solid #2d7fb8;
+    border: 1px solid #e8e8e8;
+    position: relative;
+    overflow: hidden;
+}
+
+.step-card::before, .benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #2d7fb8, #1e3a5f);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.step-card:hover::before, .benefit-card:hover::before {
+    transform: scaleX(1);
 }
 
 .step-card:hover, .benefit-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-    background: #ffffff;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(45, 127, 184, 0.15);
+    border-color: #2d7fb8;
 }
 
 .step-number {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 600;
     color: #2d7fb8;
     margin-bottom: 20px;
+    line-height: 1;
+    background: linear-gradient(135deg, #2d7fb8, #1e3a5f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .step-card h3, .benefit-card h3 {
@@ -333,6 +412,23 @@ header h1 {
     font-size: 1.4rem;
     margin-bottom: 14px;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.benefit-card h3::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #2d7fb8, #1e3a5f);
+    color: white;
+    border-radius: 50%;
+    font-size: 18px;
+    flex-shrink: 0;
 }
 
 .step-card p, .benefit-card p {
@@ -344,37 +440,86 @@ header h1 {
 .partner-types {
     font-weight: 600;
     color: #1a1a1a;
-    margin-top: 24px;
-    margin-bottom: 16px;
+    margin-top: 40px;
+    margin-bottom: 24px;
     font-size: 1.05rem;
+    text-align: center;
 }
 
 .partner-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     list-style: none;
     padding: 0;
     margin-top: 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .partner-list li {
-    padding: 18px 24px;
-    background: #fafafa;
-    border-left: 3px solid #2d7fb8;
+    padding: 24px 28px;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
     color: #1a1a1a;
     font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.partner-list li::before {
+    content: '◆';
+    color: #2d7fb8;
+    font-size: 12px;
+    margin-right: 8px;
+}
+
+.partner-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(45, 127, 184, 0.12);
+    border-color: #2d7fb8;
 }
 
 .cta-section {
     text-align: center;
-    padding: 80px 60px;
-    background: #fafafa;
-    margin-top: 60px;
+    padding: 100px 60px;
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d7fb8 100%);
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -5%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
 }
 
 .cta-section h2 {
     margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.cta-section h2::after {
+    background: #ffffff;
 }
 
 .cta-section p {
@@ -383,6 +528,7 @@ header h1 {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .cta-buttons {
@@ -390,14 +536,40 @@ header h1 {
     gap: 24px;
     justify-content: center;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
 }
 
-.cta-buttons .btn-primary,
+.cta-buttons .btn-primary {
+    width: auto;
+    min-width: 240px;
+    text-decoration: none;
+    display: inline-block;
+    background: #ffffff;
+    color: #2d7fb8;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 22px 50px;
+}
+
+.cta-buttons .btn-primary:hover {
+    background: #f8f9fa;
+    color: #1e3a5f;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
 .cta-buttons .btn-secondary {
     width: auto;
     min-width: 200px;
     text-decoration: none;
     display: inline-block;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.cta-buttons .btn-secondary:hover {
+    background: #ffffff;
+    color: #2d7fb8;
 }
 
 /* Success Message */
@@ -499,21 +671,22 @@ header h1 {
 .site-footer {
     text-align: center;
     padding: 60px 20px;
-    margin-top: 100px;
-    background: #fafafa;
-    color: #666666;
+    margin-top: 0;
+    background: #1a1a1a;
+    color: #999999;
     font-size: 14px;
-    border-top: 1px solid #e8e8e8;
 }
 
 .site-footer a {
     color: #2d7fb8;
     text-decoration: none;
     margin: 0 8px;
+    transition: color 0.3s ease;
 }
 
 .site-footer a:hover {
-    text-decoration: underline;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 /* Responsive */
@@ -536,6 +709,14 @@ header h1 {
 
     .steps-grid, .benefits-grid {
         grid-template-columns: 1fr;
+    }
+
+    .partner-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-section {
+        padding: 60px 40px;
     }
 }
 
@@ -579,6 +760,18 @@ header h1 {
 
     .partner-list {
         grid-template-columns: 1fr;
+    }
+
+    .about-section {
+        padding: 50px 24px;
+    }
+
+    .about-section h2 {
+        font-size: 2rem;
+    }
+
+    .cta-section {
+        padding: 60px 24px;
     }
 }
 
