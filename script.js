@@ -271,14 +271,13 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
         fullName: document.getElementById('fullName').value,
         email: document.getElementById('email').value,
         phone: document.getElementById('phone').value,
-        loanAmount: parseInt(document.getElementById('loanAmount').value),
+        loanAmount: document.getElementById('loanAmount').value,
         businessName: document.getElementById('businessName').value,
         loanType: document.getElementById('loanType').value,
         creditScore: document.getElementById('creditScore').value,
         revenue: parseInt(document.getElementById('revenue').value),
         yearsInBusiness: parseFloat(document.getElementById('yearsInBusiness').value),
         equipmentDescription: document.getElementById('equipmentDescription').value,
-        loanPurpose: document.getElementById('loanPurpose').value,
         isRefinance: document.getElementById('isRefinance').checked
     };
 
