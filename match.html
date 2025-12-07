@@ -48,7 +48,7 @@
 
                 <div class="form-group">
                     <label for="loanAmount">Loan Amount ($)</label>
-                    <input type="number" id="loanAmount" required min="1000" step="1000" placeholder="e.g., 50000">
+                    <input type="text" id="loanAmount" required placeholder="e.g., $50,000">
                 </div>
 
                 <div class="form-group">
@@ -75,11 +75,12 @@
                     <label for="creditScore">Credit Score</label>
                     <select id="creditScore" required>
                         <option value="">Select your credit score range</option>
-                        <option value="excellent">Excellent (750+)</option>
-                        <option value="good">Good (700-749)</option>
-                        <option value="fair">Fair (650-699)</option>
-                        <option value="poor">Poor (600-649)</option>
-                        <option value="verypoor">Very Poor (<600)</option>
+                        <option value="800+">800+</option>
+                        <option value="750-799">750 to 799</option>
+                        <option value="700-749">700 to 749</option>
+                        <option value="650-699">650 to 699</option>
+                        <option value="600-649">600 to 649</option>
+                        <option value="599-below">599 and below</option>
                     </select>
                 </div>
 
@@ -96,11 +97,6 @@
                 <div class="form-group">
                     <label for="equipmentDescription">Equipment Being Financed (if applicable)</label>
                     <input type="text" id="equipmentDescription" placeholder="e.g., Construction equipment, Manufacturing machinery, etc.">
-                </div>
-
-                <div class="form-group">
-                    <label for="loanPurpose">Loan Purpose</label>
-                    <textarea id="loanPurpose" rows="3" placeholder="Brief description of how you'll use the business loan"></textarea>
                 </div>
 
                 <div class="checkbox-group">
