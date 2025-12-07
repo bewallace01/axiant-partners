@@ -513,16 +513,16 @@ header h1 {
     border-radius: 50%;
 }
 
-.cta-section h2 {
+.about-section.cta-section h2 {
     margin-bottom: 20px;
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
-.cta-section h2::after {
+.about-section.cta-section h2::after {
     background: #ffffff;
 }
 
-.cta-section p {
+.about-section.cta-section p {
     font-size: 1.15rem;
     margin-bottom: 40px;
     max-width: 600px;
