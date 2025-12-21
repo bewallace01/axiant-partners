@@ -339,7 +339,7 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
     .catch(function(error) {
         console.error('Email sending failed:', error);
         console.error('Error details:', JSON.stringify(error, null, 2));
-        alert('Sorry, there was an error submitting your application. Please check the browser console for details or contact us directly at info@axiantpartners.com');
+        alert('Sorry, there was an error submitting your application. Please check the browser console for details or contact us directly at alex@axiantpartners.com');
         submitButton.textContent = originalButtonText;
         submitButton.disabled = false;
     });
