@@ -14,11 +14,6 @@
                 <img src="logo.jpg" alt="Axiant Partners Logo" class="nav-logo">
                 <span>Axiant Partners</span>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
             <div class="nav-links">
                 <a href="index.html">About</a>
                 <a href="match.html" class="active">Find Match</a>
@@ -126,7 +121,7 @@
                 <div class="checkbox-group">
                     <label class="checkbox-label">
                         <input type="checkbox" id="agreeToTerms" required>
-                        <span>I agree to the <a href="privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="terms-and-conditions.html" target="_blank">Terms and Conditions</a></span>
+                        <span>I agree to the <a href="Axiant_PrivacyPolicy_UPDATED.pdf" target="_blank">Privacy Policy</a> and <a href="Axiant_TermsAndConditions_UPDATED.pdf" target="_blank">Terms and Conditions</a></span>
                     </label>
                 </div>
 
@@ -165,37 +160,11 @@
     </div>
 
     <footer class="site-footer">
-        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a></p>
+        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="Axiant_PrivacyPolicy_UPDATED.pdf" target="_blank">Privacy Policy</a> | <a href="Axiant_TermsAndConditions_UPDATED.pdf" target="_blank">Terms and Conditions</a></p>
     </footer>
 
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
-    <script>
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener('click', function() {
-                    menuToggle.classList.toggle('active');
-                    navLinks.classList.toggle('active');
-                });
-
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', function() {
-                        menuToggle.classList.remove('active');
-                        navLinks.classList.remove('active');
-                    });
-                });
-
-                document.addEventListener('click', function(event) {
-                    if (!event.target.closest('.main-nav')) {
-                        menuToggle.classList.remove('active');
-                        navLinks.classList.remove('active');
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>

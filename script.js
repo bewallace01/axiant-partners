@@ -254,6 +254,16 @@ function generateReferenceNumber() {
     return `AXP-${timestamp}-${random}`;
 }
 
+// Initialize EmailJS when page loads
+window.addEventListener('load', function() {
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("VCRoHGxbB5ZkCxxUg");
+        console.log('EmailJS initialized');
+    } else {
+        console.error('EmailJS failed to load');
+    }
+});
+
 // Form submission
 document.getElementById('loanForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -263,6 +273,13 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
     if (!agreeToTerms.checked) {
         alert('Please agree to the Privacy Policy and Terms and Conditions to continue.');
         agreeToTerms.focus();
+        return;
+    }
+
+    // Check if EmailJS is loaded
+    if (typeof emailjs === 'undefined') {
+        alert('Email service is not available. Please refresh the page and try again.');
+        console.error('EmailJS is not loaded');
         return;
     }
 
@@ -280,20 +297,52 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
         equipmentDescription: document.getElementById('equipmentDescription').value
     };
 
-    // In a real implementation, this would send data to your server
-    // For now, we'll just log it to console
-    console.log('Application submitted:', customerData);
-
     // Generate reference number
     const referenceNumber = generateReferenceNumber();
     document.getElementById('referenceNumber').textContent = referenceNumber;
 
-    // Hide form, show thank you message
-    document.getElementById('applicationForm').style.display = 'none';
-    document.getElementById('thankYouContainer').style.display = 'block';
+    // Show loading state
+    const submitButton = e.target.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    submitButton.textContent = 'Submitting...';
+    submitButton.disabled = true;
 
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    console.log('Sending application email with data:', customerData);
+
+    // Send email via EmailJS
+    emailjs.send('service_jweh7na', 'template_dmwg1ey', {
+        full_name: customerData.fullName,
+        email: customerData.email,
+        phone: customerData.phone,
+        loan_amount: customerData.loanAmount || 'Not specified',
+        business_name: customerData.businessName || 'Not specified',
+        loan_type: customerData.loanType,
+        credit_score: customerData.creditScore,
+        revenue: customerData.revenue || 'Not specified',
+        years_in_business: customerData.yearsInBusiness || 'Not specified',
+        equipment_description: customerData.equipmentDescription || 'N/A',
+        reference_number: referenceNumber,
+        to_email: 'alex@axiantpartners.com'
+    })
+    .then(function(response) {
+        console.log('Application email sent successfully!', response);
+        console.log('Status:', response.status);
+        console.log('Text:', response.text);
+        
+        // Hide form, show thank you message
+        document.getElementById('applicationForm').style.display = 'none';
+        document.getElementById('thankYouContainer').style.display = 'block';
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    })
+    .catch(function(error) {
+        console.error('Email sending failed:', error);
+        console.error('Error details:', JSON.stringify(error, null, 2));
+        alert('Sorry, there was an error submitting your application. Please check the browser console for details or contact us directly at info@axiantpartners.com');
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+    });
 });
 
 // New application button

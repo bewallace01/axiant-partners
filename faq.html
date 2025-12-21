@@ -14,11 +14,6 @@
                 <img src="logo.jpg" alt="Axiant Partners Logo" class="nav-logo">
                 <span>Axiant Partners</span>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
             <div class="nav-links">
                 <a href="index.html">About</a>
                 <a href="match.html">Find Match</a>
@@ -66,6 +61,13 @@
                     <h3 class="faq-question">What types of business loans do you help with?</h3>
                     <div class="faq-answer">
                         <p>We help with all major business loan types including SBA loans, equipment financing, working capital, commercial real estate, lines of credit, business expansion loans, and refinancing. Our network of 20+ financial institutions covers virtually every business lending need.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Will you share my information with multiple lenders?</h3>
+                    <div class="faq-answer">
+                        <p>No. Your information is protected and only shared with the top 3 lenders we identify as your best matches. We don't sell your data or share it broadly. We believe in quality over quantity and focus on connecting you with the right partners, not spamming you with options.</p>
                     </div>
                 </div>
 
@@ -121,36 +123,7 @@
     </div>
 
     <footer class="site-footer">
-        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a></p>
+        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="Axiant_PrivacyPolicy_UPDATED.pdf" target="_blank">Privacy Policy</a> | <a href="Axiant_TermsAndConditions_UPDATED.pdf" target="_blank">Terms and Conditions</a></p>
     </footer>
-
-    <script>
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener('click', function() {
-                    menuToggle.classList.toggle('active');
-                    navLinks.classList.toggle('active');
-                });
-
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', function() {
-                        menuToggle.classList.remove('active');
-                        navLinks.classList.remove('active');
-                    });
-                });
-
-                document.addEventListener('click', function(event) {
-                    if (!event.target.closest('.main-nav')) {
-                        menuToggle.classList.remove('active');
-                        navLinks.classList.remove('active');
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>
