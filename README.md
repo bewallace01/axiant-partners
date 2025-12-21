@@ -18,7 +18,7 @@ Axiant Partners acts as a personal advocate in the business lending process, usi
 ## How It Works
 
 1. **Business Owner Submits Information**: Fills out application with business loan needs and company financial details
-2. **Internal Matching**: Axiant team analyzes business profile and identifies top 3 lending matches
+2. **Internal Matching**: Axiant team analyzes business profile and identifies lending matches most likely to approve
 3. **Personal Contact**: Axiant specialist calls business owner within 24-48 hours
 4. **Bank Connection**: Business owner is connected directly with pre-qualified business lenders
 
