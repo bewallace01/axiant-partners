@@ -8,34 +8,55 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: #ffffff;
+    background: linear-gradient(180deg, #f0f4f8 0%, #e8f0f6 50%, #f5f8fb 100%);
     min-height: 100vh;
     line-height: 1.6;
     color: #1a1a1a;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(45, 127, 184, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(30, 58, 95, 0.08) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(45, 127, 184, 0.02) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .container {
     width: 100%;
     margin: 0;
     padding: 0;
+    position: relative;
+    z-index: 1;
 }
 
 /* Navigation */
 .main-nav {
-    background: #ffffff;
-    border-bottom: 1px solid #e8e8e8;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(45, 127, 184, 0.2);
     padding: 24px 80px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    box-shadow: 0 2px 15px rgba(30, 58, 95, 0.1);
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.3s ease;
 }
 
 .nav-brand {
@@ -133,6 +154,8 @@ header h1 {
     color: #ffffff;
     position: relative;
     z-index: 1;
+    animation: fadeInUp 1s ease-out;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.2);
 }
 
 .tagline {
@@ -143,17 +166,22 @@ header h1 {
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    animation: fadeInUp 1s ease-out 0.2s both;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.15);
 }
 
 /* Form Container */
 .form-container, .results-container {
-    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
     padding: 80px 100px;
     max-width: 100%;
     margin: -60px 0 0 0;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 60px rgba(30, 58, 95, 0.15), 0 0 0 1px rgba(45, 127, 184, 0.1);
     position: relative;
     z-index: 10;
+    border-radius: 0;
+    transition: box-shadow 0.3s ease;
+    border-top: 3px solid #2d7fb8;
 }
 
 .form-container h2, .results-container h2 {
@@ -197,12 +225,12 @@ header h1 {
 .form-group textarea {
     width: 100%;
     padding: 16px 20px;
-    border: 1px solid #d4d4d4;
-    border-radius: 0;
+    border: 2px solid rgba(45, 127, 184, 0.2);
+    border-radius: 4px;
     font-size: 16px;
     transition: all 0.3s ease;
     font-family: inherit;
-    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
     color: #1a1a1a;
     appearance: none;
 }
@@ -219,7 +247,9 @@ header h1 {
 .form-group textarea:focus {
     outline: none;
     border-color: #2d7fb8;
-    background: #fafafa;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(45, 127, 184, 0.1), 0 4px 12px rgba(45, 127, 184, 0.15);
+    transform: translateY(-2px);
 }
 
 .form-group input::placeholder {
@@ -249,14 +279,32 @@ header h1 {
 }
 
 .btn-primary {
-    background: #2d7fb8;
+    background: linear-gradient(135deg, #2d7fb8 0%, #1e3a5f 100%);
     color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(45, 127, 184, 0.3);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
 }
 
 .btn-primary:hover {
-    background: #1e3a5f;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(45, 127, 184, 0.3);
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d7fb8 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(45, 127, 184, 0.4);
 }
 
 .btn-secondary {
@@ -318,11 +366,23 @@ header h1 {
 }
 
 .about-section:nth-child(odd) {
-    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #f0f4f8 100%);
+    position: relative;
 }
 
 .about-section:nth-child(even) {
-    background: #f8f9fa;
+    background: linear-gradient(180deg, #e8f0f6 0%, #f5f8fb 100%);
+    position: relative;
+}
+
+.about-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(45, 127, 184, 0.1), transparent);
 }
 
 .about-section h2 {
@@ -335,6 +395,20 @@ header h1 {
     text-align: center;
     position: relative;
     padding-bottom: 20px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.about-section:nth-child(1) h2 {
+    animation-delay: 0.1s;
+}
+
+.about-section:nth-child(2) h2 {
+    animation-delay: 0.2s;
+}
+
+.about-section:nth-child(3) h2 {
+    animation-delay: 0.3s;
 }
 
 .about-section h2::after {
@@ -343,9 +417,11 @@ header h1 {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, #2d7fb8, #1e3a5f);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #2d7fb8, #1e3a5f, #2d7fb8);
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(45, 127, 184, 0.3);
 }
 
 .about-section p {
@@ -369,12 +445,14 @@ header h1 {
 }
 
 .step-card, .benefit-card {
-    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
     padding: 50px 40px;
-    transition: all 0.3s ease;
-    border: 1px solid #e8e8e8;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(45, 127, 184, 0.15);
     position: relative;
     overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(45, 127, 184, 0.08);
 }
 
 .step-card::before, .benefit-card::before {
@@ -394,9 +472,10 @@ header h1 {
 }
 
 .step-card:hover, .benefit-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(45, 127, 184, 0.15);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 24px 48px rgba(45, 127, 184, 0.25), 0 0 0 2px rgba(45, 127, 184, 0.2);
     border-color: #2d7fb8;
+    background: linear-gradient(180deg, #ffffff 0%, #e8f4fc 100%);
 }
 
 .step-number {
@@ -410,6 +489,13 @@ header h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.step-card:hover .step-number {
+    transform: scale(1.1);
 }
 
 .step-card h3, .benefit-card h3 {
@@ -427,13 +513,19 @@ header h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     background: linear-gradient(135deg, #2d7fb8, #1e3a5f);
     color: white;
     border-radius: 50%;
-    font-size: 18px;
+    font-size: 20px;
     flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(45, 127, 184, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover h3::before {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .step-card p, .benefit-card p {
@@ -465,13 +557,15 @@ header h1 {
 
 .partner-list li {
     padding: 24px 28px;
-    background: #ffffff;
-    border: 1px solid #e8e8e8;
+    background: linear-gradient(180deg, #ffffff 0%, #f0f4f8 100%);
+    border: 1px solid rgba(45, 127, 184, 0.2);
     color: #1a1a1a;
     font-weight: 500;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(45, 127, 184, 0.06);
 }
 
 .partner-list li::before {
@@ -482,9 +576,10 @@ header h1 {
 }
 
 .partner-list li:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(45, 127, 184, 0.12);
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(45, 127, 184, 0.25), 0 0 0 2px rgba(45, 127, 184, 0.2);
     border-color: #2d7fb8;
+    background: linear-gradient(180deg, #e8f4fc 0%, #d4e8f8 100%);
 }
 
 .cta-section {
@@ -733,8 +828,10 @@ header h1 {
 .faq-cta {
     text-align: center;
     padding: 60px 60px;
-    background: #f8f9fa;
+    background: linear-gradient(135deg, #e8f0f6 0%, #d4e8f8 100%);
     margin: 40px 0 0 0;
+    border-radius: 8px;
+    border: 1px solid rgba(45, 127, 184, 0.2);
 }
 
 .faq-cta h2 {
@@ -775,11 +872,13 @@ header h1 {
 }
 
 .testimonial-card {
-    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
     padding: 40px 35px;
-    border: 1px solid #e8e8e8;
+    border: 1px solid rgba(45, 127, 184, 0.15);
     position: relative;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(45, 127, 184, 0.08);
 }
 
 .testimonial-card::before {
@@ -795,9 +894,10 @@ header h1 {
 }
 
 .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(45, 127, 184, 0.12);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(45, 127, 184, 0.22), 0 0 0 2px rgba(45, 127, 184, 0.15);
     border-color: #2d7fb8;
+    background: linear-gradient(180deg, #ffffff 0%, #e8f4fc 100%);
 }
 
 .testimonial-text {
@@ -848,17 +948,18 @@ header h1 {
 
 /* Contact Page */
 .contact-content {
-    max-width: 900px;
+    max-width: 100%;
 }
 
 .contact-form textarea {
     width: 100%;
     padding: 16px 20px;
-    border: 1px solid #e0e0e0;
+    border: 2px solid rgba(45, 127, 184, 0.2);
+    border-radius: 4px;
     font-size: 15px;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: #1a1a1a;
-    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
     transition: all 0.3s ease;
     resize: vertical;
     min-height: 120px;
@@ -867,7 +968,9 @@ header h1 {
 .contact-form textarea:focus {
     outline: none;
     border-color: #2d7fb8;
-    box-shadow: 0 0 0 3px rgba(45, 127, 184, 0.1);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(45, 127, 184, 0.1), 0 4px 12px rgba(45, 127, 184, 0.15);
+    transform: translateY(-2px);
 }
 
 .contact-form textarea::placeholder {
@@ -896,7 +999,7 @@ header h1 {
 .contact-info-section {
     margin-top: 80px;
     padding-top: 60px;
-    border-top: 1px solid #e8e8e8;
+    border-top: 2px solid rgba(45, 127, 184, 0.2);
 }
 
 .contact-info-section h3 {
@@ -919,18 +1022,44 @@ header h1 {
 .contact-info-card {
     text-align: center;
     padding: 40px 30px;
-    background: #f8f9fa;
+    background: linear-gradient(180deg, #f8fafc 0%, #e8f0f6 100%);
     transition: all 0.3s ease;
+    border: 1px solid rgba(45, 127, 184, 0.15);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(45, 127, 184, 0.06);
 }
 
 .contact-info-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(45, 127, 184, 0.12);
+    box-shadow: 0 12px 30px rgba(45, 127, 184, 0.2);
+    border-color: #2d7fb8;
+    background: linear-gradient(180deg, #e8f4fc 0%, #d4e8f8 100%);
 }
 
 .contact-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.contact-icon-email {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232d7fb8'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
+}
+
+.contact-icon-phone {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232d7fb8'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E");
+}
+
+.contact-icon-hours {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232d7fb8'%3E%3Cpath d='M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z'/%3E%3C/svg%3E");
+}
+
+.contact-info-card:hover .contact-icon {
+    transform: scale(1.15) rotate(5deg);
 }
 
 .contact-info-card h4 {
@@ -952,9 +1081,10 @@ header h1 {
     text-align: center;
     padding: 60px 20px;
     margin-top: 0;
-    background: #1a1a1a;
+    background: linear-gradient(180deg, #1e3a5f 0%, #0f2942 100%);
     color: #999999;
     font-size: 14px;
+    border-top: 3px solid #2d7fb8;
 }
 
 .site-footer a {
@@ -1120,4 +1250,56 @@ header h1 {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Enhanced focus states for accessibility */
+*:focus-visible {
+    outline: 2px solid #2d7fb8;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Add subtle animation to cards on load */
+.step-card, .benefit-card, .testimonial-card {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.step-card:nth-child(1), .benefit-card:nth-child(1), .testimonial-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.step-card:nth-child(2), .benefit-card:nth-child(2), .testimonial-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.step-card:nth-child(3), .benefit-card:nth-child(3), .testimonial-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.step-card:nth-child(4), .benefit-card:nth-child(4) {
+    animation-delay: 0.4s;
 }

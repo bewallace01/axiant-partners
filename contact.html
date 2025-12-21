@@ -14,6 +14,11 @@
                 <img src="logo.jpg" alt="Axiant Partners Logo" class="nav-logo">
                 <span>Axiant Partners</span>
             </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="nav-links">
                 <a href="index.html">About</a>
                 <a href="match.html">Find Match</a>
@@ -79,17 +84,17 @@
                 <h3>Other Ways to Reach Us</h3>
                 <div class="contact-info-grid">
                     <div class="contact-info-card">
-                        <div class="contact-icon">📧</div>
+                        <div class="contact-icon contact-icon-email"></div>
                         <h4>Email</h4>
                         <p>info@axiantpartners.com</p>
                     </div>
                     <div class="contact-info-card">
-                        <div class="contact-icon">📞</div>
+                        <div class="contact-icon contact-icon-phone"></div>
                         <h4>Phone</h4>
                         <p>(555) 123-4567</p>
                     </div>
                     <div class="contact-info-card">
-                        <div class="contact-icon">⏰</div>
+                        <div class="contact-icon contact-icon-hours"></div>
                         <h4>Business Hours</h4>
                         <p>Monday - Friday<br>9:00 AM - 6:00 PM EST</p>
                     </div>
@@ -179,6 +184,33 @@
             document.getElementById('contactThankYou').style.display = 'none';
             document.getElementById('contactForm').reset();
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    menuToggle.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+
+                document.addEventListener('click', function(event) {
+                    if (!event.target.closest('.main-nav')) {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
+            }
         });
     </script>
 </body>
