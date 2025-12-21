@@ -14,11 +14,6 @@
                 <img src="logo.jpg" alt="Axiant Partners Logo" class="nav-logo">
                 <span>Axiant Partners</span>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
             <div class="nav-links">
                 <a href="index.html">About</a>
                 <a href="match.html">Find Match</a>
@@ -104,13 +99,32 @@
     </div>
 
     <footer class="site-footer">
-        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a></p>
+        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="Axiant_PrivacyPolicy_UPDATED.pdf" target="_blank">Privacy Policy</a> | <a href="Axiant_TermsAndConditions_UPDATED.pdf" target="_blank">Terms and Conditions</a></p>
     </footer>
 
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
+        // Wait for EmailJS to load, then initialize
+        window.addEventListener('load', function() {
+            if (typeof emailjs !== 'undefined') {
+                emailjs.init("VCRoHGxbB5ZkCxxUg");
+                console.log('EmailJS initialized');
+            } else {
+                console.error('EmailJS failed to load');
+            }
+        });
+
         // Contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
+
+            // Check if EmailJS is loaded
+            if (typeof emailjs === 'undefined') {
+                alert('Email service is not available. Please refresh the page and try again.');
+                console.error('EmailJS is not loaded');
+                return;
+            }
 
             // Collect contact data
             const contactData = {
@@ -121,15 +135,42 @@
                 message: document.getElementById('contactMessage').value
             };
 
-            // In a real implementation, this would send data to your server
-            console.log('Contact form submitted:', contactData);
+            // Show loading state
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
 
-            // Hide form, show thank you message
-            document.querySelector('.contact-form').style.display = 'none';
-            document.getElementById('contactThankYou').style.display = 'block';
+            console.log('Sending email with data:', contactData);
 
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Send email via EmailJS
+            emailjs.send('service_jweh7na', 'template_xujy2ik', {
+                from_name: contactData.name,
+                from_email: contactData.email,
+                phone: contactData.phone || 'Not provided',
+                subject: contactData.subject,
+                message: contactData.message,
+                to_email: 'alex@axiantpartners.com'
+            })
+            .then(function(response) {
+                console.log('Email sent successfully!', response);
+                console.log('Status:', response.status);
+                console.log('Text:', response.text);
+                
+                // Hide form, show thank you message
+                document.querySelector('.contact-form').style.display = 'none';
+                document.getElementById('contactThankYou').style.display = 'block';
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            })
+            .catch(function(error) {
+                console.error('Email sending failed:', error);
+                console.error('Error details:', JSON.stringify(error, null, 2));
+                alert('Sorry, there was an error sending your message. Please check the browser console for details or contact us directly at info@axiantpartners.com');
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+            });
         });
 
         // New message button
@@ -138,33 +179,6 @@
             document.getElementById('contactThankYou').style.display = 'none';
             document.getElementById('contactForm').reset();
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener('click', function() {
-                    menuToggle.classList.toggle('active');
-                    navLinks.classList.toggle('active');
-                });
-
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', function() {
-                        menuToggle.classList.remove('active');
-                        navLinks.classList.remove('active');
-                    });
-                });
-
-                document.addEventListener('click', function(event) {
-                    if (!event.target.closest('.main-nav')) {
-                        menuToggle.classList.remove('active');
-                        navLinks.classList.remove('active');
-                    }
-                });
-            }
         });
     </script>
 </body>
