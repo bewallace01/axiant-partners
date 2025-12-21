@@ -1,6 +1,6 @@
 # Axiant Partners
 
-A premium business loan concierge service website that connects business owners with the right lending institutions.
+A premium business financing and advisory service website that connects business owners with the right lending institutions.
 
 ## About
 
