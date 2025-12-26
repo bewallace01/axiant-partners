@@ -134,3 +134,4 @@ The EmailJS Public Key is safe to expose in client-side code. However, for produ
 - Adding CAPTCHA to prevent spam
 - Using a backend server for additional security
 
+
