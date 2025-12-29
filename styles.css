@@ -308,6 +308,190 @@ header {
     transition: background 0.3s ease;
 }
 
+/* Co-branded Header */
+.cobranded-header {
+    background: 
+        linear-gradient(135deg, 
+            rgba(30, 58, 95, 0.25) 0%, 
+            rgba(45, 127, 184, 0.35) 25%,
+            rgba(255, 255, 255, 0.95) 50%,
+            rgba(45, 127, 184, 0.35) 75%,
+            rgba(30, 58, 95, 0.25) 100%);
+    background-color: #ffffff;
+    padding: 80px 60px;
+    text-align: center;
+    margin: 0;
+    border-top: 3px solid #2d7fb8;
+    border-bottom: 3px solid #2d7fb8;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    isolation: isolate;
+}
+
+.cobranded-header::after {
+    display: none;
+}
+
+.cobranded-header::before {
+    display: none;
+}
+
+.cobranded-header .shimmer-overlay {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+    pointer-events: none;
+    animation: shimmer 3s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes subtleMove {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(10px, 10px) rotate(1deg); }
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+[data-theme="dark"] .cobranded-header {
+    background: 
+        linear-gradient(135deg, 
+            rgba(30, 58, 95, 0.25) 0%, 
+            rgba(45, 127, 184, 0.35) 25%,
+            rgba(255, 255, 255, 0.95) 50%,
+            rgba(45, 127, 184, 0.35) 75%,
+            rgba(30, 58, 95, 0.25) 100%);
+    background-color: #ffffff;
+    border-top: 3px solid #2d7fb8;
+    border-bottom: 3px solid #2d7fb8;
+}
+
+[data-theme="dark"] .cobranded-header::before {
+    background: 
+        repeating-linear-gradient(45deg, transparent, transparent 50px, rgba(96, 165, 250, 0.03) 50px, rgba(96, 165, 250, 0.03) 52px);
+}
+
+[data-theme="dark"] .cobranded-header::after {
+    background: 
+        linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.1) 50%, transparent 100%);
+}
+
+.cobranded-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cobranded-logo-left,
+.cobranded-logo-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+.cobranded-logo-left {
+    margin-right: -40px;
+}
+
+.cobranded-logo-img {
+    height: 200px;
+    width: auto;
+    max-width: 500px;
+    min-width: 250px;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.cobranded-logo-img:hover {
+    opacity: 0.9;
+}
+
+.right-systems-logo-img {
+    height: 160px;
+    width: auto;
+    max-width: 400px;
+    min-width: 200px;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.right-systems-logo-img:hover {
+    opacity: 0.9;
+}
+
+.cobranded-logo-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    margin-top: 8px;
+}
+
+.cobranded-logo-placeholder {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.cobranded-separator {
+    width: 4px;
+    height: 200px;
+    background: linear-gradient(180deg, 
+        transparent 0%, 
+        var(--accent-color) 5%, 
+        var(--accent-color) 50%, 
+        var(--accent-color) 95%, 
+        transparent 100%);
+    flex-shrink: 0;
+    margin: 0 2px;
+    opacity: 0.7;
+    box-shadow: 0 0 12px rgba(45, 127, 184, 0.4);
+    border-radius: 2px;
+}
+
+.cobranded-powered-by {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    margin-top: 10px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .cobranded-powered-by {
+    color: #1a1a1a;
+}
+
 header::before {
     content: '';
     position: absolute;
@@ -1566,6 +1750,48 @@ header h1 {
     .legal-list li {
         padding-left: 28px;
         font-size: 1rem;
+    }
+    
+    /* Mobile Co-branded Header */
+    .cobranded-header {
+        padding: 50px 20px;
+    }
+    
+    .cobranded-logos {
+        gap: 25px;
+        margin-bottom: 25px;
+        flex-direction: column;
+    }
+    
+    .cobranded-logo-img {
+        height: 120px;
+        max-width: 300px;
+        min-width: 180px;
+    }
+    
+    .right-systems-logo-img {
+        height: 100px;
+        max-width: 250px;
+        min-width: 150px;
+    }
+    
+    .cobranded-logo-placeholder {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .cobranded-logo-text {
+        font-size: 0.9rem;
+    }
+    
+    .cobranded-separator {
+        height: 3px;
+        width: 120px;
+        margin: 10px 0;
+    }
+    
+    .cobranded-powered-by {
+        font-size: 0.9rem;
     }
 }
 
