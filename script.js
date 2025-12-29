@@ -265,23 +265,36 @@ window.addEventListener('load', function() {
 });
 
 // Form submission
-document.getElementById('loanForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Check if terms checkbox is checked
-    const agreeToTerms = document.getElementById('agreeToTerms');
-    if (!agreeToTerms.checked) {
-        alert('Please agree to the Privacy Policy and Terms and Conditions to continue.');
-        agreeToTerms.focus();
+document.addEventListener('DOMContentLoaded', function() {
+    const loanForm = document.getElementById('loanForm');
+    if (!loanForm) {
+        console.error('Loan form not found');
         return;
     }
 
-    // Check if EmailJS is loaded
-    if (typeof emailjs === 'undefined') {
-        alert('Email service is not available. Please refresh the page and try again.');
-        console.error('EmailJS is not loaded');
-        return;
-    }
+    loanForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Check if terms checkbox is checked
+        const agreeToTerms = document.getElementById('agreeToTerms');
+        if (!agreeToTerms) {
+            alert('Form elements not found. Please refresh the page and try again.');
+            console.error('agreeToTerms checkbox not found');
+            return;
+        }
+        
+        if (!agreeToTerms.checked) {
+            alert('Please agree to the Privacy Policy and Terms and Conditions to continue.');
+            agreeToTerms.focus();
+            return;
+        }
+
+        // Check if EmailJS is loaded
+        if (typeof emailjs === 'undefined') {
+            alert('Email service is not available. Please refresh the page and try again.');
+            console.error('EmailJS is not loaded');
+            return;
+        }
 
     // Collect customer data (for internal processing - not shown to customer)
     const customerData = {
@@ -357,7 +370,15 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
         .catch(function(error) {
             console.error('Email sending failed:', error);
             console.error('Error details:', JSON.stringify(error, null, 2));
-            alert('Sorry, there was an error submitting your application. Please check the browser console for details or contact us directly at alex@axiantpartners.com');
+            
+            let errorMessage = 'Sorry, there was an error submitting your application. ';
+            if (error.status === 412) {
+                errorMessage += 'The email service connection needs to be updated. Please contact us directly at alex@axiantpartners.com or try again later.';
+            } else {
+                errorMessage += 'Please contact us directly at alex@axiantpartners.com or try again later.';
+            }
+            
+            alert(errorMessage);
             submitButton.textContent = originalButtonText;
             submitButton.disabled = false;
         });
@@ -379,17 +400,33 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
         .catch(function(error) {
             console.error('Email sending failed:', error);
             console.error('Error details:', JSON.stringify(error, null, 2));
-            alert('Sorry, there was an error submitting your application. Please check the browser console for details or contact us directly at alex@axiantpartners.com');
+            
+            let errorMessage = 'Sorry, there was an error submitting your application. ';
+            if (error.status === 412) {
+                errorMessage += 'The email service connection needs to be updated. Please contact us directly at alex@axiantpartners.com or try again later.';
+            } else {
+                errorMessage += 'Please contact us directly at alex@axiantpartners.com or try again later.';
+            }
+            
+            alert(errorMessage);
             submitButton.textContent = originalButtonText;
             submitButton.disabled = false;
         });
     }
-});
+    });
 
-// New application button
-document.getElementById('newApplication').addEventListener('click', function() {
-    document.getElementById('applicationForm').style.display = 'block';
-    document.getElementById('thankYouContainer').style.display = 'none';
-    document.getElementById('loanForm').reset();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // New application button
+    const newApplicationBtn = document.getElementById('newApplication');
+    if (newApplicationBtn) {
+        newApplicationBtn.addEventListener('click', function() {
+            const applicationForm = document.getElementById('applicationForm');
+            const thankYouContainer = document.getElementById('thankYouContainer');
+            const loanForm = document.getElementById('loanForm');
+            
+            if (applicationForm) applicationForm.style.display = 'block';
+            if (thankYouContainer) thankYouContainer.style.display = 'none';
+            if (loanForm) loanForm.reset();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 });
