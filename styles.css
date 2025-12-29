@@ -1274,6 +1274,46 @@ header h1 {
     min-width: 240px;
 }
 
+/* Lenders Page */
+.lenders-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 80px;
+}
+
+.lenders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.lender-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(45, 127, 184, 0.06);
+}
+
+.lender-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(45, 127, 184, 0.2);
+    border-color: var(--accent-color);
+    background: var(--bg-card);
+    filter: brightness(1.05);
+}
+
+.lender-card h3 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
 /* Testimonials Section */
 .testimonials-section {
     padding: 80px 60px;
@@ -2496,6 +2536,20 @@ header h1 {
 
     .legal-content {
         padding: 24px 14px;
+    }
+    
+    /* Mobile Lenders */
+    .lenders-content {
+        padding: 60px 50px;
+    }
+    
+    .lenders-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .lender-card {
+        padding: 30px 20px;
     }
 
     .legal-section-content {

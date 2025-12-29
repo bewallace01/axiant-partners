@@ -309,8 +309,8 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
 
     console.log('Sending application email with data:', customerData);
 
-    // Check if we're on the co-branded page (match2.html)
-    const isCobrandedPage = window.location.pathname.includes('match2.html');
+    // Check if we're on the co-branded page (rightmfgsystems.html)
+    const isCobrandedPage = window.location.pathname.includes('rightmfgsystems.html');
     
     // Prepare email template data
     const emailData = {
