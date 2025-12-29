@@ -79,6 +79,40 @@ This email was sent from the Axiant Partners website.
 5. Click **Save**
 6. Note your **Template ID** (you'll need this later)
 
+### Template 3: Right Manufacturing Systems Loan Application
+
+1. Create another template for the co-branded page
+2. Name it: "Right Manufacturing Systems Application"
+3. Set the **To Email** to: `ian@mixright.com` (or use `{{to_email}}` if you want it dynamic)
+4. Set the **Subject** to: `New Loan Application - Right Manufacturing Systems Partnership - {{reference_number}}`
+5. Set the **Content** to:
+
+```
+New Loan Application Received (Right Manufacturing Systems Partnership)
+
+Reference Number: {{reference_number}}
+
+Contact Information:
+- Name: {{full_name}}
+- Email: {{email}}
+- Phone: {{phone}}
+
+Business Information:
+- Business Name: {{business_name}}
+- Loan Amount: {{loan_amount}}
+- Loan Type: {{loan_type}}
+- Credit Score: {{credit_score}}
+- Annual Revenue: {{revenue}}
+- Years in Business: {{years_in_business}}
+- Equipment Description: {{equipment_description}}
+
+---
+This email was sent from the Axiant Partners & Right Manufacturing Systems co-branded page.
+```
+
+6. Click **Save**
+7. Note your **Template ID** (you'll need to replace 'template_rightmfg' in script.js with this ID)
+
 ## Step 4: Get Your Public Key
 
 1. Go to **Account** → **General** in your EmailJS dashboard

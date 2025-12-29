@@ -309,8 +309,11 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
 
     console.log('Sending application email with data:', customerData);
 
-    // Send email via EmailJS
-    emailjs.send('service_jweh7na', 'template_dmwg1ey', {
+    // Check if we're on the co-branded page (match2.html)
+    const isCobrandedPage = window.location.pathname.includes('match2.html');
+    
+    // Prepare email template data
+    const emailData = {
         full_name: customerData.fullName,
         email: customerData.email,
         phone: customerData.phone,
@@ -323,26 +326,64 @@ document.getElementById('loanForm').addEventListener('submit', function(e) {
         equipment_description: customerData.equipmentDescription || 'N/A',
         reference_number: referenceNumber,
         to_email: 'alex@axiantpartners.com'
-    })
-    .then(function(response) {
-        console.log('Application email sent successfully!', response);
-        console.log('Status:', response.status);
-        console.log('Text:', response.text);
+    };
+
+    // If on co-branded page, send to both Axiant Partners and Right Manufacturing Systems
+    if (isCobrandedPage) {
+        // Send to Axiant Partners
+        const email1 = emailjs.send('service_jweh7na', 'template_dmwg1ey', {
+            ...emailData,
+            to_email: 'alex@axiantpartners.com'
+        });
         
-        // Hide form, show thank you message
-        document.getElementById('applicationForm').style.display = 'none';
-        document.getElementById('thankYouContainer').style.display = 'block';
+        // Send to Right Manufacturing Systems (using same template, different email)
+        const email2 = emailjs.send('service_jweh7na', 'template_dmwg1ey', {
+            ...emailData,
+            to_email: 'ian@mixright.com'
+        });
         
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    })
-    .catch(function(error) {
-        console.error('Email sending failed:', error);
-        console.error('Error details:', JSON.stringify(error, null, 2));
-        alert('Sorry, there was an error submitting your application. Please check the browser console for details or contact us directly at alex@axiantpartners.com');
-        submitButton.textContent = originalButtonText;
-        submitButton.disabled = false;
-    });
+        // Send both emails in parallel
+        Promise.all([email1, email2])
+        .then(function(responses) {
+            console.log('Both emails sent successfully!', responses);
+            
+            // Hide form, show thank you message
+            document.getElementById('applicationForm').style.display = 'none';
+            document.getElementById('thankYouContainer').style.display = 'block';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        })
+        .catch(function(error) {
+            console.error('Email sending failed:', error);
+            console.error('Error details:', JSON.stringify(error, null, 2));
+            alert('Sorry, there was an error submitting your application. Please check the browser console for details or contact us directly at alex@axiantpartners.com');
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+        });
+    } else {
+        // Regular page - send only to Axiant Partners
+        emailjs.send('service_jweh7na', 'template_dmwg1ey', emailData)
+        .then(function(response) {
+            console.log('Application email sent successfully!', response);
+            console.log('Status:', response.status);
+            console.log('Text:', response.text);
+            
+            // Hide form, show thank you message
+            document.getElementById('applicationForm').style.display = 'none';
+            document.getElementById('thankYouContainer').style.display = 'block';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        })
+        .catch(function(error) {
+            console.error('Email sending failed:', error);
+            console.error('Error details:', JSON.stringify(error, null, 2));
+            alert('Sorry, there was an error submitting your application. Please check the browser console for details or contact us directly at alex@axiantpartners.com');
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+        });
+    }
 });
 
 // New application button
