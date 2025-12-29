@@ -325,6 +325,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check if we're on the co-branded page (rightmfgsystems.html)
     const isCobrandedPage = window.location.pathname.includes('rightmfgsystems.html');
     
+    // Check for vendor email in URL parameters (for vendor partnerships)
+    const urlParams = new URLSearchParams(window.location.search);
+    const vendorEmail = urlParams.get('vendor');
+    
+    // Debug: log vendor email detection
+    if (vendorEmail) {
+        console.log('Vendor email detected:', vendorEmail);
+    } else {
+        console.log('No vendor email in URL');
+    }
+    
     // Prepare email template data
     const emailData = {
         full_name: customerData.fullName,
@@ -341,8 +352,115 @@ document.addEventListener('DOMContentLoaded', function() {
         to_email: 'alex@axiantpartners.com'
     };
 
+    // If vendor email is provided in URL, send to both Axiant Partners and vendor
+    if (vendorEmail) {
+        // Decode URL-encoded email (in case of special characters)
+        const decodedVendorEmail = decodeURIComponent(vendorEmail);
+        
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(decodedVendorEmail)) {
+            console.error('Invalid vendor email format:', decodedVendorEmail);
+            alert('Invalid vendor email in URL. Please contact support.');
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+            return;
+        }
+        
+        console.log('Sending emails to Axiant Partners and vendor:', decodedVendorEmail);
+        console.log('Full URL:', window.location.href);
+        console.log('URL params:', window.location.search);
+        
+        // Add vendor email to email data so it's included in the email body
+        const emailDataWithVendor = {
+            ...emailData,
+            vendor_email: decodedVendorEmail,
+            vendor_note: `\n\n---\nThis application was submitted through a vendor partnership.\nVendor Email: ${decodedVendorEmail}\nPlease forward this application to the vendor.`
+        };
+        
+        // Send to Axiant Partners (include vendor info in body)
+        const email1 = emailjs.send('service_jweh7na', 'template_dmwg1ey', {
+            ...emailDataWithVendor,
+            to_email: 'alex@axiantpartners.com'
+        }).then(function(response) {
+            console.log('Email 1 (Axiant) sent successfully:', response);
+            console.log('Response status:', response.status);
+            console.log('Response text:', response.text);
+            return response;
+        }).catch(function(error) {
+            console.error('Email 1 (Axiant) failed:', error);
+            console.error('Error status:', error.status);
+            console.error('Error text:', error.text);
+            throw { email: 'Axiant', error: error };
+        });
+        
+        // Send to vendor (using same template, different email)
+        // Note: EmailJS may require vendor email to be whitelisted in service settings
+        const email2 = emailjs.send('service_jweh7na', 'template_dmwg1ey', {
+            ...emailData,
+            to_email: decodedVendorEmail
+        }).then(function(response) {
+            console.log('Email 2 (Vendor) sent successfully:', response);
+            console.log('Response status:', response.status);
+            console.log('Response text:', response.text);
+            return response;
+        }).catch(function(error) {
+            console.error('Email 2 (Vendor) failed:', error);
+            console.error('Vendor email used:', decodedVendorEmail);
+            console.error('Error status:', error.status);
+            console.error('Error text:', error.text);
+            console.error('Note: If this fails, the vendor email may need to be whitelisted in EmailJS service settings.');
+            throw { email: 'Vendor', error: error };
+        });
+        
+        // Send both emails in parallel
+        Promise.allSettled([email1, email2])
+        .then(function(results) {
+            console.log('Email sending results:', results);
+            
+            const axiantResult = results[0];
+            const vendorResult = results[1];
+            
+            // Check if Axiant email succeeded
+            if (axiantResult.status === 'fulfilled') {
+                console.log('Axiant email sent successfully');
+            } else {
+                console.error('Axiant email failed:', axiantResult.reason);
+            }
+            
+            // Check if vendor email succeeded
+            if (vendorResult.status === 'fulfilled') {
+                console.log('Vendor email sent successfully');
+            } else {
+                console.error('Vendor email failed:', vendorResult.reason);
+                console.error('This might be due to EmailJS template configuration. Make sure the template uses {{to_email}} variable.');
+            }
+            
+            // Show success message even if one email fails (as long as Axiant email succeeds)
+            if (axiantResult.status === 'fulfilled') {
+                // Hide form, show thank you message
+                document.getElementById('applicationForm').style.display = 'none';
+                document.getElementById('thankYouContainer').style.display = 'block';
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                // Both emails failed or Axiant failed
+                let errorMessage = 'Sorry, there was an error submitting your application. ';
+                if (axiantResult.reason && axiantResult.reason.error && axiantResult.reason.error.status === 412) {
+                    errorMessage += 'The email service connection needs to be updated. Please contact us directly at alex@axiantpartners.com or try again later.';
+                } else {
+                    errorMessage += 'Please contact us directly at alex@axiantpartners.com or try again later.';
+                }
+                
+                alert(errorMessage);
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+            }
+        });
+    }
     // If on co-branded page, send to both Axiant Partners and Right Manufacturing Systems
-    if (isCobrandedPage) {
+    else if (isCobrandedPage) {
         // Send to Axiant Partners
         const email1 = emailjs.send('service_jweh7na', 'template_dmwg1ey', {
             ...emailData,
