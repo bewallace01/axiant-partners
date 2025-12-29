@@ -231,6 +231,70 @@ body::before {
     }
 }
 
+/* Language Selector */
+.language-selector-wrapper {
+    margin-left: 20px;
+    position: relative;
+}
+
+.language-selector {
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 6px 32px 6px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    font-family: 'Inter', sans-serif;
+}
+
+.language-selector:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(45, 127, 184, 0.2);
+}
+
+.language-selector:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(45, 127, 184, 0.3);
+}
+
+.language-selector-wrapper::after {
+    content: '▼';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 10px;
+    color: var(--text-secondary);
+}
+
+[dir="rtl"] .language-selector-wrapper::after {
+    right: auto;
+    left: 12px;
+}
+
+@media (max-width: 768px) {
+    .language-selector-wrapper {
+        margin-left: 0;
+        margin-top: 16px;
+        width: 100%;
+        max-width: 200px;
+        align-self: center;
+    }
+    
+    .language-selector {
+        width: 100%;
+    }
+}
+
 /* Header Section */
 header {
     background: var(--header-overlay),
@@ -934,6 +998,10 @@ header h1 {
     width: 100%;
 }
 
+.form-container.faq-content {
+    padding: 80px 100px;
+}
+
 .faq-section {
     margin-bottom: 60px;
 }
@@ -1173,6 +1241,10 @@ header h1 {
     margin: 0;
     padding: 0;
     width: 100%;
+}
+
+.form-container.contact-content {
+    padding: 80px 100px;
 }
 
 .contact-form textarea {
@@ -1832,9 +1904,8 @@ header h1 {
     }
 
     /* Mobile FAQ */
-    .faq-content {
-        padding: 32px 16px;
-        margin: 0;
+    .form-container.faq-content {
+        padding: 60px 50px;
     }
 
     .faq-content h2 {
@@ -1880,9 +1951,8 @@ header h1 {
     }
 
     /* Mobile Contact */
-    .contact-content {
-        padding: 32px 16px;
-        margin: 0;
+    .form-container.contact-content {
+        padding: 60px 50px;
     }
 
     .contact-content h2 {
@@ -2088,12 +2158,15 @@ header h1 {
     }
 
     .about-content,
-    .contact-content,
-    .faq-content,
     .legal-content {
         margin: 0;
         padding-left: 14px;
         padding-right: 14px;
+    }
+    
+    .form-container.contact-content,
+    .form-container.faq-content {
+        padding: 24px 14px;
     }
 
     .form-container h2, .results-container h2 {
@@ -2173,7 +2246,7 @@ header h1 {
         font-size: 1.3rem;
     }
 
-    .contact-content {
+    .form-container.contact-content {
         padding: 24px 14px;
     }
 
@@ -2181,7 +2254,7 @@ header h1 {
         padding: 20px 16px;
     }
 
-    .faq-content {
+    .form-container.faq-content {
         padding: 24px 14px;
     }
 
