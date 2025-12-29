@@ -1274,7 +1274,7 @@ header h1 {
     min-width: 240px;
 }
 
-/* Lenders Page */
+/* Vendors Page */
 .lenders-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -2538,7 +2538,7 @@ header h1 {
         padding: 24px 14px;
     }
     
-    /* Mobile Lenders */
+    /* Mobile Vendors */
     .lenders-content {
         padding: 60px 50px;
     }
