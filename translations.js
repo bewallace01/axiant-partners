@@ -227,6 +227,10 @@ const translations = {
             phoneLabel: "Phone",
             businessHours: "Business Hours",
             businessHoursText: "Monday - Friday<br>9:00 AM - 6:00 PM EST"
+        },
+        calculator: {
+            title: "Loan Calculator",
+            tagline: "Calculate your loan payment, interest rate, funding amount, or loan term"
         }
     },
     es: {
@@ -449,6 +453,10 @@ const translations = {
             phoneLabel: "Teléfono",
             businessHours: "Horario Comercial",
             businessHoursText: "Lunes - Viernes<br>9:00 AM - 6:00 PM EST"
+        },
+        calculator: {
+            title: "Calculadora de Préstamos",
+            tagline: "Calcule el pago de su préstamo, tasa de interés, monto de financiamiento o plazo del préstamo"
         }
     },
     ru: {
@@ -671,6 +679,10 @@ const translations = {
             phoneLabel: "Телефон",
             businessHours: "Рабочие часы",
             businessHoursText: "Понедельник - Пятница<br>9:00 - 18:00 EST"
+        },
+        calculator: {
+            title: "Калькулятор займов",
+            tagline: "Рассчитайте платеж по займу, процентную ставку, сумму финансирования или срок займа"
         }
     }
 };

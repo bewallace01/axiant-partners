@@ -150,6 +150,7 @@
         const page = path.split('/').pop() || 'index.html';
         
         if (page.includes('index') || page === '') return 'home';
+        if (page.includes('calculator')) return 'calculator';
         if (page.includes('match')) return 'match';
         if (page.includes('services')) return 'services';
         if (page.includes('faq')) return 'faq';
@@ -429,6 +430,9 @@
         if (pageName === 'contact' && pageT.getInTouch) {
             translateContact(pageT, t.common);
         }
+        
+        // Calculator page - title and tagline are already handled above in the general section
+        // No additional content to translate for calculator page
     }
 
     // Helper function removed - now using index-based translation directly

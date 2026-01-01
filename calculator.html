@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Calculator - Axiant Partners</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <img src="logo.jpg" alt="Axiant Partners Logo" class="nav-logo">
+                <span>Axiant Partners</span>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">About</a>
+                <a href="match.html">Find Match</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="calculator.html" class="active">Calculator</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+            </div>
+        </nav>
+
+        <header class="calculator-header">
+            <h1>Loan Calculator</h1>
+            <p class="tagline">Calculate your loan payment, interest rate, funding amount, or loan term</p>
+            <p class="header-description">
+                Fill in three of the four main fields (Funding Amount, Payment Amount, Interest Rate, and Loan Term) to calculate the missing value. Or fill all fields to see a complete loan breakdown including total amount paid and interest.
+            </p>
+        </header>
+
+        <div class="form-container calculator-content">
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <h2>Enter Loan Details</h2>
+                    <p class="results-intro">Fill in at least 3 of the 4 main fields below. Leave one blank to calculate it, or fill all fields to see a complete loan analysis.</p>
+
+                    <form id="calculatorForm">
+                        <div class="form-group">
+                            <label for="loanAmount">Funding Amount ($)</label>
+                            <input type="number" id="loanAmount" step="0.01" min="0" placeholder="e.g., 100000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="paymentAmount">Payment Amount ($)</label>
+                            <input type="number" id="paymentAmount" step="0.01" min="0" placeholder="e.g., 2000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="interestRate">Interest Rate (% per year)</label>
+                            <input type="number" id="interestRate" step="0.01" min="0" max="100" placeholder="e.g., 7.5">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="loanTerm">Loan Term</label>
+                                <input type="number" id="loanTerm" step="1" min="1" placeholder="e.g., 60">
+                            </div>
+                            <div class="form-group">
+                                <label for="termUnit">Term Unit</label>
+                                <select id="termUnit">
+                                    <option value="months">Months</option>
+                                    <option value="years">Years</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="paymentFrequency">Payment Frequency</label>
+                            <select id="paymentFrequency">
+                                <option value="monthly">Monthly</option>
+                                <option value="quarterly">Quarterly</option>
+                                <option value="biannually">Bi-Annually (Every 6 months)</option>
+                                <option value="annually">Annually</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Calculate</button>
+                        <button type="button" id="clearForm" class="btn-secondary" style="margin-left: 10px;">Clear</button>
+                    </form>
+                </div>
+
+                <div id="calculatorResults" class="calculator-results" style="display: none;">
+                    <h2>Calculation Results</h2>
+                    <div class="result-card">
+                        <div class="result-item">
+                            <span class="result-label">Funding Amount:</span>
+                            <span class="result-value" id="resultLoanAmount">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Payment Amount:</span>
+                            <span class="result-value" id="resultPaymentAmount">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Interest Rate:</span>
+                            <span class="result-value" id="resultInterestRate">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Loan Term:</span>
+                            <span class="result-value" id="resultLoanTerm">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Payment Frequency:</span>
+                            <span class="result-value" id="resultPaymentFrequency">-</span>
+                        </div>
+                        <div class="result-item highlighted">
+                            <span class="result-label">Total Amount Paid:</span>
+                            <span class="result-value" id="resultTotalPaid">-</span>
+                        </div>
+                        <div class="result-item highlighted">
+                            <span class="result-label">Total Interest:</span>
+                            <span class="result-value" id="resultTotalInterest">-</span>
+                        </div>
+                    </div>
+                    <button type="button" id="newCalculation" class="btn-primary" style="margin-top: 20px;">New Calculation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a></p>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="language-switcher.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    menuToggle.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+
+                document.addEventListener('click', function(event) {
+                    if (!event.target.closest('.main-nav')) {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
+            }
+
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', currentTheme);
+            
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    const currentTheme = html.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    
+                    html.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                });
+            }
+
+            // Calculator functionality
+            const calculatorForm = document.getElementById('calculatorForm');
+            const clearFormBtn = document.getElementById('clearForm');
+            const newCalculationBtn = document.getElementById('newCalculation');
+
+            // Payment frequency multipliers (payments per year)
+            const frequencyMultipliers = {
+                monthly: 12,
+                quarterly: 4,
+                biannually: 2,
+                annually: 1
+            };
+
+            function formatCurrency(amount) {
+                return new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }).format(amount);
+            }
+
+            function formatPercent(rate) {
+                return rate.toFixed(4) + '%';
+            }
+
+            // Calculate payment amount
+            function calculatePayment(principal, ratePerPeriod, numPeriods) {
+                if (ratePerPeriod === 0) {
+                    return principal / numPeriods;
+                }
+                const factor = Math.pow(1 + ratePerPeriod, numPeriods);
+                return principal * (ratePerPeriod * factor) / (factor - 1);
+            }
+
+            // Calculate interest rate using Newton-Raphson method
+            function calculateRate(principal, payment, numPeriods, initialGuess = 0.01) {
+                if (payment * numPeriods < principal) {
+                    return null; // Payment too low
+                }
+                if (payment * numPeriods === principal) {
+                    return 0; // No interest
+                }
+
+                let rate = initialGuess;
+                const tolerance = 1e-10;
+                const maxIterations = 100;
+
+                for (let i = 0; i < maxIterations; i++) {
+                    const factor = Math.pow(1 + rate, numPeriods);
+                    const f = principal * (rate * factor) / (factor - 1) - payment;
+                    const df = (principal * factor * (1 + numPeriods * rate - factor)) / Math.pow(factor - 1, 2);
+                    
+                    if (Math.abs(df) < tolerance) break;
+                    
+                    const newRate = rate - f / df;
+                    if (Math.abs(newRate - rate) < tolerance) {
+                        rate = newRate;
+                        break;
+                    }
+                    rate = Math.max(0.0001, newRate); // Ensure rate is positive
+                }
+
+                return rate >= 0 ? rate : null;
+            }
+
+            calculatorForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+                const paymentAmount = parseFloat(document.getElementById('paymentAmount').value);
+                const interestRate = parseFloat(document.getElementById('interestRate').value);
+                const loanTerm = parseFloat(document.getElementById('loanTerm').value);
+                const termUnit = document.getElementById('termUnit').value;
+                const paymentFrequency = document.getElementById('paymentFrequency').value;
+
+                // Count filled fields
+                let filledCount = 0;
+                const filledFields = {
+                    loanAmount: loanAmount && loanAmount > 0,
+                    paymentAmount: paymentAmount && paymentAmount > 0,
+                    interestRate: interestRate !== '' && interestRate !== null && interestRate >= 0,
+                    loanTerm: loanTerm && loanTerm > 0
+                };
+
+                Object.values(filledFields).forEach(filled => {
+                    if (filled) filledCount++;
+                });
+
+                // Must have at least 3 out of 4 main fields filled (can have all 4)
+                if (filledCount < 3) {
+                    alert('Please fill in at least 3 out of 4 main fields (Funding Amount, Payment Amount, Interest Rate, and Loan Term). Leave one blank to calculate it, or fill all to see results.');
+                    return;
+                }
+
+                const periodsPerYear = frequencyMultipliers[paymentFrequency];
+                let numPeriods;
+                let calculatedLoanAmount = loanAmount;
+                let calculatedPayment = paymentAmount;
+                let calculatedRate = interestRate;
+                let calculatedTerm = loanTerm;
+
+                // First, handle term calculation separately since we need numPeriods for other calculations
+                if (!filledFields.loanTerm) {
+                    // Calculate term (number of periods) from loan amount, payment, and rate
+                    const ratePerPeriod = (interestRate / 100) / periodsPerYear;
+                    if (ratePerPeriod === 0) {
+                        numPeriods = loanAmount / paymentAmount;
+                    } else {
+                        numPeriods = Math.log(1 + (loanAmount * ratePerPeriod) / paymentAmount) / Math.log(1 + ratePerPeriod);
+                    }
+                    // Convert back to original term unit
+                    if (termUnit === 'years') {
+                        calculatedTerm = numPeriods / periodsPerYear;
+                    } else {
+                        const monthsPerPeriod = 12 / periodsPerYear;
+                        calculatedTerm = numPeriods * monthsPerPeriod;
+                    }
+                } else {
+                    // Use provided term to calculate numPeriods
+                    if (termUnit === 'years') {
+                        numPeriods = loanTerm * periodsPerYear;
+                    } else {
+                        // Convert months to periods
+                        const monthsPerPeriod = 12 / periodsPerYear;
+                        numPeriods = loanTerm / monthsPerPeriod;
+                    }
+                }
+
+                // Now calculate other missing values using numPeriods
+                if (!filledFields.loanAmount) {
+                    // Calculate loan amount from payment, rate, and term
+                    const ratePerPeriod = (interestRate / 100) / periodsPerYear;
+                    if (ratePerPeriod === 0) {
+                        calculatedLoanAmount = paymentAmount * numPeriods;
+                    } else {
+                        const factor = Math.pow(1 + ratePerPeriod, numPeriods);
+                        calculatedLoanAmount = paymentAmount * (factor - 1) / (ratePerPeriod * factor);
+                    }
+                }
+                
+                if (!filledFields.paymentAmount) {
+                    // Calculate payment using calculated loan amount and rate
+                    const ratePerPeriod = (calculatedRate / 100) / periodsPerYear;
+                    calculatedPayment = calculatePayment(calculatedLoanAmount, ratePerPeriod, numPeriods);
+                }
+                
+                if (!filledFields.interestRate) {
+                    // Calculate interest rate using calculated loan amount and payment
+                    const ratePerPeriod = calculateRate(calculatedLoanAmount, calculatedPayment, numPeriods);
+                    if (ratePerPeriod === null) {
+                        alert('Unable to calculate interest rate. Please check your inputs. The payment amount may be too low for the loan amount and term.');
+                        return;
+                    }
+                    calculatedRate = ratePerPeriod * periodsPerYear * 100; // Convert to annual rate
+                }
+
+                // Calculate totals
+                const totalPaid = calculatedPayment * numPeriods;
+                const totalInterest = totalPaid - loanAmount;
+
+                // Display results
+                document.getElementById('resultLoanAmount').textContent = formatCurrency(calculatedLoanAmount);
+                document.getElementById('resultPaymentAmount').textContent = formatCurrency(calculatedPayment);
+                document.getElementById('resultInterestRate').textContent = formatPercent(calculatedRate);
+                document.getElementById('resultLoanTerm').textContent = calculatedTerm.toFixed(2) + ' ' + termUnit;
+                document.getElementById('resultPaymentFrequency').textContent = document.getElementById('paymentFrequency').options[document.getElementById('paymentFrequency').selectedIndex].text;
+                
+                // Calculate totals with final values
+                const finalTotalPaid = calculatedPayment * numPeriods;
+                const finalTotalInterest = finalTotalPaid - calculatedLoanAmount;
+                
+                document.getElementById('resultTotalPaid').textContent = formatCurrency(finalTotalPaid);
+                document.getElementById('resultTotalInterest').textContent = formatCurrency(finalTotalInterest);
+
+                // Show results
+                document.querySelector('.calculator-form').style.display = 'none';
+                document.getElementById('calculatorResults').style.display = 'block';
+            });
+
+            clearFormBtn.addEventListener('click', function() {
+                calculatorForm.reset();
+                document.querySelector('.calculator-form').style.display = 'block';
+                document.getElementById('calculatorResults').style.display = 'none';
+            });
+
+            newCalculationBtn.addEventListener('click', function() {
+                calculatorForm.reset();
+                document.querySelector('.calculator-form').style.display = 'block';
+                document.getElementById('calculatorResults').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
+
