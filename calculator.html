@@ -47,12 +47,12 @@
                     <form id="calculatorForm">
                         <div class="form-group">
                             <label for="loanAmount">Funding Amount ($)</label>
-                            <input type="number" id="loanAmount" step="0.01" min="0" placeholder="e.g., 100000">
+                            <input type="number" id="loanAmount" step="0.01" min="0" placeholder="e.g., $100,000">
                         </div>
 
                         <div class="form-group">
                             <label for="paymentAmount">Payment Amount ($)</label>
-                            <input type="number" id="paymentAmount" step="0.01" min="0" placeholder="e.g., 2000">
+                            <input type="number" id="paymentAmount" step="0.01" min="0" placeholder="e.g., $2,000">
                         </div>
 
                         <div class="form-group">
@@ -213,6 +213,8 @@
             }
 
             // Calculate interest rate using Newton-Raphson method
+            // Formula: payment = principal * [r(1+r)^n] / [(1+r)^n - 1]
+            // We solve for r using iterative method
             function calculateRate(principal, payment, numPeriods, initialGuess = 0.01) {
                 if (payment * numPeriods < principal) {
                     return null; // Payment too low
@@ -222,25 +224,59 @@
                 }
 
                 let rate = initialGuess;
-                const tolerance = 1e-10;
-                const maxIterations = 100;
+                const tolerance = 1e-8;
+                const maxIterations = 200;
 
                 for (let i = 0; i < maxIterations; i++) {
-                    const factor = Math.pow(1 + rate, numPeriods);
-                    const f = principal * (rate * factor) / (factor - 1) - payment;
-                    const df = (principal * factor * (1 + numPeriods * rate - factor)) / Math.pow(factor - 1, 2);
+                    const onePlusRate = 1 + rate;
+                    const factor = Math.pow(onePlusRate, numPeriods);
+                    const denominator = factor - 1;
+                    
+                    if (Math.abs(denominator) < 1e-10) {
+                        break; // Avoid division by zero
+                    }
+                    
+                    // f(r) = principal * [r * (1+r)^n] / [(1+r)^n - 1] - payment
+                    const numerator = principal * rate * factor;
+                    const f = numerator / denominator - payment;
+                    
+                    // Derivative: df/dr = P * factor * (1 + n*r - factor) / (factor - 1)^2
+                    // where factor = (1+r)^n
+                    // d/dr[r * (1+r)^n] = (1+r)^n + r * n * (1+r)^(n-1) = (1+r)^(n-1) * (1 + r + n*r) = factor/(1+r) * (1 + n*r + r)
+                    // Actually, let's use: d/dr[r * factor] = factor + r * n * factor/(1+r) = factor * (1 + n*r/(1+r))
+                    // Better: d/dr[r * (1+r)^n] = (1+r)^n + r * n * (1+r)^(n-1) = (1+r)^(n-1) * [(1+r) + n*r] = (1+r)^(n-1) * (1 + r + n*r)
+                    // Using quotient rule: (u/v)' = (u'v - uv')/v^2
+                    // u = r * factor, u' = factor + r * n * factor/(1+r) = factor * (1 + n*r/(1+r))
+                    // v = factor - 1, v' = n * factor/(1+r)
+                    // df/dr = P * [u'v - uv'] / v^2
+                    const uPrime = factor * (1 + numPeriods * rate / onePlusRate);
+                    const vPrime = numPeriods * factor / onePlusRate;
+                    const df = principal * (uPrime * denominator - numerator * vPrime) / (denominator * denominator);
                     
                     if (Math.abs(df) < tolerance) break;
                     
                     const newRate = rate - f / df;
-                    if (Math.abs(newRate - rate) < tolerance) {
+                    
+                    // Check for convergence
+                    if (Math.abs(newRate - rate) < tolerance && Math.abs(f) < tolerance) {
                         rate = newRate;
                         break;
                     }
-                    rate = Math.max(0.0001, newRate); // Ensure rate is positive
+                    
+                    // Ensure rate stays reasonable (between 0 and 1, i.e., 0% to 100% per period)
+                    if (newRate < 0 || newRate > 1 || !isFinite(newRate) || !isFinite(f) || !isFinite(df)) {
+                        // Try a different initial guess or return null
+                        if (i === 0 && initialGuess === 0.01) {
+                            rate = 0.001; // Try smaller initial guess
+                            continue;
+                        }
+                        break;
+                    }
+                    
+                    rate = newRate;
                 }
 
-                return rate >= 0 ? rate : null;
+                return (rate >= 0 && rate <= 1 && isFinite(rate)) ? rate : null;
             }
 
             calculatorForm.addEventListener('submit', function(e) {
@@ -273,22 +309,77 @@
                 }
 
                 const periodsPerYear = frequencyMultipliers[paymentFrequency];
-                let numPeriods;
+                let numPeriods = 0;
                 let calculatedLoanAmount = loanAmount;
                 let calculatedPayment = paymentAmount;
                 let calculatedRate = interestRate;
                 let calculatedTerm = loanTerm;
 
-                // First, handle term calculation separately since we need numPeriods for other calculations
-                if (!filledFields.loanTerm) {
-                    // Calculate term (number of periods) from loan amount, payment, and rate
+                // Determine which field is missing and calculate accordingly
+                // Important: Always use the INPUT values (not calculated) when calculating the missing value
+                
+                if (!filledFields.loanAmount) {
+                    // Missing: Loan Amount | Have: Payment, Rate, Term
+                    // First calculate numPeriods from term
+                    if (termUnit === 'years') {
+                        numPeriods = loanTerm * periodsPerYear;
+                    } else {
+                        const monthsPerPeriod = 12 / periodsPerYear;
+                        numPeriods = loanTerm / monthsPerPeriod;
+                    }
+                    // Calculate loan amount from payment, rate, and term
+                    // Formula: P = A * (1 - (1 + r)^(-n)) / r
+                    const ratePerPeriod = (interestRate / 100) / periodsPerYear;
+                    if (ratePerPeriod === 0) {
+                        calculatedLoanAmount = paymentAmount * numPeriods;
+                    } else {
+                        const factor = Math.pow(1 + ratePerPeriod, -numPeriods);
+                        calculatedLoanAmount = paymentAmount * (1 - factor) / ratePerPeriod;
+                    }
+                } else if (!filledFields.paymentAmount) {
+                    // Missing: Payment Amount | Have: Loan Amount, Rate, Term
+                    // First calculate numPeriods from term
+                    if (termUnit === 'years') {
+                        numPeriods = loanTerm * periodsPerYear;
+                    } else {
+                        const monthsPerPeriod = 12 / periodsPerYear;
+                        numPeriods = loanTerm / monthsPerPeriod;
+                    }
+                    // Calculate payment from loan amount, rate, and term
+                    const ratePerPeriod = (interestRate / 100) / periodsPerYear;
+                    calculatedPayment = calculatePayment(loanAmount, ratePerPeriod, numPeriods);
+                } else if (!filledFields.interestRate) {
+                    // Missing: Interest Rate | Have: Loan Amount, Payment, Term
+                    // First calculate numPeriods from term
+                    if (termUnit === 'years') {
+                        numPeriods = loanTerm * periodsPerYear;
+                    } else {
+                        const monthsPerPeriod = 12 / periodsPerYear;
+                        numPeriods = loanTerm / monthsPerPeriod;
+                    }
+                    // Calculate interest rate from loan amount, payment, and term
+                    const ratePerPeriod = calculateRate(loanAmount, paymentAmount, numPeriods);
+                    if (ratePerPeriod === null) {
+                        alert('Unable to calculate interest rate. Please check your inputs. The payment amount may be too low for the loan amount and term.');
+                        return;
+                    }
+                    calculatedRate = ratePerPeriod * periodsPerYear * 100; // Convert to annual rate
+                } else if (!filledFields.loanTerm) {
+                    // Missing: Loan Term | Have: Loan Amount, Payment, Rate
+                    // Calculate term from loan amount, payment, and rate
+                    // Formula: n = -log(1 - (P * r) / A) / log(1 + r)
                     const ratePerPeriod = (interestRate / 100) / periodsPerYear;
                     if (ratePerPeriod === 0) {
                         numPeriods = loanAmount / paymentAmount;
                     } else {
-                        numPeriods = Math.log(1 + (loanAmount * ratePerPeriod) / paymentAmount) / Math.log(1 + ratePerPeriod);
+                        const ratio = (loanAmount * ratePerPeriod) / paymentAmount;
+                        if (ratio >= 1) {
+                            alert('Unable to calculate term. The payment amount is too low for the loan amount and interest rate.');
+                            return;
+                        }
+                        numPeriods = -Math.log(1 - ratio) / Math.log(1 + ratePerPeriod);
                     }
-                    // Convert back to original term unit
+                    // Convert to original term unit
                     if (termUnit === 'years') {
                         calculatedTerm = numPeriods / periodsPerYear;
                     } else {
@@ -296,47 +387,20 @@
                         calculatedTerm = numPeriods * monthsPerPeriod;
                     }
                 } else {
-                    // Use provided term to calculate numPeriods
+                    // All fields filled - just calculate numPeriods for totals
                     if (termUnit === 'years') {
                         numPeriods = loanTerm * periodsPerYear;
                     } else {
-                        // Convert months to periods
                         const monthsPerPeriod = 12 / periodsPerYear;
                         numPeriods = loanTerm / monthsPerPeriod;
                     }
                 }
 
-                // Now calculate other missing values using numPeriods
-                if (!filledFields.loanAmount) {
-                    // Calculate loan amount from payment, rate, and term
-                    const ratePerPeriod = (interestRate / 100) / periodsPerYear;
-                    if (ratePerPeriod === 0) {
-                        calculatedLoanAmount = paymentAmount * numPeriods;
-                    } else {
-                        const factor = Math.pow(1 + ratePerPeriod, numPeriods);
-                        calculatedLoanAmount = paymentAmount * (factor - 1) / (ratePerPeriod * factor);
-                    }
-                }
-                
-                if (!filledFields.paymentAmount) {
-                    // Calculate payment using calculated loan amount and rate
-                    const ratePerPeriod = (calculatedRate / 100) / periodsPerYear;
-                    calculatedPayment = calculatePayment(calculatedLoanAmount, ratePerPeriod, numPeriods);
-                }
-                
-                if (!filledFields.interestRate) {
-                    // Calculate interest rate using calculated loan amount and payment
-                    const ratePerPeriod = calculateRate(calculatedLoanAmount, calculatedPayment, numPeriods);
-                    if (ratePerPeriod === null) {
-                        alert('Unable to calculate interest rate. Please check your inputs. The payment amount may be too low for the loan amount and term.');
-                        return;
-                    }
-                    calculatedRate = ratePerPeriod * periodsPerYear * 100; // Convert to annual rate
-                }
-
-                // Calculate totals
-                const totalPaid = calculatedPayment * numPeriods;
-                const totalInterest = totalPaid - loanAmount;
+                // Calculate totals using final calculated values
+                const finalLoanAmount = calculatedLoanAmount;
+                const finalPayment = calculatedPayment;
+                const totalPaid = finalPayment * numPeriods;
+                const totalInterest = totalPaid - finalLoanAmount;
 
                 // Display results
                 document.getElementById('resultLoanAmount').textContent = formatCurrency(calculatedLoanAmount);
@@ -345,12 +409,8 @@
                 document.getElementById('resultLoanTerm').textContent = calculatedTerm.toFixed(2) + ' ' + termUnit;
                 document.getElementById('resultPaymentFrequency').textContent = document.getElementById('paymentFrequency').options[document.getElementById('paymentFrequency').selectedIndex].text;
                 
-                // Calculate totals with final values
-                const finalTotalPaid = calculatedPayment * numPeriods;
-                const finalTotalInterest = finalTotalPaid - calculatedLoanAmount;
-                
-                document.getElementById('resultTotalPaid').textContent = formatCurrency(finalTotalPaid);
-                document.getElementById('resultTotalInterest').textContent = formatCurrency(finalTotalInterest);
+                document.getElementById('resultTotalPaid').textContent = formatCurrency(totalPaid);
+                document.getElementById('resultTotalInterest').textContent = formatCurrency(totalInterest);
 
                 // Show results
                 document.querySelector('.calculator-form').style.display = 'none';
