@@ -1169,11 +1169,63 @@ header h1 {
     color: var(--text-primary);
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
     text-align: center;
     transition: color 0.3s ease;
 }
 
+.equipment-hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.equipment-hub-card {
+    display: block;
+    padding: 20px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(45, 127, 184, 0.06);
+}
+
+.equipment-hub-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-dark));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.equipment-hub-card:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px var(--shadow-color);
+}
+
+.equipment-hub-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Legacy pill list (e.g. construction page) */
 .equipment-hub-links {
     list-style: none;
     padding: 0;
@@ -1797,6 +1849,13 @@ header h1 {
     max-width: 100%;
 }
 
+.services-content.landing-page-content h2,
+.services-content.landing-page-content h3 {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .services-content.landing-page-content h2 {
     margin-top: 2.5rem;
     margin-bottom: 1rem;
@@ -1864,54 +1923,73 @@ header h1 {
     text-decoration: underline;
 }
 
-/* Short service / content pages (heavy equipment, bad credit, truck-trailer, etc.) */
-.services-content.service-page .results-intro {
+/* Short service / content pages (heavy equipment, bad credit, manufacturing, etc.) */
+.form-container.services-content.service-page .results-intro {
     margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.7;
 }
 
-.services-content.service-page h3 {
+.form-container.services-content.service-page h2,
+.form-container.services-content.service-page h3 {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-container.services-content.service-page h2 {
+    font-size: 1.6rem !important;
+    font-weight: 600;
+    text-align: left !important;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.form-container.services-content.service-page h3 {
     font-family: 'Playfair Display', serif;
     color: var(--text-primary);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
     margin-top: 1.75rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     text-align: left;
     transition: color 0.3s ease;
 }
 
-.services-content.service-page p {
+.form-container.services-content.service-page p {
     max-width: 720px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1.25rem;
     text-align: left;
     color: var(--text-secondary);
-    line-height: 1.75;
-    font-size: 1.05rem;
+    line-height: 1.7;
+    font-size: 1.125rem;
     transition: color 0.3s ease;
 }
 
-.services-content.service-page .services-grid {
+.form-container.services-content.service-page .services-grid {
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.services-content.service-page .service-card p {
+.form-container.services-content.service-page .service-card p {
     max-width: none;
     margin-left: 0;
     margin-right: 0;
 }
 
-.services-content.service-page .services-cta {
+.form-container.services-content.service-page .services-cta {
     max-width: 720px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
 }
 
-.services-content.service-page .related-links {
+.form-container.services-content.service-page .related-links {
     margin-top: 2rem;
     padding-top: 1.25rem;
     border-top: 1px solid var(--border-color);
@@ -1925,13 +2003,13 @@ header h1 {
     transition: color 0.3s ease;
 }
 
-.services-content.service-page .related-links a {
+.form-container.services-content.service-page .related-links a {
     color: var(--accent-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.services-content.service-page .related-links a:hover {
+.form-container.services-content.service-page .related-links a:hover {
     text-decoration: underline;
 }
 
@@ -3062,6 +3140,14 @@ header h1 {
     .equipment-hub-section h3 {
         font-size: 1.25rem;
     }
+    .equipment-hub-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .equipment-hub-card {
+        padding: 16px 18px;
+        font-size: 0.95rem;
+    }
     .equipment-hub-links {
         gap: 8px 12px;
     }
@@ -3074,9 +3160,9 @@ header h1 {
         margin-top: 1.5rem;
     }
 
-    .services-content.service-page p,
-    .services-content.service-page .services-cta,
-    .services-content.service-page .related-links {
+    .form-container.services-content.service-page p,
+    .form-container.services-content.service-page .services-cta,
+    .form-container.services-content.service-page .related-links {
         max-width: 100%;
     }
 
