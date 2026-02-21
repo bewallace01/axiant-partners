@@ -173,6 +173,7 @@ body::before {
 .nav-links a[href="match.html"].active {
     background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent-color) 100%);
     color: #fff !important;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9);
 }
 
 /* Visual group: resources (Calculator, Blog, Glossary) */
