@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Used equipment loans—finance used machinery, vehicles, and equipment. Can I finance used equipment? Get matched with lenders that offer used equipment financing. Axiant Partners.">
+    <link rel="canonical" href="https://www.axiantpartners.com/used-equipment-loans.html">
+    <meta property="og:title" content="Used Equipment Loans - Axiant Partners">
+    <meta property="og:description" content="Finance used machinery and equipment. Used equipment financing for construction, farm, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.axiantpartners.com/used-equipment-loans.html">
+    <meta property="og:image" content="https://www.axiantpartners.com/logo.jpg">
+    <meta property="og:site_name" content="Axiant Partners">
+    <title>Used Equipment Loans - Can I Finance Used Equipment? - Axiant Partners</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <div class="nav-brand"><img src="logo.jpg" alt="Axiant Partners Logo" class="nav-logo"><span>Axiant Partners</span></div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+            <div class="nav-links">
+                <a href="index.html">About</a>
+                <a href="match.html">Find Match</a>
+                <a href="services.html">Services</a>
+                <a href="equipment-financing.html">Equipment</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="calculator.html">Calculator</a>
+                <a href="blog.html">Blog</a>
+                <a href="glossary.html">Glossary</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+            </div>
+        </nav>
+        <header>
+            <h1>Used Equipment Loans</h1>
+            <p class="tagline">Finance used machinery, vehicles, and equipment—can I finance used equipment? Yes. We match you with lenders that offer used equipment financing.</p>
+        </header>
+        <div class="form-container services-content">
+            <h2>Can I Finance Used Equipment?</h2>
+            <p class="results-intro">Yes. Many lenders offer <strong>used equipment loans</strong> and leasing for pre-owned machinery, vehicles, and equipment. Used equipment financing can mean lower upfront cost while still spreading payments over time. We connect you with lenders that finance used construction equipment, farm equipment, trucks, and more.</p>
+            <h3>Typical loan terms</h3>
+            <p>Terms are often shorter than for new equipment (e.g., 2–5 years), and loan amounts are based on the equipment's age, condition, and value. Rates may be slightly higher than for new equipment. Use our <a href="calculator.html">loan calculator</a> to estimate payments.</p>
+            <h3>Who qualifies</h3>
+            <p>Businesses buying used equipment for operations. Lenders consider the equipment's value and condition, your credit, and business revenue. We match you with lenders that offer used equipment financing for your industry.</p>
+            <p>Related: <a href="construction-equipment-financing.html">Construction Equipment Financing</a>, <a href="heavy-equipment-loans.html">Heavy Equipment Loans</a>, <a href="bad-credit-equipment-financing.html">Bad Credit Equipment Financing</a>.</p>
+            <div class="services-cta">
+                <h3>Get a Quote for Used Equipment</h3>
+                <p>We match you with lenders that finance used machinery and equipment.</p>
+                <a href="match.html" class="btn-primary">Apply Now</a>
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a> | <a href="blog.html">Blog</a> | <a href="glossary.html">Glossary</a></p>
+    </footer>
+    <script src="translations.js"></script>
+    <script src="language-switcher.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var m = document.querySelector('.mobile-menu-toggle'); var n = document.querySelector('.nav-links');
+            if (m && n) { m.addEventListener('click', function() { m.classList.toggle('active'); n.classList.toggle('active'); });
+                n.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { m.classList.remove('active'); n.classList.remove('active'); }); });
+                document.addEventListener('click', function(e) { if (!e.target.closest('.main-nav')) { m.classList.remove('active'); n.classList.remove('active'); } }); }
+            var t = document.getElementById('themeToggle'); var h = document.documentElement;
+            h.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+            if (t) t.addEventListener('click', function() { var x = h.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; h.setAttribute('data-theme', x); localStorage.setItem('theme', x); });
+        });
+    </script>
+</body>
+</html>

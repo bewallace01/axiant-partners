@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SBA loans for small business: 7(a), 504, and microloans. Lower rates, longer terms, government-backed. Get matched with SBA lenders—Axiant Partners.">
+    <link rel="canonical" href="https://www.axiantpartners.com/sba-loans.html">
+    <meta property="og:title" content="SBA Loans - Small Business Administration Financing - Axiant Partners">
+    <meta property="og:description" content="SBA 7(a), 504, and microloans. Get matched with SBA lenders for lower rates and longer terms.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.axiantpartners.com/sba-loans.html">
+    <meta property="og:image" content="https://www.axiantpartners.com/logo.jpg">
+    <meta property="og:site_name" content="Axiant Partners">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SBA Loans - Axiant Partners">
+    <title>SBA Loans - Small Business Administration Financing - Axiant Partners</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <img src="logo.jpg" alt="Axiant Partners Logo" class="nav-logo">
+                <span>Axiant Partners</span>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+            <div class="nav-links">
+                <a href="index.html">About</a>
+                <a href="match.html">Find Match</a>
+                <a href="services.html">Services</a>
+                <a href="equipment-financing.html">Equipment</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="calculator.html">Calculator</a>
+                <a href="blog.html">Blog</a>
+                <a href="glossary.html">Glossary</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+            </div>
+        </nav>
+
+        <header>
+            <h1>SBA Loans</h1>
+            <p class="tagline">Government-backed small business financing with favorable rates and terms</p>
+        </header>
+
+        <div class="form-container services-content">
+            <h2>What Are SBA Loans?</h2>
+            <p class="results-intro">The Small Business Administration (SBA) guarantees loans made by banks and other lenders, which can mean <strong>lower interest rates</strong>, <strong>longer repayment terms</strong>, and <strong>lower down payments</strong> for qualifying businesses. Axiant Partners connects you with SBA lenders in our network so you can access 7(a), 504, and microloan programs.</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>SBA 7(a) Loans</h3>
+                    <p>The most common SBA program. Loans up to $5 million for working capital, equipment, inventory, debt refinancing, and more. Terms and rates are competitive and set within SBA guidelines.</p>
+                </div>
+                <div class="service-card">
+                    <h3>SBA 504 Loans</h3>
+                    <p>For major fixed assets—real estate, buildings, and long-term equipment. Often lower down payments and terms of 10–25 years through a partnership with a Certified Development Company.</p>
+                </div>
+                <div class="service-card">
+                    <h3>SBA Microloans</h3>
+                    <p>Smaller loans (up to $50,000) for startups and small businesses that need a modest amount of capital to get started or expand.</p>
+                </div>
+            </div>
+
+            <p>Read our guide: <a href="blog/sba-loan-basics.html">SBA Loan Basics</a>. For definitions of terms like 7(a) and 504, see our <a href="glossary.html">glossary</a>. Use our <a href="calculator.html">loan calculator</a> to estimate payments.</p>
+
+            <div class="services-cta">
+                <h3>Get Matched with SBA Lenders</h3>
+                <p>We connect you with banks that offer SBA loans. Submit your information and we'll find your best matches.</p>
+                <a href="match.html" class="btn-primary">Get Started Now</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a> | <a href="blog.html">Blog</a> | <a href="glossary.html">Glossary</a></p>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="language-switcher.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuToggle = document.querySelector('.mobile-menu-toggle');
+            var navLinks = document.querySelector('.nav-links');
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() { menuToggle.classList.toggle('active'); navLinks.classList.toggle('active'); });
+                navLinks.querySelectorAll('a').forEach(function(link) { link.addEventListener('click', function() { menuToggle.classList.remove('active'); navLinks.classList.remove('active'); }); });
+                document.addEventListener('click', function(e) { if (!e.target.closest('.main-nav')) { menuToggle.classList.remove('active'); navLinks.classList.remove('active'); } });
+            }
+            var themeToggle = document.getElementById('themeToggle');
+            var html = document.documentElement;
+            html.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+            if (themeToggle) themeToggle.addEventListener('click', function() { var t = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; html.setAttribute('data-theme', t); localStorage.setItem('theme', t); });
+        });
+    </script>
+</body>
+</html>

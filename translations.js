@@ -7,7 +7,9 @@ const translations = {
             findMatch: "Find Match",
             services: "Services",
             faq: "FAQ",
-            contact: "Contact"
+            contact: "Contact",
+            blog: "Blog",
+            glossary: "Glossary"
         },
         // Common
         common: {
@@ -231,6 +233,14 @@ const translations = {
         calculator: {
             title: "Loan Calculator",
             tagline: "Calculate your loan payment, interest rate, funding amount, or loan term"
+        },
+        blog: {
+            title: "Blog & Resources",
+            tagline: "Guides and tips on business financing, SBA loans, equipment financing, and working capital"
+        },
+        glossary: {
+            title: "Business Financing Glossary",
+            tagline: "Definitions of common business loan and financing terms"
         }
     },
     es: {
@@ -239,7 +249,9 @@ const translations = {
             findMatch: "Buscar Coincidencia",
             services: "Servicios",
             faq: "Preguntas Frecuentes",
-            contact: "Contacto"
+            contact: "Contacto",
+            blog: "Blog",
+            glossary: "Glosario"
         },
         common: {
             getStarted: "Comenzar Ahora",
@@ -457,6 +469,14 @@ const translations = {
         calculator: {
             title: "Calculadora de Préstamos",
             tagline: "Calcule el pago de su préstamo, tasa de interés, monto de financiamiento o plazo del préstamo"
+        },
+        blog: {
+            title: "Blog y Recursos",
+            tagline: "Guías y consejos sobre financiación empresarial, préstamos SBA, financiación de equipos y capital de trabajo"
+        },
+        glossary: {
+            title: "Glosario de Financiación Empresarial",
+            tagline: "Definiciones de términos habituales de préstamos y financiación empresarial"
         }
     },
     ru: {
@@ -465,7 +485,9 @@ const translations = {
             findMatch: "Найти совпадение",
             services: "Услуги",
             faq: "Часто задаваемые вопросы",
-            contact: "Контакты"
+            contact: "Контакты",
+            blog: "Блог",
+            glossary: "Глоссарий"
         },
         common: {
             getStarted: "Начать сейчас",
@@ -683,6 +705,14 @@ const translations = {
         calculator: {
             title: "Калькулятор займов",
             tagline: "Рассчитайте платеж по займу, процентную ставку, сумму финансирования или срок займа"
+        },
+        blog: {
+            title: "Блог и ресурсы",
+            tagline: "Руководства и советы по финансированию бизнеса, кредитам SBA, финансированию оборудования и оборотному капиталу"
+        },
+        glossary: {
+            title: "Глоссарий по финансированию бизнеса",
+            tagline: "Определения распространенных терминов по займам и финансированию"
         }
     }
 };

@@ -13,6 +13,8 @@ This guide summarizes the SEO work done on the site and what you should do next.
 ### 2. Structured data (JSON-LD)
 - **index.html** – `Organization` and `WebSite` schema so Google can show your brand and site in search.
 - **faq.html** – `FAQPage` schema so FAQs can appear as rich results (expandable Q&A in search).
+- **blog.html** – `Blog` schema; each blog post has `Article` schema for rich results.
+- **glossary.html** – `DefinedTermSet` for glossary terms (helps featured snippets).
 
 ### 3. Sitemap and robots
 - **sitemap.xml** – All 10 pages with `lastmod`, `changefreq`, and `priority` for crawlers.
@@ -49,6 +51,7 @@ If your Netlify site uses a different URL (e.g. `https://axiantpartners.netlify.
 - **sameAs** – If you have social profiles (LinkedIn, Twitter, etc.), add their URLs to the `sameAs` array in the Organization JSON-LD on `index.html`.
 - **Page speed** – Use [PageSpeed Insights](https://pagespeed.web.dev/) and optimize images (e.g. WebP, sizing) if needed.
 - **New pages** – When you add pages, add meta description + canonical + OG/Twitter to the `<head>`, and add the URL to `sitemap.xml`.
+- **More blog posts** – Add new posts in `blog/` with unique titles, meta, and Article schema; link them from `blog.html` and add URLs to `sitemap.xml`.
 
 ---
 
@@ -59,7 +62,11 @@ If your Netlify site uses a different URL (e.g. `https://axiantpartners.netlify.
 | All `.html` `<head>`  | Meta description, canonical, OG, Twitter |
 | `index.html`          | Organization + WebSite JSON-LD |
 | `faq.html`            | FAQPage JSON-LD |
-| `sitemap.xml`         | URLs with lastmod for crawlers |
+| `blog.html`           | Blog index + Blog schema |
+| `blog/*.html`         | Article schema, internal links to match/services/calculator/glossary |
+| `glossary.html`       | DefinedTermSet schema, definition list for featured snippets |
+| `sba-loans.html`, `equipment-financing.html`, `working-capital.html` | Loan-type landing pages (keywords + internal links) |
+| `sitemap.xml`         | All URLs including blog, glossary, loan pages |
 | `robots.txt`          | Crawl rules + sitemap URL |
 | `_headers`            | Netlify headers (security + caching) |
 | This guide            | `SEO_GUIDE.md` |

@@ -155,6 +155,8 @@
         if (page.includes('services')) return 'services';
         if (page.includes('faq')) return 'faq';
         if (page.includes('contact')) return 'contact';
+        if (page.includes('blog')) return 'blog';
+        if (page.includes('glossary')) return 'glossary';
         
         return 'home';
     }
@@ -174,7 +176,9 @@
             'match.html': t.nav.findMatch,
             'services.html': t.nav.services,
             'faq.html': t.nav.faq,
-            'contact.html': t.nav.contact
+            'contact.html': t.nav.contact,
+            'blog.html': t.nav.blog,
+            'glossary.html': t.nav.glossary
         };
         
         const links = document.querySelectorAll('.nav-links a');
@@ -182,9 +186,10 @@
         
         links.forEach(link => {
             const href = link.getAttribute('href');
-            if (href && navLinks[href]) {
-                console.log('Translating link:', href, 'to:', navLinks[href]);
-                link.textContent = navLinks[href];
+            const key = href ? href.split('/').pop() : '';
+            if (key && navLinks[key]) {
+                console.log('Translating link:', href, 'to:', navLinks[key]);
+                link.textContent = navLinks[key];
             }
         });
     }

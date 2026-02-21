@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Construction equipment financing for excavators, loaders, bulldozers, and heavy machinery. Loans and leasing for contractors. Get matched with lenders—Axiant Partners.">
+    <link rel="canonical" href="https://www.axiantpartners.com/construction-equipment-financing.html">
+    <meta property="og:title" content="Construction Equipment Financing - Axiant Partners">
+    <meta property="og:description" content="Finance or lease construction equipment: excavators, loaders, trucks. Flexible terms for contractors.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.axiantpartners.com/construction-equipment-financing.html">
+    <meta property="og:image" content="https://www.axiantpartners.com/logo.jpg">
+    <meta property="og:site_name" content="Axiant Partners">
+    <title>Construction Equipment Financing - Loans for Contractors - Axiant Partners</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <div class="nav-brand"><img src="logo.jpg" alt="Axiant Partners Logo" class="nav-logo"><span>Axiant Partners</span></div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+            <div class="nav-links">
+                <a href="index.html">About</a>
+                <a href="match.html">Find Match</a>
+                <a href="services.html">Services</a>
+                <a href="equipment-financing.html">Equipment</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="calculator.html">Calculator</a>
+                <a href="blog.html">Blog</a>
+                <a href="glossary.html">Glossary</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+            </div>
+        </nav>
+        <header>
+            <h1>Construction Equipment Financing</h1>
+            <p class="tagline">Loans and leasing for excavators, loaders, bulldozers, and heavy machinery—built for contractors</p>
+        </header>
+        <div class="form-container services-content">
+            <h2>What Is Construction Equipment Financing?</h2>
+            <p class="results-intro">Construction equipment financing lets you buy or lease <strong>excavators</strong>, <strong>loaders</strong>, <strong>bulldozers</strong>, <strong>dump trucks</strong>, and other heavy machinery without paying the full cost upfront. Whether you need a loan to own or a lease to preserve cash flow, we connect you with lenders that specialize in construction equipment loans.</p>
+            <h3>Typical loan terms</h3>
+            <p>Terms often range from 2–7 years depending on equipment life. Loan amounts can go from tens of thousands into the millions. Rates and down payments vary by lender, credit, and equipment type; we match you with options that fit your profile.</p>
+            <h3>Who qualifies</h3>
+            <p>Contractors, construction companies, and businesses that use heavy equipment for projects. Lenders look at business revenue, time in business, credit history, and the equipment being financed. We work with established contractors and growing operations alike.</p>
+            <p>Also see: <a href="heavy-equipment-loans.html">Heavy Equipment Loans</a>, <a href="truck-trailer-financing.html">Truck &amp; Trailer Financing</a>, <a href="equipment-financing-contractors.html">Equipment Financing for Contractors</a>.</p>
+            <h3>Financing by equipment type</h3>
+            <p class="results-intro">We have dedicated pages for the equipment your customers search for. Each covers what can be financed, terms, and how we can help:</p>
+            <p class="results-intro">
+                <a href="dump-truck-financing.html">Dump Truck Financing</a> &middot;
+                <a href="excavator-financing.html">Excavator Financing</a> &middot;
+                <a href="dozer-financing.html">Dozer Financing</a> &middot;
+                <a href="skid-steer-financing.html">Skid Steer Financing</a> &middot;
+                <a href="bucket-truck-financing.html">Bucket Truck Financing</a> &middot;
+                <a href="cnc-machine-financing.html">CNC Machine Financing</a> &middot;
+                <a href="wood-chipper-grinder-financing.html">Wood Chipper &amp; Grinder Financing</a> &middot;
+                <a href="trailer-financing.html">Trailer Financing</a> &middot;
+                <a href="heavy-equipment-loans.html">Heavy Equipment Loans</a>
+            </p>
+            <div class="services-cta">
+                <h3>Get a Quote for Construction Equipment</h3>
+                <p>We match you with lenders that offer construction equipment financing. Apply in minutes.</p>
+                <a href="match.html" class="btn-primary">Apply Now</a>
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a> | <a href="blog.html">Blog</a> | <a href="glossary.html">Glossary</a></p>
+    </footer>
+    <script src="translations.js"></script>
+    <script src="language-switcher.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var m = document.querySelector('.mobile-menu-toggle'); var n = document.querySelector('.nav-links');
+            if (m && n) { m.addEventListener('click', function() { m.classList.toggle('active'); n.classList.toggle('active'); });
+                n.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { m.classList.remove('active'); n.classList.remove('active'); }); });
+                document.addEventListener('click', function(e) { if (!e.target.closest('.main-nav')) { m.classList.remove('active'); n.classList.remove('active'); } }); }
+            var t = document.getElementById('themeToggle'); var h = document.documentElement;
+            h.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+            if (t) t.addEventListener('click', function() { var x = h.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; h.setAttribute('data-theme', x); localStorage.setItem('theme', x); });
+        });
+    </script>
+</body>
+</html>
