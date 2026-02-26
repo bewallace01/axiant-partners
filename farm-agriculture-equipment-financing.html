@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Farm and agriculture equipment financing. Tractors, combines, hay equipment. Loans and leasing for farmers and ag businesses—Axiant Partners.">
+    <link rel="canonical" href="https://www.axiantpartners.com/farm-agriculture-equipment-financing.html">
+    <meta property="og:title" content="Farm &amp; Agriculture Equipment Financing - Axiant Partners">
+    <meta property="og:description" content="Finance tractors, combines, and farm equipment. Equipment financing for agriculture.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.axiantpartners.com/farm-agriculture-equipment-financing.html">
+    <meta property="og:image" content="https://www.axiantpartners.com/logo.jpg">
+    <meta property="og:site_name" content="Axiant Partners">
+    <title>Farm &amp; Agriculture Equipment Financing - Axiant Partners</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <div class="nav-brand"><img src="logo.jpg" alt="Axiant Partners Logo" class="nav-logo"><span>Axiant Partners</span></div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+            <div class="nav-links">
+                <a href="index.html">About</a>
+                <a href="match.html">Find Match</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Services</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="sba-loans.html">SBA Loans</a>
+                        <a href="equipment-financing.html">Equipment Financing</a>
+                        <a href="business-line-of-credit.html">Business Line of Credit</a>
+                        <a href="business-term-loans.html">Business Term Loans</a>
+                        <a href="fix-and-flip.html">Fix and Flip</a>
+                    </div>
+                </div>
+                <a href="calculator.html">Calculator</a>
+                <a href="contact.html">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+            </div>
+        </nav>
+        <header>
+            <h1>Farm &amp; Agriculture Equipment Financing</h1>
+            <p class="tagline">Loans and leasing for tractors, combines, and farm equipment—equipment financing for agriculture</p>
+        </header>
+        <div class="form-container services-content service-page">
+            <h2>What Is Farm &amp; Agriculture Equipment Financing?</h2>
+            <p class="results-intro">Farm and agriculture equipment financing helps you buy or lease <strong>tractors</strong>, <strong>combines</strong>, <strong>hay equipment</strong>, <strong>sprayers</strong>, and other ag machinery. We connect you with lenders that understand seasonal cash flow and offer terms suited to farming operations.</p>
+            <h3>Typical loan terms</h3>
+            <p>Terms often run 3–7 years. Loan amounts depend on equipment type and value. Some lenders offer seasonal payment structures. Use our <a href="calculator.html">loan calculator</a> to estimate payments.</p>
+            <h3>Who qualifies</h3>
+            <p>Farms, ranches, and ag businesses. Lenders consider revenue, time in business, credit, and the equipment. We match you with lenders that offer farm and agriculture equipment loans.</p>
+            <p class="related-links">Related: <a href="heavy-equipment-loans.html">Heavy Equipment Loans</a> · <a href="used-equipment-loans.html">Used Equipment Loans</a> · <a href="equipment-financing.html">Equipment Financing</a></p>
+            <div class="services-cta">
+                <h3>Get a Quote for Farm Equipment</h3>
+                <p>We match you with lenders that offer agriculture equipment financing.</p>
+                <a href="match.html" class="btn-primary">Apply Now</a>
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a></p>
+    </footer>
+    <script src="translations.js"></script>
+    <script src="language-switcher.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var m = document.querySelector('.mobile-menu-toggle'); var n = document.querySelector('.nav-links');
+            if (m && n) { m.addEventListener('click', function() { m.classList.toggle('active'); n.classList.toggle('active'); });
+                n.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { m.classList.remove('active'); n.classList.remove('active'); }); });
+                document.addEventListener('click', function(e) { if (!e.target.closest('.main-nav')) { m.classList.remove('active'); n.classList.remove('active'); } }); }
+            var t = document.getElementById('themeToggle'); var h = document.documentElement;
+            h.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+            if (t) t.addEventListener('click', function() { var x = h.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; h.setAttribute('data-theme', x); localStorage.setItem('theme', x); });
+        });
+    </script>
+</body>
+</html>

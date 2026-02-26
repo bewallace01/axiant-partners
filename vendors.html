@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Partner vendor portal for Axiant Partners. Access your co-branded partner page and loan application links.">
+    <link rel="canonical" href="https://www.axiantpartners.com/vendors.html">
+    <meta property="og:title" content="Vendors - Axiant Partners">
+    <meta property="og:description" content="Partner vendor portal. Access your co-branded page.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.axiantpartners.com/vendors.html">
+    <meta property="og:image" content="https://www.axiantpartners.com/logo.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vendors - Axiant Partners">
+    <meta name="twitter:description" content="Partner vendor portal.">
+    <title>Vendors - Axiant Partners</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <img src="logo.jpg" alt="Axiant Partners Logo" class="nav-logo">
+                <span>Axiant Partners</span>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">About</a>
+                <a href="match.html">Find Match</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Services</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="sba-loans.html">SBA Loans</a>
+                        <a href="equipment-financing.html">Equipment Financing</a>
+                        <a href="business-line-of-credit.html">Business Line of Credit</a>
+                        <a href="business-term-loans.html">Business Term Loans</a>
+                        <a href="fix-and-flip.html">Fix and Flip</a>
+                    </div>
+                </div>
+                <a href="calculator.html">Calculator</a>
+                <a href="contact.html">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+            </div>
+        </nav>
+
+        <header>
+            <h1>Vendors</h1>
+            <p class="tagline">Access your co-branded partner page</p>
+        </header>
+
+        <div class="form-container lenders-content">
+            <div class="lenders-grid">
+                <div class="lender-card">
+                    <h3>Right Manufacturing Systems</h3>
+                    <a href="rightmfgsystems.html" class="btn-primary" style="display: inline-block; text-decoration: none; margin-top: 20px;">Access Co-Branded Page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a></p>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="language-switcher.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    menuToggle.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+
+                document.addEventListener('click', function(event) {
+                    if (!event.target.closest('.main-nav')) {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
+            }
+        });
+
+        // Theme toggle functionality
+        (function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', currentTheme);
+            
+            // Theme toggle click handler
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    const currentTheme = html.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    
+                    html.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
+

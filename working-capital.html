@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Working capital loans for business. Fund payroll, inventory, and operations. Term loans and lines of credit. Get matched—Axiant Partners.">
+    <link rel="canonical" href="https://www.axiantpartners.com/working-capital.html">
+    <meta property="og:title" content="Working Capital Loans - Business Cash Flow Financing - Axiant Partners">
+    <meta property="og:description" content="Term loans and lines of credit for payroll, inventory, and day-to-day operations. We match you with working capital lenders.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.axiantpartners.com/working-capital.html">
+    <meta property="og:image" content="https://www.axiantpartners.com/logo.jpg">
+    <meta property="og:site_name" content="Axiant Partners">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Working Capital Loans - Axiant Partners">
+    <title>Working Capital Loans - Business Cash Flow Financing - Axiant Partners</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <img src="logo.jpg" alt="Axiant Partners Logo" class="nav-logo">
+                <span>Axiant Partners</span>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+            <div class="nav-links">
+                <a href="index.html">About</a>
+                <a href="match.html">Find Match</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Services</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="sba-loans.html">SBA Loans</a>
+                        <a href="equipment-financing.html">Equipment Financing</a>
+                        <a href="business-line-of-credit.html">Business Line of Credit</a>
+                        <a href="business-term-loans.html">Business Term Loans</a>
+                        <a href="fix-and-flip.html">Fix and Flip</a>
+                    </div>
+                </div>
+                <a href="calculator.html">Calculator</a>
+                <a href="contact.html">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+            </div>
+        </nav>
+
+        <header>
+            <h1>Working Capital Loans</h1>
+            <p class="tagline">Financing for payroll, inventory, and day-to-day business operations</p>
+        </header>
+
+        <div class="form-container services-content service-page">
+            <h2>What Is Working Capital Financing?</h2>
+            <p class="results-intro"><strong>Working capital</strong> is the money you use to run your business day to day. A <strong>working capital loan</strong> or <strong>line of credit</strong> helps you cover payroll, rent, inventory, utilities, and other short-term needs when cash flow is tight or seasonal. Axiant Partners matches you with lenders that offer term loans and lines of credit for working capital.</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Term Loans</h3>
+                    <p>A lump sum you repay over a set period with fixed or variable payments. Use the funds for operating expenses, seasonal gaps, or one-time needs.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Lines of Credit</h3>
+                    <p>Revolving credit: draw when you need it, repay, and draw again. Pay interest only on what you use. Ideal for ongoing cash flow management.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Invoice Financing</h3>
+                    <p>Use outstanding invoices to get an advance. Improves cash flow without waiting for customers to pay. Part of our <a href="services.html">services</a>.</p>
+                </div>
+            </div>
+
+            <p class="related-links">Explore your options: <a href="match.html">get matched</a>. See our <a href="glossary.html">glossary</a> or use the <a href="calculator.html">loan calculator</a> to estimate payments.</p>
+
+            <div class="services-cta">
+                <h3>Get Matched for Working Capital</h3>
+                <p>We connect you with lenders that offer working capital loans and lines of credit for your business.</p>
+                <a href="match.html" class="btn-primary">Get Started Now</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a></p>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="language-switcher.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuToggle = document.querySelector('.mobile-menu-toggle');
+            var navLinks = document.querySelector('.nav-links');
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() { menuToggle.classList.toggle('active'); navLinks.classList.toggle('active'); });
+                navLinks.querySelectorAll('a').forEach(function(link) { link.addEventListener('click', function() { menuToggle.classList.remove('active'); navLinks.classList.remove('active'); }); });
+                document.addEventListener('click', function(e) { if (!e.target.closest('.main-nav')) { menuToggle.classList.remove('active'); navLinks.classList.remove('active'); } });
+            }
+            var themeToggle = document.getElementById('themeToggle');
+            var html = document.documentElement;
+            html.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+            if (themeToggle) themeToggle.addEventListener('click', function() { var t = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; html.setAttribute('data-theme', t); localStorage.setItem('theme', t); });
+        });
+    </script>
+</body>
+</html>
