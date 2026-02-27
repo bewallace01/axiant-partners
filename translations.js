@@ -13,6 +13,7 @@ const translations = {
             commercialRealEstateLoans: "Commercial Real Estate Loans",
             commercialBridgeLoans: "Commercial Bridge Loans",
             revenueBasedFinancing: "Revenue-Based Financing",
+            securitiesBasedLending: "Securities-Based Lending",
             fixAndFlip: "Fix and Flip",
             services: "Services",
             faq: "FAQ",
@@ -209,6 +210,10 @@ const translations = {
         revenueBasedFinancing: {
             title: "Revenue-Based Financing for Growth Companies",
             tagline: "Flexible Capital from $10,000 to $5,000,000+"
+        },
+        securitiesBasedLending: {
+            title: "Securities-Based Lending for Established Businesses",
+            tagline: "Portfolio-Backed Capital from $10,000 to $10,000,000+"
         },
         fixAndFlip: {
             title: "Fix and Flip Loans for Real Estate Investors Nationwide",
@@ -419,6 +424,21 @@ const translations = {
             title: "Revenue-Based Financing Blog",
             tagline: "Guides on how revenue-based financing works, qualification, and structure comparisons"
         },
+        securitiesBasedLendingBlog: {
+            title: "Securities-Based Lending Blog",
+            tagline: "Guides on structure, portfolio risk, and borrowing capacity in securities-based lending",
+            backToAllBlogs: "← All Blogs",
+            listingIntro: "Explore our securities-based lending guides. Learn how SBL facilities are structured, how risk is managed, and how lenders calculate borrowing limits.",
+            post1Title: "How Does Securities-Based Lending Work?",
+            post1Excerpt: "Understand the four-step SBL process, from portfolio review and LTV sizing to credit facility setup and monitoring.",
+            post2Title: "What Are the Risks of Securities-Based Lending?",
+            post2Excerpt: "Review key SBL risks including market volatility, collateral calls, concentration issues, and over-leverage.",
+            post3Title: "How Much Can You Borrow with Securities-Based Lending?",
+            post3Excerpt: "See how borrowing limits are set using collateral type, diversification, volatility, and liquidity.",
+            readMore: "Read more",
+            ctaTitle: "Ready for Securities-Based Lending?",
+            ctaText: "We match you with lenders offering portfolio-backed facilities aligned with your liquidity goals."
+        },
         whatIsRevenueBasedFinancingPost: {
             title: "What Is Revenue-Based Financing and How Does It Work?",
             tagline: "Structure, repayment mechanics, and common use cases"
@@ -430,6 +450,18 @@ const translations = {
         whatCreditScoreNeededRevenueBasedPost: {
             title: "What Credit Score Is Needed for Revenue-Based Financing?",
             tagline: "Typical ranges and what lenders prioritize beyond score"
+        },
+        howSecuritiesBasedLendingWorksPost: {
+            title: "How Does Securities-Based Lending Work?",
+            tagline: "Portfolio evaluation, LTV sizing, facility setup, and ongoing risk monitoring"
+        },
+        risksSecuritiesBasedLendingPost: {
+            title: "What Are the Risks of Securities-Based Lending?",
+            tagline: "Market volatility, collateral pressure, and leverage risks to understand before borrowing"
+        },
+        howMuchBorrowSecuritiesBasedLendingPost: {
+            title: "How Much Can You Borrow with Securities-Based Lending?",
+            tagline: "LTV ranges, portfolio drivers, and practical borrowing scenarios"
         },
         fixAndFlipBlog: {
             title: "Fix and Flip Blog",
@@ -452,6 +484,7 @@ const translations = {
             commercialRealEstateLoans: "Préstamos de Bienes Raíces Comerciales",
             commercialBridgeLoans: "Préstamos Puente Comerciales",
             revenueBasedFinancing: "Financiamiento Basado en Ingresos",
+            securitiesBasedLending: "Préstamos Basados en Valores",
             fixAndFlip: "Compra, Rehabilita y Vende",
             services: "Servicios",
             faq: "Preguntas Frecuentes",
@@ -643,6 +676,10 @@ const translations = {
         revenueBasedFinancing: {
             title: "Financiamiento Basado en Ingresos para Empresas en Crecimiento",
             tagline: "Capital Flexible de $10,000 a $5,000,000+"
+        },
+        securitiesBasedLending: {
+            title: "Préstamos Basados en Valores para Empresas Establecidas",
+            tagline: "Capital Respaldado por Cartera de $10,000 a $10,000,000+"
         },
         fixAndFlip: {
             title: "Préstamos Fix and Flip para inversionistas inmobiliarios en todo el país",
@@ -851,6 +888,21 @@ const translations = {
             title: "Blog de Financiamiento Basado en Ingresos",
             tagline: "Guías sobre cómo funciona el financiamiento basado en ingresos, la calificación y comparaciones de estructura"
         },
+        securitiesBasedLendingBlog: {
+            title: "Blog de Préstamos Basados en Valores",
+            tagline: "Guías sobre estructura, riesgo de cartera y capacidad de endeudamiento en préstamos basados en valores",
+            backToAllBlogs: "← Todos los blogs",
+            listingIntro: "Explore nuestras guías de préstamos basados en valores. Aprenda cómo se estructuran las facilidades SBL, cómo se gestiona el riesgo y cómo los prestamistas calculan los límites de endeudamiento.",
+            post1Title: "¿Cómo funcionan los préstamos basados en valores?",
+            post1Excerpt: "Comprenda el proceso SBL de cuatro pasos: revisión de cartera, cálculo LTV, estructura de la facilidad y monitoreo.",
+            post2Title: "¿Cuáles son los riesgos de los préstamos basados en valores?",
+            post2Excerpt: "Revise riesgos clave como volatilidad del mercado, llamadas de margen, concentración y sobreapalancamiento.",
+            post3Title: "¿Cuánto puede pedir prestado con préstamos basados en valores?",
+            post3Excerpt: "Vea cómo se definen los límites de crédito según tipo de activo, diversificación, volatilidad y liquidez.",
+            readMore: "Leer más",
+            ctaTitle: "¿Listo para préstamos basados en valores?",
+            ctaText: "Le conectamos con prestamistas que ofrecen facilidades respaldadas por cartera según sus objetivos de liquidez."
+        },
         whatIsRevenueBasedFinancingPost: {
             title: "¿Qué es el financiamiento basado en ingresos y cómo funciona?",
             tagline: "Estructura, mecánica de pago y casos de uso comunes"
@@ -862,6 +914,18 @@ const translations = {
         whatCreditScoreNeededRevenueBasedPost: {
             title: "¿Qué puntaje de crédito se necesita para financiamiento basado en ingresos?",
             tagline: "Rangos típicos y lo que los prestamistas priorizan más allá del puntaje"
+        },
+        howSecuritiesBasedLendingWorksPost: {
+            title: "¿Cómo funcionan los préstamos basados en valores?",
+            tagline: "Evaluación de cartera, cálculo LTV, estructura de la facilidad y monitoreo continuo"
+        },
+        risksSecuritiesBasedLendingPost: {
+            title: "¿Cuáles son los riesgos de los préstamos basados en valores?",
+            tagline: "Volatilidad del mercado, presión de colateral y riesgos de apalancamiento antes de endeudarse"
+        },
+        howMuchBorrowSecuritiesBasedLendingPost: {
+            title: "¿Cuánto puede pedir prestado con préstamos basados en valores?",
+            tagline: "Rangos LTV, factores de cartera y escenarios prácticos de endeudamiento"
         },
         fixAndFlipBlog: {
             title: "Blog de Préstamos Fix and Flip",
@@ -884,6 +948,7 @@ const translations = {
             commercialRealEstateLoans: "Кредиты на коммерческую недвижимость",
             commercialBridgeLoans: "Коммерческие мостовые кредиты",
             revenueBasedFinancing: "Финансирование на основе выручки",
+            securitiesBasedLending: "Кредитование под ценные бумаги",
             fixAndFlip: "Фикс и флип",
             services: "Услуги",
             faq: "Часто задаваемые вопросы",
@@ -1075,6 +1140,10 @@ const translations = {
         revenueBasedFinancing: {
             title: "Финансирование на основе выручки для растущих компаний",
             tagline: "Гибкий капитал от $10,000 до $5,000,000+"
+        },
+        securitiesBasedLending: {
+            title: "Кредитование под ценные бумаги для устойчивого бизнеса",
+            tagline: "Капитал под залог портфеля от $10,000 до $10,000,000+"
         },
         fixAndFlip: {
             title: "Fix and Flip кредиты для инвесторов в недвижимость по всей стране",
@@ -1283,6 +1352,21 @@ const translations = {
             title: "Блог по финансированию на основе выручки",
             tagline: "Руководства о том, как работает финансирование на основе выручки, требования к квалификации и сравнение структур"
         },
+        securitiesBasedLendingBlog: {
+            title: "Блог по кредитованию под ценные бумаги",
+            tagline: "Руководства по структуре, риску портфеля и расчету лимита в кредитовании под ценные бумаги",
+            backToAllBlogs: "← Все блоги",
+            listingIntro: "Изучите наши материалы по кредитованию под ценные бумаги. Узнайте, как структурируются SBL-линии, как управляются риски и как кредиторы рассчитывают лимит заимствования.",
+            post1Title: "Как работает кредитование под ценные бумаги?",
+            post1Excerpt: "Разберите 4 этапа SBL: анализ портфеля, расчет LTV, запуск кредитной линии и мониторинг.",
+            post2Title: "Каковы риски кредитования под ценные бумаги?",
+            post2Excerpt: "Ключевые риски: рыночная волатильность, требования по обеспечению, концентрация и избыточный леверидж.",
+            post3Title: "Сколько можно занять под ценные бумаги?",
+            post3Excerpt: "Поймите, как лимит определяется типом активов, диверсификацией, волатильностью и ликвидностью.",
+            readMore: "Читать далее",
+            ctaTitle: "Готовы к кредитованию под ценные бумаги?",
+            ctaText: "Мы подбираем кредиторов с портфельными структурами финансирования под ваши задачи ликвидности."
+        },
         whatIsRevenueBasedFinancingPost: {
             title: "Что такое финансирование на основе выручки и как оно работает?",
             tagline: "Структура, механика погашения и распространенные сценарии применения"
@@ -1294,6 +1378,18 @@ const translations = {
         whatCreditScoreNeededRevenueBasedPost: {
             title: "Какой кредитный рейтинг нужен для финансирования на основе выручки?",
             tagline: "Типичные диапазоны и что кредиторы оценивают важнее рейтинга"
+        },
+        howSecuritiesBasedLendingWorksPost: {
+            title: "Как работает кредитование под ценные бумаги?",
+            tagline: "Оценка портфеля, расчет LTV, структура линии и постоянный мониторинг рисков"
+        },
+        risksSecuritiesBasedLendingPost: {
+            title: "Каковы риски кредитования под ценные бумаги?",
+            tagline: "Рыночная волатильность, давление по обеспечению и риски левериджа перед заимствованием"
+        },
+        howMuchBorrowSecuritiesBasedLendingPost: {
+            title: "Сколько можно занять под ценные бумаги?",
+            tagline: "Диапазоны LTV, факторы портфеля и практические сценарии лимита заимствования"
         },
         fixAndFlipBlog: {
             title: "Блог по кредитам Fix and Flip",

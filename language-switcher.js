@@ -11,7 +11,7 @@
         'es': 'Español',
         'ru': 'Русский'
     };
-    const servicePageNames = new Set(['sbaLoans', 'equipmentFinancing', 'businessLineOfCredit', 'workingCapitalLoans', 'businessTermLoans', 'commercialRealEstateLoans', 'commercialBridgeLoans', 'revenueBasedFinancing', 'fixAndFlip']);
+    const servicePageNames = new Set(['sbaLoans', 'equipmentFinancing', 'businessLineOfCredit', 'workingCapitalLoans', 'businessTermLoans', 'commercialRealEstateLoans', 'commercialBridgeLoans', 'revenueBasedFinancing', 'securitiesBasedLending', 'fixAndFlip']);
     const originalTextMap = new WeakMap();
     const runtimeTranslationCache = {};
 
@@ -251,6 +251,7 @@
         if (page === 'commercial-real-estate-loans.html') return 'commercialRealEstateLoans';
         if (page === 'commercial-bridge-loans.html') return 'commercialBridgeLoans';
         if (page === 'revenue-based-financing.html') return 'revenueBasedFinancing';
+        if (page === 'securities-based-lending.html') return 'securitiesBasedLending';
         if (page === 'fix-and-flip.html') return 'fixAndFlip';
         if (page === 'sba-loans-blog.html') return 'sbaLoansBlog';
         if (page === 'working-capital-loans-blog.html') return 'workingCapitalLoansBlog';
@@ -258,6 +259,7 @@
         if (page === 'commercial-real-estate-loans-blog.html') return 'commercialRealEstateLoansBlog';
         if (page === 'commercial-bridge-loans-blog.html') return 'commercialBridgeLoansBlog';
         if (page === 'revenue-based-financing-blog.html') return 'revenueBasedFinancingBlog';
+        if (page === 'securities-based-lending-blog.html') return 'securitiesBasedLendingBlog';
         if (page === 'equipment-financing-blog.html') return 'equipmentFinancingBlog';
         if (page === 'business-line-of-credit-blog.html') return 'businessLineOfCreditBlog';
         if (page === 'fix-and-flip-blog.html') return 'fixAndFlipBlog';
@@ -288,6 +290,9 @@
         if (page === 'what-is-revenue-based-financing-how-does-it-work.html') return 'whatIsRevenueBasedFinancingPost';
         if (page === 'revenue-based-financing-vs-merchant-cash-advance.html') return 'revenueBasedVsMcaPost';
         if (page === 'what-credit-score-needed-revenue-based-financing.html') return 'whatCreditScoreNeededRevenueBasedPost';
+        if (page === 'how-does-securities-based-lending-work.html') return 'howSecuritiesBasedLendingWorksPost';
+        if (page === 'what-are-the-risks-of-securities-based-lending.html') return 'risksSecuritiesBasedLendingPost';
+        if (page === 'how-much-can-you-borrow-with-securities-based-lending.html') return 'howMuchBorrowSecuritiesBasedLendingPost';
         if (page.includes('faq')) return 'faq';
         if (page.includes('contact')) return 'contact';
         if (page === 'blog.html') return 'blog';
@@ -317,6 +322,7 @@
             'commercial-real-estate-loans.html': t.nav.commercialRealEstateLoans,
             'commercial-bridge-loans.html': t.nav.commercialBridgeLoans,
             'revenue-based-financing.html': t.nav.revenueBasedFinancing,
+            'securities-based-lending.html': t.nav.securitiesBasedLending,
             'fix-and-flip.html': t.nav.fixAndFlip,
             'services.html': t.nav.services,
             'faq.html': t.nav.faq,
@@ -369,6 +375,7 @@
         ensureServiceMenuLink('commercial-real-estate-loans.html', t.nav.commercialRealEstateLoans || 'Commercial Real Estate Loans');
         ensureServiceMenuLink('commercial-bridge-loans.html', t.nav.commercialBridgeLoans || 'Commercial Bridge Loans');
         ensureServiceMenuLink('revenue-based-financing.html', t.nav.revenueBasedFinancing || 'Revenue-Based Financing');
+        ensureServiceMenuLink('securities-based-lending.html', t.nav.securitiesBasedLending || 'Securities-Based Lending');
 
         // Force-translate services submenu labels for any path variant.
         const forceMap = {
@@ -380,6 +387,7 @@
             'commercial-real-estate-loans.html': t.nav.commercialRealEstateLoans,
             'commercial-bridge-loans.html': t.nav.commercialBridgeLoans,
             'revenue-based-financing.html': t.nav.revenueBasedFinancing,
+            'securities-based-lending.html': t.nav.securitiesBasedLending,
             'fix-and-flip.html': t.nav.fixAndFlip
         };
         Object.keys(forceMap).forEach(function(file) {
