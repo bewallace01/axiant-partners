@@ -52,6 +52,86 @@
         });
     }
 
+    function enhanceMobileMenuBehavior() {
+        const nav = document.querySelector('.main-nav');
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (!nav || !menuToggle || !navLinks || nav.dataset.mobileMenuEnhanced === '1') return;
+
+        nav.dataset.mobileMenuEnhanced = '1';
+
+        let overlay = document.querySelector('.mobile-menu-overlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'mobile-menu-overlay';
+            document.body.appendChild(overlay);
+        }
+
+        const mobileQuery = window.matchMedia('(max-width: 768px)');
+
+        function closeMenu() {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.classList.remove('mobile-nav-open');
+            nav.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
+                dropdown.classList.remove('mobile-open');
+                const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+                if (trigger) trigger.setAttribute('aria-expanded', 'false');
+            });
+        }
+
+        function syncMenuStateFromClasses() {
+            if (mobileQuery.matches && navLinks.classList.contains('active')) {
+                document.body.classList.add('mobile-nav-open');
+            } else {
+                document.body.classList.remove('mobile-nav-open');
+            }
+        }
+
+        menuToggle.addEventListener('click', function() {
+            window.setTimeout(syncMenuStateFromClasses, 0);
+        });
+
+        overlay.addEventListener('click', closeMenu);
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') closeMenu();
+        });
+
+        window.addEventListener('resize', function() {
+            if (!mobileQuery.matches) closeMenu();
+        });
+
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                closeMenu();
+            });
+        });
+
+        nav.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
+            const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+            if (!trigger) return;
+            trigger.setAttribute('aria-expanded', 'false');
+
+            trigger.addEventListener('click', function(event) {
+                if (!mobileQuery.matches) return;
+                event.preventDefault();
+
+                const willOpen = !dropdown.classList.contains('mobile-open');
+                nav.querySelectorAll('.nav-dropdown').forEach(function(other) {
+                    other.classList.remove('mobile-open');
+                    const otherTrigger = other.querySelector('.nav-dropdown-trigger');
+                    if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+                });
+
+                if (willOpen) {
+                    dropdown.classList.add('mobile-open');
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+    }
+
     function standardizeBrandLogos() {
         const prefix = getPathPrefix();
         document.querySelectorAll('img.nav-logo').forEach(function(img) {
@@ -224,6 +304,123 @@
         });
     }
 
+    function slugifyHeading(text) {
+        return String(text || '')
+            .toLowerCase()
+            .trim()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-|-$/g, '');
+    }
+
+    function enhanceBlogPostLayout() {
+        const container = document.querySelector('.form-container.blog-post-content');
+        if (!container || container.dataset.blogEnhanced === '1') return;
+
+        const allChildren = Array.from(container.children);
+        const contentStartIdx = allChildren.findIndex(function(node) {
+            return node.tagName && node.tagName.toLowerCase() === 'h2';
+        });
+        if (contentStartIdx < 0) return;
+
+        container.dataset.blogEnhanced = '1';
+        const prefix = getPathPrefix();
+        const introNodes = allChildren.slice(0, contentStartIdx);
+        const articleNodes = allChildren.slice(contentStartIdx);
+
+        const shell = document.createElement('div');
+        shell.className = 'blog-post-shell';
+
+        const main = document.createElement('article');
+        main.className = 'blog-post-main';
+
+        const rail = document.createElement('aside');
+        rail.className = 'blog-post-rail';
+
+        const tocList = document.createElement('ul');
+        tocList.className = 'blog-post-toc-list';
+
+        let sectionCounter = 0;
+        let currentSection = null;
+        articleNodes.forEach(function(node) {
+            const tag = node.tagName ? node.tagName.toLowerCase() : '';
+            if (tag === 'h2') {
+                sectionCounter += 1;
+                const base = slugifyHeading(node.textContent) || ('section-' + sectionCounter);
+                const id = 'section-' + sectionCounter + '-' + base;
+                node.id = id;
+
+                const tocItem = document.createElement('li');
+                const tocLink = document.createElement('a');
+                tocLink.href = '#' + id;
+                tocLink.textContent = node.textContent.trim();
+                tocItem.appendChild(tocLink);
+                tocList.appendChild(tocItem);
+
+                currentSection = document.createElement('section');
+                currentSection.className = 'blog-article-block';
+                currentSection.appendChild(node);
+                main.appendChild(currentSection);
+                return;
+            }
+
+            if (!currentSection) {
+                currentSection = document.createElement('section');
+                currentSection.className = 'blog-article-block';
+                main.appendChild(currentSection);
+            }
+            currentSection.appendChild(node);
+        });
+
+        const totalWords = container.textContent.trim().split(/\s+/).filter(Boolean).length;
+        const readMinutes = Math.max(3, Math.round(totalWords / 220));
+
+        rail.innerHTML = '' +
+            '<div class="blog-rail-card blog-rail-meta">' +
+                '<h3>Article Guide</h3>' +
+                '<p>Estimated read: <strong>' + readMinutes + ' min</strong></p>' +
+            '</div>';
+
+        if (tocList.children.length) {
+            const tocCard = document.createElement('div');
+            tocCard.className = 'blog-rail-card blog-rail-toc';
+            const title = document.createElement('h3');
+            title.textContent = 'On This Page';
+            tocCard.appendChild(title);
+            tocCard.appendChild(tocList);
+            rail.appendChild(tocCard);
+        }
+
+        // Use explicit offset scrolling so section headings never hide behind sticky nav.
+        tocList.querySelectorAll('a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                const href = link.getAttribute('href');
+                if (!href || href.length < 2) return;
+                const target = document.getElementById(href.slice(1));
+                if (!target) return;
+
+                event.preventDefault();
+                const nav = document.querySelector('.main-nav');
+                const navHeight = nav ? nav.getBoundingClientRect().height : 88;
+                const extraOffset = window.matchMedia('(max-width: 768px)').matches ? 18 : 22;
+                const y = target.getBoundingClientRect().top + window.pageYOffset - navHeight - extraOffset;
+
+                window.scrollTo({
+                    top: Math.max(0, y),
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        shell.appendChild(main);
+        shell.appendChild(rail);
+
+        container.innerHTML = '';
+        introNodes.forEach(function(node) { container.appendChild(node); });
+        container.appendChild(shell);
+    }
+
     function forceEnglish() {
         document.documentElement.setAttribute('lang', 'en');
         document.documentElement.setAttribute('dir', 'ltr');
@@ -242,8 +439,10 @@
 
         // Keep full service tabs visible without translation script logic.
         ensureServicesMenuLinks();
+        enhanceMobileMenuBehavior();
         standardizeBrandLogos();
         syncLegacyFooterYear();
+        enhanceBlogPostLayout();
         enhanceGlobalFooter();
         cleanAllWordmarkLogos();
     }
