@@ -17,7 +17,7 @@
     }
 
     function enforceAssetVersioning() {
-        const version = '20260346';
+        const version = '20260347';
         document.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
             const href = link.getAttribute('href') || '';
             if (!href || href.indexOf('styles.css') === -1) return;
@@ -984,6 +984,7 @@
     function pickVisualUrl(list, seed, usedVisuals, recentVisuals) {
         if (!Array.isArray(list) || !list.length) return '';
         const base = hashString(seed);
+        // Pass 1: avoid page duplicates and recent service-page history.
         for (let i = 0; i < list.length; i += 1) {
             const candidate = list[(base + i) % list.length];
             const identity = getVisualIdentity(candidate);
@@ -993,18 +994,41 @@
                 return candidate;
             }
         }
-        // Strict no-repeat mode for current page.
+        // Pass 2: always prioritize unique-on-page rendering (ignore recent history).
+        for (let i = 0; i < list.length; i += 1) {
+            const candidate = list[(base + i) % list.length];
+            const identity = getVisualIdentity(candidate);
+            if (!usedVisuals.has(identity)) {
+                usedVisuals.add(identity);
+                if (recentVisuals) recentVisuals.add(identity);
+                return candidate;
+            }
+        }
+        // Strict no-repeat mode for current page once pool is exhausted.
         return '';
     }
 
     function pickVisualUrlOrdered(list, cursorKey, cursors, usedVisuals, recentVisuals) {
         if (!Array.isArray(list) || !list.length) return '';
         const start = Math.max(0, Number(cursors[cursorKey] || 0)) % list.length;
+        // Pass 1: avoid page duplicates and recent service-page history.
         for (let i = 0; i < list.length; i += 1) {
             const idx = (start + i) % list.length;
             const candidate = list[idx];
             const identity = getVisualIdentity(candidate);
             if (!usedVisuals.has(identity) && (!recentVisuals || !recentVisuals.has(identity))) {
+                usedVisuals.add(identity);
+                if (recentVisuals) recentVisuals.add(identity);
+                cursors[cursorKey] = (idx + 1) % list.length;
+                return candidate;
+            }
+        }
+        // Pass 2: always prioritize unique-on-page rendering (ignore recent history).
+        for (let i = 0; i < list.length; i += 1) {
+            const idx = (start + i) % list.length;
+            const candidate = list[idx];
+            const identity = getVisualIdentity(candidate);
+            if (!usedVisuals.has(identity)) {
                 usedVisuals.add(identity);
                 if (recentVisuals) recentVisuals.add(identity);
                 cursors[cursorKey] = (idx + 1) % list.length;
