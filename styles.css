@@ -3504,6 +3504,16 @@ header h1 {
     font-size: 0.98rem;
 }
 
+.site-footer-enhanced .footer-social {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.site-footer-enhanced .footer-social h4 {
+    margin-bottom: 6px;
+}
+
 .site-footer-enhanced .footer-col a {
     display: block;
     color: #cbd5e1;

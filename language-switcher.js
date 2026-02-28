@@ -300,6 +300,12 @@
                         '<a href="' + prefix + 'contact.html">Contact</a>' +
                         '<a href="' + prefix + 'faq.html">FAQ</a>' +
                         '<a href="' + prefix + 'vendors.html">Vendors</a>' +
+                        '<div class="footer-social">' +
+                            '<h4>Follow Us</h4>' +
+                            '<a href="https://www.linkedin.com/company/axiantpartners/" target="_blank" rel="noopener noreferrer">LinkedIn</a>' +
+                            '<a href="https://www.facebook.com/share/1j27PpAoUS/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>' +
+                            '<a href="https://www.facebook.com/share/1j27PpAoUS/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Instagram</a>' +
+                        '</div>' +
                     '</div>' +
                 '</div>' +
                 '<div class="footer-bottom">' +
