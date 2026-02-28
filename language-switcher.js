@@ -50,6 +50,18 @@
         });
     }
 
+    function normalizeServiceMenuLinks() {
+        document.querySelectorAll('.nav-dropdown-menu a').forEach(function(link) {
+            const href = link.getAttribute('href') || '';
+            if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+                return;
+            }
+            const file = href.split('?')[0].split('#')[0].split('/').pop();
+            if (!file || !file.endsWith('.html')) return;
+            link.setAttribute('href', '/' + file);
+        });
+    }
+
     function enhanceMobileMenuBehavior() {
         const nav = document.querySelector('.main-nav');
         const menuToggle = document.querySelector('.mobile-menu-toggle');
@@ -444,6 +456,7 @@
 
         // Keep full service tabs visible without translation script logic.
         ensureServicesMenuLinks();
+        normalizeServiceMenuLinks();
         enhanceMobileMenuBehavior();
         standardizeBrandLogos();
         syncLegacyFooterYear();
