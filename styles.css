@@ -1526,6 +1526,37 @@ header h1 {
     box-shadow: none;
 }
 
+/* Reduce dead space for "States We Serve"/similar sections */
+.form-container.services-content .about-section:has(.partner-list),
+.form-container.equipment-financing-content .about-section:has(.partner-list),
+.form-container.business-line-of-credit-content .about-section:has(.partner-list),
+.form-container.fix-and-flip-content .about-section:has(.partner-list),
+.form-container.working-capital-loans-content .about-section:has(.partner-list),
+.form-container.sba-loans-content .about-section:has(.partner-list) {
+    padding-top: clamp(20px, 2.2vw, 30px);
+    padding-bottom: clamp(18px, 2vw, 26px);
+}
+
+.form-container.services-content .about-section:has(.partner-list) .partner-list,
+.form-container.equipment-financing-content .about-section:has(.partner-list) .partner-list,
+.form-container.business-line-of-credit-content .about-section:has(.partner-list) .partner-list,
+.form-container.fix-and-flip-content .about-section:has(.partner-list) .partner-list,
+.form-container.working-capital-loans-content .about-section:has(.partner-list) .partner-list,
+.form-container.sba-loans-content .about-section:has(.partner-list) .partner-list {
+    column-count: 2;
+    column-gap: 2.8rem;
+    margin: 0.7rem 0 0.8rem;
+}
+
+.form-container.services-content .about-section:has(.partner-list) .partner-list li,
+.form-container.equipment-financing-content .about-section:has(.partner-list) .partner-list li,
+.form-container.business-line-of-credit-content .about-section:has(.partner-list) .partner-list li,
+.form-container.fix-and-flip-content .about-section:has(.partner-list) .partner-list li,
+.form-container.working-capital-loans-content .about-section:has(.partner-list) .partner-list li,
+.form-container.sba-loans-content .about-section:has(.partner-list) .partner-list li {
+    break-inside: avoid;
+}
+
 /* Relevant Information section - blog posts at bottom of service pages */
 .relevant-info-section .relevant-posts {
     display: grid;
@@ -5122,6 +5153,16 @@ html {
     .form-container.blog-post-content ul,
     .form-container.blog-post-content ol {
         max-width: 100%;
+    }
+
+    .form-container.services-content .about-section:has(.partner-list) .partner-list,
+    .form-container.equipment-financing-content .about-section:has(.partner-list) .partner-list,
+    .form-container.business-line-of-credit-content .about-section:has(.partner-list) .partner-list,
+    .form-container.fix-and-flip-content .about-section:has(.partner-list) .partner-list,
+    .form-container.working-capital-loans-content .about-section:has(.partner-list) .partner-list,
+    .form-container.sba-loans-content .about-section:has(.partner-list) .partner-list {
+        column-count: 1;
+        column-gap: 0;
     }
 
     .form-container.services-content .about-section:has(> .service-card),
