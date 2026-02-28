@@ -145,6 +145,7 @@
         const footer = document.querySelector('.site-footer');
         if (!footer) return;
         const prefix = getPathPrefix();
+        const currentYear = new Date().getFullYear();
 
         const ctaSection = document.getElementById('globalBottomCta');
         if (!ctaSection) {
@@ -205,7 +206,7 @@
                     '</div>' +
                 '</div>' +
                 '<div class="footer-bottom">' +
-                    '<p>&copy; 2026 Axiant Partners. All rights reserved.</p>' +
+                    '<p>&copy; ' + currentYear + ' Axiant Partners. All rights reserved.</p>' +
                     '<div class="footer-legal">' +
                         '<a href="' + prefix + 'privacy-policy.html">Privacy Policy</a>' +
                         '<a href="' + prefix + 'terms-and-conditions.html">Terms of Service</a>' +
@@ -213,6 +214,14 @@
                     '</div>' +
                 '</div>' +
             '</div>';
+    }
+
+    function syncLegacyFooterYear() {
+        const currentYear = new Date().getFullYear();
+        document.querySelectorAll('.site-footer p').forEach(function(node) {
+            if (!node || !node.textContent) return;
+            node.textContent = node.textContent.replace(/\u00A9\s*20\d{2}\s+Axiant Partners/gi, '\u00A9 ' + currentYear + ' Axiant Partners');
+        });
     }
 
     function forceEnglish() {
@@ -234,6 +243,7 @@
         // Keep full service tabs visible without translation script logic.
         ensureServicesMenuLinks();
         standardizeBrandLogos();
+        syncLegacyFooterYear();
         enhanceGlobalFooter();
         cleanAllWordmarkLogos();
     }
