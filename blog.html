@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -128,30 +128,8 @@
     </footer>
 
     <script src="translations.js"></script>
-    <script src="language-switcher.js?v=20260227"></script>
+    <script src="language-switcher.js?v=20260303"></script>
     <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener('click', function() { menuToggle.classList.toggle('active'); navLinks.classList.toggle('active'); });
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', function() { menuToggle.classList.remove('active'); navLinks.classList.remove('active'); });
-                });
-                document.addEventListener('click', function(e) {
-                    if (!e.target.closest('.main-nav')) { menuToggle.classList.remove('active'); navLinks.classList.remove('active'); }
-                });
-            }
-            var themeToggle = document.getElementById('themeToggle');
-            var html = document.documentElement;
-            var currentTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-theme', currentTheme);
-            if (themeToggle) themeToggle.addEventListener('click', function() {
-                var t = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', t); localStorage.setItem('theme', t);
-            });
-        });
-    </script>
+    
 </body>
 </html>

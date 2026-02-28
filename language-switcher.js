@@ -120,6 +120,22 @@
         });
     }
 
+    function enhanceThemeToggle() {
+        const root = document.documentElement;
+        const savedTheme = localStorage.getItem('theme');
+        root.setAttribute('data-theme', savedTheme === 'dark' ? 'dark' : 'light');
+
+        document.querySelectorAll('.theme-toggle').forEach(function(toggle) {
+            if (!toggle || toggle.dataset.themeEnhanced === '1') return;
+            toggle.dataset.themeEnhanced = '1';
+            toggle.addEventListener('click', function() {
+                const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', nextTheme);
+                localStorage.setItem('theme', nextTheme);
+            });
+        });
+    }
+
     function enhanceMobileMenuBehavior() {
         const nav = document.querySelector('.main-nav');
         const menuToggle = document.querySelector('.mobile-menu-toggle');
@@ -897,6 +913,7 @@
         ensureServicesMenuLinks();
         normalizeServiceMenuLinks();
         ensureReferralTab();
+        enhanceThemeToggle();
         enhanceMobileMenuBehavior();
         standardizeBrandLogos();
         syncLegacyFooterYear();

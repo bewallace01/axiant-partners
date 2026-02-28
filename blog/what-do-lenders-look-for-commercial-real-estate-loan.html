@@ -152,18 +152,8 @@
         <p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="../privacy-policy.html">Privacy Policy</a> | <a href="../terms-and-conditions.html">Terms and Conditions</a> | <a href="../vendors.html">Vendors</a></p>
     </footer>
     <script src="../translations.js"></script>
-    <script src="../language-switcher.js?v=20260227"></script>
+    <script src="../language-switcher.js?v=20260303"></script>
     <script src="../script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var m = document.querySelector('.mobile-menu-toggle'); var n = document.querySelector('.nav-links');
-            if (m && n) { m.addEventListener('click', function() { m.classList.toggle('active'); n.classList.toggle('active'); });
-                n.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { m.classList.remove('active'); n.classList.remove('active'); }); });
-                document.addEventListener('click', function(e) { if (!e.target.closest('.main-nav')) { m.classList.remove('active'); n.classList.remove('active'); } }); }
-            var t = document.getElementById('themeToggle'); var h = document.documentElement;
-            h.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
-            if (t) t.addEventListener('click', function() { var x = h.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; h.setAttribute('data-theme', x); localStorage.setItem('theme', x); });
-        });
-    </script>
+    
 </body>
 </html>
