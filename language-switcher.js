@@ -16,6 +16,27 @@
         return '';
     }
 
+    function enforceAssetVersioning() {
+        const version = '20260301';
+        document.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+            const href = link.getAttribute('href') || '';
+            if (!href || href.indexOf('styles.css') === -1) return;
+            const clean = href.split('?')[0];
+            if (!clean.endsWith('styles.css')) return;
+            const next = clean + '?v=' + version;
+            if (href !== next) link.setAttribute('href', next);
+        });
+
+        document.querySelectorAll('script[src]').forEach(function(script) {
+            const src = script.getAttribute('src') || '';
+            if (!src) return;
+            const clean = src.split('?')[0];
+            if (!clean.endsWith('script.js')) return;
+            const next = clean + '?v=' + version;
+            if (src !== next) script.setAttribute('src', next);
+        });
+    }
+
     function ensureServicesMenuLinks() {
         const serviceLinks = [
             { file: 'sba-loans.html', label: 'SBA Loans' },
@@ -699,7 +720,8 @@
             shouldAutoOpen = true;
         }
 
-        if (shouldAutoOpen) {
+        const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+        if (shouldAutoOpen && !isMobile) {
             window.setTimeout(function() {
                 openChat(false);
                 try {
@@ -835,6 +857,7 @@
     }
 
     function forceEnglish() {
+        enforceAssetVersioning();
         document.documentElement.setAttribute('lang', 'en');
         document.documentElement.setAttribute('dir', 'ltr');
         localStorage.setItem('language', 'en');
