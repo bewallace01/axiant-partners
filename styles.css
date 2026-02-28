@@ -5994,3 +5994,254 @@ html {
         padding-top: 10px !important;
     }
 }
+
+/* App-grade mobile refinement (final override layer) */
+@media (max-width: 768px) {
+    html, body {
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Remove noisy motion for cleaner, faster mobile feel */
+    .step-card, .benefit-card, .service-card, .testimonial-card, .glossary-term-card {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+
+    h1, h2, h3, .tagline, .results-intro {
+        text-wrap: balance;
+        word-break: normal;
+        overflow-wrap: normal;
+        letter-spacing: -0.01em;
+    }
+
+    p, li, .footer-col a, .footer-brand p {
+        text-wrap: pretty;
+        word-break: normal;
+        overflow-wrap: break-word;
+        line-height: 1.55 !important;
+    }
+
+    .form-container,
+    .form-container[class*="-content"],
+    .results-container,
+    .about-content,
+    .legal-content,
+    .services-content {
+        padding: 18px 12px !important;
+    }
+
+    .form-container h2,
+    .results-container h2,
+    .about-section h2,
+    .services-content h2,
+    .global-bottom-cta h2 {
+        font-size: clamp(1.35rem, 5.3vw, 1.9rem) !important;
+        margin-bottom: 10px !important;
+        line-height: 1.2 !important;
+    }
+
+    .results-intro,
+    .about-section p,
+    .services-content p,
+    .global-bottom-cta p {
+        font-size: 0.98rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    .about-section,
+    .service-card,
+    .blog-card,
+    .legal-section-content,
+    .blog-article-block,
+    .contact-info-card,
+    .blog-rail-card {
+        border-radius: 14px !important;
+        padding: 15px 13px !important;
+        box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08) !important;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .global-bottom-cta-actions .btn-primary,
+    .global-bottom-cta-actions .btn-secondary {
+        min-height: 46px !important;
+        border-radius: 12px !important;
+        font-size: 0.92rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.01em !important;
+    }
+
+    .nav-links {
+        gap: 8px !important;
+    }
+
+    .nav-links a,
+    .nav-dropdown-trigger {
+        min-height: 48px !important;
+        border-radius: 13px !important;
+        font-size: 1rem !important;
+    }
+
+    .nav-dropdown-menu a {
+        min-height: 44px !important;
+        font-size: 0.95rem !important;
+        border-radius: 10px !important;
+    }
+
+    .global-bottom-cta-panel {
+        padding: 18px 13px !important;
+    }
+
+    .global-bottom-cta-list li {
+        margin-bottom: 4px;
+    }
+
+    .site-footer-enhanced .footer-brand,
+    .site-footer-enhanced .footer-col {
+        padding: 10px !important;
+    }
+
+    .site-footer-enhanced .footer-col h4 {
+        margin-bottom: 6px !important;
+        font-size: 0.88rem !important;
+    }
+
+    .site-footer-enhanced .footer-col a,
+    .site-footer-enhanced .footer-brand p {
+        font-size: 0.9rem !important;
+    }
+
+    .site-footer-enhanced .footer-bottom p,
+    .site-footer-enhanced .footer-legal a {
+        font-size: 0.82rem !important;
+    }
+
+    .axel-chat-panel {
+        max-height: 64vh !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container,
+    .form-container[class*="-content"],
+    .results-container,
+    .about-content,
+    .legal-content,
+    .services-content {
+        padding: 16px 10px !important;
+    }
+
+    .form-container h2,
+    .results-container h2,
+    .about-section h2,
+    .services-content h2,
+    .global-bottom-cta h2 {
+        font-size: clamp(1.28rem, 6vw, 1.65rem) !important;
+    }
+
+    .results-intro,
+    .about-section p,
+    .services-content p,
+    .global-bottom-cta p {
+        font-size: 0.95rem !important;
+    }
+
+    .site-footer-enhanced .footer-col a,
+    .site-footer-enhanced .footer-brand p {
+        font-size: 0.88rem !important;
+    }
+}
+
+/* iOS-style smooth mobile glass theme */
+@media (max-width: 768px) {
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background:
+            radial-gradient(110% 60% at 10% 0%, rgba(96, 165, 250, 0.2) 0%, rgba(96, 165, 250, 0) 58%),
+            radial-gradient(120% 70% at 100% 100%, rgba(59, 130, 246, 0.18) 0%, rgba(59, 130, 246, 0) 60%);
+    }
+
+    .container, .main-nav, .form-container, .results-container, .site-footer {
+        position: relative;
+        z-index: 1;
+    }
+
+    .main-nav {
+        border-radius: 0 0 16px 16px;
+        backdrop-filter: saturate(165%) blur(14px) !important;
+        -webkit-backdrop-filter: saturate(165%) blur(14px) !important;
+    }
+
+    .nav-links {
+        backdrop-filter: saturate(170%) blur(16px) !important;
+        -webkit-backdrop-filter: saturate(170%) blur(16px) !important;
+    }
+
+    .nav-links a,
+    .nav-dropdown-trigger,
+    .nav-dropdown-menu a {
+        transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:active,
+    .nav-dropdown-trigger:active,
+    .nav-dropdown-menu a:active {
+        transform: scale(0.985);
+    }
+
+    .about-section,
+    .service-card,
+    .blog-card,
+    .blog-article-block,
+    .contact-info-card,
+    .legal-section-content,
+    .blog-rail-card,
+    .global-bottom-cta-panel,
+    .site-footer-enhanced .footer-brand,
+    .site-footer-enhanced .footer-col {
+        background: rgba(255, 255, 255, 0.72) !important;
+        border: 1px solid rgba(148, 163, 184, 0.22) !important;
+        backdrop-filter: saturate(150%) blur(10px);
+        -webkit-backdrop-filter: saturate(150%) blur(10px);
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1) !important;
+    }
+
+    [data-theme="dark"] .about-section,
+    [data-theme="dark"] .service-card,
+    [data-theme="dark"] .blog-card,
+    [data-theme="dark"] .blog-article-block,
+    [data-theme="dark"] .contact-info-card,
+    [data-theme="dark"] .legal-section-content,
+    [data-theme="dark"] .blog-rail-card,
+    [data-theme="dark"] .global-bottom-cta-panel,
+    [data-theme="dark"] .site-footer-enhanced .footer-brand,
+    [data-theme="dark"] .site-footer-enhanced .footer-col {
+        background: rgba(15, 23, 42, 0.62) !important;
+        border-color: rgba(96, 165, 250, 0.26) !important;
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+        box-shadow: 0 8px 18px rgba(37, 99, 235, 0.24) !important;
+    }
+
+    .btn-primary:active,
+    .btn-secondary:active {
+        transform: translateY(1px) scale(0.99);
+        opacity: 0.95;
+    }
+
+    .axel-chat-panel {
+        backdrop-filter: saturate(175%) blur(14px);
+        -webkit-backdrop-filter: saturate(175%) blur(14px);
+        border: 1px solid rgba(148, 163, 184, 0.3) !important;
+    }
+}
