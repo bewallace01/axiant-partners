@@ -372,6 +372,7 @@
     function injectAxelChatbot() {
         if (document.getElementById('axelChatLauncher')) return;
         const prefix = getPathPrefix();
+        const autoOpenKey = 'axelChatAutoOpenedV1';
 
         const launcher = document.createElement('button');
         launcher.id = 'axelChatLauncher';
@@ -425,6 +426,7 @@
         const input = panel.querySelector('#axelChatInput');
         const close = panel.querySelector('.axel-chat-close');
         const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const chatHistory = [];
 
         function addMessage(role, text) {
             if (!messages) return;
@@ -435,37 +437,213 @@
             messages.scrollTop = messages.scrollHeight;
         }
 
+        function makeReply(text, actions) {
+            return {
+                text: text,
+                actions: Array.isArray(actions) ? actions : []
+            };
+        }
+
+        function addBotMessage(payload) {
+            if (!messages) return;
+            const reply = (typeof payload === 'string') ? makeReply(payload) : payload;
+            const msg = document.createElement('div');
+            msg.className = 'axel-chat-message bot';
+            msg.textContent = reply && reply.text ? reply.text : '';
+
+            if (reply && Array.isArray(reply.actions) && reply.actions.length) {
+                const actions = document.createElement('div');
+                actions.className = 'axel-chat-actions';
+                reply.actions.forEach(function(action) {
+                    if (!action || !action.href || !action.label) return;
+                    const link = document.createElement('a');
+                    link.className = 'axel-chat-action';
+                    link.href = action.href;
+                    link.textContent = action.label;
+                    actions.appendChild(link);
+                });
+                if (actions.children.length) {
+                    msg.appendChild(actions);
+                }
+            }
+
+            messages.appendChild(msg);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function pushHistory(role, text) {
+            chatHistory.push({ role: role, text: text, time: Date.now() });
+            if (chatHistory.length > 12) {
+                chatHistory.splice(0, chatHistory.length - 12);
+            }
+        }
+
+        function scoreIntent(query, keywords) {
+            let score = 0;
+            keywords.forEach(function(word) {
+                if (query.indexOf(word) !== -1) score += 1;
+            });
+            return score;
+        }
+
+        function getIntent(query) {
+            const intents = [
+                { name: 'greeting', words: ['hello', 'hi ', 'hey', 'good morning', 'good afternoon', 'good evening'] },
+                { name: 'credit', words: ['credit', 'fico', 'score', 'bankrupt', 'bankruptcy', 'collections'] },
+                { name: 'timeline', words: ['how fast', 'timeline', 'fund', 'funding', 'approval', 'close', 'days', 'weeks'] },
+                { name: 'sba', words: ['sba', '7a', '504'] },
+                { name: 'equipment', words: ['equipment', 'machinery', 'truck', 'vehicle', 'lease'] },
+                { name: 'loc', words: ['line of credit', 'loc', 'revolving', 'draw'] },
+                { name: 'working_capital', words: ['working capital', 'payroll', 'inventory', 'cash flow'] },
+                { name: 'term_loan', words: ['term loan', 'lump sum', 'fixed payment'] },
+                { name: 'cre', words: ['commercial real estate', 'cre', 'property', 'owner occupied', 'refinance', 'acquisition'] },
+                { name: 'referral', words: ['referral', 'commission', 'agreement', 'partner program'] },
+                { name: 'contact', words: ['contact', 'call', 'human', 'agent', 'speak', 'talk to someone'] }
+            ];
+
+            let best = { name: 'general', score: 0 };
+            intents.forEach(function(intent) {
+                const s = scoreIntent(query, intent.words);
+                if (s > best.score) best = { name: intent.name, score: s };
+            });
+            return best.score > 0 ? best.name : 'general';
+        }
+
+        function getContextHint() {
+            if (!chatHistory.length) return '';
+            const recentUser = chatHistory.slice().reverse().find(function(item) { return item.role === 'user'; });
+            if (!recentUser) return '';
+            return recentUser.text.toLowerCase();
+        }
+
         function getReply(raw) {
-            const q = (raw || '').toLowerCase();
-            if (!q.trim()) return 'Tell me a little about what you need, and I will guide you to the right financing path.';
-            if (q.includes('hello') || q.includes('hi') || q.includes('hey')) {
-                return 'Hey there. I am Axel the Loan Lion. I can help you compare financing options and guide your next step.';
+            const q = String(raw || '').trim().toLowerCase();
+            const hint = getContextHint();
+            const intent = getIntent(q);
+            if (!q) {
+                return makeReply(
+                    'Tell me what you are trying to fund, how much you need, and when you need it. I will suggest the best path.',
+                    [{ label: 'Start Application', href: '/match.html' }]
+                );
             }
-            if (q.includes('credit') || q.includes('score')) {
-                return 'Credit expectations vary by product, but stronger scores and clean recent history improve pricing and approvals. If you want, I can suggest options by profile.';
+
+            if (intent === 'greeting') {
+                return makeReply(
+                    'Great to meet you. I am Axel the Loan Lion. If you share your funding amount, use of funds, and timing, I can point you to the best program right away.',
+                    [{ label: 'Find My Match', href: '/match.html' }]
+                );
             }
-            if (q.includes('fast') || q.includes('timeline') || q.includes('fund') || q.includes('approval')) {
-                return 'Many deals receive specialist feedback quickly, and timeline depends on product and documentation. Start here: ' + window.location.origin + '/match.html';
+
+            if (intent === 'credit') {
+                return makeReply(
+                    'Credit score matters, but lenders review the full profile: revenue consistency, time in business, recent bank activity, and debt coverage. Stronger credit usually improves pricing and approval odds. If you share your approximate score range and monthly revenue, I can suggest the best-fit options.',
+                    [{ label: 'Talk to Team', href: '/contact.html' }, { label: 'Apply Now', href: '/match.html' }]
+                );
             }
-            if (q.includes('sba') || q.includes('equipment') || q.includes('line of credit') || q.includes('working capital') || q.includes('term loan') || q.includes('real estate')) {
-                return 'Great question. Axiant supports SBA Loans, Equipment Financing, Working Capital Loans, Business Lines of Credit, Business Term Loans, and Commercial Real Estate solutions.';
+
+            if (intent === 'timeline') {
+                return makeReply(
+                    'Funding speed depends on product and documentation quality. Faster products can move quickly when statements and purpose are clear, while SBA and larger structured deals usually take longer. If you tell me your target funding date, I can recommend a speed-first option.',
+                    [{ label: 'Get Started', href: '/match.html' }]
+                );
             }
-            if (q.includes('referral')) {
-                return 'Our Referral Agreement page has the full details and PDF download: ' + window.location.origin + '/referral.html';
+
+            if (intent === 'sba') {
+                return makeReply(
+                    'SBA financing is best for longer terms and lower monthly payment pressure when your profile is strong. Common use cases include working capital, expansion, equipment, and owner-occupied real estate.',
+                    [{ label: 'View SBA Loans', href: '/sba-loans.html' }, { label: 'Apply for SBA Match', href: '/match.html' }]
+                );
             }
-            if (q.includes('contact') || q.includes('call') || q.includes('human')) {
-                return 'You can connect directly with the team here: ' + window.location.origin + '/contact.html';
+
+            if (intent === 'equipment') {
+                return makeReply(
+                    'Equipment financing can preserve cash by spreading costs over time while matching payments to useful life. It is commonly used for vehicles, heavy machinery, and specialized equipment.',
+                    [{ label: 'View Equipment Financing', href: '/equipment-financing.html' }]
+                );
             }
-            return 'I can help with financing options, timelines, credit expectations, and referrals. For a direct match, go to ' + window.location.origin + '/match.html';
+
+            if (intent === 'loc') {
+                return makeReply(
+                    'A business line of credit is flexible revolving capital for short-term needs like inventory, payroll timing, and receivables gaps. You draw what you need and reuse availability as you repay.',
+                    [{ label: 'View Line of Credit', href: '/business-line-of-credit.html' }]
+                );
+            }
+
+            if (intent === 'working_capital') {
+                return makeReply(
+                    'Working capital loans are designed for day-to-day operations, seasonal gaps, and growth moments where cash timing matters. They are often simpler and faster than long-form loans.',
+                    [{ label: 'View Working Capital', href: '/working-capital-loans.html' }]
+                );
+            }
+
+            if (intent === 'term_loan') {
+                return makeReply(
+                    'Business term loans are useful when you need a lump sum with predictable repayment for expansion, refinance, or strategic investments. They are typically structured around cash flow strength.',
+                    [{ label: 'View Term Loans', href: '/business-term-loans.html' }]
+                );
+            }
+
+            if (intent === 'cre') {
+                return makeReply(
+                    'Commercial real estate financing is commonly used for acquisition, refinance, and owner-occupied properties. Structure depends on occupancy, cash flow, and property type.',
+                    [{ label: 'View CRE Loans', href: '/commercial-real-estate-loans.html' }]
+                );
+            }
+
+            if (intent === 'referral') {
+                return makeReply(
+                    'You can review the full referral terms and download the agreement on the referral page.',
+                    [{ label: 'Open Referral Agreement', href: '/referral.html' }]
+                );
+            }
+
+            if (intent === 'contact') {
+                return makeReply(
+                    'I can connect you to the team directly. If you want, I can also help you prepare the exact details to send so underwriting can review faster.',
+                    [{ label: 'Contact Team', href: '/contact.html' }]
+                );
+            }
+
+            if (hint.indexOf('credit') !== -1 && q.indexOf('what about') !== -1) {
+                return makeReply(
+                    'If credit is your main concern, we can often still identify viable structures by balancing score with cash flow and purpose. Share your score range, revenue trend, and funding need, and I will map next-best options.',
+                    [{ label: 'See Options', href: '/services.html' }]
+                );
+            }
+
+            return makeReply(
+                'I can give a precise recommendation if you share 3 things: funding amount, use of funds, and how fast you need it.',
+                [{ label: 'Start Application', href: '/match.html' }, { label: 'View Services', href: '/services.html' }]
+            );
+        }
+
+        function setThinking(isThinking) {
+            if (!messages) return null;
+            if (!isThinking) {
+                const existing = messages.querySelector('.axel-chat-message.bot.thinking');
+                if (existing) existing.remove();
+                return null;
+            }
+            const thinking = document.createElement('div');
+            thinking.className = 'axel-chat-message bot thinking';
+            thinking.textContent = 'Axel is thinking...';
+            messages.appendChild(thinking);
+            messages.scrollTop = messages.scrollHeight;
+            return thinking;
         }
 
         function handleSend(text) {
             const prompt = (text || '').trim();
             if (!prompt) return;
             addMessage('user', prompt);
+            pushHistory('user', prompt);
+            const thinkingNode = setThinking(true);
             window.setTimeout(function() {
-                addMessage('bot', getReply(prompt));
-            }, 240);
+                if (thinkingNode) thinkingNode.remove();
+                const reply = getReply(prompt);
+                addBotMessage(reply);
+                pushHistory('bot', reply && reply.text ? reply.text : String(reply || ''));
+            }, 320);
         }
 
         function openChat(shouldFocusInput) {
@@ -473,7 +651,10 @@
             launcher.classList.add('open');
             if (messages && !messages.dataset.seeded) {
                 messages.dataset.seeded = '1';
-                addMessage('bot', 'Hi, I am Axel the Loan Lion. Ask me about business financing and I will point you in the right direction.');
+                addBotMessage(makeReply(
+                    'Hi, I am Axel the Loan Lion. Ask me about business financing and I will point you in the right direction.',
+                    [{ label: 'Get Matched', href: '/match.html' }]
+                ));
             }
             if (shouldFocusInput && input) input.focus();
         }
@@ -511,15 +692,29 @@
         });
 
         // Auto-open Axel when each tab/page loads.
-        window.setTimeout(function() {
-            openChat(false);
-            if (!prefersReducedMotion) {
-                panel.classList.add('axel-chat-pop');
-                window.setTimeout(function() {
-                    panel.classList.remove('axel-chat-pop');
-                }, 900);
-            }
-        }, 700);
+        let shouldAutoOpen = true;
+        try {
+            shouldAutoOpen = localStorage.getItem(autoOpenKey) !== '1';
+        } catch (error) {
+            shouldAutoOpen = true;
+        }
+
+        if (shouldAutoOpen) {
+            window.setTimeout(function() {
+                openChat(false);
+                try {
+                    localStorage.setItem(autoOpenKey, '1');
+                } catch (error) {
+                    // Ignore storage restrictions and keep behavior non-blocking.
+                }
+                if (!prefersReducedMotion) {
+                    panel.classList.add('axel-chat-pop');
+                    window.setTimeout(function() {
+                        panel.classList.remove('axel-chat-pop');
+                    }, 900);
+                }
+            }, 700);
+        }
     }
 
     function slugifyHeading(text) {

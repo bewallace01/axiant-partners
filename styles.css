@@ -325,6 +325,22 @@ body::before {
     font-weight: 600;
 }
 
+[data-theme="dark"] .nav-dropdown-menu {
+    background: #0f172a;
+    border-color: rgba(96, 165, 250, 0.3);
+    box-shadow: 0 12px 28px rgba(2, 6, 23, 0.55);
+}
+
+[data-theme="dark"] .nav-dropdown-menu a {
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .nav-dropdown-menu a:hover,
+[data-theme="dark"] .nav-dropdown-menu a.active {
+    color: #93c5fd;
+    background: rgba(59, 130, 246, 0.16);
+}
+
 /* Visual group: resources (Calculator) */
 .nav-links a[href="calculator.html"] {
     margin-left: 16px;
@@ -826,6 +842,13 @@ header h1 {
 }
 
 [data-theme="dark"] .form-group select option {
+    color: #0f172a;
+    background-color: #ffffff;
+}
+
+/* Fallback for any select elements outside .form-group */
+select option,
+select optgroup {
     color: #0f172a;
     background-color: #ffffff;
 }
@@ -3726,6 +3749,33 @@ header h1 {
     background: rgba(96, 165, 250, 0.95);
     color: #0f172a;
     justify-self: end;
+}
+
+.axel-chat-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.axel-chat-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(147, 197, 253, 0.44);
+    background: rgba(30, 64, 175, 0.45);
+    color: #dbeafe;
+    text-decoration: none;
+    font-size: 0.74rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.axel-chat-action:hover {
+    background: rgba(37, 99, 235, 0.7);
+    color: #ffffff;
 }
 
 .axel-chat-quick {
