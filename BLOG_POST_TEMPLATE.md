@@ -103,6 +103,7 @@ Use this template to create/update:
 4) Ensure back-link text and byline formatting are clean
 5) Keep encoding ASCII-safe (no mojibake)
 6) Keep all links relative for local + hosted compatibility
+7) Run: powershell -ExecutionPolicy Bypass -File "scripts/auto_blog_seo.ps1" -PostPath "blog/<SLUG>"
 ```
 
 ---
