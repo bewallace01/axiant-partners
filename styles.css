@@ -4240,10 +4240,29 @@ select optgroup {
     .main-nav > .theme-toggle.theme-toggle-mobile {
         display: inline-flex !important;
         order: 3;
-        margin-left: 8px !important;
+        margin-left: 6px !important;
         margin-right: 0 !important;
-        width: 52px !important;
-        height: 28px !important;
+        width: 44px !important;
+        height: 24px !important;
+        min-width: 44px !important;
+        min-height: 24px !important;
+        align-self: center !important;
+        flex-shrink: 0 !important;
+    }
+
+    .theme-toggle-mobile::after {
+        display: none !important;
+    }
+
+    .theme-toggle-mobile::before {
+        width: 16px !important;
+        height: 16px !important;
+        left: 3px !important;
+        top: 2px !important;
+    }
+
+    [data-theme="dark"] .theme-toggle-mobile::before {
+        transform: translateX(20px) !important;
     }
 
     .main-nav > .theme-toggle:not(.theme-toggle-mobile) {
@@ -6508,7 +6527,7 @@ html {
         background: var(--mobile-panel-bg) !important;
         border-left: 1px solid var(--mobile-panel-border) !important;
         box-shadow: -18px 0 34px rgba(2, 6, 23, 0.3) !important;
-        z-index: 1302 !important;
+        z-index: 1201 !important;
         pointer-events: none !important;
     }
 
@@ -6530,7 +6549,7 @@ html {
     }
 
     .mobile-menu-overlay {
-        z-index: 1300 !important;
+        z-index: 1199 !important;
         pointer-events: none !important;
     }
 
@@ -6747,5 +6766,66 @@ html {
     .axel-chat-input-row button {
         min-height: 42px !important;
         padding: 10px 11px !important;
+    }
+}
+
+/* Mobile nav hard reset: simplify stacking and interactions */
+@media (max-width: 768px) {
+    .main-nav {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 3000 !important;
+    }
+
+    .mobile-menu-overlay {
+        display: none !important;
+        pointer-events: none !important;
+    }
+
+    .nav-links {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: min(92vw, 380px) !important;
+        height: 100dvh !important;
+        z-index: 3001 !important;
+        pointer-events: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        transition: right 0.22s ease !important;
+        overflow-y: auto !important;
+    }
+
+    .nav-links.active {
+        right: 0 !important;
+        pointer-events: auto !important;
+    }
+
+    .nav-links > a,
+    .nav-links > .nav-dropdown,
+    .nav-links > .theme-toggle,
+    .nav-links a,
+    .nav-dropdown-trigger {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .main-nav > .theme-toggle.theme-toggle-mobile {
+        display: inline-flex !important;
+        width: 42px !important;
+        height: 24px !important;
+        min-width: 42px !important;
+        min-height: 24px !important;
+        margin-left: 6px !important;
+        margin-right: 0 !important;
+    }
+
+    .main-nav > .theme-toggle:not(.theme-toggle-mobile) {
+        display: none !important;
+    }
+
+    .nav-links #themeToggle {
+        display: none !important;
     }
 }
