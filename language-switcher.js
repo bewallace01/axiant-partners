@@ -329,6 +329,12 @@
                         '<a href="' + prefix + 'equipment-financing.html">Equipment Financing</a>' +
                         '<a href="' + prefix + 'business-line-of-credit.html">Line of Credit</a>' +
                         '<a href="' + prefix + 'working-capital-loans.html">Working Capital</a>' +
+                        '<a href="' + prefix + 'business-term-loans.html">Business Term Loans</a>' +
+                        '<a href="' + prefix + 'commercial-real-estate-loans.html">Commercial Real Estate</a>' +
+                        '<a href="' + prefix + 'commercial-bridge-loans.html">Commercial Bridge Loans</a>' +
+                        '<a href="' + prefix + 'revenue-based-financing.html">Revenue-Based Financing</a>' +
+                        '<a href="' + prefix + 'securities-based-lending.html">Securities-Based Lending</a>' +
+                        '<a href="' + prefix + 'fix-and-flip.html">Fix and Flip</a>' +
                     '</div>' +
                     '<div class="footer-col">' +
                         '<h4>Company</h4>' +
