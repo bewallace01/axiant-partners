@@ -17,7 +17,7 @@
     }
 
     function enforceAssetVersioning() {
-        const version = '20260305';
+        const version = '20260306';
         document.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
             const href = link.getAttribute('href') || '';
             if (!href || href.indexOf('styles.css') === -1) return;
@@ -126,18 +126,45 @@
         const menuToggle = document.querySelector('.mobile-menu-toggle');
         if (!nav || !navLinks || !menuToggle) return;
 
-        const baseToggle = navLinks.querySelector('.theme-toggle:not(.theme-toggle-mobile)');
-        if (!baseToggle) return;
+        const themeToggle = document.querySelector('.theme-toggle');
+        if (!themeToggle) return;
 
-        let mobileToggle = nav.querySelector('.theme-toggle-mobile');
-        if (!mobileToggle) {
-            mobileToggle = document.createElement('button');
-            mobileToggle.className = 'theme-toggle theme-toggle-mobile';
-            mobileToggle.id = 'themeToggleMobile';
-            mobileToggle.setAttribute('type', 'button');
-            mobileToggle.setAttribute('aria-label', 'Toggle dark mode');
-            menuToggle.insertAdjacentElement('afterend', mobileToggle);
+        const mobileQuery = window.matchMedia('(max-width: 768px)');
+        const syncPlacement = function() {
+            if (mobileQuery.matches) {
+                if (themeToggle.parentElement !== nav) {
+                    menuToggle.insertAdjacentElement('afterend', themeToggle);
+                }
+            } else if (themeToggle.parentElement !== navLinks) {
+                navLinks.appendChild(themeToggle);
+            }
+        };
+
+        syncPlacement();
+        if (themeToggle.dataset.placementBound !== '1') {
+            themeToggle.dataset.placementBound = '1';
+            mobileQuery.addEventListener('change', syncPlacement);
         }
+    }
+
+    function injectMobileHardFixStyles() {
+        if (document.getElementById('mobileHardFixStyles')) return;
+        const style = document.createElement('style');
+        style.id = 'mobileHardFixStyles';
+        style.textContent = [
+            '@media (max-width: 768px) {',
+            '  .main-nav, .nav-links, .mobile-menu-overlay { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }',
+            '  .mobile-menu-toggle { border-radius: 10px !important; box-shadow: 0 3px 10px rgba(15, 23, 42, 0.1) !important; }',
+            '  .main-nav > .theme-toggle { display: inline-flex !important; width: 52px !important; height: 28px !important; margin-left: 8px !important; }',
+            '  .nav-links .theme-toggle { display: none !important; }',
+            '  .axel-chat-launcher { width: 48px !important; height: 48px !important; padding: 0 !important; border-radius: 999px !important; bottom: calc(env(safe-area-inset-bottom, 0px) + 72px) !important; }',
+            '  .axel-chat-launcher-text { display: none !important; }',
+            '  .axel-chat-panel { left: 9px !important; right: 9px !important; width: auto !important; bottom: calc(env(safe-area-inset-bottom, 0px) + 130px) !important; transform: translateY(10px) !important; }',
+            '  .axel-chat-panel.open { transform: translateY(0) !important; }',
+            '  .axel-chat-input-row input { font-size: 16px !important; }',
+            '}'
+        ].join('');
+        document.head.appendChild(style);
     }
 
     function enhanceThemeToggle() {
@@ -933,6 +960,7 @@
         ensureServicesMenuLinks();
         normalizeServiceMenuLinks();
         ensureReferralTab();
+        injectMobileHardFixStyles();
         placeThemeToggleInMobileHeader();
         enhanceThemeToggle();
         enhanceMobileMenuBehavior();
