@@ -4234,16 +4234,11 @@ select optgroup {
     }
 
     .main-nav > .theme-toggle {
-        display: inline-flex !important;
-        order: 3;
-        margin-left: 8px !important;
-        margin-right: 0 !important;
-        width: 52px !important;
-        height: 28px !important;
+        display: none !important;
     }
 
     .nav-links .theme-toggle {
-        display: none !important;
+        display: inline-flex !important;
     }
 
     body.mobile-nav-open {
@@ -6500,6 +6495,12 @@ html {
         background: var(--mobile-panel-bg) !important;
         border-left: 1px solid var(--mobile-panel-border) !important;
         box-shadow: -18px 0 34px rgba(2, 6, 23, 0.3) !important;
+        z-index: 1302 !important;
+        pointer-events: none !important;
+    }
+
+    .nav-links.active {
+        pointer-events: auto !important;
     }
 
     .mobile-menu-topbar {
@@ -6513,6 +6514,15 @@ html {
 
     .mobile-menu-close {
         border-radius: 11px !important;
+    }
+
+    .mobile-menu-overlay {
+        z-index: 1300 !important;
+        pointer-events: none !important;
+    }
+
+    body.mobile-nav-open .mobile-menu-overlay {
+        pointer-events: auto !important;
     }
 
     .nav-links > a,
