@@ -135,9 +135,13 @@
     function standardizeBrandLogos() {
         const prefix = getPathPrefix();
         document.querySelectorAll('img.nav-logo').forEach(function(img) {
-            img.setAttribute('src', prefix + 'logo-horizontal.png');
+            img.setAttribute('src', prefix + 'logo-horizontal-transparent.png');
             img.classList.add('brand-wordmark-logo');
             img.setAttribute('alt', 'Axiant Partners Logo');
+            img.addEventListener('error', function onLogoError() {
+                img.removeEventListener('error', onLogoError);
+                img.setAttribute('src', prefix + 'logo-horizontal.png');
+            });
 
             const parent = img.parentElement;
             if (!parent) return;
@@ -155,6 +159,8 @@
     }
 
     function removeWhiteBackgroundFromLogo(img) {
+        const src = (img && img.getAttribute('src')) || '';
+        if (src.indexOf('logo-horizontal-transparent.png') !== -1) return;
         if (!img || img.dataset.bgRemovedVersion === '4') return;
 
         function processImage() {
@@ -216,6 +222,7 @@
     }
 
     function cleanAllWordmarkLogos() {
+        if (document.querySelector('img.brand-wordmark-logo[src*="logo-horizontal-transparent.png"]')) return;
         document.querySelectorAll('img.brand-wordmark-logo, img.nav-logo.hero-center-logo').forEach(function(img) {
             removeWhiteBackgroundFromLogo(img);
         });
@@ -442,9 +449,18 @@
         enhanceMobileMenuBehavior();
         standardizeBrandLogos();
         syncLegacyFooterYear();
-        enhanceBlogPostLayout();
         enhanceGlobalFooter();
-        cleanAllWordmarkLogos();
+
+        // Defer non-critical visual enhancements until browser is idle.
+        const runDeferred = function() {
+            enhanceBlogPostLayout();
+            cleanAllWordmarkLogos();
+        };
+        if (window.requestIdleCallback) {
+            window.requestIdleCallback(runDeferred, { timeout: 1500 });
+        } else {
+            window.setTimeout(runDeferred, 180);
+        }
     }
 
     if (document.readyState === 'loading') {

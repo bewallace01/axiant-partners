@@ -3256,7 +3256,7 @@ header h1 {
     border: 1px solid rgba(147, 197, 253, 0.35);
     background:
         linear-gradient(135deg, rgba(30, 58, 95, 0.86) 0%, rgba(45, 127, 184, 0.78) 100%),
-        url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=70') center/cover no-repeat;
 }
 
 .global-bottom-cta-panel::before {
@@ -5026,6 +5026,54 @@ html {
     margin-right: 0;
 }
 
+/* Compact service sections: auto 2-column cards where sections contain program cards */
+.form-container.services-content .about-section:has(> .service-card),
+.form-container.equipment-financing-content .about-section:has(> .service-card),
+.form-container.business-line-of-credit-content .about-section:has(> .service-card),
+.form-container.fix-and-flip-content .about-section:has(> .service-card),
+.form-container.working-capital-loans-content .about-section:has(> .service-card),
+.form-container.sba-loans-content .about-section:has(> .service-card) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 16px;
+    align-items: start;
+}
+
+.form-container.services-content .about-section:has(> .service-card) > h2,
+.form-container.services-content .about-section:has(> .service-card) > p,
+.form-container.equipment-financing-content .about-section:has(> .service-card) > h2,
+.form-container.equipment-financing-content .about-section:has(> .service-card) > p,
+.form-container.business-line-of-credit-content .about-section:has(> .service-card) > h2,
+.form-container.business-line-of-credit-content .about-section:has(> .service-card) > p,
+.form-container.fix-and-flip-content .about-section:has(> .service-card) > h2,
+.form-container.fix-and-flip-content .about-section:has(> .service-card) > p,
+.form-container.working-capital-loans-content .about-section:has(> .service-card) > h2,
+.form-container.working-capital-loans-content .about-section:has(> .service-card) > p,
+.form-container.sba-loans-content .about-section:has(> .service-card) > h2,
+.form-container.sba-loans-content .about-section:has(> .service-card) > p {
+    grid-column: 1 / -1;
+}
+
+.form-container.services-content .about-section:has(> .service-card) > .service-card,
+.form-container.equipment-financing-content .about-section:has(> .service-card) > .service-card,
+.form-container.business-line-of-credit-content .about-section:has(> .service-card) > .service-card,
+.form-container.fix-and-flip-content .about-section:has(> .service-card) > .service-card,
+.form-container.working-capital-loans-content .about-section:has(> .service-card) > .service-card,
+.form-container.sba-loans-content .about-section:has(> .service-card) > .service-card {
+    margin: 0;
+    min-height: 100%;
+}
+
+/* Tighten section rhythm on long service pages */
+.form-container.services-content .about-section,
+.form-container.equipment-financing-content .about-section,
+.form-container.business-line-of-credit-content .about-section,
+.form-container.fix-and-flip-content .about-section,
+.form-container.working-capital-loans-content .about-section,
+.form-container.sba-loans-content .about-section {
+    margin-bottom: 0.8rem;
+}
+
 .form-container.blog-post-content > * {
     width: min(1320px, 100%);
     margin-left: auto;
@@ -5074,6 +5122,15 @@ html {
     .form-container.blog-post-content ul,
     .form-container.blog-post-content ol {
         max-width: 100%;
+    }
+
+    .form-container.services-content .about-section:has(> .service-card),
+    .form-container.equipment-financing-content .about-section:has(> .service-card),
+    .form-container.business-line-of-credit-content .about-section:has(> .service-card),
+    .form-container.fix-and-flip-content .about-section:has(> .service-card),
+    .form-container.working-capital-loans-content .about-section:has(> .service-card),
+    .form-container.sba-loans-content .about-section:has(> .service-card) {
+        grid-template-columns: 1fr;
     }
 }
 
