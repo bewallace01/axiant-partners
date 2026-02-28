@@ -17,7 +17,7 @@
     }
 
     function enforceAssetVersioning() {
-        const version = '20260311';
+        const version = '20260312';
         document.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
             const href = link.getAttribute('href') || '';
             if (!href || href.indexOf('styles.css') === -1) return;
