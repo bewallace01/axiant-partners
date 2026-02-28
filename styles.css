@@ -5660,24 +5660,27 @@ html {
     }
 
     .form-container,
+    .form-container[class*="-content"],
     .results-container,
     .services-content,
     .legal-content,
     .calculator-content,
-    .form-container.blog-content,
-    .form-container.blog-post-content {
-        padding: 22px 12px;
-        margin: 0;
+    .about-content {
+        padding: 22px 12px !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     .about-section,
+    .form-container[class*="-content"] .about-section,
     .legal-section-content,
     .blog-article-block,
     .service-card,
     .blog-card,
     .contact-info-card {
-        border-radius: 12px;
-        padding: 16px 14px;
+        border-radius: 12px !important;
+        padding: 16px 14px !important;
     }
 
     .form-row {
@@ -5700,8 +5703,8 @@ html {
 
     .btn-primary,
     .btn-secondary {
-        min-height: 46px;
-        padding: 12px 14px;
+        min-height: 46px !important;
+        padding: 12px 14px !important;
         font-size: 0.9rem;
         border-radius: 10px;
         margin-top: 10px;
@@ -5747,6 +5750,26 @@ html {
         scroll-margin-top: 84px;
     }
 
+    .services-grid,
+    .blog-grid,
+    .glossary-list,
+    .testimonials-grid,
+    .contact-info-grid,
+    .steps-grid,
+    .benefits-grid,
+    .partner-list {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    .equipment-hub-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .lenders-grid {
+        grid-template-columns: 1fr !important;
+    }
+
     .axel-chat-launcher {
         right: 10px;
         bottom: 10px;
@@ -5776,12 +5799,15 @@ html {
     }
 
     .form-container,
+    .form-container[class*="-content"],
     .results-container,
     .services-content,
     .legal-content,
-    .form-container.blog-content,
-    .form-container.blog-post-content {
-        padding: 18px 10px;
+    .about-content {
+        padding: 18px 10px !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     .global-bottom-cta-panel h2 {
