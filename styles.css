@@ -369,6 +369,10 @@ body::before {
     box-shadow: 0 0 10px rgba(45, 127, 184, 0.3);
 }
 
+.theme-toggle-mobile {
+    display: none;
+}
+
 .theme-toggle::before {
     content: '';
     position: absolute;
@@ -3663,14 +3667,23 @@ select optgroup {
     border: 1px solid rgba(147, 197, 253, 0.34);
     border-radius: 16px;
     box-shadow: 0 18px 36px rgba(2, 6, 23, 0.48);
-    display: none;
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(14px) scale(0.98);
+    transform-origin: bottom right;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
     overflow: hidden;
     z-index: 1200;
 }
 
 .axel-chat-panel.open {
-    display: grid;
-    grid-template-rows: auto 1fr auto auto;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
 }
 
 .axel-chat-panel.axel-chat-pop {
@@ -4215,6 +4228,17 @@ select optgroup {
 }
 
 @media (max-width: 768px) {
+    .main-nav .theme-toggle-mobile {
+        display: inline-flex !important;
+        order: 3;
+        margin-left: 8px !important;
+        margin-right: 0 !important;
+    }
+
+    .nav-links > .theme-toggle:not(.theme-toggle-mobile) {
+        display: none !important;
+    }
+
     body.mobile-nav-open {
         overflow: hidden;
     }
@@ -6389,17 +6413,17 @@ html {
 /* Mobile V4: premium app-grade redesign */
 @media (max-width: 768px) {
     :root {
-        --mobile-shell-bg: linear-gradient(180deg, #eef4fb 0%, #f8fbff 100%);
-        --mobile-panel-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(241, 246, 252, 0.94) 100%);
-        --mobile-panel-border: rgba(148, 163, 184, 0.28);
-        --mobile-panel-shadow: 0 10px 26px rgba(15, 23, 42, 0.1);
+        --mobile-shell-bg: #f3f6fb;
+        --mobile-panel-bg: #ffffff;
+        --mobile-panel-border: rgba(148, 163, 184, 0.3);
+        --mobile-panel-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
     }
 
     [data-theme="dark"] {
-        --mobile-shell-bg: linear-gradient(180deg, #0b1628 0%, #0f1b31 100%);
-        --mobile-panel-bg: linear-gradient(180deg, rgba(30, 41, 59, 0.86) 0%, rgba(15, 23, 42, 0.86) 100%);
-        --mobile-panel-border: rgba(96, 165, 250, 0.3);
-        --mobile-panel-shadow: 0 12px 28px rgba(0, 0, 0, 0.34);
+        --mobile-shell-bg: #0f172a;
+        --mobile-panel-bg: #111827;
+        --mobile-panel-border: rgba(96, 165, 250, 0.32);
+        --mobile-panel-shadow: 0 10px 22px rgba(0, 0, 0, 0.36);
     }
 
     html, body {
@@ -6415,15 +6439,52 @@ html {
         top: 0;
         z-index: 1200;
         padding: 10px 12px !important;
-        background: rgba(255, 255, 255, 0.88) !important;
+        background: var(--mobile-panel-bg) !important;
         border-bottom: 1px solid var(--mobile-panel-border) !important;
         box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08) !important;
-        backdrop-filter: blur(14px) saturate(145%) !important;
-        -webkit-backdrop-filter: blur(14px) saturate(145%) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
     }
 
     [data-theme="dark"] .main-nav {
-        background: rgba(15, 23, 42, 0.84) !important;
+        background: var(--mobile-panel-bg) !important;
+    }
+
+    .mobile-menu-overlay {
+        background: rgba(2, 6, 23, 0.46) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .mobile-menu-toggle {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 10px !important;
+        border: 1px solid var(--mobile-panel-border) !important;
+        background: var(--mobile-panel-bg) !important;
+        box-shadow: 0 3px 10px rgba(15, 23, 42, 0.1) !important;
+        padding: 8px !important;
+        justify-content: center !important;
+        gap: 4px !important;
+    }
+
+    .mobile-menu-toggle span {
+        width: 18px !important;
+        height: 2px !important;
+        border-radius: 999px !important;
+        background: var(--text-primary) !important;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg) !important;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0 !important;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg) !important;
     }
 
     .nav-links {
@@ -6464,12 +6525,12 @@ html {
         padding: 8px !important;
         border: 1px solid var(--mobile-panel-border) !important;
         border-radius: 12px !important;
-        background: rgba(255, 255, 255, 0.42) !important;
+        background: var(--mobile-panel-bg) !important;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 8px 18px rgba(15, 23, 42, 0.08) !important;
     }
 
     [data-theme="dark"] .nav-dropdown.mobile-open .nav-dropdown-menu {
-        background: rgba(15, 23, 42, 0.5) !important;
+        background: var(--mobile-panel-bg) !important;
     }
 
     .nav-links .nav-dropdown-menu a {
@@ -6577,11 +6638,81 @@ html {
         padding: 12px 10px !important;
     }
 
+    /* Improve mobile footer contrast in light mode */
+    .site-footer.site-footer-enhanced {
+        background: #0c2f4e !important;
+        color: #e2e8f0 !important;
+    }
+
+    .site-footer-enhanced .footer-col h4 {
+        color: #0f172a !important;
+    }
+
+    .site-footer-enhanced .footer-col a,
+    .site-footer-enhanced .footer-brand p,
+    .site-footer-enhanced .footer-email {
+        color: #1f2937 !important;
+    }
+
+    .site-footer-enhanced .footer-bottom p,
+    .site-footer-enhanced .footer-legal a {
+        color: #cbd5e1 !important;
+    }
+
+    [data-theme="dark"] .site-footer-enhanced .footer-col h4 {
+        color: #f8fafc !important;
+    }
+
+    [data-theme="dark"] .site-footer-enhanced .footer-col a,
+    [data-theme="dark"] .site-footer-enhanced .footer-brand p,
+    [data-theme="dark"] .site-footer-enhanced .footer-email {
+        color: #dbeafe !important;
+    }
+
+    .axel-chat-launcher {
+        right: 10px !important;
+        bottom: 10px !important;
+        padding: 9px 12px !important;
+        border-radius: 12px !important;
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.26) !important;
+    }
+
+    .axel-chat-launcher-text {
+        font-size: 0.8rem !important;
+    }
+
     .axel-chat-panel {
-        width: calc(100% - 18px) !important;
+        left: 9px !important;
         right: 9px !important;
+        width: auto !important;
         bottom: 62px !important;
-        max-height: 66vh !important;
-        border-radius: 14px !important;
+        max-height: min(62vh, 520px) !important;
+        border-radius: 12px !important;
+        transform: translateY(10px) !important;
+    }
+
+    .axel-chat-panel.open {
+        transform: translateY(0) !important;
+    }
+
+    .axel-chat-messages {
+        padding: 10px !important;
+        gap: 7px !important;
+    }
+
+    .axel-chat-input-row {
+        gap: 7px !important;
+        padding: 0 10px 10px !important;
+    }
+
+    .axel-chat-input-row input {
+        font-size: 16px !important;
+        line-height: 1.3 !important;
+        padding: 11px !important;
+    }
+
+    .axel-chat-input-row button {
+        min-height: 42px !important;
+        padding: 10px 11px !important;
     }
 }

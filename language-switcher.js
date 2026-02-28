@@ -17,7 +17,7 @@
     }
 
     function enforceAssetVersioning() {
-        const version = '20260303';
+        const version = '20260304';
         document.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
             const href = link.getAttribute('href') || '';
             if (!href || href.indexOf('styles.css') === -1) return;
@@ -118,6 +118,26 @@
                 }
             }
         });
+    }
+
+    function placeThemeToggleInMobileHeader() {
+        const nav = document.querySelector('.main-nav');
+        const navLinks = document.querySelector('.nav-links');
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        if (!nav || !navLinks || !menuToggle) return;
+
+        const baseToggle = navLinks.querySelector('.theme-toggle:not(.theme-toggle-mobile)');
+        if (!baseToggle) return;
+
+        let mobileToggle = nav.querySelector('.theme-toggle-mobile');
+        if (!mobileToggle) {
+            mobileToggle = document.createElement('button');
+            mobileToggle.className = 'theme-toggle theme-toggle-mobile';
+            mobileToggle.id = 'themeToggleMobile';
+            mobileToggle.setAttribute('type', 'button');
+            mobileToggle.setAttribute('aria-label', 'Toggle dark mode');
+            menuToggle.insertAdjacentElement('afterend', mobileToggle);
+        }
     }
 
     function enhanceThemeToggle() {
@@ -483,6 +503,7 @@
         const input = panel.querySelector('#axelChatInput');
         const close = panel.querySelector('.axel-chat-close');
         const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isMobileViewport = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
         const chatHistory = [];
 
         function addMessage(role, text) {
@@ -713,7 +734,7 @@
                     [{ label: 'Get Matched', href: '/match.html' }]
                 ));
             }
-            if (shouldFocusInput && input) input.focus();
+            if (shouldFocusInput && input && !isMobileViewport) input.focus();
         }
 
         launcher.addEventListener('click', function() {
@@ -756,8 +777,7 @@
             shouldAutoOpen = true;
         }
 
-        const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
-        if (shouldAutoOpen && !isMobile) {
+        if (shouldAutoOpen && !isMobileViewport) {
             window.setTimeout(function() {
                 openChat(false);
                 try {
@@ -913,6 +933,7 @@
         ensureServicesMenuLinks();
         normalizeServiceMenuLinks();
         ensureReferralTab();
+        placeThemeToggleInMobileHeader();
         enhanceThemeToggle();
         enhanceMobileMenuBehavior();
         standardizeBrandLogos();
