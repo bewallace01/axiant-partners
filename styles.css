@@ -6239,3 +6239,124 @@ html {
         border-radius: 12px;
     }
 }
+
+/* Desktop-parity mobile system (latest override) */
+@media (max-width: 768px) {
+    body {
+        background: var(--bg-primary) !important;
+    }
+
+    .main-nav {
+        background: var(--bg-nav) !important;
+        border-bottom: 1px solid var(--border-color) !important;
+        box-shadow: 0 8px 20px var(--shadow-color) !important;
+        border-radius: 0 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .nav-links {
+        width: min(92vw, 390px) !important;
+        padding: 72px 14px 16px !important;
+        background: var(--bg-nav) !important;
+        border-left: 1px solid var(--border-color) !important;
+        box-shadow: -14px 0 30px rgba(15, 23, 42, 0.24) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .mobile-menu-topbar {
+        margin-bottom: 10px !important;
+        padding: 0 2px 10px !important;
+        border-bottom: 1px solid var(--border-color) !important;
+    }
+
+    .mobile-menu-title {
+        color: var(--text-secondary) !important;
+        font-size: 0.78rem !important;
+    }
+
+    .mobile-menu-close {
+        border-color: var(--border-color) !important;
+        background: var(--bg-card) !important;
+        color: var(--text-primary) !important;
+    }
+
+    /* Primary menu rows: clean boxed desktop-like cards */
+    .nav-links > a,
+    .nav-links > .nav-dropdown > .nav-dropdown-trigger {
+        min-height: 46px !important;
+        border-radius: 10px !important;
+        border: 1px solid var(--border-color) !important;
+        background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-card) 100%) !important;
+        color: var(--text-primary) !important;
+        font-size: 0.98rem !important;
+        font-weight: 600 !important;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06) !important;
+    }
+
+    .nav-links > a:hover,
+    .nav-links > a.active,
+    .nav-links > .nav-dropdown.mobile-open > .nav-dropdown-trigger {
+        border-color: rgba(45, 127, 184, 0.55) !important;
+        background: linear-gradient(180deg, rgba(45, 127, 184, 0.12) 0%, rgba(45, 127, 184, 0.08) 100%) !important;
+        color: var(--accent-color) !important;
+    }
+
+    /* Dropdown area: modern nested group instead of plain list */
+    .nav-dropdown.mobile-open .nav-dropdown-menu {
+        margin-top: 6px !important;
+        padding: 8px !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: 10px !important;
+        background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%) !important;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 6px 14px rgba(15, 23, 42, 0.08) !important;
+    }
+
+    .nav-links .nav-dropdown-menu a {
+        min-height: 42px !important;
+        margin: 6px 0 0 !important;
+        border-radius: 8px !important;
+        border: 1px solid transparent !important;
+        background: transparent !important;
+        color: var(--text-secondary) !important;
+        font-size: 0.94rem !important;
+        font-weight: 500 !important;
+        box-shadow: none !important;
+        padding: 9px 10px 9px 12px !important;
+    }
+
+    .nav-links .nav-dropdown-menu a:hover,
+    .nav-links .nav-dropdown-menu a.active {
+        border-color: var(--border-color) !important;
+        background: rgba(45, 127, 184, 0.1) !important;
+        color: var(--accent-color) !important;
+    }
+
+    /* Keep content cards close to desktop look with compact spacing */
+    .about-section,
+    .service-card,
+    .blog-card,
+    .blog-article-block,
+    .legal-section-content,
+    .contact-info-card,
+    .blog-rail-card {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 244, 248, 0.86) 100%) !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 10px 22px rgba(30, 58, 95, 0.08) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    [data-theme="dark"] .about-section,
+    [data-theme="dark"] .service-card,
+    [data-theme="dark"] .blog-card,
+    [data-theme="dark"] .blog-article-block,
+    [data-theme="dark"] .legal-section-content,
+    [data-theme="dark"] .contact-info-card,
+    [data-theme="dark"] .blog-rail-card {
+        background: linear-gradient(180deg, rgba(30, 41, 59, 0.84) 0%, rgba(15, 23, 42, 0.8) 100%) !important;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.34) !important;
+    }
+}
