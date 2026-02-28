@@ -5001,7 +5001,27 @@ html {
 .form-container.fix-and-flip-content,
 .form-container.working-capital-loans-content,
 .form-container.sba-loans-content {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
+    border-top: none;
     padding: clamp(34px, 5vw, 72px) clamp(20px, 5vw, 78px);
+}
+
+/* Ensure any service variant wrapper (including combined classes) is never boxed */
+.form-container.equipment-financing-content,
+.form-container.business-line-of-credit-content,
+.form-container.fix-and-flip-content,
+.form-container.working-capital-loans-content,
+.form-container.sba-loans-content {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
+    border-top: none;
 }
 
 .form-container.services-content .about-section,
