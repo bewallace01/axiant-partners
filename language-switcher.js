@@ -62,6 +62,42 @@
         });
     }
 
+    function ensureReferralTab() {
+        const prefix = getPathPrefix();
+        const onReferralPage = /\/referral\.html$/i.test(window.location.pathname || '');
+
+        document.querySelectorAll('.nav-links').forEach(function(navLinks) {
+            if (!navLinks) return;
+
+            let referralLink = navLinks.querySelector('a[href$="referral.html"]');
+            if (!referralLink) {
+                referralLink = document.createElement('a');
+                referralLink.setAttribute('href', prefix + 'referral.html');
+                referralLink.textContent = 'Referral';
+            }
+
+            if (onReferralPage) {
+                referralLink.classList.add('active');
+            } else {
+                referralLink.classList.remove('active');
+            }
+
+            const contactLink = navLinks.querySelector('a[href$="contact.html"]');
+            if (contactLink && contactLink.parentElement === navLinks) {
+                if (contactLink.nextSibling !== referralLink) {
+                    contactLink.insertAdjacentElement('afterend', referralLink);
+                }
+            } else {
+                const themeToggle = navLinks.querySelector('.theme-toggle');
+                if (themeToggle) {
+                    navLinks.insertBefore(referralLink, themeToggle);
+                } else {
+                    navLinks.appendChild(referralLink);
+                }
+            }
+        });
+    }
+
     function enhanceMobileMenuBehavior() {
         const nav = document.querySelector('.main-nav');
         const menuToggle = document.querySelector('.mobile-menu-toggle');
@@ -304,7 +340,7 @@
                             '<h4>Follow Us</h4>' +
                             '<a href="https://www.linkedin.com/company/axiantpartners/" target="_blank" rel="noopener noreferrer">LinkedIn</a>' +
                             '<a href="https://www.facebook.com/share/1j27PpAoUS/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>' +
-                            '<a href="https://www.facebook.com/share/1j27PpAoUS/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Instagram</a>' +
+                            '<a href="https://www.instagram.com/axiantpartners?igsh=a25pcmZ3NGpxb3Fl&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>' +
                         '</div>' +
                     '</div>' +
                 '</div>' +
@@ -463,6 +499,7 @@
         // Keep full service tabs visible without translation script logic.
         ensureServicesMenuLinks();
         normalizeServiceMenuLinks();
+        ensureReferralTab();
         enhanceMobileMenuBehavior();
         standardizeBrandLogos();
         syncLegacyFooterYear();
