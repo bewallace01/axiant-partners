@@ -17,7 +17,7 @@
     }
 
     function enforceAssetVersioning() {
-        const version = '20260307';
+        const version = '20260308';
         document.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
             const href = link.getAttribute('href') || '';
             if (!href || href.indexOf('styles.css') === -1) return;
@@ -121,9 +121,26 @@
     }
 
     function placeThemeToggleInMobileHeader() {
-        // Keep theme toggle in the original nav-links container.
-        // Moving the control between containers caused inconsistent tap behavior on some mobile browsers.
-        return;
+        const nav = document.querySelector('.main-nav');
+        const navLinks = document.querySelector('.nav-links');
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        if (!nav || !navLinks || !menuToggle) return;
+
+        // If a previous build left the base toggle in the header, move it back into the menu list.
+        const misplacedBaseToggle = nav.querySelector('.theme-toggle:not(.theme-toggle-mobile)');
+        if (misplacedBaseToggle && misplacedBaseToggle.parentElement === nav) {
+            navLinks.appendChild(misplacedBaseToggle);
+        }
+
+        let mobileToggle = nav.querySelector('#themeToggleMobile');
+        if (!mobileToggle) {
+            mobileToggle = document.createElement('button');
+            mobileToggle.className = 'theme-toggle theme-toggle-mobile';
+            mobileToggle.id = 'themeToggleMobile';
+            mobileToggle.setAttribute('type', 'button');
+            mobileToggle.setAttribute('aria-label', 'Toggle dark mode');
+            menuToggle.insertAdjacentElement('afterend', mobileToggle);
+        }
     }
 
     function injectMobileHardFixStyles() {
@@ -135,17 +152,28 @@
         const root = document.documentElement;
         const savedTheme = localStorage.getItem('theme');
         root.setAttribute('data-theme', savedTheme === 'dark' ? 'dark' : 'light');
-        const toggle = document.getElementById('themeToggle') || document.querySelector('.theme-toggle');
-        if (!toggle || toggle.dataset.themeEnhanced === '1') return;
-        toggle.dataset.themeEnhanced = '1';
-        toggle.setAttribute('aria-pressed', root.getAttribute('data-theme') === 'dark' ? 'true' : 'false');
-        toggle.addEventListener('click', function(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            root.setAttribute('data-theme', nextTheme);
-            localStorage.setItem('theme', nextTheme);
-            toggle.setAttribute('aria-pressed', nextTheme === 'dark' ? 'true' : 'false');
+
+        const toggles = Array.from(document.querySelectorAll('.theme-toggle'));
+        if (!toggles.length) return;
+
+        const syncPressedState = function(theme) {
+            toggles.forEach(function(toggle) {
+                toggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+            });
+        };
+
+        syncPressedState(root.getAttribute('data-theme'));
+        toggles.forEach(function(toggle) {
+            if (!toggle || toggle.dataset.themeEnhanced === '1') return;
+            toggle.dataset.themeEnhanced = '1';
+            toggle.addEventListener('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', nextTheme);
+                localStorage.setItem('theme', nextTheme);
+                syncPressedState(nextTheme);
+            });
         });
     }
 

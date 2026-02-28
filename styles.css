@@ -364,6 +364,10 @@ body::before {
     margin-left: 12px;
 }
 
+.theme-toggle-mobile {
+    display: none;
+}
+
 .theme-toggle:hover {
     border-color: var(--accent-color);
     box-shadow: 0 0 10px rgba(45, 127, 184, 0.3);
@@ -4233,12 +4237,21 @@ select optgroup {
         margin-right: auto !important;
     }
 
-    .main-nav > .theme-toggle {
+    .main-nav > .theme-toggle.theme-toggle-mobile {
+        display: inline-flex !important;
+        order: 3;
+        margin-left: 8px !important;
+        margin-right: 0 !important;
+        width: 52px !important;
+        height: 28px !important;
+    }
+
+    .main-nav > .theme-toggle:not(.theme-toggle-mobile) {
         display: none !important;
     }
 
-    .nav-links .theme-toggle {
-        display: inline-flex !important;
+    .nav-links #themeToggle {
+        display: none !important;
     }
 
     body.mobile-nav-open {
