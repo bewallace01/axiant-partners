@@ -17,7 +17,7 @@
     }
 
     function enforceAssetVersioning() {
-        const version = '20260341';
+        const version = '20260346';
         document.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
             const href = link.getAttribute('href') || '';
             if (!href || href.indexOf('styles.css') === -1) return;
@@ -973,8 +973,8 @@
         const key = 'axiantRecentServiceVisualsV1';
         try {
             const list = Array.from(recentVisuals).filter(Boolean);
-            // Keep a rolling window so service pages avoid obvious repeats.
-            const trimmed = list.slice(-60);
+            // Keep a larger rolling history to avoid repeats across many visits/pages.
+            const trimmed = list.slice(-500);
             localStorage.setItem(key, JSON.stringify(trimmed));
         } catch (error) {
             // Ignore storage limitations/private browsing constraints.
@@ -993,8 +993,167 @@
                 return candidate;
             }
         }
-        // Never reuse the same image on a page or recent service-page history.
+        // Strict no-repeat mode for current page.
         return '';
+    }
+
+    function pickVisualUrlOrdered(list, cursorKey, cursors, usedVisuals, recentVisuals) {
+        if (!Array.isArray(list) || !list.length) return '';
+        const start = Math.max(0, Number(cursors[cursorKey] || 0)) % list.length;
+        for (let i = 0; i < list.length; i += 1) {
+            const idx = (start + i) % list.length;
+            const candidate = list[idx];
+            const identity = getVisualIdentity(candidate);
+            if (!usedVisuals.has(identity) && (!recentVisuals || !recentVisuals.has(identity))) {
+                usedVisuals.add(identity);
+                if (recentVisuals) recentVisuals.add(identity);
+                cursors[cursorKey] = (idx + 1) % list.length;
+                return candidate;
+            }
+        }
+        return '';
+    }
+
+    function getPageArtDirection(page) {
+        const plans = {
+            'sba-loans.html': {
+                textSectionPlan: [{ index: 0, variant: 'compact', pool: 'banner' }, { index: 2, variant: 'side', pool: 'inline' }, { index: 4, variant: 'side', pool: 'card' }],
+                sectionCaption: 'Structured SBA funding'
+            },
+            'equipment-financing.html': {
+                textSectionPlan: [{ index: 0, variant: 'compact', pool: 'banner' }, { index: 1, variant: 'side', pool: 'inline' }, { index: 3, variant: 'side', pool: 'card' }],
+                sectionCaption: 'Equipment-driven growth'
+            },
+            'business-line-of-credit.html': {
+                textSectionPlan: [{ index: 0, variant: 'compact', pool: 'inline' }, { index: 2, variant: 'side', pool: 'card' }, { index: 4, variant: 'side', pool: 'inline' }],
+                sectionCaption: 'Flexible credit access'
+            },
+            'working-capital-loans.html': {
+                textSectionPlan: [{ index: 0, variant: 'compact', pool: 'inline' }, { index: 1, variant: 'side', pool: 'card' }, { index: 3, variant: 'side', pool: 'inline' }],
+                sectionCaption: 'Operational momentum capital'
+            },
+            'working-capital.html': {
+                textSectionPlan: [{ index: 0, variant: 'compact', pool: 'inline' }, { index: 1, variant: 'side', pool: 'card' }, { index: 2, variant: 'side', pool: 'inline' }],
+                sectionCaption: 'Daily operating capital'
+            },
+            'business-term-loans.html': {
+                textSectionPlan: [{ index: 0, variant: 'compact', pool: 'banner' }, { index: 2, variant: 'side', pool: 'card' }, { index: 4, variant: 'side', pool: 'inline' }],
+                sectionCaption: 'Planned long-term growth'
+            },
+            'commercial-real-estate-loans.html': {
+                textSectionPlan: [{ index: 0, variant: 'compact', pool: 'banner' }, { index: 1, variant: 'side', pool: 'card' }, { index: 3, variant: 'side', pool: 'inline' }],
+                sectionCaption: 'Commercial property ownership'
+            },
+            'commercial-bridge-loans.html': {
+                textSectionPlan: [{ index: 0, variant: 'compact', pool: 'banner' }, { index: 1, variant: 'side', pool: 'inline' }, { index: 2, variant: 'side', pool: 'card' }],
+                sectionCaption: 'Bridge transition timing'
+            },
+            'revenue-based-financing.html': {
+                textSectionPlan: [{ index: 0, variant: 'compact', pool: 'inline' }, { index: 1, variant: 'side', pool: 'card' }, { index: 3, variant: 'side', pool: 'inline' }],
+                sectionCaption: 'Sales-driven capital'
+            },
+            'securities-based-lending.html': {
+                textSectionPlan: [{ index: 0, variant: 'compact', pool: 'banner' }, { index: 1, variant: 'side', pool: 'inline' }, { index: 2, variant: 'side', pool: 'card' }],
+                sectionCaption: 'Sophisticated asset leverage'
+            },
+            'fix-and-flip.html': {
+                textSectionPlan: [{ index: 0, variant: 'compact', pool: 'banner' }, { index: 1, variant: 'side', pool: 'card' }, { index: 3, variant: 'side', pool: 'inline' }],
+                sectionCaption: 'Renovation and turnaround'
+            }
+        };
+        return plans[page] || null;
+    }
+
+    function getGuidedCardImagePool(title) {
+        const value = String(title || '').toLowerCase();
+        if (value.indexOf('submit your information') !== -1) {
+            return [
+                'assets/ai-howitworks-1.png'
+            ];
+        }
+        if (value.indexOf('match you internally') !== -1) {
+            return [
+                'assets/ai-howitworks-2.png'
+            ];
+        }
+        if (value.indexOf('we call you') !== -1) {
+            return [
+                'assets/ai-howitworks-3.png'
+            ];
+        }
+        if (value.indexOf('banks contact you') !== -1) {
+            return [
+                'assets/ai-howitworks-4.png'
+            ];
+        }
+        if (value.indexOf('application & documentation') !== -1 || value.indexOf('application and documentation') !== -1) {
+            return [
+                'assets/ai-sba-3.png'
+            ];
+        }
+        if (value.indexOf('underwriting & sba review') !== -1 || value.indexOf('underwriting and sba review') !== -1) {
+            return [
+                'assets/ai-sba-4.png'
+            ];
+        }
+        if (value.indexOf('approval & closing') !== -1 || value.indexOf('approval and closing') !== -1) {
+            return [
+                'assets/ai-sba-5.png'
+            ];
+        }
+        if (value.indexOf('funding') !== -1) {
+            return [
+                'assets/ai-sba-6.png'
+            ];
+        }
+        if (value.indexOf('save time') !== -1) {
+            return [
+                'assets/ai-whyaxiant-1.png'
+            ];
+        }
+        if (value.indexOf('higher approval rates') !== -1) {
+            return [
+                'assets/ai-whyaxiant-2.png'
+            ];
+        }
+        if (value.indexOf('secure and private') !== -1) {
+            return [
+                'assets/ai-whyaxiant-3.png'
+            ];
+        }
+        if (value.indexOf('premium relationships') !== -1) {
+            return [
+                'assets/ai-whyaxiant-4.png'
+            ];
+        }
+        if (value.indexOf('personal service') !== -1) {
+            return [
+                'assets/ai-whyaxiant-5.png'
+            ];
+        }
+        if (value.indexOf('no cost to you') !== -1) {
+            return [
+                'assets/ai-whyaxiant-6.png'
+            ];
+        }
+        return null;
+    }
+
+    function resolveVisualAsset(url) {
+        const value = String(url || '');
+        if (!value) return '';
+        if (/^(https?:)?\/\//i.test(value) || value.startsWith('data:')) return value;
+        return getPathPrefix() + value.replace(/^\/+/, '');
+    }
+
+    function resolveVisualSet(rawSet) {
+        const visual = rawSet || {};
+        return {
+            banner: (visual.banner || []).map(resolveVisualAsset),
+            card: (visual.card || []).map(resolveVisualAsset),
+            inline: (visual.inline || []).map(resolveVisualAsset),
+            caption: visual.caption || ''
+        };
     }
 
     function getTopicVisualSet() {
@@ -1004,237 +1163,292 @@
         const sets = {
             equipment: {
                 banner: [
-                    'https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=1800&q=75'
+                    'assets/ai-equipment-1.png',
+                    'assets/ai-equipment-2.png',
+                    'assets/ai-equipment-3.png',
+                    'assets/ai-equipment-4.png',
+                    'assets/ai-equipment-5.png'
                 ],
                 card: [
-                    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1581091215367-59ab6dcee6b9?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1581092583537-20d51b4b4f1b?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=1200&q=75'
+                    'assets/ai-equipment-1.png',
+                    'assets/ai-equipment-2.png',
+                    'assets/ai-equipment-3.png',
+                    'assets/ai-equipment-4.png',
+                    'assets/ai-equipment-5.png'
                 ],
                 inline: [
-                    'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1581092583537-20d51b4b4f1b?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1581091215367-59ab6dcee6b9?auto=format&fit=crop&w=1400&q=75'
+                    'assets/ai-equipment-1.png',
+                    'assets/ai-equipment-2.png',
+                    'assets/ai-equipment-3.png',
+                    'assets/ai-equipment-4.png',
+                    'assets/ai-equipment-5.png'
                 ],
                 caption: 'Equipment financing insights'
             },
             realEstate: {
                 banner: [
-                    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1800&q=75'
+                    'assets/ai-realestate-1.png',
+                    'assets/ai-realestate-2.png',
+                    'assets/ai-realestate-3.png',
+                    'assets/ai-realestate-4.png',
+                    'assets/ai-realestate-5.png'
                 ],
                 card: [
-                    'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1465800872432-3491746876cf?auto=format&fit=crop&w=1200&q=75'
+                    'assets/ai-realestate-1.png',
+                    'assets/ai-realestate-2.png',
+                    'assets/ai-realestate-3.png',
+                    'assets/ai-realestate-4.png',
+                    'assets/ai-realestate-5.png'
                 ],
                 inline: [
-                    'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1465800872432-3491746876cf?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1400&q=75'
+                    'assets/ai-realestate-1.png',
+                    'assets/ai-realestate-2.png',
+                    'assets/ai-realestate-3.png',
+                    'assets/ai-realestate-4.png',
+                    'assets/ai-realestate-5.png'
                 ],
                 caption: 'Commercial real estate funding'
             },
             sba: {
                 banner: [
-                    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=75'
+                    'assets/ai-sba-1.png',
+                    'assets/ai-sba-2.png',
+                    'assets/ai-sba-3.png',
+                    'assets/ai-sba-4.png',
+                    'assets/ai-sba-5.png',
+                    'assets/ai-sba-6.png'
                 ],
                 card: [
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=75'
+                    'assets/ai-sba-1.png',
+                    'assets/ai-sba-2.png',
+                    'assets/ai-sba-3.png',
+                    'assets/ai-sba-4.png',
+                    'assets/ai-sba-5.png',
+                    'assets/ai-sba-6.png'
                 ],
                 inline: [
-                    'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=1400&q=75'
+                    'assets/ai-sba-1.png',
+                    'assets/ai-sba-2.png',
+                    'assets/ai-sba-3.png',
+                    'assets/ai-sba-4.png',
+                    'assets/ai-sba-5.png',
+                    'assets/ai-sba-6.png'
                 ],
                 caption: 'SBA loan strategies'
             },
             bridge: {
                 banner: [
-                    'https://images.unsplash.com/photo-1460472178825-e5240623afd5?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=75'
+                    'assets/ai-bridge-1.png',
+                    'assets/ai-bridge-2.png',
+                    'assets/ai-bridge-3.png',
+                    'assets/ai-bridge-4.png',
+                    'assets/ai-bridge-5.png'
                 ],
                 card: [
-                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=75'
+                    'assets/ai-bridge-1.png',
+                    'assets/ai-bridge-2.png',
+                    'assets/ai-bridge-3.png',
+                    'assets/ai-bridge-4.png',
+                    'assets/ai-bridge-5.png'
                 ],
                 inline: [
-                    'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1560185007-5f0bb1866cab?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=75'
+                    'assets/ai-bridge-1.png',
+                    'assets/ai-bridge-2.png',
+                    'assets/ai-bridge-3.png',
+                    'assets/ai-bridge-4.png',
+                    'assets/ai-bridge-5.png'
                 ],
                 caption: 'Bridge and transition financing'
             },
-            growth: {
+            fixFlip: {
                 banner: [
-                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=75'
+                    'assets/ai-fixflip-1.png',
+                    'assets/ai-fixflip-2.png',
+                    'assets/ai-fixflip-3.png',
+                    'assets/ai-fixflip-4.png',
+                    'assets/ai-fixflip-5.png'
                 ],
                 card: [
-                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=75'
+                    'assets/ai-fixflip-1.png',
+                    'assets/ai-fixflip-2.png',
+                    'assets/ai-fixflip-3.png',
+                    'assets/ai-fixflip-4.png',
+                    'assets/ai-fixflip-5.png'
                 ],
                 inline: [
-                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75'
+                    'assets/ai-fixflip-1.png',
+                    'assets/ai-fixflip-2.png',
+                    'assets/ai-fixflip-3.png',
+                    'assets/ai-fixflip-4.png',
+                    'assets/ai-fixflip-5.png'
+                ],
+                caption: 'Fix and flip renovation financing'
+            },
+            growth: {
+                banner: [
+                    'assets/ai-growth-1.png',
+                    'assets/ai-growth-2.png',
+                    'assets/ai-growth-3.png',
+                    'assets/ai-termloans-3.png',
+                    'assets/ai-workingcapital-5.png'
+                ],
+                card: [
+                    'assets/ai-growth-1.png',
+                    'assets/ai-growth-2.png',
+                    'assets/ai-growth-3.png',
+                    'assets/ai-termloans-4.png',
+                    'assets/ai-workingcapital-3.png',
+                    'assets/ai-linecredit-5.png'
+                ],
+                inline: [
+                    'assets/ai-growth-1.png',
+                    'assets/ai-growth-2.png',
+                    'assets/ai-growth-3.png',
+                    'assets/ai-termloans-5.png',
+                    'assets/ai-workingcapital-4.png',
+                    'assets/ai-linecredit-3.png',
+                    'assets/ai-revenue-3.png'
                 ],
                 caption: 'Business growth and capital planning'
             },
             lineCredit: {
                 banner: [
-                    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1800&q=75'
+                    'assets/ai-linecredit-1.png',
+                    'assets/ai-linecredit-2.png',
+                    'assets/ai-linecredit-3.png',
+                    'assets/ai-linecredit-4.png',
+                    'assets/ai-linecredit-5.png'
                 ],
                 card: [
-                    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1200&q=75'
+                    'assets/ai-linecredit-1.png',
+                    'assets/ai-linecredit-2.png',
+                    'assets/ai-linecredit-3.png',
+                    'assets/ai-linecredit-4.png',
+                    'assets/ai-linecredit-5.png'
                 ],
                 inline: [
-                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=75'
+                    'assets/ai-linecredit-1.png',
+                    'assets/ai-linecredit-2.png',
+                    'assets/ai-linecredit-3.png',
+                    'assets/ai-linecredit-4.png',
+                    'assets/ai-linecredit-5.png'
                 ],
                 caption: 'Business line of credit flexibility'
             },
             workingCapital: {
                 banner: [
-                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=75'
+                    'assets/ai-workingcapital-1.png',
+                    'assets/ai-workingcapital-2.png',
+                    'assets/ai-workingcapital-3.png',
+                    'assets/ai-workingcapital-4.png',
+                    'assets/ai-workingcapital-5.png'
                 ],
                 card: [
-                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=75'
+                    'assets/ai-workingcapital-1.png',
+                    'assets/ai-workingcapital-2.png',
+                    'assets/ai-workingcapital-3.png',
+                    'assets/ai-workingcapital-4.png',
+                    'assets/ai-workingcapital-5.png'
                 ],
                 inline: [
-                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75'
+                    'assets/ai-workingcapital-1.png',
+                    'assets/ai-workingcapital-2.png',
+                    'assets/ai-workingcapital-3.png',
+                    'assets/ai-workingcapital-4.png',
+                    'assets/ai-workingcapital-5.png'
                 ],
                 caption: 'Working capital for daily operations'
             },
             termLoans: {
                 banner: [
-                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1800&q=75'
+                    'assets/ai-termloans-1.png',
+                    'assets/ai-termloans-2.png',
+                    'assets/ai-termloans-3.png',
+                    'assets/ai-termloans-4.png',
+                    'assets/ai-termloans-5.png'
                 ],
                 card: [
-                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=75'
+                    'assets/ai-termloans-1.png',
+                    'assets/ai-termloans-2.png',
+                    'assets/ai-termloans-3.png',
+                    'assets/ai-termloans-4.png',
+                    'assets/ai-termloans-5.png'
                 ],
                 inline: [
-                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75'
+                    'assets/ai-termloans-1.png',
+                    'assets/ai-termloans-2.png',
+                    'assets/ai-termloans-3.png',
+                    'assets/ai-termloans-4.png',
+                    'assets/ai-termloans-5.png'
                 ],
                 caption: 'Structured business term loan growth'
             },
             revenueBased: {
                 banner: [
-                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1800&q=75'
+                    'assets/ai-revenue-1.png',
+                    'assets/ai-revenue-2.png',
+                    'assets/ai-revenue-3.png',
+                    'assets/ai-revenue-4.png',
+                    'assets/ai-revenue-5.png'
                 ],
                 card: [
-                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=75'
+                    'assets/ai-revenue-1.png',
+                    'assets/ai-revenue-2.png',
+                    'assets/ai-revenue-3.png',
+                    'assets/ai-revenue-4.png',
+                    'assets/ai-revenue-5.png'
                 ],
                 inline: [
-                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1400&q=75'
+                    'assets/ai-revenue-1.png',
+                    'assets/ai-revenue-2.png',
+                    'assets/ai-revenue-3.png',
+                    'assets/ai-revenue-4.png',
+                    'assets/ai-revenue-5.png'
                 ],
                 caption: 'Revenue-driven funding momentum'
             },
             securities: {
                 banner: [
-                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1800&q=75'
+                    'assets/ai-securities-1.png',
+                    'assets/ai-securities-2.png',
+                    'assets/ai-securities-3.png',
+                    'assets/ai-securities-4.png'
                 ],
                 card: [
-                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=75'
+                    'assets/ai-securities-1.png',
+                    'assets/ai-securities-2.png',
+                    'assets/ai-securities-3.png',
+                    'assets/ai-securities-4.png'
                 ],
                 inline: [
-                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75'
+                    'assets/ai-securities-1.png',
+                    'assets/ai-securities-2.png',
+                    'assets/ai-securities-3.png',
+                    'assets/ai-securities-4.png'
                 ],
                 caption: 'Sophisticated asset-backed lending'
             },
             blog: {
                 banner: [
-                    'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1800&q=75',
-                    'https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1800&q=75'
+                    'assets/ai-blog-1.png',
+                    'assets/ai-blog-2.png',
+                    'assets/ai-blog-3.png',
+                    'assets/ai-blog-4.png',
+                    'assets/ai-blog-5.png'
                 ],
                 card: [
-                    'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1200&q=75',
-                    'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=1200&q=75'
+                    'assets/ai-blog-1.png',
+                    'assets/ai-blog-2.png',
+                    'assets/ai-blog-3.png',
+                    'assets/ai-blog-4.png',
+                    'assets/ai-blog-5.png'
                 ],
                 inline: [
-                    'https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=1400&q=75',
-                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75'
+                    'assets/ai-blog-1.png',
+                    'assets/ai-blog-2.png',
+                    'assets/ai-blog-3.png',
+                    'assets/ai-blog-4.png',
+                    'assets/ai-blog-5.png'
                 ],
                 caption: 'Funding guides and industry insights'
             }
@@ -1282,7 +1496,7 @@
             // CRE and bridge lending pages
             'commercial-real-estate-loans.html': 'realEstate',
             'commercial-bridge-loans.html': 'bridge',
-            'fix-and-flip.html': 'bridge',
+            'fix-and-flip.html': 'fixFlip',
 
             // SBA and business credit pages
             'sba-loans.html': 'sba',
@@ -1300,7 +1514,7 @@
             'commercial-bridge-loans-blog.html': 'bridge',
             'commercial-real-estate-loans-blog.html': 'realEstate',
             'equipment-financing-blog.html': 'equipment',
-            'fix-and-flip-blog.html': 'bridge',
+            'fix-and-flip-blog.html': 'fixFlip',
             'revenue-based-financing-blog.html': 'revenueBased',
             'sba-loans-blog.html': 'sba',
             'securities-based-lending-blog.html': 'securities',
@@ -1315,7 +1529,8 @@
         }
         if (/commercial-real-estate|real-estate|cre/.test(page)) return sets.realEstate;
         if (/sba/.test(page)) return sets.sba;
-        if (/bridge|fix-and-flip|flip/.test(page)) return sets.bridge;
+        if (/fix-and-flip|flip/.test(page)) return sets.fixFlip;
+        if (/bridge/.test(page)) return sets.bridge;
         if (/business-line-of-credit|line-of-credit/.test(page)) return sets.lineCredit;
         if (/working-capital/.test(page)) return sets.workingCapital;
         if (/term-loans/.test(page)) return sets.termLoans;
@@ -1349,38 +1564,31 @@
     }
 
     function injectTopicVisuals() {
-        const visual = getTopicVisualSet();
+        const visual = resolveVisualSet(getTopicVisualSet());
         const pageTitle = (document.title || 'Axiant Partners').replace(/\s+\|.*$/, '').trim();
         const altBase = pageTitle || 'Business financing';
         const path = (window.location.pathname || '').toLowerCase();
         const page = path.split('/').pop() || 'index.html';
+        const artDirection = getPageArtDirection(page);
         const isBlogPost = /\/blog\//.test(path) && page.endsWith('.html');
         const isBlogHub = !isBlogPost && /(^|-)blog\.html$/.test(page);
         const isServicePage = !isBlogPost && !isBlogHub && /(financing|loans|lending|capital|bridge|flip|sba|line-of-credit|term-loans)/.test(page);
         const usedUrls = new Set();
         const recentVisuals = isServicePage ? getRecentServiceVisuals() : null;
+        const orderedCursors = { banner: 0, inline: 0, card: 0, mixed: 0 };
+        const pickFromPool = function(poolName, seed) {
+            const list = visual[poolName] || [];
+            if (!list.length) return '';
+            if (artDirection) return pickVisualUrlOrdered(list, poolName, orderedCursors, usedUrls, recentVisuals);
+            return pickVisualUrl(list, seed, usedUrls, recentVisuals);
+        };
         const intro = document.querySelector('.form-container .results-intro, .services-content .results-intro, .blog-content .results-intro');
         if (intro && intro.parentElement && !isServicePage && !isBlogHub && !isBlogPost && !intro.parentElement.querySelector('.topic-visual.topic-visual-banner')) {
-            const bannerUrl = pickVisualUrl(visual.banner, page + '-intro-banner', usedUrls, recentVisuals);
+            const bannerUrl = pickFromPool('banner', page + '-intro-banner');
             if (bannerUrl) intro.insertAdjacentElement('afterend', buildTopicVisual(bannerUrl, altBase + ' overview image', 'banner', visual.caption));
         }
         // Service pages: place one compact contextual image inside first content section instead of a large banner.
         if (isServicePage) {
-            const firstSection = document.querySelector('.form-container.about-content .about-section, .form-container.services-content .about-section, .form-container[class*="-content"] .about-section');
-            if (firstSection && !firstSection.querySelector('.topic-visual')) {
-                const anchor = firstSection.querySelector('p + p, p, h2, h3');
-                const serviceUrl = pickVisualUrl(visual.inline, page + '-service-top', usedUrls, recentVisuals);
-                if (serviceUrl) {
-                    const media = buildTopicVisual(serviceUrl, altBase + ' overview image', 'compact', null);
-                    if (anchor) {
-                        anchor.insertAdjacentElement('afterend', media);
-                    } else {
-                        firstSection.appendChild(media);
-                    }
-                }
-            }
-
-            // Add contextual side visuals to long text-only sections to reduce dead horizontal space.
             const textSections = Array.from(document.querySelectorAll('.form-container .about-section')).filter(function(section) {
                 if (!section || section.querySelector('.topic-visual')) return false;
                 if (section.querySelector(':scope > .service-card')) return false;
@@ -1390,13 +1598,23 @@
                 return paragraphText.length > 260;
             });
 
-            textSections.slice(0, 3).forEach(function(section, idx) {
+            const placements = (artDirection && Array.isArray(artDirection.textSectionPlan) && artDirection.textSectionPlan.length)
+                ? artDirection.textSectionPlan
+                : [{ index: 0, variant: 'compact', pool: 'inline' }, { index: 1, variant: 'side', pool: 'inline' }, { index: 2, variant: 'side', pool: 'inline' }];
+
+            placements.forEach(function(plan, idx) {
+                const section = textSections[plan.index];
+                if (!section || section.querySelector('.topic-visual')) return;
                 const heading = section.querySelector('h2, h3');
                 const headingText = heading ? heading.textContent.trim() : '';
-                const extraUrl = pickVisualUrl(visual.inline, page + '-section-side-' + idx + '-' + headingText, usedUrls, recentVisuals);
+                const poolName = plan.pool || (plan.variant === 'compact' ? 'inline' : 'card');
+                const extraUrl = pickFromPool(poolName, page + '-section-' + idx + '-' + headingText);
                 if (!extraUrl) return;
-                const anchor = section.querySelector('h2 + p, h3 + p, p + p, p');
-                const media = buildTopicVisual(extraUrl, (headingText || altBase) + ' supporting image', 'side', null);
+                const anchor = (plan.variant === 'side')
+                    ? section.querySelector('h2 + p, h3 + p, p + p, p')
+                    : section.querySelector('p + p, p, h2, h3');
+                const caption = (plan.variant === 'compact' && artDirection && artDirection.sectionCaption) ? artDirection.sectionCaption : null;
+                const media = buildTopicVisual(extraUrl, (headingText || altBase) + ' supporting image', plan.variant || 'side', caption);
                 if (anchor) {
                     anchor.insertAdjacentElement('afterend', media);
                 } else {
@@ -1408,7 +1626,7 @@
             const firstSection = document.querySelector('.form-container.about-content .about-section, .form-container.services-content .about-section, .form-container[class*="-content"] .about-section');
             if (firstSection && !firstSection.querySelector('.topic-visual')) {
                 const anchor = firstSection.querySelector('p, h2, h3');
-                const fallbackBannerUrl = pickVisualUrl(visual.banner, page + '-fallback-banner', usedUrls, recentVisuals);
+                const fallbackBannerUrl = pickFromPool('banner', page + '-fallback-banner');
                 if (fallbackBannerUrl) {
                     const media = buildTopicVisual(fallbackBannerUrl, altBase + ' overview image', 'banner', visual.caption);
                     if (anchor) {
@@ -1424,12 +1642,11 @@
         document.querySelectorAll('.about-section').forEach(function(section) {
             const cards = Array.from(section.querySelectorAll(':scope > .service-card'));
             if (cards.length < 2) return;
-            const cardPool = (visual.card || []).concat(visual.inline || []);
             cards.forEach(function(card, idx) {
                 if (card.querySelector('.topic-visual')) return;
                 const cardTitle = card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : '';
                 const cardSeed = page + '-card-' + idx + '-' + (cardTitle || card.textContent.slice(0, 30));
-                const cardUrl = pickVisualUrl(cardPool, cardSeed, usedUrls, recentVisuals);
+                const cardUrl = pickFromPool('card', cardSeed) || pickFromPool('inline', cardSeed + '-inline');
                 if (!cardUrl) return;
                 const media = buildTopicVisual(cardUrl, (cardTitle || altBase) + ' supporting image', 'compact', null);
                 const heading = card.querySelector('h3');
@@ -1445,13 +1662,15 @@
         document.querySelectorAll('.about-section, .blog-article-block').forEach(function(scope, scopeIdx) {
             const cards = Array.from(scope.querySelectorAll(':scope .step-card, :scope .benefit-card, :scope .leasing-option-card'));
             if (cards.length < 2) return;
-            const pool = (visual.card || []).concat(visual.inline || []);
             cards.forEach(function(card, cardIdx) {
                 if (card.querySelector('.topic-visual')) return;
                 const titleNode = card.querySelector('h3, h4');
                 const cardTitle = titleNode ? titleNode.textContent.trim() : '';
                 const seed = page + '-detail-card-' + scopeIdx + '-' + cardIdx + '-' + (cardTitle || card.textContent.slice(0, 28));
-                const cardUrl = pickVisualUrl(pool, seed, usedUrls, recentVisuals);
+                const guidedPool = getGuidedCardImagePool(cardTitle);
+                const cardUrl = guidedPool
+                    ? (artDirection ? pickVisualUrlOrdered(guidedPool, 'guided-' + cardIdx, orderedCursors, usedUrls, recentVisuals) : pickVisualUrl(guidedPool, seed + '-guided', usedUrls, recentVisuals))
+                    : (pickFromPool('card', seed) || pickFromPool('inline', seed + '-inline'));
                 if (!cardUrl) return;
                 const media = buildTopicVisual(cardUrl, (cardTitle || altBase) + ' supporting image', 'compact', null);
                 if (titleNode) {
@@ -1469,7 +1688,7 @@
                 if (card.querySelector('.topic-visual')) return;
                 const variant = idx % 3 === 0 ? 'inline' : 'compact';
                 const title = card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : altBase;
-                const blogCardUrl = pickVisualUrl(visual.inline, page + '-blog-card-' + title + '-' + idx, usedUrls, recentVisuals);
+                const blogCardUrl = pickFromPool('inline', page + '-blog-card-' + title + '-' + idx);
                 if (!blogCardUrl) return;
                 const media = buildTopicVisual(blogCardUrl, title + ' image', variant, null);
                 card.insertBefore(media, card.firstChild);
@@ -1483,7 +1702,7 @@
                 if (block.querySelector('.topic-visual') || block.querySelector('img')) return;
                 const h2 = block.querySelector('h2');
                 const alt = (h2 ? h2.textContent.trim() : altBase) + ' image';
-                const postUrl = pickVisualUrl(visual.inline, page + '-post-block-' + idx + '-' + alt, usedUrls, recentVisuals);
+                const postUrl = pickFromPool('inline', page + '-post-block-' + idx + '-' + alt);
                 if (!postUrl) return;
                 block.appendChild(buildTopicVisual(postUrl, alt, 'side', null));
             });
