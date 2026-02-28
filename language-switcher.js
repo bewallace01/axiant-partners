@@ -39,8 +39,14 @@
                 existing.set(file, link);
             });
 
-            const firstHref = menu.querySelector('a') ? (menu.querySelector('a').getAttribute('href') || '') : '';
-            const prefix = firstHref.startsWith('../') ? '../' : '';
+            // Resolve links from current page depth (critical for /blog/* pages).
+            let prefix = getPathPrefix();
+            if (!prefix) {
+                const path = window.location.pathname || '';
+                if (path.indexOf('/blog/') !== -1 || path.indexOf('\\blog\\') !== -1) {
+                    prefix = '../';
+                }
+            }
 
             menu.innerHTML = '';
             serviceLinks.forEach(function(item) {
