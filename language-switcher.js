@@ -17,7 +17,7 @@
     }
 
     function enforceAssetVersioning() {
-        const version = '20260313';
+        const version = '20260341';
         document.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
             const href = link.getAttribute('href') || '';
             if (!href || href.indexOf('styles.css') === -1) return;
@@ -940,6 +940,560 @@
         container.appendChild(shell);
     }
 
+    function hashString(input) {
+        let hash = 0;
+        const value = String(input || '');
+        for (let i = 0; i < value.length; i += 1) {
+            hash = ((hash << 5) - hash) + value.charCodeAt(i);
+            hash |= 0;
+        }
+        return Math.abs(hash);
+    }
+
+    function getVisualIdentity(url) {
+        const value = String(url || '');
+        const match = value.match(/photo-[^?&/]+/i);
+        return match ? match[0].toLowerCase() : value.toLowerCase();
+    }
+
+    function getRecentServiceVisuals() {
+        const key = 'axiantRecentServiceVisualsV1';
+        try {
+            const raw = localStorage.getItem(key);
+            if (!raw) return new Set();
+            const list = JSON.parse(raw);
+            if (!Array.isArray(list)) return new Set();
+            return new Set(list.map(function(item) { return String(item || '').toLowerCase(); }).filter(Boolean));
+        } catch (error) {
+            return new Set();
+        }
+    }
+
+    function saveRecentServiceVisuals(recentVisuals) {
+        const key = 'axiantRecentServiceVisualsV1';
+        try {
+            const list = Array.from(recentVisuals).filter(Boolean);
+            // Keep a rolling window so service pages avoid obvious repeats.
+            const trimmed = list.slice(-60);
+            localStorage.setItem(key, JSON.stringify(trimmed));
+        } catch (error) {
+            // Ignore storage limitations/private browsing constraints.
+        }
+    }
+
+    function pickVisualUrl(list, seed, usedVisuals, recentVisuals) {
+        if (!Array.isArray(list) || !list.length) return '';
+        const base = hashString(seed);
+        for (let i = 0; i < list.length; i += 1) {
+            const candidate = list[(base + i) % list.length];
+            const identity = getVisualIdentity(candidate);
+            if (!usedVisuals.has(identity) && (!recentVisuals || !recentVisuals.has(identity))) {
+                usedVisuals.add(identity);
+                if (recentVisuals) recentVisuals.add(identity);
+                return candidate;
+            }
+        }
+        // Never reuse the same image on a page or recent service-page history.
+        return '';
+    }
+
+    function getTopicVisualSet() {
+        const path = (window.location.pathname || '').toLowerCase();
+        const page = path.split('/').pop() || 'index.html';
+
+        const sets = {
+            equipment: {
+                banner: [
+                    'https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=1800&q=75'
+                ],
+                card: [
+                    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1581091215367-59ab6dcee6b9?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1581092583537-20d51b4b4f1b?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=1200&q=75'
+                ],
+                inline: [
+                    'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1581092583537-20d51b4b4f1b?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1581091215367-59ab6dcee6b9?auto=format&fit=crop&w=1400&q=75'
+                ],
+                caption: 'Equipment financing insights'
+            },
+            realEstate: {
+                banner: [
+                    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1800&q=75'
+                ],
+                card: [
+                    'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1465800872432-3491746876cf?auto=format&fit=crop&w=1200&q=75'
+                ],
+                inline: [
+                    'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1486401899868-0e435ed85128?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1465800872432-3491746876cf?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1400&q=75'
+                ],
+                caption: 'Commercial real estate funding'
+            },
+            sba: {
+                banner: [
+                    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=75'
+                ],
+                card: [
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=75'
+                ],
+                inline: [
+                    'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=1400&q=75'
+                ],
+                caption: 'SBA loan strategies'
+            },
+            bridge: {
+                banner: [
+                    'https://images.unsplash.com/photo-1460472178825-e5240623afd5?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=75'
+                ],
+                card: [
+                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=75'
+                ],
+                inline: [
+                    'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1560185007-5f0bb1866cab?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=75'
+                ],
+                caption: 'Bridge and transition financing'
+            },
+            growth: {
+                banner: [
+                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=75'
+                ],
+                card: [
+                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=75'
+                ],
+                inline: [
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75'
+                ],
+                caption: 'Business growth and capital planning'
+            },
+            lineCredit: {
+                banner: [
+                    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1800&q=75'
+                ],
+                card: [
+                    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1200&q=75'
+                ],
+                inline: [
+                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=75'
+                ],
+                caption: 'Business line of credit flexibility'
+            },
+            workingCapital: {
+                banner: [
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=75'
+                ],
+                card: [
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=75'
+                ],
+                inline: [
+                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75'
+                ],
+                caption: 'Working capital for daily operations'
+            },
+            termLoans: {
+                banner: [
+                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1800&q=75'
+                ],
+                card: [
+                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=75'
+                ],
+                inline: [
+                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75'
+                ],
+                caption: 'Structured business term loan growth'
+            },
+            revenueBased: {
+                banner: [
+                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1800&q=75'
+                ],
+                card: [
+                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=75'
+                ],
+                inline: [
+                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1400&q=75'
+                ],
+                caption: 'Revenue-driven funding momentum'
+            },
+            securities: {
+                banner: [
+                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1800&q=75'
+                ],
+                card: [
+                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=75'
+                ],
+                inline: [
+                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75'
+                ],
+                caption: 'Sophisticated asset-backed lending'
+            },
+            blog: {
+                banner: [
+                    'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1800&q=75',
+                    'https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1800&q=75'
+                ],
+                card: [
+                    'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1200&q=75',
+                    'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=1200&q=75'
+                ],
+                inline: [
+                    'https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=1400&q=75',
+                    'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=75'
+                ],
+                caption: 'Funding guides and industry insights'
+            }
+        };
+
+        const curatedPageSet = {
+            // Core site pages
+            'index.html': 'growth',
+            'services.html': 'growth',
+            'contact.html': 'growth',
+            'calculator.html': 'growth',
+            'faq.html': 'growth',
+            'match.html': 'growth',
+            'vendors.html': 'growth',
+            'glossary.html': 'growth',
+            'referral.html': 'growth',
+            'rightmfgsystems.html': 'growth',
+
+            // Equipment financing pages
+            'equipment-financing.html': 'equipment',
+            'equipment-financing-contractors.html': 'equipment',
+            'bad-credit-equipment-financing.html': 'equipment',
+            'bucket-truck-financing.html': 'equipment',
+            'cnc-machine-financing.html': 'equipment',
+            'construction-equipment-financing.html': 'equipment',
+            'dozer-financing.html': 'equipment',
+            'dump-truck-financing.html': 'equipment',
+            'excavator-financing.html': 'equipment',
+            'farm-agriculture-equipment-financing.html': 'equipment',
+            'food-service-equipment-loans.html': 'equipment',
+            'heavy-equipment-loans.html': 'equipment',
+            'manufacturing-equipment-financing.html': 'equipment',
+            'medical-equipment-financing.html': 'equipment',
+            'no-doc-equipment-financing.html': 'equipment',
+            'office-equipment-financing.html': 'equipment',
+            'one-year-in-business-equipment-loan.html': 'equipment',
+            'same-day-equipment-approval.html': 'equipment',
+            'skid-steer-financing.html': 'equipment',
+            'startup-equipment-financing.html': 'equipment',
+            'trailer-financing.html': 'equipment',
+            'truck-trailer-financing.html': 'equipment',
+            'used-equipment-loans.html': 'equipment',
+            'wood-chipper-grinder-financing.html': 'equipment',
+
+            // CRE and bridge lending pages
+            'commercial-real-estate-loans.html': 'realEstate',
+            'commercial-bridge-loans.html': 'bridge',
+            'fix-and-flip.html': 'bridge',
+
+            // SBA and business credit pages
+            'sba-loans.html': 'sba',
+            'business-line-of-credit.html': 'lineCredit',
+            'business-term-loans.html': 'termLoans',
+            'working-capital-loans.html': 'workingCapital',
+            'working-capital.html': 'workingCapital',
+            'revenue-based-financing.html': 'revenueBased',
+            'securities-based-lending.html': 'securities',
+
+            // Blog hub and blog posts
+            'blog.html': 'blog',
+            'business-line-of-credit-blog.html': 'lineCredit',
+            'business-term-loans-blog.html': 'termLoans',
+            'commercial-bridge-loans-blog.html': 'bridge',
+            'commercial-real-estate-loans-blog.html': 'realEstate',
+            'equipment-financing-blog.html': 'equipment',
+            'fix-and-flip-blog.html': 'bridge',
+            'revenue-based-financing-blog.html': 'revenueBased',
+            'sba-loans-blog.html': 'sba',
+            'securities-based-lending-blog.html': 'securities',
+            'working-capital-loans-blog.html': 'workingCapital'
+        };
+
+        const curatedKey = curatedPageSet[page];
+        if (curatedKey && sets[curatedKey]) return sets[curatedKey];
+
+        if (/equipment|excavator|dozer|dump-truck|trailer|skid-steer|manufacturing|medical|food-service|farm|cnc|bucket-truck|wood-chipper|same-day|no-doc|startup|used-equipment/.test(page)) {
+            return sets.equipment;
+        }
+        if (/commercial-real-estate|real-estate|cre/.test(page)) return sets.realEstate;
+        if (/sba/.test(page)) return sets.sba;
+        if (/bridge|fix-and-flip|flip/.test(page)) return sets.bridge;
+        if (/business-line-of-credit|line-of-credit/.test(page)) return sets.lineCredit;
+        if (/working-capital/.test(page)) return sets.workingCapital;
+        if (/term-loans/.test(page)) return sets.termLoans;
+        if (/revenue-based-financing/.test(page)) return sets.revenueBased;
+        if (/securities-based-lending/.test(page)) return sets.securities;
+        if (/blog/.test(page) || /\/blog\//.test(path)) return sets.blog;
+        return sets.growth;
+    }
+
+    function buildTopicVisual(url, alt, variant, caption) {
+        const figure = document.createElement('figure');
+        figure.className = 'topic-visual topic-visual-' + (variant || 'inline');
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = alt;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.addEventListener('error', function() {
+            // Remove broken remote images instead of showing broken placeholders.
+            if (figure.parentElement) {
+                figure.remove();
+            }
+        }, { once: true });
+        figure.appendChild(img);
+        if (caption) {
+            const figcaption = document.createElement('figcaption');
+            figcaption.textContent = caption;
+            figure.appendChild(figcaption);
+        }
+        return figure;
+    }
+
+    function injectTopicVisuals() {
+        const visual = getTopicVisualSet();
+        const pageTitle = (document.title || 'Axiant Partners').replace(/\s+\|.*$/, '').trim();
+        const altBase = pageTitle || 'Business financing';
+        const path = (window.location.pathname || '').toLowerCase();
+        const page = path.split('/').pop() || 'index.html';
+        const isBlogPost = /\/blog\//.test(path) && page.endsWith('.html');
+        const isBlogHub = !isBlogPost && /(^|-)blog\.html$/.test(page);
+        const isServicePage = !isBlogPost && !isBlogHub && /(financing|loans|lending|capital|bridge|flip|sba|line-of-credit|term-loans)/.test(page);
+        const usedUrls = new Set();
+        const recentVisuals = isServicePage ? getRecentServiceVisuals() : null;
+        const intro = document.querySelector('.form-container .results-intro, .services-content .results-intro, .blog-content .results-intro');
+        if (intro && intro.parentElement && !isServicePage && !isBlogHub && !isBlogPost && !intro.parentElement.querySelector('.topic-visual.topic-visual-banner')) {
+            const bannerUrl = pickVisualUrl(visual.banner, page + '-intro-banner', usedUrls, recentVisuals);
+            if (bannerUrl) intro.insertAdjacentElement('afterend', buildTopicVisual(bannerUrl, altBase + ' overview image', 'banner', visual.caption));
+        }
+        // Service pages: place one compact contextual image inside first content section instead of a large banner.
+        if (isServicePage) {
+            const firstSection = document.querySelector('.form-container.about-content .about-section, .form-container.services-content .about-section, .form-container[class*="-content"] .about-section');
+            if (firstSection && !firstSection.querySelector('.topic-visual')) {
+                const anchor = firstSection.querySelector('p + p, p, h2, h3');
+                const serviceUrl = pickVisualUrl(visual.inline, page + '-service-top', usedUrls, recentVisuals);
+                if (serviceUrl) {
+                    const media = buildTopicVisual(serviceUrl, altBase + ' overview image', 'compact', null);
+                    if (anchor) {
+                        anchor.insertAdjacentElement('afterend', media);
+                    } else {
+                        firstSection.appendChild(media);
+                    }
+                }
+            }
+
+            // Add contextual side visuals to long text-only sections to reduce dead horizontal space.
+            const textSections = Array.from(document.querySelectorAll('.form-container .about-section')).filter(function(section) {
+                if (!section || section.querySelector('.topic-visual')) return false;
+                if (section.querySelector(':scope > .service-card')) return false;
+                const paragraphText = Array.from(section.querySelectorAll('p')).map(function(node) {
+                    return node.textContent || '';
+                }).join(' ').trim();
+                return paragraphText.length > 260;
+            });
+
+            textSections.slice(0, 3).forEach(function(section, idx) {
+                const heading = section.querySelector('h2, h3');
+                const headingText = heading ? heading.textContent.trim() : '';
+                const extraUrl = pickVisualUrl(visual.inline, page + '-section-side-' + idx + '-' + headingText, usedUrls, recentVisuals);
+                if (!extraUrl) return;
+                const anchor = section.querySelector('h2 + p, h3 + p, p + p, p');
+                const media = buildTopicVisual(extraUrl, (headingText || altBase) + ' supporting image', 'side', null);
+                if (anchor) {
+                    anchor.insertAdjacentElement('afterend', media);
+                } else {
+                    section.appendChild(media);
+                }
+            });
+        } else if (!intro && !isBlogHub && !isBlogPost) {
+            // Core pages without intro: add one banner near top content section.
+            const firstSection = document.querySelector('.form-container.about-content .about-section, .form-container.services-content .about-section, .form-container[class*="-content"] .about-section');
+            if (firstSection && !firstSection.querySelector('.topic-visual')) {
+                const anchor = firstSection.querySelector('p, h2, h3');
+                const fallbackBannerUrl = pickVisualUrl(visual.banner, page + '-fallback-banner', usedUrls, recentVisuals);
+                if (fallbackBannerUrl) {
+                    const media = buildTopicVisual(fallbackBannerUrl, altBase + ' overview image', 'banner', visual.caption);
+                    if (anchor) {
+                        anchor.insertAdjacentElement('afterend', media);
+                    } else {
+                        firstSection.appendChild(media);
+                    }
+                }
+            }
+        }
+
+        // Keep service-card sections visually consistent: every peer card gets an image.
+        document.querySelectorAll('.about-section').forEach(function(section) {
+            const cards = Array.from(section.querySelectorAll(':scope > .service-card'));
+            if (cards.length < 2) return;
+            const cardPool = (visual.card || []).concat(visual.inline || []);
+            cards.forEach(function(card, idx) {
+                if (card.querySelector('.topic-visual')) return;
+                const cardTitle = card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : '';
+                const cardSeed = page + '-card-' + idx + '-' + (cardTitle || card.textContent.slice(0, 30));
+                const cardUrl = pickVisualUrl(cardPool, cardSeed, usedUrls, recentVisuals);
+                if (!cardUrl) return;
+                const media = buildTopicVisual(cardUrl, (cardTitle || altBase) + ' supporting image', 'compact', null);
+                const heading = card.querySelector('h3');
+                if (heading) {
+                    heading.insertAdjacentElement('afterend', media);
+                } else {
+                    card.insertAdjacentElement('afterbegin', media);
+                }
+            });
+        });
+
+        // Keep all instructional/program cards populated (e.g., 3-step boxes).
+        document.querySelectorAll('.about-section, .blog-article-block').forEach(function(scope, scopeIdx) {
+            const cards = Array.from(scope.querySelectorAll(':scope .step-card, :scope .benefit-card, :scope .leasing-option-card'));
+            if (cards.length < 2) return;
+            const pool = (visual.card || []).concat(visual.inline || []);
+            cards.forEach(function(card, cardIdx) {
+                if (card.querySelector('.topic-visual')) return;
+                const titleNode = card.querySelector('h3, h4');
+                const cardTitle = titleNode ? titleNode.textContent.trim() : '';
+                const seed = page + '-detail-card-' + scopeIdx + '-' + cardIdx + '-' + (cardTitle || card.textContent.slice(0, 28));
+                const cardUrl = pickVisualUrl(pool, seed, usedUrls, recentVisuals);
+                if (!cardUrl) return;
+                const media = buildTopicVisual(cardUrl, (cardTitle || altBase) + ' supporting image', 'compact', null);
+                if (titleNode) {
+                    titleNode.insertAdjacentElement('afterend', media);
+                } else {
+                    card.insertAdjacentElement('afterbegin', media);
+                }
+            });
+        });
+
+        // Add lightweight images to blog listing cards for visual rhythm.
+        if (isBlogHub) {
+            const blogCards = Array.from(document.querySelectorAll('.blog-listing .blog-card, .blog-content .blog-card')).slice(0, 8);
+            blogCards.forEach(function(card, idx) {
+                if (card.querySelector('.topic-visual')) return;
+                const variant = idx % 3 === 0 ? 'inline' : 'compact';
+                const title = card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : altBase;
+                const blogCardUrl = pickVisualUrl(visual.inline, page + '-blog-card-' + title + '-' + idx, usedUrls, recentVisuals);
+                if (!blogCardUrl) return;
+                const media = buildTopicVisual(blogCardUrl, title + ' image', variant, null);
+                card.insertBefore(media, card.firstChild);
+            });
+        }
+
+        // Blog posts: keep imagery light (single contextual image) to avoid clutter.
+        if (isBlogPost) {
+            const articleBlocks = Array.from(document.querySelectorAll('.blog-post-main .blog-article-block, .form-container.blog-post-content .blog-article-block'));
+            articleBlocks.slice(0, 1).forEach(function(block, idx) {
+                if (block.querySelector('.topic-visual') || block.querySelector('img')) return;
+                const h2 = block.querySelector('h2');
+                const alt = (h2 ? h2.textContent.trim() : altBase) + ' image';
+                const postUrl = pickVisualUrl(visual.inline, page + '-post-block-' + idx + '-' + alt, usedUrls, recentVisuals);
+                if (!postUrl) return;
+                block.appendChild(buildTopicVisual(postUrl, alt, 'side', null));
+            });
+        }
+
+        if (recentVisuals) {
+            saveRecentServiceVisuals(recentVisuals);
+        }
+    }
+
     function forceEnglish() {
         enforceAssetVersioning();
         document.documentElement.setAttribute('lang', 'en');
@@ -973,6 +1527,7 @@
         // Defer non-critical visual enhancements until browser is idle.
         const runDeferred = function() {
             enhanceBlogPostLayout();
+            injectTopicVisuals();
             cleanAllWordmarkLogos();
         };
         if (window.requestIdleCallback) {
