@@ -369,6 +369,159 @@
         });
     }
 
+    function injectAxelChatbot() {
+        if (document.getElementById('axelChatLauncher')) return;
+        const prefix = getPathPrefix();
+
+        const launcher = document.createElement('button');
+        launcher.id = 'axelChatLauncher';
+        launcher.className = 'axel-chat-launcher';
+        launcher.setAttribute('type', 'button');
+        launcher.setAttribute('aria-label', 'Open Axel AI chat assistant');
+        launcher.innerHTML = '<span class="axel-chat-launcher-icon">🦁</span><span class="axel-chat-launcher-text">Chat with Axel</span>';
+
+        const panel = document.createElement('section');
+        panel.id = 'axelChatPanel';
+        panel.className = 'axel-chat-panel';
+        panel.setAttribute('aria-label', 'Axel the Loan Lion chat assistant');
+        panel.innerHTML = '' +
+            '<div class="axel-chat-header">' +
+                '<div class="axel-chat-avatar-wrap">' +
+                    '<img class="axel-chat-avatar" src="' + prefix + 'axel-loan-lion.png" alt="Axel the Loan Lion">' +
+                    '<span class="axel-chat-avatar-fallback" aria-hidden="true">🦁</span>' +
+                '</div>' +
+                '<div class="axel-chat-title-wrap">' +
+                    '<h3>Axel the Loan Lion</h3>' +
+                    '<p>AI Lending Assistant</p>' +
+                '</div>' +
+                '<button class="axel-chat-close" type="button" aria-label="Close chat">✕</button>' +
+            '</div>' +
+            '<div class="axel-chat-messages" id="axelChatMessages"></div>' +
+            '<div class="axel-chat-quick" id="axelChatQuick">' +
+                '<button type="button" data-q="What financing options do you offer?">Financing options</button>' +
+                '<button type="button" data-q="How fast can I get funded?">Funding timeline</button>' +
+                '<button type="button" data-q="What credit score do lenders prefer?">Credit requirements</button>' +
+            '</div>' +
+            '<form class="axel-chat-input-row" id="axelChatForm">' +
+                '<input id="axelChatInput" type="text" placeholder="Ask Axel about funding..." autocomplete="off" />' +
+                '<button type="submit">Send</button>' +
+            '</form>';
+
+        document.body.appendChild(launcher);
+        document.body.appendChild(panel);
+
+        const avatar = panel.querySelector('.axel-chat-avatar');
+        const avatarFallback = panel.querySelector('.axel-chat-avatar-fallback');
+        if (avatar) {
+            avatar.addEventListener('error', function onAvatarError() {
+                avatar.removeEventListener('error', onAvatarError);
+                avatar.style.display = 'none';
+                if (avatarFallback) avatarFallback.style.display = 'inline-flex';
+            });
+        }
+
+        const messages = panel.querySelector('#axelChatMessages');
+        const form = panel.querySelector('#axelChatForm');
+        const input = panel.querySelector('#axelChatInput');
+        const close = panel.querySelector('.axel-chat-close');
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function addMessage(role, text) {
+            if (!messages) return;
+            const msg = document.createElement('div');
+            msg.className = 'axel-chat-message ' + role;
+            msg.textContent = text;
+            messages.appendChild(msg);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function getReply(raw) {
+            const q = (raw || '').toLowerCase();
+            if (!q.trim()) return 'Tell me a little about what you need, and I will guide you to the right financing path.';
+            if (q.includes('hello') || q.includes('hi') || q.includes('hey')) {
+                return 'Hey there. I am Axel the Loan Lion. I can help you compare financing options and guide your next step.';
+            }
+            if (q.includes('credit') || q.includes('score')) {
+                return 'Credit expectations vary by product, but stronger scores and clean recent history improve pricing and approvals. If you want, I can suggest options by profile.';
+            }
+            if (q.includes('fast') || q.includes('timeline') || q.includes('fund') || q.includes('approval')) {
+                return 'Many deals receive specialist feedback quickly, and timeline depends on product and documentation. Start here: ' + window.location.origin + '/match.html';
+            }
+            if (q.includes('sba') || q.includes('equipment') || q.includes('line of credit') || q.includes('working capital') || q.includes('term loan') || q.includes('real estate')) {
+                return 'Great question. Axiant supports SBA Loans, Equipment Financing, Working Capital Loans, Business Lines of Credit, Business Term Loans, and Commercial Real Estate solutions.';
+            }
+            if (q.includes('referral')) {
+                return 'Our Referral Agreement page has the full details and PDF download: ' + window.location.origin + '/referral.html';
+            }
+            if (q.includes('contact') || q.includes('call') || q.includes('human')) {
+                return 'You can connect directly with the team here: ' + window.location.origin + '/contact.html';
+            }
+            return 'I can help with financing options, timelines, credit expectations, and referrals. For a direct match, go to ' + window.location.origin + '/match.html';
+        }
+
+        function handleSend(text) {
+            const prompt = (text || '').trim();
+            if (!prompt) return;
+            addMessage('user', prompt);
+            window.setTimeout(function() {
+                addMessage('bot', getReply(prompt));
+            }, 240);
+        }
+
+        function openChat(shouldFocusInput) {
+            panel.classList.add('open');
+            launcher.classList.add('open');
+            if (messages && !messages.dataset.seeded) {
+                messages.dataset.seeded = '1';
+                addMessage('bot', 'Hi, I am Axel the Loan Lion. Ask me about business financing and I will point you in the right direction.');
+            }
+            if (shouldFocusInput && input) input.focus();
+        }
+
+        launcher.addEventListener('click', function() {
+            const willOpen = !panel.classList.contains('open');
+            if (willOpen) {
+                openChat(true);
+            } else {
+                panel.classList.remove('open');
+                launcher.classList.remove('open');
+            }
+        });
+
+        if (close) {
+            close.addEventListener('click', function() {
+                panel.classList.remove('open');
+                launcher.classList.remove('open');
+            });
+        }
+
+        if (form && input) {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                handleSend(input.value);
+                input.value = '';
+            });
+        }
+
+        panel.querySelectorAll('.axel-chat-quick button').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const q = btn.getAttribute('data-q') || '';
+                handleSend(q);
+            });
+        });
+
+        // Auto-open Axel when each tab/page loads.
+        window.setTimeout(function() {
+            openChat(false);
+            if (!prefersReducedMotion) {
+                panel.classList.add('axel-chat-pop');
+                window.setTimeout(function() {
+                    panel.classList.remove('axel-chat-pop');
+                }, 900);
+            }
+        }, 700);
+    }
+
     function slugifyHeading(text) {
         return String(text || '')
             .toLowerCase()
@@ -510,6 +663,7 @@
         standardizeBrandLogos();
         syncLegacyFooterYear();
         enhanceGlobalFooter();
+        injectAxelChatbot();
 
         // Defer non-critical visual enhancements until browser is idle.
         const runDeferred = function() {
