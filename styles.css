@@ -2945,6 +2945,31 @@ select optgroup {
     margin-top: 0;
 }
 
+.form-container.blog-post-content .related-resources {
+    max-width: none;
+    margin: 2rem auto 0;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--bg-secondary);
+}
+
+.form-container.blog-post-content .related-resources h2 {
+    margin: 0 0 0.7rem;
+    padding: 0;
+    border: 0;
+    font-size: 1.12rem;
+}
+
+.form-container.blog-post-content .related-resources ul {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.form-container.blog-post-content .related-resources li {
+    margin-bottom: 0.45rem;
+}
+
 /* Content links – bold, no underline, accent color (inline text links to other pages) */
 .form-container.blog-post-content p a:not(.btn-primary):not(.btn-secondary),
 .form-container.blog-post-content li a:not(.btn-primary):not(.btn-secondary),

@@ -61,10 +61,10 @@
             });
 
             menu.innerHTML = '';
+            const prefix = getPathPrefix();
             serviceLinks.forEach(function(item) {
                 const a = document.createElement('a');
-                // Always use root-absolute paths so links never break from /blog/* depth.
-                a.setAttribute('href', '/' + item.file);
+                a.setAttribute('href', prefix + item.file);
                 a.textContent = item.label;
                 menu.appendChild(a);
             });
@@ -79,7 +79,8 @@
             }
             const file = href.split('?')[0].split('#')[0].split('/').pop();
             if (!file || !file.endsWith('.html')) return;
-            link.setAttribute('href', '/' + file);
+            const prefix = getPathPrefix();
+            link.setAttribute('href', prefix + file);
         });
     }
 
@@ -136,14 +137,10 @@
 
         const mobileQuery = window.matchMedia('(max-width: 768px)');
 
-        let topbar = navLinks.querySelector('.mobile-menu-topbar');
-        if (!topbar) {
-            topbar = document.createElement('div');
-            topbar.className = 'mobile-menu-topbar';
-            topbar.innerHTML = '<span class="mobile-menu-title">Menu</span><button type="button" class="mobile-menu-close" aria-label="Close menu">✕</button>';
-            navLinks.insertBefore(topbar, navLinks.firstChild);
+        const topbar = navLinks.querySelector('.mobile-menu-topbar');
+        if (topbar) {
+            topbar.remove();
         }
-        const closeBtn = topbar.querySelector('.mobile-menu-close');
 
         function openMenu() {
             if (!mobileQuery.matches) return;
@@ -178,7 +175,6 @@
         });
 
         overlay.addEventListener('click', closeMenu);
-        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') closeMenu();
