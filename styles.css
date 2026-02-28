@@ -4228,14 +4228,52 @@ select optgroup {
 }
 
 @media (max-width: 768px) {
+    .main-nav {
+        justify-content: flex-start !important;
+        gap: 8px !important;
+    }
+
+    .nav-brand {
+        margin-right: auto !important;
+    }
+
     .main-nav .theme-toggle-mobile {
         display: inline-flex !important;
         order: 3;
         margin-left: 8px !important;
         margin-right: 0 !important;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 10px !important;
+        padding: 0 !important;
+        border: 1px solid var(--mobile-panel-border) !important;
+        background: var(--mobile-panel-bg) !important;
+        box-shadow: 0 3px 10px rgba(15, 23, 42, 0.1) !important;
+        justify-content: center !important;
     }
 
     .nav-links > .theme-toggle:not(.theme-toggle-mobile) {
+        display: none !important;
+    }
+
+    .theme-toggle-mobile::before {
+        content: '☀' !important;
+        position: static !important;
+        transform: none !important;
+        width: auto !important;
+        height: auto !important;
+        background: transparent !important;
+        color: #f59e0b !important;
+        font-size: 1rem !important;
+        line-height: 1 !important;
+    }
+
+    [data-theme="dark"] .theme-toggle-mobile::before {
+        content: '☾' !important;
+        color: #cbd5e1 !important;
+    }
+
+    .theme-toggle-mobile::after {
         display: none !important;
     }
 
@@ -6671,21 +6709,24 @@ html {
 
     .axel-chat-launcher {
         right: 10px !important;
-        bottom: 10px !important;
-        padding: 9px 12px !important;
-        border-radius: 12px !important;
-        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.26) !important;
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 72px) !important;
+        width: 48px !important;
+        height: 48px !important;
+        padding: 0 !important;
+        border-radius: 999px !important;
+        justify-content: center !important;
+        box-shadow: 0 10px 20px rgba(15, 23, 42, 0.28) !important;
     }
 
     .axel-chat-launcher-text {
-        font-size: 0.8rem !important;
+        display: none !important;
     }
 
     .axel-chat-panel {
         left: 9px !important;
         right: 9px !important;
         width: auto !important;
-        bottom: 62px !important;
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 130px) !important;
         max-height: min(62vh, 520px) !important;
         border-radius: 12px !important;
         transform: translateY(10px) !important;
