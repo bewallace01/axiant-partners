@@ -39,19 +39,11 @@
                 existing.set(file, link);
             });
 
-            // Resolve links from current page depth (critical for /blog/* pages).
-            let prefix = getPathPrefix();
-            if (!prefix) {
-                const path = window.location.pathname || '';
-                if (path.indexOf('/blog/') !== -1 || path.indexOf('\\blog\\') !== -1) {
-                    prefix = '../';
-                }
-            }
-
             menu.innerHTML = '';
             serviceLinks.forEach(function(item) {
                 const a = document.createElement('a');
-                a.setAttribute('href', prefix + item.file);
+                // Always use root-absolute paths so links never break from /blog/* depth.
+                a.setAttribute('href', '/' + item.file);
                 a.textContent = item.label;
                 menu.appendChild(a);
             });
