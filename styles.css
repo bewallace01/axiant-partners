@@ -3555,6 +3555,60 @@ header h1 {
     }
 }
 
+@media (max-width: 768px) {
+    .global-bottom-cta {
+        padding: 40px 14px;
+    }
+
+    .global-bottom-cta-panel {
+        padding: 32px 16px;
+    }
+
+    .global-bottom-cta h2 {
+        font-size: 1.52rem;
+        line-height: 1.25;
+    }
+
+    .global-bottom-cta p {
+        font-size: 0.96rem;
+    }
+
+    .global-bottom-cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .global-bottom-cta-actions .btn-primary,
+    .global-bottom-cta-actions .btn-secondary {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .site-footer-enhanced .site-footer-wrap {
+        width: calc(100% - 1.25rem);
+        padding: 30px 0 14px;
+    }
+
+    .site-footer-enhanced .footer-top {
+        gap: 16px;
+    }
+
+    .site-footer-enhanced .footer-brand-mark {
+        margin-bottom: 10px;
+    }
+
+    .site-footer-enhanced .footer-brand img {
+        width: min(260px, 100%);
+    }
+
+    .site-footer-enhanced .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
 /* Legal Pages Styling */
 .legal-content {
     max-width: 100%;
