@@ -5882,6 +5882,45 @@ html {
         -webkit-backdrop-filter: saturate(150%) blur(12px);
     }
 
+    .mobile-menu-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        padding: 2px 2px 8px;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.24);
+    }
+
+    .mobile-menu-title {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        color: #64748b;
+    }
+
+    .mobile-menu-close {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        border: 1px solid rgba(148, 163, 184, 0.32);
+        background: rgba(255, 255, 255, 0.8);
+        color: #0f172a;
+        font-size: 1rem;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    [data-theme="dark"] .mobile-menu-title {
+        color: #94a3b8;
+    }
+
+    [data-theme="dark"] .mobile-menu-close {
+        background: rgba(15, 23, 42, 0.86);
+        color: #e2e8f0;
+        border-color: rgba(96, 165, 250, 0.3);
+    }
+
     [data-theme="dark"] .nav-links {
         background: linear-gradient(180deg, #111c31 0%, #0b1628 100%);
         border-left-color: rgba(96, 165, 250, 0.3);
@@ -6027,5 +6066,49 @@ html {
     .site-footer-enhanced .footer-col a,
     .site-footer-enhanced .footer-brand p {
         font-size: 0.88rem;
+    }
+}
+
+/* Service and blog polish */
+.service-card {
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: clamp(16px, 2.2vw, 24px);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(240, 244, 248, 0.88) 100%);
+    box-shadow: 0 10px 24px rgba(30, 58, 95, 0.08);
+}
+
+[data-theme="dark"] .service-card {
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.82) 0%, rgba(15, 23, 42, 0.76) 100%);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.34);
+}
+
+.form-container.services-content .about-section p,
+.form-container.services-content .about-section li,
+.form-container.blog-post-content .blog-article-block p,
+.form-container.blog-post-content .blog-article-block li {
+    line-height: 1.65;
+    color: var(--text-secondary);
+}
+
+.form-container.blog-post-content .blog-article-block h2 {
+    font-size: clamp(1.35rem, 2.1vw, 1.9rem);
+    margin-bottom: 0.55rem;
+}
+
+.form-container.blog-post-content .blog-article-block p + h2,
+.form-container.blog-post-content .blog-article-block ul + h2,
+.form-container.blog-post-content .blog-article-block ol + h2 {
+    margin-top: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .service-card {
+        border-radius: 12px;
+        padding: 14px 12px;
+    }
+
+    .form-container.blog-post-content .blog-article-block {
+        border-radius: 12px;
     }
 }
