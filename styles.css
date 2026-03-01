@@ -206,11 +206,9 @@ html[data-theme="dark"] .main-nav .nav-logo-dark {
     visibility: visible !important;
     filter: none !important;
     mix-blend-mode: normal !important;
-    height: 74px !important;
-    min-height: 74px !important;
     width: auto !important;
-    min-width: 280px !important;
-    max-width: 320px !important;
+    min-width: 0 !important;
+    max-width: none !important;
     object-fit: contain !important;
     object-position: left center !important;
 }
@@ -3917,8 +3915,12 @@ select optgroup {
 }
 
 @media (max-width: 680px) {
-    .nav-logo {
+    .nav-logo,
+    html[data-theme="dark"] .main-nav .nav-logo-dark {
         height: 58px;
+    }
+    html[data-theme="dark"] .main-nav .nav-logo-dark {
+        min-height: 58px;
     }
 
     .site-footer-enhanced .footer-brand img {
@@ -4368,8 +4370,12 @@ select optgroup {
         }
     }
 
-    .nav-logo {
+    .nav-logo,
+    html[data-theme="dark"] .main-nav .nav-logo-dark {
         height: 32px;
+    }
+    html[data-theme="dark"] .main-nav .nav-logo-dark {
+        min-height: 32px;
     }
 
     .nav-links {
@@ -5027,8 +5033,12 @@ select optgroup {
         font-size: 1.2rem;
     }
 
-    .nav-logo {
+    .nav-logo,
+    html[data-theme="dark"] .main-nav .nav-logo-dark {
         height: 28px;
+    }
+    html[data-theme="dark"] .main-nav .nav-logo-dark {
+        min-height: 28px;
     }
 
     .mobile-menu-toggle {
@@ -5738,8 +5748,12 @@ html {
         gap: 8px;
     }
 
-    .nav-logo {
+    .nav-logo,
+    html[data-theme="dark"] .main-nav .nav-logo-dark {
         height: 40px;
+    }
+    html[data-theme="dark"] .main-nav .nav-logo-dark {
+        min-height: 40px;
     }
 
     .nav-links {
@@ -5977,8 +5991,12 @@ html {
         box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
     }
 
-    .nav-logo {
+    .nav-logo,
+    html[data-theme="dark"] .main-nav .nav-logo-dark {
         height: 34px !important;
+    }
+    html[data-theme="dark"] .main-nav .nav-logo-dark {
+        min-height: 34px !important;
     }
 
     .mobile-menu-toggle {
