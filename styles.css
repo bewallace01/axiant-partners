@@ -151,11 +151,17 @@ body::before {
     transition: color 0.3s ease;
 }
 
-.nav-logo {
+.nav-logo,
+.nav-logo-light,
+.nav-logo-dark {
     height: 74px;
     width: auto;
+    max-height: 74px;
+    object-fit: contain;
+    object-position: left center;
     transition: opacity 0.3s ease, transform 0.2s ease;
 }
+
 
 .brand-wordmark-logo {
     mix-blend-mode: darken;
@@ -180,6 +186,33 @@ body::before {
 .nav-logo:hover {
     opacity: 0.8;
     transform: translateY(-1px);
+}
+
+.nav-logo-dark {
+    display: none !important;
+}
+
+html[data-theme="dark"] .main-nav .nav-logo-light {
+    display: none !important;
+    visibility: hidden !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+html[data-theme="dark"] .main-nav .nav-logo-dark {
+    display: block !important;
+    visibility: visible !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+    height: 74px !important;
+    min-height: 74px !important;
+    width: auto !important;
+    min-width: 280px !important;
+    max-width: 320px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
 }
 
 .main-nav .container {
