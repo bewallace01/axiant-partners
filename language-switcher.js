@@ -152,29 +152,40 @@
         const lightLogos = document.querySelectorAll('.nav-logo-light');
         const darkLogos = document.querySelectorAll('.nav-logo-dark');
         const isDark = theme === 'dark';
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
         if (isDark && lightLogos.length && darkLogos.length) {
-            var ref = lightLogos[0];
-            ref.style.setProperty('display', 'block', 'important');
-            ref.style.setProperty('position', 'absolute', 'important');
-            ref.style.setProperty('left', '-9999px', 'important');
-            var w = ref.offsetWidth || ref.getBoundingClientRect().width;
-            var h = ref.offsetHeight || ref.getBoundingClientRect().height;
-            ref.style.removeProperty('position');
-            ref.style.removeProperty('left');
+            /* On mobile, don't set dimensions via JS—let CSS media queries control both logos */
+            if (!isMobile) {
+                var ref = lightLogos[0];
+                ref.style.setProperty('display', 'block', 'important');
+                ref.style.setProperty('position', 'absolute', 'important');
+                ref.style.setProperty('left', '-9999px', 'important');
+                var w = ref.offsetWidth || ref.getBoundingClientRect().width;
+                var h = ref.offsetHeight || ref.getBoundingClientRect().height;
+                ref.style.removeProperty('position');
+                ref.style.removeProperty('left');
+                if (!w || !h) { w = 300; h = 80; }
+                darkLogos.forEach(function(el) {
+                    el.style.setProperty('width', w + 'px', 'important');
+                    el.style.setProperty('height', h + 'px', 'important');
+                    el.style.setProperty('min-width', w + 'px', 'important');
+                    el.style.setProperty('max-width', w + 'px', 'important');
+                });
+            } else {
+                darkLogos.forEach(function(el) {
+                    el.style.removeProperty('width');
+                    el.style.removeProperty('height');
+                    el.style.removeProperty('min-width');
+                    el.style.removeProperty('max-width');
+                });
+            }
             /* Force dark logo to load cropped image (cache-bust) */
             darkLogos.forEach(function(el) {
                 var src = el.getAttribute('src') || '';
                 if (src && src.indexOf('Axiant_light_logo') !== -1 && src.indexOf('v=') === -1) {
                     el.setAttribute('src', src.replace(/\?.*$/, '') + '?v=2');
                 }
-            });
-            if (!w || !h) { w = 300; h = 80; }
-            darkLogos.forEach(function(el) {
-                el.style.setProperty('width', w + 'px', 'important');
-                el.style.setProperty('height', h + 'px', 'important');
-                el.style.setProperty('min-width', w + 'px', 'important');
-                el.style.setProperty('max-width', w + 'px', 'important');
             });
         } else {
             darkLogos.forEach(function(el) {
