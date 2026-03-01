@@ -17,7 +17,7 @@
     }
 
     function enforceAssetVersioning() {
-        const version = '20260347';
+        const version = '20260350';
         document.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
             const href = link.getAttribute('href') || '';
             if (!href || href.indexOf('styles.css') === -1) return;
@@ -152,47 +152,27 @@
         const lightLogos = document.querySelectorAll('.nav-logo-light');
         const darkLogos = document.querySelectorAll('.nav-logo-dark');
         const isDark = theme === 'dark';
-        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        // Keep logo dimensions CSS-driven so dark/light always stay the same size.
+        lightLogos.forEach(function(el) {
+            el.style.removeProperty('width');
+            el.style.removeProperty('height');
+            el.style.removeProperty('min-width');
+            el.style.removeProperty('max-width');
+        });
+        darkLogos.forEach(function(el) {
+            el.style.removeProperty('width');
+            el.style.removeProperty('height');
+            el.style.removeProperty('min-width');
+            el.style.removeProperty('max-width');
+        });
 
         if (isDark && lightLogos.length && darkLogos.length) {
-            /* On mobile, don't set dimensions via JS—let CSS media queries control both logos */
-            if (!isMobile) {
-                var ref = lightLogos[0];
-                ref.style.setProperty('display', 'block', 'important');
-                ref.style.setProperty('position', 'absolute', 'important');
-                ref.style.setProperty('left', '-9999px', 'important');
-                var w = ref.offsetWidth || ref.getBoundingClientRect().width;
-                var h = ref.offsetHeight || ref.getBoundingClientRect().height;
-                ref.style.removeProperty('position');
-                ref.style.removeProperty('left');
-                if (!w || !h) { w = 300; h = 80; }
-                darkLogos.forEach(function(el) {
-                    el.style.setProperty('width', w + 'px', 'important');
-                    el.style.setProperty('height', h + 'px', 'important');
-                    el.style.setProperty('min-width', w + 'px', 'important');
-                    el.style.setProperty('max-width', w + 'px', 'important');
-                });
-            } else {
-                darkLogos.forEach(function(el) {
-                    el.style.removeProperty('width');
-                    el.style.removeProperty('height');
-                    el.style.removeProperty('min-width');
-                    el.style.removeProperty('max-width');
-                });
-            }
             /* Force dark logo to load cropped image (cache-bust) */
             darkLogos.forEach(function(el) {
                 var src = el.getAttribute('src') || '';
                 if (src && src.indexOf('Axiant_light_logo') !== -1 && src.indexOf('v=') === -1) {
-                    el.setAttribute('src', src.replace(/\?.*$/, '') + '?v=2');
+                    el.setAttribute('src', src.replace(/\?.*$/, '') + '?v=3');
                 }
-            });
-        } else {
-            darkLogos.forEach(function(el) {
-                el.style.removeProperty('width');
-                el.style.removeProperty('height');
-                el.style.removeProperty('min-width');
-                el.style.removeProperty('max-width');
             });
         }
 
@@ -1154,6 +1134,26 @@
 
     function getGuidedCardImagePool(title) {
         const value = String(title || '').toLowerCase();
+        if (value.indexOf('equipment selection') !== -1) {
+            return [
+                'assets/ai-equipment-1.png'
+            ];
+        }
+        if (value.indexOf('application review') !== -1) {
+            return [
+                'assets/ai-equipment-3.png'
+            ];
+        }
+        if (value.indexOf('receive approval') !== -1) {
+            return [
+                'assets/ai-equipment-4.png'
+            ];
+        }
+        if (value.indexOf('funding & vendor payment') !== -1 || value.indexOf('funding and vendor payment') !== -1) {
+            return [
+                'assets/ai-equipment-5.png'
+            ];
+        }
         if (value.indexOf('submit your information') !== -1) {
             return [
                 'assets/ai-howitworks-1.png'
@@ -1242,6 +1242,33 @@
             inline: (visual.inline || []).map(resolveVisualAsset),
             caption: visual.caption || ''
         };
+    }
+
+    function buildVisualRange(prefix, count) {
+        const list = [];
+        for (let i = 1; i <= count; i += 1) {
+            list.push('assets/' + prefix + '-' + i + '.png');
+        }
+        return list;
+    }
+
+    function getUniversalVisualPool() {
+        const raw = []
+            .concat(buildVisualRange('ai-equipment', 5))
+            .concat(buildVisualRange('ai-realestate', 5))
+            .concat(buildVisualRange('ai-sba', 6))
+            .concat(buildVisualRange('ai-bridge', 5))
+            .concat(buildVisualRange('ai-fixflip', 5))
+            .concat(buildVisualRange('ai-linecredit', 5))
+            .concat(buildVisualRange('ai-workingcapital', 5))
+            .concat(buildVisualRange('ai-termloans', 5))
+            .concat(buildVisualRange('ai-revenue', 5))
+            .concat(buildVisualRange('ai-securities', 4))
+            .concat(buildVisualRange('ai-growth', 3))
+            .concat(buildVisualRange('ai-blog', 5))
+            .concat(buildVisualRange('ai-howitworks', 4))
+            .concat(buildVisualRange('ai-whyaxiant', 6));
+        return raw.map(resolveVisualAsset);
     }
 
     function getTopicVisualSet() {
@@ -1653,6 +1680,7 @@
 
     function injectTopicVisuals() {
         const visual = resolveVisualSet(getTopicVisualSet());
+        const universalPool = getUniversalVisualPool();
         const pageTitle = (document.title || 'Axiant Partners').replace(/\s+\|.*$/, '').trim();
         const altBase = pageTitle || 'Business financing';
         const path = (window.location.pathname || '').toLowerCase();
@@ -1666,9 +1694,11 @@
         const orderedCursors = { banner: 0, inline: 0, card: 0, mixed: 0 };
         const pickFromPool = function(poolName, seed) {
             const list = visual[poolName] || [];
-            if (!list.length) return '';
-            if (artDirection) return pickVisualUrlOrdered(list, poolName, orderedCursors, usedUrls, recentVisuals);
-            return pickVisualUrl(list, seed, usedUrls, recentVisuals);
+            const scoped = list.length
+                ? (artDirection ? pickVisualUrlOrdered(list, poolName, orderedCursors, usedUrls, recentVisuals) : pickVisualUrl(list, seed, usedUrls, recentVisuals))
+                : '';
+            if (scoped) return scoped;
+            return pickVisualUrl(universalPool, seed + '-universal', usedUrls, null);
         };
         const intro = document.querySelector('.form-container .results-intro, .services-content .results-intro, .blog-content .results-intro');
         if (intro && intro.parentElement && !isServicePage && !isBlogHub && !isBlogPost && !intro.parentElement.querySelector('.topic-visual.topic-visual-banner')) {

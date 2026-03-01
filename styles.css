@@ -7180,11 +7180,17 @@ html {
 .benefit-card .topic-visual,
 .leasing-option-card .topic-visual {
     margin: 0.42rem 0 0.62rem !important;
+    width: 100% !important;
+    max-width: none !important;
+    float: none !important;
+    align-self: stretch !important;
 }
 
 .step-card .topic-visual img,
 .benefit-card .topic-visual img,
 .leasing-option-card .topic-visual img {
+    width: 100% !important;
+    height: auto !important;
     aspect-ratio: 16 / 9;
     max-height: 150px;
     border-radius: 9px;
@@ -7443,6 +7449,39 @@ html {
     .form-container.blog-post-content .blog-article-block > ul,
     .form-container.blog-post-content .blog-article-block > ol {
         max-width: none;
+    }
+}
+
+/* Final nav-logo size normalization across light/dark themes */
+:root {
+    --nav-logo-frame-w: 228px;
+    --nav-logo-frame-h: 64px;
+}
+
+.main-nav .nav-logo-light,
+.main-nav .nav-logo-dark {
+    display: block;
+    width: var(--nav-logo-frame-w) !important;
+    height: var(--nav-logo-frame-h) !important;
+    min-width: var(--nav-logo-frame-w) !important;
+    max-width: var(--nav-logo-frame-w) !important;
+    min-height: var(--nav-logo-frame-h) !important;
+    max-height: var(--nav-logo-frame-h) !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --nav-logo-frame-w: 164px;
+        --nav-logo-frame-h: 34px;
+    }
+}
+
+@media (max-width: 420px) {
+    :root {
+        --nav-logo-frame-w: 150px;
+        --nav-logo-frame-h: 32px;
     }
 }
 
