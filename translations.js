@@ -329,7 +329,7 @@ const translations = {
             tagline: "Typical requirements, what lenders consider, and how to improve your approval odds"
         },
         leaseBenefitsEquipmentFinancingPost: {
-            title: "What benefits does a lease have for Financing Equipment?",
+            title: "What Benefits Does a Lease Have for Financing Equipment?",
             tagline: "Lower upfront costs, improved cash flow, flexibility, and more"
         },
         equipmentLeasingVsLoanPost: {

@@ -2785,11 +2785,15 @@ select optgroup {
 .blog-listing .blog-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 36px;
     margin-top: 0;
     max-width: none;
     margin-left: auto;
     margin-right: auto;
+}
+
+.blog-listing .blog-card {
+    padding: 28px 32px 32px;
 }
 
 .blog-card {
@@ -2852,8 +2856,8 @@ select optgroup {
     font-family: 'Playfair Display', serif;
     font-size: 1.35rem;
     font-weight: 600;
-    margin: 0 0 14px 0;
-    line-height: 1.35;
+    margin: 0 0 16px 0;
+    line-height: 1.4;
     transition: color 0.3s ease;
 }
 
@@ -2870,8 +2874,8 @@ select optgroup {
 .blog-card-excerpt {
     color: var(--text-secondary);
     font-size: 1rem;
-    line-height: 1.6;
-    margin: 0 0 20px 0;
+    line-height: 1.65;
+    margin: 0 0 24px 0;
     transition: color 0.3s ease;
 }
 
