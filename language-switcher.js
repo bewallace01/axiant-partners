@@ -17,7 +17,7 @@
     }
 
     function enforceAssetVersioning() {
-        const version = '20260350';
+        const version = '20260352';
         document.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
             const href = link.getAttribute('href') || '';
             if (!href || href.indexOf('styles.css') === -1) return;
@@ -31,7 +31,7 @@
             const src = script.getAttribute('src') || '';
             if (!src) return;
             const clean = src.split('?')[0];
-            if (!clean.endsWith('script.js')) return;
+            if (!clean.endsWith('script.js') && !clean.endsWith('language-switcher.js')) return;
             const next = clean + '?v=' + version;
             if (src !== next) script.setAttribute('src', next);
         });
@@ -1824,6 +1824,18 @@
                 if (!postUrl) return;
                 block.appendChild(buildTopicVisual(postUrl, alt, 'side', null));
             });
+
+            // Fallback for posts that do not get transformed into .blog-article-block sections.
+            if (!document.querySelector('.form-container.blog-post-content .topic-visual')) {
+                const container = document.querySelector('.form-container.blog-post-content');
+                if (container) {
+                    const anchor = container.querySelector('h2, p');
+                    const fallbackUrl = pickFromPool('inline', page + '-post-fallback');
+                    if (anchor && fallbackUrl) {
+                        anchor.insertAdjacentElement('afterend', buildTopicVisual(fallbackUrl, altBase + ' image', 'compact', null));
+                    }
+                }
+            }
         }
 
         if (recentVisuals) {
@@ -1861,16 +1873,15 @@
         enhanceGlobalFooter();
         injectAxelChatbot();
 
-        // Defer non-critical visual enhancements until browser is idle.
-        const runDeferred = function() {
-            enhanceBlogPostLayout();
-            injectTopicVisuals();
-            cleanAllWordmarkLogos();
-        };
+        // Run blog/media enhancements immediately so visuals always render.
+        enhanceBlogPostLayout();
+        injectTopicVisuals();
+
+        // Defer only logo cleanup, which is non-critical for content rendering.
         if (window.requestIdleCallback) {
-            window.requestIdleCallback(runDeferred, { timeout: 1500 });
+            window.requestIdleCallback(cleanAllWordmarkLogos, { timeout: 1500 });
         } else {
-            window.setTimeout(runDeferred, 180);
+            window.setTimeout(cleanAllWordmarkLogos, 180);
         }
     }
 
