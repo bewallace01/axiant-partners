@@ -7145,6 +7145,14 @@ html {
     }
 
     /* Blog posts: show Article Guide / TOC above content on mobile, same box format as desktop */
+    /* Hide raw intro when it appears outside the Article Guide card—keeps back link, byline, lead inside the box like desktop */
+    .form-container.blog-post-content > .blog-back,
+    .form-container.blog-post-content > .blog-byline,
+    .form-container.blog-post-content > .blog-lead,
+    .form-container.blog-post-content > div:has(.blog-back, .blog-byline, .blog-lead) {
+        display: none !important;
+    }
+
     .blog-post-shell {
         display: flex !important;
         flex-direction: column !important;

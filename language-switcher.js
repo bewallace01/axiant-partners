@@ -910,6 +910,10 @@
                 backLinkHtml = (node.innerHTML || '').trim();
                 return;
             }
+            /* Skip any node that contains blog intro—avoids re-appending wrapped intro on mobile */
+            if (node.querySelector && node.querySelector('.blog-back, .blog-byline, .blog-lead')) {
+                return;
+            }
             filteredIntroNodes.push(node);
         });
         var introToUse = filteredIntroNodes;
