@@ -1644,12 +1644,13 @@ select optgroup {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: 1.5rem;
-    min-height: 200px;
+    padding: 1.5rem 1.75rem;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(45, 127, 184, 0.06);
+    overflow: hidden;
 }
 
 .relevant-post-card:hover {
@@ -1659,10 +1660,14 @@ select optgroup {
 }
 
 .relevant-post-card h3 {
-    font-size: 1.15rem;
+    font-size: 1.08rem;
     font-weight: 600;
-    margin: 0 0 0.75rem 0;
-    line-height: 1.4;
+    margin: 0 0 0.6rem 0;
+    line-height: 1.35;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .relevant-post-card h3 a {
@@ -1676,10 +1681,16 @@ select optgroup {
 }
 
 .relevant-post-card p {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    line-height: 1.5;
     color: var(--text-secondary);
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.75rem 0;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+    min-height: 0;
 }
 
 .relevant-post-card .blog-card-link {
@@ -1696,6 +1707,18 @@ select optgroup {
 
 .relevant-post-card .blog-card-link:hover {
     border-bottom-color: var(--accent-color);
+}
+
+.relevant-post-card .topic-visual {
+    margin: 0 0 1rem 0 !important;
+    order: -1;
+    border-radius: 8px;
+}
+
+.relevant-post-card .topic-visual img {
+    aspect-ratio: 16 / 9;
+    max-height: 130px;
+    object-fit: cover;
 }
 
 .relevant-info-cta {
@@ -2785,7 +2808,7 @@ select optgroup {
 .blog-listing .blog-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 36px;
+    gap: 28px;
     margin-top: 0;
     max-width: none;
     margin-left: auto;
@@ -2793,7 +2816,7 @@ select optgroup {
 }
 
 .blog-listing .blog-card {
-    padding: 28px 32px 32px;
+    padding: 1.5rem 1.75rem 1.75rem;
 }
 
 .blog-card {
@@ -2854,11 +2877,15 @@ select optgroup {
 
 .blog-card-title {
     font-family: 'Playfair Display', serif;
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    margin: 0 0 16px 0;
-    line-height: 1.4;
+    margin: 0 0 12px 0;
+    line-height: 1.35;
     transition: color 0.3s ease;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .blog-card-title a {
@@ -2873,10 +2900,14 @@ select optgroup {
 
 .blog-card-excerpt {
     color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 1.65;
-    margin: 0 0 24px 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin: 0 0 16px 0;
     transition: color 0.3s ease;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .blog-card-link {
@@ -7225,12 +7256,15 @@ html {
 }
 
 .blog-card .topic-visual {
-    margin: 0 0 0.72rem !important;
+    margin: 0 0 1rem 0 !important;
+    order: -1;
+    border-radius: 8px;
 }
 
 .blog-card .topic-visual img {
     aspect-ratio: 16 / 9;
-    max-height: 170px;
+    max-height: 130px;
+    object-fit: cover;
 }
 
 .blog-article-block .topic-visual {
