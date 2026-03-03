@@ -3119,6 +3119,34 @@ select optgroup {
 .blog-post-content p { margin-bottom: 1rem; }
 .blog-post-content .services-cta { margin-top: 2.5rem; }
 
+/* Blog comparison table */
+.blog-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.95rem;
+}
+.blog-comparison-table th,
+.blog-comparison-table td {
+    border: 1px solid var(--border-color);
+    padding: 0.65rem 0.9rem;
+    text-align: left;
+}
+.blog-comparison-table th {
+    background: var(--bg-secondary);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.blog-comparison-table tbody tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.02);
+}
+[data-theme="dark"] .blog-comparison-table tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.04);
+}
+.blog-comparison-table td:first-child {
+    font-weight: 500;
+}
+
 /* Glossary */
 .blog-content .results-intro,
 .glossary-content .results-intro { margin-bottom: 2rem; }
