@@ -496,6 +496,7 @@
                             '<a href="https://www.linkedin.com/company/axiantpartners/" target="_blank" rel="noopener noreferrer">LinkedIn</a>' +
                             '<a href="https://www.facebook.com/share/1j27PpAoUS/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>' +
                             '<a href="https://www.instagram.com/axiantpartners?igsh=a25pcmZ3NGpxb3Fl&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>' +
+                            '<a href="https://www.youtube.com/@axeltheloanlion" target="_blank" rel="noopener noreferrer">YouTube</a>' +
                         '</div>' +
                     '</div>' +
                 '</div>' +
