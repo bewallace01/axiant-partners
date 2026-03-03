@@ -2506,7 +2506,7 @@ select optgroup {
 /* Blog post pages – editorial/article feel */
 .form-container.blog-post-content {
     margin: 0;
-    padding: 56px 60px;
+    padding: 56px clamp(40px, 6vw, 80px);
     max-width: 100%;
     width: 100%;
     background: transparent;
@@ -5620,6 +5620,11 @@ html {
     margin-right: auto;
 }
 
+.form-container.blog-post-content > .blog-post-shell {
+    width: 100%;
+    max-width: 100%;
+}
+
 .form-container.blog-post-content h2 {
     font-size: clamp(1.55rem, 2.1vw, 2rem);
 }
@@ -5684,13 +5689,24 @@ html {
     }
 }
 
-/* Premium blog post experience */
+/* Premium blog post experience - 3 cols: Article Guide | Content | On This Page */
 .blog-post-shell {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 300px;
-    gap: clamp(16px, 2.6vw, 32px);
+    grid-template-columns: 300px minmax(0, 1fr) 300px;
+    gap: clamp(20px, 3vw, 40px);
     align-items: start;
     margin-top: 1.2rem;
+}
+.blog-post-shell.blog-post-shell--no-toc {
+    grid-template-columns: 300px minmax(0, 1fr);
+}
+
+.blog-post-rail-left,
+.blog-post-rail-right {
+    position: sticky;
+    top: 126px;
+    display: grid;
+    gap: 0.85rem;
 }
 
 .blog-post-main {
@@ -5731,7 +5747,7 @@ html {
 .blog-rail-card {
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    padding: 14px;
+    padding: 18px 16px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(240, 244, 248, 0.88) 100%);
     box-shadow: 0 8px 20px rgba(30, 58, 95, 0.09);
 }
@@ -5741,16 +5757,64 @@ html {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.34);
 }
 
+.blog-rail-back {
+    margin: 0 0 0.85rem;
+    font-size: 0.9rem;
+}
+.blog-rail-back a {
+    color: var(--text-tertiary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.blog-rail-back a:hover {
+    color: var(--accent-color);
+}
+
 .blog-rail-card h3 {
     margin: 0 0 0.55rem;
     font-size: 1rem;
     color: var(--text-primary);
 }
 
-.blog-rail-meta p {
-    margin: 0;
+.blog-rail-meta p,
+.blog-rail-meta .blog-rail-meta-item {
+    margin: 0 0 0.6rem;
     color: var(--text-secondary);
     font-size: 0.92rem;
+}
+.blog-rail-meta .blog-rail-meta-item:last-of-type {
+    margin-bottom: 0;
+}
+.blog-rail-meta .blog-rail-label {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    margin-right: 0.35em;
+}
+.blog-rail-description {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+.blog-rail-description .blog-rail-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    margin-bottom: 0.4rem;
+}
+.blog-rail-description p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+}
+.blog-rail-description p a {
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+.blog-rail-description p a:hover {
+    color: var(--accent-dark);
 }
 
 .blog-post-toc-list {
@@ -5792,9 +5856,9 @@ html {
         grid-template-columns: 1fr;
     }
 
-    .blog-post-rail {
+    .blog-post-rail-left,
+    .blog-post-rail-right {
         position: static;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
@@ -5802,10 +5866,6 @@ html {
     .blog-article-block {
         padding: 14px;
         border-radius: 12px;
-    }
-
-    .blog-post-rail {
-        grid-template-columns: 1fr;
     }
 
     .blog-post-main h2[id] {
@@ -5963,10 +6023,9 @@ html {
         gap: 12px;
     }
 
-    .blog-post-rail {
-        position: static;
-        grid-template-columns: 1fr;
-        gap: 10px;
+    .blog-post-rail-left,
+    .blog-post-rail-right {
+        position: static !important;
     }
 
     .blog-post-main h2[id] {
@@ -6799,9 +6858,9 @@ html {
         gap: 12px !important;
     }
 
-    .blog-post-rail {
+    .blog-post-rail-left,
+    .blog-post-rail-right {
         position: static !important;
-        grid-template-columns: 1fr !important;
     }
 
     .btn-primary,
@@ -7037,13 +7096,17 @@ html {
         display: none !important;
     }
 
-    /* Blog posts: show Article Guide / TOC under title on mobile */
+    /* Blog posts: show Article Guide / TOC above content on mobile */
     .blog-post-shell {
         display: flex !important;
         flex-direction: column !important;
     }
 
-    .blog-post-rail {
+    .blog-post-rail-left {
+        order: -2 !important;
+    }
+
+    .blog-post-rail-right {
         order: -1 !important;
     }
 

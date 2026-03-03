@@ -893,14 +893,32 @@
         const introNodes = allChildren.slice(0, contentStartIdx);
         const articleNodes = allChildren.slice(contentStartIdx);
 
+        var bylineText = '';
+        var leadHtml = '';
+        var backLinkHtml = '';
+        var filteredIntroNodes = [];
+        introNodes.forEach(function(node) {
+            if (node.classList && node.classList.contains('blog-byline')) {
+                bylineText = (node.textContent || '').trim();
+                return;
+            }
+            if (node.classList && node.classList.contains('blog-lead')) {
+                leadHtml = (node.innerHTML || node.textContent || '').trim();
+                return;
+            }
+            if (node.classList && node.classList.contains('blog-back')) {
+                backLinkHtml = (node.innerHTML || '').trim();
+                return;
+            }
+            filteredIntroNodes.push(node);
+        });
+        var introToUse = filteredIntroNodes;
+
         const shell = document.createElement('div');
         shell.className = 'blog-post-shell';
 
         const main = document.createElement('article');
         main.className = 'blog-post-main';
-
-        const rail = document.createElement('aside');
-        rail.className = 'blog-post-rail';
 
         const tocList = document.createElement('ul');
         tocList.className = 'blog-post-toc-list';
@@ -938,14 +956,42 @@
         });
 
         const totalWords = container.textContent.trim().split(/\s+/).filter(Boolean).length;
-        const readMinutes = Math.max(3, Math.round(totalWords / 220));
+        const calculatedMinutes = Math.max(3, Math.round(totalWords / 200));
+        var readMinutes = calculatedMinutes;
+        var minReadMatch = bylineText.match(/(\d+)\s*min\s*read/i);
+        if (minReadMatch) {
+            readMinutes = Math.max(1, parseInt(minReadMatch[1], 10));
+        }
 
-        rail.innerHTML = '' +
+        var lastUpdatedHtml = '';
+        if (bylineText) {
+            if (/last\s*updated\s*:/i.test(bylineText)) {
+                var match = bylineText.match(/last\s*updated\s*:\s*([^·\-]+)/i);
+                lastUpdatedHtml = '<p class="blog-rail-meta-item"><span class="blog-rail-label">Last updated:</span> <strong>' + (match ? match[1].trim() : bylineText) + '</strong></p>';
+            } else {
+                lastUpdatedHtml = '<p class="blog-rail-meta-item"><span class="blog-rail-label">Updated:</span> <strong>' + String(bylineText).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') + '</strong></p>';
+            }
+        }
+        var readTimeHtml = '<p class="blog-rail-meta-item"><span class="blog-rail-label">Read time:</span> <strong>' + readMinutes + ' min</strong></p>';
+        var descriptionHtml = '';
+        if (leadHtml) {
+            descriptionHtml = '<div class="blog-rail-description"><span class="blog-rail-label">Summary</span><p>' + leadHtml + '</p></div>';
+        }
+
+        var railLeft = document.createElement('div');
+        railLeft.className = 'blog-post-rail-left';
+        var backLinkBlock = backLinkHtml ? '<p class="blog-rail-back">' + backLinkHtml + '</p>' : '';
+        railLeft.innerHTML = '' +
             '<div class="blog-rail-card blog-rail-meta">' +
+                backLinkBlock +
                 '<h3>Article Guide</h3>' +
-                '<p>Estimated read: <strong>' + readMinutes + ' min</strong></p>' +
+                lastUpdatedHtml +
+                readTimeHtml +
+                descriptionHtml +
             '</div>';
 
+        var railRight = document.createElement('aside');
+        railRight.className = 'blog-post-rail-right';
         if (tocList.children.length) {
             const tocCard = document.createElement('div');
             tocCard.className = 'blog-rail-card blog-rail-toc';
@@ -953,7 +999,7 @@
             title.textContent = 'On This Page';
             tocCard.appendChild(title);
             tocCard.appendChild(tocList);
-            rail.appendChild(tocCard);
+            railRight.appendChild(tocCard);
         }
 
         // Use explicit offset scrolling so section headings never hide behind sticky nav.
@@ -977,11 +1023,16 @@
             });
         });
 
+        shell.appendChild(railLeft);
         shell.appendChild(main);
-        shell.appendChild(rail);
+        if (railRight.children.length) {
+            shell.appendChild(railRight);
+        } else {
+            shell.classList.add('blog-post-shell--no-toc');
+        }
 
         container.innerHTML = '';
-        introNodes.forEach(function(node) { container.appendChild(node); });
+        introToUse.forEach(function(node) { container.appendChild(node); });
         container.appendChild(shell);
     }
 
