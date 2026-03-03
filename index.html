@@ -747,47 +747,102 @@
                     <div class="hero-skyline" aria-hidden="true"></div>
                 </div>
 
-                <div class="hero-form">
+                <div class="hero-form" id="heroFormSection">
                     <h2>Get Started Today</h2>
                     <p>Share your financing goals and we will guide you toward the best lender fit.</p>
-                    <form class="lead-form-grid" action="match.html" method="get">
+                    <form id="leadForm" class="lead-form-grid">
                         <label>
-                            Contact Name
-                            <input type="text" name="name" placeholder="Full name" required>
+                            Full Name
+                            <input type="text" id="fullName" placeholder="John Doe" required>
+                        </label>
+                        <label>
+                            Email Address
+                            <input type="email" id="email" placeholder="john@example.com" required>
                         </label>
                         <label>
                             Phone Number
-                            <input type="tel" name="phone" placeholder="(555) 555-5555" required>
+                            <input type="tel" id="phone" placeholder="(555) 123-4567" required>
                         </label>
                         <label>
-                            Financing Type
-                            <select name="service" required>
-                                <option value="">Select an option</option>
-                                <option value="equipment-financing">Equipment Financing</option>
-                                <option value="sba-loans">SBA Loans</option>
+                            Loan Amount ($)
+                            <input type="text" id="loanAmount" placeholder="e.g., $10,000" required>
+                        </label>
+                        <label>
+                            Business Name
+                            <input type="text" id="businessName" placeholder="e.g., Acme Corporation">
+                        </label>
+                        <label>
+                            Business Loan Type
+                            <select id="loanType" required>
+                                <option value="">Select loan type</option>
+                                <option value="sba">SBA Loan</option>
+                                <option value="equipment">Equipment Financing</option>
                                 <option value="working-capital">Working Capital</option>
-                                <option value="line-of-credit">Business Line of Credit</option>
+                                <option value="real-estate">Commercial Real Estate</option>
+                                <option value="line-of-credit">Line of Credit</option>
                                 <option value="term-loans">Business Term Loans</option>
-                                <option value="commercial-real-estate">Commercial Real Estate</option>
+                                <option value="fix-and-flip">Fix and Flip</option>
+                                <option value="expansion">Business Expansion</option>
+                                <option value="refinance">Refinance</option>
+                                <option value="other">Other</option>
                             </select>
                         </label>
                         <label>
-                            Credit Profile
-                            <select name="credit">
-                                <option value="">Select range</option>
-                                <option value="excellent">Excellent (740+)</option>
-                                <option value="good">Good (680-739)</option>
-                                <option value="fair">Fair (620-679)</option>
-                                <option value="building">Building/Rebuilding</option>
+                            Credit Score
+                            <select id="creditScore" required>
+                                <option value="">Select your credit score range</option>
+                                <option value="800+">800+</option>
+                                <option value="799-750">799 to 750</option>
+                                <option value="749-700">749 to 700</option>
+                                <option value="699-650">699 to 650</option>
+                                <option value="649-600">649 to 600</option>
+                                <option value="599-below">599 and below</option>
                             </select>
                         </label>
                         <label>
-                            Additional Details
-                            <textarea name="details" placeholder="Tell us about timeline, loan amount, and collateral (optional)."></textarea>
+                            Annual Business Revenue ($)
+                            <select id="revenue">
+                                <option value="">Select revenue range</option>
+                                <option value="$0 to $500,000">$0 to $500,000</option>
+                                <option value="$500,000 to $1,000,000">$500,000 to $1,000,000</option>
+                                <option value="$1,000,000 to $2,000,000">$1,000,000 to $2,000,000</option>
+                                <option value="$2,000,000 to $4,000,000">$2,000,000 to $4,000,000</option>
+                                <option value="$4,000,000 to $7,000,000">$4,000,000 to $7,000,000</option>
+                                <option value="$7,000,000 to $10,000,000">$7,000,000 to $10,000,000</option>
+                                <option value="$10,000,000+">$10,000,000+</option>
+                            </select>
                         </label>
-                        <button type="submit">Connect with A Specialist</button>
+                        <label>
+                            Years in Business
+                            <select id="yearsInBusiness">
+                                <option value="">Select years in business</option>
+                                <option value="less than 1 year">Less than 1 year</option>
+                                <option value="1 to 2">1 to 2</option>
+                                <option value="3 to 4">3 to 4</option>
+                                <option value="5 to 6">5 to 6</option>
+                                <option value="7 to 9">7 to 9</option>
+                                <option value="over 10">Over 10</option>
+                            </select>
+                        </label>
+                        <label>
+                            Equipment Being Financed (if applicable)
+                            <input type="text" id="equipmentDescription" placeholder="e.g., Construction equipment, Manufacturing machinery, etc.">
+                        </label>
+                        <div class="checkbox-group" style="margin: 0.75rem 0;">
+                            <label class="checkbox-label" style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" id="agreeToTerms" required style="margin-top: 0.25rem;">
+                                <span>I agree to the <a href="privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="terms-and-conditions.html" target="_blank">Terms and Conditions</a></span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn-primary">Submit</button>
                     </form>
-                    <p class="lead-form-note">By submitting, you agree to our <a href="privacy-policy.html">Privacy Policy</a>. Information is shared only with relevant lending partners and advisors.</p>
+                    <p class="lead-form-note">By submitting, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+                    <div id="leadFormThankYou" style="display: none;">
+                        <div class="success-icon" style="width: 48px; height: 48px; margin: 0 auto 1rem; border-radius: 50%; background: rgba(34, 197, 94, 0.2); display: flex; align-items: center; justify-content: center; color: #22c55e;">✓</div>
+                        <h3 style="margin: 0 0 0.5rem;">Thank You!</h3>
+                        <p style="margin: 0; color: var(--text-secondary);">We've received your application. Our team will contact you within 24-48 hours.</p>
+                        <p style="margin: 0.5rem 0 0; font-size: 0.9rem; color: var(--text-tertiary);">Reference: <span id="leadFormReference"></span></p>
+                    </div>
                 </div>
             </section>
 
@@ -972,6 +1027,8 @@
         <p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a></p>
     </footer>
 
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="translations.js"></script>
     <script src="language-switcher.js?v=20260352"></script>
     <script src="script.js"></script>

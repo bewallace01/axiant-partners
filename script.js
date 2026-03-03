@@ -264,15 +264,12 @@ window.addEventListener('load', function() {
     }
 });
 
-// Form submission
+// Form submission - supports both match page (loanForm) and index page (leadForm)
 document.addEventListener('DOMContentLoaded', function() {
     const loanForm = document.getElementById('loanForm');
-    if (!loanForm) {
-        console.error('Loan form not found');
-        return;
-    }
+    const leadForm = document.getElementById('leadForm');
 
-    loanForm.addEventListener('submit', function(e) {
+    function handleApplicationSubmit(e, isLeadForm) {
         e.preventDefault();
 
         // Check if terms checkbox is checked
@@ -312,7 +309,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Generate reference number
     const referenceNumber = generateReferenceNumber();
-    document.getElementById('referenceNumber').textContent = referenceNumber;
+    var refEl = document.getElementById('referenceNumber');
+    var leadRefEl = document.getElementById('leadFormReference');
+    if (refEl) refEl.textContent = referenceNumber;
+    if (leadRefEl) leadRefEl.textContent = referenceNumber;
 
     // Show loading state
     const submitButton = e.target.querySelector('button[type="submit"]');
@@ -438,11 +438,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Show success message even if one email fails (as long as Axiant email succeeds)
             if (axiantResult.status === 'fulfilled') {
-                // Hide form, show thank you message
-                document.getElementById('applicationForm').style.display = 'none';
-                document.getElementById('thankYouContainer').style.display = 'block';
-                
-                // Scroll to top
+                if (isLeadForm) {
+                    var lf = document.getElementById('leadForm');
+                    var lfTy = document.getElementById('leadFormThankYou');
+                    if (lf) lf.style.display = 'none';
+                    if (lf && lf.nextElementSibling) lf.nextElementSibling.style.display = 'none';
+                    if (lfTy) lfTy.style.display = 'block';
+                } else {
+                    document.getElementById('applicationForm').style.display = 'none';
+                    document.getElementById('thankYouContainer').style.display = 'block';
+                }
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 // Both emails failed or Axiant failed
@@ -477,12 +482,16 @@ document.addEventListener('DOMContentLoaded', function() {
         Promise.all([email1, email2])
         .then(function(responses) {
             console.log('Both emails sent successfully!', responses);
-            
-            // Hide form, show thank you message
-            document.getElementById('applicationForm').style.display = 'none';
-            document.getElementById('thankYouContainer').style.display = 'block';
-            
-            // Scroll to top
+            if (isLeadForm) {
+                var lf = document.getElementById('leadForm');
+                var lfTy = document.getElementById('leadFormThankYou');
+                if (lf) lf.style.display = 'none';
+                if (lf && lf.nextElementSibling) lf.nextElementSibling.style.display = 'none';
+                if (lfTy) lfTy.style.display = 'block';
+            } else {
+                document.getElementById('applicationForm').style.display = 'none';
+                document.getElementById('thankYouContainer').style.display = 'block';
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         })
         .catch(function(error) {
@@ -501,37 +510,45 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.disabled = false;
         });
     } else {
-        // Regular page - send only to Axiant Partners
-        emailjs.send('service_jweh7na', 'template_dmwg1ey', emailData)
-        .then(function(response) {
-            console.log('Application email sent successfully!', response);
-            console.log('Status:', response.status);
-            console.log('Text:', response.text);
-            
-            // Hide form, show thank you message
-            document.getElementById('applicationForm').style.display = 'none';
-            document.getElementById('thankYouContainer').style.display = 'block';
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        })
-        .catch(function(error) {
-            console.error('Email sending failed:', error);
-            console.error('Error details:', JSON.stringify(error, null, 2));
-            
-            let errorMessage = 'Sorry, there was an error submitting your application. ';
-            if (error.status === 412) {
-                errorMessage += 'The email service connection needs to be updated. Please contact us directly at alex@axiantpartners.com or try again later.';
+        // Regular page - send to both Axiant Partners addresses
+        var email1 = emailjs.send('service_jweh7na', 'template_dmwg1ey', { ...emailData, to_email: 'alex@axiantpartners.com' });
+        var email2 = emailjs.send('service_jweh7na', 'template_dmwg1ey', { ...emailData, to_email: 'jerry@axiantpartners.com' });
+        Promise.allSettled([email1, email2])
+        .then(function(results) {
+            var axiantOk = results[0].status === 'fulfilled';
+            if (axiantOk) {
+                console.log('Application email sent successfully!');
+                if (isLeadForm) {
+                    var lf = document.getElementById('leadForm');
+                    var lfTy = document.getElementById('leadFormThankYou');
+                    if (lf) lf.style.display = 'none';
+                    if (lf && lf.nextElementSibling) lf.nextElementSibling.style.display = 'none';
+                    if (lfTy) lfTy.style.display = 'block';
+                } else {
+                    document.getElementById('applicationForm').style.display = 'none';
+                    document.getElementById('thankYouContainer').style.display = 'block';
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
+                console.error('Email sending failed:', results[0].reason);
+                var err = results[0].reason && results[0].reason.error ? results[0].reason.error : {};
+                var errorMessage = 'Sorry, there was an error submitting your application. ';
+                errorMessage += (err.status === 412) ? 'The email service connection needs to be updated. ' : '';
                 errorMessage += 'Please contact us directly at alex@axiantpartners.com or try again later.';
+                alert(errorMessage);
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
             }
-            
-            alert(errorMessage);
-            submitButton.textContent = originalButtonText;
-            submitButton.disabled = false;
         });
     }
-    });
+    }
+
+    if (loanForm) {
+        loanForm.addEventListener('submit', function(e) { handleApplicationSubmit(e, false); });
+    }
+    if (leadForm) {
+        leadForm.addEventListener('submit', function(e) { handleApplicationSubmit(e, true); });
+    }
 
     // New application button
     const newApplicationBtn = document.getElementById('newApplication');
