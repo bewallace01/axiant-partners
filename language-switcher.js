@@ -1690,6 +1690,7 @@
             'equipment-financing': 'equipment',
             'equipment-financing/articles': 'equipment',
             'business-line-of-credit': 'lineCredit',
+            'business-line-of-credit/articles': 'lineCredit',
             'working-capital-loans': 'workingCapital',
             'business-term-loans': 'termLoans',
             'commercial-real-estate-loans': 'realEstate',
