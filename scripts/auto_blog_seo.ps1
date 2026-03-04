@@ -111,17 +111,17 @@ function Ensure-RelatedResources(
     [string[]]$allNames
 ) {
     $hubMap = @{
-        sba            = "../sba-loans-blog.html"
-        equipment      = "../equipment-financing-blog.html"
-        linecredit     = "../business-line-of-credit-blog.html"
-        termloan       = "../business-term-loans-blog.html"
-        workingcapital = "../working-capital-loans-blog.html"
-        bridge         = "../commercial-bridge-loans-blog.html"
-        cre            = "../commercial-real-estate-loans-blog.html"
-        fixflip        = "../fix-and-flip-blog.html"
-        revenue        = "../revenue-based-financing-blog.html"
-        securities     = "../securities-based-lending-blog.html"
-        general        = "../blog.html"
+        sba            = "../../"
+        equipment      = "../../"
+        linecredit     = "../../"
+        termloan       = "../../"
+        workingcapital = "../../"
+        bridge         = "../../"
+        cre            = "../../"
+        fixflip        = "../../"
+        revenue        = "../../"
+        securities     = "../../"
+        general        = "../../../blog.html"
     }
     $hubLabel = @{
         sba            = "SBA Loans Blog"

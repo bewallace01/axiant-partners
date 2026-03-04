@@ -1685,6 +1685,18 @@
 
             // Blog hub and blog posts
             'blog.html': 'blog',
+            'sba-loans': 'sba',
+            'sba-loans/articles': 'sba',
+            'equipment-financing': 'equipment',
+            'business-line-of-credit': 'lineCredit',
+            'working-capital-loans': 'workingCapital',
+            'business-term-loans': 'termLoans',
+            'commercial-real-estate-loans': 'realEstate',
+            'commercial-bridge-loans': 'bridge',
+            'revenue-based-financing': 'revenueBased',
+            'securities-based-lending': 'securities',
+            'fix-and-flip': 'fixFlip',
+            // Legacy -blog.html (redirect targets)
             'business-line-of-credit-blog.html': 'lineCredit',
             'business-term-loans-blog.html': 'termLoans',
             'commercial-bridge-loans-blog.html': 'bridge',
