@@ -61,10 +61,9 @@
             });
 
             menu.innerHTML = '';
-            const prefix = getPathPrefix();
             serviceLinks.forEach(function(item) {
                 const a = document.createElement('a');
-                a.setAttribute('href', prefix + item.file);
+                a.setAttribute('href', '/' + item.file);
                 a.textContent = item.label;
                 menu.appendChild(a);
             });
@@ -77,15 +76,14 @@
             if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) {
                 return;
             }
+            if (href.startsWith('/')) return;
             const file = href.split('?')[0].split('#')[0].split('/').pop();
             if (!file || !file.endsWith('.html')) return;
-            const prefix = getPathPrefix();
-            link.setAttribute('href', prefix + file);
+            link.setAttribute('href', '/' + file);
         });
     }
 
     function ensureReferralTab() {
-        const prefix = getPathPrefix();
         const onReferralPage = /\/referral\.html$/i.test(window.location.pathname || '');
         const navLinksList = document.querySelectorAll('.nav-links');
 
@@ -100,7 +98,7 @@
         let referralLink = primaryNav.querySelector('a[href$="referral.html"]');
         if (!referralLink) {
             referralLink = document.createElement('a');
-            referralLink.setAttribute('href', prefix + 'referral.html');
+            referralLink.setAttribute('href', '/referral.html');
             referralLink.textContent = 'Referral';
         }
 
@@ -330,17 +328,16 @@
     }
 
     function standardizeBrandLogos() {
-        const prefix = getPathPrefix();
         document.querySelectorAll('img.nav-logo').forEach(function(img) {
             // Skip theme-aware nav logos (light/dark mode swap); do not overwrite their src.
             if (img.classList.contains('nav-logo-light') || img.classList.contains('nav-logo-dark')) return;
 
-            img.setAttribute('src', prefix + 'logo-horizontal-transparent.png');
+            img.setAttribute('src', '/logo-horizontal-transparent.png');
             img.classList.add('brand-wordmark-logo');
             img.setAttribute('alt', 'Axiant Partners Logo');
             img.addEventListener('error', function onLogoError() {
                 img.removeEventListener('error', onLogoError);
-                img.setAttribute('src', prefix + 'logo-horizontal.png');
+                img.setAttribute('src', '/logo-horizontal.png');
             });
 
             const parent = img.parentElement;
@@ -348,10 +345,10 @@
 
             // Ensure top-left logo always links back to About page.
             if (parent.tagName.toLowerCase() === 'a') {
-                parent.setAttribute('href', prefix + 'index.html');
+                parent.setAttribute('href', '/');
             } else {
                 const link = document.createElement('a');
-                link.setAttribute('href', prefix + 'index.html');
+                link.setAttribute('href', '/');
                 parent.insertBefore(link, img);
                 link.appendChild(img);
             }
@@ -431,7 +428,6 @@
     function enhanceGlobalFooter() {
         const footer = document.querySelector('.site-footer');
         if (!footer) return;
-        const prefix = getPathPrefix();
         const currentYear = new Date().getFullYear();
 
         const ctaSection = document.getElementById('globalBottomCta');
@@ -451,8 +447,8 @@
                             '<li>U.S.-based business operation</li>' +
                         '</ul>' +
                         '<div class="global-bottom-cta-actions">' +
-                            '<a class="btn-primary" href="' + prefix + 'match.html">Apply Now</a>' +
-                            '<a class="btn-secondary" href="' + prefix + 'contact.html">Talk to Our Team</a>' +
+                            '<a class="btn-primary" href="/match.html">Apply Now</a>' +
+                            '<a class="btn-secondary" href="/contact.html">Talk to Our Team</a>' +
                         '</div>' +
                     '</div>' +
                 '</div>';
@@ -465,37 +461,37 @@
                 '<div class="footer-top">' +
                     '<div class="footer-brand">' +
                         '<div class="footer-brand-mark">' +
-                            '<img class="brand-wordmark-logo" src="' + prefix + 'logo-horizontal.png" alt="Axiant Partners Logo">' +
+                            '<img class="brand-wordmark-logo" src="/logo-horizontal.png" alt="Axiant Partners Logo">' +
                         '</div>' +
                         '<p>Your resource for business financing and advisory support. We help established businesses find better lender matches and funding structures.</p>' +
                         '<a class="footer-email" href="mailto:alex@axiantpartners.com">alex@axiantpartners.com</a>' +
                     '</div>' +
                     '<div class="footer-col">' +
                         '<h4>Resources</h4>' +
-                        '<a href="' + prefix + 'match.html">Get Started</a>' +
-                        '<a href="' + prefix + 'services.html">All Services</a>' +
-                        '<a href="' + prefix + 'calculator.html">Loan Calculator</a>' +
-                        '<a href="' + prefix + 'blog.html">All Articles</a>' +
+                        '<a href="/match.html">Get Started</a>' +
+                        '<a href="/services.html">All Services</a>' +
+                        '<a href="/calculator.html">Loan Calculator</a>' +
+                        '<a href="/blog.html">All Articles</a>' +
                     '</div>' +
                     '<div class="footer-col">' +
                         '<h4>Financing Guides</h4>' +
-                        '<a href="' + prefix + 'sba-loans.html">SBA Loans</a>' +
-                        '<a href="' + prefix + 'equipment-financing.html">Equipment Financing</a>' +
-                        '<a href="' + prefix + 'business-line-of-credit.html">Line of Credit</a>' +
-                        '<a href="' + prefix + 'working-capital-loans.html">Working Capital</a>' +
-                        '<a href="' + prefix + 'business-term-loans.html">Business Term Loans</a>' +
-                        '<a href="' + prefix + 'commercial-real-estate-loans.html">Commercial Real Estate</a>' +
-                        '<a href="' + prefix + 'commercial-bridge-loans.html">Commercial Bridge Loans</a>' +
-                        '<a href="' + prefix + 'revenue-based-financing.html">Revenue-Based Financing</a>' +
-                        '<a href="' + prefix + 'securities-based-lending.html">Securities-Based Lending</a>' +
-                        '<a href="' + prefix + 'fix-and-flip.html">Fix and Flip</a>' +
+                        '<a href="/sba-loans.html">SBA Loans</a>' +
+                        '<a href="/equipment-financing.html">Equipment Financing</a>' +
+                        '<a href="/business-line-of-credit.html">Line of Credit</a>' +
+                        '<a href="/working-capital-loans.html">Working Capital</a>' +
+                        '<a href="/business-term-loans.html">Business Term Loans</a>' +
+                        '<a href="/commercial-real-estate-loans.html">Commercial Real Estate</a>' +
+                        '<a href="/commercial-bridge-loans.html">Commercial Bridge Loans</a>' +
+                        '<a href="/revenue-based-financing.html">Revenue-Based Financing</a>' +
+                        '<a href="/securities-based-lending.html">Securities-Based Lending</a>' +
+                        '<a href="/fix-and-flip.html">Fix and Flip</a>' +
                     '</div>' +
                     '<div class="footer-col">' +
                         '<h4>Company</h4>' +
-                        '<a href="' + prefix + 'index.html">About Us</a>' +
-                        '<a href="' + prefix + 'contact.html">Contact</a>' +
-                        '<a href="' + prefix + 'faq.html">FAQ</a>' +
-                        '<a href="' + prefix + 'vendors.html">Vendors</a>' +
+                        '<a href="/">About Us</a>' +
+                        '<a href="/contact.html">Contact</a>' +
+                        '<a href="/faq.html">FAQ</a>' +
+                        '<a href="/vendors.html">Vendors</a>' +
                         '<div class="footer-social">' +
                             '<h4>Follow Us</h4>' +
                             '<a href="https://www.linkedin.com/company/axiantpartners/" target="_blank" rel="noopener noreferrer">LinkedIn</a>' +
@@ -508,9 +504,9 @@
                 '<div class="footer-bottom">' +
                     '<p>&copy; ' + currentYear + ' Axiant Partners. All rights reserved.</p>' +
                     '<div class="footer-legal">' +
-                        '<a href="' + prefix + 'privacy-policy.html">Privacy Policy</a>' +
-                        '<a href="' + prefix + 'terms-and-conditions.html">Terms of Service</a>' +
-                        '<a href="' + prefix + 'sitemap.xml">Sitemap</a>' +
+                        '<a href="/privacy-policy.html">Privacy Policy</a>' +
+                        '<a href="/terms-and-conditions.html">Terms of Service</a>' +
+                        '<a href="/sitemap.xml">Sitemap</a>' +
                     '</div>' +
                 '</div>' +
             '</div>';
@@ -526,7 +522,6 @@
 
     function injectAxelChatbot() {
         if (document.getElementById('axelChatLauncher')) return;
-        const prefix = getPathPrefix();
         const autoOpenKey = 'axelChatAutoOpenedV1';
 
         const launcher = document.createElement('button');
@@ -543,7 +538,7 @@
         panel.innerHTML = '' +
             '<div class="axel-chat-header">' +
                 '<div class="axel-chat-avatar-wrap">' +
-                    '<img class="axel-chat-avatar" src="' + prefix + 'axel-loan-lion.png" alt="Axel the Loan Lion">' +
+                    '<img class="axel-chat-avatar" src="/axel-loan-lion.png" alt="Axel the Loan Lion">' +
                     '<span class="axel-chat-avatar-fallback" aria-hidden="true">🦁</span>' +
                 '</div>' +
                 '<div class="axel-chat-title-wrap">' +
@@ -894,7 +889,6 @@
         if (contentStartIdx < 0) return;
 
         container.dataset.blogEnhanced = '1';
-        const prefix = getPathPrefix();
         const introNodes = allChildren.slice(0, contentStartIdx);
         const articleNodes = allChildren.slice(contentStartIdx);
 
@@ -1292,7 +1286,7 @@
         const value = String(url || '');
         if (!value) return '';
         if (/^(https?:)?\/\//i.test(value) || value.startsWith('data:')) return value;
-        return getPathPrefix() + value.replace(/^\/+/, '');
+        return '/' + value.replace(/^\/+/, '');
     }
 
     function resolveVisualSet(rawSet) {
