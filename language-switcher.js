@@ -87,37 +87,42 @@
     function ensureReferralTab() {
         const prefix = getPathPrefix();
         const onReferralPage = /\/referral\.html$/i.test(window.location.pathname || '');
+        const navLinksList = document.querySelectorAll('.nav-links');
 
-        document.querySelectorAll('.nav-links').forEach(function(navLinks) {
-            if (!navLinks) return;
+        // Remove duplicate Referral links (keep only the first)
+        const allReferralLinks = Array.from(document.querySelectorAll('.nav-links a[href$="referral.html"]'));
+        allReferralLinks.slice(1).forEach(function(link) { link.remove(); });
 
-            let referralLink = navLinks.querySelector('a[href$="referral.html"]');
-            if (!referralLink) {
-                referralLink = document.createElement('a');
-                referralLink.setAttribute('href', prefix + 'referral.html');
-                referralLink.textContent = 'Referral';
+        // Only add Referral to the first nav-links to avoid duplicates on pages with multiple navs
+        const primaryNav = navLinksList[0];
+        if (!primaryNav) return;
+
+        let referralLink = primaryNav.querySelector('a[href$="referral.html"]');
+        if (!referralLink) {
+            referralLink = document.createElement('a');
+            referralLink.setAttribute('href', prefix + 'referral.html');
+            referralLink.textContent = 'Referral';
+        }
+
+        if (onReferralPage) {
+            referralLink.classList.add('active');
+        } else {
+            referralLink.classList.remove('active');
+        }
+
+        const contactLink = primaryNav.querySelector('a[href$="contact.html"]');
+        if (contactLink && contactLink.parentElement === primaryNav) {
+            if (contactLink.nextSibling !== referralLink) {
+                contactLink.insertAdjacentElement('afterend', referralLink);
             }
-
-            if (onReferralPage) {
-                referralLink.classList.add('active');
+        } else {
+            const themeToggle = primaryNav.querySelector('.theme-toggle');
+            if (themeToggle) {
+                primaryNav.insertBefore(referralLink, themeToggle);
             } else {
-                referralLink.classList.remove('active');
+                primaryNav.appendChild(referralLink);
             }
-
-            const contactLink = navLinks.querySelector('a[href$="contact.html"]');
-            if (contactLink && contactLink.parentElement === navLinks) {
-                if (contactLink.nextSibling !== referralLink) {
-                    contactLink.insertAdjacentElement('afterend', referralLink);
-                }
-            } else {
-                const themeToggle = navLinks.querySelector('.theme-toggle');
-                if (themeToggle) {
-                    navLinks.insertBefore(referralLink, themeToggle);
-                } else {
-                    navLinks.appendChild(referralLink);
-                }
-            }
-        });
+        }
     }
 
     function placeThemeToggleInMobileHeader() {
