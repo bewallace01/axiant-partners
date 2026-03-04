@@ -21,7 +21,8 @@ RewriteRule ^commercial-bridge-loans/?$ /commercial-bridge-loans/articles/ [R=30
 RewriteRule ^fix-and-flip-blog\.html$ /fix-and-flip/ [R=301,L]
 RewriteRule ^revenue-based-financing-blog\.html$ /revenue-based-financing/articles/ [R=301,L]
 RewriteRule ^revenue-based-financing/?$ /revenue-based-financing/articles/ [R=301,L]
-RewriteRule ^securities-based-lending-blog\.html$ /securities-based-lending/ [R=301,L]
+RewriteRule ^securities-based-lending-blog\.html$ /securities-based-lending/articles/ [R=301,L]
+RewriteRule ^securities-based-lending/?$ /securities-based-lending/articles/ [R=301,L]
 
 # Article redirects: /blog/slug.html -> /topic/articles/slug/
 RewriteRule ^blog/what-do-lenders-look-for-sba-loan-approval\.html$ /sba-loans/articles/what-do-lenders-look-for-sba-loan-approval/ [R=301,L]
