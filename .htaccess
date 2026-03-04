@@ -6,7 +6,8 @@ RewriteBase /
 # Hub redirects: *-blog.html -> /topic/
 RewriteRule ^sba-loans-blog\.html$ /sba-loans/articles/ [R=301,L]
 RewriteRule ^sba-loans/?$ /sba-loans/articles/ [R=301,L]
-RewriteRule ^equipment-financing-blog\.html$ /equipment-financing/ [R=301,L]
+RewriteRule ^equipment-financing-blog\.html$ /equipment-financing/articles/ [R=301,L]
+RewriteRule ^equipment-financing/?$ /equipment-financing/articles/ [R=301,L]
 RewriteRule ^business-line-of-credit-blog\.html$ /business-line-of-credit/ [R=301,L]
 RewriteRule ^working-capital-loans-blog\.html$ /working-capital-loans/ [R=301,L]
 RewriteRule ^business-term-loans-blog\.html$ /business-term-loans/ [R=301,L]

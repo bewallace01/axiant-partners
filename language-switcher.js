@@ -1688,6 +1688,7 @@
             'sba-loans': 'sba',
             'sba-loans/articles': 'sba',
             'equipment-financing': 'equipment',
+            'equipment-financing/articles': 'equipment',
             'business-line-of-credit': 'lineCredit',
             'working-capital-loans': 'workingCapital',
             'business-term-loans': 'termLoans',
