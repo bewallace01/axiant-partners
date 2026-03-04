@@ -1694,6 +1694,7 @@
             'working-capital-loans': 'workingCapital',
             'working-capital-loans/articles': 'workingCapital',
             'business-term-loans': 'termLoans',
+            'business-term-loans/articles': 'termLoans',
             'commercial-real-estate-loans': 'realEstate',
             'commercial-bridge-loans': 'bridge',
             'revenue-based-financing': 'revenueBased',
