@@ -245,10 +245,51 @@
             font-size: 1.45rem;
         }
 
+        .hero-form-image {
+            margin: 0 0 1.25rem 0;
+            overflow: hidden;
+            line-height: 0;
+            aspect-ratio: 16 / 9;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            width: 100%;
+        }
+
+        .hero-form-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .hero-form .section-intro {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
         .hero-form p {
             margin: 0 0 1rem;
             color: var(--text-secondary);
             font-size: 0.95rem;
+        }
+
+        .hero-form-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .hero-form-buttons .btn-primary,
+        .hero-form-buttons .btn-secondary {
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+            text-decoration: none;
         }
 
         .lead-form-grid {
@@ -540,6 +581,12 @@
                 padding: 1.15rem;
             }
 
+            .hero-form-image {
+                margin: 0 0 1rem 0;
+                border-radius: 16px;
+                width: 100%;
+            }
+
             .section-block h2 {
                 font-size: 1.45rem;
             }
@@ -565,6 +612,17 @@
             }
 
             .lead-form-grid button {
+                min-height: 46px;
+            }
+
+            .hero-form-buttons {
+                flex-direction: column;
+            }
+
+            .hero-form-buttons .btn-primary,
+            .hero-form-buttons .btn-secondary {
+                width: 100%;
+                min-width: 0;
                 min-height: 46px;
             }
 
@@ -747,112 +805,21 @@
                     <div class="hero-skyline" aria-hidden="true"></div>
                 </div>
 
-                <div class="hero-form" id="heroFormSection">
-                    <h2>Get Started Today</h2>
-                    <p>Share your financing goals and we will guide you toward the best lender fit.</p>
-                    <form id="leadForm" class="lead-form-grid">
-                        <label>
-                            Full Name
-                            <input type="text" id="fullName" placeholder="John Doe" required>
-                        </label>
-                        <label>
-                            Email Address
-                            <input type="email" id="email" placeholder="john@example.com" required>
-                        </label>
-                        <label>
-                            Phone Number
-                            <input type="tel" id="phone" placeholder="(555) 123-4567" required>
-                        </label>
-                        <label>
-                            Loan Amount ($)
-                            <input type="text" id="loanAmount" placeholder="e.g., $10,000" required>
-                        </label>
-                        <label>
-                            Business Name
-                            <input type="text" id="businessName" placeholder="e.g., Acme Corporation">
-                        </label>
-                        <label>
-                            Business Loan Type
-                            <select id="loanType" required>
-                                <option value="">Select loan type</option>
-                                <option value="sba">SBA Loan</option>
-                                <option value="equipment">Equipment Financing</option>
-                                <option value="working-capital">Working Capital</option>
-                                <option value="real-estate">Commercial Real Estate</option>
-                                <option value="line-of-credit">Line of Credit</option>
-                                <option value="term-loans">Business Term Loans</option>
-                                <option value="fix-and-flip">Fix and Flip</option>
-                                <option value="expansion">Business Expansion</option>
-                                <option value="refinance">Refinance</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </label>
-                        <label>
-                            Credit Score
-                            <select id="creditScore" required>
-                                <option value="">Select your credit score range</option>
-                                <option value="800+">800+</option>
-                                <option value="799-750">799 to 750</option>
-                                <option value="749-700">749 to 700</option>
-                                <option value="699-650">699 to 650</option>
-                                <option value="649-600">649 to 600</option>
-                                <option value="599-below">599 and below</option>
-                            </select>
-                        </label>
-                        <label>
-                            Annual Business Revenue ($)
-                            <select id="revenue">
-                                <option value="">Select revenue range</option>
-                                <option value="$0 to $500,000">$0 to $500,000</option>
-                                <option value="$500,000 to $1,000,000">$500,000 to $1,000,000</option>
-                                <option value="$1,000,000 to $2,000,000">$1,000,000 to $2,000,000</option>
-                                <option value="$2,000,000 to $4,000,000">$2,000,000 to $4,000,000</option>
-                                <option value="$4,000,000 to $7,000,000">$4,000,000 to $7,000,000</option>
-                                <option value="$7,000,000 to $10,000,000">$7,000,000 to $10,000,000</option>
-                                <option value="$10,000,000+">$10,000,000+</option>
-                            </select>
-                        </label>
-                        <label>
-                            Years in Business
-                            <select id="yearsInBusiness">
-                                <option value="">Select years in business</option>
-                                <option value="less than 1 year">Less than 1 year</option>
-                                <option value="1 to 2">1 to 2</option>
-                                <option value="3 to 4">3 to 4</option>
-                                <option value="5 to 6">5 to 6</option>
-                                <option value="7 to 9">7 to 9</option>
-                                <option value="over 10">Over 10</option>
-                            </select>
-                        </label>
-                        <label>
-                            Equipment Being Financed (if applicable)
-                            <input type="text" id="equipmentDescription" placeholder="e.g., Construction equipment, Manufacturing machinery, etc.">
-                        </label>
-                        <div class="checkbox-group" style="margin: 0.75rem 0;">
-                            <label class="checkbox-label" style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer;">
-                                <input type="checkbox" id="agreeToTerms" required style="margin-top: 0.25rem;">
-                                <span>I agree to the <a href="privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="terms-and-conditions.html" target="_blank">Terms and Conditions</a></span>
-                            </label>
-                        </div>
-                        <button type="submit" class="btn-primary">Submit</button>
-                    </form>
-                    <p class="lead-form-note">By submitting, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
-                    <div id="leadFormThankYou" style="display: none;">
-                        <div class="success-icon" style="width: 48px; height: 48px; margin: 0 auto 1rem; border-radius: 50%; background: rgba(34, 197, 94, 0.2); display: flex; align-items: center; justify-content: center; color: #22c55e;">✓</div>
-                        <h3 style="margin: 0 0 0.5rem;">Thank You!</h3>
-                        <p style="margin: 0; color: var(--text-secondary);">We've received your application. Our team will contact you within 24-48 hours.</p>
-                        <p style="margin: 0.5rem 0 0; font-size: 0.9rem; color: var(--text-tertiary);">Reference: <span id="leadFormReference"></span></p>
+                <div class="hero-form" id="what-we-do">
+                    <div class="hero-form-image">
+                        <img src="lion-office.png" alt="Axiant Partners - Business financing and advisory">
+                    </div>
+                    <h2>What We Do</h2>
+                    <p class="section-intro">We connect business owners with the right lenders—personally. No generic comparison sites or endless applications. We act as your advocate, using our banking relationships and expertise to match you with institutions that are eager to approve your financing.</p>
+                    <p class="section-intro" style="margin-top: 0.9rem;">We do the work for you. Your application goes directly to decision-makers who specialize in your type of business and financing profile. You get guidance every step of the way.</p>
+                    <div class="hero-form-buttons">
+                        <a href="match.html" class="btn-primary">Find Match</a>
+                        <a href="contact.html" class="btn-secondary">Contact Us</a>
                     </div>
                 </div>
             </section>
 
             <p class="trust-line">Trusted by growing businesses nationwide for smarter lending decisions and hands-on advisory support.</p>
-
-            <section class="section-block" id="what-we-do">
-                <h2>What We Do</h2>
-                <p class="section-intro">Axiant Partners is a premium business financing and advisory service that personally connects business owners with the right lending institutions. We act as your advocate in the lending process, using our expertise and banking relationships to match you with lenders eager to approve your financing needs.</p>
-                <p class="section-intro" style="margin-top: 0.9rem;">Unlike traditional financing comparison sites, we do not just show options. We do the work for you, placing your application with decision-makers at institutions that specialize in your financing profile while guiding you through each step.</p>
-            </section>
 
             <div class="form-container about-content" id="about-axiant">
                 <section class="about-section">
