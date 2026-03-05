@@ -26,7 +26,6 @@ def main():
     urls.append(url_entry("/contact.html"))
     urls.append(url_entry("/calculator.html"))
     urls.append(url_entry("/blog.html", changefreq="weekly"))
-    urls.append(url_entry("/glossary.html", priority="0.7"))
     urls.append(url_entry("/referral.html", priority="0.7"))
 
     # Service/topic pages

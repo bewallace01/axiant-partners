@@ -14,7 +14,6 @@ This guide summarizes the SEO work done on the site and what you should do next.
 - **index.html** – `Organization` and `WebSite` schema so Google can show your brand and site in search.
 - **faq.html** – `FAQPage` schema so FAQs can appear as rich results (expandable Q&A in search).
 - **blog.html** – `Blog` schema; each blog post has `Article` schema for rich results.
-- **glossary.html** – `DefinedTermSet` for glossary terms (helps featured snippets).
 
 ### 3. Sitemap and robots
 - **sitemap.xml** – All 10 pages with `lastmod`, `changefreq`, and `priority` for crawlers.
@@ -63,10 +62,10 @@ If your Netlify site uses a different URL (e.g. `https://axiantpartners.netlify.
 | `index.html`          | Organization + WebSite JSON-LD |
 | `faq.html`            | FAQPage JSON-LD |
 | `blog.html`           | Blog index + Blog schema |
-| `blog/*.html`         | Article schema, internal links to match/services/calculator/glossary |
+| `blog/*.html`         | Article schema, internal links to match/services/calculator |
 | `glossary.html`       | DefinedTermSet schema, definition list for featured snippets |
 | `sba-loans.html`, `equipment-financing.html`, `working-capital.html` | Loan-type landing pages (keywords + internal links) |
-| `sitemap.xml`         | All URLs including blog, glossary, loan pages |
+| `sitemap.xml`         | All URLs including blog, loan pages |
 | `robots.txt`          | Crawl rules + sitemap URL |
 | `_headers`            | Netlify headers (security + caching) |
 | This guide            | `SEO_GUIDE.md` |

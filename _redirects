@@ -1,3 +1,10 @@
+# Glossary removed - redirect to articles hub
+/glossary.html /blog.html 301
+
+# Removed basic articles - redirect to parent hub
+/equipment-financing/articles/how-equipment-financing-works/ /equipment-financing/articles/ 301
+/sba-loans/articles/sba-loan-basics/ /sba-loans/articles/ 301
+
 # Netlify redirects (301) - blog URL migration Option C
 # /blog/slug.html -> /topic/articles/slug/
 # /*-blog.html -> /topic/
@@ -9,7 +16,7 @@
 /blog/what-credit-score-needed-sba-loan.html /sba-loans/articles/what-credit-score-needed-sba-loan/ 301
 /blog/how-long-sba-loan-approval.html /sba-loans/articles/how-long-sba-loan-approval/ 301
 /blog/how-much-down-payment-required-sba-loan.html /sba-loans/articles/how-much-down-payment-required-sba-loan/ 301
-/blog/sba-loan-basics.html /sba-loans/articles/sba-loan-basics/ 301
+/blog/sba-loan-basics.html /sba-loans/articles/ 301
 /blog/what-credit-score-needed-equipment-financing.html /equipment-financing/articles/what-credit-score-needed-equipment-financing/ 301
 /blog/do-you-need-down-payment-for-equipment-financing.html /equipment-financing/articles/do-you-need-down-payment-for-equipment-financing/ 301
 /blog/what-benefits-does-lease-have-equipment-financing.html /equipment-financing/articles/what-benefits-does-lease-have-equipment-financing/ 301
@@ -19,7 +26,7 @@
 /blog/what-are-typical-equipment-financing-rates.html /equipment-financing/articles/what-are-typical-equipment-financing-rates/ 301
 /blog/what-do-lenders-look-at-equipment-financing-approval.html /equipment-financing/articles/what-do-lenders-look-at-equipment-financing-approval/ 301
 /blog/can-equipment-financing-help-build-business-credit.html /equipment-financing/articles/can-equipment-financing-help-build-business-credit/ 301
-/blog/how-equipment-financing-works.html /equipment-financing/articles/how-equipment-financing-works/ 301
+/blog/how-equipment-financing-works.html /equipment-financing/articles/ 301
 /blog/what-are-typical-business-line-of-credit-rates.html /business-line-of-credit/articles/what-are-typical-business-line-of-credit-rates/ 301
 /blog/business-line-of-credit-vs-term-loan.html /business-line-of-credit/articles/business-line-of-credit-vs-term-loan/ 301
 /blog/what-credit-score-needed-business-line-of-credit.html /business-line-of-credit/articles/what-credit-score-needed-business-line-of-credit/ 301
@@ -39,7 +46,10 @@
 /blog/when-is-business-term-loan-not-right-option.html /business-term-loans/articles/when-is-business-term-loan-not-right-option/ 301
 /blog/how-fast-can-you-get-business-term-loan.html /business-term-loans/articles/how-fast-can-you-get-business-term-loan/ 301
 /blog/what-credit-score-needed-business-term-loan.html /business-term-loans/articles/what-credit-score-needed-business-term-loan/ 301
-/blog/business-term-loan-vs-line-of-credit.html /business-term-loans/articles/business-term-loan-vs-line-of-credit/ 301
+/blog/business-term-loan-vs-line-of-credit.html /business-line-of-credit/articles/business-line-of-credit-vs-term-loan/ 301
+/business-term-loans/articles/business-term-loan-vs-line-of-credit/ /business-line-of-credit/articles/business-line-of-credit-vs-term-loan/ 301
+/business-term-loans/articles/business-term-loan-vs-line-of-credit /business-line-of-credit/articles/business-line-of-credit-vs-term-loan/ 301
+/blog/equipment-financing-guide.html /equipment-financing/articles/equipment-leasing-vs-loan-which-is-better/ 301
 /blog/what-do-lenders-look-for-business-term-loan.html /business-term-loans/articles/what-do-lenders-look-for-business-term-loan/ 301
 /blog/cash-out-refinance-commercial-property.html /commercial-real-estate-loans/articles/cash-out-refinance-commercial-property/ 301
 /blog/owner-occupied-vs-investment-commercial-property-loan.html /commercial-real-estate-loans/articles/owner-occupied-vs-investment-commercial-property-loan/ 301

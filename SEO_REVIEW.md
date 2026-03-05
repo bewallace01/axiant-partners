@@ -30,7 +30,7 @@ The site has a solid foundation: meta tags, Open Graph, schema markup, and redir
 - All service/topic pages (e.g. `fix-and-flip.html`, `sba-loans.html`, …)
 - All article hubs (`/sba-loans/articles/`, `/equipment-financing/articles/`, …)
 - All individual articles at `/topic/articles/slug/`
-- Core pages: `match.html`, `services.html`, `faq.html`, `contact.html`, `calculator.html`, `blog.html`, `glossary.html`, `referral.html`
+- Core pages: `match.html`, `services.html`, `faq.html`, `contact.html`, `calculator.html`, `blog.html`, `referral.html`
 - Equipment landing pages
 - Legal: `privacy-policy.html`, `terms-and-conditions.html`, `vendors.html`
 - Remove: `*-blog.html`, `blog/*.html`, any redirect-only URLs

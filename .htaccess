@@ -3,6 +3,13 @@
 RewriteEngine On
 RewriteBase /
 
+# Glossary removed - redirect to articles hub
+RewriteRule ^glossary\.html$ /blog.html [R=301,L]
+
+# Removed basic articles - redirect to parent hub
+RewriteRule ^equipment-financing/articles/how-equipment-financing-works/?$ /equipment-financing/articles/ [R=301,L]
+RewriteRule ^sba-loans/articles/sba-loan-basics/?$ /sba-loans/articles/ [R=301,L]
+
 # Hub redirects: *-blog.html -> /topic/
 RewriteRule ^sba-loans-blog\.html$ /sba-loans/articles/ [R=301,L]
 RewriteRule ^sba-loans/?$ /sba-loans/articles/ [R=301,L]
@@ -33,7 +40,7 @@ RewriteRule ^blog/sba-7a-vs-504-loan\.html$ /sba-loans/articles/sba-7a-vs-504-lo
 RewriteRule ^blog/what-credit-score-needed-sba-loan\.html$ /sba-loans/articles/what-credit-score-needed-sba-loan/ [R=301,L]
 RewriteRule ^blog/how-long-sba-loan-approval\.html$ /sba-loans/articles/how-long-sba-loan-approval/ [R=301,L]
 RewriteRule ^blog/how-much-down-payment-required-sba-loan\.html$ /sba-loans/articles/how-much-down-payment-required-sba-loan/ [R=301,L]
-RewriteRule ^blog/sba-loan-basics\.html$ /sba-loans/articles/sba-loan-basics/ [R=301,L]
+RewriteRule ^blog/sba-loan-basics\.html$ /sba-loans/articles/ [R=301,L]
 RewriteRule ^blog/what-credit-score-needed-equipment-financing\.html$ /equipment-financing/articles/what-credit-score-needed-equipment-financing/ [R=301,L]
 RewriteRule ^blog/do-you-need-down-payment-for-equipment-financing\.html$ /equipment-financing/articles/do-you-need-down-payment-for-equipment-financing/ [R=301,L]
 RewriteRule ^blog/what-benefits-does-lease-have-equipment-financing\.html$ /equipment-financing/articles/what-benefits-does-lease-have-equipment-financing/ [R=301,L]
@@ -43,7 +50,7 @@ RewriteRule ^blog/how-fast-can-equipment-financing-be-approved\.html$ /equipment
 RewriteRule ^blog/what-are-typical-equipment-financing-rates\.html$ /equipment-financing/articles/what-are-typical-equipment-financing-rates/ [R=301,L]
 RewriteRule ^blog/what-do-lenders-look-at-equipment-financing-approval\.html$ /equipment-financing/articles/what-do-lenders-look-at-equipment-financing-approval/ [R=301,L]
 RewriteRule ^blog/can-equipment-financing-help-build-business-credit\.html$ /equipment-financing/articles/can-equipment-financing-help-build-business-credit/ [R=301,L]
-RewriteRule ^blog/how-equipment-financing-works\.html$ /equipment-financing/articles/how-equipment-financing-works/ [R=301,L]
+RewriteRule ^blog/how-equipment-financing-works\.html$ /equipment-financing/articles/ [R=301,L]
 RewriteRule ^blog/what-are-typical-business-line-of-credit-rates\.html$ /business-line-of-credit/articles/what-are-typical-business-line-of-credit-rates/ [R=301,L]
 RewriteRule ^blog/business-line-of-credit-vs-term-loan\.html$ /business-line-of-credit/articles/business-line-of-credit-vs-term-loan/ [R=301,L]
 RewriteRule ^blog/what-credit-score-needed-business-line-of-credit\.html$ /business-line-of-credit/articles/what-credit-score-needed-business-line-of-credit/ [R=301,L]

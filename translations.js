@@ -18,8 +18,7 @@ const translations = {
             services: "Services",
             faq: "FAQ",
             contact: "Contact",
-            blog: "Blog",
-            glossary: "Glossary"
+            blog: "Blog"
         },
         // Common
         common: {
@@ -466,10 +465,6 @@ const translations = {
         fixAndFlipBlog: {
             title: "Fix and Flip Blog",
             tagline: "Guides on credit requirements, down payment, rates, and how to qualify for fix and flip financing"
-        },
-        glossary: {
-            title: "Business Financing Glossary",
-            tagline: "Definitions of common business loan and financing terms"
         }
     },
     es: {
@@ -489,8 +484,7 @@ const translations = {
             services: "Servicios",
             faq: "Preguntas Frecuentes",
             contact: "Contacto",
-            blog: "Blog",
-            glossary: "Glosario"
+            blog: "Blog"
         },
         common: {
             getStarted: "Comenzar Ahora",
@@ -930,10 +924,6 @@ const translations = {
         fixAndFlipBlog: {
             title: "Blog de Préstamos Fix and Flip",
             tagline: "Guías sobre requisitos de crédito, pago inicial, tasas y cómo calificar para financiamiento fix and flip"
-        },
-        glossary: {
-            title: "Glosario de Financiación Empresarial",
-            tagline: "Definiciones de términos habituales de préstamos y financiación empresarial"
         }
     },
     ru: {
@@ -953,8 +943,7 @@ const translations = {
             services: "Услуги",
             faq: "Часто задаваемые вопросы",
             contact: "Контакты",
-            blog: "Блог",
-            glossary: "Глоссарий"
+            blog: "Блог"
         },
         common: {
             getStarted: "Начать сейчас",
@@ -1394,10 +1383,6 @@ const translations = {
         fixAndFlipBlog: {
             title: "Блог по кредитам Fix and Flip",
             tagline: "Руководства по требованиям к кредиту, первоначальному взносу, ставкам и квалификации для fix and flip"
-        },
-        glossary: {
-            title: "Глоссарий по финансированию бизнеса",
-            tagline: "Определения распространенных терминов по займам и финансированию"
         }
     }
 };

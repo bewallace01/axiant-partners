@@ -165,12 +165,11 @@ function Ensure-RelatedResources(
 
     $cat = $catMap[$fileName]
     $relatedName = ($allNames | Where-Object { $_ -ne $fileName -and $catMap[$_] -eq $cat } | Select-Object -First 1)
+    $relatedLine = ""
     if ($relatedName) {
         $relatedHref = "./$relatedName"
         $relatedTitle = $titleMap[$relatedName]
-    } else {
-        $relatedHref = $hubMap[$cat]
-        $relatedTitle = "Browse all business financing articles"
+        $relatedLine = "                    <li><a href=""$relatedHref"">Related article: $relatedTitle</a></li>`r`n"
     }
 
     $block = @"
@@ -179,8 +178,7 @@ function Ensure-RelatedResources(
                 <ul>
                     <li><a href="$($serviceMap[$cat])">Explore $($serviceLabel[$cat])</a></li>
                     <li><a href="$($hubMap[$cat])">Read more in the $($hubLabel[$cat])</a></li>
-                    <li><a href="$relatedHref">Related article: $relatedTitle</a></li>
-                    <li><a href="../match.html">Get matched with lenders</a></li>
+                    $relatedLine                    <li><a href="../match.html">Get matched with lenders</a></li>
                 </ul>
             </section>
 
