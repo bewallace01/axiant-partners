@@ -66,7 +66,8 @@
 
     function ensureIndustriesMenuLinks() {
         var industryLinks = [
-            { file: 'construction-business-financing.html', label: 'Construction' }
+            { file: 'construction-business-financing.html', label: 'Construction' },
+            { file: 'trucking-business-financing.html', label: 'Trucking' }
         ];
 
         var navLinks = document.querySelector('.nav-links');
@@ -518,6 +519,7 @@
                     '<div class="footer-col">' +
                         '<h4>Industries</h4>' +
                         '<a href="/construction-business-financing.html">Construction</a>' +
+                        '<a href="/trucking-business-financing.html">Trucking</a>' +
                     '</div>' +
                     '<div class="footer-col">' +
                         '<h4>Company</h4>' +
