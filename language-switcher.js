@@ -51,22 +51,55 @@
             { file: 'fix-and-flip.html', label: 'Fix and Flip' }
         ];
 
-        document.querySelectorAll('.nav-dropdown-menu').forEach(function(menu) {
-            const existing = new Map();
-            menu.querySelectorAll('a').forEach(function(link) {
-                const href = (link.getAttribute('href') || '').split('#')[0].split('?')[0];
-                const file = href.split('/').pop();
-                if (!file || existing.has(file)) return;
-                existing.set(file, link);
-            });
+        var servicesDropdown = document.querySelector('.nav-links .nav-dropdown');
+        var menu = servicesDropdown ? servicesDropdown.querySelector('.nav-dropdown-menu') : null;
+        if (!menu) return;
 
-            menu.innerHTML = '';
-            serviceLinks.forEach(function(item) {
-                const a = document.createElement('a');
-                a.setAttribute('href', '/' + item.file);
-                a.textContent = item.label;
-                menu.appendChild(a);
-            });
+        menu.innerHTML = '';
+        serviceLinks.forEach(function(item) {
+            var a = document.createElement('a');
+            a.setAttribute('href', '/' + item.file);
+            a.textContent = item.label;
+            menu.appendChild(a);
+        });
+    }
+
+    function ensureIndustriesMenuLinks() {
+        var industryLinks = [
+            { file: 'construction-business-financing.html', label: 'Construction' },
+            { file: 'manufacturing-business-financing.html', label: 'Manufacturing' },
+            { file: 'healthcare-business-financing.html', label: 'Healthcare' },
+            { file: 'restaurant-business-financing.html', label: 'Restaurant & Food Service' },
+            { file: 'transportation-business-financing.html', label: 'Transportation & Trucking' }
+        ];
+
+        var navLinks = document.querySelector('.nav-links');
+        if (!navLinks) return;
+
+        var dropdowns = navLinks.querySelectorAll('.nav-dropdown');
+        var servicesDropdown = dropdowns[0];
+        var industriesDropdown = dropdowns[1];
+
+        if (!industriesDropdown) {
+            industriesDropdown = document.createElement('div');
+            industriesDropdown.className = 'nav-dropdown';
+            industriesDropdown.innerHTML = '<button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Industries</button><div class="nav-dropdown-menu"></div>';
+            if (servicesDropdown && servicesDropdown.nextSibling) {
+                navLinks.insertBefore(industriesDropdown, servicesDropdown.nextSibling);
+            } else {
+                navLinks.appendChild(industriesDropdown);
+            }
+        }
+
+        var menu = industriesDropdown.querySelector('.nav-dropdown-menu');
+        if (!menu) return;
+
+        menu.innerHTML = '';
+        industryLinks.forEach(function(item) {
+            var a = document.createElement('a');
+            a.setAttribute('href', '/' + item.file);
+            a.textContent = item.label;
+            menu.appendChild(a);
         });
     }
 
@@ -485,6 +518,14 @@
                         '<a href="/revenue-based-financing.html">Revenue-Based Financing</a>' +
                         '<a href="/securities-based-lending.html">Securities-Based Lending</a>' +
                         '<a href="/fix-and-flip.html">Fix and Flip</a>' +
+                    '</div>' +
+                    '<div class="footer-col">' +
+                        '<h4>Industries</h4>' +
+                        '<a href="/construction-business-financing.html">Construction</a>' +
+                        '<a href="/manufacturing-business-financing.html">Manufacturing</a>' +
+                        '<a href="/healthcare-business-financing.html">Healthcare</a>' +
+                        '<a href="/restaurant-business-financing.html">Restaurant & Food Service</a>' +
+                        '<a href="/transportation-business-financing.html">Transportation & Trucking</a>' +
                     '</div>' +
                     '<div class="footer-col">' +
                         '<h4>Company</h4>' +
@@ -1933,6 +1974,7 @@
 
         // Keep full service tabs visible without translation script logic.
         ensureServicesMenuLinks();
+        ensureIndustriesMenuLinks();
         normalizeServiceMenuLinks();
         ensureReferralTab();
         injectMobileHardFixStyles();
