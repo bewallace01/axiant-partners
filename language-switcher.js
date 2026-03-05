@@ -1023,6 +1023,91 @@
         container.appendChild(shell);
     }
 
+    function enhanceServicePageLayout() {
+        const exclude = ['industry-page-content', 'blog-post-content', 'blog-content', 'contact-content', 'faq-content', 'referral-content', 'glossary-content', 'lenders-content'];
+        const containers = document.querySelectorAll('.form-container');
+        let container = null;
+        for (let i = 0; i < containers.length; i++) {
+            const c = containers[i];
+            if (c.dataset.serviceEnhanced === '1') continue;
+            if (exclude.some(function(cls) { return c.classList.contains(cls); })) continue;
+            if (!c.querySelector('.results-intro') || !c.querySelectorAll('.about-section').length) continue;
+            container = c;
+            break;
+        }
+        if (!container) return;
+
+        container.dataset.serviceEnhanced = '1';
+
+        const sections = container.querySelectorAll('.about-section');
+        if (!sections.length) return;
+
+        const tocList = document.createElement('ul');
+        tocList.className = 'blog-post-toc-list';
+        let sectionCounter = 0;
+
+        sections.forEach(function(section) {
+            const h2 = section.querySelector(':scope > h2');
+            if (!h2) return;
+
+            sectionCounter += 1;
+            const base = slugifyHeading(h2.textContent) || ('section-' + sectionCounter);
+            const id = 'section-' + sectionCounter + '-' + base;
+            h2.id = id;
+
+            const tocItem = document.createElement('li');
+            const tocLink = document.createElement('a');
+            tocLink.href = '#' + id;
+            tocLink.textContent = h2.textContent.trim();
+            tocItem.appendChild(tocLink);
+            tocList.appendChild(tocItem);
+        });
+
+        const railRight = document.createElement('aside');
+        railRight.className = 'industry-page-rail';
+
+        if (tocList.children.length) {
+            const tocCard = document.createElement('div');
+            tocCard.className = 'blog-rail-card blog-rail-toc';
+            const title = document.createElement('h3');
+            title.textContent = 'On This Page';
+            tocCard.appendChild(title);
+            tocCard.appendChild(tocList);
+            railRight.appendChild(tocCard);
+        }
+
+        tocList.querySelectorAll('a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                const href = link.getAttribute('href');
+                if (!href || href.length < 2) return;
+                const target = document.getElementById(href.slice(1));
+                if (!target) return;
+
+                event.preventDefault();
+                const nav = document.querySelector('.main-nav');
+                const navHeight = nav ? nav.getBoundingClientRect().height : 88;
+                const extraOffset = window.matchMedia('(max-width: 768px)').matches ? 18 : 22;
+                const y = target.getBoundingClientRect().top + window.pageYOffset - navHeight - extraOffset;
+
+                window.scrollTo({
+                    top: Math.max(0, y),
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const shell = document.createElement('div');
+        shell.className = 'industry-page-shell';
+        const main = document.createElement('div');
+        main.className = 'industry-page-main';
+        Array.from(container.children).forEach(function(child) {
+            main.appendChild(child);
+        });
+        shell.appendChild(main);
+        shell.appendChild(railRight);
+        container.appendChild(shell);
+    }
+
     function enhanceBlogPostLayout() {
         const container = document.querySelector('.form-container.blog-post-content');
         if (!container || container.dataset.blogEnhanced === '1') return;
@@ -2096,6 +2181,7 @@
         // Run blog/media enhancements immediately so visuals always render.
         enhanceBlogPostLayout();
         enhanceIndustryPageLayout();
+        enhanceServicePageLayout();
         injectTopicVisuals();
 
         // Defer only logo cleanup, which is non-critical for content rendering.
