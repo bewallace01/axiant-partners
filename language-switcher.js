@@ -79,6 +79,7 @@
             { file: 'construction-business-financing.html', label: 'Construction' },
             { file: 'trucking-business-financing.html', label: 'Trucking' },
             { file: 'agriculture-business-financing.html', label: 'Agriculture' },
+            { file: 'forestry-business-financing.html', label: 'Forestry' },
             { file: 'landscaping-business-financing.html', label: 'Landscaping' },
             { file: 'manufacturing-business-financing.html', label: 'Manufacturing' },
             { file: 'medical-practices-business-financing.html', label: 'Medical Practices' },
@@ -1995,7 +1996,7 @@
     function injectTopicVisuals() {
         const path = (window.location.pathname || '').toLowerCase();
         const page = path.split('/').pop() || 'index.html';
-        const isIndustryPage = /(construction|trucking|agriculture|landscaping|manufacturing|medical-practices|restaurants|auto-repair|logistics-warehousing)-business-financing\.html$/.test(page);
+        const isIndustryPage = /(construction|trucking|agriculture|landscaping|manufacturing|medical-practices|restaurants|auto-repair|logistics-warehousing|forestry)-business-financing\.html$/.test(page);
         if (isIndustryPage) return;
 
         const visual = resolveVisualSet(getTopicVisualSet());

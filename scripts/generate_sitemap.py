@@ -78,6 +78,18 @@ def main():
         if d.is_dir():
             urls.append(url_entry(f"/securities-based-lending/articles/{d.name}/", priority="0.7"))
 
+    # Industry pages
+    industries = [
+        "construction-business-financing", "trucking-business-financing",
+        "agriculture-business-financing", "forestry-business-financing",
+        "landscaping-business-financing", "manufacturing-business-financing",
+        "medical-practices-business-financing", "restaurants-business-financing",
+        "auto-repair-business-financing", "logistics-warehousing-business-financing"
+    ]
+    for p in industries:
+        if (BASE / f"{p}.html").exists():
+            urls.append(url_entry(f"/{p}.html"))
+
     # Equipment landing pages
     equipment = [
         "construction-equipment-financing", "dump-truck-financing", "excavator-financing",
