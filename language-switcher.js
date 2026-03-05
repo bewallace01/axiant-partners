@@ -70,7 +70,8 @@
             { file: 'trucking-business-financing.html', label: 'Trucking' },
             { file: 'agriculture-business-financing.html', label: 'Agriculture' },
             { file: 'landscaping-business-financing.html', label: 'Landscaping' },
-            { file: 'manufacturing-business-financing.html', label: 'Manufacturing' }
+            { file: 'manufacturing-business-financing.html', label: 'Manufacturing' },
+            { file: 'medical-practices-business-financing.html', label: 'Medical Practices' }
         ];
 
         var navLinks = document.querySelector('.nav-links');
@@ -526,6 +527,7 @@
                         '<a href="/agriculture-business-financing.html">Agriculture</a>' +
                         '<a href="/landscaping-business-financing.html">Landscaping</a>' +
                         '<a href="/manufacturing-business-financing.html">Manufacturing</a>' +
+                        '<a href="/medical-practices-business-financing.html">Medical Practices</a>' +
                     '</div>' +
                     '<div class="footer-col">' +
                         '<h4>Company</h4>' +
@@ -1879,7 +1881,7 @@
     function injectTopicVisuals() {
         const path = (window.location.pathname || '').toLowerCase();
         const page = path.split('/').pop() || 'index.html';
-        const isIndustryPage = /(construction|trucking|agriculture|landscaping|manufacturing)-business-financing\.html$/.test(page);
+        const isIndustryPage = /(construction|trucking|agriculture|landscaping|manufacturing|medical-practices)-business-financing\.html$/.test(page);
         if (isIndustryPage) return;
 
         const visual = resolveVisualSet(getTopicVisualSet());
