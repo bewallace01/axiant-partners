@@ -30,7 +30,7 @@ def main():
 
     # Service/topic pages
     for p in [
-        "sba-loans", "equipment-financing", "business-line-of-credit",
+        "sba-loans", "equipment-financing", "equipment-hub", "business-line-of-credit",
         "working-capital-loans", "business-term-loans", "commercial-real-estate-loans",
         "commercial-bridge-loans", "fix-and-flip", "revenue-based-financing",
         "securities-based-lending"

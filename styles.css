@@ -927,8 +927,28 @@ select optgroup {
     gap: 24px;
 }
 
+/* Buttons - no underlines anywhere */
+button,
+.nav-dropdown-trigger,
+.theme-toggle,
+.hero-btn, .hero-btn-outline,
+.btn-primary, .btn-secondary,
+a.btn-primary, a.btn-secondary,
+a.hero-btn, a.hero-btn-outline {
+    text-decoration: none !important;
+}
+button:hover, button:focus,
+.nav-dropdown-trigger:hover,
+.hero-btn:hover, .hero-btn-outline:hover,
+a.hero-btn:hover, a.hero-btn-outline:hover,
+a.btn-primary:hover, a.btn-primary:visited,
+a.btn-secondary:hover, a.btn-secondary:visited {
+    text-decoration: none !important;
+}
+
 /* Buttons */
-.btn-primary, .btn-secondary {
+.btn-primary, .btn-secondary,
+a.btn-primary, a.btn-secondary {
     width: 100%;
     padding: 20px 40px;
     border: none;

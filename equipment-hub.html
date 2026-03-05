@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse equipment financing by type: construction, forklifts, medical, restaurant, trucks, manufacturing, and more. Find lenders for your specific equipment needs.">
+    <link rel="canonical" href="https://www.axiantpartners.com/equipment-hub.html">
+    <meta property="og:title" content="Equipment Financing by Type | Axiant Partners">
+    <meta property="og:description" content="Browse equipment financing by type: construction, forklifts, medical, restaurant, trucks, manufacturing, and more. Find lenders for your specific equipment needs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.axiantpartners.com/equipment-hub.html">
+    <meta property="og:image" content="https://www.axiantpartners.com/logo.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Axiant Partners">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Equipment Financing by Type | Axiant Partners">
+    <meta name="twitter:description" content="Browse equipment financing by type: construction, forklifts, medical, restaurant, trucks, manufacturing, and more.">
+    <title>Equipment Financing by Type | Axiant Partners</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="styles.css?v=202603041">
+    <style>
+        .equipment-hub-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(220px, 1fr));
+            gap: 1.5rem 1.75rem;
+            width: 100%;
+            max-width: 100%;
+        }
+        .form-container.equipment-hub-content {
+            padding-left: clamp(24px, 4vw, 60px);
+            padding-right: clamp(24px, 4vw, 60px);
+        }
+        @media (max-width: 1100px) {
+            .equipment-hub-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 750px) {
+            .equipment-hub-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+        }
+        @media (max-width: 480px) {
+            .equipment-hub-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+        }
+        .equipment-hub-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .equipment-hub-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+            border-color: rgba(45, 127, 184, 0.35);
+        }
+        .equipment-hub-card-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+        .equipment-hub-card-link:visited {
+            color: inherit;
+        }
+        .equipment-hub-card-link:visited .equipment-hub-card-cta {
+            color: var(--text-secondary);
+        }
+        .equipment-hub-card-img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+        }
+        .equipment-hub-card-body {
+            padding: 1.5rem 1.6rem;
+        }
+        .equipment-hub-card h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+        .equipment-hub-card-cta {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: color 0.2s ease;
+        }
+        .equipment-hub-card-cta:hover {
+            color: var(--accent-color);
+        }
+        .equipment-hub-content a:not(.btn-primary):not(.btn-secondary) {
+            color: var(--text-primary);
+        }
+        .equipment-hub-content a:not(.btn-primary):not(.btn-secondary):hover {
+            color: var(--accent-color);
+        }
+        .equipment-hub-content a:not(.btn-primary):not(.btn-secondary):visited {
+            color: var(--text-primary);
+        }
+        .equipment-hub-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.75rem;
+        }
+        .equipment-hub-buttons .btn-primary,
+        .equipment-hub-buttons .btn-secondary {
+            width: auto;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"CollectionPage","name":"Equipment Financing by Type - Axiant Partners","description":"Browse equipment financing solutions by equipment type: construction, forklifts, medical, restaurant, trucks, manufacturing, agriculture, and more. Intent-based guides for each equipment category.","url":"https://www.axiantpartners.com/equipment-hub.html","publisher":{"@type":"Organization","name":"Axiant Partners","url":"https://www.axiantpartners.com"}}
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <a href="index.html"><img src="logo-horizontal-transparent.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-light"><img src="Axiant_light_logo.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-dark"></a>
+                <span>Axiant Partners</span>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">About</a>
+                <a href="match.html">Find Match</a>
+                <div class="nav-dropdown active">
+                    <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Services</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="sba-loans.html">SBA Loans</a>
+                        <a href="equipment-financing.html">Equipment Financing</a>
+                        <a href="equipment-hub.html">Equipment by Type</a>
+                        <a href="business-line-of-credit.html">Business Line of Credit</a>
+                        <a href="working-capital-loans.html">Working Capital Loans</a>
+                        <a href="business-term-loans.html">Business Term Loans</a>
+                        <a href="commercial-real-estate-loans.html">Commercial Real Estate</a>
+                        <a href="fix-and-flip.html">Fix and Flip</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Industries</button>
+                    <div class="nav-dropdown-menu"></div>
+                </div>
+                <a href="calculator.html">Calculator</a>
+                <a href="contact.html">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+            </div>
+        </nav>
+
+        <header>
+            <h1>Equipment Financing by Type</h1>
+            <p class="tagline">Find financing for your specific equipment—from excavators to dental chairs</p>
+        </header>
+
+        <div class="form-container equipment-hub-content">
+            <div class="equipment-hub-buttons">
+                <a href="equipment-financing.html" class="btn-primary">Equipment Financing overview</a>
+            </div>
+
+            <h2>Equipment Types</h2>
+
+            <div class="equipment-hub-grid">
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="construction-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/excavator-equipment.png" alt="Excavator at construction site">
+                        <div class="equipment-hub-card-body">
+                            <h3>Excavators</h3>
+                            <span class="equipment-hub-card-cta">How to finance an excavator</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="construction-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/wheel-loader-equipment.png" alt="Wheel loader">
+                        <div class="equipment-hub-card-body">
+                            <h3>Wheel Loaders</h3>
+                            <span class="equipment-hub-card-cta">How to finance a wheel loader</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="construction-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/backhoe-equipment.png" alt="Backhoe loader">
+                        <div class="equipment-hub-card-body">
+                            <h3>Backhoes</h3>
+                            <span class="equipment-hub-card-cta">How to finance a backhoe</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="forklift-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/forklift-manufacturing-equipment.png" alt="Forklift in warehouse">
+                        <div class="equipment-hub-card-body">
+                            <h3>Forklifts</h3>
+                            <span class="equipment-hub-card-cta">How to finance a forklift</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="forklift-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/pallet-jack-equipment.png" alt="Pallet jack">
+                        <div class="equipment-hub-card-body">
+                            <h3>Pallet Jacks</h3>
+                            <span class="equipment-hub-card-cta">How to finance a pallet jack</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="medical-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/medical-imaging-equipment.png" alt="Medical imaging equipment">
+                        <div class="equipment-hub-card-body">
+                            <h3>Medical Imaging</h3>
+                            <span class="equipment-hub-card-cta">How to finance medical imaging equipment</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="medical-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/surgical-equipment.png" alt="Surgical equipment">
+                        <div class="equipment-hub-card-body">
+                            <h3>Surgical Equipment</h3>
+                            <span class="equipment-hub-card-cta">How to finance surgical equipment</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="restaurant-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/commercial-kitchen-equipment.png" alt="Commercial kitchen equipment">
+                        <div class="equipment-hub-card-body">
+                            <h3>Commercial Kitchen</h3>
+                            <span class="equipment-hub-card-cta">How to finance commercial kitchen equipment</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="restaurant-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/restaurant-refrigeration.png" alt="Restaurant refrigeration">
+                        <div class="equipment-hub-card-body">
+                            <h3>Restaurant Refrigeration</h3>
+                            <span class="equipment-hub-card-cta">How to finance restaurant refrigeration</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="truck-trailer-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/box-truck-equipment.png" alt="Box truck">
+                        <div class="equipment-hub-card-body">
+                            <h3>Box Trucks</h3>
+                            <span class="equipment-hub-card-cta">How to finance a box truck</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="manufacturing-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/cnc-machine-equipment.png" alt="CNC machine">
+                        <div class="equipment-hub-card-body">
+                            <h3>CNC Machines</h3>
+                            <span class="equipment-hub-card-cta">How to finance a CNC machine</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="agriculture-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/tractor-equipment.png" alt="Tractor">
+                        <div class="equipment-hub-card-body">
+                            <h3>Tractors</h3>
+                            <span class="equipment-hub-card-cta">How to finance a tractor</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="agriculture-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/combine-equipment.png" alt="Combine harvester">
+                        <div class="equipment-hub-card-body">
+                            <h3>Combines</h3>
+                            <span class="equipment-hub-card-cta">How to finance a combine</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="landscaping-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/zero-turn-mower-equipment.png" alt="Zero-turn mower">
+                        <div class="equipment-hub-card-body">
+                            <h3>Zero-Turn Mowers</h3>
+                            <span class="equipment-hub-card-cta">How to finance a zero-turn mower</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="landscaping-equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/skid-steer-agriculture-equipment.png" alt="Skid steer">
+                        <div class="equipment-hub-card-body">
+                            <h3>Skid Steers</h3>
+                            <span class="equipment-hub-card-cta">How to finance a skid steer</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="equipment-hub-card">
+                    <a class="equipment-hub-card-link" href="equipment-financing.html">
+                        <img class="equipment-hub-card-img" src="assets/auto-lift-equipment.png" alt="Auto lift">
+                        <div class="equipment-hub-card-body">
+                            <h3>Auto Lifts</h3>
+                            <span class="equipment-hub-card-cta">How to finance an auto lift</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="services-cta">
+                <h3>Not sure which category fits? Start here.</h3>
+                <p>Our general <a href="equipment-financing.html">equipment financing</a> page covers all types. Or submit your information once and we'll match you with lenders for your specific equipment.</p>
+                <a href="match.html" class="btn-primary">Get Matched with Lenders</a>
+            </div>
+
+            <div class="relevant-info-section" style="margin-top: 2rem;">
+                <h2>Equipment Financing Articles</h2>
+                <p>Credit requirements, approval timelines, lease vs loan, and more.</p>
+                <a href="equipment-financing/articles/" class="btn-secondary">View All Equipment Articles</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a></p>
+    </footer>
+
+    <script src="translations.js" defer></script>
+    <script src="language-switcher.js?v=202603041" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
