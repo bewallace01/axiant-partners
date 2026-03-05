@@ -41,7 +41,6 @@
         const serviceLinks = [
             { file: 'sba-loans.html', label: 'SBA Loans' },
             { file: 'equipment-financing.html', label: 'Equipment Financing' },
-            { file: 'equipment.html', label: 'Equipment by Type' },
             { file: 'business-line-of-credit.html', label: 'Business Line of Credit' },
             { file: 'working-capital-loans.html', label: 'Working Capital Loans' },
             { file: 'business-term-loans.html', label: 'Business Term Loans' },
