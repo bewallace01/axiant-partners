@@ -37,10 +37,6 @@ def main():
     ]:
         urls.append(url_entry(f"/{p}.html"))
 
-    # Working capital (alternate page)
-    if (BASE / "working-capital.html").exists():
-        urls.append(url_entry("/working-capital.html"))
-
     # Article hubs
     for topic in [
         "sba-loans", "equipment-financing", "business-line-of-credit",

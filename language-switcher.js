@@ -1386,10 +1386,6 @@
                 textSectionPlan: [{ index: 0, variant: 'compact', pool: 'inline' }, { index: 1, variant: 'side', pool: 'card' }, { index: 3, variant: 'side', pool: 'inline' }],
                 sectionCaption: 'Operational momentum capital'
             },
-            'working-capital.html': {
-                textSectionPlan: [{ index: 0, variant: 'compact', pool: 'inline' }, { index: 1, variant: 'side', pool: 'card' }, { index: 2, variant: 'side', pool: 'inline' }],
-                sectionCaption: 'Daily operating capital'
-            },
             'business-term-loans.html': {
                 textSectionPlan: [{ index: 0, variant: 'compact', pool: 'banner' }, { index: 2, variant: 'side', pool: 'card' }, { index: 4, variant: 'side', pool: 'inline' }],
                 sectionCaption: 'Planned long-term growth'
@@ -1903,7 +1899,6 @@
             'business-line-of-credit.html': 'lineCredit',
             'business-term-loans.html': 'termLoans',
             'working-capital-loans.html': 'workingCapital',
-            'working-capital.html': 'workingCapital',
             'revenue-based-financing.html': 'revenueBased',
             'securities-based-lending.html': 'securities',
 

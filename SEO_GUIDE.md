@@ -64,7 +64,7 @@ If your Netlify site uses a different URL (e.g. `https://axiantpartners.netlify.
 | `blog.html`           | Blog index + Blog schema |
 | `blog/*.html`         | Article schema, internal links to match/services/calculator |
 | `glossary.html`       | DefinedTermSet schema, definition list for featured snippets |
-| `sba-loans.html`, `equipment-financing.html`, `working-capital.html` | Loan-type landing pages (keywords + internal links) |
+| `sba-loans.html`, `equipment-financing.html`, `working-capital-loans.html` | Loan-type landing pages (keywords + internal links) |
 | `sitemap.xml`         | All URLs including blog, loan pages |
 | `robots.txt`          | Crawl rules + sitemap URL |
 | `_headers`            | Netlify headers (security + caching) |

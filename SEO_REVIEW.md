@@ -18,7 +18,7 @@ The site has a solid foundation: meta tags, Open Graph, schema markup, and redir
 | Issue | Detail |
 |-------|--------|
 | **Lists redirect sources, not destinations** | Sitemap includes URLs like `blog/what-do-lenders-look-for-sba-loan-approval.html`, `equipment-financing-blog.html`, `sba-loans-blog.html`—these 301 to `/topic/articles/` URLs. Search engines should discover final URLs, not redirects. |
-| **Broken/redirect-only URLs** | `working-capital.html` is in sitemap but `working-capital-loans.html` is the actual page; `working-capital.html` may 404. |
+| **Broken/redirect-only URLs** | Resolved: `working-capital.html` removed; `working-capital-loans.html` is the canonical page. |
 | **Missing service pages** | `commercial-real-estate-loans.html`, `commercial-bridge-loans.html`, `fix-and-flip.html` are not in sitemap. |
 | **Missing referral page** | `referral.html` is not in sitemap. |
 | **Inconsistent article coverage** | Fix-and-flip articles use canonical `/fix-and-flip/articles/slug/` URLs; most other topics still list `blog/slug.html`. Articles in SBA, equipment, working capital, CRE, bridge, revenue-based, securities-based should use `/topic/articles/slug/` URLs in sitemap. |
