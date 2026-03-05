@@ -94,6 +94,16 @@ def main():
         if (BASE / f"{p}.html").exists():
             urls.append(url_entry(f"/{p}.html"))
 
+    # Equipment by type (equipment/[type]/how-to-finance-*)
+    equipment_dir = BASE / "equipment"
+    if equipment_dir.exists():
+        for cat in equipment_dir.iterdir():
+            if cat.is_dir():
+                urls.append(url_entry(f"/equipment/{cat.name}/", priority="0.75"))
+                for sub in cat.iterdir():
+                    if sub.is_dir() and (sub / "index.html").exists():
+                        urls.append(url_entry(f"/equipment/{cat.name}/{sub.name}/", priority="0.75"))
+
     # Legal/utility
     urls.append(url_entry("/vendors.html", priority="0.6"))
     urls.append(url_entry("/rightmfgsystems.html", priority="0.6"))

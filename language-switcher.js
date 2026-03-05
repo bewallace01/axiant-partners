@@ -1190,14 +1190,6 @@
             currentSection.appendChild(node);
         });
 
-        const totalWords = container.textContent.trim().split(/\s+/).filter(Boolean).length;
-        const calculatedMinutes = Math.max(3, Math.round(totalWords / 200));
-        var readMinutes = calculatedMinutes;
-        var minReadMatch = bylineText.match(/(\d+)\s*min\s*read/i);
-        if (minReadMatch) {
-            readMinutes = Math.max(1, parseInt(minReadMatch[1], 10));
-        }
-
         var lastUpdatedHtml = '';
         if (bylineText) {
             if (/last\s*updated\s*:/i.test(bylineText)) {
@@ -1207,7 +1199,6 @@
                 lastUpdatedHtml = '<p class="blog-rail-meta-item"><span class="blog-rail-label">Updated:</span> <strong>' + String(bylineText).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') + '</strong></p>';
             }
         }
-        var readTimeHtml = '<p class="blog-rail-meta-item"><span class="blog-rail-label">Read time:</span> <strong>' + readMinutes + ' min</strong></p>';
         var descriptionHtml = '';
         if (leadHtml) {
             descriptionHtml = '<div class="blog-rail-description"><span class="blog-rail-label">Summary</span><p>' + leadHtml + '</p></div>';
@@ -1221,7 +1212,6 @@
                 backLinkBlock +
                 '<h3>Article Guide</h3>' +
                 lastUpdatedHtml +
-                readTimeHtml +
                 descriptionHtml +
             '</div>';
 
