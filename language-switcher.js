@@ -66,11 +66,7 @@
 
     function ensureIndustriesMenuLinks() {
         var industryLinks = [
-            { file: 'construction-business-financing.html', label: 'Construction' },
-            { file: 'manufacturing-business-financing.html', label: 'Manufacturing' },
-            { file: 'healthcare-business-financing.html', label: 'Healthcare' },
-            { file: 'restaurant-business-financing.html', label: 'Restaurant & Food Service' },
-            { file: 'transportation-business-financing.html', label: 'Transportation & Trucking' }
+            { file: 'construction-business-financing.html', label: 'Construction' }
         ];
 
         var navLinks = document.querySelector('.nav-links');
@@ -522,10 +518,6 @@
                     '<div class="footer-col">' +
                         '<h4>Industries</h4>' +
                         '<a href="/construction-business-financing.html">Construction</a>' +
-                        '<a href="/manufacturing-business-financing.html">Manufacturing</a>' +
-                        '<a href="/healthcare-business-financing.html">Healthcare</a>' +
-                        '<a href="/restaurant-business-financing.html">Restaurant & Food Service</a>' +
-                        '<a href="/transportation-business-financing.html">Transportation & Trucking</a>' +
                     '</div>' +
                     '<div class="footer-col">' +
                         '<h4>Company</h4>' +
@@ -917,6 +909,92 @@
             .replace(/\s+/g, '-')
             .replace(/-+/g, '-')
             .replace(/^-|-$/g, '');
+    }
+
+    function enhanceIndustryPageLayout() {
+        const container = document.querySelector('.form-container.industry-page-content');
+        if (!container || container.dataset.industryEnhanced === '1') return;
+
+        const introEl = container.querySelector('.results-intro');
+        const introHtml = introEl ? (introEl.innerHTML || introEl.textContent || '').trim() : '';
+        if (introEl) introEl.remove();
+        const sections = container.querySelectorAll('.about-section');
+        if (!sections.length) return;
+
+        container.dataset.industryEnhanced = '1';
+
+        const tocList = document.createElement('ul');
+        tocList.className = 'blog-post-toc-list';
+        let sectionCounter = 0;
+
+        sections.forEach(function(section) {
+            const h2 = section.querySelector(':scope > h2');
+            if (!h2) return;
+
+            sectionCounter += 1;
+            const base = slugifyHeading(h2.textContent) || ('section-' + sectionCounter);
+            const id = 'section-' + sectionCounter + '-' + base;
+            h2.id = id;
+
+            const tocItem = document.createElement('li');
+            const tocLink = document.createElement('a');
+            tocLink.href = '#' + id;
+            tocLink.textContent = h2.textContent.trim();
+            tocItem.appendChild(tocLink);
+            tocList.appendChild(tocItem);
+        });
+
+        const railRight = document.createElement('aside');
+        railRight.className = 'industry-page-rail';
+
+        if (introHtml) {
+            const summaryCard = document.createElement('div');
+            summaryCard.className = 'blog-rail-card blog-rail-meta industry-rail-summary';
+            summaryCard.innerHTML = '<h3>Summary</h3><div class="blog-rail-description"><p>' + introHtml + '</p></div>';
+            railRight.appendChild(summaryCard);
+        }
+
+        if (tocList.children.length) {
+            const tocCard = document.createElement('div');
+            tocCard.className = 'blog-rail-card blog-rail-toc';
+            const title = document.createElement('h3');
+            title.textContent = 'On This Page';
+            tocCard.appendChild(title);
+            tocCard.appendChild(tocList);
+            railRight.appendChild(tocCard);
+        }
+
+        tocList.querySelectorAll('a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                const href = link.getAttribute('href');
+                if (!href || href.length < 2) return;
+                const target = document.getElementById(href.slice(1));
+                if (!target) return;
+
+                event.preventDefault();
+                const nav = document.querySelector('.main-nav');
+                const navHeight = nav ? nav.getBoundingClientRect().height : 88;
+                const extraOffset = window.matchMedia('(max-width: 768px)').matches ? 18 : 22;
+                const y = target.getBoundingClientRect().top + window.pageYOffset - navHeight - extraOffset;
+
+                window.scrollTo({
+                    top: Math.max(0, y),
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const shell = document.createElement('div');
+        shell.className = 'industry-page-shell';
+        const main = document.createElement('div');
+        main.className = 'industry-page-main';
+        Array.from(container.children).forEach(function(child) {
+            if (child.classList && child.classList.contains('results-intro')) return;
+            main.appendChild(child);
+        });
+        shell.appendChild(main);
+        shell.appendChild(railRight);
+        container.appendChild(shell);
     }
 
     function enhanceBlogPostLayout() {
@@ -1791,12 +1869,15 @@
     }
 
     function injectTopicVisuals() {
+        const path = (window.location.pathname || '').toLowerCase();
+        const page = path.split('/').pop() || 'index.html';
+        const isIndustryPage = /(construction|trucking)-business-financing\.html$/.test(page);
+        if (isIndustryPage) return;
+
         const visual = resolveVisualSet(getTopicVisualSet());
         const universalPool = getUniversalVisualPool();
         const pageTitle = (document.title || 'Axiant Partners').replace(/\s+\|.*$/, '').trim();
         const altBase = pageTitle || 'Business financing';
-        const path = (window.location.pathname || '').toLowerCase();
-        const page = path.split('/').pop() || 'index.html';
         const artDirection = getPageArtDirection(page);
         const isBlogPost = /\/blog\//.test(path) && page.endsWith('.html');
         const isBlogHub = !isBlogPost && /(^|-)blog\.html$/.test(page);
@@ -1988,6 +2069,7 @@
 
         // Run blog/media enhancements immediately so visuals always render.
         enhanceBlogPostLayout();
+        enhanceIndustryPageLayout();
         injectTopicVisuals();
 
         // Defer only logo cleanup, which is non-critical for content rendering.

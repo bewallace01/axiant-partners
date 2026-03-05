@@ -1583,6 +1583,24 @@ select optgroup {
     content: none;
 }
 
+.equipment-financing-content .partner-list li a,
+.business-line-of-credit-content .partner-list li a,
+.fix-and-flip-content .partner-list li a,
+.working-capital-loans-content .partner-list li a,
+.sba-loans-content .partner-list li a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+.equipment-financing-content .partner-list li a:hover,
+.business-line-of-credit-content .partner-list li a:hover,
+.fix-and-flip-content .partner-list li a:hover,
+.working-capital-loans-content .partner-list li a:hover,
+.sba-loans-content .partner-list li a:hover {
+    color: var(--accent-dark);
+    text-decoration: underline;
+}
+
 .equipment-financing-content .partner-list li:last-child,
 .business-line-of-credit-content .partner-list li:last-child,
 .fix-and-flip-content .partner-list li:last-child,
@@ -1930,6 +1948,143 @@ select optgroup {
 
 .equipment-hub-card:hover::before {
     transform: scaleX(1);
+}
+
+/* Industry page overview hero image */
+.industry-overview-section .industry-overview-image {
+    margin: 1.5rem 0 0;
+    padding: 12px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 24px var(--shadow-color);
+    background: var(--bg-card);
+}
+
+.industry-overview-section .industry-overview-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-height: 420px;
+    border-radius: 8px;
+}
+
+/* Industry page equipment - alternating rectangle layout, larger boxes */
+.industry-equipment-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+.industry-equipment-row {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    min-height: 380px;
+}
+
+.industry-equipment-row:hover {
+    box-shadow: 0 12px 32px var(--shadow-color);
+    border-color: var(--accent-color);
+}
+
+.industry-equipment-row.image-right {
+    flex-direction: row-reverse;
+}
+
+.industry-equipment-row .industry-equipment-img {
+    flex: 0 0 52%;
+    min-height: 380px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.industry-equipment-row .industry-equipment-img img {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+.industry-equipment-row .industry-equipment-body {
+    flex: 1;
+    padding: 2.5rem 2.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.industry-equipment-row h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    color: var(--text-primary);
+}
+
+.industry-equipment-row p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-tertiary);
+    margin-bottom: 0.85rem;
+}
+
+.industry-equipment-row .blog-card-link {
+    font-size: 0.98rem;
+}
+
+@media (max-width: 768px) {
+    .industry-equipment-row,
+    .industry-equipment-row.image-right {
+        flex-direction: column;
+        min-height: unset;
+    }
+    .industry-equipment-row .industry-equipment-img {
+        flex: 0 0 auto;
+        min-height: 280px;
+        padding: 12px;
+    }
+    .industry-equipment-row .industry-equipment-img img {
+        min-height: 256px;
+        border-radius: 8px;
+    }
+    .industry-equipment-row .industry-equipment-body {
+        padding: 2rem 2rem;
+    }
+}
+
+/* Related guides for industry pages */
+.industry-guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.industry-guides-grid a {
+    display: block;
+    padding: 1rem 1.25rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.industry-guides-grid a:hover {
+    border-color: var(--accent-color);
+    background: rgba(45, 127, 184, 0.06);
 }
 
 /* Legacy pill list (e.g. construction page) */
@@ -5879,6 +6034,54 @@ html {
     text-decoration: none;
 }
 
+/* Industry page: main + sticky right rail (summary + On This Page) */
+.industry-page-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: clamp(20px, 3vw, 40px);
+    align-items: start;
+    margin-top: 1.2rem;
+}
+
+.industry-page-main {
+    display: grid;
+    gap: 0;
+}
+
+.industry-page-main .about-section h2[id] {
+    scroll-margin-top: 112px;
+}
+
+.industry-page-rail {
+    position: sticky;
+    top: 126px;
+    display: grid;
+    gap: 0.85rem;
+}
+
+.industry-rail-summary .blog-rail-description {
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.industry-rail-summary .blog-rail-description p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+}
+
+.industry-rail-summary .blog-rail-description p a {
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.industry-rail-summary .blog-rail-description p a:hover {
+    color: var(--accent-dark);
+}
+
 @media (max-width: 980px) {
     .blog-post-shell {
         grid-template-columns: 1fr;
@@ -5887,6 +6090,15 @@ html {
     .blog-post-rail-left,
     .blog-post-rail-right {
         position: static;
+    }
+
+    .industry-page-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .industry-page-rail {
+        position: static;
+        order: -1;
     }
 }
 
@@ -5897,6 +6109,10 @@ html {
     }
 
     .blog-post-main h2[id] {
+        scroll-margin-top: 92px;
+    }
+
+    .industry-page-main .about-section h2[id] {
         scroll-margin-top: 92px;
     }
 }
@@ -6893,9 +7109,14 @@ html {
         min-width: 0 !important;
     }
 
+    .industry-page-shell {
+        grid-template-columns: 1fr !important;
+    }
+
     /* Article Guide & On This Page: same box format on mobile as desktop */
     .blog-post-rail-left .blog-rail-card,
-    .blog-post-rail-right .blog-rail-card {
+    .blog-post-rail-right .blog-rail-card,
+    .industry-page-rail .blog-rail-card {
         width: 100% !important;
         border-radius: 14px !important;
         border: 1px solid var(--mobile-panel-border) !important;
@@ -6905,7 +7126,8 @@ html {
     }
 
     [data-theme="dark"] .blog-post-rail-left .blog-rail-card,
-    [data-theme="dark"] .blog-post-rail-right .blog-rail-card {
+    [data-theme="dark"] .blog-post-rail-right .blog-rail-card,
+    [data-theme="dark"] .industry-page-rail .blog-rail-card {
         background: linear-gradient(180deg, rgba(30, 41, 59, 0.84) 0%, rgba(15, 23, 42, 0.8) 100%) !important;
         border-color: rgba(96, 165, 250, 0.26) !important;
         box-shadow: 0 10px 22px rgba(0, 0, 0, 0.34) !important;
