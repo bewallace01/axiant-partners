@@ -60,7 +60,7 @@ def main():
         if d.is_dir():
             urls.append(url_entry(f"/working-capital-loans/articles/{d.name}/", priority="0.7"))
     for d in (BASE / "business-term-loans" / "articles").iterdir():
-        if d.is_dir():
+        if d.is_dir() and d.name != "business-term-loan-vs-line-of-credit":  # 301 redirect to business-line-of-credit
             urls.append(url_entry(f"/business-term-loans/articles/{d.name}/", priority="0.7"))
     for d in (BASE / "commercial-real-estate-loans" / "articles").iterdir():
         if d.is_dir():
