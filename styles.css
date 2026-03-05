@@ -3403,6 +3403,11 @@ a.btn-primary, a.btn-secondary {
     text-decoration: none;
 }
 
+/* Prevent inline links from breaking awkwardly (e.g. "down payment 0–20%") */
+a.no-wrap-link {
+    white-space: nowrap;
+}
+
 /* Fallback for blog-post-content without form-container (if ever used) */
 .blog-post-content h2 { margin-top: 1.75rem; margin-bottom: 0.75rem; font-size: 1.35rem; font-family: 'Playfair Display', serif; }
 .blog-post-content p { margin-bottom: 1rem; }
