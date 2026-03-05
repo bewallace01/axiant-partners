@@ -51,7 +51,7 @@
             { file: 'fix-and-flip.html', label: 'Fix and Flip' }
         ];
 
-        var servicesDropdown = document.querySelector('.nav-links .nav-dropdown');
+        var servicesDropdown = findDropdownByTriggerText('Services');
         var menu = servicesDropdown ? servicesDropdown.querySelector('.nav-dropdown-menu') : null;
         if (!menu) return;
 
@@ -64,6 +64,16 @@
         });
     }
 
+    function findDropdownByTriggerText(text) {
+        var triggers = document.querySelectorAll('.nav-links .nav-dropdown-trigger');
+        for (var i = 0; i < triggers.length; i++) {
+            if ((triggers[i].textContent || '').trim() === text) {
+                return triggers[i].closest('.nav-dropdown');
+            }
+        }
+        return null;
+    }
+
     function ensureIndustriesMenuLinks() {
         var industryLinks = [
             { file: 'construction-business-financing.html', label: 'Construction' },
@@ -71,17 +81,16 @@
             { file: 'agriculture-business-financing.html', label: 'Agriculture' },
             { file: 'landscaping-business-financing.html', label: 'Landscaping' },
             { file: 'manufacturing-business-financing.html', label: 'Manufacturing' },
-            { file: 'medical-practices-business-financing.html', label: 'Medical Practices' }
+            { file: 'medical-practices-business-financing.html', label: 'Medical Practices' },
+            { file: 'restaurants-business-financing.html', label: 'Restaurants' }
         ];
 
         var navLinks = document.querySelector('.nav-links');
         if (!navLinks) return;
 
-        var dropdowns = navLinks.querySelectorAll('.nav-dropdown');
-        var servicesDropdown = dropdowns[0];
-        var industriesDropdown = dropdowns[1];
-
+        var industriesDropdown = findDropdownByTriggerText('Industries');
         if (!industriesDropdown) {
+            var servicesDropdown = findDropdownByTriggerText('Services');
             industriesDropdown = document.createElement('div');
             industriesDropdown.className = 'nav-dropdown';
             industriesDropdown.innerHTML = '<button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Industries</button><div class="nav-dropdown-menu"></div>';
@@ -528,6 +537,7 @@
                         '<a href="/landscaping-business-financing.html">Landscaping</a>' +
                         '<a href="/manufacturing-business-financing.html">Manufacturing</a>' +
                         '<a href="/medical-practices-business-financing.html">Medical Practices</a>' +
+                        '<a href="/restaurants-business-financing.html">Restaurants</a>' +
                     '</div>' +
                     '<div class="footer-col">' +
                         '<h4>Company</h4>' +
