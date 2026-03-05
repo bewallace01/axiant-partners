@@ -1120,6 +1120,7 @@
         });
         if (contentStartIdx < 0) return;
 
+        var noRails = container.classList && container.classList.contains('blog-post-content--no-rails');
         container.dataset.blogEnhanced = '1';
         const introNodes = allChildren.slice(0, contentStartIdx);
         const articleNodes = allChildren.slice(contentStartIdx);
@@ -1202,6 +1203,33 @@
         var descriptionHtml = '';
         if (leadHtml) {
             descriptionHtml = '<div class="blog-rail-description"><span class="blog-rail-label">Summary</span><p>' + leadHtml + '</p></div>';
+        }
+
+        if (noRails) {
+            shell.classList.add('blog-post-shell--no-rails');
+            shell.appendChild(main);
+            container.innerHTML = '';
+            if (backLinkHtml) {
+                var backWrap = document.createElement('p');
+                backWrap.className = 'blog-back';
+                backWrap.innerHTML = backLinkHtml;
+                container.appendChild(backWrap);
+            }
+            if (bylineText) {
+                var bylineWrap = document.createElement('p');
+                bylineWrap.className = 'blog-byline';
+                bylineWrap.textContent = bylineText;
+                container.appendChild(bylineWrap);
+            }
+            if (leadHtml) {
+                var leadWrap = document.createElement('p');
+                leadWrap.className = 'blog-lead';
+                leadWrap.innerHTML = leadHtml;
+                container.appendChild(leadWrap);
+            }
+            introToUse.forEach(function(node) { container.appendChild(node); });
+            container.appendChild(shell);
+            return;
         }
 
         var railLeft = document.createElement('div');
