@@ -67,7 +67,8 @@
     function ensureIndustriesMenuLinks() {
         var industryLinks = [
             { file: 'construction-business-financing.html', label: 'Construction' },
-            { file: 'trucking-business-financing.html', label: 'Trucking' }
+            { file: 'trucking-business-financing.html', label: 'Trucking' },
+            { file: 'agriculture-business-financing.html', label: 'Agriculture' }
         ];
 
         var navLinks = document.querySelector('.nav-links');
@@ -520,6 +521,7 @@
                         '<h4>Industries</h4>' +
                         '<a href="/construction-business-financing.html">Construction</a>' +
                         '<a href="/trucking-business-financing.html">Trucking</a>' +
+                        '<a href="/agriculture-business-financing.html">Agriculture</a>' +
                     '</div>' +
                     '<div class="footer-col">' +
                         '<h4>Company</h4>' +
@@ -1873,7 +1875,7 @@
     function injectTopicVisuals() {
         const path = (window.location.pathname || '').toLowerCase();
         const page = path.split('/').pop() || 'index.html';
-        const isIndustryPage = /(construction|trucking)-business-financing\.html$/.test(page);
+        const isIndustryPage = /(construction|trucking|agriculture)-business-financing\.html$/.test(page);
         if (isIndustryPage) return;
 
         const visual = resolveVisualSet(getTopicVisualSet());
