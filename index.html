@@ -451,6 +451,7 @@
 
         .industry-tile {
             position: relative;
+            display: block;
             min-height: 210px;
             border-radius: 14px;
             overflow: hidden;
@@ -458,6 +459,12 @@
             box-shadow: 0 8px 22px var(--shadow-color);
             background-size: cover;
             background-position: center;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        a.industry-tile:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px var(--shadow-color);
         }
 
         .industry-tile::before {
@@ -923,44 +930,44 @@
 
             <section class="section-block">
                 <h2>Industries We Support</h2>
-                <p class="section-intro">From field operations to professional services, we support financing strategies tailored to how each industry buys, grows, and scales.</p>
+                <p class="section-intro">From construction to healthcare, restaurants, and logistics, we support financing strategies tailored to how each industry buys, grows, and scales.</p>
                 <div class="industry-grid">
-                    <article class="industry-tile" style="background-image:url('assets/ai-equipment-4.png');">
+                    <a href="construction-business-financing.html" class="industry-tile" style="background-image:url('assets/construction-industry-overview.png');">
                         <div class="industry-tile-content">
                             <h3>Construction</h3>
                             <p>Heavy equipment, fleet growth, and project cash-flow support.</p>
                         </div>
-                    </article>
-                    <article class="industry-tile" style="background-image:url('assets/ai-workingcapital-2.png');">
+                    </a>
+                    <a href="medical-practices-business-financing.html" class="industry-tile" style="background-image:url('assets/medical-practices-industry-overview.png');">
                         <div class="industry-tile-content">
                             <h3>Healthcare</h3>
                             <p>Equipment upgrades, expansion, and operational financing.</p>
                         </div>
-                    </article>
-                    <article class="industry-tile" style="background-image:url('assets/ai-equipment-2.png');">
+                    </a>
+                    <a href="manufacturing-business-financing.html" class="industry-tile" style="background-image:url('assets/manufacturing-industry-overview.png');">
                         <div class="industry-tile-content">
                             <h3>Manufacturing</h3>
                             <p>Machinery financing, automation, and working capital structure.</p>
                         </div>
-                    </article>
-                    <article class="industry-tile" style="background-image:url('assets/ai-equipment-5.png');">
+                    </a>
+                    <a href="trucking-business-financing.html" class="industry-tile" style="background-image:url('assets/trucking-industry-overview.png');">
                         <div class="industry-tile-content">
-                            <h3>Transportation</h3>
+                            <h3>Trucking</h3>
                             <p>Vehicle fleets, trailers, and logistics growth financing.</p>
                         </div>
-                    </article>
-                    <article class="industry-tile" style="background-image:url('assets/ai-revenue-2.png');">
+                    </a>
+                    <a href="restaurants-business-financing.html" class="industry-tile" style="background-image:url('assets/restaurants-industry-overview.png');">
                         <div class="industry-tile-content">
-                            <h3>Retail & Services</h3>
-                            <p>Seasonal inventory, location investment, and growth initiatives.</p>
+                            <h3>Restaurants</h3>
+                            <p>Kitchen equipment, location buildout, and seasonal working capital.</p>
                         </div>
-                    </article>
-                    <article class="industry-tile" style="background-image:url('assets/ai-growth-2.png');">
+                    </a>
+                    <a href="logistics-warehousing-business-financing.html" class="industry-tile" style="background-image:url('assets/logistics-warehousing-industry-overview.png');">
                         <div class="industry-tile-content">
-                            <h3>Professional Firms</h3>
-                            <p>Advisory-led financing for strategic expansion and stability.</p>
+                            <h3>Logistics & Warehousing</h3>
+                            <p>Forklifts, conveyors, and facility expansion financing.</p>
                         </div>
-                    </article>
+                    </a>
                 </div>
             </section>
 
