@@ -6124,6 +6124,19 @@ html {
     overflow-wrap: break-word;
 }
 
+/* Service/industry pages: larger TOC text now that rail has more room (no summary) */
+.industry-page-rail .blog-rail-toc .blog-post-toc-list a {
+    font-size: 0.95rem;
+    padding: 5px 8px;
+    line-height: 1.4;
+}
+
+.industry-page-rail .blog-rail-toc .blog-post-toc-list:has(li:nth-child(12)) a,
+.industry-page-rail .blog-rail-toc .blog-post-toc-list:has(li:nth-child(16)) a {
+    font-size: 0.95rem;
+    padding: 5px 8px;
+}
+
 .blog-post-toc-list a:hover {
     color: var(--accent-color);
     background: rgba(45, 127, 184, 0.1);
@@ -6150,10 +6163,10 @@ html {
     text-decoration: none;
 }
 
-/* Industry page: main + sticky right rail (summary + On This Page) */
+/* Industry page: main + sticky right rail (On This Page) - wider rail now that summary is removed */
 .industry-page-shell {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 300px;
+    grid-template-columns: minmax(0, 1fr) 360px;
     gap: clamp(20px, 3vw, 40px);
     align-items: start;
     margin-top: 1.2rem;
