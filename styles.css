@@ -4636,6 +4636,7 @@ select optgroup {
         transition: right 0.3s ease;
         z-index: 999;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         border-left: 1px solid var(--border-color);
     }
 
@@ -6060,6 +6061,7 @@ html {
     gap: 0.85rem;
     max-height: calc(100vh - 140px);
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     padding-bottom: 90px; /* avoid cutoff by Chat with Axel button */
 }
 
