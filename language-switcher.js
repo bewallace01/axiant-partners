@@ -346,28 +346,30 @@
             });
         });
 
-        nav.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
-            const trigger = dropdown.querySelector('.nav-dropdown-trigger');
-            if (!trigger) return;
+        nav.querySelectorAll('.nav-dropdown .nav-dropdown-trigger').forEach(function(trigger) {
             trigger.setAttribute('aria-expanded', 'false');
+        });
 
-            trigger.addEventListener('click', function(event) {
-                if (!mobileQuery.matches) return;
-                event.preventDefault();
-                event.stopPropagation();
+        navLinks.addEventListener('click', function(event) {
+            const trigger = event.target && event.target.closest('.nav-dropdown-trigger');
+            if (!trigger || !mobileQuery.matches) return;
+            const dropdown = trigger.closest('.nav-dropdown');
+            if (!dropdown) return;
 
-                const willOpen = !dropdown.classList.contains('mobile-open');
-                nav.querySelectorAll('.nav-dropdown').forEach(function(other) {
-                    other.classList.remove('mobile-open');
-                    const otherTrigger = other.querySelector('.nav-dropdown-trigger');
-                    if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
-                });
+            event.preventDefault();
+            event.stopPropagation();
 
-                if (willOpen) {
-                    dropdown.classList.add('mobile-open');
-                    trigger.setAttribute('aria-expanded', 'true');
-                }
+            const willOpen = !dropdown.classList.contains('mobile-open');
+            nav.querySelectorAll('.nav-dropdown').forEach(function(other) {
+                other.classList.remove('mobile-open');
+                const otherTrigger = other.querySelector('.nav-dropdown-trigger');
+                if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
             });
+
+            if (willOpen) {
+                dropdown.classList.add('mobile-open');
+                trigger.setAttribute('aria-expanded', 'true');
+            }
         });
     }
 
