@@ -2062,6 +2062,120 @@ select optgroup {
     }
 }
 
+/* Financing options chart - industry pages */
+.financing-options-chart {
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+}
+
+.financing-options-chart table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+
+.financing-options-chart thead th {
+    text-align: left;
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: rgba(45, 127, 184, 0.08);
+    border-bottom: 2px solid var(--accent-color);
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.financing-options-chart tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s ease;
+}
+
+.financing-options-chart tbody tr:last-child {
+    border-bottom: none;
+}
+
+.financing-options-chart tbody tr:hover {
+    background: rgba(45, 127, 184, 0.04);
+}
+
+.financing-options-chart tbody tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] .financing-options-chart tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.financing-options-chart tbody tr:nth-child(even):hover {
+    background: rgba(45, 127, 184, 0.06);
+}
+
+.financing-options-chart td {
+    padding: 1rem 1.25rem;
+    vertical-align: top;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.financing-options-chart td:first-child {
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    width: 1%;
+}
+
+.financing-options-chart td:nth-child(2) {
+    min-width: 200px;
+}
+
+.financing-options-chart td:last-child {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.financing-options-chart a {
+    color: var(--accent-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.financing-options-chart a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .financing-options-chart {
+        border-radius: 10px;
+    }
+    .financing-options-chart thead {
+        display: none;
+    }
+    .financing-options-chart tbody tr {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+    .financing-options-chart td {
+        padding: 0.25rem 0;
+        border: none;
+    }
+    .financing-options-chart td:first-child {
+        font-size: 1.1rem;
+        padding-bottom: 0.25rem;
+        border-bottom: 1px solid var(--border-color);
+        white-space: normal;
+    }
+    .financing-options-chart td:last-child {
+        text-align: left;
+        padding-top: 0.5rem;
+    }
+}
+
 /* Related guides for industry pages */
 .industry-guides-grid {
     display: grid;

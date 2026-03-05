@@ -517,6 +517,7 @@
                         '<h4>Resources</h4>' +
                         '<a href="/match.html">Get Started</a>' +
                         '<a href="/services.html">All Services</a>' +
+                        '<a href="/industries.html">All Industries</a>' +
                         '<a href="/calculator.html">Loan Calculator</a>' +
                         '<a href="/blog.html">All Articles</a>' +
                     '</div>' +
