@@ -82,7 +82,8 @@
             { file: 'landscaping-business-financing.html', label: 'Landscaping' },
             { file: 'manufacturing-business-financing.html', label: 'Manufacturing' },
             { file: 'medical-practices-business-financing.html', label: 'Medical Practices' },
-            { file: 'restaurants-business-financing.html', label: 'Restaurants' }
+            { file: 'restaurants-business-financing.html', label: 'Restaurants' },
+            { file: 'auto-repair-business-financing.html', label: 'Auto Repair' }
         ];
 
         var navLinks = document.querySelector('.nav-links');
@@ -538,6 +539,7 @@
                         '<a href="/manufacturing-business-financing.html">Manufacturing</a>' +
                         '<a href="/medical-practices-business-financing.html">Medical Practices</a>' +
                         '<a href="/restaurants-business-financing.html">Restaurants</a>' +
+                        '<a href="/auto-repair-business-financing.html">Auto Repair</a>' +
                     '</div>' +
                     '<div class="footer-col">' +
                         '<h4>Company</h4>' +
@@ -1891,7 +1893,7 @@
     function injectTopicVisuals() {
         const path = (window.location.pathname || '').toLowerCase();
         const page = path.split('/').pop() || 'index.html';
-        const isIndustryPage = /(construction|trucking|agriculture|landscaping|manufacturing|medical-practices|restaurants)-business-financing\.html$/.test(page);
+        const isIndustryPage = /(construction|trucking|agriculture|landscaping|manufacturing|medical-practices|restaurants|auto-repair)-business-financing\.html$/.test(page);
         if (isIndustryPage) return;
 
         const visual = resolveVisualSet(getTopicVisualSet());
