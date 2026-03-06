@@ -23,7 +23,7 @@
     <link rel="preload" href="assets/excavator-equipment.png" as="image">
     <link rel="stylesheet" href="styles.css?v=202603041">
     <style>
-        .equipment-hub-grid {
+        .equipment-types-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(220px, 1fr));
             gap: 1.5rem 1.75rem;
@@ -35,58 +35,59 @@
             padding-right: clamp(24px, 4vw, 60px);
         }
         @media (max-width: 1100px) {
-            .equipment-hub-grid { grid-template-columns: repeat(3, 1fr); }
+            .equipment-types-grid { grid-template-columns: repeat(3, 1fr); }
         }
         @media (max-width: 750px) {
-            .equipment-hub-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+            .equipment-types-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
         }
         @media (max-width: 480px) {
-            .equipment-hub-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+            .equipment-types-grid { grid-template-columns: 1fr; gap: 1.25rem; }
         }
-        .equipment-hub-card {
+        .equipment-types-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            overflow: hidden;
             transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
         }
-        .equipment-hub-card:hover {
+        .equipment-types-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 16px 32px rgba(0,0,0,0.15);
             border-color: rgba(45, 127, 184, 0.35);
         }
-        .equipment-hub-card-link {
+        .equipment-types-card-link {
             display: block;
             color: inherit;
             text-decoration: none;
+            padding: 12px 12px 0;
         }
-        .equipment-hub-card-link:visited {
+        .equipment-types-card-link:visited {
             color: inherit;
         }
-        .equipment-hub-card-link:visited .equipment-hub-card-cta {
+        .equipment-types-card-link:visited .equipment-types-card-cta {
             color: var(--text-secondary);
         }
-        .equipment-hub-card-img {
+        .equipment-types-card-img {
             width: 100%;
             aspect-ratio: 4 / 3;
             object-fit: cover;
             display: block;
+            border-radius: 12px;
         }
-        .equipment-hub-card-body {
+        .equipment-types-card-body {
             padding: 1.5rem 1.6rem;
         }
-        .equipment-hub-card h3 {
+        .equipment-types-card h3 {
             margin: 0 0 0.5rem;
             font-size: 1.25rem;
             font-weight: 600;
             letter-spacing: -0.01em;
         }
-        .equipment-hub-card-cta {
+        .equipment-types-card-cta {
             font-size: 0.95rem;
             color: var(--text-secondary);
             transition: color 0.2s ease;
         }
-        .equipment-hub-card-cta:hover {
+        .equipment-types-card-cta:hover {
             color: var(--accent-color);
         }
         .equipment-hub-content a:not(.btn-primary):not(.btn-secondary) {
@@ -165,498 +166,498 @@
 
             <h2>Equipment Types</h2>
 
-            <div class="equipment-hub-grid">
+            <div class="equipment-types-grid">
                 <!-- Construction & Heavy Equipment -->
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/excavators/how-to-finance-an-excavator/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="eager" fetchpriority="high" decoding="async" src="assets/excavator-equipment.png" alt="Excavator">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/excavators/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="eager" fetchpriority="high" decoding="async" src="assets/excavator-equipment.png" alt="Excavator">
+                        <div class="equipment-types-card-body">
                             <h3>Excavators</h3>
-                            <span class="equipment-hub-card-cta">How to finance an excavator</span>
+                            <span class="equipment-types-card-cta">Excavator financing</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/wheel-loaders/how-to-finance-a-wheel-loader/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="eager" fetchpriority="high" decoding="async" src="assets/wheel-loader-equipment.png" alt="Wheel loader">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/wheel-loaders/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="eager" fetchpriority="high" decoding="async" src="assets/wheel-loader-equipment.png" alt="Wheel loader">
+                        <div class="equipment-types-card-body">
                             <h3>Wheel Loaders</h3>
-                            <span class="equipment-hub-card-cta">How to finance a wheel loader</span>
+                            <span class="equipment-types-card-cta">Wheel loader financing</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/mini-excavators/how-to-finance-a-mini-excavator/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/mini-excavator-equipment.png" alt="Mini excavator">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/mini-excavators/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/mini-excavator-equipment.png" alt="Mini excavator">
+                        <div class="equipment-types-card-body">
                             <h3>Mini Excavators</h3>
-                            <span class="equipment-hub-card-cta">How to finance a mini excavator</span>
+                            <span class="equipment-types-card-cta">Mini excavator financing</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/backhoes/how-to-finance-a-backhoe/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/backhoe-equipment.png" alt="Backhoe loader">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/backhoes/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/backhoe-equipment.png" alt="Backhoe loader">
+                        <div class="equipment-types-card-body">
                             <h3>Backhoes</h3>
-                            <span class="equipment-hub-card-cta">How to finance a backhoe</span>
+                            <span class="equipment-types-card-cta">Backhoe financing</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/bulldozers/how-to-finance-a-bulldozer/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/bulldozer-equipment.png" alt="Bulldozer">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/bulldozers/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/bulldozer-equipment.png" alt="Bulldozer">
+                        <div class="equipment-types-card-body">
                             <h3>Bulldozers</h3>
-                            <span class="equipment-hub-card-cta">How to finance a bulldozer</span>
+                            <span class="equipment-types-card-cta">Bulldozer financing</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/skid-steers/how-to-finance-a-skid-steer/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/skid-steer-equipment.png" alt="Skid steer">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/skid-steers/how-to-finance-a-skid-steer/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/skid-steer-equipment.png" alt="Skid steer">
+                        <div class="equipment-types-card-body">
                             <h3>Skid Steers</h3>
-                            <span class="equipment-hub-card-cta">How to finance a skid steer</span>
+                            <span class="equipment-types-card-cta">How to finance a skid steer</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/stump-grinders/how-to-finance-a-stump-grinder/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/stump-grinder-equipment.png" alt="Stump grinder">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/stump-grinders/how-to-finance-a-stump-grinder/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/stump-grinder-equipment.png" alt="Stump grinder">
+                        <div class="equipment-types-card-body">
                             <h3>Stump Grinders</h3>
-                            <span class="equipment-hub-card-cta">How to finance a stump grinder</span>
+                            <span class="equipment-types-card-cta">How to finance a stump grinder</span>
                         </div>
                     </a>
                 </div>
 
                 <!-- Trucks & Trailers -->
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/semi-trucks/how-to-finance-a-semi-truck/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/semi-truck-equipment.png" alt="Semi truck">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/semi-trucks/how-to-finance-a-semi-truck/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/semi-truck-equipment.png" alt="Semi truck">
+                        <div class="equipment-types-card-body">
                             <h3>Semi-Trucks</h3>
-                            <span class="equipment-hub-card-cta">How to finance a semi-truck</span>
+                            <span class="equipment-types-card-cta">How to finance a semi-truck</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/box-trucks/how-to-finance-a-box-truck/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/box-truck-equipment.png" alt="Box truck">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/box-trucks/how-to-finance-a-box-truck/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/box-truck-equipment.png" alt="Box truck">
+                        <div class="equipment-types-card-body">
                             <h3>Box Trucks</h3>
-                            <span class="equipment-hub-card-cta">How to finance a box truck</span>
+                            <span class="equipment-types-card-cta">How to finance a box truck</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/dump-trucks/how-to-finance-a-dump-truck/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/dump-truck-equipment.png" alt="Dump truck">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/dump-trucks/how-to-finance-a-dump-truck/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/dump-truck-equipment.png" alt="Dump truck">
+                        <div class="equipment-types-card-body">
                             <h3>Dump Trucks</h3>
-                            <span class="equipment-hub-card-cta">How to finance a dump truck</span>
+                            <span class="equipment-types-card-cta">How to finance a dump truck</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/log-trucks/how-to-finance-a-log-truck/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/forestry-log-truck-equipment.png" alt="Log truck">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/log-trucks/how-to-finance-a-log-truck/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/forestry-log-truck-equipment.png" alt="Log truck">
+                        <div class="equipment-types-card-body">
                             <h3>Log Trucks & Trailers</h3>
-                            <span class="equipment-hub-card-cta">How to finance a log truck</span>
+                            <span class="equipment-types-card-cta">How to finance a log truck</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/flatbed-trucks/how-to-finance-a-flatbed-truck/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/flatbed-truck-equipment.png" alt="Flatbed truck">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/flatbed-trucks/how-to-finance-a-flatbed-truck/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/flatbed-truck-equipment.png" alt="Flatbed truck">
+                        <div class="equipment-types-card-body">
                             <h3>Flatbed Trucks</h3>
-                            <span class="equipment-hub-card-cta">How to finance a flatbed truck</span>
+                            <span class="equipment-types-card-cta">How to finance a flatbed truck</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/tanker-trucks/how-to-finance-a-tanker-truck/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/tanker-truck-equipment.png" alt="Tanker truck">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/tanker-trucks/how-to-finance-a-tanker-truck/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/tanker-truck-equipment.png" alt="Tanker truck">
+                        <div class="equipment-types-card-body">
                             <h3>Tanker Trucks</h3>
-                            <span class="equipment-hub-card-cta">How to finance a tanker truck</span>
+                            <span class="equipment-types-card-cta">How to finance a tanker truck</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/refrigerated-trucks/how-to-finance-a-refrigerated-truck/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/reefer-truck-equipment.png" alt="Refrigerated truck">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/refrigerated-trucks/how-to-finance-a-refrigerated-truck/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/reefer-truck-equipment.png" alt="Refrigerated truck">
+                        <div class="equipment-types-card-body">
                             <h3>Refrigerated Trucks</h3>
-                            <span class="equipment-hub-card-cta">How to finance a reefer truck</span>
+                            <span class="equipment-types-card-cta">How to finance a reefer truck</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/bucket-trucks/how-to-finance-a-bucket-truck/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/forestry-bucket-truck-equipment.png" alt="Bucket truck">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/bucket-trucks/how-to-finance-a-bucket-truck/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/forestry-bucket-truck-equipment.png" alt="Bucket truck">
+                        <div class="equipment-types-card-body">
                             <h3>Bucket Trucks</h3>
-                            <span class="equipment-hub-card-cta">How to finance a bucket truck</span>
+                            <span class="equipment-types-card-cta">How to finance a bucket truck</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/trailers/how-to-finance-a-trailer/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/trailer-equipment.png" alt="Trailer">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/trailers/how-to-finance-a-trailer/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/trailer-equipment.png" alt="Trailer">
+                        <div class="equipment-types-card-body">
                             <h3>Trailers</h3>
-                            <span class="equipment-hub-card-cta">How to finance a trailer</span>
+                            <span class="equipment-types-card-cta">How to finance a trailer</span>
                         </div>
                     </a>
                 </div>
 
                 <!-- Agriculture -->
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/tractors/how-to-finance-a-tractor/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/tractor-equipment.png" alt="Tractor">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/tractors/how-to-finance-a-tractor/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/tractor-equipment.png" alt="Tractor">
+                        <div class="equipment-types-card-body">
                             <h3>Tractors</h3>
-                            <span class="equipment-hub-card-cta">How to finance a tractor</span>
+                            <span class="equipment-types-card-cta">How to finance a tractor</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/combines/how-to-finance-a-combine/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/combine-equipment.png" alt="Combine harvester">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/combines/how-to-finance-a-combine/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/combine-equipment.png" alt="Combine harvester">
+                        <div class="equipment-types-card-body">
                             <h3>Combines</h3>
-                            <span class="equipment-hub-card-cta">How to finance a combine</span>
+                            <span class="equipment-types-card-cta">How to finance a combine</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/hay-balers/how-to-finance-a-hay-baler/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/hay-baler-equipment.png" alt="Hay baler">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/hay-balers/how-to-finance-a-hay-baler/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/hay-baler-equipment.png" alt="Hay baler">
+                        <div class="equipment-types-card-body">
                             <h3>Hay Balers</h3>
-                            <span class="equipment-hub-card-cta">How to finance a hay baler</span>
+                            <span class="equipment-types-card-cta">How to finance a hay baler</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/sprayers/how-to-finance-a-sprayer/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/sprayer-equipment.png" alt="Sprayer">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/sprayers/how-to-finance-a-sprayer/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/sprayer-equipment.png" alt="Sprayer">
+                        <div class="equipment-types-card-body">
                             <h3>Sprayers</h3>
-                            <span class="equipment-hub-card-cta">How to finance a sprayer</span>
+                            <span class="equipment-types-card-cta">How to finance a sprayer</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/grain-equipment/how-to-finance-grain-equipment/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/grain-equipment.png" alt="Grain handling">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/grain-equipment/how-to-finance-grain-equipment/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/grain-equipment.png" alt="Grain handling">
+                        <div class="equipment-types-card-body">
                             <h3>Grain Handling & Storage</h3>
-                            <span class="equipment-hub-card-cta">How to finance grain equipment</span>
+                            <span class="equipment-types-card-cta">How to finance grain equipment</span>
                         </div>
                     </a>
                 </div>
 
                 <!-- Landscaping -->
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/zero-turn-mowers/how-to-finance-a-zero-turn-mower/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/zero-turn-mower-equipment.png" alt="Zero-turn mower">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/zero-turn-mowers/how-to-finance-a-zero-turn-mower/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/zero-turn-mower-equipment.png" alt="Zero-turn mower">
+                        <div class="equipment-types-card-body">
                             <h3>Zero-Turn Mowers</h3>
-                            <span class="equipment-hub-card-cta">How to finance a zero-turn mower</span>
+                            <span class="equipment-types-card-cta">How to finance a zero-turn mower</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/commercial-mowers/how-to-finance-a-commercial-mower/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/commercial-mower-equipment.png" alt="Commercial mower">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/commercial-mowers/how-to-finance-a-commercial-mower/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/commercial-mower-equipment.png" alt="Commercial mower">
+                        <div class="equipment-types-card-body">
                             <h3>Commercial Mowers</h3>
-                            <span class="equipment-hub-card-cta">How to finance a commercial mower</span>
+                            <span class="equipment-types-card-cta">How to finance a commercial mower</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/landscape-trailers/how-to-finance-a-landscape-trailer/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/landscape-trailer-equipment.png" alt="Landscape trailer">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/landscape-trailers/how-to-finance-a-landscape-trailer/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/landscape-trailer-equipment.png" alt="Landscape trailer">
+                        <div class="equipment-types-card-body">
                             <h3>Landscape Trailers</h3>
-                            <span class="equipment-hub-card-cta">How to finance a landscape trailer</span>
+                            <span class="equipment-types-card-cta">How to finance a landscape trailer</span>
                         </div>
                     </a>
                 </div>
 
                 <!-- Manufacturing -->
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/cnc-machines/how-to-finance-a-cnc-machine/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/cnc-machine-equipment.png" alt="CNC machine">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/cnc-machines/how-to-finance-a-cnc-machine/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/cnc-machine-equipment.png" alt="CNC machine">
+                        <div class="equipment-types-card-body">
                             <h3>CNC Machines</h3>
-                            <span class="equipment-hub-card-cta">How to finance a CNC machine</span>
+                            <span class="equipment-types-card-cta">How to finance a CNC machine</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/lathes-milling-machines/how-to-finance-a-lathe-or-mill/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/lathe-equipment.png" alt="Lathe">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/lathes-milling-machines/how-to-finance-a-lathe-or-mill/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/lathe-equipment.png" alt="Lathe">
+                        <div class="equipment-types-card-body">
                             <h3>Lathes & Milling Machines</h3>
-                            <span class="equipment-hub-card-cta">How to finance a lathe or mill</span>
+                            <span class="equipment-types-card-cta">How to finance a lathe or mill</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/press-brakes/how-to-finance-press-brake-equipment/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/press-brake-equipment.png" alt="Press brake">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/press-brakes/how-to-finance-press-brake-equipment/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/press-brake-equipment.png" alt="Press brake">
+                        <div class="equipment-types-card-body">
                             <h3>Press Brakes & Stamping</h3>
-                            <span class="equipment-hub-card-cta">How to finance press brake equipment</span>
+                            <span class="equipment-types-card-cta">How to finance press brake equipment</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/injection-molding/how-to-finance-injection-molding-equipment/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/injection-molding-equipment.png" alt="Injection molding">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/injection-molding/how-to-finance-injection-molding-equipment/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/injection-molding-equipment.png" alt="Injection molding">
+                        <div class="equipment-types-card-body">
                             <h3>Injection Molding</h3>
-                            <span class="equipment-hub-card-cta">How to finance injection molding equipment</span>
+                            <span class="equipment-types-card-cta">How to finance injection molding equipment</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/industrial-robots/how-to-finance-industrial-robots/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/industrial-robot-equipment.png" alt="Industrial robot">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/industrial-robots/how-to-finance-industrial-robots/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/industrial-robot-equipment.png" alt="Industrial robot">
+                        <div class="equipment-types-card-body">
                             <h3>Industrial Robots</h3>
-                            <span class="equipment-hub-card-cta">How to finance industrial robots</span>
+                            <span class="equipment-types-card-cta">How to finance industrial robots</span>
                         </div>
                     </a>
                 </div>
 
                 <!-- Logistics & Warehousing -->
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/forklifts/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/forklift-manufacturing-equipment.png" alt="Forklift">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/forklifts/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/forklift-manufacturing-equipment.png" alt="Forklift">
+                        <div class="equipment-types-card-body">
                             <h3>Forklifts</h3>
-                            <span class="equipment-hub-card-cta">Forklift financing</span>
+                            <span class="equipment-types-card-cta">Forklift financing</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/pallet-jacks/how-to-finance-a-pallet-jack/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/pallet-jack-equipment.png" alt="Pallet jack">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/pallet-jacks/how-to-finance-a-pallet-jack/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/pallet-jack-equipment.png" alt="Pallet jack">
+                        <div class="equipment-types-card-body">
                             <h3>Pallet Jacks</h3>
-                            <span class="equipment-hub-card-cta">How to finance a pallet jack</span>
+                            <span class="equipment-types-card-cta">How to finance a pallet jack</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/pallet-racking/how-to-finance-pallet-racking/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/pallet-racking-equipment.png" alt="Pallet racking">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/pallet-racking/how-to-finance-pallet-racking/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/pallet-racking-equipment.png" alt="Pallet racking">
+                        <div class="equipment-types-card-body">
                             <h3>Pallet Racking & Storage</h3>
-                            <span class="equipment-hub-card-cta">How to finance pallet racking</span>
+                            <span class="equipment-types-card-cta">How to finance pallet racking</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/conveyor-systems/how-to-finance-conveyor-systems/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/conveyor-logistics-equipment.png" alt="Conveyor system">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/conveyor-systems/how-to-finance-conveyor-systems/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/conveyor-logistics-equipment.png" alt="Conveyor system">
+                        <div class="equipment-types-card-body">
                             <h3>Conveyor Systems</h3>
-                            <span class="equipment-hub-card-cta">How to finance conveyor systems</span>
+                            <span class="equipment-types-card-cta">How to finance conveyor systems</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/dock-equipment/how-to-finance-dock-equipment/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/forklift-logistics-equipment.png" alt="Dock equipment">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/dock-equipment/how-to-finance-dock-equipment/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/forklift-logistics-equipment.png" alt="Dock equipment">
+                        <div class="equipment-types-card-body">
                             <h3>Dock Equipment</h3>
-                            <span class="equipment-hub-card-cta">How to finance dock equipment</span>
+                            <span class="equipment-types-card-cta">How to finance dock equipment</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/scanning-wms/how-to-finance-scanning-and-wms/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/warehouse-scanner-equipment.png" alt="Scanning and WMS">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/scanning-wms/how-to-finance-scanning-and-wms/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/warehouse-scanner-equipment.png" alt="Scanning and WMS">
+                        <div class="equipment-types-card-body">
                             <h3>Scanning & WMS Technology</h3>
-                            <span class="equipment-hub-card-cta">How to finance scanning and WMS</span>
+                            <span class="equipment-types-card-cta">How to finance scanning and WMS</span>
                         </div>
                     </a>
                 </div>
 
                 <!-- Auto Repair -->
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/auto-lifts/how-to-finance-an-auto-lift/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/auto-lift-equipment.png" alt="Auto lift">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/auto-lifts/how-to-finance-an-auto-lift/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/auto-lift-equipment.png" alt="Auto lift">
+                        <div class="equipment-types-card-body">
                             <h3>Lifts & Hoists</h3>
-                            <span class="equipment-hub-card-cta">How to finance an auto lift</span>
+                            <span class="equipment-types-card-cta">How to finance an auto lift</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/diagnostic-equipment-auto/how-to-finance-diagnostic-equipment/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/diagnostic-scan-tool-equipment.png" alt="Diagnostic equipment">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/diagnostic-equipment-auto/how-to-finance-diagnostic-equipment/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/diagnostic-scan-tool-equipment.png" alt="Diagnostic equipment">
+                        <div class="equipment-types-card-body">
                             <h3>Diagnostic Equipment</h3>
-                            <span class="equipment-hub-card-cta">How to finance diagnostic equipment</span>
+                            <span class="equipment-types-card-cta">How to finance diagnostic equipment</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/tire-changers-balancers/how-to-finance-tire-equipment/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/tire-changer-equipment.png" alt="Tire changer">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/tire-changers-balancers/how-to-finance-tire-equipment/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/tire-changer-equipment.png" alt="Tire changer">
+                        <div class="equipment-types-card-body">
                             <h3>Tire Changers & Balancers</h3>
-                            <span class="equipment-hub-card-cta">How to finance tire equipment</span>
+                            <span class="equipment-types-card-cta">How to finance tire equipment</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/alignment-racks/how-to-finance-an-alignment-rack/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/alignment-rack-equipment.png" alt="Alignment rack">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/alignment-racks/how-to-finance-an-alignment-rack/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/alignment-rack-equipment.png" alt="Alignment rack">
+                        <div class="equipment-types-card-body">
                             <h3>Alignment Racks</h3>
-                            <span class="equipment-hub-card-cta">How to finance an alignment rack</span>
+                            <span class="equipment-types-card-cta">How to finance an alignment rack</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/brake-rotor-equipment/how-to-finance-brake-equipment/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/brake-lathe-equipment.png" alt="Brake equipment">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/brake-rotor-equipment/how-to-finance-brake-equipment/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/brake-lathe-equipment.png" alt="Brake equipment">
+                        <div class="equipment-types-card-body">
                             <h3>Brake & Rotor Equipment</h3>
-                            <span class="equipment-hub-card-cta">How to finance brake equipment</span>
+                            <span class="equipment-types-card-cta">How to finance brake equipment</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/shop-tools-storage/how-to-finance-shop-tools/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/shop-tools-equipment.png" alt="Shop tools">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/shop-tools-storage/how-to-finance-shop-tools/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/shop-tools-equipment.png" alt="Shop tools">
+                        <div class="equipment-types-card-body">
                             <h3>Shop Tools & Storage</h3>
-                            <span class="equipment-hub-card-cta">How to finance shop tools</span>
+                            <span class="equipment-types-card-cta">How to finance shop tools</span>
                         </div>
                     </a>
                 </div>
 
                 <!-- Medical -->
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/medical-imaging/how-to-finance-medical-imaging/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/medical-imaging-equipment.png" alt="Medical imaging">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/medical-imaging/how-to-finance-medical-imaging/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/medical-imaging-equipment.png" alt="Medical imaging">
+                        <div class="equipment-types-card-body">
                             <h3>Medical Imaging</h3>
-                            <span class="equipment-hub-card-cta">How to finance medical imaging</span>
+                            <span class="equipment-types-card-cta">How to finance medical imaging</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/dental-equipment/how-to-finance-dental-equipment/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/dental-equipment.png" alt="Dental equipment">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/dental-equipment/how-to-finance-dental-equipment/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/dental-equipment.png" alt="Dental equipment">
+                        <div class="equipment-types-card-body">
                             <h3>Dental Equipment</h3>
-                            <span class="equipment-hub-card-cta">How to finance dental equipment</span>
+                            <span class="equipment-types-card-cta">How to finance dental equipment</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/exam-procedure-equipment/how-to-finance-exam-equipment/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/exam-equipment.png" alt="Exam equipment">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/exam-procedure-equipment/how-to-finance-exam-equipment/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/exam-equipment.png" alt="Exam equipment">
+                        <div class="equipment-types-card-body">
                             <h3>Exam & Procedure Equipment</h3>
-                            <span class="equipment-hub-card-cta">How to finance exam equipment</span>
+                            <span class="equipment-types-card-cta">How to finance exam equipment</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/lab-equipment-medical/how-to-finance-lab-equipment/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/diagnostic-equipment.png" alt="Lab equipment">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/lab-equipment-medical/how-to-finance-lab-equipment/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/diagnostic-equipment.png" alt="Lab equipment">
+                        <div class="equipment-types-card-body">
                             <h3>Lab Equipment</h3>
-                            <span class="equipment-hub-card-cta">How to finance lab equipment</span>
+                            <span class="equipment-types-card-cta">How to finance lab equipment</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/surgical-equipment/how-to-finance-surgical-equipment/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/surgical-equipment.png" alt="Surgical equipment">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/surgical-equipment/how-to-finance-surgical-equipment/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/surgical-equipment.png" alt="Surgical equipment">
+                        <div class="equipment-types-card-body">
                             <h3>Surgical & Procedure Equipment</h3>
-                            <span class="equipment-hub-card-cta">How to finance surgical equipment</span>
+                            <span class="equipment-types-card-cta">How to finance surgical equipment</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/diagnostic-devices-medical/how-to-finance-diagnostic-devices/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/diagnostic-equipment.png" alt="Diagnostic devices">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/diagnostic-devices-medical/how-to-finance-diagnostic-devices/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/diagnostic-equipment.png" alt="Diagnostic devices">
+                        <div class="equipment-types-card-body">
                             <h3>Diagnostic Devices</h3>
-                            <span class="equipment-hub-card-cta">How to finance diagnostic devices</span>
+                            <span class="equipment-types-card-cta">How to finance diagnostic devices</span>
                         </div>
                     </a>
                 </div>
 
                 <!-- Restaurant -->
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/commercial-kitchen/how-to-finance-commercial-kitchen-equipment/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/commercial-kitchen-equipment.png" alt="Commercial kitchen">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/commercial-kitchen/how-to-finance-commercial-kitchen-equipment/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/commercial-kitchen-equipment.png" alt="Commercial kitchen">
+                        <div class="equipment-types-card-body">
                             <h3>Commercial Kitchen</h3>
-                            <span class="equipment-hub-card-cta">How to finance commercial kitchen equipment</span>
+                            <span class="equipment-types-card-cta">How to finance commercial kitchen equipment</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/restaurant-refrigeration/how-to-finance-restaurant-refrigeration/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/restaurant-refrigeration.png" alt="Restaurant refrigeration">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/restaurant-refrigeration/how-to-finance-restaurant-refrigeration/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/restaurant-refrigeration.png" alt="Restaurant refrigeration">
+                        <div class="equipment-types-card-body">
                             <h3>Restaurant Refrigeration</h3>
-                            <span class="equipment-hub-card-cta">How to finance restaurant refrigeration</span>
+                            <span class="equipment-types-card-cta">How to finance restaurant refrigeration</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/pos-systems-restaurant/how-to-finance-pos-system/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/restaurant-pos-equipment.png" alt="POS system">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/pos-systems-restaurant/how-to-finance-pos-system/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/restaurant-pos-equipment.png" alt="POS system">
+                        <div class="equipment-types-card-body">
                             <h3>POS Systems</h3>
-                            <span class="equipment-hub-card-cta">How to finance a POS system</span>
+                            <span class="equipment-types-card-cta">How to finance a POS system</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/dishwashers-warewashing/how-to-finance-commercial-dishwashers/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/commercial-dishwasher-equipment.png" alt="Commercial dishwasher">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/dishwashers-warewashing/how-to-finance-commercial-dishwashers/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/commercial-dishwasher-equipment.png" alt="Commercial dishwasher">
+                        <div class="equipment-types-card-body">
                             <h3>Dishwashers & Warewashing</h3>
-                            <span class="equipment-hub-card-cta">How to finance commercial dishwashers</span>
+                            <span class="equipment-types-card-cta">How to finance commercial dishwashers</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/prep-equipment-restaurant/how-to-finance-prep-equipment/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/restaurant-prep-equipment.png" alt="Prep equipment">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/prep-equipment-restaurant/how-to-finance-prep-equipment/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/restaurant-prep-equipment.png" alt="Prep equipment">
+                        <div class="equipment-types-card-body">
                             <h3>Prep Equipment</h3>
-                            <span class="equipment-hub-card-cta">How to finance prep equipment</span>
+                            <span class="equipment-types-card-cta">How to finance prep equipment</span>
                         </div>
                     </a>
                 </div>
-                <div class="equipment-hub-card">
-                    <a class="equipment-hub-card-link" href="equipment/ventilation-hood-systems/how-to-finance-ventilation-systems/">
-                        <img class="equipment-hub-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/commercial-ventilation-equipment.png" alt="Ventilation system">
-                        <div class="equipment-hub-card-body">
+                <div class="equipment-types-card">
+                    <a class="equipment-types-card-link" href="equipment/ventilation-hood-systems/how-to-finance-ventilation-systems/">
+                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="assets/commercial-ventilation-equipment.png" alt="Ventilation system">
+                        <div class="equipment-types-card-body">
                             <h3>Ventilation & Hood Systems</h3>
-                            <span class="equipment-hub-card-cta">How to finance ventilation systems</span>
+                            <span class="equipment-types-card-cta">How to finance ventilation systems</span>
                         </div>
                     </a>
                 </div>
@@ -668,11 +669,13 @@
                 <a href="match.html" class="btn-primary">Get Matched with Lenders</a>
             </div>
 
-            <div class="relevant-info-section" style="margin-top: 2rem;">
+            <section class="relevant-info-section equipment-articles-cta" style="margin-top: 2rem; text-align: center;">
                 <h2>Equipment Financing Articles</h2>
-                <p>Credit requirements, approval timelines, lease vs loan, and more.</p>
-                <a href="equipment-financing/articles/" class="btn-secondary">View All Equipment Articles</a>
-            </div>
+                <p style="margin: 0 auto 1rem; max-width: 600px;">Credit requirements, approval timelines, lease vs loan, and more.</p>
+                <div class="relevant-info-cta">
+                    <a href="equipment-financing/articles/" class="btn-secondary">View All Equipment Articles</a>
+                </div>
+            </section>
         </div>
     </div>
 
