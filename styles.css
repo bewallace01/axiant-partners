@@ -3077,8 +3077,9 @@ a.btn-primary, a.btn-secondary {
 .equipment-type-hub-intro .blog-rail-back { margin-bottom: 1rem; font-size: 0.88rem; }
 .equipment-type-hub-intro .blog-rail-back a { color: var(--text-tertiary); font-weight: 500; }
 .equipment-type-hub-intro .blog-rail-back a:hover { color: var(--accent-color); }
-.equipment-type-hub-intro h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--text-primary); letter-spacing: -0.01em; }
+.equipment-type-hub-intro .blog-rail-divider { border: none; border-top: 1px solid var(--border-color); margin: 1rem 0 0.75rem; }
 .equipment-type-hub-intro.blog-rail-card .blog-rail-description { border-top: none; padding-top: 0; margin-top: 0; }
+.equipment-type-hub-intro .blog-rail-description .blog-rail-label { font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 0.5rem; font-weight: 500; }
 .equipment-type-hub-intro .blog-rail-description p { margin: 0 0 0.65rem; line-height: 1.65; }
 .equipment-type-hub-intro .blog-rail-description p:last-child { margin-bottom: 0; }
 .equipment-type-hub-intro .rail-keep { white-space: nowrap; }

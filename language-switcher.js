@@ -1998,6 +1998,8 @@
         const page = path.split('/').pop() || 'index.html';
         const isIndustryPage = /(construction|trucking|agriculture|landscaping|manufacturing|medical-practices|restaurants|auto-repair|logistics-warehousing|forestry)-business-financing(\.html)?$/.test(page);
         if (isIndustryPage) return;
+        const isEquipmentHubPage = /\/equipment\/[a-z0-9-]+(\/|$)/.test(path);
+        if (isEquipmentHubPage) return;
 
         const visual = resolveVisualSet(getTopicVisualSet());
         const universalPool = getUniversalVisualPool();

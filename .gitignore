@@ -37,3 +37,7 @@ npm-debug.log*
 .env
 .env.local
 .env.*.local
+
+# Lead list (removed)
+equipment-dealer-leads.csv
+EQUIPMENT_DEALER_LEAD_GUIDE.md
