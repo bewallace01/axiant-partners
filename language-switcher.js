@@ -1996,7 +1996,7 @@
     function injectTopicVisuals() {
         const path = (window.location.pathname || '').toLowerCase();
         const page = path.split('/').pop() || 'index.html';
-        const isIndustryPage = /(construction|trucking|agriculture|landscaping|manufacturing|medical-practices|restaurants|auto-repair|logistics-warehousing|forestry)-business-financing\.html$/.test(page);
+        const isIndustryPage = /(construction|trucking|agriculture|landscaping|manufacturing|medical-practices|restaurants|auto-repair|logistics-warehousing|forestry)-business-financing(\.html)?$/.test(page);
         if (isIndustryPage) return;
 
         const visual = resolveVisualSet(getTopicVisualSet());
