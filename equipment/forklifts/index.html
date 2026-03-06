@@ -60,52 +60,36 @@
         .forklift-hub-card h3 { margin: 0 0 0.4rem; font-size: 1.1rem; font-weight: 600; }
         .forklift-hub-card p { margin: 0; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.48; }
         .forklift-intro.blog-rail-card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 252, 255, 0.96) 100%);
-            border: 1px solid rgba(45, 127, 184, 0.2);
-            border-radius: 12px;
-            padding: 1.5rem 1.5rem;
-            box-shadow: 0 4px 20px rgba(30, 58, 95, 0.08), 0 0 0 1px rgba(45, 127, 184, 0.06);
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.96) 0%, rgba(15, 23, 42, 0.94) 100%);
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            border-radius: 14px;
+            padding: 18px 16px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
         }
-        [data-theme="dark"] .forklift-intro.blog-rail-card {
-            background: linear-gradient(180deg, rgba(30, 45, 70, 0.95) 0%, rgba(20, 30, 50, 0.92) 100%);
-            border-color: rgba(96, 165, 250, 0.25);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(96, 165, 250, 0.1);
-        }
-        .forklift-intro .blog-rail-back { margin-bottom: 1rem; font-size: 0.88rem; }
-        .forklift-intro .blog-rail-back a { color: var(--text-tertiary); font-weight: 500; }
-        .forklift-intro .blog-rail-back a:hover { color: var(--accent-color); }
-        .forklift-intro .blog-rail-divider { border: none; border-top: 1px solid var(--border-color); margin: 1rem 0 0.75rem; }
+        .forklift-intro .blog-rail-back { margin-bottom: 1rem; font-size: 0.9rem; }
+        .forklift-intro .blog-rail-back a { color: #60a5fa; font-weight: 500; text-decoration: none; transition: color 0.2s ease; }
+        .forklift-intro .blog-rail-back a:hover { color: #93c5fd; }
+        .forklift-intro .blog-rail-divider { border: none; border-top: 1px solid rgba(148, 163, 184, 0.4); margin: 1rem 0 0.75rem; }
         .forklift-intro.blog-rail-card .blog-rail-description { border-top: none; padding-top: 0; margin-top: 0; }
-        .forklift-intro .blog-rail-description .blog-rail-label { font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 0.5rem; font-weight: 500; }
-        .forklift-intro .blog-rail-description p { margin: 0 0 0.65rem; line-height: 1.65; }
+        .forklift-intro .blog-rail-description .blog-rail-label { font-size: 0.85rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 500; }
+        .forklift-intro .blog-rail-description p { margin: 0 0 0.65rem; line-height: 1.65; color: #e2e8f0; }
         .forklift-intro .blog-rail-description p:last-child { margin-bottom: 0; }
         .forklift-intro .rail-keep { white-space: nowrap; }
         .forklift-intro a.btn-inline {
-            display: inline-block;
-            padding: 4px 10px;
-            margin: 0 2px;
-            font-size: 0.9rem;
+            display: inline;
+            padding: 0;
+            margin: 0;
+            font-size: inherit;
             font-weight: 600;
-            color: #93c5fd;
-            background: #1e3a5f;
-            border: 1px solid rgba(147, 197, 253, 0.4);
-            border-radius: 999px;
+            color: #60a5fa;
+            background: none;
+            border: none;
+            border-radius: 0;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: color 0.2s ease;
         }
         .forklift-intro a.btn-inline:hover {
-            background: #2d4a6f;
-            border-color: rgba(147, 197, 253, 0.6);
-            color: #bfdbfe;
-        }
-        [data-theme="light"] .forklift-intro a.btn-inline {
-            color: #1e3a5f;
-            background: rgba(45, 127, 184, 0.12);
-            border-color: rgba(45, 127, 184, 0.4);
-        }
-        [data-theme="light"] .forklift-intro a.btn-inline:hover {
-            background: rgba(45, 127, 184, 0.22);
-            border-color: var(--accent-color);
+            color: #93c5fd;
         }
         .related-topics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
         .related-topic-card {
