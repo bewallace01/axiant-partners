@@ -4,7 +4,7 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
 BASE_URL = "https://www.axiantpartners.com"
-LASTMOD = "2026-03-03"
+LASTMOD = "2026-03-05"
 
 def url_entry(loc_path, changefreq="monthly", priority="0.8"):
     loc = BASE_URL + loc_path
