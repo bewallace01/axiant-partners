@@ -366,6 +366,27 @@
         });
     }
 
+    function ensureLogoLinksHome() {
+        document.querySelectorAll('.nav-brand').forEach(function(brand) {
+            var firstLogo = brand.querySelector('img.nav-logo');
+            if (!firstLogo) return;
+
+            var parent = firstLogo.parentElement;
+            if (parent && parent.tagName.toLowerCase() === 'a') {
+                parent.setAttribute('href', '/');
+                return;
+            }
+
+            var link = document.createElement('a');
+            link.setAttribute('href', '/');
+            var logos = Array.from(brand.querySelectorAll('img.nav-logo'));
+            if (logos.length) {
+                brand.insertBefore(link, logos[0]);
+                logos.forEach(function(img) { link.appendChild(img); });
+            }
+        });
+    }
+
     function standardizeBrandLogos() {
         document.querySelectorAll('img.nav-logo').forEach(function(img) {
             // Skip theme-aware nav logos (light/dark mode swap); do not overwrite their src.
@@ -382,7 +403,6 @@
             const parent = img.parentElement;
             if (!parent) return;
 
-            // Ensure top-left logo always links back to About page.
             if (parent.tagName.toLowerCase() === 'a') {
                 parent.setAttribute('href', '/');
             } else {
@@ -392,6 +412,7 @@
                 link.appendChild(img);
             }
         });
+        ensureLogoLinksHome();
     }
 
     function removeWhiteBackgroundFromLogo(img) {
