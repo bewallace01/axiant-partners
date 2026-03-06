@@ -131,34 +131,25 @@
 
     function ensureReferralTab() {
         const onReferralPage = /\/referral\.html$/i.test(window.location.pathname || '');
-        const navLinksList = document.querySelectorAll('.nav-links');
-
-        // Remove duplicate Referral links (keep only the first)
-        const allReferralLinks = Array.from(document.querySelectorAll('.nav-links a[href$="referral.html"]'));
-        allReferralLinks.slice(1).forEach(function(link) { link.remove(); });
-
-        // Only add Referral to the first nav-links to avoid duplicates on pages with multiple navs
-        const primaryNav = navLinksList[0];
+        const primaryNav = document.querySelector('.nav-links');
         if (!primaryNav) return;
 
-        let referralLink = primaryNav.querySelector('a[href$="referral.html"]');
-        if (!referralLink) {
-            referralLink = document.createElement('a');
-            referralLink.setAttribute('href', '/referral.html');
-            referralLink.textContent = 'Referral';
-        }
+        // Remove ALL Referral links everywhere to prevent duplicates
+        document.querySelectorAll('.nav-links a[href$="referral.html"]').forEach(function(link) {
+            link.remove();
+        });
 
+        // Create exactly one Referral link
+        const referralLink = document.createElement('a');
+        referralLink.setAttribute('href', '/referral.html');
+        referralLink.textContent = 'Referral';
         if (onReferralPage) {
             referralLink.classList.add('active');
-        } else {
-            referralLink.classList.remove('active');
         }
 
         const contactLink = primaryNav.querySelector('a[href$="contact.html"]');
-        if (contactLink && contactLink.parentElement === primaryNav) {
-            if (contactLink.nextSibling !== referralLink) {
-                contactLink.insertAdjacentElement('afterend', referralLink);
-            }
+        if (contactLink && contactLink.parentNode === primaryNav) {
+            contactLink.insertAdjacentElement('afterend', referralLink);
         } else {
             const themeToggle = primaryNav.querySelector('.theme-toggle');
             if (themeToggle) {
