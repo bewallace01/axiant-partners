@@ -1433,6 +1433,50 @@ a.btn-primary, a.btn-secondary {
 .ef-card-with-img:hover .ef-card-img img { transform: scale(1.05); }
 .ef-card-with-img h3 { padding: 1.25rem 1.5rem 0.5rem; margin: 0; }
 .ef-card-with-img p { padding: 0 1.5rem 1.5rem; margin: 0; flex: 1; }
+/* Section CTA buttons - clear button form below main content (equipment, service pages, articles) */
+.about-section a.btn-primary,
+.about-section a.btn-secondary,
+.form-container .about-section a.btn-primary,
+.form-container .about-section a.btn-secondary,
+.blog-article-block a.btn-primary,
+.blog-article-block a.btn-secondary {
+    width: auto !important;
+    min-width: 160px;
+    display: inline-block !important;
+    text-align: center;
+    padding: 12px 24px !important;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+}
+.about-section p:has(> a.btn-primary),
+.about-section p:has(> a.btn-secondary) {
+    margin-bottom: 0;
+}
+.about-section p + p:has(> a.btn-primary),
+.about-section p + p:has(> a.btn-secondary) {
+    margin-top: 1rem;
+}
+
+.section-cta,
+.ef-cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+.section-cta.section-cta--center { justify-content: center; }
+.section-cta .btn-primary,
+.section-cta .btn-secondary,
+.ef-cta-buttons .btn-primary,
+.ef-cta-buttons .btn-secondary {
+    width: auto;
+    min-width: 160px;
+    display: inline-block;
+    text-align: center;
+    padding: 12px 24px;
+    border-radius: 10px;
+}
+
 .equipment-financing-content .ef-equipment-cards .benefit-card,
 .equipment-financing-content .ef-why-cards .benefit-card {
     border-radius: 12px;
@@ -1470,6 +1514,22 @@ a.btn-primary, a.btn-secondary {
 }
 .ef-industry-reverse .ef-industry-text { order: 2; }
 .ef-industry-reverse .ef-industry-img { order: 1; }
+
+.ef-program-types-heading {
+    grid-column: 1 / -1;
+    margin: 2.5rem 0 1.25rem;
+    font-size: 1.35rem;
+}
+.ef-program-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    grid-column: 1 / -1;
+}
+.ef-program-cards .service-card h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+}
 
 .ef-amounts-with-img .ef-amounts-content {
     display: grid;
@@ -2029,6 +2089,49 @@ a.btn-primary, a.btn-secondary {
 .sba-loans-content .cta-section ol li,
 .sba-loans-content .cta-section ul li {
     margin-bottom: 0.25rem;
+}
+
+/* CTA section buttons - clear button form (not text-only) on dark backgrounds */
+.cta-section a.btn-primary,
+.cta-section button.btn-primary,
+.cta-section .ef-hero-ctas .btn-primary {
+    display: inline-block;
+    min-width: 180px;
+    padding: 14px 28px;
+    background: #ffffff !important;
+    color: #1e3a5f !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.cta-section a.btn-primary:hover,
+.cta-section button.btn-primary:hover,
+.cta-section .ef-hero-ctas .btn-primary:hover {
+    background: #f1f5f9 !important;
+    color: #1e3a5f !important;
+    border-color: #f1f5f9 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+}
+.cta-section .ef-phone-cta,
+.cta-section .ef-hero-ctas .ef-phone-cta {
+    display: inline-block;
+    min-width: 160px;
+    padding: 14px 24px;
+    background: transparent !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 10px;
+    color: #ffffff !important;
+    font-weight: 600;
+    text-align: center;
+}
+.cta-section .ef-phone-cta:hover,
+.cta-section .ef-hero-ctas .ef-phone-cta:hover {
+    background: rgba(255,255,255,0.15) !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;
 }
 
 /* Equipment hub page (equipment-financing.html) */
