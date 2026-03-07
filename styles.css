@@ -1397,9 +1397,10 @@ a.btn-primary, a.btn-secondary {
     border-color: var(--accent-color);
 }
 
-/* Equipment financing, Business Line of Credit, Fix and Flip, Working Capital & SBA Loans - fluid, readable layout */
+/* Equipment financing, Business Line of Credit, Business Term Loans, Fix and Flip, Working Capital & SBA Loans - fluid, readable layout */
 .equipment-financing-content,
 .business-line-of-credit-content,
+.business-term-loans-content,
 .fix-and-flip-content,
 .working-capital-loans-content,
 .sba-loans-content {
@@ -1412,6 +1413,7 @@ a.btn-primary, a.btn-secondary {
 /* Equipment financing - hide any injected topic visuals (per user request) */
 .equipment-financing-content .topic-visual,
 .business-line-of-credit-content .topic-visual,
+.business-term-loans-content .topic-visual,
 .working-capital-loans-content .topic-visual {
     display: none !important;
 }
@@ -1462,6 +1464,7 @@ a.btn-primary, a.btn-secondary {
 }
 .bloc-card-with-img:hover .bloc-card-img img { transform: scale(1.05); }
 .bloc-card-with-img h3 { padding: 1.25rem 1.5rem 0.5rem; margin: 0; }
+.bloc-card-with-img h3::before { display: none !important; }
 .bloc-card-with-img p { padding: 0 1.5rem 1.5rem; margin: 0; flex: 1; }
 .bloc-amounts-with-img .bloc-amounts-content {
     display: grid;
@@ -1518,6 +1521,7 @@ a.btn-primary, a.btn-secondary {
 }
 .ef-card-with-img:hover .ef-card-img img { transform: scale(1.05); }
 .ef-card-with-img h3 { padding: 1.25rem 1.5rem 0.5rem; margin: 0; }
+.ef-card-with-img h3::before { display: none !important; }
 .ef-card-with-img p { padding: 0 1.5rem 1.5rem; margin: 0; flex: 1; }
 /* Section CTA buttons - clear button form below main content (equipment, service pages, articles) */
 .about-section a.btn-primary,
@@ -1564,12 +1568,18 @@ a.btn-primary, a.btn-secondary {
 }
 
 .equipment-financing-content .ef-equipment-cards .benefit-card,
-.equipment-financing-content .ef-why-cards .benefit-card {
+.equipment-financing-content .ef-why-cards .benefit-card,
+.commercial-real-estate-loans-content .ef-equipment-cards .benefit-card,
+.commercial-real-estate-loans-content .ef-why-cards .benefit-card,
+.sba-loans-content .ef-equipment-cards .benefit-card,
+.sba-loans-content .ef-why-cards .benefit-card {
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(30, 58, 95, 0.08), 0 0 0 1px rgba(45, 127, 184, 0.06);
 }
 .equipment-financing-content .ef-equipment-cards .benefit-card:hover,
-.equipment-financing-content .ef-why-cards .benefit-card:hover {
+.equipment-financing-content .ef-why-cards .benefit-card:hover,
+.commercial-real-estate-loans-content .ef-equipment-cards .benefit-card:hover,
+.commercial-real-estate-loans-content .ef-why-cards .benefit-card:hover {
     box-shadow: 0 16px 40px rgba(45, 127, 184, 0.15), 0 0 0 2px rgba(45, 127, 184, 0.2);
 }
 
@@ -1655,6 +1665,8 @@ a.btn-primary, a.btn-secondary {
 }
 @media (min-width: 1024px) {
     .equipment-financing-content .ef-why-cards,
+    .commercial-real-estate-loans-content .ef-why-cards,
+    .sba-loans-content .ef-why-cards,
     .business-line-of-credit-content .bloc-why-cards { grid-template-columns: repeat(2, 1fr); }
 }
 [data-theme="dark"] .ef-card-img {
@@ -1731,6 +1743,7 @@ a.btn-primary, a.btn-secondary {
 }
 .working-capital-loans-content .wcl-card-with-img:hover .wcl-card-img img { transform: scale(1.05); }
 .working-capital-loans-content .wcl-card-with-img h3 { padding: 1.25rem 1.5rem 0.5rem; margin: 0; }
+.working-capital-loans-content .wcl-card-with-img h3::before { display: none !important; }
 .working-capital-loans-content .wcl-card-with-img p { padding: 0 1.5rem 1.5rem; margin: 0; flex: 1; }
 .working-capital-loans-content .wcl-use-cards .benefit-card,
 .working-capital-loans-content .wcl-why-cards .benefit-card {
@@ -1778,9 +1791,238 @@ a.btn-primary, a.btn-secondary {
     .working-capital-loans-content .wcl-why-cards { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Equipment financing & Business Line of Credit - full-width unbounded layout, use entire page width */
+/* Business Term Loans - same structural layout as Equipment Financing */
+.business-term-loans-content .btl-intro-with-img .btl-intro-content,
+.business-term-loans-content .btl-industry-row .btl-industry-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: center;
+}
+.business-term-loans-content .btl-intro-img,
+.business-term-loans-content .btl-industry-img {
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 24px 48px rgba(30, 58, 95, 0.12), 0 0 0 1px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.business-term-loans-content .btl-intro-img:hover,
+.business-term-loans-content .btl-industry-img:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 28px 56px rgba(30, 58, 95, 0.16), 0 0 0 1px rgba(45, 127, 184, 0.12);
+}
+.business-term-loans-content .btl-intro-img img,
+.business-term-loans-content .btl-industry-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+}
+.business-term-loans-content .btl-industry-reverse .btl-industry-text { order: 2; }
+.business-term-loans-content .btl-industry-reverse .btl-industry-img { order: 1; }
+.business-term-loans-content .btl-amounts-with-img .btl-amounts-content {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: start;
+}
+.business-term-loans-content .btl-amounts-img {
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 20px 40px rgba(30, 58, 95, 0.12), 0 0 0 1px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 100px;
+}
+.business-term-loans-content .btl-amounts-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+    display: block;
+}
+.business-term-loans-content .btl-card-with-img { display: flex; flex-direction: column; overflow: hidden; padding: 0 !important; }
+.business-term-loans-content .btl-card-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+.business-term-loans-content .btl-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 45%;
+    border-radius: 12px 12px 0 0;
+    transition: transform 0.4s ease;
+}
+.business-term-loans-content .btl-card-with-img:hover .btl-card-img img { transform: scale(1.05); }
+.business-term-loans-content .btl-card-with-img h3 { padding: 1.25rem 1.5rem 0.5rem; margin: 0; }
+.business-term-loans-content .btl-card-with-img h3::before { display: none !important; }
+.business-term-loans-content .btl-card-with-img p { padding: 0 1.5rem 1.5rem; margin: 0; flex: 1; }
+.business-term-loans-content .btl-use-cards .benefit-card,
+.business-term-loans-content .btl-why-cards .benefit-card {
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(30, 58, 95, 0.08), 0 0 0 1px rgba(45, 127, 184, 0.06);
+}
+.business-term-loans-content .btl-use-cards .benefit-card:hover,
+.business-term-loans-content .btl-why-cards .benefit-card:hover {
+    box-shadow: 0 16px 40px rgba(45, 127, 184, 0.15), 0 0 0 2px rgba(45, 127, 184, 0.2);
+}
+.business-term-loans-content .btl-program-types-heading {
+    grid-column: 1 / -1;
+    margin: 2.5rem 0 1.25rem;
+    font-size: 1.35rem;
+}
+.business-term-loans-content .btl-program-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    grid-column: 1 / -1;
+    align-items: stretch;
+}
+.business-term-loans-content .btl-program-cards .service-card {
+    min-height: 200px;
+}
+.business-term-loans-content .btl-program-cards .service-card h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+}
+@media (max-width: 768px) {
+    .business-term-loans-content .btl-intro-with-img .btl-intro-content,
+    .business-term-loans-content .btl-industry-row .btl-industry-content { grid-template-columns: 1fr; }
+    .business-term-loans-content .btl-intro-img,
+    .business-term-loans-content .btl-industry-img { order: -1; max-height: 240px; aspect-ratio: 16 / 10; }
+    .business-term-loans-content .btl-amounts-with-img .btl-amounts-content { grid-template-columns: 1fr; }
+    .business-term-loans-content .btl-amounts-img { order: -1; max-height: 200px; position: static; aspect-ratio: 16 / 9; }
+    .business-term-loans-content .btl-card-img { aspect-ratio: 16 / 10; }
+}
+@media (min-width: 1024px) {
+    .business-term-loans-content .btl-why-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Commercial Real Estate Loans - same structural layout as Business Term Loans */
+.commercial-real-estate-loans-content .cre-intro-with-img .cre-intro-content,
+.commercial-real-estate-loans-content .cre-industry-row .cre-industry-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: center;
+}
+.commercial-real-estate-loans-content .cre-intro-img,
+.commercial-real-estate-loans-content .cre-industry-img {
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 24px 48px rgba(30, 58, 95, 0.12), 0 0 0 1px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.commercial-real-estate-loans-content .cre-intro-img:hover,
+.commercial-real-estate-loans-content .cre-industry-img:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 28px 56px rgba(30, 58, 95, 0.16), 0 0 0 1px rgba(45, 127, 184, 0.12);
+}
+.commercial-real-estate-loans-content .cre-intro-img img,
+.commercial-real-estate-loans-content .cre-industry-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+}
+.commercial-real-estate-loans-content .cre-industry-reverse .cre-industry-text { order: 2; }
+.commercial-real-estate-loans-content .cre-industry-reverse .cre-industry-img { order: 1; }
+.commercial-real-estate-loans-content .cre-amounts-with-img .cre-amounts-content {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: start;
+}
+.commercial-real-estate-loans-content .cre-amounts-img {
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 20px 40px rgba(30, 58, 95, 0.12), 0 0 0 1px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 100px;
+}
+.commercial-real-estate-loans-content .cre-amounts-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+    display: block;
+}
+.commercial-real-estate-loans-content .cre-card-with-img { display: flex; flex-direction: column; overflow: hidden; padding: 0 !important; }
+.commercial-real-estate-loans-content .cre-card-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+.commercial-real-estate-loans-content .cre-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 45%;
+    border-radius: 12px 12px 0 0;
+    transition: transform 0.4s ease;
+}
+.commercial-real-estate-loans-content .cre-card-with-img:hover .cre-card-img img { transform: scale(1.05); }
+.commercial-real-estate-loans-content .cre-card-with-img h3 { padding: 1.25rem 1.5rem 0.5rem; margin: 0; }
+.commercial-real-estate-loans-content .cre-card-with-img h3::before { display: none !important; }
+.commercial-real-estate-loans-content .cre-card-with-img p { padding: 0 1.5rem 1.5rem; margin: 0; flex: 1; }
+.commercial-real-estate-loans-content .cre-use-cards .benefit-card,
+.commercial-real-estate-loans-content .cre-why-cards .benefit-card {
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(30, 58, 95, 0.08), 0 0 0 1px rgba(45, 127, 184, 0.06);
+}
+.commercial-real-estate-loans-content .cre-use-cards .benefit-card:hover,
+.commercial-real-estate-loans-content .cre-why-cards .benefit-card:hover {
+    box-shadow: 0 16px 40px rgba(45, 127, 184, 0.15), 0 0 0 2px rgba(45, 127, 184, 0.2);
+}
+.commercial-real-estate-loans-content .cre-program-types-heading {
+    grid-column: 1 / -1;
+    margin: 2.5rem 0 1.25rem;
+    font-size: 1.35rem;
+}
+.commercial-real-estate-loans-content .cre-program-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    grid-column: 1 / -1;
+    align-items: stretch;
+}
+.commercial-real-estate-loans-content .cre-program-cards .service-card {
+    min-height: 200px;
+}
+.commercial-real-estate-loans-content .cre-program-cards .service-card h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+}
+@media (max-width: 768px) {
+    .commercial-real-estate-loans-content .cre-intro-with-img .cre-intro-content,
+    .commercial-real-estate-loans-content .cre-industry-row .cre-industry-content { grid-template-columns: 1fr; }
+    .commercial-real-estate-loans-content .cre-intro-img,
+    .commercial-real-estate-loans-content .cre-industry-img { order: -1; max-height: 240px; aspect-ratio: 16 / 10; }
+    .commercial-real-estate-loans-content .cre-amounts-with-img .cre-amounts-content { grid-template-columns: 1fr; }
+    .commercial-real-estate-loans-content .cre-amounts-img { order: -1; max-height: 200px; position: static; aspect-ratio: 16 / 9; }
+    .commercial-real-estate-loans-content .cre-card-img { aspect-ratio: 16 / 10; }
+}
+@media (min-width: 1024px) {
+    .commercial-real-estate-loans-content .cre-why-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Equipment financing, Business Line of Credit, Business Term Loans, Commercial Real Estate - full-width unbounded layout */
 .form-container.equipment-financing-content,
 .form-container.business-line-of-credit-content,
+.form-container.business-term-loans-content,
+.form-container.commercial-real-estate-loans-content,
+.form-container.sba-loans-content,
 .form-container.working-capital-loans-content:not(.business-term-loans-content):not(.commercial-bridge-loans-content):not(.commercial-real-estate-loans-content) {
     box-shadow: none !important;
     border: none !important;
@@ -1789,7 +2031,10 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .about-section,
 .business-line-of-credit-content .about-section,
-.working-capital-loans-content .about-section {
+.business-term-loans-content .about-section,
+.commercial-real-estate-loans-content .about-section,
+.working-capital-loans-content .about-section,
+.sba-loans-content .about-section {
     width: 100% !important;
     max-width: none !important;
 }
@@ -1798,6 +2043,12 @@ a.btn-primary, a.btn-secondary {
 .equipment-financing-content .benefits-grid,
 .business-line-of-credit-content .steps-grid,
 .business-line-of-credit-content .benefits-grid,
+.business-term-loans-content .steps-grid,
+.business-term-loans-content .benefits-grid,
+.commercial-real-estate-loans-content .steps-grid,
+.commercial-real-estate-loans-content .benefits-grid,
+.sba-loans-content .steps-grid,
+.sba-loans-content .benefits-grid,
 .working-capital-loans-content .steps-grid,
 .working-capital-loans-content .benefits-grid {
     max-width: none;
@@ -1809,6 +2060,9 @@ a.btn-primary, a.btn-secondary {
 @media (min-width: 1024px) {
     .equipment-financing-content .benefits-grid,
     .business-line-of-credit-content .benefits-grid,
+    .business-term-loans-content .benefits-grid,
+    .commercial-real-estate-loans-content .benefits-grid,
+    .sba-loans-content .benefits-grid,
     .working-capital-loans-content .benefits-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 28px;
@@ -1819,6 +2073,9 @@ a.btn-primary, a.btn-secondary {
 @media (min-width: 900px) {
     .equipment-financing-content .steps-grid,
     .business-line-of-credit-content .steps-grid,
+    .business-term-loans-content .steps-grid,
+    .commercial-real-estate-loans-content .steps-grid,
+    .sba-loans-content .steps-grid,
     .working-capital-loans-content .steps-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1826,6 +2083,8 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .results-intro,
 .business-line-of-credit-content .results-intro,
+.business-term-loans-content .results-intro,
+.commercial-real-estate-loans-content .results-intro,
 .fix-and-flip-content .results-intro,
 .working-capital-loans-content .results-intro,
 .sba-loans-content .results-intro {
@@ -1838,6 +2097,8 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .about-section:not(.cta-section),
 .business-line-of-credit-content .about-section:not(.cta-section),
+.business-term-loans-content .about-section:not(.cta-section),
+.commercial-real-estate-loans-content .about-section:not(.cta-section),
 .working-capital-loans-content .about-section:not(.cta-section),
 .sba-loans-content .about-section:not(.cta-section) {
     padding: 2.5rem 0;
@@ -1847,6 +2108,8 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .about-section:last-of-type,
 .business-line-of-credit-content .about-section:last-of-type,
+.business-term-loans-content .about-section:last-of-type,
+.commercial-real-estate-loans-content .about-section:last-of-type,
 .fix-and-flip-content .about-section:last-of-type,
 .working-capital-loans-content .about-section:last-of-type,
 .sba-loans-content .about-section:last-of-type {
@@ -1855,6 +2118,8 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .about-section::after,
 .business-line-of-credit-content .about-section::after,
+.business-term-loans-content .about-section::after,
+.commercial-real-estate-loans-content .about-section::after,
 .fix-and-flip-content .about-section::after,
 .working-capital-loans-content .about-section::after,
 .sba-loans-content .about-section::after {
@@ -1863,7 +2128,8 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .about-section h2,
 .business-line-of-credit-content .about-section h2,
-.working-capital-loans-content .about-section h2,
+.business-term-loans-content .about-section h2,
+.commercial-real-estate-loans-content .about-section h2,
 .sba-loans-content .about-section h2 {
     font-size: 1.75rem;
     text-align: left;
@@ -1872,6 +2138,7 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .about-section h2::after,
 .business-line-of-credit-content .about-section h2::after,
+.business-term-loans-content .about-section h2::after,
 .fix-and-flip-content .about-section h2::after,
 .working-capital-loans-content .about-section h2::after,
 .sba-loans-content .about-section h2::after {
@@ -1881,6 +2148,7 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .about-section p,
 .business-line-of-credit-content .about-section p,
+.commercial-real-estate-loans-content .about-section p,
 .fix-and-flip-content .about-section p,
 .working-capital-loans-content .about-section p,
 .sba-loans-content .about-section p {
@@ -1892,6 +2160,7 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .about-section p:last-child,
 .business-line-of-credit-content .about-section p:last-child,
+.commercial-real-estate-loans-content .about-section p:last-child,
 .fix-and-flip-content .about-section p:last-child,
 .working-capital-loans-content .about-section p:last-child,
 .sba-loans-content .about-section p:last-child {
@@ -1900,6 +2169,7 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .about-section ul,
 .business-line-of-credit-content .about-section ul,
+.commercial-real-estate-loans-content .about-section ul,
 .fix-and-flip-content .about-section ul,
 .working-capital-loans-content .about-section ul,
 .sba-loans-content .about-section ul {
@@ -1909,6 +2179,7 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .about-section ul li,
 .business-line-of-credit-content .about-section ul li,
+.commercial-real-estate-loans-content .about-section ul li,
 .fix-and-flip-content .about-section ul li,
 .working-capital-loans-content .about-section ul li,
 .sba-loans-content .about-section ul li {
@@ -1964,6 +2235,8 @@ a.btn-primary, a.btn-secondary {
 /* Trust stats - tighter, consistent sizing */
 .equipment-financing-content .trust-section .trust-stats,
 .business-line-of-credit-content .trust-section .trust-stats,
+.business-term-loans-content .trust-section .trust-stats,
+.commercial-real-estate-loans-content .trust-section .trust-stats,
 .fix-and-flip-content .trust-section .trust-stats,
 .working-capital-loans-content .trust-section .trust-stats,
 .sba-loans-content .trust-section .trust-stats {
@@ -1972,6 +2245,7 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .trust-section .trust-stat,
 .business-line-of-credit-content .trust-section .trust-stat,
+.commercial-real-estate-loans-content .trust-section .trust-stat,
 .fix-and-flip-content .trust-section .trust-stat,
 .working-capital-loans-content .trust-section .trust-stat,
 .sba-loans-content .trust-section .trust-stat {
@@ -1980,6 +2254,7 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .trust-section p,
 .business-line-of-credit-content .trust-section p,
+.commercial-real-estate-loans-content .trust-section p,
 .fix-and-flip-content .trust-section p,
 .working-capital-loans-content .trust-section p,
 .sba-loans-content .trust-section p {
@@ -1989,6 +2264,8 @@ a.btn-primary, a.btn-secondary {
 /* States/Industries - simple bullet list (no boxes) */
 .equipment-financing-content .partner-list,
 .business-line-of-credit-content .partner-list,
+.business-term-loans-content .partner-list,
+.commercial-real-estate-loans-content .partner-list,
 .fix-and-flip-content .partner-list,
 .working-capital-loans-content .partner-list,
 .sba-loans-content .partner-list {
@@ -2001,6 +2278,8 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .partner-list li,
 .business-line-of-credit-content .partner-list li,
+.business-term-loans-content .partner-list li,
+.commercial-real-estate-loans-content .partner-list li,
 .fix-and-flip-content .partner-list li,
 .working-capital-loans-content .partner-list li,
 .sba-loans-content .partner-list li {
@@ -2015,6 +2294,7 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .partner-list li::before,
 .business-line-of-credit-content .partner-list li::before,
+.commercial-real-estate-loans-content .partner-list li::before,
 .fix-and-flip-content .partner-list li::before,
 .working-capital-loans-content .partner-list li::before,
 .sba-loans-content .partner-list li::before {
@@ -2023,6 +2303,8 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .partner-list li a,
 .business-line-of-credit-content .partner-list li a,
+.business-term-loans-content .partner-list li a,
+.commercial-real-estate-loans-content .partner-list li a,
 .fix-and-flip-content .partner-list li a,
 .working-capital-loans-content .partner-list li a,
 .sba-loans-content .partner-list li a {
@@ -2032,6 +2314,8 @@ a.btn-primary, a.btn-secondary {
 }
 .equipment-financing-content .partner-list li a:hover,
 .business-line-of-credit-content .partner-list li a:hover,
+.business-term-loans-content .partner-list li a:hover,
+.commercial-real-estate-loans-content .partner-list li a:hover,
 .fix-and-flip-content .partner-list li a:hover,
 .working-capital-loans-content .partner-list li a:hover,
 .sba-loans-content .partner-list li a:hover {
@@ -2041,6 +2325,7 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .partner-list li:last-child,
 .business-line-of-credit-content .partner-list li:last-child,
+.commercial-real-estate-loans-content .partner-list li:last-child,
 .fix-and-flip-content .partner-list li:last-child,
 .working-capital-loans-content .partner-list li:last-child,
 .sba-loans-content .partner-list li:last-child {
@@ -2050,6 +2335,7 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .partner-list li:hover,
 .business-line-of-credit-content .partner-list li:hover,
+.commercial-real-estate-loans-content .partner-list li:hover,
 .fix-and-flip-content .partner-list li:hover,
 .working-capital-loans-content .partner-list li:hover,
 .sba-loans-content .partner-list li:hover {
@@ -2061,6 +2347,8 @@ a.btn-primary, a.btn-secondary {
 .form-container.services-content .about-section:has(.partner-list),
 .form-container.equipment-financing-content .about-section:has(.partner-list),
 .form-container.business-line-of-credit-content .about-section:has(.partner-list),
+.form-container.business-term-loans-content .about-section:has(.partner-list),
+.form-container.commercial-real-estate-loans-content .about-section:has(.partner-list),
 .form-container.fix-and-flip-content .about-section:has(.partner-list),
 .form-container.working-capital-loans-content .about-section:has(.partner-list),
 .form-container.sba-loans-content .about-section:has(.partner-list) {
@@ -2071,6 +2359,8 @@ a.btn-primary, a.btn-secondary {
 .form-container.services-content .about-section:has(.partner-list) .partner-list,
 .form-container.equipment-financing-content .about-section:has(.partner-list) .partner-list,
 .form-container.business-line-of-credit-content .about-section:has(.partner-list) .partner-list,
+.form-container.business-term-loans-content .about-section:has(.partner-list) .partner-list,
+.form-container.commercial-real-estate-loans-content .about-section:has(.partner-list) .partner-list,
 .form-container.fix-and-flip-content .about-section:has(.partner-list) .partner-list,
 .form-container.working-capital-loans-content .about-section:has(.partner-list) .partner-list,
 .form-container.sba-loans-content .about-section:has(.partner-list) .partner-list {
@@ -2082,6 +2372,8 @@ a.btn-primary, a.btn-secondary {
 .form-container.services-content .about-section:has(.partner-list) .partner-list li,
 .form-container.equipment-financing-content .about-section:has(.partner-list) .partner-list li,
 .form-container.business-line-of-credit-content .about-section:has(.partner-list) .partner-list li,
+.form-container.business-term-loans-content .about-section:has(.partner-list) .partner-list li,
+.form-container.commercial-real-estate-loans-content .about-section:has(.partner-list) .partner-list li,
 .form-container.fix-and-flip-content .about-section:has(.partner-list) .partner-list li,
 .form-container.working-capital-loans-content .about-section:has(.partner-list) .partner-list li,
 .form-container.sba-loans-content .about-section:has(.partner-list) .partner-list li {
@@ -2200,6 +2492,12 @@ a.btn-primary, a.btn-secondary {
 .business-line-of-credit-content .step-card,
 .business-line-of-credit-content .benefit-card,
 .business-line-of-credit-content .service-card,
+.business-term-loans-content .step-card,
+.business-term-loans-content .benefit-card,
+.business-term-loans-content .service-card,
+.commercial-real-estate-loans-content .step-card,
+.commercial-real-estate-loans-content .benefit-card,
+.commercial-real-estate-loans-content .service-card,
 .fix-and-flip-content .step-card,
 .fix-and-flip-content .service-card,
 .sba-loans-content .step-card,
@@ -2275,13 +2573,15 @@ a.btn-primary, a.btn-secondary {
 }
 
 /* CTA section - gradient only, no background image (per user request) */
-.equipment-financing-content .cta-section {
+.equipment-financing-content .cta-section,
+.commercial-real-estate-loans-content .cta-section {
     background: linear-gradient(135deg, rgba(30, 58, 95, 0.95) 0%, rgba(45, 127, 184, 0.95) 100%) !important;
     border-bottom: none;
 }
 
 .equipment-financing-content .cta-section,
 .business-line-of-credit-content .cta-section,
+.commercial-real-estate-loans-content .cta-section,
 .fix-and-flip-content .cta-section,
 .sba-loans-content .cta-section {
     padding-top: 2.5rem !important;
@@ -2289,7 +2589,10 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .cta-section h2,
 .equipment-financing-content .cta-section p,
-.equipment-financing-content .cta-section li {
+.equipment-financing-content .cta-section li,
+.commercial-real-estate-loans-content .cta-section h2,
+.commercial-real-estate-loans-content .cta-section p,
+.commercial-real-estate-loans-content .cta-section li {
     color: #ffffff !important;
 }
 
@@ -2297,6 +2600,8 @@ a.btn-primary, a.btn-secondary {
 .equipment-financing-content .cta-section ul,
 .business-line-of-credit-content .cta-section ol,
 .business-line-of-credit-content .cta-section ul,
+.commercial-real-estate-loans-content .cta-section ol,
+.commercial-real-estate-loans-content .cta-section ul,
 .fix-and-flip-content .cta-section ol,
 .fix-and-flip-content .cta-section ul {
     margin: 0.75rem 0 1.5rem 1.5rem;
@@ -2306,6 +2611,8 @@ a.btn-primary, a.btn-secondary {
 .equipment-financing-content .cta-section ul li,
 .business-line-of-credit-content .cta-section ol li,
 .business-line-of-credit-content .cta-section ul li,
+.commercial-real-estate-loans-content .cta-section ol li,
+.commercial-real-estate-loans-content .cta-section ul li,
 .fix-and-flip-content .cta-section ol li,
 .fix-and-flip-content .cta-section ul li,
 .sba-loans-content .cta-section ol li,
@@ -2318,7 +2625,9 @@ a.btn-primary, a.btn-secondary {
 .cta-section button.btn-primary,
 .cta-section .ef-hero-ctas .btn-primary,
 .cta-section .bloc-hero-ctas .btn-primary,
-.cta-section .wcl-hero-ctas .btn-primary {
+.cta-section .wcl-hero-ctas .btn-primary,
+.cta-section .btl-hero-ctas .btn-primary,
+.cta-section .cre-hero-ctas .btn-primary {
     display: inline-block;
     min-width: 180px;
     padding: 14px 28px;
@@ -2334,7 +2643,9 @@ a.btn-primary, a.btn-secondary {
 .cta-section button.btn-primary:hover,
 .cta-section .ef-hero-ctas .btn-primary:hover,
 .cta-section .bloc-hero-ctas .btn-primary:hover,
-.cta-section .wcl-hero-ctas .btn-primary:hover {
+.cta-section .wcl-hero-ctas .btn-primary:hover,
+.cta-section .btl-hero-ctas .btn-primary:hover,
+.cta-section .cre-hero-ctas .btn-primary:hover {
     background: #f1f5f9 !important;
     color: #1e3a5f !important;
     border-color: #f1f5f9 !important;
@@ -3956,6 +4267,8 @@ a.btn-primary, a.btn-secondary {
 .fix-and-flip-content .about-section li a,
 .working-capital-loans-content .about-section p a,
 .working-capital-loans-content .about-section li a,
+.business-term-loans-content .about-section p a,
+.business-term-loans-content .about-section li a,
 .sba-loans-content .about-section p a,
 .sba-loans-content .about-section li a,
 .form-container.blog-content .results-intro a,
@@ -3981,6 +4294,8 @@ a.btn-primary, a.btn-secondary {
 .fix-and-flip-content .about-section li a:hover,
 .working-capital-loans-content .about-section p a:hover,
 .working-capital-loans-content .about-section li a:hover,
+.business-term-loans-content .about-section p a:hover,
+.business-term-loans-content .about-section li a:hover,
 .sba-loans-content .about-section p a:hover,
 .sba-loans-content .about-section li a:hover,
 .form-container.blog-content .results-intro a:hover,
@@ -5568,6 +5883,7 @@ a.no-wrap-link {
 
 .equipment-financing-content,
 .business-line-of-credit-content,
+.business-term-loans-content,
 .fix-and-flip-content,
 .sba-loans-content {
         padding: 0 4px;
@@ -5575,6 +5891,7 @@ a.no-wrap-link {
 
 .equipment-financing-content .about-section,
 .business-line-of-credit-content .about-section,
+.business-term-loans-content .about-section,
 .fix-and-flip-content .about-section,
 .sba-loans-content .about-section {
         padding: 1.75rem 0;
@@ -6389,6 +6706,7 @@ html {
 .form-container.blog-post-content,
 .form-container.equipment-financing-content,
 .form-container.business-line-of-credit-content,
+.form-container.business-term-loans-content,
 .form-container.fix-and-flip-content,
 .form-container.working-capital-loans-content,
 .form-container.sba-loans-content {
@@ -6404,6 +6722,7 @@ html {
 /* Ensure any service variant wrapper (including combined classes) is never boxed */
 .form-container.equipment-financing-content,
 .form-container.business-line-of-credit-content,
+.form-container.business-term-loans-content,
 .form-container.fix-and-flip-content,
 .form-container.working-capital-loans-content,
 .form-container.sba-loans-content {
@@ -6418,6 +6737,7 @@ html {
 .form-container.services-content .about-section,
 .form-container.equipment-financing-content .about-section,
 .form-container.business-line-of-credit-content .about-section,
+.form-container.business-term-loans-content .about-section,
 .form-container.fix-and-flip-content .about-section,
 .form-container.working-capital-loans-content .about-section,
 .form-container.sba-loans-content .about-section {
@@ -6433,6 +6753,7 @@ html {
 [data-theme="dark"] .form-container.services-content .about-section,
 [data-theme="dark"] .form-container.equipment-financing-content .about-section,
 [data-theme="dark"] .form-container.business-line-of-credit-content .about-section,
+[data-theme="dark"] .form-container.business-term-loans-content .about-section,
 [data-theme="dark"] .form-container.fix-and-flip-content .about-section,
 [data-theme="dark"] .form-container.working-capital-loans-content .about-section,
 [data-theme="dark"] .form-container.sba-loans-content .about-section {
@@ -6443,6 +6764,7 @@ html {
 .form-container.services-content .about-section h2,
 .form-container.equipment-financing-content .about-section h2,
 .form-container.business-line-of-credit-content .about-section h2,
+.form-container.business-term-loans-content .about-section h2,
 .form-container.fix-and-flip-content .about-section h2,
 .form-container.working-capital-loans-content .about-section h2,
 .form-container.sba-loans-content .about-section h2 {
@@ -6454,12 +6776,14 @@ html {
 .form-container.services-content .about-section p,
 .form-container.equipment-financing-content .about-section p,
 .form-container.business-line-of-credit-content .about-section p,
+.form-container.business-term-loans-content .about-section p,
 .form-container.fix-and-flip-content .about-section p,
 .form-container.working-capital-loans-content .about-section p,
 .form-container.sba-loans-content .about-section p,
 .form-container.services-content .about-section ul,
 .form-container.equipment-financing-content .about-section ul,
 .form-container.business-line-of-credit-content .about-section ul,
+.form-container.business-term-loans-content .about-section ul,
 .form-container.fix-and-flip-content .about-section ul,
 .form-container.working-capital-loans-content .about-section ul,
 .form-container.sba-loans-content .about-section ul {
@@ -6472,6 +6796,7 @@ html {
 .form-container.services-content .about-section:has(> .service-card),
 .form-container.equipment-financing-content .about-section:has(> .service-card),
 .form-container.business-line-of-credit-content .about-section:has(> .service-card),
+.form-container.business-term-loans-content .about-section:has(> .service-card),
 .form-container.fix-and-flip-content .about-section:has(> .service-card),
 .form-container.working-capital-loans-content .about-section:has(> .service-card),
 .form-container.sba-loans-content .about-section:has(> .service-card) {
@@ -6501,7 +6826,10 @@ html {
 .form-container.business-line-of-credit-content .about-section:has(> .service-card) > .section-cta,
 .form-container.working-capital-loans-content .about-section:has(> .service-card) > .wcl-program-types-heading,
 .form-container.working-capital-loans-content .about-section:has(> .service-card) > .wcl-program-cards,
-.form-container.working-capital-loans-content .about-section:has(> .service-card) > .section-cta {
+.form-container.working-capital-loans-content .about-section:has(> .service-card) > .section-cta,
+.form-container.business-term-loans-content .about-section:has(> .service-card) > .btl-program-types-heading,
+.form-container.business-term-loans-content .about-section:has(> .service-card) > .btl-program-cards,
+.form-container.business-term-loans-content .about-section:has(> .service-card) > .section-cta {
     grid-column: 1 / -1;
 }
 
@@ -6509,6 +6837,7 @@ html {
 .form-container.equipment-financing-content .about-section:has(> .service-card) > .service-card,
 .form-container.business-line-of-credit-content .about-section:has(> .service-card) > .service-card,
 .form-container.fix-and-flip-content .about-section:has(> .service-card) > .service-card,
+.form-container.business-term-loans-content .about-section:has(> .service-card) > .service-card,
 .form-container.working-capital-loans-content .about-section:has(> .service-card) > .service-card,
 .form-container.sba-loans-content .about-section:has(> .service-card) > .service-card {
     margin: 0;
@@ -6520,6 +6849,7 @@ html {
 .form-container.services-content .about-section,
 .form-container.equipment-financing-content .about-section,
 .form-container.business-line-of-credit-content .about-section,
+.form-container.business-term-loans-content .about-section,
 .form-container.fix-and-flip-content .about-section,
 .form-container.working-capital-loans-content .about-section,
 .form-container.sba-loans-content .about-section {
@@ -6567,6 +6897,7 @@ html {
     .form-container.services-content .about-section,
     .form-container.equipment-financing-content .about-section,
     .form-container.business-line-of-credit-content .about-section,
+    .form-container.business-term-loans-content .about-section,
     .form-container.fix-and-flip-content .about-section,
     .form-container.working-capital-loans-content .about-section,
     .form-container.sba-loans-content .about-section {
