@@ -1411,7 +1411,8 @@ a.btn-primary, a.btn-secondary {
 
 /* Equipment financing - hide any injected topic visuals (per user request) */
 .equipment-financing-content .topic-visual,
-.business-line-of-credit-content .topic-visual {
+.business-line-of-credit-content .topic-visual,
+.working-capital-loans-content .topic-visual {
     display: none !important;
 }
 
@@ -1660,16 +1661,135 @@ a.btn-primary, a.btn-secondary {
     background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
 }
 
+/* Working Capital Loans - same structural layout as Equipment Financing */
+.working-capital-loans-content .wcl-intro-with-img .wcl-intro-content,
+.working-capital-loans-content .wcl-industry-row .wcl-industry-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: center;
+}
+.working-capital-loans-content .wcl-intro-img,
+.working-capital-loans-content .wcl-industry-img {
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 24px 48px rgba(30, 58, 95, 0.12), 0 0 0 1px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.working-capital-loans-content .wcl-intro-img:hover,
+.working-capital-loans-content .wcl-industry-img:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 28px 56px rgba(30, 58, 95, 0.16), 0 0 0 1px rgba(45, 127, 184, 0.12);
+}
+.working-capital-loans-content .wcl-intro-img img,
+.working-capital-loans-content .wcl-industry-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+}
+.working-capital-loans-content .wcl-industry-reverse .wcl-industry-text { order: 2; }
+.working-capital-loans-content .wcl-industry-reverse .wcl-industry-img { order: 1; }
+.working-capital-loans-content .wcl-amounts-with-img .wcl-amounts-content {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: start;
+}
+.working-capital-loans-content .wcl-amounts-img {
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 20px 40px rgba(30, 58, 95, 0.12), 0 0 0 1px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 100px;
+}
+.working-capital-loans-content .wcl-amounts-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+    display: block;
+}
+.working-capital-loans-content .wcl-card-with-img { display: flex; flex-direction: column; overflow: hidden; padding: 0 !important; }
+.working-capital-loans-content .wcl-card-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+.working-capital-loans-content .wcl-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 45%;
+    border-radius: 12px 12px 0 0;
+    transition: transform 0.4s ease;
+}
+.working-capital-loans-content .wcl-card-with-img:hover .wcl-card-img img { transform: scale(1.05); }
+.working-capital-loans-content .wcl-card-with-img h3 { padding: 1.25rem 1.5rem 0.5rem; margin: 0; }
+.working-capital-loans-content .wcl-card-with-img p { padding: 0 1.5rem 1.5rem; margin: 0; flex: 1; }
+.working-capital-loans-content .wcl-use-cards .benefit-card,
+.working-capital-loans-content .wcl-why-cards .benefit-card {
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(30, 58, 95, 0.08), 0 0 0 1px rgba(45, 127, 184, 0.06);
+}
+.working-capital-loans-content .wcl-use-cards .benefit-card:hover,
+.working-capital-loans-content .wcl-why-cards .benefit-card:hover {
+    box-shadow: 0 16px 40px rgba(45, 127, 184, 0.15), 0 0 0 2px rgba(45, 127, 184, 0.2);
+}
+.working-capital-loans-content .wcl-program-types-heading {
+    grid-column: 1 / -1;
+    margin: 2.5rem 0 1.25rem;
+    font-size: 1.35rem;
+}
+.working-capital-loans-content .wcl-program-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    grid-column: 1 / -1;
+    align-items: stretch;
+}
+.working-capital-loans-content .wcl-program-cards .service-card {
+    min-height: 200px;
+}
+.working-capital-loans-content .wcl-program-cards .service-card h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+}
+@media (max-width: 768px) {
+    .working-capital-loans-content .wcl-intro-with-img .wcl-intro-content,
+    .working-capital-loans-content .wcl-industry-row .wcl-industry-content { grid-template-columns: 1fr; }
+    .working-capital-loans-content .wcl-intro-img,
+    .working-capital-loans-content .wcl-industry-img { order: -1; max-height: 240px; aspect-ratio: 16 / 10; }
+    .working-capital-loans-content .wcl-intro-img img,
+    .working-capital-loans-content .wcl-industry-img img { object-position: center 40%; }
+    .working-capital-loans-content .wcl-industry-reverse .wcl-industry-text,
+    .working-capital-loans-content .wcl-industry-reverse .wcl-industry-img { order: unset; }
+    .working-capital-loans-content .wcl-amounts-with-img .wcl-amounts-content { grid-template-columns: 1fr; }
+    .working-capital-loans-content .wcl-amounts-img { order: -1; max-height: 200px; position: static; aspect-ratio: 16 / 9; }
+    .working-capital-loans-content .wcl-amounts-img img { object-position: center 55%; }
+    .working-capital-loans-content .wcl-card-img { aspect-ratio: 16 / 10; }
+}
+@media (min-width: 1024px) {
+    .working-capital-loans-content .wcl-why-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* Equipment financing & Business Line of Credit - full-width unbounded layout, use entire page width */
 .form-container.equipment-financing-content,
-.form-container.business-line-of-credit-content {
+.form-container.business-line-of-credit-content,
+.form-container.working-capital-loans-content:not(.business-term-loans-content):not(.commercial-bridge-loans-content):not(.commercial-real-estate-loans-content) {
     box-shadow: none !important;
     border: none !important;
     padding: 60px clamp(2rem, 6vw, 4rem) 80px !important;
 }
 
 .equipment-financing-content .about-section,
-.business-line-of-credit-content .about-section {
+.business-line-of-credit-content .about-section,
+.working-capital-loans-content .about-section {
     width: 100% !important;
     max-width: none !important;
 }
@@ -1677,25 +1797,29 @@ a.btn-primary, a.btn-secondary {
 .equipment-financing-content .steps-grid,
 .equipment-financing-content .benefits-grid,
 .business-line-of-credit-content .steps-grid,
-.business-line-of-credit-content .benefits-grid {
+.business-line-of-credit-content .benefits-grid,
+.working-capital-loans-content .steps-grid,
+.working-capital-loans-content .benefits-grid {
     max-width: none;
     margin-left: 0;
     margin-right: 0;
 }
 
-/* Equipment financing & BLOC - 3-column grid on wide screens for better use of space */
+/* Equipment financing & BLOC & WCL - 3-column grid on wide screens for better use of space */
 @media (min-width: 1024px) {
     .equipment-financing-content .benefits-grid,
-    .business-line-of-credit-content .benefits-grid {
+    .business-line-of-credit-content .benefits-grid,
+    .working-capital-loans-content .benefits-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 28px;
     }
 }
 
-/* Equipment financing & BLOC - 2 columns for steps on wide screens */
+/* Equipment financing & BLOC & WCL - 2 columns for steps on wide screens */
 @media (min-width: 900px) {
     .equipment-financing-content .steps-grid,
-    .business-line-of-credit-content .steps-grid {
+    .business-line-of-credit-content .steps-grid,
+    .working-capital-loans-content .steps-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -1912,7 +2036,7 @@ a.btn-primary, a.btn-secondary {
 .working-capital-loans-content .partner-list li a:hover,
 .sba-loans-content .partner-list li a:hover {
     color: var(--accent-dark);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .equipment-financing-content .partner-list li:last-child,
@@ -2003,13 +2127,13 @@ a.btn-primary, a.btn-secondary {
 }
 
 .relevant-post-card h3 a {
-    color: var(--text-primary);
+    color: var(--accent-color);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .relevant-post-card h3 a:hover {
-    color: var(--accent-color);
+    color: var(--accent-dark);
 }
 
 .relevant-post-card p {
@@ -2033,12 +2157,11 @@ a.btn-primary, a.btn-secondary {
     color: var(--accent-color);
     text-decoration: none;
     padding: 4px 0;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s ease;
+    transition: color 0.2s ease;
 }
 
 .relevant-post-card .blog-card-link:hover {
-    border-bottom-color: var(--accent-color);
+    color: var(--accent-dark);
 }
 
 .relevant-post-card .topic-visual {
@@ -2194,7 +2317,8 @@ a.btn-primary, a.btn-secondary {
 .cta-section a.btn-primary,
 .cta-section button.btn-primary,
 .cta-section .ef-hero-ctas .btn-primary,
-.cta-section .bloc-hero-ctas .btn-primary {
+.cta-section .bloc-hero-ctas .btn-primary,
+.cta-section .wcl-hero-ctas .btn-primary {
     display: inline-block;
     min-width: 180px;
     padding: 14px 28px;
@@ -2209,7 +2333,8 @@ a.btn-primary, a.btn-secondary {
 .cta-section a.btn-primary:hover,
 .cta-section button.btn-primary:hover,
 .cta-section .ef-hero-ctas .btn-primary:hover,
-.cta-section .bloc-hero-ctas .btn-primary:hover {
+.cta-section .bloc-hero-ctas .btn-primary:hover,
+.cta-section .wcl-hero-ctas .btn-primary:hover {
     background: #f1f5f9 !important;
     color: #1e3a5f !important;
     border-color: #f1f5f9 !important;
@@ -2219,7 +2344,9 @@ a.btn-primary, a.btn-secondary {
 .cta-section .ef-phone-cta,
 .cta-section .ef-hero-ctas .ef-phone-cta,
 .cta-section .bloc-phone-cta,
-.cta-section .bloc-hero-ctas .bloc-phone-cta {
+.cta-section .bloc-hero-ctas .bloc-phone-cta,
+.cta-section .wcl-phone-cta,
+.cta-section .wcl-hero-ctas .wcl-phone-cta {
     display: inline-block;
     min-width: 160px;
     padding: 14px 24px;
@@ -3818,7 +3945,7 @@ a.btn-primary, a.btn-secondary {
     margin-bottom: 0.45rem;
 }
 
-/* Content links – bold, no underline, accent color (inline text links to other pages) */
+/* Content links – blue, no underline (inline text links to other pages) */
 .form-container.blog-post-content p a:not(.btn-primary):not(.btn-secondary),
 .form-container.blog-post-content li a:not(.btn-primary):not(.btn-secondary),
 .equipment-financing-content .about-section p a,
@@ -3827,6 +3954,8 @@ a.btn-primary, a.btn-secondary {
 .business-line-of-credit-content .about-section li a,
 .fix-and-flip-content .about-section p a,
 .fix-and-flip-content .about-section li a,
+.working-capital-loans-content .about-section p a,
+.working-capital-loans-content .about-section li a,
 .sba-loans-content .about-section p a,
 .sba-loans-content .about-section li a,
 .form-container.blog-content .results-intro a,
@@ -3850,6 +3979,8 @@ a.btn-primary, a.btn-secondary {
 .business-line-of-credit-content .about-section li a:hover,
 .fix-and-flip-content .about-section p a:hover,
 .fix-and-flip-content .about-section li a:hover,
+.working-capital-loans-content .about-section p a:hover,
+.working-capital-loans-content .about-section li a:hover,
 .sba-loans-content .about-section p a:hover,
 .sba-loans-content .about-section li a:hover,
 .form-container.blog-content .results-intro a:hover,
@@ -6367,7 +6498,10 @@ html {
 .form-container.equipment-financing-content .about-section:has(> .service-card) > .section-cta,
 .form-container.business-line-of-credit-content .about-section:has(> .service-card) > .ef-program-types-heading,
 .form-container.business-line-of-credit-content .about-section:has(> .service-card) > .ef-program-cards,
-.form-container.business-line-of-credit-content .about-section:has(> .service-card) > .section-cta {
+.form-container.business-line-of-credit-content .about-section:has(> .service-card) > .section-cta,
+.form-container.working-capital-loans-content .about-section:has(> .service-card) > .wcl-program-types-heading,
+.form-container.working-capital-loans-content .about-section:has(> .service-card) > .wcl-program-cards,
+.form-container.working-capital-loans-content .about-section:has(> .service-card) > .section-cta {
     grid-column: 1 / -1;
 }
 

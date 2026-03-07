@@ -2013,9 +2013,10 @@
             if (bannerUrl) intro.insertAdjacentElement('afterend', buildTopicVisual(bannerUrl, altBase + ' overview image', 'banner', visual.caption));
         }
         const isEquipmentFinancingMain = path.includes('equipment-financing') && !path.includes('/articles/') && (page === 'equipment-financing.html' || page === 'index.html' || page === '');
+        const isBusinessLineOfCreditMain = path.includes('business-line-of-credit') && !path.includes('/articles/') && (page === 'business-line-of-credit.html' || page === 'index.html' || page === '');
         // Service pages: place one compact contextual image inside first content section instead of a large banner.
-        // Skip for equipment-financing main page (no section images per user request).
-        if (isServicePage && !isEquipmentFinancingMain) {
+        // Skip for equipment-financing and business-line-of-credit main pages (custom layouts with own images).
+        if (isServicePage && !isEquipmentFinancingMain && !isBusinessLineOfCreditMain) {
             const textSections = Array.from(document.querySelectorAll('.form-container .about-section')).filter(function(section) {
                 if (!section || section.querySelector('.topic-visual')) return false;
                 if (section.querySelector(':scope > .service-card')) return false;
@@ -2086,8 +2087,8 @@
         });
 
         // Keep all instructional/program cards populated (e.g., 3-step boxes).
-        // Skip equipment-financing main page per user request (no card images).
-        if (!isEquipmentFinancingMain) {
+        // Skip equipment-financing and business-line-of-credit main pages (custom card layouts).
+        if (!isEquipmentFinancingMain && !isBusinessLineOfCreditMain) {
         document.querySelectorAll('.about-section, .blog-article-block').forEach(function(scope, scopeIdx) {
             const cards = Array.from(scope.querySelectorAll(':scope .step-card, :scope .benefit-card, :scope .leasing-option-card'));
             if (cards.length < 2) return;
