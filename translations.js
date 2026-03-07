@@ -3,7 +3,7 @@ const translations = {
     en: {
         // Navigation
         nav: {
-            about: "About",
+            about: "Home",
             findMatch: "Find Match",
             sbaLoans: "SBA Loans",
             equipmentFinancing: "Equipment Financing",
@@ -469,7 +469,7 @@ const translations = {
     },
     es: {
         nav: {
-            about: "Acerca de",
+            about: "Inicio",
             findMatch: "Buscar Coincidencia",
             sbaLoans: "Préstamos SBA",
             equipmentFinancing: "Financiamiento de Equipos",
@@ -928,7 +928,7 @@ const translations = {
     },
     ru: {
         nav: {
-            about: "О нас",
+            about: "Главная",
             findMatch: "Найти совпадение",
             sbaLoans: "Ссуды SBA",
             equipmentFinancing: "Финансирование оборудования",
