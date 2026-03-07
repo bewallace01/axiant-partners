@@ -179,7 +179,8 @@ body::before {
     filter: invert(1) brightness(1.08) contrast(1.05);
 }
 
-.nav-brand > span {
+/* Hide redundant "Axiant Partners" text - logo image already displays it */
+.nav-brand span {
     display: none !important;
 }
 
@@ -1409,8 +1410,92 @@ a.btn-primary, a.btn-secondary {
 }
 
 /* Equipment financing - hide any injected topic visuals (per user request) */
-.equipment-financing-content .topic-visual {
+.equipment-financing-content .topic-visual,
+.business-line-of-credit-content .topic-visual {
     display: none !important;
+}
+
+/* Business Line of Credit - hero, intro, cards, industry rows (mirror ef- structure) */
+.bloc-intro-with-img .bloc-intro-content,
+.bloc-industry-row .bloc-industry-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: center;
+}
+.bloc-intro-img, .bloc-industry-img {
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 24px 48px rgba(30, 58, 95, 0.12), 0 0 0 1px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.bloc-intro-img:hover, .bloc-industry-img:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 28px 56px rgba(30, 58, 95, 0.16), 0 0 0 1px rgba(45, 127, 184, 0.12);
+}
+.bloc-intro-img img, .bloc-industry-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+}
+.bloc-industry-reverse .bloc-industry-text { order: 2; }
+.bloc-industry-reverse .bloc-industry-img { order: 1; }
+.bloc-card-with-img { display: flex; flex-direction: column; overflow: hidden; padding: 0 !important; }
+.bloc-card-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+.bloc-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 45%;
+    border-radius: 12px 12px 0 0;
+    transition: transform 0.4s ease;
+}
+.bloc-card-with-img:hover .bloc-card-img img { transform: scale(1.05); }
+.bloc-card-with-img h3 { padding: 1.25rem 1.5rem 0.5rem; margin: 0; }
+.bloc-card-with-img p { padding: 0 1.5rem 1.5rem; margin: 0; flex: 1; }
+.bloc-amounts-with-img .bloc-amounts-content {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: start;
+}
+.bloc-amounts-img {
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 24px 48px rgba(30, 58, 95, 0.12), 0 0 0 1px rgba(0,0,0,0.06);
+}
+.bloc-amounts-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+.bloc-content .bloc-use-cards .benefit-card,
+.bloc-content .bloc-why-cards .benefit-card {
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(30, 58, 95, 0.08), 0 0 0 1px rgba(45, 127, 184, 0.06);
+}
+.bloc-content .bloc-use-cards .benefit-card:hover,
+.bloc-content .bloc-why-cards .benefit-card:hover {
+    box-shadow: 0 16px 40px rgba(45, 127, 184, 0.15), 0 0 0 2px rgba(45, 127, 184, 0.2);
+}
+.bloc-cta-section { background: linear-gradient(135deg, rgba(30, 58, 95, 0.92) 0%, rgba(45, 127, 184, 0.8) 100%); color: #fff; padding: 3rem 2rem !important; border-radius: 16px; }
+.bloc-cta-section h2, .bloc-cta-section p { color: #fff; }
+.bloc-cta-buttons { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.25rem; }
+.bloc-cta-buttons .btn-primary, .bloc-cta-buttons .btn-secondary { width: auto; }
+@media (max-width: 900px) {
+    .bloc-intro-with-img .bloc-intro-content,
+    .bloc-industry-row .bloc-industry-content { grid-template-columns: 1fr; }
+    .bloc-intro-img, .bloc-industry-img { order: -1; max-height: 240px; aspect-ratio: 16 / 10; }
+    .bloc-industry-reverse .bloc-industry-text, .bloc-industry-reverse .bloc-industry-img { order: unset; }
+    .bloc-amounts-with-img .bloc-amounts-content { grid-template-columns: 1fr; }
+    .bloc-amounts-img { order: -1; max-height: 200px; aspect-ratio: 16 / 9; }
+    .bloc-card-img { aspect-ratio: 16 / 10; }
 }
 
 /* Equipment financing - hero background, card images, intro & industry rows */
@@ -1525,6 +1610,10 @@ a.btn-primary, a.btn-secondary {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.25rem;
     grid-column: 1 / -1;
+    align-items: stretch;
+}
+.ef-program-cards .service-card {
+    min-height: 200px;
 }
 .ef-program-cards .service-card h4 {
     margin: 0 0 0.5rem;
@@ -1564,42 +1653,49 @@ a.btn-primary, a.btn-secondary {
     .ef-card-img { aspect-ratio: 16 / 10; }
 }
 @media (min-width: 1024px) {
-    .equipment-financing-content .ef-why-cards { grid-template-columns: repeat(2, 1fr); }
+    .equipment-financing-content .ef-why-cards,
+    .business-line-of-credit-content .bloc-why-cards { grid-template-columns: repeat(2, 1fr); }
 }
 [data-theme="dark"] .ef-card-img {
     background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
 }
 
-/* Equipment financing - full-width unbounded layout, use entire page width */
-.form-container.equipment-financing-content {
+/* Equipment financing & Business Line of Credit - full-width unbounded layout, use entire page width */
+.form-container.equipment-financing-content,
+.form-container.business-line-of-credit-content {
     box-shadow: none !important;
     border: none !important;
     padding: 60px clamp(2rem, 6vw, 4rem) 80px !important;
 }
 
-.equipment-financing-content .about-section {
+.equipment-financing-content .about-section,
+.business-line-of-credit-content .about-section {
     width: 100% !important;
     max-width: none !important;
 }
 
 .equipment-financing-content .steps-grid,
-.equipment-financing-content .benefits-grid {
+.equipment-financing-content .benefits-grid,
+.business-line-of-credit-content .steps-grid,
+.business-line-of-credit-content .benefits-grid {
     max-width: none;
     margin-left: 0;
     margin-right: 0;
 }
 
-/* Equipment financing - 3-column grid on wide screens for better use of space */
+/* Equipment financing & BLOC - 3-column grid on wide screens for better use of space */
 @media (min-width: 1024px) {
-    .equipment-financing-content .benefits-grid {
+    .equipment-financing-content .benefits-grid,
+    .business-line-of-credit-content .benefits-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 28px;
     }
 }
 
-/* Equipment financing - 2 columns for steps on wide screens */
+/* Equipment financing & BLOC - 2 columns for steps on wide screens */
 @media (min-width: 900px) {
-    .equipment-financing-content .steps-grid {
+    .equipment-financing-content .steps-grid,
+    .business-line-of-credit-content .steps-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -1617,6 +1713,7 @@ a.btn-primary, a.btn-secondary {
 }
 
 .equipment-financing-content .about-section:not(.cta-section),
+.business-line-of-credit-content .about-section:not(.cta-section),
 .working-capital-loans-content .about-section:not(.cta-section),
 .sba-loans-content .about-section:not(.cta-section) {
     padding: 2.5rem 0;
@@ -1641,6 +1738,7 @@ a.btn-primary, a.btn-secondary {
 }
 
 .equipment-financing-content .about-section h2,
+.business-line-of-credit-content .about-section h2,
 .working-capital-loans-content .about-section h2,
 .sba-loans-content .about-section h2 {
     font-size: 1.75rem;
@@ -1977,6 +2075,7 @@ a.btn-primary, a.btn-secondary {
 .equipment-financing-content .benefit-card,
 .equipment-financing-content .service-card,
 .business-line-of-credit-content .step-card,
+.business-line-of-credit-content .benefit-card,
 .business-line-of-credit-content .service-card,
 .fix-and-flip-content .step-card,
 .fix-and-flip-content .service-card,
@@ -2094,7 +2193,8 @@ a.btn-primary, a.btn-secondary {
 /* CTA section buttons - clear button form (not text-only) on dark backgrounds */
 .cta-section a.btn-primary,
 .cta-section button.btn-primary,
-.cta-section .ef-hero-ctas .btn-primary {
+.cta-section .ef-hero-ctas .btn-primary,
+.cta-section .bloc-hero-ctas .btn-primary {
     display: inline-block;
     min-width: 180px;
     padding: 14px 28px;
@@ -2108,7 +2208,8 @@ a.btn-primary, a.btn-secondary {
 }
 .cta-section a.btn-primary:hover,
 .cta-section button.btn-primary:hover,
-.cta-section .ef-hero-ctas .btn-primary:hover {
+.cta-section .ef-hero-ctas .btn-primary:hover,
+.cta-section .bloc-hero-ctas .btn-primary:hover {
     background: #f1f5f9 !important;
     color: #1e3a5f !important;
     border-color: #f1f5f9 !important;
@@ -2116,7 +2217,9 @@ a.btn-primary, a.btn-secondary {
     box-shadow: 0 6px 24px rgba(0,0,0,0.25);
 }
 .cta-section .ef-phone-cta,
-.cta-section .ef-hero-ctas .ef-phone-cta {
+.cta-section .ef-hero-ctas .ef-phone-cta,
+.cta-section .bloc-phone-cta,
+.cta-section .bloc-hero-ctas .bloc-phone-cta {
     display: inline-block;
     min-width: 160px;
     padding: 14px 24px;
@@ -2128,7 +2231,9 @@ a.btn-primary, a.btn-secondary {
     text-align: center;
 }
 .cta-section .ef-phone-cta:hover,
-.cta-section .ef-hero-ctas .ef-phone-cta:hover {
+.cta-section .ef-hero-ctas .ef-phone-cta:hover,
+.cta-section .bloc-phone-cta:hover,
+.cta-section .bloc-hero-ctas .bloc-phone-cta:hover {
     background: rgba(255,255,255,0.15) !important;
     border-color: #ffffff !important;
     color: #ffffff !important;
@@ -5119,13 +5224,7 @@ a.no-wrap-link {
     }
 
     .nav-brand span {
-        display: none;
-    }
-
-    @media (min-width: 360px) {
-        .nav-brand span {
-            display: inline;
-        }
+        display: none !important;
     }
 
     .nav-logo,
@@ -6262,7 +6361,13 @@ html {
 .form-container.working-capital-loans-content .about-section:has(> .service-card) > h2,
 .form-container.working-capital-loans-content .about-section:has(> .service-card) > p,
 .form-container.sba-loans-content .about-section:has(> .service-card) > h2,
-.form-container.sba-loans-content .about-section:has(> .service-card) > p {
+.form-container.sba-loans-content .about-section:has(> .service-card) > p,
+.form-container.equipment-financing-content .about-section:has(> .service-card) > .ef-program-types-heading,
+.form-container.equipment-financing-content .about-section:has(> .service-card) > .ef-program-cards,
+.form-container.equipment-financing-content .about-section:has(> .service-card) > .section-cta,
+.form-container.business-line-of-credit-content .about-section:has(> .service-card) > .ef-program-types-heading,
+.form-container.business-line-of-credit-content .about-section:has(> .service-card) > .ef-program-cards,
+.form-container.business-line-of-credit-content .about-section:has(> .service-card) > .section-cta {
     grid-column: 1 / -1;
 }
 
