@@ -490,31 +490,6 @@
         if (!footer) return;
         const currentYear = new Date().getFullYear();
 
-        const ctaSection = document.getElementById('globalBottomCta');
-        if (!ctaSection) {
-            const cta = document.createElement('section');
-            cta.id = 'globalBottomCta';
-            cta.className = 'global-bottom-cta';
-            cta.innerHTML = '' +
-                '<div class="global-bottom-cta-inner">' +
-                    '<div class="global-bottom-cta-panel">' +
-                        '<h2>Ready to Explore Your Financing Options?</h2>' +
-                        '<p>Tell us about your financing needs and we will connect you with lender programs that fit your goals.</p>' +
-                        '<p class="global-bottom-cta-qualifier"><strong>Typical Baseline Qualifications:</strong></p>' +
-                        '<ul class="global-bottom-cta-list">' +
-                            '<li>Consistent business revenue</li>' +
-                            '<li>Clear funding purpose and timeline</li>' +
-                            '<li>U.S.-based business operation</li>' +
-                        '</ul>' +
-                        '<div class="global-bottom-cta-actions">' +
-                            '<a class="btn-primary" href="/match.html">Apply Now</a>' +
-                            '<a class="btn-secondary" href="/contact.html">Talk to Our Team</a>' +
-                        '</div>' +
-                    '</div>' +
-                '</div>';
-            footer.parentNode.insertBefore(cta, footer);
-        }
-
         footer.classList.add('site-footer-enhanced');
         footer.innerHTML = '' +
             '<div class="site-footer-wrap">' +
@@ -2037,8 +2012,10 @@
             const bannerUrl = pickFromPool('banner', page + '-intro-banner');
             if (bannerUrl) intro.insertAdjacentElement('afterend', buildTopicVisual(bannerUrl, altBase + ' overview image', 'banner', visual.caption));
         }
+        const isEquipmentFinancingMain = path.includes('equipment-financing') && !path.includes('/articles/') && (page === 'equipment-financing.html' || page === 'index.html' || page === '');
         // Service pages: place one compact contextual image inside first content section instead of a large banner.
-        if (isServicePage) {
+        // Skip for equipment-financing main page (no section images per user request).
+        if (isServicePage && !isEquipmentFinancingMain) {
             const textSections = Array.from(document.querySelectorAll('.form-container .about-section')).filter(function(section) {
                 if (!section || section.querySelector('.topic-visual')) return false;
                 if (section.querySelector(':scope > .service-card')) return false;
@@ -2109,6 +2086,8 @@
         });
 
         // Keep all instructional/program cards populated (e.g., 3-step boxes).
+        // Skip equipment-financing main page per user request (no card images).
+        if (!isEquipmentFinancingMain) {
         document.querySelectorAll('.about-section, .blog-article-block').forEach(function(scope, scopeIdx) {
             const cards = Array.from(scope.querySelectorAll(':scope .step-card, :scope .benefit-card, :scope .leasing-option-card'));
             if (cards.length < 2) return;
@@ -2130,6 +2109,7 @@
                 }
             });
         });
+        }
 
         // Add lightweight images to blog listing cards for visual rhythm.
         if (isBlogHub) {
