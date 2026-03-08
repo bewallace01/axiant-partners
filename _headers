@@ -1,6 +1,13 @@
 # Cache static assets (Netlify)
 # https://docs.netlify.com/routing/headers/
 
+# HTML: revalidate so users get fresh pages (helps iOS Safari see updates)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
