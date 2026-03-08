@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Generate sitemap.xml with final URLs only (no redirect sources)."""
 from pathlib import Path
+from datetime import date
 
 BASE = Path(__file__).resolve().parent.parent
 BASE_URL = "https://www.axiantpartners.com"
-LASTMOD = "2026-03-05"
+LASTMOD = date.today().isoformat()
 
 def url_entry(loc_path, changefreq="monthly", priority="0.8"):
     loc = BASE_URL + loc_path
