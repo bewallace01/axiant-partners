@@ -1468,17 +1468,19 @@ a.btn-primary, a.btn-secondary {
 .bloc-card-with-img p { padding: 0 1.5rem 1.5rem; margin: 0; flex: 1; }
 .bloc-amounts-with-img .bloc-amounts-content {
     display: grid;
-    grid-template-columns: 1fr 380px;
+    grid-template-columns: 1fr minmax(420px, 500px);
     gap: clamp(2rem, 4vw, 3rem);
-    align-items: start;
+    align-items: stretch;
 }
 .bloc-amounts-img {
     border-radius: 18px;
     overflow: hidden;
-    aspect-ratio: 4 / 3;
+    min-height: 280px;
     box-shadow: 0 24px 48px rgba(30, 58, 95, 0.12), 0 0 0 1px rgba(0,0,0,0.06);
+    align-self: stretch;
+    display: flex;
 }
-.bloc-amounts-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+.bloc-amounts-img img { width: 100%; height: 100%; min-height: 100%; object-fit: cover; object-position: center 40%; display: block; }
 .bloc-content .bloc-use-cards .benefit-card,
 .bloc-content .bloc-why-cards .benefit-card {
     border-radius: 12px;
@@ -1498,7 +1500,7 @@ a.btn-primary, a.btn-secondary {
     .bloc-intro-img, .bloc-industry-img { order: -1; max-height: 240px; aspect-ratio: 16 / 10; }
     .bloc-industry-reverse .bloc-industry-text, .bloc-industry-reverse .bloc-industry-img { order: unset; }
     .bloc-amounts-with-img .bloc-amounts-content { grid-template-columns: 1fr; }
-    .bloc-amounts-img { order: -1; max-height: 200px; aspect-ratio: 16 / 9; }
+    .bloc-amounts-img { order: -1; max-height: 280px; min-height: 0; aspect-ratio: 16 / 9; align-self: auto; display: block; }
     .bloc-card-img { aspect-ratio: 16 / 10; }
 }
 
@@ -1649,21 +1651,24 @@ a.btn-primary, a.btn-secondary {
 
 .ef-amounts-with-img .ef-amounts-content {
     display: grid;
-    grid-template-columns: 1fr 380px;
+    grid-template-columns: 1fr minmax(420px, 500px);
     gap: clamp(2rem, 4vw, 3rem);
-    align-items: start;
+    align-items: stretch;
 }
 .ef-amounts-img {
     border-radius: 18px;
     overflow: hidden;
-    aspect-ratio: 4 / 3;
+    min-height: 280px;
     box-shadow: 0 20px 40px rgba(30, 58, 95, 0.12), 0 0 0 1px rgba(0,0,0,0.05);
     position: sticky;
     top: 100px;
+    align-self: stretch;
+    display: flex;
 }
 .ef-amounts-img img {
     width: 100%;
     height: 100%;
+    min-height: 100%;
     object-fit: cover;
     object-position: center 55%;
     display: block;
@@ -1675,7 +1680,7 @@ a.btn-primary, a.btn-secondary {
     .ef-intro-img img, .ef-industry-img img { object-position: center 40%; }
     .ef-industry-reverse .ef-industry-text, .ef-industry-reverse .ef-industry-img { order: unset; }
     .ef-amounts-with-img .ef-amounts-content { grid-template-columns: 1fr; }
-    .ef-amounts-img { order: -1; max-height: 200px; position: static; aspect-ratio: 16 / 9; }
+    .ef-amounts-img { order: -1; max-height: 280px; min-height: 0; position: static; aspect-ratio: 16 / 9; align-self: auto; display: block; }
     .ef-amounts-img img { object-position: center 55%; }
     .ef-card-img { aspect-ratio: 16 / 10; }
 }
@@ -1726,21 +1731,24 @@ a.btn-primary, a.btn-secondary {
 .working-capital-loans-content .wcl-industry-reverse .wcl-industry-img { order: 1; }
 .working-capital-loans-content .wcl-amounts-with-img .wcl-amounts-content {
     display: grid;
-    grid-template-columns: 1fr 380px;
+    grid-template-columns: 1fr minmax(420px, 500px);
     gap: clamp(2rem, 4vw, 3rem);
-    align-items: start;
+    align-items: stretch;
 }
 .working-capital-loans-content .wcl-amounts-img {
     border-radius: 18px;
     overflow: hidden;
-    aspect-ratio: 4 / 3;
+    min-height: 280px;
     box-shadow: 0 20px 40px rgba(30, 58, 95, 0.12), 0 0 0 1px rgba(0,0,0,0.05);
     position: sticky;
     top: 100px;
+    align-self: stretch;
+    display: flex;
 }
 .working-capital-loans-content .wcl-amounts-img img {
     width: 100%;
     height: 100%;
+    min-height: 100%;
     object-fit: cover;
     object-position: center 55%;
     display: block;
@@ -1803,7 +1811,7 @@ a.btn-primary, a.btn-secondary {
     .working-capital-loans-content .wcl-industry-reverse .wcl-industry-text,
     .working-capital-loans-content .wcl-industry-reverse .wcl-industry-img { order: unset; }
     .working-capital-loans-content .wcl-amounts-with-img .wcl-amounts-content { grid-template-columns: 1fr; }
-    .working-capital-loans-content .wcl-amounts-img { order: -1; max-height: 200px; position: static; aspect-ratio: 16 / 9; }
+    .working-capital-loans-content .wcl-amounts-img { order: -1; max-height: 280px; min-height: 0; position: static; aspect-ratio: 16 / 9; align-self: auto; display: block; }
     .working-capital-loans-content .wcl-amounts-img img { object-position: center 55%; }
     .working-capital-loans-content .wcl-card-img { aspect-ratio: 16 / 10; }
 }
@@ -1844,21 +1852,24 @@ a.btn-primary, a.btn-secondary {
 .business-term-loans-content .btl-industry-reverse .btl-industry-img { order: 1; }
 .business-term-loans-content .btl-amounts-with-img .btl-amounts-content {
     display: grid;
-    grid-template-columns: 1fr 380px;
+    grid-template-columns: 1fr minmax(420px, 500px);
     gap: clamp(2rem, 4vw, 3rem);
-    align-items: start;
+    align-items: stretch;
 }
 .business-term-loans-content .btl-amounts-img {
     border-radius: 18px;
     overflow: hidden;
-    aspect-ratio: 4 / 3;
+    min-height: 280px;
     box-shadow: 0 20px 40px rgba(30, 58, 95, 0.12), 0 0 0 1px rgba(0,0,0,0.05);
     position: sticky;
     top: 100px;
+    align-self: stretch;
+    display: flex;
 }
 .business-term-loans-content .btl-amounts-img img {
     width: 100%;
     height: 100%;
+    min-height: 100%;
     object-fit: cover;
     object-position: center 55%;
     display: block;
@@ -1917,7 +1928,7 @@ a.btn-primary, a.btn-secondary {
     .business-term-loans-content .btl-intro-img,
     .business-term-loans-content .btl-industry-img { order: -1; max-height: 240px; aspect-ratio: 16 / 10; }
     .business-term-loans-content .btl-amounts-with-img .btl-amounts-content { grid-template-columns: 1fr; }
-    .business-term-loans-content .btl-amounts-img { order: -1; max-height: 200px; position: static; aspect-ratio: 16 / 9; }
+    .business-term-loans-content .btl-amounts-img { order: -1; max-height: 280px; min-height: 0; position: static; aspect-ratio: 16 / 9; align-self: auto; display: block; }
     .business-term-loans-content .btl-card-img { aspect-ratio: 16 / 10; }
 }
 @media (min-width: 1024px) {
@@ -2040,6 +2051,15 @@ a.btn-primary, a.btn-secondary {
 /* Equipment financing, Business Line of Credit, Business Term Loans, Commercial Real Estate - full-width unbounded layout */
 .form-container.equipment-financing-content,
 .form-container.construction-content,
+.form-container.trucking-content,
+.form-container.agriculture-content,
+.form-container.forestry-content,
+.form-container.landscaping-content,
+.form-container.manufacturing-content,
+.form-container.medical-practices-content,
+.form-container.restaurants-content,
+.form-container.auto-repair-content,
+.form-container.logistics-warehousing-content,
 .form-container.business-line-of-credit-content,
 .form-container.business-term-loans-content,
 .form-container.commercial-bridge-loans-content,
@@ -2056,6 +2076,15 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .about-section,
 .construction-content .about-section,
+.trucking-content .about-section,
+.agriculture-content .about-section,
+.forestry-content .about-section,
+.landscaping-content .about-section,
+.manufacturing-content .about-section,
+.restaurants-content .about-section,
+.auto-repair-content .about-section,
+.logistics-warehousing-content .about-section,
+.medical-practices-content .about-section,
 .business-line-of-credit-content .about-section,
 .business-term-loans-content .about-section,
 .commercial-bridge-loans-content .about-section,
@@ -2069,6 +2098,25 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .steps-grid,
 .equipment-financing-content .benefits-grid,
+.trucking-content .steps-grid,
+.trucking-content .benefits-grid,
+.agriculture-content .steps-grid,
+.agriculture-content .benefits-grid,
+.forestry-content .steps-grid,
+.forestry-content .benefits-grid,
+.landscaping-content .steps-grid,
+.landscaping-content .benefits-grid,
+.manufacturing-content .benefits-grid,
+.manufacturing-content .steps-grid,
+.manufacturing-content .benefits-grid,
+.medical-practices-content .steps-grid,
+.medical-practices-content .benefits-grid,
+.restaurants-content .steps-grid,
+.restaurants-content .benefits-grid,
+.auto-repair-content .steps-grid,
+.auto-repair-content .benefits-grid,
+.logistics-warehousing-content .steps-grid,
+.logistics-warehousing-content .benefits-grid,
 .business-line-of-credit-content .steps-grid,
 .business-line-of-credit-content .benefits-grid,
 .business-term-loans-content .steps-grid,
@@ -2095,6 +2143,16 @@ a.btn-primary, a.btn-secondary {
 /* Equipment financing & BLOC & WCL - 3-column grid on wide screens for better use of space */
 @media (min-width: 1024px) {
     .equipment-financing-content .benefits-grid,
+.trucking-content .benefits-grid,
+.agriculture-content .benefits-grid,
+.forestry-content .benefits-grid,
+.landscaping-content .benefits-grid,
+.manufacturing-content .benefits-grid,
+.medical-practices-content .benefits-grid,
+.restaurants-content .benefits-grid,
+.auto-repair-content .benefits-grid,
+.logistics-warehousing-content .benefits-grid,
+.construction-content .benefits-grid,
     .business-line-of-credit-content .benefits-grid,
     .business-term-loans-content .benefits-grid,
     .commercial-bridge-loans-content .benefits-grid,
@@ -2112,6 +2170,16 @@ a.btn-primary, a.btn-secondary {
 /* Equipment financing & BLOC & WCL - 2 columns for steps on wide screens */
 @media (min-width: 900px) {
     .equipment-financing-content .steps-grid,
+.trucking-content .steps-grid,
+.agriculture-content .steps-grid,
+.forestry-content .steps-grid,
+.landscaping-content .steps-grid,
+.manufacturing-content .steps-grid,
+.medical-practices-content .steps-grid,
+.restaurants-content .steps-grid,
+.auto-repair-content .steps-grid,
+.logistics-warehousing-content .steps-grid,
+.construction-content .steps-grid,
     .business-line-of-credit-content .steps-grid,
     .business-term-loans-content .steps-grid,
     .commercial-bridge-loans-content .steps-grid,
@@ -2631,6 +2699,15 @@ a.btn-primary, a.btn-secondary {
 /* CTA section - gradient only, no background image (per user request) */
 .equipment-financing-content .cta-section,
 .construction-content .cta-section,
+.trucking-content .cta-section,
+.agriculture-content .cta-section,
+.forestry-content .cta-section,
+.landscaping-content .cta-section,
+.manufacturing-content .cta-section,
+.medical-practices-content .cta-section,
+.restaurants-content .cta-section,
+.auto-repair-content .cta-section,
+.logistics-warehousing-content .cta-section,
 .commercial-real-estate-loans-content .cta-section {
     background: linear-gradient(135deg, rgba(30, 58, 95, 0.95) 0%, rgba(45, 127, 184, 0.95) 100%) !important;
     border-bottom: none;
@@ -2638,6 +2715,15 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .cta-section,
 .construction-content .cta-section,
+.trucking-content .cta-section,
+.agriculture-content .cta-section,
+.forestry-content .cta-section,
+.landscaping-content .cta-section,
+.manufacturing-content .cta-section,
+.medical-practices-content .cta-section,
+.restaurants-content .cta-section,
+.auto-repair-content .cta-section,
+.logistics-warehousing-content .cta-section,
 .business-line-of-credit-content .cta-section,
 .commercial-real-estate-loans-content .cta-section,
 .fix-and-flip-content .cta-section,
@@ -2651,6 +2737,33 @@ a.btn-primary, a.btn-secondary {
 .construction-content .cta-section h2,
 .construction-content .cta-section p,
 .construction-content .cta-section li,
+.trucking-content .cta-section h2,
+.trucking-content .cta-section p,
+.trucking-content .cta-section li,
+.agriculture-content .cta-section h2,
+.agriculture-content .cta-section p,
+.agriculture-content .cta-section li,
+.forestry-content .cta-section h2,
+.forestry-content .cta-section p,
+.forestry-content .cta-section li,
+.landscaping-content .cta-section h2,
+.landscaping-content .cta-section p,
+.landscaping-content .cta-section li,
+.manufacturing-content .cta-section h2,
+.manufacturing-content .cta-section p,
+.manufacturing-content .cta-section li,
+.medical-practices-content .cta-section h2,
+.medical-practices-content .cta-section p,
+.medical-practices-content .cta-section li,
+.restaurants-content .cta-section h2,
+.restaurants-content .cta-section p,
+.restaurants-content .cta-section li,
+.auto-repair-content .cta-section h2,
+.auto-repair-content .cta-section p,
+.auto-repair-content .cta-section li,
+.logistics-warehousing-content .cta-section h2,
+.logistics-warehousing-content .cta-section p,
+.logistics-warehousing-content .cta-section li,
 .commercial-real-estate-loans-content .cta-section h2,
 .commercial-real-estate-loans-content .cta-section p,
 .commercial-real-estate-loans-content .cta-section li {
@@ -7022,10 +7135,6 @@ html {
     .trust-stat-label {
         font-size: 0.8rem;
     }
-    .ef-hero, .bloc-hero, .wcl-hero, .btl-hero {
-        min-height: 340px;
-        padding: 2.5rem 1rem 2.5rem;
-    }
     .ef-hero-copy .ef-subhead, .bloc-hero-copy .bloc-subhead, .wcl-hero-copy .wcl-subhead, .btl-hero-copy .btl-subhead {
         font-size: 1rem;
     }
@@ -7037,6 +7146,24 @@ html {
     .ef-hero-ctas .ef-phone-cta, .bloc-hero-ctas .bloc-phone-cta, .wcl-hero-ctas .wcl-phone-cta, .btl-hero-ctas .btl-phone-cta {
         width: 100%;
         justify-content: center;
+    }
+}
+
+/* Service & Industry page heroes - consistent dimensions across all dropdown pages */
+.ef-hero, .bloc-hero, .wcl-hero, .btl-hero {
+    min-height: 560px !important;
+    padding: 4rem clamp(2rem, 6vw, 4rem) 4rem !important;
+}
+@media (max-width: 768px) {
+    .ef-hero, .bloc-hero, .wcl-hero, .btl-hero {
+        min-height: 480px !important;
+        padding: 3rem 1.5rem 3rem !important;
+    }
+}
+@media (max-width: 480px) {
+    .ef-hero, .bloc-hero, .wcl-hero, .btl-hero {
+        min-height: 420px !important;
+        padding: 2.5rem 1rem 2.5rem !important;
     }
 }
 
