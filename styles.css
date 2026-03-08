@@ -2039,6 +2039,7 @@ a.btn-primary, a.btn-secondary {
 
 /* Equipment financing, Business Line of Credit, Business Term Loans, Commercial Real Estate - full-width unbounded layout */
 .form-container.equipment-financing-content,
+.form-container.construction-content,
 .form-container.business-line-of-credit-content,
 .form-container.business-term-loans-content,
 .form-container.commercial-bridge-loans-content,
@@ -2054,6 +2055,7 @@ a.btn-primary, a.btn-secondary {
 }
 
 .equipment-financing-content .about-section,
+.construction-content .about-section,
 .business-line-of-credit-content .about-section,
 .business-term-loans-content .about-section,
 .commercial-bridge-loans-content .about-section,
@@ -2277,6 +2279,7 @@ a.btn-primary, a.btn-secondary {
 
 /* Trust stats - tighter, consistent sizing */
 .equipment-financing-content .trust-section .trust-stats,
+.industry-page-content .trust-section .trust-stats,
 .business-line-of-credit-content .trust-section .trust-stats,
 .business-term-loans-content .trust-section .trust-stats,
 .commercial-real-estate-loans-content .trust-section .trust-stats,
@@ -2287,6 +2290,7 @@ a.btn-primary, a.btn-secondary {
 }
 
 .equipment-financing-content .trust-section .trust-stat,
+.industry-page-content .trust-section .trust-stat,
 .business-line-of-credit-content .trust-section .trust-stat,
 .commercial-real-estate-loans-content .trust-section .trust-stat,
 .fix-and-flip-content .trust-section .trust-stat,
@@ -2584,13 +2588,17 @@ a.btn-primary, a.btn-secondary {
 
 /* FAQ list */
 .equipment-financing-content .faq-list,
+.industry-page-content .faq-list,
 .business-line-of-credit-content .faq-list,
 .fix-and-flip-content .faq-list,
 .sba-loans-content .faq-list {
     margin-top: 0.5rem;
 }
 
+.equipment-financing-content .faq-list h3,
 .equipment-financing-content .faq-list h4,
+.industry-page-content .faq-list h3,
+.industry-page-content .faq-list h4,
 .business-line-of-credit-content .faq-list h4,
 .fix-and-flip-content .faq-list h4,
 .sba-loans-content .faq-list h4 {
@@ -2601,7 +2609,11 @@ a.btn-primary, a.btn-secondary {
     color: var(--text-primary);
 }
 
+.equipment-financing-content .faq-list .faq-item:first-child h3,
+.equipment-financing-content .faq-list .faq-item:first-child h4,
 .equipment-financing-content .faq-list h4:first-child,
+.industry-page-content .faq-list .faq-item:first-child h3,
+.industry-page-content .faq-list .faq-item:first-child h4,
 .business-line-of-credit-content .faq-list h4:first-child,
 .fix-and-flip-content .faq-list h4:first-child,
 .sba-loans-content .faq-list h4:first-child {
@@ -2609,6 +2621,7 @@ a.btn-primary, a.btn-secondary {
 }
 
 .equipment-financing-content .faq-list p,
+.industry-page-content .faq-list p,
 .business-line-of-credit-content .faq-list p,
 .fix-and-flip-content .faq-list p,
 .sba-loans-content .faq-list p {
@@ -2617,12 +2630,14 @@ a.btn-primary, a.btn-secondary {
 
 /* CTA section - gradient only, no background image (per user request) */
 .equipment-financing-content .cta-section,
+.construction-content .cta-section,
 .commercial-real-estate-loans-content .cta-section {
     background: linear-gradient(135deg, rgba(30, 58, 95, 0.95) 0%, rgba(45, 127, 184, 0.95) 100%) !important;
     border-bottom: none;
 }
 
 .equipment-financing-content .cta-section,
+.construction-content .cta-section,
 .business-line-of-credit-content .cta-section,
 .commercial-real-estate-loans-content .cta-section,
 .fix-and-flip-content .cta-section,
@@ -2633,6 +2648,9 @@ a.btn-primary, a.btn-secondary {
 .equipment-financing-content .cta-section h2,
 .equipment-financing-content .cta-section p,
 .equipment-financing-content .cta-section li,
+.construction-content .cta-section h2,
+.construction-content .cta-section p,
+.construction-content .cta-section li,
 .commercial-real-estate-loans-content .cta-section h2,
 .commercial-real-estate-loans-content .cta-section p,
 .commercial-real-estate-loans-content .cta-section li {
