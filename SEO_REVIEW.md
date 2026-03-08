@@ -200,10 +200,10 @@ All equipment pages now use **absolute** og:image URLs (e.g. `https://www.axiant
 
 ## 8. Action Items (Prioritized)
 
-### High priority
+### High priority (Done)
 
-1. Add `industries.html` to sitemap.
-2. Change equipment how-to articles from relative to absolute `og:image` URLs.
+1. ~~Add `industries.html` to sitemap~~ ✓
+2. ~~Change equipment how-to articles from relative to absolute `og:image` URLs~~ ✓
 
 ### Medium priority
 
