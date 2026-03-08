@@ -92,21 +92,7 @@ def main():
         if (BASE / f"{p}.html").exists():
             urls.append(url_entry(f"/{p}.html"))
 
-    # Equipment landing pages
-    equipment = [
-        "construction-equipment-financing", "dump-truck-financing", "excavator-financing",
-        "dozer-financing", "skid-steer-financing", "bucket-truck-financing",
-        "cnc-machine-financing", "wood-chipper-grinder-financing", "trailer-financing",
-        "startup-equipment-financing", "one-year-in-business-equipment-loan",
-        "no-doc-equipment-financing", "same-day-equipment-approval", "heavy-equipment-loans",
-        "truck-trailer-financing", "farm-agriculture-equipment-financing",
-        "office-equipment-financing", "used-equipment-loans", "bad-credit-equipment-financing",
-        "equipment-financing-contractors", "medical-equipment-financing",
-        "food-service-equipment-loans", "manufacturing-equipment-financing"
-    ]
-    for p in equipment:
-        if (BASE / f"{p}.html").exists():
-            urls.append(url_entry(f"/{p}.html"))
+    # Legacy equipment landing pages removed - structure uses /equipment/[type]/ now
 
     # Equipment by type (equipment/[type]/how-to-finance-*)
     equipment_dir = BASE / "equipment"
