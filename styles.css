@@ -1569,8 +1569,16 @@ a.btn-primary, a.btn-secondary {
 
 .equipment-financing-content .ef-equipment-cards .benefit-card,
 .equipment-financing-content .ef-why-cards .benefit-card,
+.commercial-bridge-loans-content .ef-equipment-cards .benefit-card,
+.commercial-bridge-loans-content .ef-why-cards .benefit-card,
 .commercial-real-estate-loans-content .ef-equipment-cards .benefit-card,
 .commercial-real-estate-loans-content .ef-why-cards .benefit-card,
+.equipment-financing-content.fix-and-flip-content .ef-equipment-cards .benefit-card,
+.equipment-financing-content.fix-and-flip-content .ef-why-cards .benefit-card,
+.equipment-financing-content.revenue-based-financing-content .ef-equipment-cards .benefit-card,
+.equipment-financing-content.revenue-based-financing-content .ef-why-cards .benefit-card,
+.equipment-financing-content.securities-based-lending-content .ef-equipment-cards .benefit-card,
+.equipment-financing-content.securities-based-lending-content .ef-why-cards .benefit-card,
 .sba-loans-content .ef-equipment-cards .benefit-card,
 .sba-loans-content .ef-why-cards .benefit-card {
     border-radius: 12px;
@@ -1578,8 +1586,16 @@ a.btn-primary, a.btn-secondary {
 }
 .equipment-financing-content .ef-equipment-cards .benefit-card:hover,
 .equipment-financing-content .ef-why-cards .benefit-card:hover,
+.commercial-bridge-loans-content .ef-equipment-cards .benefit-card:hover,
+.commercial-bridge-loans-content .ef-why-cards .benefit-card:hover,
 .commercial-real-estate-loans-content .ef-equipment-cards .benefit-card:hover,
-.commercial-real-estate-loans-content .ef-why-cards .benefit-card:hover {
+.commercial-real-estate-loans-content .ef-why-cards .benefit-card:hover,
+.equipment-financing-content.fix-and-flip-content .ef-equipment-cards .benefit-card:hover,
+.equipment-financing-content.fix-and-flip-content .ef-why-cards .benefit-card:hover,
+.equipment-financing-content.revenue-based-financing-content .ef-equipment-cards .benefit-card:hover,
+.equipment-financing-content.revenue-based-financing-content .ef-why-cards .benefit-card:hover,
+.equipment-financing-content.securities-based-lending-content .ef-equipment-cards .benefit-card:hover,
+.equipment-financing-content.securities-based-lending-content .ef-why-cards .benefit-card:hover {
     box-shadow: 0 16px 40px rgba(45, 127, 184, 0.15), 0 0 0 2px rgba(45, 127, 184, 0.2);
 }
 
@@ -1665,8 +1681,12 @@ a.btn-primary, a.btn-secondary {
 }
 @media (min-width: 1024px) {
     .equipment-financing-content .ef-why-cards,
-    .commercial-real-estate-loans-content .ef-why-cards,
-    .sba-loans-content .ef-why-cards,
+.commercial-bridge-loans-content .ef-why-cards,
+.commercial-real-estate-loans-content .ef-why-cards,
+.equipment-financing-content.fix-and-flip-content .ef-why-cards,
+.equipment-financing-content.revenue-based-financing-content .ef-why-cards,
+.equipment-financing-content.securities-based-lending-content .ef-why-cards,
+.sba-loans-content .ef-why-cards,
     .business-line-of-credit-content .bloc-why-cards { grid-template-columns: repeat(2, 1fr); }
 }
 [data-theme="dark"] .ef-card-img {
@@ -2021,9 +2041,13 @@ a.btn-primary, a.btn-secondary {
 .form-container.equipment-financing-content,
 .form-container.business-line-of-credit-content,
 .form-container.business-term-loans-content,
+.form-container.commercial-bridge-loans-content,
 .form-container.commercial-real-estate-loans-content,
+.form-container.equipment-financing-content.fix-and-flip-content,
+.form-container.equipment-financing-content.revenue-based-financing-content,
+.form-container.equipment-financing-content.securities-based-lending-content,
 .form-container.sba-loans-content,
-.form-container.working-capital-loans-content:not(.business-term-loans-content):not(.commercial-bridge-loans-content):not(.commercial-real-estate-loans-content) {
+.form-container.working-capital-loans-content:not(.business-term-loans-content):not(.commercial-real-estate-loans-content) {
     box-shadow: none !important;
     border: none !important;
     padding: 60px clamp(2rem, 6vw, 4rem) 80px !important;
@@ -2032,9 +2056,11 @@ a.btn-primary, a.btn-secondary {
 .equipment-financing-content .about-section,
 .business-line-of-credit-content .about-section,
 .business-term-loans-content .about-section,
+.commercial-bridge-loans-content .about-section,
 .commercial-real-estate-loans-content .about-section,
 .working-capital-loans-content .about-section,
-.sba-loans-content .about-section {
+.sba-loans-content .about-section,
+.securities-based-lending-content .about-section {
     width: 100% !important;
     max-width: none !important;
 }
@@ -2045,8 +2071,16 @@ a.btn-primary, a.btn-secondary {
 .business-line-of-credit-content .benefits-grid,
 .business-term-loans-content .steps-grid,
 .business-term-loans-content .benefits-grid,
+.commercial-bridge-loans-content .steps-grid,
+.commercial-bridge-loans-content .benefits-grid,
 .commercial-real-estate-loans-content .steps-grid,
 .commercial-real-estate-loans-content .benefits-grid,
+.equipment-financing-content.fix-and-flip-content .steps-grid,
+.equipment-financing-content.fix-and-flip-content .benefits-grid,
+.equipment-financing-content.revenue-based-financing-content .steps-grid,
+.equipment-financing-content.revenue-based-financing-content .benefits-grid,
+.equipment-financing-content.securities-based-lending-content .steps-grid,
+.equipment-financing-content.securities-based-lending-content .benefits-grid,
 .sba-loans-content .steps-grid,
 .sba-loans-content .benefits-grid,
 .working-capital-loans-content .steps-grid,
@@ -2061,8 +2095,12 @@ a.btn-primary, a.btn-secondary {
     .equipment-financing-content .benefits-grid,
     .business-line-of-credit-content .benefits-grid,
     .business-term-loans-content .benefits-grid,
+    .commercial-bridge-loans-content .benefits-grid,
     .commercial-real-estate-loans-content .benefits-grid,
-    .sba-loans-content .benefits-grid,
+.equipment-financing-content.fix-and-flip-content .benefits-grid,
+.equipment-financing-content.revenue-based-financing-content .benefits-grid,
+.equipment-financing-content.securities-based-lending-content .benefits-grid,
+.sba-loans-content .benefits-grid,
     .working-capital-loans-content .benefits-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 28px;
@@ -2074,8 +2112,12 @@ a.btn-primary, a.btn-secondary {
     .equipment-financing-content .steps-grid,
     .business-line-of-credit-content .steps-grid,
     .business-term-loans-content .steps-grid,
+    .commercial-bridge-loans-content .steps-grid,
     .commercial-real-estate-loans-content .steps-grid,
-    .sba-loans-content .steps-grid,
+.equipment-financing-content.fix-and-flip-content .steps-grid,
+.equipment-financing-content.revenue-based-financing-content .steps-grid,
+.equipment-financing-content.securities-based-lending-content .steps-grid,
+.sba-loans-content .steps-grid,
     .working-capital-loans-content .steps-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2087,7 +2129,8 @@ a.btn-primary, a.btn-secondary {
 .commercial-real-estate-loans-content .results-intro,
 .fix-and-flip-content .results-intro,
 .working-capital-loans-content .results-intro,
-.sba-loans-content .results-intro {
+.sba-loans-content .results-intro,
+.securities-based-lending-content .results-intro {
     font-size: 1.15rem;
     line-height: 1.8;
     margin-bottom: 3rem;
