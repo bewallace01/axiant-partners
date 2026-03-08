@@ -425,6 +425,7 @@
     function removeWhiteBackgroundFromLogo(img) {
         const src = (img && img.getAttribute('src')) || '';
         if (src.indexOf('logo-horizontal-transparent.png') !== -1) return;
+        if (src.indexOf('Axiant_light_logo') !== -1) return;
         if (!img || img.dataset.bgRemovedVersion === '4') return;
 
         function processImage() {
@@ -502,11 +503,10 @@
             '<div class="site-footer-wrap">' +
                 '<div class="footer-top">' +
                     '<div class="footer-brand">' +
-                        '<div class="footer-brand-mark">' +
-                            '<img class="brand-wordmark-logo" src="/logo-horizontal.png" alt="Axiant Partners Logo">' +
-                        '</div>' +
+                        '<a href="/" class="footer-brand-logo">' +
+                            '<img class="brand-wordmark-logo" src="/Axiant_light_logo.png" alt="Axiant Partners">' +
+                        '</a>' +
                         '<p>Your resource for business financing and advisory support. We help established businesses find better lender matches and funding structures.</p>' +
-                        '<a class="footer-email" href="mailto:alex@axiantpartners.com">alex@axiantpartners.com</a>' +
                     '</div>' +
                     '<div class="footer-col">' +
                         '<h4>Resources</h4>' +
@@ -547,13 +547,13 @@
                         '<a href="/contact.html">Contact</a>' +
                         '<a href="/faq.html">FAQ</a>' +
                         '<a href="/vendors.html">Vendors</a>' +
-                        '<div class="footer-social">' +
-                            '<h4>Follow Us</h4>' +
-                            '<a href="https://www.linkedin.com/company/axiantpartners/" target="_blank" rel="noopener noreferrer">LinkedIn</a>' +
-                            '<a href="https://www.facebook.com/share/1j27PpAoUS/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>' +
-                            '<a href="https://www.instagram.com/axiantpartners?igsh=a25pcmZ3NGpxb3Fl&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>' +
-                            '<a href="https://www.youtube.com/@axeltheloanlion" target="_blank" rel="noopener noreferrer">YouTube</a>' +
-                        '</div>' +
+                    '</div>' +
+                    '<div class="footer-col footer-col-social">' +
+                        '<h4>Follow Us</h4>' +
+                        '<a href="https://www.linkedin.com/company/axiantpartners/" target="_blank" rel="noopener noreferrer">LinkedIn</a>' +
+                        '<a href="https://www.facebook.com/share/1j27PpAoUS/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>' +
+                        '<a href="https://www.instagram.com/axiantpartners?igsh=a25pcmZ3NGpxb3Fl&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>' +
+                        '<a href="https://www.youtube.com/@axeltheloanlion" target="_blank" rel="noopener noreferrer">YouTube</a>' +
                     '</div>' +
                 '</div>' +
                 '<div class="footer-bottom">' +
