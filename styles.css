@@ -6931,20 +6931,29 @@ html {
     .form-container.blog-post-content,
     .form-container.equipment-financing-content,
     .form-container.business-line-of-credit-content,
+    .form-container.business-term-loans-content,
+    .form-container.commercial-real-estate-loans-content,
+    .form-container.commercial-bridge-loans-content,
+    .form-container.revenue-based-financing-content,
+    .form-container.securities-based-lending-content,
     .form-container.fix-and-flip-content,
     .form-container.working-capital-loans-content,
     .form-container.sba-loans-content {
-        padding: 26px 14px;
+        padding: 26px 16px !important;
     }
 
     .form-container.services-content .about-section,
     .form-container.equipment-financing-content .about-section,
     .form-container.business-line-of-credit-content .about-section,
     .form-container.business-term-loans-content .about-section,
+    .form-container.commercial-real-estate-loans-content .about-section,
+    .form-container.commercial-bridge-loans-content .about-section,
+    .form-container.revenue-based-financing-content .about-section,
+    .form-container.securities-based-lending-content .about-section,
     .form-container.fix-and-flip-content .about-section,
     .form-container.working-capital-loans-content .about-section,
     .form-container.sba-loans-content .about-section {
-        padding: 18px 14px;
+        padding: 18px 16px;
         border-radius: 12px;
         margin-bottom: 0.8rem;
     }
@@ -6958,6 +6967,10 @@ html {
     .form-container.services-content .about-section:has(.partner-list) .partner-list,
     .form-container.equipment-financing-content .about-section:has(.partner-list) .partner-list,
     .form-container.business-line-of-credit-content .about-section:has(.partner-list) .partner-list,
+    .form-container.commercial-real-estate-loans-content .about-section:has(.partner-list) .partner-list,
+    .form-container.commercial-bridge-loans-content .about-section:has(.partner-list) .partner-list,
+    .form-container.revenue-based-financing-content .about-section:has(.partner-list) .partner-list,
+    .form-container.securities-based-lending-content .about-section:has(.partner-list) .partner-list,
     .form-container.fix-and-flip-content .about-section:has(.partner-list) .partner-list,
     .form-container.working-capital-loans-content .about-section:has(.partner-list) .partner-list,
     .form-container.sba-loans-content .about-section:has(.partner-list) .partner-list {
@@ -6968,10 +6981,44 @@ html {
     .form-container.services-content .about-section:has(> .service-card),
     .form-container.equipment-financing-content .about-section:has(> .service-card),
     .form-container.business-line-of-credit-content .about-section:has(> .service-card),
+    .form-container.commercial-real-estate-loans-content .about-section:has(> .service-card),
+    .form-container.commercial-bridge-loans-content .about-section:has(> .service-card),
+    .form-container.revenue-based-financing-content .about-section:has(> .service-card),
+    .form-container.securities-based-lending-content .about-section:has(> .service-card),
     .form-container.fix-and-flip-content .about-section:has(> .service-card),
     .form-container.working-capital-loans-content .about-section:has(> .service-card),
     .form-container.sba-loans-content .about-section:has(> .service-card) {
         grid-template-columns: 1fr;
+    }
+
+    .trust-stats {
+        gap: 20px 28px;
+        justify-content: flex-start;
+    }
+    .trust-stat {
+        min-width: 80px;
+    }
+    .trust-stat-number {
+        font-size: 1.6rem;
+    }
+    .trust-stat-label {
+        font-size: 0.8rem;
+    }
+    .ef-hero, .bloc-hero, .wcl-hero, .btl-hero {
+        min-height: 340px;
+        padding: 2.5rem 1rem 2.5rem;
+    }
+    .ef-hero-copy .ef-subhead, .bloc-hero-copy .bloc-subhead, .wcl-hero-copy .wcl-subhead, .btl-hero-copy .btl-subhead {
+        font-size: 1rem;
+    }
+    .ef-hero-ctas, .bloc-hero-ctas, .wcl-hero-ctas, .btl-hero-ctas {
+        flex-direction: column;
+        width: 100%;
+    }
+    .ef-hero-ctas .btn-primary, .bloc-hero-ctas .btn-primary, .wcl-hero-ctas .btn-primary, .btl-hero-ctas .btn-primary,
+    .ef-hero-ctas .ef-phone-cta, .bloc-hero-ctas .bloc-phone-cta, .wcl-hero-ctas .wcl-phone-cta, .btl-hero-ctas .btl-phone-cta {
+        width: 100%;
+        justify-content: center;
     }
 }
 
@@ -7732,12 +7779,24 @@ html {
 
 @media (max-width: 480px) {
     .form-container,
-    .form-container[class*="-content"],
+    .form-container[class*="-content"]:not(.equipment-financing-content):not(.sba-loans-content):not(.fix-and-flip-content):not(.revenue-based-financing-content):not(.securities-based-lending-content):not(.commercial-bridge-loans-content):not(.commercial-real-estate-loans-content):not(.business-line-of-credit-content):not(.business-term-loans-content):not(.working-capital-loans-content),
     .results-container,
     .about-content,
     .legal-content,
     .services-content {
         padding: 16px 10px !important;
+    }
+    .form-container.equipment-financing-content,
+    .form-container.sba-loans-content,
+    .form-container.fix-and-flip-content,
+    .form-container.revenue-based-financing-content,
+    .form-container.securities-based-lending-content,
+    .form-container.commercial-bridge-loans-content,
+    .form-container.commercial-real-estate-loans-content,
+    .form-container.business-line-of-credit-content,
+    .form-container.business-term-loans-content,
+    .form-container.working-capital-loans-content {
+        padding: 20px 14px !important;
     }
 
     .form-container h2,

@@ -17,7 +17,7 @@
     }
 
     function enforceAssetVersioning() {
-        const version = '202603041';
+        const version = '20260307';
         document.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
             const href = link.getAttribute('href') || '';
             if (!href || href.indexOf('styles.css') === -1) return;
@@ -56,10 +56,17 @@
         if (!menu) return;
 
         menu.innerHTML = '';
+        var path = (window.location.pathname || '/').replace(/^\//, '');
+        var segments = path ? path.split('/').filter(Boolean) : [];
+        var depth = Math.max(0, segments.length - 1);
+        var base = depth > 0 ? '../'.repeat(depth) : '';
+        var pathStr = path.toLowerCase();
         serviceLinks.forEach(function(item) {
             var a = document.createElement('a');
-            a.setAttribute('href', '/' + item.file);
+            a.setAttribute('href', base + item.file);
             a.textContent = item.label;
+            var serviceKey = item.file.replace('.html', '');
+            if (pathStr === serviceKey + '.html' || pathStr.indexOf(serviceKey + '/') >= 0) a.classList.add('active');
             menu.appendChild(a);
         });
     }
@@ -1987,6 +1994,20 @@
         if (isIndustryPage) return;
         const isEquipmentHubPage = /\/equipment\/[a-z0-9-]+(\/|$)/.test(path);
         if (isEquipmentHubPage) return;
+
+        // Skip for rebuilt service pages that have their own complete image sets (ef-card-img, sba-*, rbf-*, etc).
+        const container = document.querySelector('.form-container');
+        const hasOwnImages = container && (
+            container.classList.contains('sba-loans-content') ||
+            container.classList.contains('equipment-financing-content') ||
+            container.classList.contains('fix-and-flip-content') ||
+            container.classList.contains('revenue-based-financing-content') ||
+            container.classList.contains('securities-based-lending-content') ||
+            container.classList.contains('commercial-bridge-loans-content') ||
+            container.classList.contains('commercial-real-estate-loans-content') ||
+            container.querySelector('.ef-card-img, .ef-intro-img, .ef-amounts-img, .ef-industry-img')
+        );
+        if (hasOwnImages) return;
 
         const visual = resolveVisualSet(getTopicVisualSet());
         const universalPool = getUniversalVisualPool();
