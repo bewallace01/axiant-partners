@@ -1020,7 +1020,7 @@
     }
 
     function enhanceServicePageLayout() {
-        const exclude = ['industry-page-content', 'blog-post-content', 'blog-content', 'contact-content', 'faq-content', 'referral-content', 'lenders-content'];
+        const exclude = ['industry-page-content', 'blog-post-content', 'blog-content', 'contact-content', 'faq-content', 'referral-content', 'lenders-content', 'equipment-hub-content'];
         const containers = document.querySelectorAll('.form-container');
         let container = null;
         for (let i = 0; i < containers.length; i++) {
