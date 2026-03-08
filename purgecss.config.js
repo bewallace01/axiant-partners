@@ -1,0 +1,26 @@
+module.exports = {
+  content: ['**/*.html', '**/*.js'],
+  css: ['./styles.css'],
+  output: './',
+  safelist: {
+    standard: [
+      /^nav-/,
+      /^ef-/,
+      /^bloc-/,
+      /^wcl-/,
+      /^btl-/,
+      /^cre-/,
+      /^theme-/,
+      /^goog-/,
+      /^blog-/,
+      /^hero/,
+      /^cobranded/,
+      /^calculator/,
+      'data-theme',
+      'active',
+      'show',
+      'hide',
+      'skiptranslate',
+    ],
+  },
+};

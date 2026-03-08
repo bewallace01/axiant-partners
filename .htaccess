@@ -3,6 +3,11 @@
 RewriteEngine On
 RewriteBase /
 
+# Gzip compression for faster delivery
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
+</IfModule>
+
 # Glossary removed - redirect to articles hub
 RewriteRule ^glossary\.html$ /blog.html [R=301,L]
 

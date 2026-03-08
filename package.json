@@ -1,0 +1,15 @@
+{
+  "name": "axiant-partners",
+  "version": "1.0.0",
+  "description": "Axiant Partners website - performance build scripts",
+  "scripts": {
+    "purgecss": "purgecss --config purgecss.config.js",
+    "build:css": "npm run purgecss",
+    "webp": "node scripts/convert-webp.js",
+    "build": "npm run purgecss && npm run webp"
+  },
+  "devDependencies": {
+    "purgecss": "^5.0.0",
+    "sharp": "^0.33.0"
+  }
+}
