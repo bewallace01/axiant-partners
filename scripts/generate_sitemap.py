@@ -79,7 +79,8 @@ def main():
         if d.is_dir():
             urls.append(url_entry(f"/securities-based-lending/articles/{d.name}/", priority="0.7"))
 
-    # Industry pages
+    # Industries hub + individual industry pages
+    urls.append(url_entry("/industries.html", priority="0.85"))
     industries = [
         "construction-business-financing", "trucking-business-financing",
         "agriculture-business-financing", "forestry-business-financing",
