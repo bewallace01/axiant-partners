@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
 
+# AI search & assistant crawlers - explicitly allow for citation and inclusion in AI answers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Cohere-AI
+Allow: /
+
 Sitemap: https://www.axiantpartners.com/sitemap.xml
