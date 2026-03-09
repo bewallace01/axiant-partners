@@ -2061,6 +2061,7 @@ a.btn-primary, a.btn-secondary {
 .form-container.medical-practices-content,
 .form-container.restaurants-content,
 .form-container.auto-repair-content,
+.form-container.logistics-content,
 .form-container.logistics-warehousing-content,
 .form-container.business-line-of-credit-content,
 .form-container.business-term-loans-content,
@@ -2085,6 +2086,7 @@ a.btn-primary, a.btn-secondary {
 .manufacturing-content .about-section,
 .restaurants-content .about-section,
 .auto-repair-content .about-section,
+.logistics-content .about-section,
 .logistics-warehousing-content .about-section,
 .medical-practices-content .about-section,
 .business-line-of-credit-content .about-section,
@@ -2117,6 +2119,8 @@ a.btn-primary, a.btn-secondary {
 .restaurants-content .benefits-grid,
 .auto-repair-content .steps-grid,
 .auto-repair-content .benefits-grid,
+.logistics-content .steps-grid,
+.logistics-content .benefits-grid,
 .logistics-warehousing-content .steps-grid,
 .logistics-warehousing-content .benefits-grid,
 .business-line-of-credit-content .steps-grid,
@@ -2153,6 +2157,7 @@ a.btn-primary, a.btn-secondary {
 .medical-practices-content .benefits-grid,
 .restaurants-content .benefits-grid,
 .auto-repair-content .benefits-grid,
+.logistics-content .benefits-grid,
 .logistics-warehousing-content .benefits-grid,
 .construction-content .benefits-grid,
     .business-line-of-credit-content .benefits-grid,
@@ -2180,6 +2185,7 @@ a.btn-primary, a.btn-secondary {
 .medical-practices-content .steps-grid,
 .restaurants-content .steps-grid,
 .auto-repair-content .steps-grid,
+.logistics-content .steps-grid,
 .logistics-warehousing-content .steps-grid,
 .construction-content .steps-grid,
     .business-line-of-credit-content .steps-grid,
@@ -7182,6 +7188,21 @@ html {
     display: block;
     max-width: 78ch;
     margin-top: 1.2rem;
+}
+
+/* Equipment guides: full-width content, no rails */
+.form-container.equipment-guide .blog-post-shell--no-rails {
+    max-width: none;
+    width: 100%;
+}
+
+.form-container.equipment-guide.blog-post-content p,
+.form-container.equipment-guide.blog-post-content ul,
+.form-container.equipment-guide.blog-post-content ol,
+.form-container.equipment-guide.blog-post-content .blog-post-main p,
+.form-container.equipment-guide.blog-post-content .blog-post-main ul,
+.form-container.equipment-guide.blog-post-content .blog-post-main ol {
+    max-width: none;
 }
 
 .blog-post-shell--no-rails .blog-post-main {

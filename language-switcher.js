@@ -168,6 +168,42 @@
         }
     }
 
+    function ensureEquipmentGuidesLink() {
+        const path = (window.location.pathname || '').replace(/^\//, '');
+        const pathStr = path.toLowerCase();
+        const onEquipmentHub = pathStr === 'equipment.html' || pathStr.indexOf('equipment/') >= 0;
+        const primaryNav = document.querySelector('.nav-links');
+        if (!primaryNav) return;
+
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            if ((link.textContent || '').trim() === 'Equipment Guides') link.remove();
+        });
+
+        var segments = path ? path.split('/').filter(Boolean) : [];
+        var depth = Math.max(0, segments.length - 1);
+        var base = depth > 0 ? '../'.repeat(depth) : '';
+        var href = base + 'equipment.html';
+
+        const equipmentLink = document.createElement('a');
+        equipmentLink.setAttribute('href', href);
+        equipmentLink.textContent = 'Equipment Guides';
+        if (onEquipmentHub) {
+            equipmentLink.classList.add('active');
+            var servicesDropdown = findDropdownByTriggerText('Services');
+            if (servicesDropdown) servicesDropdown.classList.remove('active');
+        }
+
+        var industriesDropdown = findDropdownByTriggerText('Industries');
+        if (industriesDropdown && industriesDropdown.nextSibling) {
+            primaryNav.insertBefore(equipmentLink, industriesDropdown.nextSibling);
+        } else if (industriesDropdown) {
+            industriesDropdown.insertAdjacentElement('afterend', equipmentLink);
+        } else {
+            var calculatorLink = primaryNav.querySelector('a[href$="calculator.html"]');
+            primaryNav.insertBefore(equipmentLink, calculatorLink || primaryNav.firstChild);
+        }
+    }
+
     function placeThemeToggleInMobileHeader() {
         const nav = document.querySelector('.main-nav');
         const navLinks = document.querySelector('.nav-links');
@@ -1022,7 +1058,7 @@
     }
 
     function enhanceServicePageLayout() {
-        const exclude = ['industry-page-content', 'blog-post-content', 'blog-content', 'contact-content', 'faq-content', 'referral-content', 'lenders-content', 'equipment-hub-content', 'construction-content', 'trucking-content', 'agriculture-content', 'forestry-content', 'landscaping-content', 'manufacturing-content', 'medical-practices-content', 'restaurants-content', 'auto-repair-content', 'logistics-warehousing-content'];
+        const exclude = ['industry-page-content', 'blog-post-content', 'blog-content', 'contact-content', 'faq-content', 'referral-content', 'lenders-content', 'equipment-hub-content', 'construction-content', 'trucking-content', 'agriculture-content', 'forestry-content', 'landscaping-content', 'manufacturing-content', 'medical-practices-content', 'medical-content', 'restaurants-content', 'restaurant-content', 'auto-repair-content', 'logistics-warehousing-content'];
         const containers = document.querySelectorAll('.form-container');
         let container = null;
         for (let i = 0; i < containers.length; i++) {
@@ -1116,7 +1152,7 @@
         });
         if (contentStartIdx < 0) return;
 
-        var noRails = container.classList && container.classList.contains('blog-post-content--no-rails');
+        var noRails = container.classList && (container.classList.contains('blog-post-content--no-rails') || container.classList.contains('equipment-guide'));
         container.dataset.blogEnhanced = '1';
         const introNodes = allChildren.slice(0, contentStartIdx);
         const articleNodes = allChildren.slice(contentStartIdx);
@@ -1996,6 +2032,8 @@
         if (isIndustryPage) return;
         const isEquipmentHubPage = /\/equipment\/[a-z0-9-]+(\/|$)/.test(path);
         if (isEquipmentHubPage) return;
+        const isEquipmentHub = page === 'equipment.html' || path === '/equipment.html' || /^\/equipment\.html?$/.test(path);
+        if (isEquipmentHub) return;
 
         // Skip for rebuilt service pages that have their own complete image sets (ef-card-img, sba-*, rbf-*, etc).
         const container = document.querySelector('.form-container');
@@ -2202,6 +2240,7 @@
         ensureIndustriesMenuLinks();
         normalizeServiceMenuLinks();
         ensureReferralTab();
+        ensureEquipmentGuidesLink();
         injectMobileHardFixStyles();
         placeThemeToggleInMobileHeader();
         enhanceThemeToggle();

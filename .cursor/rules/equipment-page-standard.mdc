@@ -1,0 +1,129 @@
+# Equipment Financing Page Standard
+
+Use this guideline when creating or updating equipment type pages (e.g., excavators, bulldozers, forklifts). Reference: `equipment/excavators/index.html`.
+
+---
+
+## Page Structure (In Order)
+
+1. **Hero Section** (`ef-hero`)
+   - Full-width hero with background image (use `/assets/[equipment]-hero-bg.png` or generate if missing)
+   - Blue gradient overlay matching industry/service pages
+   - H1: "[Equipment] Financing: Equipment Loans, Leases & SBA Programs"
+   - Subhead: 1–2 sentences on costs, approval speed, new/used
+   - 4 bullet points (✓) with key benefits
+   - CTAs: Primary (Apply) + Secondary (Back to Equipment)
+   - Inline styles for hero (copy from excavators page)
+
+2. **Trust Stats** (`trust-section`)
+   - "At a Glance" with 6 stats: Typical range ($), Approval time, Terms, Down payment, Credit, Nationwide
+
+3. **Intro with Image** (`ef-intro-with-img`)
+   - H2: "Why [Equipment] Financing Makes Sense for [Industry]"
+   - 2–3 paragraphs: equipment role, industry cash flow, why financing helps, resale value, tax benefits
+   - CTA button
+   - Image from `/assets/[equipment]-equipment.png`
+
+4. **What Is [Equipment]?**
+   - Define the equipment, common uses, industries that use it
+   - 1–2 paragraphs
+
+5. **Why [Equipment] Financing Is Different**
+   - Lender perspective: resale value, asset-backed, industry-specific underwriting
+   - Link to relevant industry page and equipment articles
+
+6. **Financing Options** (`benefits-grid ef-equipment-cards`)
+   - 3 cards: Equipment Loans, Equipment Leasing, SBA Loans
+   - Each with image, H3, 1–2 paragraph description, internal link
+   - Brief working capital vs equipment note
+   - CTA
+
+7. **How Much Does [Equipment] Cost?** (`ef-industry-row`)
+   - New pricing (ranges by size)
+   - Used pricing (30–50% less, age limits)
+   - Factors: brand, attachments, regional demand
+   - Link to calculator and used-equipment article
+
+8. **Rates and Monthly Payments**
+   - Typical rate range (6–15%)
+   - Example calculations (e.g., $150K at 8%/60 mo ≈ $3K/mo)
+   - Links to rates article, calculator, down-payment article
+
+9. **Requirements Table**
+   - Credit score, Down payment, Time in business, Revenue, Equipment quote
+   - Follow with 4 short paragraphs expanding each requirement
+   - Link to credit-score and lender-approval articles
+
+10. **What to Have Ready Before You Apply**
+    - Bullet checklist: bank statements, tax returns, P&L, equipment quote, formation docs, business info
+    - 1 paragraph on having docs ready
+
+11. **When to Apply**
+    - Best timing, early application, avoid last-minute rush
+    - 1–2 paragraphs
+
+12. **Tips to Get Approved**
+    - 5–6 bullets: credit, documentation, used equipment, down payment, resale value, broker
+
+13. **Common Mistakes to Avoid**
+    - 5 bullets: quote, financials, rate focus, timing, used equipment
+    - Link to red-flags article
+
+14. **Why Businesses Finance Rather Than Pay Cash**
+    - Cash flow, tax benefits, reserves
+    - 1–2 paragraphs
+
+15. **Process Steps** (`steps-grid`)
+    - 4 steps: Get Quote & Apply, Match With Lenders, Review & Approve, Funding & Closing
+    - CTA
+
+16. **Related Equipment** (`benefits-grid`)
+    - 4 cards linking to similar equipment pages
+    - Buttons: Browse All Equipment, Apply Now
+
+17. **FAQ** (`faq-list`)
+    - 6–8 questions: used equipment, credit score, approval time, lease vs buy, startups, documents, monthly payments
+    - Each with 1–2 sentence answer + internal link where relevant
+
+18. **More Resources**
+    - Bullet list of 5–6 links to equipment-financing articles and equipment.html
+
+19. **Final CTA** (`services-cta`)
+    - H3, 1 sentence, Apply button
+
+---
+
+## Content & SEO Requirements
+
+- **Word count:** 2,500–3,000+ words (body content)
+- **Tone:** Professional, helpful, clear. Speak to contractors/business owners.
+- **Internal links:** Include 12–18 links to: equipment-financing.html, match.html, calculator.html, equipment.html, relevant industry page, and equipment-financing/articles/* (credit, rates, used equipment, loan vs lease, down payment, red flags, approval speed, what lenders look at)
+- **Keywords:** Use equipment name, "equipment financing," "equipment loans," "equipment leases," cost ranges, approval time, credit requirements naturally throughout
+
+## Meta & Schema
+
+- **Meta description:** 150–160 chars, include equipment name, cost range, approval time, credit, CTA
+- **Title:** "[Equipment] Financing Guide: Equipment Loans, Leases, SBA | Costs & Rates | Axiant Partners"
+- **Schema:** BreadcrumbList, FinancialService, FAQPage (all FAQ Q&As), Article, HowTo (4 steps)
+
+## CSS Classes
+
+- Form container: `form-container equipment-financing-content construction-content ef-content`
+- Hero: `ef-hero`, `ef-hero-copy`, `ef-subhead`, `ef-hero-bullets`, `ef-hero-ctas`
+- Page wrap: `ef-page-wrap`, `ef-content`
+- Sections: `about-section`, `trust-section`, `ef-intro-with-img`, `ef-industry-row`
+- Cards: `benefit-card ef-card-with-img`, `ef-card-img`
+- Table: `financing-options-chart`
+- Steps: `steps-grid`, `step-card`, `step-number`
+- FAQ: `faq-list`, `faq-item`
+
+## Asset Paths
+
+- Hero: `/assets/[equipment]-hero-bg.png` (create if needed—wide, construction/equipment scene)
+- Card images: `/assets/[equipment]-equipment.png` (use existing assets from equipment.html cards)
+
+## Path Conventions
+
+- Equipment pages live at: `equipment/[folder]/index.html`
+- Links: `/equipment/[folder]/` (not how-to-finance subpaths)
+- CSS: `../../critical.css`, `../../styles.css` (2 levels up from equipment/category/)
