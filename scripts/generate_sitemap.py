@@ -34,7 +34,7 @@ def main():
         "sba-loans", "equipment-financing", "equipment", "business-line-of-credit",
         "working-capital-loans", "business-term-loans", "commercial-real-estate-loans",
         "commercial-bridge-loans", "fix-and-flip", "revenue-based-financing",
-        "securities-based-lending"
+        "securities-based-lending", "merchant-cash-advance"
     ]:
         urls.append(url_entry(f"/{p}.html"))
 
@@ -43,7 +43,7 @@ def main():
         "sba-loans", "equipment-financing", "business-line-of-credit",
         "working-capital-loans", "business-term-loans", "commercial-real-estate-loans",
         "commercial-bridge-loans", "fix-and-flip", "revenue-based-financing",
-        "securities-based-lending"
+        "securities-based-lending", "merchant-cash-advance"
     ]:
         urls.append(url_entry(f"/{topic}/articles/", changefreq="weekly", priority="0.75"))
 
@@ -78,6 +78,9 @@ def main():
     for d in (BASE / "securities-based-lending" / "articles").iterdir():
         if d.is_dir():
             urls.append(url_entry(f"/securities-based-lending/articles/{d.name}/", priority="0.7"))
+    for d in (BASE / "merchant-cash-advance" / "articles").iterdir():
+        if d.is_dir():
+            urls.append(url_entry(f"/merchant-cash-advance/articles/{d.name}/", priority="0.7"))
 
     # Industries hub + individual industry pages
     urls.append(url_entry("/industries.html", priority="0.85"))
