@@ -1402,6 +1402,7 @@ a.btn-primary, a.btn-secondary {
 .business-term-loans-content,
 .fix-and-flip-content,
 .working-capital-loans-content,
+.mca-content,
 .sba-loans-content {
     max-width: none;
     width: 100%;
@@ -1413,7 +1414,8 @@ a.btn-primary, a.btn-secondary {
 .equipment-financing-content .topic-visual,
 .business-line-of-credit-content .topic-visual,
 .business-term-loans-content .topic-visual,
-.working-capital-loans-content .topic-visual {
+.working-capital-loans-content .topic-visual,
+.mca-content .topic-visual {
     display: none !important;
 }
 
@@ -2800,6 +2802,7 @@ a.btn-primary, a.btn-secondary {
 .cta-section .ef-hero-ctas .btn-primary,
 .cta-section .bloc-hero-ctas .btn-primary,
 .cta-section .wcl-hero-ctas .btn-primary,
+.cta-section .mca-hero-ctas .btn-primary,
 .cta-section .btl-hero-ctas .btn-primary,
 .cta-section .cre-hero-ctas .btn-primary {
     display: inline-block;
@@ -2818,6 +2821,7 @@ a.btn-primary, a.btn-secondary {
 .cta-section .ef-hero-ctas .btn-primary:hover,
 .cta-section .bloc-hero-ctas .btn-primary:hover,
 .cta-section .wcl-hero-ctas .btn-primary:hover,
+.cta-section .mca-hero-ctas .btn-primary:hover,
 .cta-section .btl-hero-ctas .btn-primary:hover,
 .cta-section .cre-hero-ctas .btn-primary:hover {
     background: #f1f5f9 !important;
@@ -2831,7 +2835,9 @@ a.btn-primary, a.btn-secondary {
 .cta-section .bloc-phone-cta,
 .cta-section .bloc-hero-ctas .bloc-phone-cta,
 .cta-section .wcl-phone-cta,
-.cta-section .wcl-hero-ctas .wcl-phone-cta {
+.cta-section .mca-phone-cta,
+.cta-section .wcl-hero-ctas .wcl-phone-cta,
+.cta-section .mca-hero-ctas .mca-phone-cta {
     display: inline-block;
     min-width: 160px;
     padding: 14px 24px;
@@ -4301,6 +4307,21 @@ a.btn-primary, a.btn-secondary {
     transition: color 0.2s ease;
 }
 .blog-back a:hover {
+    color: var(--accent-color);
+}
+.blog-back .blog-back-btn,
+.blog-back a.btn-secondary {
+    display: inline-block;
+    width: auto !important;
+    min-width: 140px;
+    padding: 10px 20px !important;
+    margin-top: 0;
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 0.95rem;
+}
+.blog-back .blog-back-btn:hover,
+.blog-back a.btn-secondary:hover {
     color: var(--accent-color);
 }
 
@@ -7120,8 +7141,8 @@ html {
         flex-direction: column;
         width: 100%;
     }
-    .ef-hero-ctas .btn-primary, .bloc-hero-ctas .btn-primary, .wcl-hero-ctas .btn-primary, .btl-hero-ctas .btn-primary,
-    .ef-hero-ctas .ef-phone-cta, .bloc-hero-ctas .bloc-phone-cta, .wcl-hero-ctas .wcl-phone-cta, .btl-hero-ctas .btl-phone-cta {
+    .ef-hero-ctas .btn-primary, .bloc-hero-ctas .btn-primary, .wcl-hero-ctas .btn-primary, .mca-hero-ctas .btn-primary, .btl-hero-ctas .btn-primary,
+    .ef-hero-ctas .ef-phone-cta, .bloc-hero-ctas .bloc-phone-cta, .wcl-hero-ctas .wcl-phone-cta, .mca-hero-ctas .mca-phone-cta, .btl-hero-ctas .btl-phone-cta {
         width: 100%;
         justify-content: center;
     }

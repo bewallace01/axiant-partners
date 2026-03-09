@@ -47,6 +47,7 @@
             { file: 'commercial-real-estate-loans.html', label: 'Commercial Real Estate Loans' },
             { file: 'commercial-bridge-loans.html', label: 'Commercial Bridge Loans' },
             { file: 'revenue-based-financing.html', label: 'Revenue-Based Financing' },
+            { file: 'merchant-cash-advance.html', label: 'Merchant Cash Advance' },
             { file: 'securities-based-lending.html', label: 'Securities-Based Lending' },
             { file: 'fix-and-flip.html', label: 'Fix and Flip' }
         ];
@@ -526,6 +527,7 @@
                         '<a href="/commercial-real-estate-loans.html">Commercial Real Estate</a>' +
                         '<a href="/commercial-bridge-loans.html">Commercial Bridge Loans</a>' +
                         '<a href="/revenue-based-financing.html">Revenue-Based Financing</a>' +
+                        '<a href="/merchant-cash-advance.html">Merchant Cash Advance</a>' +
                         '<a href="/securities-based-lending.html">Securities-Based Lending</a>' +
                         '<a href="/fix-and-flip.html">Fix and Flip</a>' +
                     '</div>' +
@@ -2028,8 +2030,9 @@
             if (scoped) return scoped;
             return pickVisualUrl(universalPool, seed + '-universal', usedUrls, null);
         };
+        const isArticleHub = /\/articles\/?$/.test(path.replace(/\/index\.html?$/, '')) || (path.includes('/articles/') && (page === 'index.html' || page === 'index'));
         const intro = document.querySelector('.form-container .results-intro, .services-content .results-intro, .blog-content .results-intro');
-        if (intro && intro.parentElement && !isServicePage && !isBlogHub && !isBlogPost && !intro.parentElement.querySelector('.topic-visual.topic-visual-banner')) {
+        if (intro && intro.parentElement && !isServicePage && !isBlogHub && !isBlogPost && !isArticleHub && !intro.parentElement.querySelector('.topic-visual.topic-visual-banner')) {
             const bannerUrl = pickFromPool('banner', page + '-intro-banner');
             if (bannerUrl) intro.insertAdjacentElement('afterend', buildTopicVisual(bannerUrl, altBase + ' overview image', 'banner', visual.caption));
         }
