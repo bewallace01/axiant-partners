@@ -41,6 +41,7 @@
         const serviceLinks = [
             { file: 'sba-loans.html', label: 'SBA Loans' },
             { file: 'equipment-financing.html', label: 'Equipment Financing' },
+            { file: 'equipment.html', label: 'Equipment by Type' },
             { file: 'business-line-of-credit.html', label: 'Business Line of Credit' },
             { file: 'working-capital-loans.html', label: 'Working Capital Loans' },
             { file: 'business-term-loans.html', label: 'Business Term Loans' },
@@ -551,6 +552,7 @@
                         '<a href="/match.html">Get Started</a>' +
                         '<a href="/services.html">All Services</a>' +
                         '<a href="/industries.html">All Industries</a>' +
+                        '<a href="/equipment.html">Equipment by Type</a>' +
                         '<a href="/calculator.html">Loan Calculator</a>' +
                         '<a href="/blog.html">All Articles</a>' +
                     '</div>' +
@@ -573,6 +575,7 @@
                         '<a href="/construction-business-financing.html">Construction</a>' +
                         '<a href="/trucking-business-financing.html">Trucking</a>' +
                         '<a href="/agriculture-business-financing.html">Agriculture</a>' +
+                        '<a href="/forestry-business-financing.html">Forestry</a>' +
                         '<a href="/landscaping-business-financing.html">Landscaping</a>' +
                         '<a href="/manufacturing-business-financing.html">Manufacturing</a>' +
                         '<a href="/medical-practices-business-financing.html">Medical Practices</a>' +
