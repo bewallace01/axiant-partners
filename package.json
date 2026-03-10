@@ -6,7 +6,8 @@
     "purgecss": "purgecss --config purgecss.config.js",
     "build:css": "npm run purgecss",
     "webp": "node scripts/convert-webp.js",
-    "build": "npm run purgecss && npm run webp"
+    "build": "npm run purgecss && npm run webp",
+    "indexnow": "python scripts/submit_indexnow.py"
   },
   "devDependencies": {
     "purgecss": "^5.0.0",
