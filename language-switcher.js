@@ -180,7 +180,8 @@
         });
 
         var segments = path ? path.split('/').filter(Boolean) : [];
-        var depth = Math.max(0, segments.length - 1);
+        // equipment.html is at root; from /equipment/tractors/ we need ../../ not ../
+        var depth = segments.length;
         var base = depth > 0 ? '../'.repeat(depth) : '';
         var href = base + 'equipment.html';
 

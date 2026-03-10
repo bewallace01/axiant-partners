@@ -18,6 +18,7 @@ RewriteRule ^sba-loans/articles/sba-loan-basics/?$ /sba-loans/articles/ [R=301,L
 # Hub redirects: *-blog.html -> /topic/
 RewriteRule ^sba-loans-blog\.html$ /sba-loans/articles/ [R=301,L]
 RewriteRule ^sba-loans/?$ /sba-loans/articles/ [R=301,L]
+RewriteRule ^sba-loans/index\.html$ /sba-loans/articles/ [R=301,L]
 RewriteRule ^equipment-financing-blog\.html$ /equipment-financing/articles/ [R=301,L]
 RewriteRule ^equipment-financing/?$ /equipment-financing/articles/ [R=301,L]
 RewriteRule ^business-line-of-credit-blog\.html$ /business-line-of-credit/articles/ [R=301,L]
