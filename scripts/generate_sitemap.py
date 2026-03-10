@@ -139,6 +139,10 @@ def main():
         for cat in equipment_dir.iterdir():
             if cat.is_dir() and (cat / "index.html").exists():
                 add(f"/equipment/{cat.name}/", priority="0.75")
+                # Equipment subpages (e.g. semi-trucks/financing-owner-operators/)
+                for sub in cat.iterdir():
+                    if sub.is_dir() and (sub / "index.html").exists():
+                        add(f"/equipment/{cat.name}/{sub.name}/", priority="0.7")
 
     # Legal/utility
     add("/vendors.html", priority="0.6")

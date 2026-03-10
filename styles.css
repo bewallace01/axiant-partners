@@ -7440,6 +7440,20 @@ html {
     color: var(--accent-dark);
 }
 
+/* Article Guide (meta) card: never cut off summary—scroll if needed */
+.blog-rail-card.blog-rail-meta {
+    max-height: calc(100vh - 150px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.blog-rail-card.blog-rail-meta .blog-rail-description {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 /* On This Page card: never cut off, scroll if needed, compact links when many */
 .blog-rail-card.blog-rail-toc {
     max-height: calc(100vh - 150px);
@@ -7577,6 +7591,14 @@ html {
     .blog-post-rail-left,
     .blog-post-rail-right {
         position: static;
+    }
+
+    /* When stacked, show full Article Guide summary (no cutoff) */
+    .blog-post-rail-left .blog-rail-card.blog-rail-meta {
+        max-height: none;
+    }
+    .blog-post-rail-left .blog-rail-card.blog-rail-meta .blog-rail-description {
+        overflow-y: visible;
     }
 
     .industry-page-shell {
@@ -8906,6 +8928,14 @@ html {
         background: var(--bg-card) !important;
         box-shadow: 0 8px 20px var(--shadow-color) !important;
         padding: 18px 16px !important;
+    }
+
+    /* On mobile, show full Article Guide summary (no inner scroll) */
+    .blog-post-rail-left .blog-rail-card.blog-rail-meta {
+        max-height: none !important;
+    }
+    .blog-post-rail-left .blog-rail-card.blog-rail-meta .blog-rail-description {
+        overflow-y: visible !important;
     }
 
     [data-theme="dark"] .blog-post-rail-left .blog-rail-card.blog-rail-meta,
