@@ -176,18 +176,16 @@
         const primaryNav = document.querySelector('.nav-links');
         if (!primaryNav) return;
 
+        document.querySelectorAll('.nav-links a.nav-equipment-link').forEach(function(link) {
+            link.remove();
+        });
         document.querySelectorAll('.nav-links a').forEach(function(link) {
             if ((link.textContent || '').trim() === 'Equipment Guides') link.remove();
         });
 
-        var segments = path ? path.split('/').filter(Boolean) : [];
-        // equipment.html is at root; from /equipment/tractors/ we need ../../ not ../
-        var depth = segments.length;
-        var base = depth > 0 ? '../'.repeat(depth) : '';
-        var href = base + 'equipment.html';
-
         const equipmentLink = document.createElement('a');
-        equipmentLink.setAttribute('href', href);
+        equipmentLink.setAttribute('href', '/equipment.html');
+        equipmentLink.className = 'nav-equipment-link';
         equipmentLink.textContent = 'Equipment Guides';
         if (onEquipmentHub) {
             equipmentLink.classList.add('active');
@@ -204,6 +202,31 @@
             var calculatorLink = primaryNav.querySelector('a[href$="calculator.html"]');
             primaryNav.insertBefore(equipmentLink, calculatorLink || primaryNav.firstChild);
         }
+    }
+
+    function injectMobileNavEnhancements() {
+        const navLinks = document.querySelector('.nav-links');
+        if (!navLinks || navLinks.querySelector('.mobile-menu-topbar')) return;
+
+        var topbar = document.createElement('div');
+        topbar.className = 'mobile-menu-topbar';
+        topbar.innerHTML = '<span class="mobile-menu-title">Menu</span><button type="button" class="mobile-menu-close" aria-label="Close menu">&times;</button>';
+        navLinks.insertBefore(topbar, navLinks.firstChild);
+
+        var equipmentCta = document.createElement('a');
+        equipmentCta.className = 'mobile-nav-equipment-cta';
+        equipmentCta.setAttribute('href', '/equipment.html');
+        equipmentCta.innerHTML = '<span class="mobile-nav-equipment-icon" aria-hidden="true">&#9881;</span><span class="mobile-nav-equipment-text">Equipment by Type</span><span class="mobile-nav-equipment-arrow" aria-hidden="true">&rarr;</span>';
+        navLinks.insertBefore(equipmentCta, topbar.nextSibling);
+
+        topbar.querySelector('.mobile-menu-close').addEventListener('click', function() {
+            document.body.classList.remove('mobile-nav-open');
+            var mt = document.querySelector('.mobile-menu-toggle');
+            if (mt) mt.classList.remove('active');
+            navLinks.classList.remove('active');
+            var ol = document.querySelector('.mobile-menu-overlay');
+            if (ol) ol.style.pointerEvents = 'none';
+        });
     }
 
     function placeThemeToggleInMobileHeader() {
@@ -320,11 +343,6 @@
         }
 
         const mobileQuery = window.matchMedia('(max-width: 768px)');
-
-        const topbar = navLinks.querySelector('.mobile-menu-topbar');
-        if (topbar) {
-            topbar.remove();
-        }
 
         function openMenu() {
             if (!mobileQuery.matches) return;
@@ -2248,6 +2266,7 @@
         injectMobileHardFixStyles();
         placeThemeToggleInMobileHeader();
         enhanceThemeToggle();
+        injectMobileNavEnhancements();
         enhanceMobileMenuBehavior();
         standardizeBrandLogos();
         syncLegacyFooterYear();
