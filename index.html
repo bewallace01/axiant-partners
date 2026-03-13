@@ -578,6 +578,39 @@
             color: rgba(255, 255, 255, 0.9);
         }
 
+        /* Why Choose – 6 cards in one row, no images, faster load */
+        .benefits-row-6 .benefit-card .topic-visual {
+            display: none !important;
+        }
+        .benefits-row-6 {
+            grid-template-columns: repeat(6, minmax(200px, 1fr));
+            gap: 0.5rem;
+            max-width: none;
+        }
+        .benefits-row-6 .benefit-card {
+            padding: 1.25rem 1.25rem;
+        }
+        .benefits-row-6 .benefit-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .benefits-row-6 .benefit-card p {
+            font-size: 0.82rem;
+            line-height: 1.45;
+        }
+        @media (max-width: 1400px) {
+            .benefits-row-6 { grid-template-columns: repeat(3, minmax(200px, 1fr)); }
+        }
+        @media (max-width: 768px) {
+            .benefits-row-6 { grid-template-columns: repeat(2, minmax(160px, 1fr)); gap: 0.75rem; }
+            .benefits-row-6 .benefit-card { padding: 1rem 0.75rem; }
+            .benefits-row-6 .benefit-card h3 { font-size: 0.95rem; }
+            .benefits-row-6 .benefit-card p { font-size: 0.78rem; }
+        }
+        @media (max-width: 500px) {
+            .benefits-row-6 { grid-template-columns: 1fr; }
+        }
+
         .cta-banner {
             margin-top: 2rem;
             border: 1px solid var(--border-color);
@@ -1024,7 +1057,8 @@
                             <p>Finance new or used equipment with flexible terms based on use case and asset type.</p>
                         </div>
                     </a>
-                    <a href="sba-loans.html" class="industry-tile" style="background-image:url('assets/sba-hero.png');" aria-label="SBA loan guidance - choose the right SBA path and lender program">
+                    <a href="sba-loans.html" class="industry-tile" aria-label="SBA loan guidance - choose the right SBA path and lender program">
+                        <img src="/assets/sba-hero.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210">
                         <div class="industry-tile-content">
                             <h3>SBA Loan Guidance</h3>
                             <p>Get support choosing the right SBA path and lender program for your business.</p>
@@ -1044,7 +1078,8 @@
                             <p>Access revolving funds to handle seasonality, inventory, payroll, or expansion plans.</p>
                         </div>
                     </a>
-                    <a href="business-term-loans.html" class="industry-tile" style="background-image:url('assets/btl-hero.png');" aria-label="Business term loans - fund strategic initiatives">
+                    <a href="business-term-loans.html" class="industry-tile" aria-label="Business term loans - fund strategic initiatives">
+                        <img src="/assets/btl-hero.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210">
                         <div class="industry-tile-content">
                             <h3>Business Term Loans</h3>
                             <p>Fund strategic initiatives with clear repayment terms and predictable structures.</p>
@@ -1097,7 +1132,7 @@
 
                 <section class="about-section">
                     <h2>Why Choose Axiant Partners</h2>
-                    <div class="benefits-grid benefits-compact">
+                    <div class="benefits-grid benefits-compact benefits-row-6">
                         <div class="benefit-card">
                             <h3>Save Time</h3>
                             <p>No more applying to multiple banks blindly. We handle the legwork and connect you only with pre-qualified matches.</p>
@@ -1165,7 +1200,8 @@
                             <p>Kitchen equipment, location buildout, and seasonal working capital.</p>
                         </div>
                     </a>
-                    <a href="logistics-warehousing-business-financing.html" class="industry-tile" style="background-image:url('assets/logistics-warehousing-hero-bg.png');" aria-label="Logistics and warehousing financing - forklifts, conveyors, and facility expansion">
+                    <a href="logistics-warehousing-business-financing.html" class="industry-tile" aria-label="Logistics and warehousing financing - forklifts, conveyors, and facility expansion">
+                        <img src="/assets/logistics-warehousing-hero-bg.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210">
                         <div class="industry-tile-content">
                             <h3>Logistics & Warehousing</h3>
                             <p>Forklifts, conveyors, and facility expansion financing.</p>

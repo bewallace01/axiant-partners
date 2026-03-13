@@ -17,7 +17,7 @@
     }
 
     function enforceAssetVersioning() {
-        const version = '20260309';
+        const version = '20260313';
         document.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
             const href = link.getAttribute('href') || '';
             if (!href || href.indexOf('styles.css') === -1) return;
@@ -2180,6 +2180,7 @@
             const cards = Array.from(scope.querySelectorAll(':scope .step-card, :scope .benefit-card, :scope .leasing-option-card'));
             if (cards.length < 2) return;
             cards.forEach(function(card, cardIdx) {
+                if (card.closest('.benefits-row-6')) return;
                 if (card.querySelector('.topic-visual')) return;
                 const titleNode = card.querySelector('h3, h4');
                 const cardTitle = titleNode ? titleNode.textContent.trim() : '';
