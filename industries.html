@@ -50,10 +50,19 @@
             overflow: hidden;
             border: 3px solid rgba(45, 127, 184, 0.45);
             box-shadow: 0 8px 22px var(--shadow-color);
-            background-size: cover;
-            background-position: center;
+            background-color: #64748b;
             text-decoration: none;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .industry-tile-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            z-index: 0;
         }
         a.industry-tile:hover {
             transform: translateY(-2px);
@@ -63,14 +72,16 @@
             content: '';
             position: absolute;
             inset: 0;
+            z-index: 1;
             background: linear-gradient(180deg, rgba(15, 23, 42, 0.18) 0%, rgba(15, 23, 42, 0.7) 100%);
+            pointer-events: none;
         }
         .industry-tile-content {
             position: absolute;
             left: 0;
             right: 0;
             bottom: 0;
-            z-index: 1;
+            z-index: 2;
             padding: 1rem;
             color: #ffffff;
         }
@@ -142,7 +153,8 @@
 
         <div class="form-container industries-content">
             <div class="industries-grid">
-                <a href="construction-business-financing.html" class="industry-tile" style="background-image:url('assets/construction-hero-bg.png');" aria-label="Construction business financing">
+                <a href="construction-business-financing.html" class="industry-tile" aria-label="Construction business financing">
+                    <img src="/assets/construction-hero-bg.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210">
                     <div class="industry-tile-content">
                         <h3>Construction</h3>
                         <p>Heavy equipment financing, project working capital, and SBA loans for contractors and heavy civil operators.</p>
@@ -154,7 +166,8 @@
                         <p>Medical and dental equipment financing, practice acquisition, and working capital for healthcare providers.</p>
                     </div>
                 </a>
-                <a href="manufacturing-business-financing.html" class="industry-tile" style="background-image:url('assets/manufacturing-hero-bg.png');" aria-label="Manufacturing business financing">
+                <a href="manufacturing-business-financing.html" class="industry-tile" aria-label="Manufacturing business financing">
+                    <img src="/assets/manufacturing-hero-bg.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210">
                     <div class="industry-tile-content">
                         <h3>Manufacturing</h3>
                         <p>CNC and machinery financing, automation loans, and working capital for production cycles and raw materials.</p>
@@ -166,7 +179,8 @@
                         <p>Truck and trailer financing, fuel and maintenance working capital, and real estate for carriers and owner-operators.</p>
                     </div>
                 </a>
-                <a href="restaurants-business-financing.html" class="industry-tile" style="background-image:url('assets/restaurants-hero-bg.png');" aria-label="Restaurant business financing">
+                <a href="restaurants-business-financing.html" class="industry-tile" aria-label="Restaurant business financing">
+                    <img src="/assets/restaurants-hero-bg.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210">
                     <div class="industry-tile-content">
                         <h3>Restaurants</h3>
                         <p>Kitchen equipment financing, leasehold improvements, and working capital for full-service, quick-serve, and catering.</p>
@@ -178,13 +192,15 @@
                         <p>Forklift and warehouse equipment financing, facility expansion, and working capital for 3PLs and distributors.</p>
                     </div>
                 </a>
-                <a href="forestry-business-financing.html" class="industry-tile" style="background-image:url('assets/forestry-hero-bg.png');" aria-label="Forestry business financing">
+                <a href="forestry-business-financing.html" class="industry-tile" aria-label="Forestry business financing">
+                    <img src="/assets/forestry-hero-bg.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210">
                     <div class="industry-tile-content">
                         <h3>Forestry</h3>
                         <p>Harvester and equipment financing, logging working capital, and timberland real estate for forestry operations.</p>
                     </div>
                 </a>
-                <a href="agriculture-business-financing.html" class="industry-tile" style="background-image:url('assets/agriculture-hero-bg.png');" aria-label="Agriculture business financing">
+                <a href="agriculture-business-financing.html" class="industry-tile" aria-label="Agriculture business financing">
+                    <img src="/assets/agriculture-hero-bg.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210">
                     <div class="industry-tile-content">
                         <h3>Agriculture</h3>
                         <p>Farm equipment financing, operating loans, and land financing for farmers and ranchers with seasonal needs.</p>
@@ -196,7 +212,8 @@
                         <p>Mower and equipment financing, fleet growth, and seasonal working capital for lawn care and landscaping companies.</p>
                     </div>
                 </a>
-                <a href="auto-repair-business-financing.html" class="industry-tile" style="background-image:url('assets/auto-repair-hero-bg.png');" aria-label="Auto repair business financing">
+                <a href="auto-repair-business-financing.html" class="industry-tile" aria-label="Auto repair business financing">
+                    <img src="/assets/auto-repair-hero-bg.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210">
                     <div class="industry-tile-content">
                         <h3>Auto Repair</h3>
                         <p>Lift and diagnostic equipment financing, parts inventory, and bay expansion for auto repair and mechanic shops.</p>
