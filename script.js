@@ -447,7 +447,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     document.getElementById('applicationForm').style.display = 'none';
                     var ty = document.getElementById('thankYouContainer');
-                    if (ty) ty.style.display = ty.classList.contains('match-thank-you') ? 'flex' : 'block';
+                    if (ty) {
+                        ty.style.display = ty.classList.contains('match-thank-you') ? 'flex' : 'block';
+                        if (ty.classList.contains('match-thank-you')) {
+                            ty.setAttribute('aria-hidden', 'false');
+                            document.body.style.overflow = 'hidden';
+                        }
+                    }
                 }
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
@@ -492,7 +498,13 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 document.getElementById('applicationForm').style.display = 'none';
                 var ty = document.getElementById('thankYouContainer');
-                    if (ty) ty.style.display = ty.classList.contains('match-thank-you') ? 'flex' : 'block';
+                if (ty) {
+                    ty.style.display = ty.classList.contains('match-thank-you') ? 'flex' : 'block';
+                    if (ty.classList.contains('match-thank-you')) {
+                        ty.setAttribute('aria-hidden', 'false');
+                        document.body.style.overflow = 'hidden';
+                    }
+                }
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         })
@@ -529,7 +541,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     document.getElementById('applicationForm').style.display = 'none';
                     var ty = document.getElementById('thankYouContainer');
-                    if (ty) ty.style.display = ty.classList.contains('match-thank-you') ? 'flex' : 'block';
+                    if (ty) {
+                        ty.style.display = ty.classList.contains('match-thank-you') ? 'flex' : 'block';
+                        if (ty.classList.contains('match-thank-you')) {
+                            ty.setAttribute('aria-hidden', 'false');
+                            document.body.style.overflow = 'hidden';
+                        }
+                    }
                 }
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
@@ -555,16 +573,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // New application button
     const newApplicationBtn = document.getElementById('newApplication');
-    if (newApplicationBtn) {
-        newApplicationBtn.addEventListener('click', function() {
-            const applicationForm = document.getElementById('applicationForm');
-            const thankYouContainer = document.getElementById('thankYouContainer');
-            const loanForm = document.getElementById('loanForm');
-            
-            if (applicationForm) applicationForm.style.display = 'block';
-            if (thankYouContainer) thankYouContainer.style.display = 'none';
-            if (loanForm) loanForm.reset();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+    const thankYouContainer = document.getElementById('thankYouContainer');
+    const matchBackdrop = document.getElementById('matchThankYouBackdrop');
+
+    function closeMatchThankYouModal() {
+        const appForm = document.getElementById('applicationForm');
+        const ty = document.getElementById('thankYouContainer');
+        const loanForm = document.getElementById('loanForm');
+        if (appForm) appForm.style.display = 'block';
+        if (ty) {
+            ty.style.display = 'none';
+            ty.setAttribute('aria-hidden', 'true');
+        }
+        document.body.style.overflow = '';
+        if (loanForm) loanForm.reset();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    if (newApplicationBtn) {
+        newApplicationBtn.addEventListener('click', closeMatchThankYouModal);
+    }
+    if (matchBackdrop) {
+        matchBackdrop.addEventListener('click', closeMatchThankYouModal);
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && thankYouContainer && thankYouContainer.classList.contains('match-thank-you') && thankYouContainer.style.display === 'flex') {
+            closeMatchThankYouModal();
+        }
+    });
 });

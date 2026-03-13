@@ -11,17 +11,23 @@
     <link rel="stylesheet" href="critical.css?v=20260309">
     <link rel="stylesheet" href="styles.css?v=20260309">
     <style>
-        /* Embed-specific: minimal layout, no nav/header */
-        body { padding: 20px; min-height: auto; }
-        .embed-wrap { max-width: 560px; margin: 0 auto; }
+        /* Embed-specific: match main calculator look - card, 2-col, sticker */
+        body { padding: 20px; min-height: auto; background: var(--bg-primary); }
+        .embed-wrap { max-width: 900px; margin: 0 auto; }
+        .embed-calc-form.form-container.calculator-content { position: static !important; inset: auto !important; background: transparent !important; box-shadow: none !important; padding: 0 !important; }
         .embed-powered { text-align: center; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-secondary); }
         .embed-powered a { color: var(--accent-color); font-weight: 600; text-decoration: none; }
         .embed-powered a:hover { text-decoration: underline; }
-        .embed-calc-form .calc-mode-toggle { margin-bottom: 16px; }
+        /* Ensure calculator-main uses grid (2-col) like main page */
+        .embed-calc-form .calculator-main { display: grid !important; grid-template-columns: 1fr 260px; gap: 28px; }
         /* Modal fits embed width, compact layout */
         body.embed-calc-page .calc-results-modal-box { max-width: 100%; padding: 20px 24px; }
         body.embed-calc-page .calc-results-modal-box .result-item { padding: 6px 0; }
         body.embed-calc-page .calc-results-modal-box h2 { font-size: 1.1rem; margin-bottom: 12px; }
+        @media (max-width: 768px) {
+            .embed-calc-form .calculator-main { grid-template-columns: 1fr !important; }
+            .embed-calc-form .calc-info-sticker { order: -1; }
+        }
         @media (max-width: 480px) {
             body { padding: 12px; }
             .embed-wrap { padding: 0; }
@@ -34,14 +40,10 @@
     <div class="embed-wrap">
         <div class="form-container calculator-content embed-calc-form">
             <div class="calculator-container">
-                <div class="calculator-main" style="display: block;">
+                <div class="calculator-main">
+                <div class="calculator-main-inner">
                 <div class="calculator-form">
-                    <h2>Equipment & Truck Payment Calculator</h2>
-                    <div class="calc-mode-toggle" role="group" aria-label="Calculator type">
-                        <button type="button" id="modeLoan" class="calc-mode-btn active" aria-pressed="true">Loan</button>
-                        <button type="button" id="modeLease" class="calc-mode-btn" aria-pressed="false">Lease</button>
-                    </div>
-
+                    <h2>Enter Details</h2>
                     <form id="calculatorForm" class="calc-form-grid">
                         <div class="calc-form-row">
                             <div class="form-group">
@@ -54,9 +56,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group calc-field-residual" style="display: none;">
+                        <div class="form-group calc-field-residual calc-form-full" style="display: none;">
                             <label for="residualValue">Residual Value ($)</label>
-                            <input type="text" id="residualValue" placeholder="Est. value at end of term" value="">
+                            <input type="text" id="residualValue" placeholder="Est. value at end of term, e.g., 25,000" value="">
+                            <small style="color: var(--text-secondary); font-size: 0.85rem;">Estimate of equipment value at end of lease. $0 = $1 buyout (pay full amount).</small>
                         </div>
 
                         <div class="calc-form-row">
@@ -89,7 +92,7 @@
                             <select id="paymentFrequency">
                                 <option value="monthly">Monthly</option>
                                 <option value="quarterly">Quarterly</option>
-                                <option value="biannually">Bi-Annually</option>
+                                <option value="biannually">Bi-Annually (Every 6 months)</option>
                                 <option value="annually">Annually</option>
                             </select>
                         </div>
@@ -100,6 +103,17 @@
                         </div>
                     </form>
                 </div>
+                </div>
+                <aside class="calc-info-sticker">
+                    <h2>Loan Calculator</h2>
+                    <div class="calc-mode-toggle" role="group" aria-label="Calculator type">
+                        <button type="button" id="modeLoan" class="calc-mode-btn active" aria-pressed="true">Loan</button>
+                        <button type="button" id="modeLease" class="calc-mode-btn" aria-pressed="false">Lease</button>
+                    </div>
+                    <p class="calc-sticker-tagline">Calculate your loan payment, interest rate, funding amount, or loan term</p>
+                    <p class="calc-sticker-desc">Toggle Loan or Lease. Fill in at least 3 of: Purchase Price, Payment Amount, Interest Rate, and Loan Term. Optional down payment and residual (lease) reduce the amount financed.</p>
+                    <p class="calc-sticker-embed"><a href="https://www.axiantpartners.com/embed-calculator.html" target="_blank" rel="noopener">Want to embed this calculator on your site?</a> Free for truck dealers, blogs, and industry sites.</p>
+                </aside>
                 </div>
             </div>
         </div>

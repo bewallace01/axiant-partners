@@ -21,17 +21,38 @@
     <link rel="stylesheet" href="styles.css?v=20260309" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="styles.css?v=20260309"></noscript>
     <style>
-        .embed-page .form-container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+        /* Override calculator hero layout - use normal document flow, no overlay */
+        body .embed-page.form-container {
+            position: static !important;
+            inset: auto !important;
+            display: block !important;
+            align-items: stretch !important;
+            justify-content: flex-start !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            max-width: 720px;
+            margin: 0 auto !important;
+            padding: 48px 24px 64px;
+            z-index: auto !important;
+        }
         .embed-page .embed-preview { border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; background: var(--bg-secondary); margin: 24px 0; }
         .embed-page pre { background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 0.9rem; line-height: 1.5; }
         .embed-page pre code { color: inherit; }
         .embed-page .embed-cta { margin-top: 32px; }
+        .embed-page .embed-preview-iframe {
+            display: block;
+            margin: 24px auto 0;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            max-width: 900px;
+            width: 100%;
+        }
         @media (max-width: 768px) {
-            .embed-page .form-container { padding: 24px 16px; }
+            body .embed-page.form-container { padding: 24px 16px 48px; }
             .embed-page pre { padding: 14px; font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
         }
         @media (max-width: 480px) {
-            .embed-page .form-container { padding: 20px 12px; }
+            body .embed-page.form-container { padding: 20px 12px 40px; }
         }
     </style>
 </head>
@@ -56,7 +77,7 @@
             <p class="tagline">Add an Equipment & Truck Payment Calculator to your site—no cost, just keep the attribution link</p>
         </header>
 
-        <div class="form-container embed-page calculator-content">
+        <main class="form-container embed-page">
             <p class="results-intro">Truck dealers, trucking blogs, equipment sites, and industry forums often want a payment calculator but don’t want to build one. We offer ours free for embedding. Visitors can estimate monthly payments for commercial trucks, equipment, or any business loan.</p>
 
             <h2>What You Get</h2>
@@ -75,7 +96,7 @@
   width="100%" 
   height="540" 
   frameborder="0" 
-  style="max-width: 560px; border: 1px solid #ddd; border-radius: 8px;"
+  style="max-width: 900px; border: 1px solid #ddd; border-radius: 8px;"
   title="Equipment & Truck Payment Calculator"&gt;&lt;/iframe&gt;</code></pre>
             </div>
 
@@ -84,18 +105,19 @@
             <pre><code>src="https://www.axiantpartners.com/calculator-embed.html?ref=truck-dealer-xyz"</code></pre>
 
             <h2>Preview</h2>
+            <p>See the calculator in action below:</p>
             <iframe 
+                class="embed-preview-iframe"
                 src="calculator-embed.html" 
                 width="100%" 
                 height="540" 
                 frameborder="0" 
-                style="max-width: 560px; border: 1px solid var(--border-color); border-radius: 8px; display: block; margin: 0 auto;"
                 title="Equipment & Truck Payment Calculator"></iframe>
 
             <div class="embed-cta">
                 <p>Questions? <a href="contact.html">Contact us</a>. Ready to get matched with lenders? <a href="match.html" class="btn-primary">Apply Now</a></p>
             </div>
-        </div>
+        </main>
     </div>
 
     <footer class="site-footer">
