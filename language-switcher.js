@@ -2050,6 +2050,8 @@
     function injectTopicVisuals() {
         const path = (window.location.pathname || '').toLowerCase();
         const page = path.split('/').pop() || 'index.html';
+        const isCalculatorPage = page === 'calculator.html';
+        if (isCalculatorPage) return;
         const isIndustryPage = /(construction|trucking|agriculture|landscaping|manufacturing|medical-practices|restaurants|auto-repair|logistics-warehousing|forestry)-business-financing(\.html)?$/.test(page);
         if (isIndustryPage) return;
         const isEquipmentHubPage = /\/equipment\/[a-z0-9-]+(\/|$)/.test(path);
