@@ -30,3 +30,7 @@
 
 /robots.txt
   Cache-Control: public, max-age=86400
+
+# Allow calculator embed to be iframed on any site
+/calculator-embed.html
+  Content-Security-Policy: frame-ancestors *

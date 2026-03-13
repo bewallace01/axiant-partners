@@ -446,7 +446,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (lfTy) lfTy.style.display = 'block';
                 } else {
                     document.getElementById('applicationForm').style.display = 'none';
-                    document.getElementById('thankYouContainer').style.display = 'block';
+                    var ty = document.getElementById('thankYouContainer');
+                    if (ty) ty.style.display = ty.classList.contains('match-thank-you') ? 'flex' : 'block';
                 }
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
@@ -490,7 +491,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (lfTy) lfTy.style.display = 'block';
             } else {
                 document.getElementById('applicationForm').style.display = 'none';
-                document.getElementById('thankYouContainer').style.display = 'block';
+                var ty = document.getElementById('thankYouContainer');
+                    if (ty) ty.style.display = ty.classList.contains('match-thank-you') ? 'flex' : 'block';
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         })
@@ -526,7 +528,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (lfTy) lfTy.style.display = 'block';
                 } else {
                     document.getElementById('applicationForm').style.display = 'none';
-                    document.getElementById('thankYouContainer').style.display = 'block';
+                    var ty = document.getElementById('thankYouContainer');
+                    if (ty) ty.style.display = ty.classList.contains('match-thank-you') ? 'flex' : 'block';
                 }
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {

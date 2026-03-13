@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
@@ -32,6 +32,7 @@
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/assets/hero-night-city.jpg" as="image">
     <link rel="stylesheet" href="critical.css?v=20260309">
     <link rel="stylesheet" href="styles.css?v=20260309" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="styles.css?v=20260309"></noscript>
@@ -52,8 +53,8 @@
                 <span></span>
             </button>
             <div class="nav-links">
-                <a href="index.html">Home</a>
                 <a href="match.html" class="active">Find Match</a>
+                <a href="index.html">Home</a>
                 <div class="nav-dropdown">
                     <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Services</button>
                     <div class="nav-dropdown-menu">
@@ -76,12 +77,14 @@
             </div>
         </nav>
 
-        <div id="applicationForm" class="form-container">
-            <h1>Apply for Business Financing</h1>
-            <h2>Tell us about your business loan needs</h2>
-            <p class="results-intro">Share your business information and we'll connect you with the perfect lender for commercial lending and business financing. Our team will review your profile and personally match you with banks eager to finance your business.</p>
-
-            <form id="loanForm">
+        <section class="match-hero-wrap">
+            <header class="match-hero-bg" aria-hidden="true"></header>
+            <div id="applicationForm" class="form-container match-content match-content-hero">
+                <div class="match-container">
+                    <div class="match-main">
+                        <div class="match-form-area">
+                            <h2>Apply for Business Financing</h2>
+                            <form id="loanForm">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="fullName">Full Name</label>
@@ -93,14 +96,15 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" required placeholder="(555) 123-4567">
-                </div>
-
-                <div class="form-group">
-                    <label for="loanAmount">Loan Amount ($)</label>
-                    <input type="text" id="loanAmount" required placeholder="e.g., $10,000">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="loanAmount">Loan Amount ($)</label>
+                        <input type="text" id="loanAmount" required placeholder="e.g., $10,000">
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -108,8 +112,9 @@
                     <input type="text" id="businessName" placeholder="e.g., Acme Corporation">
                 </div>
 
-                <div class="form-group">
-                    <label for="loanType">Business Loan Type</label>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="loanType">Business Loan Type</label>
                     <select id="loanType" required>
                         <option value="">Select loan type</option>
                         <option value="sba">SBA Loan</option>
@@ -134,10 +139,12 @@
                         <option value="649-600">649 to 600</option>
                         <option value="599-below">599 and below</option>
                     </select>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="revenue">Annual Business Revenue ($)</label>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="revenue">Annual Business Revenue ($)</label>
                     <select id="revenue">
                         <option value="">Select revenue range</option>
                         <option value="$0 to $500,000">$0 to $500,000</option>
@@ -161,6 +168,7 @@
                         <option value="7 to 9">7 to 9</option>
                         <option value="over 10">Over 10</option>
                     </select>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -177,9 +185,28 @@
 
                 <button type="submit" class="btn-primary">Submit Application</button>
             </form>
-        </div>
+                        </div>
+                        <aside class="match-info-sticker">
+                            <h2>Find Your Match</h2>
+                            <p>Share your business information and we'll connect you with the right lenders. Our team reviews your profile and personally matches you with banks eager to finance your business.</p>
+                            <p><strong>What we match:</strong></p>
+                            <ul>
+                                <li>SBA Loans</li>
+                                <li>Equipment Financing</li>
+                                <li>Working Capital</li>
+                                <li>Commercial Real Estate</li>
+                                <li>Lines of Credit</li>
+                            </ul>
+                            <p>We typically respond within 24–48 hours.</p>
+                            <div class="match-sticker-cta">
+                                <a href="tel:9199072611" class="btn-primary">Call (919) 907-2611</a>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
 
-        <div id="thankYouContainer" class="results-container" style="display: none;">
+            <div id="thankYouContainer" class="results-container match-thank-you" style="display: none;">
             <div class="success-message">
                 <div class="success-icon"></div>
                 <h2>Thank You for Choosing Axiant Partners!</h2>
@@ -207,10 +234,11 @@
                 <button id="newApplication" class="btn-primary">Submit Another Application</button>
             </div>
         </div>
+        </section>
     </div>
 
     <footer class="site-footer">
-        <p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a></p>
+        <p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a> | <a href="embed-calculator.html">Embed Calculator</a></p>
     </footer>
 
     <!-- EmailJS SDK -->

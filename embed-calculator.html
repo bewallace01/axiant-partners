@@ -26,6 +26,13 @@
         .embed-page pre { background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 0.9rem; line-height: 1.5; }
         .embed-page pre code { color: inherit; }
         .embed-page .embed-cta { margin-top: 32px; }
+        @media (max-width: 768px) {
+            .embed-page .form-container { padding: 24px 16px; }
+            .embed-page pre { padding: 14px; font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        }
+        @media (max-width: 480px) {
+            .embed-page .form-container { padding: 20px 12px; }
+        }
     </style>
 </head>
 <body>
@@ -34,8 +41,8 @@
             <div class="nav-brand"><a href="/"><img src="logo-horizontal-transparent.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-light"><img src="Axiant_light_logo.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-dark"></a><span>Axiant Partners</span></div>
             <button class="mobile-menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
             <div class="nav-links">
-                <a href="index.html">Home</a>
                 <a href="match.html">Find Match</a>
+                <a href="index.html">Home</a>
                 <div class="nav-dropdown"><button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Services</button><div class="nav-dropdown-menu"></div></div>
                 <div class="nav-dropdown"><button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Industries</button><div class="nav-dropdown-menu"></div></div>
                 <a href="calculator.html">Calculator</a>
