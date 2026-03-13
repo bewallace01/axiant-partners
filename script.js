@@ -281,23 +281,19 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
 
-        const emailData = {
-            full_name: document.getElementById('contactName').value,
-            email: document.getElementById('contactEmail').value,
+        const subjectSelect = document.getElementById('contactSubject');
+        const subjectText = subjectSelect.options[subjectSelect.selectedIndex].text;
+        const contactData = {
+            from_name: document.getElementById('contactName').value,
+            from_email: document.getElementById('contactEmail').value,
             phone: document.getElementById('contactPhone').value || 'Not provided',
-            business_name: document.getElementById('contactSubject').value,
-            equipment_description: document.getElementById('contactMessage').value,
-            loan_amount: 'Contact Form',
-            loan_type: 'Contact',
-            credit_score: 'N/A',
-            revenue: 'N/A',
-            years_in_business: 'N/A',
-            reference_number: generateReferenceNumber(),
+            subject: subjectText,
+            message: document.getElementById('contactMessage').value,
             to_email: 'alex@axiantpartners.com'
         };
 
-        var email1 = emailjs.send('service_jweh7na', 'template_dmwg1ey', { ...emailData, to_email: 'alex@axiantpartners.com' });
-        var email2 = emailjs.send('service_jweh7na', 'template_dmwg1ey', { ...emailData, to_email: 'jerry@axiantpartners.com' });
+        var email1 = emailjs.send('service_jweh7na', 'template_xujy2ik', { ...contactData, to_email: 'alex@axiantpartners.com' });
+        var email2 = emailjs.send('service_jweh7na', 'template_xujy2ik', { ...contactData, to_email: 'jerry@axiantpartners.com' });
         Promise.allSettled([email1, email2])
         .then(function(results) {
             if (results[0].status === 'fulfilled') {

@@ -62,6 +62,21 @@ Your EmailJS templates MUST use these exact variable names:
 {{to_email}}
 ```
 
+**Recommended email format** (set in EmailJS template Subject and Content):
+- **Subject:** New Contact Form Submission
+- **Content (plain text):**
+```
+New Contact Form Submission
+
+From: {{from_name}}
+Email: {{from_email}}
+Phone: {{phone}}
+Subject: {{subject}}
+
+Message:
+{{message}}
+```
+
 **Important:** Variable names are case-sensitive and must match exactly!
 
 ## Step 4: Test EmailJS Directly
