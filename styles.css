@@ -1309,6 +1309,96 @@ a.link-view-all:hover {
     transition: color 0.3s ease;
 }
 
+/* Homepage How It Works – flowchart layout (left to right) */
+.how-it-works-flowchart {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1400px;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.how-it-works-flowchart .step-card {
+    padding: 36px 24px;
+    overflow: visible;
+}
+
+.how-it-works-flowchart .step-card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-right: 2px solid rgba(45, 127, 184, 0.5);
+    border-bottom: 2px solid rgba(45, 127, 184, 0.5);
+    transform: translateY(-50%) rotate(-45deg);
+    z-index: 1;
+}
+
+.how-it-works-flowchart .step-number {
+    font-size: 2.75rem;
+    margin-bottom: 14px;
+}
+
+.how-it-works-flowchart .step-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.how-it-works-flowchart .step-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 1100px) {
+    .how-it-works-flowchart {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .how-it-works-flowchart .step-card:nth-child(2)::after,
+    .how-it-works-flowchart .step-card:nth-child(4)::after {
+        display: none;
+    }
+    .how-it-works-flowchart .step-card:nth-child(1)::after,
+    .how-it-works-flowchart .step-card:nth-child(3)::after {
+        right: -16px;
+        top: 50%;
+    }
+}
+
+/* Homepage Why Choose – 3 cards per row, 2 rows, compact */
+.benefits-compact {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.benefits-compact .benefit-card {
+    padding: 32px 24px;
+}
+
+.benefits-compact .benefit-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.benefits-compact .benefit-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .benefits-compact {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+    }
+}
+
 .partner-types {
     font-weight: 600;
     color: var(--text-primary);
@@ -6610,6 +6700,19 @@ a.no-wrap-link {
         grid-template-columns: 1fr;
     }
 
+    .benefits-compact {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .how-it-works-flowchart {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .how-it-works-flowchart .step-card:nth-child(2)::after,
+    .how-it-works-flowchart .step-card:nth-child(4)::after {
+        display: none;
+    }
+
     .partner-list {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -7119,6 +7222,19 @@ a.no-wrap-link {
         grid-template-columns: 1fr;
         gap: 20px;
         padding: 0;
+    }
+
+    .benefits-compact {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .how-it-works-flowchart {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .how-it-works-flowchart .step-card:nth-child(2)::after,
+    .how-it-works-flowchart .step-card:nth-child(4)::after {
+        display: none;
     }
 
     .step-card, .benefit-card {
@@ -8698,6 +8814,19 @@ html {
         gap: 12px !important;
     }
 
+    .how-it-works-flowchart {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .how-it-works-flowchart .step-card:nth-child(2)::after,
+    .how-it-works-flowchart .step-card:nth-child(4)::after {
+        display: none !important;
+    }
+
+    .benefits-compact {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
     .equipment-hub-grid {
         grid-template-columns: 1fr !important;
     }
@@ -8722,6 +8851,18 @@ html {
 
     .axel-chat-message {
         max-width: 96%;
+    }
+}
+
+@media (max-width: 600px) {
+    .how-it-works-flowchart {
+        grid-template-columns: 1fr !important;
+    }
+    .how-it-works-flowchart .step-card::after {
+        display: none !important;
+    }
+    .benefits-compact {
+        grid-template-columns: 1fr !important;
     }
 }
 
@@ -9556,6 +9697,19 @@ html {
     .lenders-grid {
         grid-template-columns: 1fr !important;
         gap: 14px !important;
+    }
+
+    .how-it-works-flowchart {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .how-it-works-flowchart .step-card:nth-child(2)::after,
+    .how-it-works-flowchart .step-card:nth-child(4)::after {
+        display: none !important;
+    }
+
+    .benefits-compact {
+        grid-template-columns: repeat(3, 1fr) !important;
     }
 
     .blog-post-shell {
