@@ -2054,6 +2054,7 @@
         if (isCalculatorPage) return;
         const isIndustryPage = /(construction|trucking|agriculture|landscaping|manufacturing|medical-practices|restaurants|auto-repair|logistics-warehousing|forestry)-business-financing(\.html)?$/.test(page);
         if (isIndustryPage) return;
+        if (page === 'industries.html') return;
         const isEquipmentHubPage = /\/equipment\/[a-z0-9-]+(\/|$)/.test(path);
         if (isEquipmentHubPage) return;
         const isEquipmentHub = page === 'equipment.html' || path === '/equipment.html' || /^\/equipment\.html?$/.test(path);

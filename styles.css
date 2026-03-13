@@ -1110,6 +1110,17 @@ a.btn-primary, a.btn-secondary {
     text-decoration: none;
 }
 
+/* View all industries link - blue, bold, no underline */
+a.link-view-all {
+    color: var(--accent-color) !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+}
+a.link-view-all:hover {
+    color: var(--accent-dark) !important;
+    text-decoration: none !important;
+}
+
 /* About Page */
 .about-content {
     max-width: 100%;
