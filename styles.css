@@ -557,13 +557,13 @@ header {
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, rgba(15, 30, 50, 0.3) 0%, rgba(15, 30, 50, 0.15) 50%, rgba(15, 30, 50, 0.35) 100%),
-                url('/assets/calculator-hero-city.jpg') center/cover no-repeat;
+                url('https://www.axiantpartners.com/assets/calculator-hero-city.jpg') center/cover no-repeat;
     margin: 0;
 }
 
 [data-theme="dark"] .calculator-hero {
     background: linear-gradient(180deg, rgba(5, 15, 30, 0.5) 0%, rgba(5, 15, 30, 0.25) 50%, rgba(5, 15, 30, 0.55) 100%),
-                url('/assets/calculator-hero-city.jpg') center/cover no-repeat;
+                url('https://www.axiantpartners.com/assets/calculator-hero-city.jpg') center/cover no-repeat;
 }
 
 /* Contact Page - dedicated hero image */
@@ -576,13 +576,13 @@ header {
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, rgba(15, 30, 50, 0.35) 0%, rgba(15, 30, 50, 0.2) 50%, rgba(15, 30, 50, 0.4) 100%),
-                url('/assets/contact-hero.jpg') center/cover no-repeat;
+                url('https://www.axiantpartners.com/assets/contact-hero.jpg') center/cover no-repeat;
     margin: 0;
 }
 
 [data-theme="dark"] .contact-hero {
     background: linear-gradient(180deg, rgba(5, 15, 30, 0.55) 0%, rgba(5, 15, 30, 0.3) 50%, rgba(5, 15, 30, 0.6) 100%),
-                url('/assets/contact-hero.jpg') center/cover no-repeat;
+                url('https://www.axiantpartners.com/assets/contact-hero.jpg') center/cover no-repeat;
 }
 
 /* Referral Page - dedicated hero image */
@@ -595,13 +595,13 @@ header {
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, rgba(15, 30, 50, 0.35) 0%, rgba(15, 30, 50, 0.2) 50%, rgba(15, 30, 50, 0.4) 100%),
-                url('/assets/referral-hero.jpg') center/cover no-repeat;
+                url('https://www.axiantpartners.com/assets/referral-hero.jpg') center/cover no-repeat;
     margin: 0;
 }
 
 [data-theme="dark"] .referral-hero-bg {
     background: linear-gradient(180deg, rgba(5, 15, 30, 0.55) 0%, rgba(5, 15, 30, 0.3) 50%, rgba(5, 15, 30, 0.6) 100%),
-                url('/assets/referral-hero.jpg') center/cover no-repeat;
+                url('https://www.axiantpartners.com/assets/referral-hero.jpg') center/cover no-repeat;
 }
 
 /* Match Page - dedicated hero image */
@@ -614,13 +614,13 @@ header {
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, rgba(15, 30, 50, 0.35) 0%, rgba(15, 30, 50, 0.2) 50%, rgba(15, 30, 50, 0.4) 100%),
-                url('/assets/hero-night-city.jpg') center/cover no-repeat;
+                url('https://www.axiantpartners.com/assets/hero-night-city.jpg') center/cover no-repeat;
     margin: 0;
 }
 
 [data-theme="dark"] .match-hero-bg {
     background: linear-gradient(180deg, rgba(5, 15, 30, 0.55) 0%, rgba(5, 15, 30, 0.3) 50%, rgba(5, 15, 30, 0.6) 100%),
-                url('/assets/hero-night-city.jpg') center/cover no-repeat;
+                url('https://www.axiantpartners.com/assets/hero-night-city.jpg') center/cover no-repeat;
 }
 
 /* Co-branded Header */
