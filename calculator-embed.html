@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <title>Equipment & Truck Payment Calculator | Axiant Partners</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap">
+    <link rel="stylesheet" href="critical.css?v=20260309">
+    <link rel="stylesheet" href="styles.css?v=20260309">
+    <style>
+        /* Embed-specific: minimal layout, no nav/header */
+        body { padding: 20px; min-height: auto; }
+        .embed-wrap { max-width: 560px; margin: 0 auto; }
+        .embed-powered { text-align: center; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-secondary); }
+        .embed-powered a { color: var(--accent-color); font-weight: 600; text-decoration: none; }
+        .embed-powered a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="embed-wrap">
+        <div class="form-container calculator-content">
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <h2>Equipment & Truck Payment Calculator</h2>
+                    <p class="results-intro">Estimate monthly payments for commercial trucks, equipment, or any business loan. Fill in at least 3 of the 4 fields below.</p>
+
+                    <form id="calculatorForm">
+                        <div class="form-group">
+                            <label for="loanAmount">Loan Amount ($)</label>
+                            <input type="text" id="loanAmount" placeholder="e.g., 75,000">
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentAmount">Monthly Payment ($)</label>
+                            <input type="text" id="paymentAmount" placeholder="e.g., 1,500">
+                        </div>
+                        <div class="form-group">
+                            <label for="interestRate">Interest Rate (%)</label>
+                            <input type="number" id="interestRate" step="any" min="0" max="100" placeholder="e.g., 8.5">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="loanTerm">Loan Term</label>
+                                <input type="number" id="loanTerm" step="1" min="1" placeholder="e.g., 60">
+                            </div>
+                            <div class="form-group">
+                                <label for="termUnit">Term Unit</label>
+                                <select id="termUnit">
+                                    <option value="months">Months</option>
+                                    <option value="years">Years</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentFrequency">Payment Frequency</label>
+                            <select id="paymentFrequency">
+                                <option value="monthly">Monthly</option>
+                                <option value="quarterly">Quarterly</option>
+                                <option value="biannually">Bi-Annually</option>
+                                <option value="annually">Annually</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary">Calculate</button>
+                        <button type="button" id="clearForm" class="btn-secondary" style="margin-left: 10px;">Clear</button>
+                    </form>
+                </div>
+
+                <div id="calculatorResults" class="calculator-results" style="display: none;">
+                    <h2>Results</h2>
+                    <div class="result-card">
+                        <div class="result-item">
+                            <span class="result-label">Loan Amount:</span>
+                            <span class="result-value" id="resultLoanAmount">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Payment Amount:</span>
+                            <span class="result-value" id="resultPaymentAmount">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Interest Rate:</span>
+                            <span class="result-value" id="resultInterestRate">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Loan Term:</span>
+                            <span class="result-value" id="resultLoanTerm">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Payment Frequency:</span>
+                            <span class="result-value" id="resultPaymentFrequency">-</span>
+                        </div>
+                        <div class="result-item highlighted">
+                            <span class="result-label">Total Amount Paid:</span>
+                            <span class="result-value" id="resultTotalPaid">-</span>
+                        </div>
+                        <div class="result-item highlighted">
+                            <span class="result-label">Total Interest:</span>
+                            <span class="result-value" id="resultTotalInterest">-</span>
+                        </div>
+                    </div>
+                    <button type="button" id="newCalculation" class="btn-primary" style="margin-top: 16px;">New Calculation</button>
+                </div>
+            </div>
+        </div>
+
+        <p class="embed-powered" id="embedPowered">
+            Powered by <a href="https://www.axiantpartners.com/calculator.html" id="poweredLink" target="_blank" rel="noopener">Axiant Partners</a> · <a href="https://www.axiantpartners.com/match.html" target="_blank" rel="noopener">Get Matched with Lenders</a>
+        </p>
+    </div>
+
+    <script src="calculator.js"></script>
+    <script>
+        // Append ref param to Powered-by link for tracking when embedded with ?ref=partner-id
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var ref = params.get('ref');
+            var link = document.getElementById('poweredLink');
+            if (ref && link) link.href = 'https://www.axiantpartners.com/calculator.html?ref=' + encodeURIComponent(ref);
+        })();
+    </script>
+</body>
+</html>
