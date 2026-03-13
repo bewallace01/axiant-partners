@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZNSHH6NN0"></script>
+    <!-- Google tag (gtag.js) - deferred for faster initial load -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-HZNSHH6NN0');
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-HZNSHH6NN0';
+        document.head.appendChild(s);
+        s.onload = function() { gtag('js', new Date()); gtag('config', 'G-HZNSHH6NN0'); };
+      });
     </script>
     <meta name="google-site-verification" content="r6yyqb6FxWxmJGmr4GBVwPzRZ9flVFuz8Vt6CUkbarc" />
     <meta charset="UTF-8">
@@ -33,12 +36,13 @@
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.axiantpartners.com" crossorigin>
     <link rel="dns-prefetch" href="https://images.unsplash.com">
-    <link rel="preload" href="https://www.axiantpartners.com/assets/construction-hero-bg.png" as="image">
-    <link rel="preload" href="https://www.axiantpartners.com/assets/equipment-financing-hero.png" as="image">
-    <link rel="stylesheet" href="critical.css?v=20260309">
-    <link rel="stylesheet" href="styles.css?v=20260309" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="styles.css?v=20260309"></noscript>
+    <link rel="preload" href="https://www.axiantpartners.com/assets/axiant-hero-branded.png" as="image">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;600&display=swap" as="style">
+    <link rel="stylesheet" href="critical.css?v=20260313">
+    <link rel="stylesheet" href="styles.css?v=20260313" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles.css?v=20260313"></noscript>
     <style>
         .landing-main {
             width: min(1700px, calc(100% - 3rem));
@@ -850,7 +854,7 @@
 <body>
     <div class="container">
         <nav class="main-nav">
-            <div class="nav-brand"><a href="/"><img src="logo-horizontal-transparent.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-light"><img src="Axiant_light_logo.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-dark"></a><span>Axiant Partners</span></div>
+            <div class="nav-brand"><a href="/"><img src="logo-horizontal-transparent.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-light" width="180" height="74"><img src="Axiant_light_logo.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-dark" width="180" height="74"></a><span>Axiant Partners</span></div>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -949,7 +953,7 @@
                 <div class="hero-form" id="what-we-do">
                     <div class="hero-form-branding">
                         <div class="hero-form-image">
-                            <img src="/assets/axiant-hero-branded.png" alt="Axiant Partners — Commercial lending and business financing" width="1200" height="630" loading="eager">
+                            <img src="https://www.axiantpartners.com/assets/axiant-hero-branded.png" alt="Axiant Partners — Commercial lending and business financing" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
                         </div>
                         <p class="hero-form-caption">Commercial lending expertise nationwide</p>
                     </div>
@@ -1188,7 +1192,7 @@
 
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
-    <script src="language-switcher.js?v=20260309" defer></script>
-    <script src="script.js" defer></script>
+    <script src="language-switcher.js?v=20260313" defer></script>
+    <script src="script.js?v=20260313" defer></script>
     </body>
 </html>
