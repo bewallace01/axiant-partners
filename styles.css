@@ -8585,6 +8585,19 @@ html {
         max-width: 100% !important;
     }
 
+    /* Hero pages: preserve mobile-optimized padding (overrides above) */
+    .calculator-hero-wrap .form-container.calculator-content,
+    .contact-hero-wrap .form-container.contact-content.contact-content-hero,
+    .referral-hero-wrap .form-container.referral-content.referral-content-hero,
+    .match-hero-wrap .form-container.match-content.match-content-hero {
+        padding: 16px 12px 24px !important;
+    }
+
+    /* Embed calculator instruction page: preserve intended padding */
+    .embed-page.form-container {
+        padding: 24px 16px 48px !important;
+    }
+
     .about-section,
     .form-container[class*="-content"] .about-section,
     .legal-section-content,
@@ -8963,6 +8976,17 @@ html {
     .services-content {
         padding: 16px 10px !important;
     }
+    /* Hero pages: tighter padding on extra-small screens */
+    .calculator-hero-wrap .form-container.calculator-content,
+    .contact-hero-wrap .form-container.contact-content.contact-content-hero,
+    .referral-hero-wrap .form-container.referral-content.referral-content-hero,
+    .match-hero-wrap .form-container.match-content.match-content-hero {
+        padding: 12px 8px 20px !important;
+    }
+    /* Embed calculator instruction page: extra-small */
+    .embed-page.form-container {
+        padding: 20px 12px 40px !important;
+    }
     .form-container.equipment-financing-content,
     .form-container.sba-loans-content,
     .form-container.fix-and-flip-content,
@@ -9092,6 +9116,28 @@ html {
     .nav-dropdown.mobile-open .nav-dropdown-trigger {
         background: rgba(59, 130, 246, 0.18) !important;
         border-color: rgba(59, 130, 246, 0.5) !important;
+    }
+
+    /* Find Match: preserve blue button - must override generic nav-links a above */
+    .nav-links a[href$="match.html"],
+    .nav-links a[href="/match"],
+    .nav-links a[href="match.html"] {
+        background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%) !important;
+        color: #fff !important;
+        border-color: transparent !important;
+    }
+    .nav-links a[href$="match.html"]:hover,
+    .nav-links a[href="/match"]:hover,
+    .nav-links a[href="match.html"]:hover {
+        background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent-color) 100%) !important;
+        color: #fff !important;
+        filter: brightness(1.05);
+    }
+    [data-theme="dark"] .nav-links a[href$="match.html"],
+    [data-theme="dark"] .nav-links a[href="/match"],
+    [data-theme="dark"] .nav-links a[href="match.html"] {
+        background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%) !important;
+        color: #fff !important;
     }
 
     /* Force every menu row to boxed style */

@@ -264,10 +264,60 @@ window.addEventListener('load', function() {
     }
 });
 
-// Form submission - supports both match page (loanForm) and index page (leadForm)
+// Form submission - supports match page (loanForm), index page (leadForm), and contact page (contactForm)
 document.addEventListener('DOMContentLoaded', function() {
     const loanForm = document.getElementById('loanForm');
     const leadForm = document.getElementById('leadForm');
+    const contactForm = document.getElementById('contactForm');
+
+    function handleContactSubmit(e) {
+        e.preventDefault();
+        if (typeof emailjs === 'undefined') {
+            alert('Email service is not available. Please refresh the page and try again.');
+            return;
+        }
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        const emailData = {
+            full_name: document.getElementById('contactName').value,
+            email: document.getElementById('contactEmail').value,
+            phone: document.getElementById('contactPhone').value || 'Not provided',
+            business_name: document.getElementById('contactSubject').value,
+            equipment_description: document.getElementById('contactMessage').value,
+            loan_amount: 'Contact Form',
+            loan_type: 'Contact',
+            credit_score: 'N/A',
+            revenue: 'N/A',
+            years_in_business: 'N/A',
+            reference_number: generateReferenceNumber(),
+            to_email: 'alex@axiantpartners.com'
+        };
+
+        var email1 = emailjs.send('service_jweh7na', 'template_dmwg1ey', { ...emailData, to_email: 'alex@axiantpartners.com' });
+        var email2 = emailjs.send('service_jweh7na', 'template_dmwg1ey', { ...emailData, to_email: 'jerry@axiantpartners.com' });
+        Promise.allSettled([email1, email2])
+        .then(function(results) {
+            if (results[0].status === 'fulfilled') {
+                document.getElementById('contactForm').style.display = 'none';
+                var ty = document.getElementById('contactThankYou');
+                if (ty) ty.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                alert('Sorry, there was an error sending your message. Please email us directly at alex@axiantpartners.com or try again later.');
+            }
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        })
+        .catch(function(err) {
+            console.error('Contact form error:', err);
+            alert('Sorry, there was an error sending your message. Please email us directly at alex@axiantpartners.com or try again later.');
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        });
+    }
 
     function handleApplicationSubmit(e, isLeadForm) {
         e.preventDefault();
@@ -564,11 +614,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     }
 
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleContactSubmit);
+    }
     if (loanForm) {
         loanForm.addEventListener('submit', function(e) { handleApplicationSubmit(e, false); });
     }
     if (leadForm) {
         leadForm.addEventListener('submit', function(e) { handleApplicationSubmit(e, true); });
+    }
+
+    // Contact page: Send Another Message button
+    var newContactBtn = document.getElementById('newContactMessage');
+    if (newContactBtn) {
+        newContactBtn.addEventListener('click', function() {
+            var form = document.getElementById('contactForm');
+            var ty = document.getElementById('contactThankYou');
+            if (form) form.style.display = '';
+            if (ty) ty.style.display = 'none';
+            if (form) form.reset();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     }
 
     // New application button
