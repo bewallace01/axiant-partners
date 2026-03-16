@@ -1,187 +1,187 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, follow">
-    <title>Equipment & Truck Payment Calculator | Axiant Partners</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap">
-    <link rel="stylesheet" href="critical.css?v=20260317">
-    <link rel="stylesheet" href="styles.css?v=20260317">
-    <style>
-        /* Embed-specific: match main calculator look - card, 2-col, sticker */
-        body { padding: 20px; min-height: auto; background: var(--bg-primary); }
-        .embed-wrap { max-width: 900px; margin: 0 auto; }
-        .embed-calc-form.form-container.calculator-content { position: static !important; inset: auto !important; background: transparent !important; box-shadow: none !important; padding: 0 !important; }
-        .embed-powered { text-align: center; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-secondary); }
-        .embed-powered a { color: var(--accent-color); font-weight: 600; text-decoration: none; }
-        .embed-powered a:hover { text-decoration: underline; }
-        /* Ensure calculator-main uses grid (2-col) like main page */
-        .embed-calc-form .calculator-main { display: grid !important; grid-template-columns: 1fr 260px; gap: 28px; }
-        /* Modal fits embed width, compact layout */
-        body.embed-calc-page .calc-results-modal-box { max-width: 100%; padding: 20px 24px; }
-        body.embed-calc-page .calc-results-modal-box .result-item { padding: 6px 0; }
-        body.embed-calc-page .calc-results-modal-box h2 { font-size: 1.1rem; margin-bottom: 12px; }
-        @media (max-width: 768px) {
-            .embed-calc-form .calculator-main { grid-template-columns: 1fr !important; }
-            .embed-calc-form .calc-info-sticker { order: -1; }
-        }
-        @media (max-width: 480px) {
-            body { padding: 12px; }
-            .embed-wrap { padding: 0; }
-            .calculator-form input, .calculator-form select { font-size: 16px; min-height: 44px; }
-            .calc-mode-btn { min-height: 44px; padding: 10px 14px; }
-        }
-    </style>
-</head>
-<body class="embed-calc-page">
-    <div class="embed-wrap">
-        <div class="form-container calculator-content embed-calc-form">
-            <div class="calculator-container">
-                <div class="calculator-main">
-                <div class="calculator-main-inner">
-                <div class="calculator-form">
-                    <h2>Enter Details</h2>
-                    <form id="calculatorForm" class="calc-form-grid">
-                        <div class="calc-form-row">
-                            <div class="form-group">
-                                <label for="purchasePrice">Purchase / Equipment Price ($)</label>
-                                <input type="text" id="purchasePrice" placeholder="e.g., 100,000">
-                            </div>
-                            <div class="form-group calc-field-downpayment">
-                                <label for="downPayment">Down Payment ($)</label>
-                                <input type="text" id="downPayment" placeholder="e.g., 10,000 or 0" value="">
-                            </div>
-                        </div>
-
-                        <div class="form-group calc-field-residual calc-form-full" style="display: none;">
-                            <label for="residualValue">Residual Value ($)</label>
-                            <input type="text" id="residualValue" placeholder="Est. value at end of term, e.g., 25,000" value="">
-                            <small style="color: var(--text-secondary); font-size: 0.85rem;">Estimate of equipment value at end of lease. $0 = $1 buyout (pay full amount).</small>
-                        </div>
-
-                        <div class="calc-form-row">
-                            <div class="form-group">
-                                <label for="paymentAmount">Payment Amount ($)</label>
-                                <input type="text" id="paymentAmount" placeholder="e.g., 2,000">
-                            </div>
-                            <div class="form-group">
-                                <label for="interestRate">Interest Rate (%)</label>
-                                <input type="number" id="interestRate" step="any" min="0" max="100" placeholder="e.g., 5.99">
-                            </div>
-                        </div>
-
-                        <div class="calc-form-row">
-                            <div class="form-group">
-                                <label for="loanTerm">Loan Term</label>
-                                <input type="number" id="loanTerm" step="1" min="1" placeholder="e.g., 60">
-                            </div>
-                            <div class="form-group">
-                                <label for="termUnit">Term Unit</label>
-                                <select id="termUnit">
-                                    <option value="months">Months</option>
-                                    <option value="years">Years</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group calc-form-full">
-                            <label for="paymentFrequency">Payment Frequency</label>
-                            <select id="paymentFrequency">
-                                <option value="monthly">Monthly</option>
-                                <option value="quarterly">Quarterly</option>
-                                <option value="biannually">Bi-Annually (Every 6 months)</option>
-                                <option value="annually">Annually</option>
-                            </select>
-                        </div>
-
-                        <div class="calc-form-actions calc-form-full">
-                            <button type="submit" class="btn-primary">Calculate</button>
-                            <button type="button" id="clearForm" class="btn-secondary">Clear</button>
-                        </div>
-                    </form>
-                </div>
-                </div>
-                <aside class="calc-info-sticker">
-                    <h2>Loan Calculator</h2>
-                    <div class="calc-mode-toggle" role="group" aria-label="Calculator type">
-                        <button type="button" id="modeLoan" class="calc-mode-btn active" aria-pressed="true">Loan</button>
-                        <button type="button" id="modeLease" class="calc-mode-btn" aria-pressed="false">Lease</button>
-                    </div>
-                    <p class="calc-sticker-tagline">Calculate your loan payment, interest rate, funding amount, or loan term</p>
-                    <p class="calc-sticker-desc">Toggle Loan or Lease. Fill in at least 3 of: Purchase Price, Payment Amount, Interest Rate, and Loan Term. Optional down payment and residual (lease) reduce the amount financed.</p>
-                    <p class="calc-sticker-embed"><a href="https://www.axiantpartners.com/embed-calculator.html" target="_blank" rel="noopener">Want to embed this calculator on your site?</a> Free for truck dealers, blogs, and industry sites.</p>
-                </aside>
-                </div>
-            </div>
-        </div>
-
-        <p class="embed-powered" id="embedPowered">
-            Powered by <a href="https://www.axiantpartners.com/calculator.html" id="poweredLink" target="_blank" rel="noopener">Axiant Partners</a> · <a href="https://www.axiantpartners.com/match.html" target="_blank" rel="noopener">Get Matched with Lenders</a>
-        </p>
-    </div>
-
-    <div id="calculatorResults" class="calc-results-modal" style="display: none;" aria-hidden="true">
-        <div class="calc-results-modal-backdrop" id="calcModalBackdrop"></div>
-        <div class="calc-results-modal-box">
-            <h2>Calculation Results</h2>
-            <div class="result-card">
-                <div class="result-item" id="resultRowPurchasePrice">
-                    <span class="result-label">Purchase Price:</span>
-                    <span class="result-value" id="resultPurchasePrice">-</span>
-                </div>
-                <div class="result-item calc-result-downpayment" id="resultRowDownPayment">
-                    <span class="result-label">Down Payment:</span>
-                    <span class="result-value" id="resultDownPayment">-</span>
-                </div>
-                <div class="result-item calc-result-residual" id="resultRowResidual" style="display: none;">
-                    <span class="result-label">Residual Value:</span>
-                    <span class="result-value" id="resultResidual">-</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Amount Financed:</span>
-                    <span class="result-value" id="resultLoanAmount">-</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Payment Amount:</span>
-                    <span class="result-value" id="resultPaymentAmount">-</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Interest Rate:</span>
-                    <span class="result-value" id="resultInterestRate">-</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Loan Term:</span>
-                    <span class="result-value" id="resultLoanTerm">-</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Payment Frequency:</span>
-                    <span class="result-value" id="resultPaymentFrequency">-</span>
-                </div>
-                <div class="result-item highlighted">
-                    <span class="result-label">Total Amount Paid:</span>
-                    <span class="result-value" id="resultTotalPaid">-</span>
-                </div>
-                <div class="result-item highlighted">
-                    <span class="result-label">Total Interest:</span>
-                    <span class="result-value" id="resultTotalInterest">-</span>
-                </div>
-            </div>
-            <button type="button" id="newCalculation" class="btn-primary" style="margin-top: 20px;">New Calculation</button>
-        </div>
-    </div>
-
-    <script src="calculator.js"></script>
-    <script>
-        // Append ref param to Powered-by link for tracking when embedded with ?ref=partner-id
-        (function() {
-            var params = new URLSearchParams(window.location.search);
-            var ref = params.get('ref');
-            var link = document.getElementById('poweredLink');
-            if (ref && link) link.href = 'https://www.axiantpartners.com/calculator.html?ref=' + encodeURIComponent(ref);
-        })();
-    </script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <title>Equipment & Truck Payment Calculator | Axiant Partners</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap">
+    <link rel="stylesheet" href="critical.css&ndash;v=20260317">
+    <link rel="stylesheet" href="styles.css&ndash;v=20260317">
+    <style>
+        /* Embed-specific: match main calculator look - card, 2-col, sticker */
+        body { padding: 20px; min-height: auto; background: var(--bg-primary); }
+        .embed-wrap { max-width: 900px; margin: 0 auto; }
+        .embed-calc-form.form-container.calculator-content { position: static !important; inset: auto !important; background: transparent !important; box-shadow: none !important; padding: 0 !important; }
+        .embed-powered { text-align: center; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-secondary); }
+        .embed-powered a { color: var(--accent-color); font-weight: 600; text-decoration: none; }
+        .embed-powered a:hover { text-decoration: underline; }
+        /* Ensure calculator-main uses grid (2-col) like main page */
+        .embed-calc-form .calculator-main { display: grid !important; grid-template-columns: 1fr 260px; gap: 28px; }
+        /* Modal fits embed width, compact layout */
+        body.embed-calc-page .calc-results-modal-box { max-width: 100%; padding: 20px 24px; }
+        body.embed-calc-page .calc-results-modal-box .result-item { padding: 6px 0; }
+        body.embed-calc-page .calc-results-modal-box h2 { font-size: 1.1rem; margin-bottom: 12px; }
+        @media (max-width: 768px) {
+            .embed-calc-form .calculator-main { grid-template-columns: 1fr !important; }
+            .embed-calc-form .calc-info-sticker { order: -1; }
+        }
+        @media (max-width: 480px) {
+            body { padding: 12px; }
+            .embed-wrap { padding: 0; }
+            .calculator-form input, .calculator-form select { font-size: 16px; min-height: 44px; }
+            .calc-mode-btn { min-height: 44px; padding: 10px 14px; }
+        }
+    </style>
+</head>
+<body class="embed-calc-page">
+    <div class="embed-wrap">
+        <div class="form-container calculator-content embed-calc-form">
+            <div class="calculator-container">
+                <div class="calculator-main">
+                <div class="calculator-main-inner">
+                <div class="calculator-form">
+                    <h2>Enter Details</h2>
+                    <form id="calculatorForm" class="calc-form-grid">
+                        <div class="calc-form-row">
+                            <div class="form-group">
+                                <label for="purchasePrice">Purchase / Equipment Price ($)</label>
+                                <input type="text" id="purchasePrice" placeholder="e.g., 100,000">
+                            </div>
+                            <div class="form-group calc-field-downpayment">
+                                <label for="downPayment">Down Payment ($)</label>
+                                <input type="text" id="downPayment" placeholder="e.g., 10,000 or 0" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group calc-field-residual calc-form-full" style="display: none;">
+                            <label for="residualValue">Residual Value ($)</label>
+                            <input type="text" id="residualValue" placeholder="Est. value at end of term, e.g., 25,000" value="">
+                            <small style="color: var(--text-secondary); font-size: 0.85rem;">Estimate of equipment value at end of lease. $0 = $1 buyout (pay full amount).</small>
+                        </div>
+
+                        <div class="calc-form-row">
+                            <div class="form-group">
+                                <label for="paymentAmount">Payment Amount ($)</label>
+                                <input type="text" id="paymentAmount" placeholder="e.g., 2,000">
+                            </div>
+                            <div class="form-group">
+                                <label for="interestRate">Interest Rate (%)</label>
+                                <input type="number" id="interestRate" step="any" min="0" max="100" placeholder="e.g., 5.99">
+                            </div>
+                        </div>
+
+                        <div class="calc-form-row">
+                            <div class="form-group">
+                                <label for="loanTerm">Loan Term</label>
+                                <input type="number" id="loanTerm" step="1" min="1" placeholder="e.g., 60">
+                            </div>
+                            <div class="form-group">
+                                <label for="termUnit">Term Unit</label>
+                                <select id="termUnit">
+                                    <option value="months">Months</option>
+                                    <option value="years">Years</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group calc-form-full">
+                            <label for="paymentFrequency">Payment Frequency</label>
+                            <select id="paymentFrequency">
+                                <option value="monthly">Monthly</option>
+                                <option value="quarterly">Quarterly</option>
+                                <option value="biannually">Bi-Annually (Every 6 months)</option>
+                                <option value="annually">Annually</option>
+                            </select>
+                        </div>
+
+                        <div class="calc-form-actions calc-form-full">
+                            <button type="submit" class="btn-primary">Calculate</button>
+                            <button type="button" id="clearForm" class="btn-secondary">Clear</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+                <aside class="calc-info-sticker">
+                    <h2>Loan Calculator</h2>
+                    <div class="calc-mode-toggle" role="group" aria-label="Calculator type">
+                        <button type="button" id="modeLoan" class="calc-mode-btn active" aria-pressed="true">Loan</button>
+                        <button type="button" id="modeLease" class="calc-mode-btn" aria-pressed="false">Lease</button>
+                    </div>
+                    <p class="calc-sticker-tagline">Calculate your loan payment, interest rate, funding amount, or loan term</p>
+                    <p class="calc-sticker-desc">Toggle Loan or Lease. Fill in at least 3 of: Purchase Price, Payment Amount, Interest Rate, and Loan Term. Optional down payment and residual (lease) reduce the amount financed.</p>
+                    <p class="calc-sticker-embed"><a href="https://www.axiantpartners.com/embed-calculator.html" target="_blank" rel="noopener">Want to embed this calculator on your site?</a> Free for truck dealers, blogs, and industry sites.</p>
+                </aside>
+                </div>
+            </div>
+        </div>
+
+        <p class="embed-powered" id="embedPowered">
+            Powered by <a href="https://www.axiantpartners.com/calculator.html" id="poweredLink" target="_blank" rel="noopener">Axiant Partners</a> · <a href="https://www.axiantpartners.com/match.html" target="_blank" rel="noopener">Get Matched with Lenders</a>
+        </p>
+    </div>
+
+    <div id="calculatorResults" class="calc-results-modal" style="display: none;" aria-hidden="true">
+        <div class="calc-results-modal-backdrop" id="calcModalBackdrop"></div>
+        <div class="calc-results-modal-box">
+            <h2>Calculation Results</h2>
+            <div class="result-card">
+                <div class="result-item" id="resultRowPurchasePrice">
+                    <span class="result-label">Purchase Price:</span>
+                    <span class="result-value" id="resultPurchasePrice">-</span>
+                </div>
+                <div class="result-item calc-result-downpayment" id="resultRowDownPayment">
+                    <span class="result-label">Down Payment:</span>
+                    <span class="result-value" id="resultDownPayment">-</span>
+                </div>
+                <div class="result-item calc-result-residual" id="resultRowResidual" style="display: none;">
+                    <span class="result-label">Residual Value:</span>
+                    <span class="result-value" id="resultResidual">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Amount Financed:</span>
+                    <span class="result-value" id="resultLoanAmount">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Payment Amount:</span>
+                    <span class="result-value" id="resultPaymentAmount">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Interest Rate:</span>
+                    <span class="result-value" id="resultInterestRate">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Loan Term:</span>
+                    <span class="result-value" id="resultLoanTerm">-</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Payment Frequency:</span>
+                    <span class="result-value" id="resultPaymentFrequency">-</span>
+                </div>
+                <div class="result-item highlighted">
+                    <span class="result-label">Total Amount Paid:</span>
+                    <span class="result-value" id="resultTotalPaid">-</span>
+                </div>
+                <div class="result-item highlighted">
+                    <span class="result-label">Total Interest:</span>
+                    <span class="result-value" id="resultTotalInterest">-</span>
+                </div>
+            </div>
+            <button type="button" id="newCalculation" class="btn-primary" style="margin-top: 20px;">New Calculation</button>
+        </div>
+    </div>
+
+    <script src="calculator.js"></script>
+    <script>
+        // Append ref param to Powered-by link for tracking when embedded with ?ref=partner-id
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var ref = params.get('ref');
+            var link = document.getElementById('poweredLink');
+            if (ref && link) link.href = 'https://www.axiantpartners.com/calculator.html&ndash;ref=' + encodeURIComponent(ref);
+        })();
+    </script>
+</body>
+</html>
