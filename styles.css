@@ -3839,8 +3839,6 @@ a.link-view-all:hover {
     border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 24px 32px;
-    max-height: calc(100vh - 160px);
-    overflow-y: auto;
     box-shadow: 0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
@@ -3852,7 +3850,7 @@ a.link-view-all:hover {
     background: rgba(45, 127, 184, 0.06);
     border: 2px solid var(--border-color);
     border-radius: 10px;
-    padding: 16px 20px;
+    padding: 20px 24px;
 }
 
 .match-info-sticker h2 {
@@ -3860,26 +3858,47 @@ a.link-view-all:hover {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin: 0 0 12px 0;
+    margin: 0 0 18px 0;
 }
 
 .match-info-sticker p {
     font-size: 0.95rem;
     color: var(--text-secondary);
+    margin: 0 0 16px 0;
+}
+
+.match-info-sticker p:last-of-type {
+    margin-bottom: 0;
+}
+
+.match-info-sticker .match-proof {
+    font-weight: 600;
+    color: var(--text-primary);
     line-height: 1.5;
-    margin: 0 0 12px 0;
+    margin: 0 0 18px 0;
 }
 
 .match-info-sticker ul {
-    margin: 0 0 12px 0;
+    margin: 0 0 18px 0;
     padding-left: 1.15rem;
     font-size: 0.9rem;
     color: var(--text-secondary);
     line-height: 1.5;
 }
 
+.match-info-sticker ul li {
+    margin-bottom: 6px;
+}
+
+.match-info-sticker .match-response-time {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
 .match-info-sticker .match-sticker-cta {
-    margin-top: 8px;
+    margin-top: 20px;
 }
 
 .match-info-sticker .match-sticker-cta .btn-primary {

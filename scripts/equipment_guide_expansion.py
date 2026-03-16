@@ -37,7 +37,7 @@ def build_cta_box(name):
     return f'''
             <div class="apply-cta-inline" style="background:linear-gradient(135deg, var(--bg-secondary) 0%, rgba(45,127,184,0.08) 100%); border:1px solid var(--border-color); border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; text-align:center;">
                 <p style="margin:0 0 0.75rem; font-weight:600;">Ready to apply for {name} financing?</p>
-                <p style="margin:0 0 1rem; font-size:0.95rem;">Submit once—we match you with lenders. Typically 24–48 hour response.</p>
+                <p style="margin:0 0 1rem; font-size:0.95rem;">Submit once—we match you with lenders. Same-day response.</p>
                 <a href="/match.html" class="btn-primary">Get Matched for {name} Financing</a>
             </div>
 '''
@@ -47,7 +47,7 @@ def build_expansion_sections(name):
     """Content to add ~500 words - When to Apply, What to Have Ready, Why Finance vs Cash"""
     return f'''
             <h2>When to Apply for {name} Financing</h2>
-            <p>Apply when you have a clear equipment need, a written quote from your dealer or vendor, and financials that show your business can support the payment. The best time to apply is <strong>before</strong> you need the equipment—approval often takes 1–5 days, but having documents ready speeds the process. If you're replacing aging equipment, expanding capacity, or fulfilling a new contract, applying now gives you time to compare offers without pressure. Don't wait until equipment fails or a project starts; early application improves your leverage and terms. <a href="/match.html">Axiant Partners</a> matches businesses with lenders—submit once and receive offers typically within 24–48 hours.</p>
+            <p>Apply when you have a clear equipment need, a written quote from your dealer or vendor, and financials that show your business can support the payment. The best time to apply is <strong>before</strong> you need the equipment—approval often takes 1–5 days, but having documents ready speeds the process. If you're replacing aging equipment, expanding capacity, or fulfilling a new contract, applying now gives you time to compare offers without pressure. Don't wait until equipment fails or a project starts; early application improves your leverage and terms. <a href="/match.html">Axiant Partners</a> matches businesses with lenders—submit once and hear from us the same day.</p>
 
             <h2>What to Have Ready Before You Apply</h2>
             <p>Gather these before starting your application: <strong>3–6 months of business bank statements</strong>, last year's tax returns (business and personal if required), a recent profit and loss statement, your <strong>equipment quote or proposal</strong>, and basic business information (EIN, formation date, ownership). Having these ready reduces back-and-forth and speeds approval. If you have existing equipment loans or leases, have those statements available. Lenders may also ask for a voided check for ACH. The more organized your documentation, the faster you'll get funded. Use our <a href="/calculator.html">financing calculator</a> to estimate payments before you apply.</p>
