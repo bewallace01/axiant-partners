@@ -41,7 +41,6 @@
         const serviceLinks = [
             { file: 'sba-loans.html', label: 'SBA Loans' },
             { file: 'equipment-financing.html', label: 'Equipment Financing' },
-            { file: 'equipment.html', label: 'Equipment by Type' },
             { file: 'business-line-of-credit.html', label: 'Business Line of Credit' },
             { file: 'working-capital-loans.html', label: 'Working Capital Loans' },
             { file: 'business-term-loans.html', label: 'Business Term Loans' },
@@ -212,12 +211,6 @@
         topbar.className = 'mobile-menu-topbar';
         topbar.innerHTML = '<span class="mobile-menu-title">Menu</span><button type="button" class="mobile-menu-close" aria-label="Close menu">&times;</button>';
         navLinks.insertBefore(topbar, navLinks.firstChild);
-
-        var equipmentCta = document.createElement('a');
-        equipmentCta.className = 'mobile-nav-equipment-cta';
-        equipmentCta.setAttribute('href', '/equipment.html');
-        equipmentCta.innerHTML = '<span class="mobile-nav-equipment-icon" aria-hidden="true">&#9881;</span><span class="mobile-nav-equipment-text">Equipment by Type</span><span class="mobile-nav-equipment-arrow" aria-hidden="true">&rarr;</span>';
-        navLinks.insertBefore(equipmentCta, topbar.nextSibling);
 
         topbar.querySelector('.mobile-menu-close').addEventListener('click', function() {
             document.body.classList.remove('mobile-nav-open');
