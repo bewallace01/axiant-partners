@@ -142,12 +142,14 @@
         const primaryNav = document.querySelector('.nav-links');
         if (!primaryNav) return;
 
-        // Remove ALL Referral links everywhere to prevent duplicates
-        document.querySelectorAll('.nav-links a[href$="referral.html"]').forEach(function(link) {
-            link.remove();
+        // Remove every Referral link in any .nav-links (match any href that points to referral page)
+        document.querySelectorAll('.nav-links a').forEach(function(a) {
+            var href = (a.getAttribute('href') || '').toLowerCase();
+            var isReferral = href.indexOf('referral.html') !== -1 || href.endsWith('/referral');
+            if (isReferral) a.remove();
         });
 
-        // Create exactly one Referral link
+        // Create exactly one Referral link and insert after Contact
         const referralLink = document.createElement('a');
         referralLink.setAttribute('href', '/referral.html');
         referralLink.textContent = 'Referral';
