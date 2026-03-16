@@ -613,6 +613,15 @@ header {
                 url('https://www.axiantpartners.com/assets/referral-hero.jpg') center/cover no-repeat;
 }
 
+/* Hero list bullets: show checkmark instead of ? (encoding/display fix) */
+.ef-hero-bullets li::before,
+.btl-hero-bullets li::before,
+.mca-hero-bullets li::before,
+.wcl-hero-bullets li::before,
+.bloc-hero-bullets li::before {
+    content: '\2713' !important;
+}
+
 /* Match Page - dedicated hero image */
 .match-hero-wrap {
     position: relative;
@@ -3831,7 +3840,7 @@ a.link-view-all:hover {
 
 .match-container {
     width: 100%;
-    max-width: min(1600px, 98vw);
+    max-width: 1200px;
     margin: 0 auto;
     min-width: 0;
 }
