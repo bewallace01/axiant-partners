@@ -4311,7 +4311,6 @@ a.link-view-all:hover {
         min-width: 0;
     }
     .match-info-sticker {
-        order: -1;
         padding: 16px 18px;
         min-width: 0;
     }

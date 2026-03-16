@@ -77,8 +77,6 @@ html[data-theme="dark"] .main-nav .nav-logo-dark{display:block!important;visibil
 .nav-links a[href="calculator.html"]{margin-left:16px;padding-left:18px;border-left:1px solid var(--border-color)}
 .theme-toggle{background:var(--bg-card);border:2px solid var(--border-color);border-radius:50px;width:52px;height:28px;position:relative;cursor:pointer;transition:all .3s ease;display:flex;align-items:center;padding:4px;margin-left:12px}
 .theme-toggle-mobile{display:none}
-/* Theme locked to light site-wide so all users see the same layout */
-.theme-toggle,.theme-toggle-mobile{display:none!important;visibility:hidden!important}
 .theme-toggle:hover{border-color:var(--accent-color);box-shadow:0 0 10px rgba(45,127,184,.3)}
 .theme-toggle::before{content:'';position:absolute;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#fbbf24,#f59e0b);transition:all .3s ease;box-shadow:0 2px 6px rgba(0,0,0,.2)}
 [data-theme="dark"] .theme-toggle::before{transform:translateX(24px);background:linear-gradient(135deg,#3b82f6,#60a5fa)}
