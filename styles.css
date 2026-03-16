@@ -613,28 +613,10 @@ header {
                 url('https://www.axiantpartners.com/assets/referral-hero.jpg') center/cover no-repeat;
 }
 
-/* Hero list bullets: use checkmark so mobile never shows ? (fix encoding/syntax) */
-.ef-hero-bullets li::before,
-.btl-hero-bullets li::before,
-.mca-hero-bullets li::before,
-.wcl-hero-bullets li::before,
-.bloc-hero-bullets li::before {
-    content: '\2713' !important;
-}
-
 /* Match Page - dedicated hero image */
 .match-hero-wrap {
     position: relative;
     min-height: 100vh;
-}
-
-/* Keep get-matched/match pages at full text size (undo desktop zoom-out on these pages) */
-.match-hero-wrap,
-.match-hero-wrap .match-container,
-.match-hero-wrap .match-main,
-.match-hero-wrap .match-form-area,
-.match-hero-wrap .match-info-sticker {
-    font-size: 16px;
 }
 
 .match-hero-bg {
@@ -3849,7 +3831,7 @@ a.link-view-all:hover {
 
 .match-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: min(1600px, 98vw);
     margin: 0 auto;
     min-width: 0;
 }
