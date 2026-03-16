@@ -748,21 +748,28 @@
             bottom: 0;
             left: 0;
             right: 0;
+            width: 100%;
             z-index: 999;
             background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent-color) 100%);
             color: #fff;
-            padding: 0.65rem 1rem;
+            padding: 0.65rem;
+            padding-inline: max(1rem, env(safe-area-inset-left))  max(1rem, env(safe-area-inset-right));
+            padding-bottom: max(0.65rem, env(safe-area-inset-bottom));
             display: none;
             align-items: center;
             justify-content: center;
             gap: 0.75rem;
             box-shadow: 0 -4px 20px rgba(30, 58, 95, 0.35);
+            box-sizing: border-box;
+            max-width: 100vw;
+            overflow: hidden;
         }
         .sticky-cta-bar.is-visible { display: flex; }
-        .sticky-cta-bar-text { font-weight: 600; font-size: 0.9rem; }
+        .sticky-cta-bar-text { font-weight: 600; font-size: 0.9rem; flex-shrink: 0; }
         .sticky-cta-bar a {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             padding: 0.5rem 1rem;
             background: #fff;
             color: var(--accent-dark);
@@ -771,13 +778,22 @@
             text-decoration: none;
             font-size: 0.9rem;
             white-space: nowrap;
+            flex-shrink: 0;
         }
         .sticky-cta-bar a:hover { filter: brightness(0.98); }
-        body.sticky-cta-visible .landing-main { padding-bottom: 4rem; }
+        body.sticky-cta-visible .landing-main { padding-bottom: 4.5rem; }
         @media (max-width: 600px) {
-            .sticky-cta-bar { flex-wrap: wrap; padding: 0.6rem 0.75rem; gap: 0.5rem; }
-            .sticky-cta-bar-text { font-size: 0.85rem; }
-            body.sticky-cta-visible .landing-main { padding-bottom: 3.5rem; }
+            .sticky-cta-bar {
+                flex-wrap: wrap;
+                padding: 0.6rem;
+                padding-inline: max(0.75rem, env(safe-area-inset-left)) max(0.75rem, env(safe-area-inset-right));
+                padding-bottom: max(0.6rem, env(safe-area-inset-bottom));
+                gap: 0.5rem;
+                justify-content: center;
+            }
+            .sticky-cta-bar-text { font-size: 0.8rem; white-space: normal; text-align: center; }
+            .sticky-cta-bar a { min-width: 0; padding: 0.5rem 0.875rem; font-size: 0.9rem; }
+            body.sticky-cta-visible .landing-main { padding-bottom: 5rem; }
         }
 
         /* Hero primary CTA micro-copy */
@@ -858,7 +874,7 @@
             background: linear-gradient(180deg, rgba(30, 41, 59, 0.72) 0%, rgba(15, 23, 42, 0.72) 100%);
         }
 
-        /* Tablet: stack hero, keep same look */
+        /* Tablet: stack hero and force single-column steps/benefits on homepage */
         @media (max-width: 980px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -876,6 +892,17 @@
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 0.85rem;
             }
+
+            .landing-main .how-it-works-flowchart {
+                grid-template-columns: 1fr !important;
+            }
+            .landing-main .how-it-works-flowchart .step-card::after {
+                display: none !important;
+            }
+            .landing-main .benefits-row-6,
+            .landing-main .benefits-compact {
+                grid-template-columns: 1fr !important;
+            }
         }
 
         /* Mobile: single column, consistent padding, no overflow */
@@ -885,6 +912,12 @@
                 max-width: 100%;
                 padding: 1.5rem 1rem 3rem;
                 box-sizing: border-box;
+                overflow-x: hidden;
+            }
+
+            .landing-main .form-container,
+            .landing-main #about-axiant {
+                min-width: 0;
                 overflow-x: hidden;
             }
 
@@ -907,18 +940,38 @@
                 padding: 1.5rem 0;
             }
 
+            /* Force single column on mobile (override styles.css) */
             .landing-main .how-it-works-flowchart {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
                 gap: 1rem;
                 margin-top: 1.25rem;
             }
 
             .landing-main .how-it-works-flowchart .step-card::after {
-                display: none;
+                display: none !important;
+            }
+
+            .landing-main .benefits-row-6,
+            .landing-main .benefits-compact {
+                grid-template-columns: 1fr !important;
+                gap: 1rem;
+            }
+
+            .landing-main .benefits-row-6 .benefit-card,
+            .landing-main .benefits-compact .benefit-card {
+                min-width: 0;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+            }
+            .landing-main .benefits-row-6 .benefit-card h3,
+            .landing-main .benefits-compact .benefit-card h3 {
+                white-space: normal;
+                word-break: normal;
             }
 
             .landing-main .how-it-works-flowchart .step-card {
                 padding: 1.25rem 1rem;
+                min-width: 0;
             }
 
             .landing-main .how-it-works-flowchart .step-card h3 {
