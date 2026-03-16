@@ -289,35 +289,18 @@
     }
 
     function enhanceThemeToggle() {
-        const root = document.documentElement;
-        const savedTheme = localStorage.getItem('theme');
-        root.setAttribute('data-theme', savedTheme === 'dark' ? 'dark' : 'light');
+        var root = document.documentElement;
+        // Force light theme for everyone so all users see the same layout and branding.
+        root.setAttribute('data-theme', 'light');
+        try { localStorage.removeItem('theme'); } catch (e) {}
+        syncNavLogosForTheme('light');
 
-        syncNavLogosForTheme(root.getAttribute('data-theme'));
-
-        const toggles = Array.from(document.querySelectorAll('.theme-toggle'));
+        var toggles = Array.from(document.querySelectorAll('.theme-toggle'));
         if (!toggles.length) return;
-
-        const syncPressedState = function(theme) {
-            toggles.forEach(function(toggle) {
-                toggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
-            });
-        };
-
-        syncPressedState(root.getAttribute('data-theme'));
         toggles.forEach(function(toggle) {
-            if (!toggle || toggle.dataset.themeEnhanced === '1') return;
-            toggle.dataset.themeEnhanced = '1';
-            toggle.addEventListener('click', function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                root.setAttribute('data-theme', nextTheme);
-                localStorage.setItem('theme', nextTheme);
-                syncPressedState(nextTheme);
-                syncNavLogosForTheme(nextTheme);
-            });
+            if (toggle) toggle.setAttribute('aria-pressed', 'false');
         });
+        // Do not attach theme-switch handlers; theme is locked to light for consistency.
     }
 
     function enhanceMobileMenuBehavior() {
