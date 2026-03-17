@@ -7850,9 +7850,9 @@ a.no-wrap-link {
         margin-bottom: 12px;
     }
 
-    /* Prevent horizontal scroll */
+    /* Prevent horizontal scroll; use clip (not hidden) so position:sticky works on article sidebars */
     body {
-        overflow-x: hidden;
+        overflow-x: clip;
         margin: 0;
         padding: 0;
     }
@@ -8561,8 +8561,12 @@ html {
 }
 
 /* Premium blog post experience - 3 cols: Article Guide | Content | On This Page */
-.form-container.blog-post-content {
+/* Ensure no ancestor clips so position:sticky works; sidebars stick as you scroll */
+.container:has(.form-container.blog-post-content) {
     overflow: visible;
+}
+.form-container.blog-post-content {
+    overflow: visible !important;
 }
 .blog-post-shell {
     display: grid;
@@ -8570,7 +8574,7 @@ html {
     gap: clamp(20px, 3vw, 40px);
     align-items: start;
     margin-top: 1.2rem;
-    overflow: visible;
+    overflow: visible !important;
 }
 .blog-post-shell.blog-post-shell--no-toc {
     grid-template-columns: 300px minmax(0, 1fr);
@@ -8603,12 +8607,15 @@ html {
 
 .blog-post-rail-left,
 .blog-post-rail-right {
+    position: -webkit-sticky;
     position: sticky;
     top: 126px;
     display: grid;
     gap: 0.85rem;
     align-self: start;
-    min-width: 0;
+    min-width: 260px;
+    width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
     overflow-y: visible;
 }
@@ -8643,6 +8650,7 @@ html {
 }
 
 .blog-post-rail {
+    position: -webkit-sticky;
     position: sticky;
     top: 126px;
     display: grid;
@@ -8737,7 +8745,7 @@ html {
     color: var(--accent-dark);
 }
 
-/* Article Guide (meta) card: never cut off summary—scroll if needed */
+/* Article Guide (meta) card: scroll if summary is long */
 .blog-rail-card.blog-rail-meta {
     max-height: calc(100vh - 150px);
     display: flex;
@@ -8751,7 +8759,7 @@ html {
     -webkit-overflow-scrolling: touch;
 }
 
-/* On This Page card: never cut off, scroll if needed, compact links when many */
+/* On This Page card: scroll if many links */
 .blog-rail-card.blog-rail-toc {
     max-height: calc(100vh - 150px);
     display: flex;
@@ -8767,6 +8775,7 @@ html {
     flex: 1;
     min-height: 0;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .blog-post-toc-list {
@@ -8830,13 +8839,16 @@ html {
 }
 
 /* Industry page: main + sticky right rail (On This Page) - wider rail now that summary is removed */
+.container:has(.industry-page-shell) {
+    overflow: visible;
+}
 .industry-page-shell {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 360px;
     gap: clamp(20px, 3vw, 40px);
     align-items: start;
     margin-top: 1.2rem;
-    overflow: visible;
+    overflow: visible !important;
 }
 
 .industry-page-main {
@@ -8849,6 +8861,7 @@ html {
 }
 
 .industry-page-rail {
+    position: -webkit-sticky;
     position: sticky;
     top: 126px;
     display: grid;
