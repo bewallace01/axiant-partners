@@ -4065,9 +4065,32 @@ a.link-view-all:hover {
 
 /* Ensure agree checkbox is visible and clickable on match/get-matched forms */
 .match-form-area .checkbox-group input[type="checkbox"] {
-    min-width: 18px;
-    min-height: 18px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
     flex-shrink: 0;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--bg-secondary);
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: 12px;
+    margin-top: 2px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.match-form-area .checkbox-group input[type="checkbox"]:checked {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 10l4 4 8-8'/%3E%3C/svg%3E");
+    background-size: contain;
+}
+.match-form-area .checkbox-group input[type="checkbox"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(45, 127, 184, 0.25);
 }
 
 .match-form-area .btn-primary {
