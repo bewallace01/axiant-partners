@@ -1,0 +1,27 @@
+---
+description: SEO, GEO, and AEO optimization for titles and meta descriptions
+globs: "**/*.html"
+alwaysApply: false
+---
+
+# SEO, GEO & AEO for Titles and Meta Descriptions
+
+When writing or editing `<title>` and `<meta name="description">` (and og:title / og:description where present), optimize for all three:
+
+## SEO
+- **Title**: 35–70 characters. Primary keyword near the front. Unique per page. Differentiate from H1 (don’t mirror).
+- **Meta description**: 140–160 characters. Primary keyword in the first phrase. Unique per page. Include a clear benefit or CTA (e.g. “How to qualify,” “Compare options,” “Apply now”).
+
+## GEO
+- Add audience or geographic signal where it fits: “for U.S. contractors,” “nationwide,” “for [industry],” “for [type of business].”
+- Keeps intent clear for local and vertical search.
+
+## AEO (Answer Engine Optimization)
+- Phrase so the description can work as a direct answer: “What is X? …”, “How to get X: …”, “When to use X: …”.
+- Use concrete, snippet-friendly phrasing (e.g. “6 scenarios” instead of only vague “explore scenarios”).
+
+## Examples (meta description)
+- **Before (length-only fix):** “Alignment rack financing for auto shops. Loans, leases, SBA. Fast approvals, flexible down payments.”
+- **After (SEO/GEO/AEO):** “Alignment rack financing for auto shops: loans, leases, and SBA. How to finance wheel alignment systems. Fast approvals, flexible terms nationwide.”
+
+Apply this bar to every new or edited title and meta description on the site.
