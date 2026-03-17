@@ -270,6 +270,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const leadForm = document.getElementById('leadForm');
     const contactForm = document.getElementById('contactForm');
 
+    // Fire Google Ads conversion only on equipment get-matched page
+    function fireEquipmentConversionIfApplicable() {
+        if (window.location.pathname.indexOf('get-matched/equipment') !== -1 && typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-18021105450/sHHDCNHMioocEKr-kJFD',
+                'value': 1.0,
+                'currency': 'USD'
+            });
+        }
+    }
+
     function handleContactSubmit(e) {
         e.preventDefault();
         if (typeof emailjs === 'undefined') {
@@ -501,6 +512,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     }
                 }
+                fireEquipmentConversionIfApplicable();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 // Both emails failed or Axiant failed
@@ -552,6 +564,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             }
+            fireEquipmentConversionIfApplicable();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         })
         .catch(function(error) {
@@ -595,6 +608,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     }
                 }
+                fireEquipmentConversionIfApplicable();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 console.error('Email sending failed:', results[0].reason);
