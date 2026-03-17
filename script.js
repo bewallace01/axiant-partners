@@ -297,7 +297,10 @@ document.addEventListener('DOMContentLoaded', function() {
         Promise.allSettled([email1, email2])
         .then(function(results) {
             if (results[0].status === 'fulfilled') {
-                window.location.href = '/thank-you/';
+                document.getElementById('contactForm').style.display = 'none';
+                var ty = document.getElementById('contactThankYou');
+                if (ty) ty.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 alert('Sorry, there was an error sending your message. Please email us directly at alex@axiantpartners.com or try again later.');
             }
@@ -479,9 +482,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('This might be due to EmailJS template configuration. Make sure the template uses {{to_email}} variable.');
             }
             
-            // Redirect to thank-you page on success (for Google Ads conversion tracking)
+            // Show success message even if one email fails (as long as Axiant email succeeds)
             if (axiantResult.status === 'fulfilled') {
-                window.location.href = '/thank-you/?ref=' + encodeURIComponent(referenceNumber);
+                if (isLeadForm) {
+                    var lf = document.getElementById('leadForm');
+                    var lfTy = document.getElementById('leadFormThankYou');
+                    if (lf) lf.style.display = 'none';
+                    if (lf && lf.nextElementSibling) lf.nextElementSibling.style.display = 'none';
+                    if (lfTy) lfTy.style.display = 'block';
+                } else {
+                    document.getElementById('applicationForm').style.display = 'none';
+                    var ty = document.getElementById('thankYouContainer');
+                    if (ty) {
+                        ty.style.display = ty.classList.contains('match-thank-you') ? 'flex' : 'block';
+                        if (ty.classList.contains('match-thank-you')) {
+                            ty.setAttribute('aria-hidden', 'false');
+                            document.body.style.overflow = 'hidden';
+                        }
+                    }
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 // Both emails failed or Axiant failed
                 let errorMessage = 'Sorry, there was an error submitting your application. ';
@@ -515,7 +535,24 @@ document.addEventListener('DOMContentLoaded', function() {
         Promise.all([email1, email2])
         .then(function(responses) {
             console.log('Both emails sent successfully!', responses);
-            window.location.href = '/thank-you/?ref=' + encodeURIComponent(referenceNumber);
+            if (isLeadForm) {
+                var lf = document.getElementById('leadForm');
+                var lfTy = document.getElementById('leadFormThankYou');
+                if (lf) lf.style.display = 'none';
+                if (lf && lf.nextElementSibling) lf.nextElementSibling.style.display = 'none';
+                if (lfTy) lfTy.style.display = 'block';
+            } else {
+                document.getElementById('applicationForm').style.display = 'none';
+                var ty = document.getElementById('thankYouContainer');
+                if (ty) {
+                    ty.style.display = ty.classList.contains('match-thank-you') ? 'flex' : 'block';
+                    if (ty.classList.contains('match-thank-you')) {
+                        ty.setAttribute('aria-hidden', 'false');
+                        document.body.style.overflow = 'hidden';
+                    }
+                }
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         })
         .catch(function(error) {
             console.error('Email sending failed:', error);
@@ -541,7 +578,24 @@ document.addEventListener('DOMContentLoaded', function() {
             var axiantOk = results[0].status === 'fulfilled';
             if (axiantOk) {
                 console.log('Application email sent successfully!');
-                window.location.href = '/thank-you/?ref=' + encodeURIComponent(referenceNumber);
+                if (isLeadForm) {
+                    var lf = document.getElementById('leadForm');
+                    var lfTy = document.getElementById('leadFormThankYou');
+                    if (lf) lf.style.display = 'none';
+                    if (lf && lf.nextElementSibling) lf.nextElementSibling.style.display = 'none';
+                    if (lfTy) lfTy.style.display = 'block';
+                } else {
+                    document.getElementById('applicationForm').style.display = 'none';
+                    var ty = document.getElementById('thankYouContainer');
+                    if (ty) {
+                        ty.style.display = ty.classList.contains('match-thank-you') ? 'flex' : 'block';
+                        if (ty.classList.contains('match-thank-you')) {
+                            ty.setAttribute('aria-hidden', 'false');
+                            document.body.style.overflow = 'hidden';
+                        }
+                    }
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 console.error('Email sending failed:', results[0].reason);
                 var err = results[0].reason && results[0].reason.error ? results[0].reason.error : {};
