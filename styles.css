@@ -4063,6 +4063,13 @@ a.link-view-all:hover {
     font-size: 0.9rem;
 }
 
+/* Ensure agree checkbox is visible and clickable on match/get-matched forms */
+.match-form-area .checkbox-group input[type="checkbox"] {
+    min-width: 18px;
+    min-height: 18px;
+    flex-shrink: 0;
+}
+
 .match-form-area .btn-primary {
     padding: 12px 24px;
     font-size: 1rem;
