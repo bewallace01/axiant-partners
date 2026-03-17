@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) - Thank you page for conversion tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZNSHH6NN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HZNSHH6NN0');
+      gtag('config', 'AW-18021105450');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for your submission. A member of our team will contact you shortly.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://www.axiantpartners.com/thank-you/">
+    <title>Thank You | Axiant Partners</title>
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/critical.css?v=20260317">
+    <link rel="stylesheet" href="/styles.css?v=20260317" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/styles.css?v=20260317"></noscript>
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <a href="/" aria-label="Axiant Partners Home"><img src="/logo-horizontal-transparent.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-light"><img src="/Axiant_light_logo.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-dark"><span>Axiant Partners</span></a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="/match.html">Find Match</a>
+                <a href="/index.html">Home</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Services</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="/sba-loans.html">SBA Loans</a>
+                        <a href="/equipment-financing.html">Equipment Financing</a>
+                        <a href="/business-line-of-credit.html">Business Line of Credit</a>
+                        <a href="/working-capital-loans.html">Working Capital Loans</a>
+                        <a href="/business-term-loans.html">Business Term Loans</a>
+                        <a href="/commercial-real-estate-loans.html">Commercial Real Estate</a>
+                        <a href="/fix-and-flip.html">Fix and Flip</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Industries</button>
+                    <div class="nav-dropdown-menu"></div>
+                </div>
+                <a href="/calculator.html">Calculator</a>
+                <a href="/contact.html">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+            </div>
+        </nav>
+
+        <section class="contact-hero-wrap">
+            <header class="contact-hero" aria-hidden="true"></header>
+            <div class="form-container contact-content contact-content-hero">
+                <div class="contact-container">
+                    <div class="contact-main">
+                        <div class="contact-form-area contact-thank-you">
+                            <div class="success-icon"></div>
+                            <h1>Thank You!</h1>
+                            <p>Your application was submitted successfully. A member of our team will contact you shortly.</p>
+                            <p id="refDisplay" class="thank-you-ref" style="display: none; margin-top: 1rem;"><strong>Application Reference:</strong> <span id="referenceNumber"></span></p>
+                            <p class="thank-you-cta"><a href="/match.html" class="btn-primary">Submit Another Application</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="/privacy-policy.html">Privacy Policy</a> | <a href="/terms-and-conditions.html">Terms and Conditions</a> | <a href="/vendors.html">Vendors</a> | <a href="/embed-calculator.html">Embed Calculator</a></p>
+    </footer>
+
+    <script>
+        // Show reference number if passed in URL
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var ref = params.get('ref');
+            if (ref) {
+                var el = document.getElementById('referenceNumber');
+                var container = document.getElementById('refDisplay');
+                if (el && container) {
+                    el.textContent = ref;
+                    container.style.display = 'block';
+                }
+            }
+        })();
+    </script>
+    <script src="/language-switcher.js?v=20260317" defer></script>
+</body>
+</html>
