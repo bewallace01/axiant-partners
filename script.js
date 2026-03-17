@@ -513,6 +513,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
                 fireEquipmentConversionIfApplicable();
+                if (typeof gtag_report_conversion === 'function') gtag_report_conversion();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 // Both emails failed or Axiant failed
@@ -609,6 +610,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
                 fireEquipmentConversionIfApplicable();
+                if (typeof gtag_report_conversion === 'function') gtag_report_conversion();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 console.error('Email sending failed:', results[0].reason);

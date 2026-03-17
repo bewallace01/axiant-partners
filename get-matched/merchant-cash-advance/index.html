@@ -4,6 +4,21 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZNSHH6NN0"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-HZNSHH6NN0');
       gtag('config', 'AW-18021105450');</script>
+    <!-- Event snippet for Equipment Finance Leads conversion page -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-18021105450/2V_0CNfK1oocEKr-kJFD',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
     <meta name="google-site-verification" content="r6yyqb6FxWxmJGmr4GBVwPzRZ9flVFuz8Vt6CUkbarc" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
