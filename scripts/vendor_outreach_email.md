@@ -1,3 +1,23 @@
+## Quick setup (Alex / Outlook)
+
+1. Copy the example env script and add your password (App Password if MFA is on):
+   ```powershell
+   Copy-Item .\scripts\load-outlook-email-env.ps1.example .\scripts\load-outlook-email-env.ps1
+   notepad .\scripts\load-outlook-email-env.ps1
+   ```
+   Replace `PASTE_APP_PASSWORD_OR_PASSWORD_HERE` only. The example uses `alex@axiantpartners.com` — change the email lines if your mailbox is different.
+
+2. Each time you open a new PowerShell window in the project:
+   ```powershell
+   cd "path\to\axiant-partners-main"
+   . .\scripts\load-outlook-email-env.ps1
+   python .\scripts\send_vendor_outreach.py --input "C:\path\to\recipients.txt"
+   ```
+
+`load-outlook-email-env.ps1` is **gitignored** so your password is never committed.
+
+---
+
 ## Vendor outreach email (Python sender)
 
 This repo includes `scripts/send_vendor_outreach.py`, a small SMTP email sender designed for **controlled outreach**:
@@ -28,7 +48,22 @@ $env:AXIANT_FROM_EMAIL="YOUR_EMAIL@yourdomain.com"
 $env:AXIANT_REPLY_TO="YOUR_EMAIL@yourdomain.com"
 ```
 
-For Microsoft 365, your host/port may differ (commonly `smtp.office365.com:587`).
+**Outlook / Microsoft 365:**
+
+```powershell
+$env:AXIANT_SMTP_HOST="smtp.office365.com"
+$env:AXIANT_SMTP_PORT="587"
+$env:AXIANT_SMTP_USER="yourname@yourdomain.com"
+$env:AXIANT_SMTP_PASS="YOUR_PASSWORD_OR_APP_PASSWORD"
+$env:AXIANT_SMTP_STARTTLS="1"
+
+$env:AXIANT_FROM_EMAIL="yourname@yourdomain.com"
+$env:AXIANT_REPLY_TO="yourname@yourdomain.com"
+```
+
+- Use your **full Outlook/Microsoft 365 email** as the user and from address.
+- **Password:** If your account has **multi-factor authentication (MFA)** turned on, you must use an **App Password**, not your normal login password. To create one: Microsoft 365 → Security → Advanced security → App passwords (or sign in at account.microsoft.com/security and create an app password). If you don't have MFA, you can use your normal account password.
+- These env vars apply only to the current PowerShell window; repeat them each time you open a new terminal, or set them in your PowerShell profile.
 
 ### 3) Dry run (recommended first)
 
@@ -51,11 +86,13 @@ python .\scripts\send_vendor_outreach.py `
 
 ### Optional: Custom body file
 
-Create `body.txt` and pass it in:
+Default copy is optimized for embed outreach. To override:
 
 ```powershell
-python .\scripts\send_vendor_outreach.py --input "C:\Users\alexr\Desktop\recipients.txt" --body-file "C:\Users\alexr\Desktop\body.txt"
+python .\scripts\send_vendor_outreach.py --input "C:\Users\alexr\Desktop\recipients.txt" --body-file ".\scripts\outreach-embed-calculator-body.txt"
 ```
+
+Or edit `scripts/outreach-embed-calculator-body.txt` and point `--body-file` at your version.
 
 ### Optional: Suppression list
 

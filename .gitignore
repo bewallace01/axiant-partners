@@ -38,6 +38,9 @@ npm-debug.log*
 .env.local
 .env.*.local
 
+# Local Outlook email setup (contains password)
+scripts/load-outlook-email-env.ps1
+
 # Lead list (removed)
 equipment-dealer-leads.csv
 EQUIPMENT_DEALER_LEAD_GUIDE.md

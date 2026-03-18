@@ -154,19 +154,20 @@ def get_smtp_config_from_env() -> SmtpConfig:
 
 
 def default_subject() -> str:
-    return "Embed a financing calculator (copy/paste)"
+    return "Free embed: payment calculator for your site"
 
 
 def default_body() -> str:
     return (
-        "Hope you had a great weekend,\n\n"
-        "I work with Axiant Partners helping businesses offer financing options to their customers.\n"
-        "We built a simple financing calculator that vendors can add directly to their website so buyers can instantly estimate monthly payments.\n"
-        "Some dealers use it on product pages to help customers understand affordability before contacting sales.\n\n"
-        "You can preview it and grab the embed code here:\n"
-        "https://axiantpartners.com/embed-calculator\n\n"
-        "If it looks useful for your site, feel free to add it.\n\n"
-        "If you'd rather not hear from me, reply 'unsubscribe' and I won't follow up.\n"
+        "Hi,\n\n"
+        "I’m with Axiant Partners — we help equipment and dealer sites offer financing to buyers.\n\n"
+        "We have a free embeddable calculator so visitors can estimate monthly payments on your product or listing pages. "
+        "Teams use it so buyers self-check budget before sales spends time on unqualified leads.\n\n"
+        "Preview and copy the embed code (usually a few minutes to add):\n"
+        "https://www.axiantpartners.com/embed-calculator/\n\n"
+        "No charge for the embed. If this isn’t useful, reply unsubscribe and I won’t follow up.\n\n"
+        "— Alex\n"
+        "Axiant Partners\n"
     )
 
 

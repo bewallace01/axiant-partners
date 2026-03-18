@@ -1,0 +1,15 @@
+# Copy this file to: load-outlook-email-env.ps1 (same folder)
+#   Copy-Item .\scripts\load-outlook-email-env.ps1.example .\scripts\load-outlook-email-env.ps1
+# Then edit load-outlook-email-env.ps1: set AXIANT_SMTP_PASS only (App Password if MFA is on).
+# load-outlook-email-env.ps1 is gitignored — never commit it.
+
+$env:AXIANT_SMTP_HOST = "smtp.office365.com"
+$env:AXIANT_SMTP_PORT = "587"
+$env:AXIANT_SMTP_USER = "alex@axiantpartners.com"
+$env:AXIANT_SMTP_PASS = "PASTE_APP_PASSWORD_OR_PASSWORD_HERE"
+$env:AXIANT_SMTP_STARTTLS = "1"
+$env:AXIANT_FROM_EMAIL = "alex@axiantpartners.com"
+$env:AXIANT_REPLY_TO = "alex@axiantpartners.com"
+
+Write-Host "Outlook SMTP env loaded for alex@axiantpartners.com" -ForegroundColor Green
+Write-Host "Next: python .\scripts\send_vendor_outreach.py --input `"PATH_TO_recipients.txt`"" -ForegroundColor Cyan
