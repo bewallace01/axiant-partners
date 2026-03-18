@@ -133,6 +133,12 @@
     <priority>0.75</priority>
   </url>
   <url>
+    <loc>https://www.axiantpartners.com/sba-loans/articles/sba-loan-requirements/</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.axiantpartners.com/equipment-financing/articles/</loc>
     <lastmod>2026-03-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -175,10 +181,22 @@
     <priority>0.75</priority>
   </url>
   <url>
+    <loc>https://www.axiantpartners.com/fix-and-flip/articles/fix-and-flip-loan-requirements/</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.axiantpartners.com/revenue-based-financing/articles/</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-requirements/</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.axiantpartners.com/securities-based-lending/articles/</loc>
@@ -191,6 +209,12 @@
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.axiantpartners.com/merchant-cash-advance/articles/merchant-cash-advance-requirements/</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.axiantpartners.com/sba-loans/articles/can-you-use-sba-loan-to-buy-a-business/</loc>
@@ -321,6 +345,12 @@
   <url>
     <loc>https://www.axiantpartners.com/equipment-financing/articles/equipment-financing-requirements/</loc>
     <lastmod>2026-03-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.axiantpartners.com/equipment-financing/articles/documents-needed-equipment-financing/</loc>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -487,6 +517,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.axiantpartners.com/business-line-of-credit/articles/business-line-of-credit-requirements/</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.axiantpartners.com/business-line-of-credit/articles/documents-needed-business-line-of-credit/</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.axiantpartners.com/business-line-of-credit/articles/line-of-credit-for-contractors/</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
@@ -565,6 +607,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.axiantpartners.com/working-capital-loans/articles/working-capital-loan-requirements/</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.axiantpartners.com/working-capital-loans/articles/when-is-working-capital-loan-not-right-option/</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -627,6 +675,12 @@
   <url>
     <loc>https://www.axiantpartners.com/business-term-loans/articles/what-do-lenders-look-for-business-term-loan/</loc>
     <lastmod>2026-03-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.axiantpartners.com/business-term-loans/articles/business-term-loan-requirements/</loc>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -705,6 +759,12 @@
   <url>
     <loc>https://www.axiantpartners.com/commercial-real-estate-loans/articles/what-do-lenders-look-for-commercial-real-estate-loan/</loc>
     <lastmod>2026-03-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.axiantpartners.com/commercial-real-estate-loans/articles/commercial-real-estate-loan-requirements/</loc>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
