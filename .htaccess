@@ -109,3 +109,6 @@ RewriteRule ^blog/how-does-securities-based-lending-work\.html$ /securities-base
 RewriteRule ^blog/what-are-the-risks-of-securities-based-lending\.html$ /securities-based-lending/articles/what-are-the-risks-of-securities-based-lending/ [R=301,L]
 RewriteRule ^blog/how-much-can-you-borrow-with-securities-based-lending\.html$ /securities-based-lending/articles/how-much-can-you-borrow-with-securities-based-lending/ [R=301,L]
 RewriteRule ^blog/working-capital-explained\.html$ /working-capital-loans/ [R=301,L]
+
+# 404 fix: how-to-finance-an-excavator (page never built) -> excavators hub
+RewriteRule ^equipment/excavators/how-to-finance-an-excavator/?$ /equipment/excavators/ [R=301,L]
