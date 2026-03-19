@@ -1389,7 +1389,7 @@
             if (!usedVisuals.has(identity) && (!recentVisuals || !recentVisuals.has(identity))) {
                 usedVisuals.add(identity);
                 if (recentVisuals) recentVisuals.add(identity);
-                return candidate;
+                return resolveVisualAsset(candidate);
             }
         }
         // Pass 2: always prioritize unique-on-page rendering (ignore recent history).
@@ -1399,7 +1399,7 @@
             if (!usedVisuals.has(identity)) {
                 usedVisuals.add(identity);
                 if (recentVisuals) recentVisuals.add(identity);
-                return candidate;
+                return resolveVisualAsset(candidate);
             }
         }
         // Strict no-repeat mode for current page once pool is exhausted.
@@ -1418,7 +1418,7 @@
                 usedVisuals.add(identity);
                 if (recentVisuals) recentVisuals.add(identity);
                 cursors[cursorKey] = (idx + 1) % list.length;
-                return candidate;
+                return resolveVisualAsset(candidate);
             }
         }
         // Pass 2: always prioritize unique-on-page rendering (ignore recent history).
@@ -1430,7 +1430,7 @@
                 usedVisuals.add(identity);
                 if (recentVisuals) recentVisuals.add(identity);
                 cursors[cursorKey] = (idx + 1) % list.length;
-                return candidate;
+                return resolveVisualAsset(candidate);
             }
         }
         return '';
@@ -1581,7 +1581,9 @@
         const value = String(url || '');
         if (!value) return '';
         if (/^(https?:)?\/\//i.test(value) || value.startsWith('data:')) return value;
-        return '/' + value.replace(/^\/+/, '');
+        let path = '/' + value.replace(/^\/+/, '');
+        if (supportsWebP() && /\.png$/i.test(path)) path = path.replace(/\.png$/i, '.webp');
+        return path;
     }
 
     function resolveVisualSet(rawSet) {
@@ -1600,6 +1602,14 @@
             list.push('assets/' + prefix + '-' + i + '.png');
         }
         return list;
+    }
+
+    function supportsWebP() {
+        try {
+            const canvas = document.createElement('canvas');
+            canvas.width = canvas.height = 1;
+            return canvas.toDataURL && canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+        } catch (e) { return false; }
     }
 
     function getUniversalVisualPool() {

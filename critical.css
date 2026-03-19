@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;600&display=swap');
+/* Fonts loaded async via HTML link - no blocking @import */
 /* Critical above-fold CSS - variables, reset, nav, header */
 :root {
     --bg-primary: linear-gradient(180deg, #f0f4f8 0%, #e8f0f6 50%, #f5f8fb 100%);
