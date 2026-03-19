@@ -10,6 +10,8 @@ $env:AXIANT_SMTP_PASS = "PASTE_APP_PASSWORD_OR_PASSWORD_HERE"
 $env:AXIANT_SMTP_STARTTLS = "1"
 $env:AXIANT_FROM_EMAIL = "alex@axiantpartners.com"
 $env:AXIANT_REPLY_TO = "alex@axiantpartners.com"
+# Optional: use your own signature file (copy outreach-signature.example.txt to outreach-signature.txt and paste your signature)
+# $env:AXIANT_SIGNATURE_FILE = (Join-Path $PSScriptRoot "outreach-signature.txt")
 
 Write-Host "Outlook SMTP env loaded for alex@axiantpartners.com" -ForegroundColor Green
 Write-Host "Next: python .\scripts\send_vendor_outreach.py --input `"PATH_TO_recipients.txt`"" -ForegroundColor Cyan

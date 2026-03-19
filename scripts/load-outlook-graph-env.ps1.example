@@ -1,0 +1,13 @@
+# Copy this file to load-outlook-graph-env.ps1 and fill in the values.
+# Do not commit load-outlook-graph-env.ps1 (it contains the client secret).
+
+$env:AXIANT_TENANT_ID     = "YOUR_TENANT_ID"       # From Entra: App registration -> Overview -> Directory (tenant) ID
+$env:AXIANT_CLIENT_ID     = "YOUR_CLIENT_ID"       # From Entra: App registration -> Overview -> Application (client) ID
+$env:AXIANT_CLIENT_SECRET = "PASTE_CLIENT_SECRET" # From Entra: App registration -> Certificates & secrets -> Value
+$env:AXIANT_FROM_EMAIL    = "alex@axiantpartners.com"
+$env:AXIANT_REPLY_TO      = "alex@axiantpartners.com"
+# Optional: use your signature file
+# $env:AXIANT_SIGNATURE_FILE = (Join-Path $PSScriptRoot "outreach-signature.txt")
+
+Write-Host "Graph env loaded for $env:AXIANT_FROM_EMAIL (no app password)" -ForegroundColor Green
+Write-Host "Run: python .\scripts\send_vendor_outreach_graph.py --input `"PATH_TO_recipients.txt`"" -ForegroundColor Cyan

@@ -1,0 +1,2 @@
+# Optional: only needed for scripts/send_vendor_outreach_graph.py (Graph/OAuth2 sender)
+msal>=1.24.0

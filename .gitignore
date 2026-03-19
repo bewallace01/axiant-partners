@@ -29,6 +29,10 @@ Temporary Items
 *.swo
 *~
 
+# Python
+__pycache__/
+*.pyc
+
 # Node modules (if you add any later)
 node_modules/
 npm-debug.log*
@@ -40,6 +44,9 @@ npm-debug.log*
 
 # Local Outlook email setup (contains password)
 scripts/load-outlook-email-env.ps1
+scripts/load-outlook-graph-env.ps1
+# Local signature (optional)
+scripts/outreach-signature.txt
 
 # Lead list (removed)
 equipment-dealer-leads.csv

@@ -165,10 +165,14 @@ def default_body() -> str:
         "Teams use it so buyers self-check budget before sales spends time on unqualified leads.\n\n"
         "Preview and copy the embed code (usually a few minutes to add):\n"
         "https://www.axiantpartners.com/embed-calculator/\n\n"
-        "No charge for the embed. If this isn’t useful, reply unsubscribe and I won’t follow up.\n\n"
-        "— Alex\n"
-        "Axiant Partners\n"
+        "No charge for the embed. If this isn’t useful, reply unsubscribe and I won’t follow up.\n"
     )
+
+
+def load_signature(path: Path | None) -> str:
+    if not path or not path.exists():
+        return ""
+    return path.read_text(encoding="utf-8").strip()
 
 
 def ensure_dir(p: Path) -> None:
@@ -307,6 +311,11 @@ def main(argv: list[str]) -> int:
         help="Optional text file containing the email body. If omitted, uses built-in template.",
     )
     parser.add_argument(
+        "--signature-file",
+        default=os.environ.get("AXIANT_SIGNATURE_FILE", "").strip(),
+        help="Optional file containing your email signature (appended to body). Or set AXIANT_SIGNATURE_FILE.",
+    )
+    parser.add_argument(
         "--send",
         action="store_true",
         help="Actually send emails. If omitted, performs a dry-run.",
@@ -362,6 +371,11 @@ def main(argv: list[str]) -> int:
     if args.body_file:
         body_path = Path(args.body_file).resolve()
         body = body_path.read_text(encoding="utf-8")
+
+    sig_path = Path(args.signature_file).resolve() if args.signature_file else None
+    signature = load_signature(sig_path)
+    if signature:
+        body = body.rstrip() + "\n\n" + signature
 
     dry_run = not args.send
     if not dry_run and not args.i_understand:

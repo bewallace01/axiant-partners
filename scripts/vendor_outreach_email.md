@@ -7,6 +7,11 @@
    ```
    Replace `PASTE_APP_PASSWORD_OR_PASSWORD_HERE` only. The example uses `alex@axiantpartners.com` — change the email lines if your mailbox is different.
 
+**Optional — use your real signature:**  
+Copy `scripts/outreach-signature.example.txt` to `scripts/outreach-signature.txt`, paste your usual email signature into it, then in `load-outlook-email-env.ps1` uncomment and set:
+`$env:AXIANT_SIGNATURE_FILE = (Join-Path $PSScriptRoot "outreach-signature.txt")`  
+Or pass `--signature-file ".\scripts\outreach-signature.txt"` when you run the sender. The script appends the file contents to every email.
+
 2. Each time you open a new PowerShell window in the project:
    ```powershell
    cd "path\to\axiant-partners-main"
@@ -15,6 +20,8 @@
    ```
 
 `load-outlook-email-env.ps1` is **gitignored** so your password is never committed.
+
+**Alternative — no app password:** You can send the same outreach using **Microsoft Graph (OAuth2)** so no app password is needed. See **[scripts/vendor_outreach_graph.md](vendor_outreach_graph.md)** for app registration and `send_vendor_outreach_graph.py`. Ideal for automation.
 
 ---
 

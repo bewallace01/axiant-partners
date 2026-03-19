@@ -1,0 +1,9 @@
+Paste your usual email signature below (plain text).
+It will be appended to every outreach email.
+
+Example:
+--
+Alex [Last Name]
+Title | Axiant Partners
+phone | email@axiantpartners.com
+https://www.axiantpartners.com
