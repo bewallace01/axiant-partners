@@ -174,8 +174,8 @@ def send_one_graph(
         "saveToSentItems": True,
     }
     if reply_to:
-        message["message"]["internetMessageHeaders"] = [
-            {"name": "Reply-To", "value": reply_to},
+        message["message"]["replyTo"] = [
+            {"emailAddress": {"address": reply_to}},
         ]
     body_bytes = json.dumps(message).encode("utf-8")
     req = urllib.request.Request(
