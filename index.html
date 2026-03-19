@@ -38,7 +38,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.axiantpartners.com" crossorigin>
     <link rel="dns-prefetch" href="https://images.unsplash.com">
-    <link rel="preload" href="assets/dump-truck-excavator-hero.webp" as="image" type="image/webp" imagesrcset="assets/dump-truck-excavator-hero-600w.webp 600w, assets/dump-truck-excavator-hero-900w.webp 900w, assets/dump-truck-excavator-hero.webp 1200w" imagesizes="(max-width: 768px) 100vw, 800px">
+    <link rel="preload" href="assets/dump-truck-excavator-hero-600w.webp" as="image" type="image/webp" media="(max-width: 768px)">
+    <link rel="preload" href="assets/dump-truck-excavator-hero.webp" as="image" type="image/webp" media="(min-width: 769px)">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;600&display=swap"></noscript>
     <link rel="stylesheet" href="critical.css?v=20260313">
@@ -501,7 +502,7 @@
         }
 
         .lead-form-note a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .trust-line {
@@ -515,7 +516,7 @@
             font-weight: 600;
             text-decoration: none;
         }
-        .trust-line a:hover { text-decoration: underline; }
+        .trust-line a:hover { text-decoration: none; }
         .banks-callout {
             background: linear-gradient(135deg, rgba(45, 127, 184, 0.06) 0%, rgba(30, 58, 95, 0.04) 100%);
             border-color: rgba(45, 127, 184, 0.2);
@@ -525,7 +526,7 @@
             font-weight: 600;
             text-decoration: none;
         }
-        .banks-callout .section-intro a:hover { text-decoration: underline; }
+        .banks-callout .section-intro a:hover { text-decoration: none; }
 
         .section-block {
             margin-top: 2rem;
@@ -597,7 +598,7 @@
         }
 
         .card a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .industry-grid {

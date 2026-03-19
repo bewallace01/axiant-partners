@@ -229,3 +229,15 @@ Grids use `minmax(0, 1fr)` to avoid overflow ✓
 - Same blocking resources, magnified impact
 
 Implementing responsive hero `srcset`, tap target sizing, and further critical-CSS reduction will have the largest effect on mobile scores and real-user experience.
+
+---
+
+## 9. MOBILE OPTIMIZATIONS APPLIED (Mar 19, 2026)
+
+| Fix | Status | Impact |
+|-----|--------|--------|
+| Hero preload: media query for mobile (600w) vs desktop (full) | Done | Mobile fetches ~60KB vs 204KB for LCP |
+| Axel avatar: WebP + 96px variant (170KB → 2KB) | Done | Chat loads faster when opened |
+| Hero grid: min-height 280px on mobile | Done | Reduces CLS from layout collapse |
+| ai-howitworks / ai-growth: 450w variants created | Done | Available for match flow (script update needed to use) |
+| Tap targets 48×48 px | Already in place | critical.css @media (max-width: 768px) |

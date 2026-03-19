@@ -108,7 +108,42 @@ def main():
     print("ai-* visuals (match flow):")
     for p in sorted(ASSETS.glob("ai-*.png")):
         convert_to_webp(p, ASSETS, MAX_WIDTH)
+    # Priority 5: Axel avatar (170KB PNG displayed ~40x60 - create 96px WebP)
+    axel = ROOT / "axel-loan-lion.png"
+    if axel.exists():
+        print("Axel avatar (chatbot):")
+        convert_to_webp(axel, ROOT, 96)
+    # Priority 6: ai-howitworks/ai-growth small variants (displayed ~226x126 on index)
+    for stem in ["ai-howitworks-1", "ai-howitworks-2", "ai-howitworks-3", "ai-howitworks-4", "ai-growth-2"]:
+        src = ASSETS / f"{stem}.webp"
+        if not src.exists():
+            src = ASSETS / f"{stem}.png"
+        if src.exists():
+            create_responsive_small(src, ASSETS, 450)
     print("Done.")
+
+
+def create_responsive_small(src: Path, out_dir: Path, max_w: int) -> None:
+    """Create small variant for images displayed at ~226x126."""
+    out = out_dir / (src.stem + f"-{max_w}w.webp")
+    if out.exists():
+        return
+    try:
+        img = Image.open(src)
+        if img.mode in ("RGBA", "LA", "P"):
+            img = img.convert("RGBA")
+        else:
+            img = img.convert("RGB")
+        w, h = img.size
+        if w <= max_w:
+            return
+        ratio = max_w / w
+        nw, nh = max_w, int(h * ratio)
+        resized = img.resize((nw, nh), Image.Resampling.LANCZOS)
+        resized.save(out, "WEBP", quality=WEBP_QUALITY, method=6)
+        print(f"  {out.name} ({nw}x{nh})")
+    except Exception as e:
+        print(f"  ERROR: {e}")
 
 
 if __name__ == "__main__":
