@@ -51,3 +51,11 @@ scripts/outreach-signature.txt
 # Lead list (removed)
 equipment-dealer-leads.csv
 EQUIPMENT_DEALER_LEAD_GUIDE.md
+
+# Outreach recipient/sent data (email addresses)
+_outreach/recipients.txt
+_outreach/sent.txt
+_outreach/do-not-email.txt
+
+# Outreach send logs (contain recipient emails)
+_analysis/outreach-email/

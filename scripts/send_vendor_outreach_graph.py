@@ -204,7 +204,7 @@ def send_messages_graph(
     per_email_delay_s: float,
     max_per_run: int,
     log_path: Path,
-) -> int:
+) -> tuple[int, list[str]]:
     to_send = recipients[:max_per_run]
     if dry_run:
         for to_addr in to_send:
@@ -217,9 +217,10 @@ def send_messages_graph(
                     "detail": "Not sent (dry-run)",
                 },
             )
-        return 0
+        return (0, [])
 
     sent = 0
+    sent_list: list[str] = []
     for to_addr in to_send:
         try:
             send_one_graph(
@@ -231,6 +232,7 @@ def send_messages_graph(
                 reply_to=reply_to,
             )
             sent += 1
+            sent_list.append(to_addr)
             write_log_row(
                 log_path,
                 {
@@ -253,7 +255,7 @@ def send_messages_graph(
         if per_email_delay_s > 0:
             time.sleep(per_email_delay_s)
 
-    return 0 if sent == len(to_send) else 2
+    return (0 if sent == len(to_send) else 2, sent_list)
 
 
 def main(argv: list[str]) -> int:
@@ -262,7 +264,8 @@ def main(argv: list[str]) -> int:
     )
     parser.add_argument("--input", required=True, help="Path to recipients list (.txt or .csv).")
     parser.add_argument("--email-column", default="email", help="CSV column for email (default: email).")
-    parser.add_argument("--suppression", default="", help="Optional suppression list path.")
+    parser.add_argument("--suppression", default="", help="Optional suppression list path (bounces, unsubscribes).")
+    parser.add_argument("--sent-file", default="", help="Path to track sent emails. Read as suppression + append new sends. Skips re-emailing.")
     parser.add_argument(
         "--from",
         dest="from_addr",
@@ -300,6 +303,9 @@ def main(argv: list[str]) -> int:
     suppressed = load_suppression_list(
         Path(args.suppression).resolve() if args.suppression else None
     )
+    sent_file_path = Path(args.sent_file).resolve() if args.sent_file else None
+    if sent_file_path and sent_file_path.exists():
+        suppressed = suppressed | load_suppression_list(sent_file_path)
     if input_path.suffix.lower() == ".csv":
         recipients = parse_recipients_from_csv(input_path, args.email_column)
     else:
@@ -327,6 +333,8 @@ def main(argv: list[str]) -> int:
     log_path = log_dir / f"send-log-graph-{ts}.csv"
 
     print(f"Recipients (after dedupe/suppression): {len(recipients)}")
+    if sent_file_path:
+        print(f"Sent file (suppress + append): {sent_file_path}")
     print(f"Mode: {'DRY_RUN' if dry_run else 'SEND'} (Graph)")
     print(f"Max this run: {args.max_per_run}")
     print(f"Delay: {args.delay:.1f}s")
@@ -351,7 +359,7 @@ def main(argv: list[str]) -> int:
         for i, line in enumerate(body.splitlines()[:25], start=1):
             print(f"{i:02d} {line}")
         print()
-        return send_messages_graph(
+        code, _ = send_messages_graph(
             access_token="",
             from_addr=args.from_addr,
             reply_to=args.reply_to or None,
@@ -363,6 +371,7 @@ def main(argv: list[str]) -> int:
             max_per_run=args.max_per_run,
             log_path=log_path,
         )
+        return code
 
     tenant_id = os.environ.get("AXIANT_TENANT_ID", "").strip()
     client_id = os.environ.get("AXIANT_CLIENT_ID", "").strip()
@@ -378,7 +387,7 @@ def main(argv: list[str]) -> int:
         return 1
 
     access_token = get_token(tenant_id, client_id, client_secret)
-    return send_messages_graph(
+    code, sent_list = send_messages_graph(
         access_token=access_token,
         from_addr=args.from_addr,
         reply_to=args.reply_to or None,
@@ -390,6 +399,13 @@ def main(argv: list[str]) -> int:
         max_per_run=max(1, args.max_per_run),
         log_path=log_path,
     )
+    if sent_list and sent_file_path:
+        ensure_dir(sent_file_path.parent)
+        with sent_file_path.open("a", encoding="utf-8") as f:
+            for addr in sent_list:
+                f.write(addr + "\n")
+        print(f"Added {len(sent_list)} to sent list: {sent_file_path}")
+    return code
 
 
 if __name__ == "__main__":
