@@ -51,13 +51,40 @@ def convert_to_webp(src: Path, out_dir: Path, max_size: int | None = None) -> Pa
         return None
 
 
+def create_responsive_hero(src: Path, out_dir: Path) -> None:
+    """Create 600w and 900w variants for mobile/tablet srcset."""
+    if not src.exists():
+        return
+    try:
+        img = Image.open(src)
+        if img.mode in ("RGBA", "LA", "P"):
+            img = img.convert("RGBA")
+        else:
+            img = img.convert("RGB")
+        w, h = img.size
+        for target_w in (600, 900):
+            if w <= target_w:
+                continue
+            ratio = target_w / w
+            nw, nh = target_w, int(h * ratio)
+            resized = img.resize((nw, nh), Image.Resampling.LANCZOS)
+            out = out_dir / (src.stem + f"-{target_w}w.webp")
+            resized.save(out, "WEBP", quality=WEBP_QUALITY, method=6)
+            print(f"  {out.name} ({nw}x{nh})")
+    except Exception as e:
+        print(f"  ERROR: {e}")
+
+
 def main():
     print("Optimizing images...")
-    # Priority 1: LCP hero (index.html)
+    # Priority 1: LCP hero (index.html) + responsive sizes for mobile
     hero = ASSETS / "dump-truck-excavator-hero.png"
+    hero_webp = ASSETS / "dump-truck-excavator-hero.webp"
     if hero.exists():
         print("Hero (LCP):")
         convert_to_webp(hero, ASSETS, MAX_WIDTH)
+        print("Hero responsive (mobile/tablet):")
+        create_responsive_hero(hero_webp if hero_webp.exists() else hero, ASSETS)
     # Priority 2: hero-skyline background (index.html inline CSS)
     skyline = ASSETS / "ai-realestate-3.png"
     if skyline.exists():
