@@ -3,10 +3,10 @@
 
 # HTML: revalidate so users get fresh pages (helps iOS Safari see updates)
 /*.html
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: no-cache, max-age=0, must-revalidate
 
 /
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: no-cache, max-age=0, must-revalidate
 
 /*
   X-Frame-Options: DENY
