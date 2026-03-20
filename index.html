@@ -622,6 +622,40 @@
             min-width: 200px;
         }
 
+        .financing-options-grid .industry-tile-content {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .financing-options-grid .industry-tile-content h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .financing-options-grid .industry-tile-content p {
+            display: none;
+        }
+
+        .hero-form-financing h2,
+        .hero-form-financing .section-intro,
+        .hero-form-financing .financing-options-prompt {
+            text-align: center;
+        }
+
+        .hero-form-financing .financing-options-prompt {
+            margin: 0.5rem 0 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
         .industry-tile {
             position: relative;
             display: block;
@@ -1510,82 +1544,72 @@
                 <div class="hero-form hero-form-financing" id="what-we-do">
                     <h2>Financing Options for Every Stage of Growth</h2>
                     <p class="section-intro">Every business is different. Our network and advisory team help you structure financing around your goals, timeline, and current financial profile.</p>
+                    <p class="financing-options-prompt">Press into the service to learn more.</p>
                     <div class="industry-grid financing-options-grid">
-                        <a href="equipment-financing.html" class="industry-tile" aria-label="Equipment financing - finance new or used equipment with flexible terms">
+                        <a href="equipment-financing.html" class="industry-tile" aria-label="Equipment financing">
                             <picture><source srcset="/assets/equipment-financing-hero.webp" type="image/webp"><img src="/assets/equipment-financing-hero.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
                             <div class="industry-tile-content">
                                 <h3>Equipment Financing</h3>
-                                <p>Finance new or used equipment with flexible terms based on use case and asset type.</p>
                             </div>
                         </a>
-                        <a href="sba-loans.html" class="industry-tile" aria-label="SBA loan guidance - choose the right SBA path and lender program">
+                        <a href="sba-loans.html" class="industry-tile" aria-label="SBA loan guidance">
                             <picture><source srcset="/assets/sba-hero.webp" type="image/webp"><img src="/assets/sba-hero.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
                             <div class="industry-tile-content">
                                 <h3>SBA Loan Guidance</h3>
-                                <p>Get support choosing the right SBA path and lender program for your business.</p>
                             </div>
                         </a>
-                        <a href="working-capital-loans.html" class="industry-tile" aria-label="Working capital - bridge short-term cash flow needs">
+                        <a href="working-capital-loans.html" class="industry-tile" aria-label="Working capital">
                             <picture><source srcset="/assets/wcl-hero-operations.webp" type="image/webp"><img src="/assets/wcl-hero-operations.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
                             <div class="industry-tile-content">
                                 <h3>Working Capital</h3>
-                                <p>Bridge short-term cash flow needs with products designed for operational flexibility.</p>
                             </div>
                         </a>
-                        <a href="business-line-of-credit.html" class="industry-tile" aria-label="Business line of credit - revolving funds for seasonality and growth">
+                        <a href="business-line-of-credit.html" class="industry-tile" aria-label="Business line of credit">
                             <picture><source srcset="/assets/bloc-hero-business-office.webp" type="image/webp"><img src="/assets/bloc-hero-business-office.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
                             <div class="industry-tile-content">
                                 <h3>Business Line of Credit</h3>
-                                <p>Access revolving funds to handle seasonality, inventory, payroll, or expansion plans.</p>
                             </div>
                         </a>
-                        <a href="business-term-loans.html" class="industry-tile" aria-label="Business term loans - fund strategic initiatives">
+                        <a href="business-term-loans.html" class="industry-tile" aria-label="Business term loans">
                             <picture><source srcset="/assets/btl-hero.webp" type="image/webp"><img src="/assets/btl-hero.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
                             <div class="industry-tile-content">
                                 <h3>Business Term Loans</h3>
-                                <p>Fund strategic initiatives with clear repayment terms and predictable structures.</p>
                             </div>
                         </a>
-                        <a href="commercial-real-estate-loans.html" class="industry-tile" aria-label="Commercial real estate - acquisition, refinance, owner-occupied">
+                        <a href="commercial-real-estate-loans.html" class="industry-tile" aria-label="Commercial real estate">
                             <picture><source srcset="/assets/cre-hero.webp" type="image/webp"><img src="/assets/cre-hero.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
                             <div class="industry-tile-content">
                                 <h3>Commercial Real Estate</h3>
-                                <p>Explore loan options for acquisition, refinance, and owner-occupied properties.</p>
                             </div>
                         </a>
-                        <a href="commercial-bridge-loans.html" class="industry-tile" aria-label="Commercial bridge loans - short-term CRE financing">
+                        <a href="commercial-bridge-loans.html" class="industry-tile" aria-label="Commercial bridge loans">
                             <picture><source srcset="/assets/cbl-hero.webp" type="image/webp"><img src="/assets/cbl-hero.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
                             <div class="industry-tile-content">
                                 <h3>Commercial Bridge Loans</h3>
-                                <p>Short-term financing for acquisitions, refinance gaps, value-add, and construction. Close in 7-21 days.</p>
                             </div>
                         </a>
-                        <a href="fix-and-flip.html" class="industry-tile" aria-label="Fix and flip - short-term financing for real estate investors">
+                        <a href="fix-and-flip.html" class="industry-tile" aria-label="Fix and flip">
                             <picture><source srcset="/assets/faf-hero.webp" type="image/webp"><img src="/assets/faf-hero.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
                             <div class="industry-tile-content">
                                 <h3>Fix & Flip</h3>
-                                <p>Short-term financing for real estate investors: purchase, renovate, and resell.</p>
                             </div>
                         </a>
-                        <a href="merchant-cash-advance.html" class="industry-tile" aria-label="Merchant cash advance - fast funding from card sales">
+                        <a href="merchant-cash-advance.html" class="industry-tile" aria-label="Merchant cash advance">
                             <picture><source srcset="/assets/mca-hero.webp" type="image/webp"><img src="/assets/mca-hero.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
                             <div class="industry-tile-content">
                                 <h3>Merchant Cash Advance</h3>
-                                <p>Upfront capital repaid from daily card sales or bank deposits. Funding in 1-3 days.</p>
                             </div>
                         </a>
-                        <a href="revenue-based-financing.html" class="industry-tile" aria-label="Revenue-based financing - growth capital that flexes with revenue">
+                        <a href="revenue-based-financing.html" class="industry-tile" aria-label="Revenue-based financing">
                             <picture><source srcset="/assets/rbf-hero.webp" type="image/webp"><img src="/assets/rbf-hero.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
                             <div class="industry-tile-content">
                                 <h3>Revenue-Based Financing</h3>
-                                <p>Growth capital with repayment tied to monthly revenue. Ideal for SaaS, e-commerce, and services.</p>
                             </div>
                         </a>
-                        <a href="securities-based-lending.html" class="industry-tile" aria-label="Securities-based lending - borrow against investment portfolio">
+                        <a href="securities-based-lending.html" class="industry-tile" aria-label="Securities-based lending">
                             <picture><source srcset="/assets/sbl-hero.webp" type="image/webp"><img src="/assets/sbl-hero.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
                             <div class="industry-tile-content">
                                 <h3>Securities-Based Lending</h3>
-                                <p>Borrow against eligible investments without selling. Access liquidity for business or personal needs.</p>
                             </div>
                         </a>
                     </div>
