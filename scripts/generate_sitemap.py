@@ -133,6 +133,13 @@ def main():
         if (BASE / f"{p}.html").exists():
             add(f"/{p}.html")
 
+    # Construction business financing subpages
+    construction_dir = BASE / "construction-business-financing"
+    if construction_dir.exists():
+        for sub in construction_dir.iterdir():
+            if sub.is_dir() and (sub / "index.html").exists():
+                add(f"/construction-business-financing/{sub.name}/", priority="0.7")
+
     # Equipment guides (equipment/[type]/index.html)
     equipment_dir = BASE / "equipment"
     if equipment_dir.exists():
