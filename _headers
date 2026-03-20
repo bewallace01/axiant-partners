@@ -1,3 +1,5 @@
-# Force revalidation so phones get fresh content after deploy
+# Prevent aggressive caching - force fresh content on each visit
 /*
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
