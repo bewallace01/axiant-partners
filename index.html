@@ -46,6 +46,14 @@
     <link rel="stylesheet" href="styles.css?v=2025032021" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="styles.css?v=2025032021"></noscript>
     <style>
+#mobileNavOverlay { display: none; }
+#mobileNavOverlay.open { display: flex !important; }
+#mobileNavOverlay .nav-links { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; flex: 1 !important; width: 100% !important; }
+#mobileNavOverlay .nav-links a { color: #ffffff !important; font-size: 1.9rem !important; font-weight: 700 !important; text-align: center !important; padding: 18px 0 !important; display: block !important; width: 100% !important; opacity: 1 !important; visibility: visible !important; text-decoration: none !important; border-bottom: 1px solid rgba(255,255,255,0.15) !important; background: none !important; }
+#mobileNavOverlay .nav-phone { color: rgba(255,255,255,0.7) !important; }
+#mobileNavOverlay .nav-cta { background: #1a5fa8 !important; color: #ffffff !important; }
+</style>
+    <style>
         .landing-main {
             width: min(1700px, calc(100% - 3rem));
             margin: 0 auto;
