@@ -77,23 +77,56 @@
             text-align: left;
         }
         @media (max-width: 768px) {
+            .referral-hero-wrap .form-container.referral-content {
+                width: 100%;
+                max-width: 100%;
+                padding: 0 20px;
+                box-sizing: border-box;
+                margin: 0 auto;
+                align-self: stretch;
+                align-items: stretch;
+            }
+            .referral-hero-wrap .referral-container {
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+                align-items: stretch;
+            }
             .referral-hero-wrap .referral-main {
                 max-width: 600px;
                 margin: 0 auto;
                 padding: 0 20px;
                 width: 100%;
+                box-sizing: border-box;
+                align-items: stretch;
             }
-            .referral-hero-wrap ul {
-                padding-left: 20px;
+            .referral-hero-wrap .referral-body,
+            .referral-hero-wrap .referral-section {
+                width: 100%;
+                max-width: 100%;
+                text-align: center;
             }
+            .referral-hero-wrap ul,
             .referral-hero-wrap ol {
-                padding-left: 20px;
+                padding-left: 24px !important;
+                margin-left: 0;
+                margin-right: 0;
+                display: block;
+                text-align: left;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
             .referral-hero-wrap .referral-actions {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 gap: 0.75rem;
+                width: 100%;
+            }
+            .referral-hero-wrap .referral-actions .btn-primary {
+                width: 100%;
+                max-width: 100%;
             }
         }
     </style>
