@@ -70,6 +70,15 @@
             align-items: center;
         }
         @media (max-width: 768px) {
+            .contact-hero-wrap .form-container,
+            .contact-hero-wrap .contact-container,
+            .contact-hero-wrap .contact-main,
+            .contact-hero-wrap .contact-form-area,
+            .contact-hero-wrap .contact-info-sticker {
+                width: 100%;
+                margin: 0 auto;
+                text-align: center;
+            }
             .contact-hero-wrap .contact-form-area {
                 width: 100%;
             }
@@ -77,6 +86,7 @@
                 width: 100%;
                 max-width: 100%;
                 text-align: center;
+                margin: 0 auto;
             }
             .contact-hero-wrap .contact-form-area .form-group label {
                 text-align: center;
@@ -90,13 +100,26 @@
             }
             .contact-hero-wrap .contact-form-area .form-group {
                 width: 100%;
+                text-align: center;
             }
             .contact-hero-wrap .contact-form-area .form-row {
                 width: 100%;
                 flex-direction: column;
             }
+            .contact-hero-wrap .contact-form-area button {
+                margin: 0 auto;
+            }
+            .contact-hero-wrap .contact-info-sticker h2,
+            .contact-hero-wrap .contact-sticker-intro,
+            .contact-hero-wrap .contact-sticker-info,
+            .contact-hero-wrap .contact-sticker-item {
+                text-align: center;
+            }
             .contact-hero-wrap .contact-sticker-cta {
                 text-align: center;
+            }
+            .contact-hero-wrap .contact-sticker-cta .btn-primary {
+                margin: 0 auto;
             }
         }
     </style>
@@ -104,10 +127,7 @@
 <body>
     <div class="container">
         <nav class="main-nav">
-            <div class="nav-brand">
-                <img src="logo-horizontal-transparent.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-light" width="180" height="74"><img src="Axiant_light_logo.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-dark" width="180" height="74">
-                <span>Axiant Partners</span>
-            </div>
+            <div class="nav-brand"><a href="/"><img src="logo-horizontal-transparent.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-light" width="180" height="74"><img src="Axiant_light_logo.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-dark" width="180" height="74"></a><span>Axiant Partners</span></div>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
