@@ -1,4 +1,4 @@
-# Prevent aggressive caching - force fresh content on each visit
+# Force fresh content on deploy - no-cache so users get latest after push
 /*
   Cache-Control: no-cache, no-store, must-revalidate
   Pragma: no-cache
