@@ -102,7 +102,17 @@
             font-size: 1.1rem;
             line-height: 1.6;
         }
+        .hub-select-prompt-mobile {
+            display: none;
+        }
         @media (max-width: 768px) {
+            .hub-select-prompt-mobile {
+                display: block;
+                font-size: 1.25rem;
+                font-weight: 600;
+                text-align: center;
+                margin: 0 0 1rem 0;
+            }
             .industry-tile { min-height: 185px; }
             .industries-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
             .services-hero .tagline { font-size: 1rem; }
@@ -144,6 +154,7 @@
         </header>
 
         <div class="form-container services-content">
+            <h2 class="hub-select-prompt-mobile">Select a service for more information</h2>
             <div class="industries-grid">
                 <a href="equipment-financing.html" class="industry-tile" aria-label="Equipment financing - finance new or used equipment with flexible terms">
                     <picture><source srcset="/assets/equipment-financing-hero.webp" type="image/webp"><img src="/assets/equipment-financing-hero.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
