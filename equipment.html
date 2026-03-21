@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#0d1f3c">
 <style>
   body { opacity: 0; }
 </style>
@@ -22,7 +27,7 @@
       gtag('config', 'AW-18021105450');
     </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Browse equipment financing by type (construction, trucks, forklifts, medical, restaurant, manufacturing) and learn costs, rates, and approval timelines For U.S.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="https://www.axiantpartners.com/equipment.html">
@@ -41,9 +46,102 @@
     <title>Equipment Financing Guides | Axiant Partners</title>
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
     <link rel="preload" href="/assets/excavator-equipment.png" as="image">
-    <link rel="stylesheet" href="critical.css?v=2025032027">
-    <link rel="stylesheet" href="styles.css?v=2025032027" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="styles.css?v=2025032027"></noscript>
+    <style id="mobile-critical">
+/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
+:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
+[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
+*{margin:0;padding:0;box-sizing:border-box}
+html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
+body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
+.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
+.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
+.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
+.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
+.nav-brand span{display:none !important}
+.nav-logo-dark{display:none !important}
+html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
+html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
+.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
+.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
+.hero-grid{min-height:280px}
+header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
+.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
+.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
+.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
+.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
+.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
+.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
+.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
+.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
+.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
+.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
+</style>
+<link rel="stylesheet" href="critical.css?v=2025032029">
+    <style id="mobile-critical">
+/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
+:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
+[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
+*{margin:0;padding:0;box-sizing:border-box}
+html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
+body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
+.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
+.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
+.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
+.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
+.nav-brand span{display:none !important}
+.nav-logo-dark{display:none !important}
+html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
+html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
+.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
+.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
+.hero-grid{min-height:280px}
+header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
+.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
+.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
+.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
+.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
+.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
+.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
+.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
+.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
+.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
+.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
+</style>
+<link rel="stylesheet" href="styles.css?v=2025032029" media="print" onload="this.media='all'">
+    <noscript><style id="mobile-critical">
+/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
+:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
+[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
+*{margin:0;padding:0;box-sizing:border-box}
+html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
+body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
+.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
+.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
+.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
+.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
+.nav-brand span{display:none !important}
+.nav-logo-dark{display:none !important}
+html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
+html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
+.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
+.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
+.hero-grid{min-height:280px}
+header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
+.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
+.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
+.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
+.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
+.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
+.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
+.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
+.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
+.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
+.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
+</style>
+<link rel="stylesheet" href="styles.css?v=2025032029"></noscript>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.axiantpartners.com/"},{"@type":"ListItem","position":2,"name":"Equipment Financing Guides","item":"https://www.axiantpartners.com/equipment.html"}]}
     </script>
@@ -153,6 +251,11 @@
         </nav>
 
         <header>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#0d1f3c">
             <h1>Equipment Financing Guides</h1>
             <p class="tagline">Find financing for your specific equipment &mdash; from excavators to dental chairs</p>
         </header>
@@ -164,7 +267,7 @@
                 <!-- Construction & Heavy Equipment -->
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/excavators/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="eager" fetchpriority="high" decoding="async" src="/assets/excavator-equipment.png" alt="Excavator">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/excavator-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="eager" fetchpriority="high" decoding="async"  src="/assets/excavator-equipment.png" alt="Excavator"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Excavator Financing Guide</h3>
                         </div>
@@ -172,7 +275,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/wheel-loaders/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="eager" fetchpriority="high" decoding="async" src="/assets/wheel-loader-equipment.png" alt="Wheel loader">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/wheel-loader-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="eager" fetchpriority="high" decoding="async"  src="/assets/wheel-loader-equipment.png" alt="Wheel loader"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Wheel Loader Financing Guide</h3>
                         </div>
@@ -180,7 +283,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/mini-excavators/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/mini-excavator-equipment.png" alt="Mini excavator">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/mini-excavator-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/mini-excavator-equipment.png" alt="Mini excavator"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Mini Excavator Financing Guide</h3>
                         </div>
@@ -188,7 +291,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/backhoes/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/backhoe-equipment.png" alt="Backhoe loader">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/backhoe-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/backhoe-equipment.png" alt="Backhoe loader"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Backhoe Financing Guide</h3>
                         </div>
@@ -196,7 +299,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/bulldozers/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/bulldozer-equipment.png" alt="Bulldozer">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/bulldozer-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/bulldozer-equipment.png" alt="Bulldozer"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Bulldozer Financing Guide</h3>
                         </div>
@@ -204,7 +307,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/skid-steers/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/skid-steer-equipment.png" alt="Skid steer">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/skid-steer-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/skid-steer-equipment.png" alt="Skid steer"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Skid Steer Financing Guide</h3>
                         </div>
@@ -212,7 +315,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/stump-grinders/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/stump-grinder-equipment.png" alt="Stump grinder">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/stump-grinder-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/stump-grinder-equipment.png" alt="Stump grinder"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Stump Grinder Financing Guide</h3>
                         </div>
@@ -222,7 +325,7 @@
                 <!-- Trucks & Trailers -->
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/semi-trucks/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/semi-truck-equipment.png" alt="Semi truck">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/semi-truck-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/semi-truck-equipment.png" alt="Semi truck"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Semi-Truck Financing Guide</h3>
                         </div>
@@ -230,7 +333,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/box-trucks/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/box-truck-equipment.png" alt="Box truck">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/box-truck-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/box-truck-equipment.png" alt="Box truck"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Box Truck Financing Guide</h3>
                         </div>
@@ -238,7 +341,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/sprinter-vans/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/box-truck-equipment.png" alt="Sprinter van">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/box-truck-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/box-truck-equipment.png" alt="Sprinter van"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Sprinter Van Financing Guide</h3>
                         </div>
@@ -246,7 +349,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/dump-trucks/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/dump-truck-equipment.png" alt="Dump truck">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/dump-truck-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/dump-truck-equipment.png" alt="Dump truck"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Dump Truck Financing Guide</h3>
                         </div>
@@ -254,7 +357,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/log-trucks/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/forestry-log-truck-equipment.png" alt="Log truck">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/forestry-log-truck-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/forestry-log-truck-equipment.png" alt="Log truck"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Log Truck Financing Guide</h3>
                         </div>
@@ -262,7 +365,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/flatbed-trucks/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/flatbed-truck-equipment.png" alt="Flatbed truck">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/flatbed-truck-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/flatbed-truck-equipment.png" alt="Flatbed truck"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Flatbed Truck Financing Guide</h3>
                         </div>
@@ -270,7 +373,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/tanker-trucks/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/tanker-truck-equipment.png" alt="Tanker truck">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/tanker-truck-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/tanker-truck-equipment.png" alt="Tanker truck"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Tanker Truck Financing Guide</h3>
                         </div>
@@ -278,7 +381,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/refrigerated-trucks/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/reefer-truck-equipment.png" alt="Refrigerated truck">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/reefer-truck-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/reefer-truck-equipment.png" alt="Refrigerated truck"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Refrigerated Truck Financing Guide</h3>
                         </div>
@@ -286,7 +389,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/bucket-trucks/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/forestry-bucket-truck-equipment.png" alt="Bucket truck">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/forestry-bucket-truck-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/forestry-bucket-truck-equipment.png" alt="Bucket truck"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Bucket Truck Financing Guide</h3>
                         </div>
@@ -294,7 +397,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/trailers/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/trailer-equipment.png" alt="Trailer">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/trailer-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/trailer-equipment.png" alt="Trailer"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Trailer Financing Guide</h3>
                         </div>
@@ -304,7 +407,7 @@
                 <!-- Agriculture -->
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/tractors/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/tractor-equipment.png" alt="Tractor">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/tractor-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/tractor-equipment.png" alt="Tractor"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Tractor Financing Guide</h3>
                         </div>
@@ -312,7 +415,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/combines/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/combine-equipment.png" alt="Combine harvester">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/combine-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/combine-equipment.png" alt="Combine harvester"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Combine Financing Guide</h3>
                         </div>
@@ -320,7 +423,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/hay-balers/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/hay-baler-equipment.png" alt="Hay baler">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/hay-baler-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/hay-baler-equipment.png" alt="Hay baler"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Hay Baler Financing Guide</h3>
                         </div>
@@ -328,7 +431,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/sprayers/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/sprayer-equipment.png" alt="Sprayer">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/sprayer-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/sprayer-equipment.png" alt="Sprayer"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Sprayer Financing Guide</h3>
                         </div>
@@ -336,7 +439,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/grain-equipment/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/grain-equipment.png" alt="Grain handling">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/grain-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/grain-equipment.png" alt="Grain handling"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Grain Equipment Financing Guide</h3>
                         </div>
@@ -346,7 +449,7 @@
                 <!-- Landscaping -->
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/zero-turn-mowers/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/zero-turn-mower-equipment.png" alt="Zero-turn mower">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/zero-turn-mower-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/zero-turn-mower-equipment.png" alt="Zero-turn mower"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Zero-Turn Mower Financing Guide</h3>
                         </div>
@@ -354,7 +457,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/commercial-mowers/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/commercial-mower-equipment.png" alt="Commercial mower">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/commercial-mower-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/commercial-mower-equipment.png" alt="Commercial mower"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Commercial Mower Financing Guide</h3>
                         </div>
@@ -362,7 +465,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/landscape-trailers/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/landscape-trailer-equipment.png" alt="Landscape trailer">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/landscape-trailer-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/landscape-trailer-equipment.png" alt="Landscape trailer"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Landscape Trailer Financing Guide</h3>
                         </div>
@@ -372,7 +475,7 @@
                 <!-- Manufacturing -->
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/cnc-machines/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/cnc-machine-equipment.png" alt="CNC machine">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/cnc-machine-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/cnc-machine-equipment.png" alt="CNC machine"></picture>
                         <div class="equipment-types-card-body">
                             <h3>CNC Machine Financing Guide</h3>
                         </div>
@@ -380,7 +483,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/lathes-milling-machines/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/lathe-equipment.png" alt="Lathe">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/lathe-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/lathe-equipment.png" alt="Lathe"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Lathe & Milling Machine Financing Guide</h3>
                         </div>
@@ -388,7 +491,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/press-brakes/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/press-brake-equipment.png" alt="Press brake">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/press-brake-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/press-brake-equipment.png" alt="Press brake"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Press Brake Financing Guide</h3>
                         </div>
@@ -396,7 +499,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/injection-molding/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/injection-molding-equipment.png" alt="Injection molding">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/injection-molding-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/injection-molding-equipment.png" alt="Injection molding"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Injection Molding Financing Guide</h3>
                         </div>
@@ -404,7 +507,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/industrial-robots/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/industrial-robot-equipment.png" alt="Industrial robot">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/industrial-robot-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/industrial-robot-equipment.png" alt="Industrial robot"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Industrial Robot Financing Guide</h3>
                         </div>
@@ -414,7 +517,7 @@
                 <!-- Logistics & Warehousing -->
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/forklifts/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/forklift-manufacturing-equipment.png" alt="Forklift">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/forklift-manufacturing-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/forklift-manufacturing-equipment.png" alt="Forklift"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Forklift Financing Guide</h3>
                         </div>
@@ -422,7 +525,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/pallet-jacks/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/pallet-jack-equipment.png" alt="Pallet jack">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/pallet-jack-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/pallet-jack-equipment.png" alt="Pallet jack"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Pallet Jack Financing Guide</h3>
                         </div>
@@ -430,7 +533,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/pallet-racking/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/pallet-racking-equipment.png" alt="Pallet racking">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/pallet-racking-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/pallet-racking-equipment.png" alt="Pallet racking"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Pallet Racking Financing Guide</h3>
                         </div>
@@ -438,7 +541,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/conveyor-systems/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/conveyor-logistics-equipment.png" alt="Conveyor system">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/conveyor-logistics-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/conveyor-logistics-equipment.png" alt="Conveyor system"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Conveyor System Financing Guide</h3>
                         </div>
@@ -446,7 +549,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/dock-equipment/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/forklift-logistics-equipment.png" alt="Dock equipment">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/forklift-logistics-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/forklift-logistics-equipment.png" alt="Dock equipment"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Dock Equipment Financing Guide</h3>
                         </div>
@@ -454,7 +557,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/scanning-wms/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/warehouse-scanner-equipment.png" alt="Scanning and WMS">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/warehouse-scanner-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/warehouse-scanner-equipment.png" alt="Scanning and WMS"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Scanning & WMS Financing Guide</h3>
                         </div>
@@ -464,7 +567,7 @@
                 <!-- Auto Repair -->
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/auto-lifts/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/auto-lift-equipment.png" alt="Auto lift">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/auto-lift-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/auto-lift-equipment.png" alt="Auto lift"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Auto Lift Financing Guide</h3>
                         </div>
@@ -472,7 +575,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/diagnostic-equipment-auto/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/diagnostic-scan-tool-equipment.png" alt="Diagnostic equipment">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/diagnostic-scan-tool-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/diagnostic-scan-tool-equipment.png" alt="Diagnostic equipment"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Diagnostic Equipment Financing Guide</h3>
                         </div>
@@ -480,7 +583,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/tire-changers-balancers/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/tire-changer-equipment.png" alt="Tire changer">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/tire-changer-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/tire-changer-equipment.png" alt="Tire changer"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Tire Equipment Financing Guide</h3>
                         </div>
@@ -488,7 +591,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/alignment-racks/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/alignment-rack-equipment.png" alt="Alignment rack">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/alignment-rack-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/alignment-rack-equipment.png" alt="Alignment rack"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Alignment Rack Financing Guide</h3>
                         </div>
@@ -496,7 +599,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/brake-rotor-equipment/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/brake-lathe-equipment.png" alt="Brake equipment">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/brake-lathe-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/brake-lathe-equipment.png" alt="Brake equipment"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Brake Equipment Financing Guide</h3>
                         </div>
@@ -504,7 +607,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/shop-tools-storage/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/shop-tools-equipment.png" alt="Shop tools">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/shop-tools-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/shop-tools-equipment.png" alt="Shop tools"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Shop Tools Financing Guide</h3>
                         </div>
@@ -514,7 +617,7 @@
                 <!-- Medical -->
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/medical-imaging/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/medical-imaging-equipment.png" alt="Medical imaging">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/medical-imaging-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/medical-imaging-equipment.png" alt="Medical imaging"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Medical Imaging Financing Guide</h3>
                         </div>
@@ -522,7 +625,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/dental-equipment/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/dental-equipment.png" alt="Dental equipment">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/dental-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/dental-equipment.png" alt="Dental equipment"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Dental Equipment Financing Guide</h3>
                         </div>
@@ -530,7 +633,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/exam-procedure-equipment/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/exam-equipment.png" alt="Exam equipment">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/exam-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/exam-equipment.png" alt="Exam equipment"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Exam Equipment Financing Guide</h3>
                         </div>
@@ -538,7 +641,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/lab-equipment-medical/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/lab-equipment-medical.png" alt="Lab equipment">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/lab-equipment-medical-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/lab-equipment-medical.png" alt="Lab equipment"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Lab Equipment Financing Guide</h3>
                         </div>
@@ -546,7 +649,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/surgical-equipment/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/surgical-equipment.png" alt="Surgical equipment">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/surgical-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/surgical-equipment.png" alt="Surgical equipment"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Surgical Equipment Financing Guide</h3>
                         </div>
@@ -554,7 +657,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/diagnostic-devices-medical/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/diagnostic-equipment.png" alt="Diagnostic devices">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/diagnostic-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/diagnostic-equipment.png" alt="Diagnostic devices"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Diagnostic Devices Financing Guide</h3>
                         </div>
@@ -564,7 +667,7 @@
                 <!-- Restaurant -->
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/commercial-kitchen/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/commercial-kitchen-equipment.png" alt="Commercial kitchen">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/commercial-kitchen-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/commercial-kitchen-equipment.png" alt="Commercial kitchen"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Commercial Kitchen Financing Guide</h3>
                         </div>
@@ -572,7 +675,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/restaurant-refrigeration/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/restaurant-refrigeration.png" alt="Restaurant refrigeration">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/restaurant-refrigeration-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/restaurant-refrigeration.png" alt="Restaurant refrigeration"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Restaurant Refrigeration Financing Guide</h3>
                         </div>
@@ -580,7 +683,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/pos-systems-restaurant/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/restaurant-pos-equipment.png" alt="POS system">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/restaurant-pos-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/restaurant-pos-equipment.png" alt="POS system"></picture>
                         <div class="equipment-types-card-body">
                             <h3>POS System Financing Guide</h3>
                         </div>
@@ -588,7 +691,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/dishwashers-warewashing/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/commercial-dishwasher-equipment.png" alt="Commercial dishwasher">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/commercial-dishwasher-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/commercial-dishwasher-equipment.png" alt="Commercial dishwasher"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Commercial Dishwasher Financing Guide</h3>
                         </div>
@@ -596,7 +699,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/prep-equipment-restaurant/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/restaurant-prep-equipment.png" alt="Prep equipment">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/restaurant-prep-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/restaurant-prep-equipment.png" alt="Prep equipment"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Prep Equipment Financing Guide</h3>
                         </div>
@@ -604,7 +707,7 @@
                 </div>
                 <div class="equipment-types-card">
                     <a class="equipment-types-card-link" href="equipment/ventilation-hood-systems/">
-                        <img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async" src="/assets/commercial-ventilation-equipment.png" alt="Ventilation system">
+                        <picture><source media="(max-width: 768px)" srcset="/assets/commercial-ventilation-equipment-mobile.webp"><img class="equipment-types-card-img" width="400" height="300" loading="lazy" decoding="async"  src="/assets/commercial-ventilation-equipment.png" alt="Ventilation system"></picture>
                         <div class="equipment-types-card-body">
                             <h3>Ventilation & Hood Financing Guide</h3>
                         </div>
@@ -637,7 +740,7 @@
     <footer class="site-footer">
         <p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a></p>
     </footer>
-    <script src="language-switcher.js?v=2025032027" defer></script>
+    <script>if(window.innerWidth>768){var s=document.createElement("script");s.src="language-switcher.js?v=2025032029";s.defer=true;document.body.appendChild(s);}</script>
     <script src="script.js" defer></script>
 <script>
   if ('serviceWorker' in navigator) {
@@ -683,7 +786,10 @@
     setTimeout(() => { window.location.href = href; }, 150);
   });
 </script>
-    </body>
+<script>
+if(window.innerWidth<=768){var ls=document.querySelectorAll('.about-section,.testimonials-section,.global-bottom-cta,.site-footer-enhanced,.services-grid,.blog-grid,.steps-grid,.benefits-grid');var so=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='none';so.unobserve(entry.target);}});},{rootMargin:'100px'});ls.forEach(function(s){s.style.opacity='0';s.style.transition='opacity 0.3s ease';so.observe(s);});}
+</script>
+</body>
 </html>
 
 

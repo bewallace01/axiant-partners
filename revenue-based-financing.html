@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#0d1f3c">
 <style>
   body { opacity: 0; }
 </style>
@@ -22,7 +27,7 @@
       gtag('config', 'AW-18021105450');
     </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Revenue-based financing for U.S. businesses: growth capital with repayment tied to revenue. How RBF works, typical terms, and how to qualify nationwide.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="https://www.axiantpartners.com/revenue-based-financing.html">
@@ -42,9 +47,102 @@
     <title>Revenue-Based Financing | Axiant Partners</title>
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
     <link rel="preload" href="/assets/rbf-hero.png" as="image">
-    <link rel="stylesheet" href="critical.css?v=2025032027">
-    <link rel="stylesheet" href="styles.css?v=2025032027" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="styles.css?v=2025032027"></noscript>
+    <style id="mobile-critical">
+/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
+:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
+[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
+*{margin:0;padding:0;box-sizing:border-box}
+html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
+body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
+.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
+.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
+.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
+.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
+.nav-brand span{display:none !important}
+.nav-logo-dark{display:none !important}
+html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
+html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
+.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
+.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
+.hero-grid{min-height:280px}
+header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
+.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
+.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
+.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
+.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
+.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
+.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
+.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
+.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
+.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
+.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
+</style>
+<link rel="stylesheet" href="critical.css?v=2025032029">
+    <style id="mobile-critical">
+/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
+:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
+[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
+*{margin:0;padding:0;box-sizing:border-box}
+html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
+body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
+.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
+.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
+.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
+.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
+.nav-brand span{display:none !important}
+.nav-logo-dark{display:none !important}
+html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
+html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
+.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
+.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
+.hero-grid{min-height:280px}
+header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
+.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
+.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
+.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
+.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
+.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
+.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
+.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
+.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
+.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
+.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
+</style>
+<link rel="stylesheet" href="styles.css?v=2025032029" media="print" onload="this.media='all'">
+    <noscript><style id="mobile-critical">
+/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
+:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
+[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
+*{margin:0;padding:0;box-sizing:border-box}
+html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
+body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
+.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
+.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
+.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
+.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
+.nav-brand span{display:none !important}
+.nav-logo-dark{display:none !important}
+html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
+html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
+.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
+.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
+.hero-grid{min-height:280px}
+header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
+.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
+.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
+.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
+.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
+.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
+.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
+.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
+.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
+.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
+.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
+</style>
+<link rel="stylesheet" href="styles.css?v=2025032029"></noscript>
     <style>
         .ef-hero {
             position: relative;
@@ -156,7 +254,7 @@
                         <p>Designed for businesses with consistent sales - SaaS, e-commerce, services, marketing agencies, hospitality - RBF funds growth initiatives without locking you into rigid monthly payments. Axiant Partners connects growth companies in all 50 states with revenue-based financing lenders. We evaluate your revenue profile, compare structures, and match you with programs that fit. One application, multiple options. <a href="/match.html">Apply now</a> to see what you qualify for.</p>
                         <div class="section-cta"><a href="/match.html" class="btn-primary">Apply for Revenue-Based Financing</a></div>
                     </div>
-                    <div class="ef-intro-img"><img src="/assets/rbf-intro.png" alt="Revenue-based financing for growth companies" loading="lazy"></div>
+                    <div class="ef-intro-img"><picture><source media="(max-width: 768px)" srcset="/assets/rbf-intro-mobile.webp"><img  src="/assets/rbf-intro.png" alt="Revenue-based financing for growth companies" loading="lazy"></picture></div>
                 </div>
             </section>
 
@@ -165,32 +263,32 @@
                 <p>Revenue-based financing is built for growth-oriented companies with regular sales activity. From SaaS to e-commerce to professional services - here are the most common use cases.</p>
                 <div class="benefits-grid ef-equipment-cards">
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/rbf-saas.png" alt="SaaS and subscription revenue-based financing" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/rbf-saas-mobile.webp"><img  src="/assets/rbf-saas.png" alt="SaaS and subscription revenue-based financing" loading="lazy"></picture></div>
                         <h3>SaaS &amp; Subscription Businesses</h3>
                         <p>Software companies with monthly recurring revenue (MRR) are natural fits. Repayment ties to subscription revenue - when MRR grows, you pay down faster. Use RBF for customer acquisition, product development, or scaling operations. <a href="/revenue-based-financing/articles/what-is-revenue-based-financing-how-does-it-work/">How revenue-based financing works</a> for SaaS.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/rbf-ecommerce.png" alt="E-commerce revenue-based financing" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/rbf-ecommerce-mobile.webp"><img  src="/assets/rbf-ecommerce.png" alt="E-commerce revenue-based financing" loading="lazy"></picture></div>
                         <h3>E-Commerce Companies</h3>
                         <p>Online retailers with consistent sales use RBF to fund inventory, marketing, and fulfillment. Revenue fluctuates with seasonality - RBF repayment flexes with that. Scale ad spend, expand SKUs, or invest in inventory without fixed loan payments squeezing cash flow.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/rbf-service.png" alt="Service business revenue-based financing" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/rbf-service-mobile.webp"><img  src="/assets/rbf-service.png" alt="Service business revenue-based financing" loading="lazy"></picture></div>
                         <h3>Service Businesses with Recurring Revenue</h3>
                         <p>Consulting firms, agencies, and B2B service companies with recurring invoices or retainer agreements. Revenue-based repayment aligns with project cycles and client payment timing. Compare with <a href="business-line-of-credit.html">business line of credit</a> if you need revolving access.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/rbf-marketing.png" alt="Marketing agency revenue-based financing" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/rbf-marketing-mobile.webp"><img  src="/assets/rbf-marketing.png" alt="Marketing agency revenue-based financing" loading="lazy"></picture></div>
                         <h3>Marketing &amp; Advertising Agencies</h3>
                         <p>Creative and media agencies funding client campaigns, hiring, or growth. Revenue often fluctuates with client spend - RBF repayment scales with that. Fund expansion without traditional bank debt timelines.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/rbf-hospitality.png" alt="Hospitality revenue-based financing" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/rbf-hospitality-mobile.webp"><img  src="/assets/rbf-hospitality.png" alt="Hospitality revenue-based financing" loading="lazy"></picture></div>
                         <h3>Hospitality &amp; Consumer Brands</h3>
                         <p>Restaurants, retail, and consumer-facing businesses with consistent sales. Seasonal ups and downs - RBF repayment adjusts. Use for expansion, renovation, or working capital. <a href="working-capital-loans.html">Working capital loans</a> are another option for day-to-day needs.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/rbf-growth-capital.png" alt="Growth capital scaling" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/rbf-growth-capital-mobile.webp"><img  src="/assets/rbf-growth-capital.png" alt="Growth capital scaling" loading="lazy"></picture></div>
                         <h3>Growth Initiatives with Variable Returns</h3>
                         <p>Any business scaling - marketing campaigns, hiring, inventory, expansion - where returns vary month to month. RBF avoids fixed payments when outcomes are uncertain. Pay more when performance is strong, less when it's not. <a href="/revenue-based-financing/articles/how-much-can-you-qualify-for-revenue-based-financing/">How much can you qualify for</a>.</p>
                     </div>
@@ -213,7 +311,7 @@
                         <p>Funding size scales with revenue consistency and trend. Lenders review bank statements and revenue reports - see <a href="/revenue-based-financing/articles/what-do-lenders-look-for-revenue-based-financing/">what lenders look for</a>. Use our <a href="calculator.html">calculator</a> to estimate cash flow impact.</p>
                         <div class="section-cta"><a href="/match.html" class="btn-primary">Apply Now</a></div>
                     </div>
-                    <div class="ef-amounts-img"><img src="/assets/rbf-amounts.png" alt="Revenue-based financing amounts by business type" loading="lazy"></div>
+                    <div class="ef-amounts-img"><picture><source media="(max-width: 768px)" srcset="/assets/rbf-amounts-mobile.webp"><img  src="/assets/rbf-amounts.png" alt="Revenue-based financing amounts by business type" loading="lazy"></picture></div>
                 </div>
             </section>
 
@@ -222,22 +320,22 @@
                 <p>RBF offers advantages that fixed-payment structures often cannot match for businesses with variable revenue.</p>
                 <div class="benefits-grid ef-why-cards">
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/rbf-flexible-repayment.png" alt="Flexible repayment tied to revenue" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/rbf-flexible-repayment-mobile.webp"><img  src="/assets/rbf-flexible-repayment.png" alt="Flexible repayment tied to revenue" loading="lazy"></picture></div>
                         <h3>Repayment Tied to Revenue</h3>
                         <p>Pay a percentage of monthly revenue - not a fixed dollar amount. When sales are strong, you pay down faster. When they dip, payments scale down. Cash flow stays aligned with performance.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/rbf-fast-funding.png" alt="Fast revenue-based financing" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/rbf-fast-funding-mobile.webp"><img  src="/assets/rbf-fast-funding.png" alt="Fast revenue-based financing" loading="lazy"></picture></div>
                         <h3>Fast Funding</h3>
                         <p>Typical funding in 3-10 business days. Revenue and deposit verification drive underwriting - no lengthy SBA or bank timelines. When you need growth capital to seize an opportunity, RBF moves quickly. <a href="/revenue-based-financing/articles/how-fast-can-you-get-revenue-based-financing/">How fast can you get funded</a>.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/rbf-no-fixed.png" alt="No fixed monthly payments" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/rbf-no-fixed-mobile.webp"><img  src="/assets/rbf-no-fixed.png" alt="No fixed monthly payments" loading="lazy"></picture></div>
                         <h3>No Fixed Monthly Payments</h3>
                         <p>Unlike term loans with rigid amortization, RBF repayment flexes. Slower months mean lower payments. Useful for seasonal businesses, variable sales cycles, or growth initiatives with uneven returns.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/rbf-growth-capital.png" alt="Growth capital for scaling" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/rbf-growth-capital-mobile.webp"><img  src="/assets/rbf-growth-capital.png" alt="Growth capital for scaling" loading="lazy"></picture></div>
                         <h3>Growth Capital for Scaling</h3>
                         <p>Fund marketing, hiring, inventory, expansion - initiatives that generate variable returns. RBF aligns repayment with outcomes. Scale without fixed debt service pressure during build-out.</p>
                     </div>
@@ -323,7 +421,7 @@
                         <p>SaaS companies with monthly recurring revenue are ideal candidates. Repayment ties to MRR - when you add customers and MRR grows, you pay down the obligation faster. When growth slows, payments scale down. Use RBF for customer acquisition, product development, hiring, or infrastructure. Avoid fixed loan payments when your revenue model is built on subscription growth. Many SaaS founders prefer RBF over equity dilution for growth capital.</p>
                         <p><a href="/match.html">Apply now</a> to see SaaS RBF options.</p>
                     </div>
-                    <div class="ef-industry-img"><img src="/assets/rbf-use-saas.png" alt="Revenue-based financing for SaaS companies" loading="lazy"></div>
+                    <div class="ef-industry-img"><picture><source media="(max-width: 768px)" srcset="/assets/rbf-use-saas-mobile.webp"><img  src="/assets/rbf-use-saas.png" alt="Revenue-based financing for SaaS companies" loading="lazy"></picture></div>
                 </div>
             </section>
 
@@ -334,7 +432,7 @@
                         <p>E-commerce businesses face seasonality - Q4 spikes, post-holiday dips. Fixed loan payments don't flex with that. Revenue-based financing ties repayment to actual sales. Scale inventory for peak season, fund marketing campaigns, expand product lines - and repay as revenue comes in. RBF aligns with how e-commerce actually operates. Compare with <a href="working-capital-loans.html">working capital loans</a> for ongoing operational needs.</p>
                         <p><a href="/match.html">Apply now</a> for e-commerce RBF.</p>
                     </div>
-                    <div class="ef-industry-img"><img src="/assets/rbf-use-ecommerce.png" alt="Revenue-based financing for e-commerce" loading="lazy"></div>
+                    <div class="ef-industry-img"><picture><source media="(max-width: 768px)" srcset="/assets/rbf-use-ecommerce-mobile.webp"><img  src="/assets/rbf-use-ecommerce.png" alt="Revenue-based financing for e-commerce" loading="lazy"></picture></div>
                 </div>
             </section>
 
@@ -454,7 +552,7 @@
     <footer class="site-footer">
         <p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a></p>
     </footer>
-    <script src="language-switcher.js?v=2025032027" defer></script>
+    <script>if(window.innerWidth>768){var s=document.createElement("script");s.src="language-switcher.js?v=2025032029";s.defer=true;document.body.appendChild(s);}</script>
     <script src="script.js" defer></script>
 <script>
   if ('serviceWorker' in navigator) {
@@ -500,7 +598,10 @@
     setTimeout(() => { window.location.href = href; }, 150);
   });
 </script>
-    </body>
+<script>
+if(window.innerWidth<=768){var ls=document.querySelectorAll('.about-section,.testimonials-section,.global-bottom-cta,.site-footer-enhanced,.services-grid,.blog-grid,.steps-grid,.benefits-grid');var so=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='none';so.unobserve(entry.target);}});},{rootMargin:'100px'});ls.forEach(function(s){s.style.opacity='0';s.style.transition='opacity 0.3s ease';so.observe(s);});}
+</script>
+</body>
 </html>
 
 

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#0d1f3c">
 <style>
   body { opacity: 0; }
 </style>
@@ -22,7 +27,7 @@
       gtag('config', 'AW-18021105450');
     </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Working capital loans for U.S. businesses: $10K-$5M+ for payroll, inventory, receivables, and cash flow gaps. Decisions often in 24-48 hours.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="https://www.axiantpartners.com/working-capital-loans.html">
@@ -42,9 +47,102 @@
     <title>Working Capital Loans | $10K-$5M+ | Axiant Partners</title>
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
     <link rel="preload" href="/assets/wcl-hero-operations.png" as="image">
-    <link rel="stylesheet" href="critical.css?v=2025032027">
-    <link rel="stylesheet" href="styles.css?v=2025032027" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="styles.css?v=2025032027"></noscript>
+    <style id="mobile-critical">
+/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
+:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
+[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
+*{margin:0;padding:0;box-sizing:border-box}
+html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
+body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
+.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
+.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
+.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
+.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
+.nav-brand span{display:none !important}
+.nav-logo-dark{display:none !important}
+html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
+html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
+.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
+.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
+.hero-grid{min-height:280px}
+header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
+.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
+.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
+.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
+.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
+.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
+.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
+.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
+.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
+.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
+.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
+</style>
+<link rel="stylesheet" href="critical.css?v=2025032029">
+    <style id="mobile-critical">
+/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
+:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
+[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
+*{margin:0;padding:0;box-sizing:border-box}
+html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
+body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
+.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
+.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
+.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
+.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
+.nav-brand span{display:none !important}
+.nav-logo-dark{display:none !important}
+html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
+html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
+.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
+.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
+.hero-grid{min-height:280px}
+header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
+.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
+.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
+.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
+.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
+.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
+.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
+.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
+.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
+.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
+.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
+</style>
+<link rel="stylesheet" href="styles.css?v=2025032029" media="print" onload="this.media='all'">
+    <noscript><style id="mobile-critical">
+/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
+:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
+[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
+*{margin:0;padding:0;box-sizing:border-box}
+html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
+body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
+.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
+.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
+.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
+.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
+.nav-brand span{display:none !important}
+.nav-logo-dark{display:none !important}
+html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
+html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
+.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
+.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
+.hero-grid{min-height:280px}
+header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
+.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
+.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
+.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
+.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
+.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
+.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
+.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
+.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
+.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
+.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
+</style>
+<link rel="stylesheet" href="styles.css?v=2025032029"></noscript>
     <style>
         .wcl-hero {
             position: relative;
@@ -82,7 +180,7 @@
     {"@context":"https://schema.org","@type":"WebPage","name":"Working Capital Loans | $10K-$5M+ | Axiant Partners","description":"Working capital loans for payroll, inventory, cash flow, seasonal gaps. Term loans, SBA, lines of credit. Apply now.","url":"https://www.axiantpartners.com/working-capital-loans.html"}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can I receive working capital?","acceptedAnswer":{"@type":"Answer","text":"Short-term working capital can fund within 48 hours to 1 week once approved. SBA working capital loans typically take 30-60+ days. Lines of credit may fund within 1-2 weeks once approved. Expedited programs often decide same-day or next-day."}},{"@type":"Question","name":"What is the minimum loan amount?","acceptedAnswer":{"@type":"Answer","text":"Most programs start at $10,000. Expedited programs often fund $10K-$250K; larger facilities reach $5M+. We match you with programs that fit your needs and profile."}},{"@type":"Question","name":"Is collateral required for working capital?","acceptedAnswer":{"@type":"Answer","text":"Unsecured working capital is available for qualified businesses. Secured options may offer better rates and higher limits. Requirements vary by lender and structure."}},{"@type":"Question","name":"Can startups qualify for working capital loans?","acceptedAnswer":{"@type":"Answer","text":"Some programs serve businesses under two years in operation. SBA microloans and alternative lenders exist for newer businesses. Solid personal credit and credible revenue improve odds. We connect you with options that fit your profile."}},{"@type":"Question","name":"Working capital loan vs. line of credit·which is right for me?","acceptedAnswer":{"@type":"Answer","text":"Working capital term loans provide a lump sum with fixed repayment. Best for a specific need: inventory, a project, or a one-time gap. Lines of credit offer revolving access·draw as needed, repay, reuse. Best for ongoing, fluctuating needs. Many businesses use both."}},{"@type":"Question","name":"What credit score do I need?","acceptedAnswer":{"@type":"Answer","text":"Requirements vary by program. Many accept 550+ FICO. Strong credit (680+) typically unlocks better rates and terms. Lenders exist for B, C, or D credit·terms may reflect risk, but you can still access capital."}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can I receive working capital?","acceptedAnswer":{"@type":"Answer","text":"Short-term working capital can fund within 48 hours to 1 week once approved. SBA working capital loans typically take 30-60+ days. Lines of credit may fund within 1-2 weeks once approved. Expedited programs often decide same-day or next-day."}},{"@type":"Question","name":"What is the minimum loan amount?","acceptedAnswer":{"@type":"Answer","text":"Most programs start at $10,000. Expedited programs often fund $10K-$250K; larger facilities reach $5M+. We match you with programs that fit your needs and profile."}},{"@type":"Question","name":"Is collateral required for working capital?","acceptedAnswer":{"@type":"Answer","text":"Unsecured working capital is available for qualified businesses. Secured options may offer better rates and higher limits. Requirements vary by lender and structure."}},{"@type":"Question","name":"Can startups qualify for working capital loans?","acceptedAnswer":{"@type":"Answer","text":"Some programs serve businesses under two years in operation. SBA microloans and alternative lenders exist for newer businesses. Solid personal credit and credible revenue improve odds. We connect you with options that fit your profile."}},{"@type":"Question","name":"Working capital loan vs. line of credit&mdash;which is right for me?","acceptedAnswer":{"@type":"Answer","text":"Working capital term loans provide a lump sum with fixed repayment. Best for a specific need: inventory, a project, or a one-time gap. Lines of credit offer revolving access&mdash;draw as needed, repay, reuse. Best for ongoing, fluctuating needs. Many businesses use both."}},{"@type":"Question","name":"What credit score do I need?","acceptedAnswer":{"@type":"Answer","text":"Requirements vary by program. Many accept 550+ FICO. Strong credit (680+) typically unlocks better rates and terms. Lenders exist for B, C, or D credit&mdash;terms may reflect risk, but you can still access capital."}}]}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"HowTo","name":"How to Get a Working Capital Loan","description":"Apply for working capital through Axiant Partners.","step":[{"@type":"HowToStep","name":"Apply","text":"Share your business and financing needs. One application goes to multiple lenders."},{"@type":"HowToStep","name":"Review","text":"Lenders evaluate your profile. Decisions often in 24-48 hours for short-term; SBA takes longer."},{"@type":"HowToStep","name":"Fund","text":"Once approved, funds disburse. Short-term: 48 hours to 1 week. SBA: 30-60+ days."}]}
@@ -109,12 +207,12 @@
         <section class="wcl-hero">
             <div class="wcl-hero-copy">
                 <h1>Working Capital Loans: Fund Operations Without Straining Cash Flow</h1>
-                <p class="wcl-subhead">Working capital financing for U.S. businesses·$10,000 to $5,000,000+. Payroll, inventory, seasonal gaps, and growth. Decisions often in 24-48 hours. Apply today and keep your business running.</p>
+                <p class="wcl-subhead">Working capital financing for U.S. businesses&mdash;$10,000 to $5,000,000+. Payroll, inventory, seasonal gaps, and growth. Decisions often in 24-48 hours. Apply today and keep your business running.</p>
                 <ul class="wcl-hero-bullets">
                     <li>Approvals in as little as 24 hours</li>
                     <li>$10K-$5M+ for qualified businesses</li>
                     <li>Payroll, inventory, receivables, expansion</li>
-                    <li>Simple application·one form, multiple lenders</li>
+                    <li>Simple application&mdash;one form, multiple lenders</li>
                 </ul>
                 <div class="wcl-hero-ctas">
                     <a href="/match.html" class="btn-primary" style="padding:0.9rem 1.5rem; font-size:1.05rem;">Apply for Working Capital</a>
@@ -127,7 +225,7 @@
         <div class="form-container working-capital-loans-content">
             <section class="about-section">
                 <h2>Quick Answer: When to Use a Working Capital Loan</h2>
-                <p>Working capital loans are designed to cover operating expenses and short-term cash flow gaps·like payroll, inventory, and seasonal slow periods·without tying up cash reserves.</p>
+                <p>Working capital loans are designed to cover operating expenses and short-term cash flow gaps&mdash;like payroll, inventory, and seasonal slow periods&mdash;without tying up cash reserves.</p>
                 <ul>
                     <li><strong>Best for:</strong> payroll, inventory buys, receivables gaps, expansion costs</li>
                     <li><strong>Common range:</strong> $10K-$5M+ depending on revenue and profile</li>
@@ -165,41 +263,41 @@
                 <div class="wcl-intro-content">
                     <div class="wcl-intro-text">
                         <h2>Working Capital Financing for Growing Businesses</h2>
-                        <p>Cash flow gaps can slow you down. Payroll due before receivables clear. A seasonal rush that demands extra inventory. A growth opportunity that needs quick capital. When operations outpace available funds, working capital loans give you the breathing room to run·and scale·your business without sacrificing reserves or turning away opportunities.</p>
-                        <p>Unlike <a href="equipment-financing.html">equipment</a> or real estate financing, working capital is designed for day-to-day operational needs. You use funds for payroll, inventory, marketing, hiring, bridging receivables, or covering unexpected expenses. Axiant Partners connects businesses in all 50 states with lenders who offer term loans, SBA working capital loans, and lines of credit·often with streamlined applications and options for varied credit profiles.</p>
+                        <p>Cash flow gaps can slow you down. Payroll due before receivables clear. A seasonal rush that demands extra inventory. A growth opportunity that needs quick capital. When operations outpace available funds, working capital loans give you the breathing room to run&mdash;and scale&mdash;your business without sacrificing reserves or turning away opportunities.</p>
+                        <p>Unlike <a href="equipment-financing.html">equipment</a> or real estate financing, working capital is designed for day-to-day operational needs. You use funds for payroll, inventory, marketing, hiring, bridging receivables, or covering unexpected expenses. Axiant Partners connects businesses in all 50 states with lenders who offer term loans, SBA working capital loans, and lines of credit&mdash;often with streamlined applications and options for varied credit profiles.</p>
                         <p>Whether you need a one-time lump sum or <a href="business-line-of-credit.html">revolving access</a>, we help match your needs to the right structure. Decisions for short-term working capital often come within 24-48 hours. <a href="sba-loans.html">SBA loans</a> take longer but offer favorable terms for established businesses. <a href="/match.html">Apply now</a> to see what you qualify for.</p>
                         <div class="section-cta"><a href="/match.html" class="btn-primary">Apply Now</a></div>
                     </div>
-                    <div class="wcl-intro-img"><img src="/assets/wcl-intro-cashflow.png" alt="Business cash flow and working capital" loading="lazy"></div>
+                    <div class="wcl-intro-img"><picture><source media="(max-width: 768px)" srcset="/assets/wcl-intro-cashflow-mobile.webp"><img  src="/assets/wcl-intro-cashflow.png" alt="Business cash flow and working capital" loading="lazy"></picture></div>
                 </div>
             </section>
 
             <section class="about-section">
                 <h2>Common Uses for Working Capital Financing</h2>
-                <p>Working capital loans support the daily operations and growth initiatives that keep your business running. Here·s how businesses use this financing:</p>
+                <p>Working capital loans support the daily operations and growth initiatives that keep your business running. Here&mdash;s how businesses use this financing:</p>
                 <div class="benefits-grid wcl-use-cards">
                     <div class="benefit-card wcl-card-with-img">
-                        <div class="wcl-card-img"><img src="/assets/wcl-payroll-operations.png" alt="Payroll and operations" loading="lazy"></div>
+                        <div class="wcl-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/wcl-payroll-operations-mobile.webp"><img  src="/assets/wcl-payroll-operations.png" alt="Payroll and operations" loading="lazy"></picture></div>
                         <h3>Payroll &amp; Operations</h3>
-                        <p>Cover payroll during slow periods, when receivables are delayed, or when you·re scaling headcount. Maintain team morale and avoid gaps in coverage.</p>
+                        <p>Cover payroll during slow periods, when receivables are delayed, or when you&mdash;re scaling headcount. Maintain team morale and avoid gaps in coverage.</p>
                     </div>
                     <div class="benefit-card wcl-card-with-img">
-                        <div class="wcl-card-img"><img src="/assets/wcl-inventory-seasonal.png" alt="Inventory and seasonal" loading="lazy"></div>
+                        <div class="wcl-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/wcl-inventory-seasonal-mobile.webp"><img  src="/assets/wcl-inventory-seasonal.png" alt="Inventory and seasonal" loading="lazy"></picture></div>
                         <h3>Inventory &amp; Seasonal Buildup</h3>
                         <p>Stock up before busy seasons, secure bulk discounts, or bridge ordering gaps. Retail, wholesale, and seasonal businesses rely on working capital to maximize sales windows.</p>
                     </div>
                     <div class="benefit-card wcl-card-with-img">
-                        <div class="wcl-card-img"><img src="/assets/wcl-receivables.png" alt="Cash flow and receivables" loading="lazy"></div>
+                        <div class="wcl-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/wcl-receivables-mobile.webp"><img  src="/assets/wcl-receivables.png" alt="Cash flow and receivables" loading="lazy"></picture></div>
                         <h3>Cash Flow &amp; Receivables</h3>
                         <p>Fill timing gaps between payables and collections. When customers pay net-30 or net-60, working capital keeps you operating while you wait.</p>
                     </div>
                     <div class="benefit-card wcl-card-with-img">
-                        <div class="wcl-card-img"><img src="/assets/wcl-growth-expansion.png" alt="Growth and expansion" loading="lazy"></div>
+                        <div class="wcl-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/wcl-growth-expansion-mobile.webp"><img  src="/assets/wcl-growth-expansion.png" alt="Growth and expansion" loading="lazy"></picture></div>
                         <h3>Growth &amp; Expansion</h3>
                         <p>Fund marketing campaigns, hiring, new locations, or short-term growth projects. Turn opportunities into revenue without draining reserves.</p>
                     </div>
                     <div class="benefit-card wcl-card-with-img">
-                        <div class="wcl-card-img"><img src="/assets/wcl-emergency-reserves.png" alt="Unexpected expenses and reserves" loading="lazy"></div>
+                        <div class="wcl-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/wcl-emergency-reserves-mobile.webp"><img  src="/assets/wcl-emergency-reserves.png" alt="Unexpected expenses and reserves" loading="lazy"></picture></div>
                         <h3>Unexpected Expenses &amp; Reserves</h3>
                         <p>Address operating emergencies, revenue dips, or urgent needs. Working capital provides a buffer when the unexpected happens.</p>
                     </div>
@@ -210,47 +308,47 @@
             <section class="about-section wcl-amounts-with-img">
                 <div class="wcl-amounts-content">
                     <div class="wcl-amounts-text">
-                        <h2>What Businesses Are Financing·Typical Amounts by Industry</h2>
+                        <h2>What Businesses Are Financing&mdash;Typical Amounts by Industry</h2>
                         <p>Working capital amounts vary by industry, revenue, and business profile. Here are representative ranges we see across the U.S.:</p>
                         <ul>
-                            <li><strong><a href="restaurants-business-financing.html">Retail and seasonal businesses</a></strong>·$25,000 to $250,000+ for inventory buildup, holiday stock, and seasonal staffing</li>
-                            <li><strong><a href="construction-business-financing.html">Construction and contractors</a></strong>·$50,000 to $500,000+ for materials, payroll, and project advances</li>
-                            <li><strong><a href="manufacturing-business-financing.html">Manufacturing</a></strong>·$75,000 to $1,000,000+ for raw materials, production runs, and supply chain gaps</li>
-                            <li><strong><a href="restaurants-business-financing.html">Restaurants and food service</a></strong>·$20,000 to $150,000 for inventory, payroll, and seasonal rushes</li>
-                            <li><strong>Professional services</strong>·$30,000 to $300,000 for receivables, hiring, and expansion</li>
-                            <li><strong><a href="logistics-warehousing-business-financing.html">Wholesale and distribution</a></strong>·$50,000 to $500,000+ for inventory, logistics, and seasonal demand</li>
-                            <li><strong><a href="medical-practices-business-financing.html">Healthcare practices</a></strong>·$40,000 to $300,000 for staffing, receivables, and equipment-related working capital</li>
+                            <li><strong><a href="restaurants-business-financing.html">Retail and seasonal businesses</a></strong>&mdash;$25,000 to $250,000+ for inventory buildup, holiday stock, and seasonal staffing</li>
+                            <li><strong><a href="construction-business-financing.html">Construction and contractors</a></strong>&mdash;$50,000 to $500,000+ for materials, payroll, and project advances</li>
+                            <li><strong><a href="manufacturing-business-financing.html">Manufacturing</a></strong>&mdash;$75,000 to $1,000,000+ for raw materials, production runs, and supply chain gaps</li>
+                            <li><strong><a href="restaurants-business-financing.html">Restaurants and food service</a></strong>&mdash;$20,000 to $150,000 for inventory, payroll, and seasonal rushes</li>
+                            <li><strong>Professional services</strong>&mdash;$30,000 to $300,000 for receivables, hiring, and expansion</li>
+                            <li><strong><a href="logistics-warehousing-business-financing.html">Wholesale and distribution</a></strong>&mdash;$50,000 to $500,000+ for inventory, logistics, and seasonal demand</li>
+                            <li><strong><a href="medical-practices-business-financing.html">Healthcare practices</a></strong>&mdash;$40,000 to $300,000 for staffing, receivables, and equipment-related working capital</li>
                         </ul>
                         <p>Your actual amount depends on revenue, credit, cash flow, and lender. Use our <a href="calculator.html">financing calculator</a> to estimate payments.</p>
                         <div class="section-cta"><a href="/match.html" class="btn-primary">Apply Now</a></div>
                     </div>
-                    <div class="wcl-amounts-img"><img src="/assets/wcl-amounts-by-industry.png" alt="Working capital amounts by industry" loading="lazy"></div>
+                    <div class="wcl-amounts-img"><picture><source media="(max-width: 768px)" srcset="/assets/wcl-amounts-by-industry-mobile.webp"><img  src="/assets/wcl-amounts-by-industry.png" alt="Working capital amounts by industry" loading="lazy"></picture></div>
                 </div>
             </section>
 
             <section class="about-section">
                 <h2>Why Businesses Choose Working Capital Loans</h2>
-                <p>Working capital financing offers several advantages over draining reserves, delaying payments, or missing opportunities. Here·s why businesses nationwide choose it:</p>
+                <p>Working capital financing offers several advantages over draining reserves, delaying payments, or missing opportunities. Here&mdash;s why businesses nationwide choose it:</p>
                 <div class="benefits-grid wcl-why-cards">
                     <div class="benefit-card wcl-card-with-img">
-                        <div class="wcl-card-img"><img src="/assets/wcl-conserve-capital.png" alt="Preserve cash flow with working capital" loading="lazy"></div>
+                        <div class="wcl-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/wcl-conserve-capital-mobile.webp"><img  src="/assets/wcl-conserve-capital.png" alt="Preserve cash flow with working capital" loading="lazy"></picture></div>
                         <h3>Conserve Cash Reserves</h3>
                         <p>Borrow for operational needs instead of depleting savings. Keep reserves for emergencies, opportunities, and peace of mind.</p>
                     </div>
                     <div class="benefit-card wcl-card-with-img">
-                        <div class="wcl-card-img"><img src="/assets/wcl-speed-funding.png" alt="Fast working capital funding" loading="lazy"></div>
+                        <div class="wcl-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/wcl-speed-funding-mobile.webp"><img  src="/assets/wcl-speed-funding.png" alt="Fast working capital funding" loading="lazy"></picture></div>
                         <h3>Speed to Funding</h3>
-                        <p>Short-term working capital often funds in 48 hours to 1 week. Time-sensitive needs·payroll, inventory, or opportunities·don·t require lengthy waits.</p>
+                        <p>Short-term working capital often funds in 48 hours to 1 week. Time-sensitive needs&mdash;payroll, inventory, or opportunities&mdash;don&mdash;t require lengthy waits.</p>
                     </div>
                     <div class="benefit-card wcl-card-with-img">
-                        <div class="wcl-card-img"><img src="/assets/wcl-flexible-use.png" alt="Flexible use of funds" loading="lazy"></div>
+                        <div class="wcl-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/wcl-flexible-use-mobile.webp"><img  src="/assets/wcl-flexible-use.png" alt="Flexible use of funds" loading="lazy"></picture></div>
                         <h3>Flexible Use of Funds</h3>
-                        <p>Use working capital for payroll, inventory, marketing, hiring, or gaps·no equipment or real estate required. Deploy funds where they·re needed most.</p>
+                        <p>Use working capital for payroll, inventory, marketing, hiring, or gaps&mdash;no equipment or real estate required. Deploy funds where they&mdash;re needed most.</p>
                     </div>
                     <div class="benefit-card wcl-card-with-img">
-                        <div class="wcl-card-img"><img src="/assets/wcl-multiple-structures.png" alt="Multiple structures" loading="lazy"></div>
+                        <div class="wcl-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/wcl-multiple-structures-mobile.webp"><img  src="/assets/wcl-multiple-structures.png" alt="Multiple structures" loading="lazy"></picture></div>
                         <h3>Multiple Structures</h3>
-                        <p><a href="business-term-loans.html">Term loans</a>, <a href="business-line-of-credit.html">lines of credit</a>, or <a href="sba-loans.html">SBA</a>·we match your profile to the right structure. Whether you need a lump sum or revolving access, options exist.</p>
+                        <p><a href="business-term-loans.html">Term loans</a>, <a href="business-line-of-credit.html">lines of credit</a>, or <a href="sba-loans.html">SBA</a>&mdash;we match your profile to the right structure. Whether you need a lump sum or revolving access, options exist.</p>
                     </div>
                 </div>
                 <div class="section-cta"><a href="/match.html" class="btn-primary">See What You Qualify For</a></div>
@@ -261,11 +359,11 @@
                 <p>We connect you with lenders who offer several working capital structures. The right choice depends on your needs, timeline, and whether you prefer a lump sum or revolving access.</p>
                 <div class="service-card">
                     <h3>Short-Term Working Capital Term Loan</h3>
-                    <p>A fixed-amount loan with a set repayment schedule. You receive a lump sum and repay over 6-24 months, typically with daily or weekly payments. Best for specific one-time needs: seasonal inventory, a project, or a short-term gap. Funding often occurs within 48 hours to 1 week·ideal when time matters.</p>
+                    <p>A fixed-amount loan with a set repayment schedule. You receive a lump sum and repay over 6-24 months, typically with daily or weekly payments. Best for specific one-time needs: seasonal inventory, a project, or a short-term gap. Funding often occurs within 48 hours to 1 week&mdash;ideal when time matters.</p>
                 </div>
                 <div class="service-card">
                     <h3>Business Line of Credit</h3>
-                    <p>Revolving credit that lets you draw funds as needed. Pay interest only on the amount used; once you repay, the credit becomes available again. Best for ongoing, fluctuating needs·payroll gaps, receivables timing, or recurring inventory. Compare <a href="business-line-of-credit.html">business lines of credit</a> for more.</p>
+                    <p>Revolving credit that lets you draw funds as needed. Pay interest only on the amount used; once you repay, the credit becomes available again. Best for ongoing, fluctuating needs&mdash;payroll gaps, receivables timing, or recurring inventory. Compare <a href="business-line-of-credit.html">business lines of credit</a> for more.</p>
                 </div>
                 <div class="service-card">
                     <h3>SBA Working Capital Loan</h3>
@@ -275,7 +373,7 @@
                 <div class="wcl-program-cards">
                     <div class="service-card">
                         <h4>Expedited Working Capital</h4>
-                        <p>When time matters. Many lenders fund up to <strong>$250,000</strong> with same-day or next-day decisions·streamlined applications and minimal documentation. Suited for urgent needs: payroll, inventory, or time-sensitive opportunities.</p>
+                        <p>When time matters. Many lenders fund up to <strong>$250,000</strong> with same-day or next-day decisions&mdash;streamlined applications and minimal documentation. Suited for urgent needs: payroll, inventory, or time-sensitive opportunities.</p>
                     </div>
                     <div class="service-card">
                         <h4>Growth-Stage Working Capital</h4>
@@ -283,7 +381,7 @@
                     </div>
                     <div class="service-card">
                         <h4>Major Working Capital Facilities</h4>
-                        <p>Deals above <strong>$500,000</strong>·inventory, receivables, expansion, or recapitalization·are structured with terms to <strong>60 months</strong> or longer. Review typically completes in 3-7 days. Built for significant operational needs.</p>
+                        <p>Deals above <strong>$500,000</strong>&mdash;inventory, receivables, expansion, or recapitalization&mdash;are structured with terms to <strong>60 months</strong> or longer. Review typically completes in 3-7 days. Built for significant operational needs.</p>
                     </div>
                     <div class="service-card">
                         <h4>New Business Working Capital</h4>
@@ -301,9 +399,9 @@
                 <h2>Working Capital Loan Requirements</h2>
                 <p>Requirements vary by lender and program, but many businesses may qualify if they have:</p>
                 <ul>
-                    <li><strong>At least 6 months in business</strong>·Some programs accept newer businesses; others require 1-2 years or more.</li>
-                    <li><strong>Monthly revenue of $10,000 or more</strong>·Demonstrates ability to repay. Higher revenue often unlocks larger amounts and better terms.</li>
-                    <li><strong>Fair or improving credit</strong>·Many programs work with 550+ FICO. Strong credit (680+) typically secures better rates.</li>
+                    <li><strong>At least 6 months in business</strong>&mdash;Some programs accept newer businesses; others require 1-2 years or more.</li>
+                    <li><strong>Monthly revenue of $10,000 or more</strong>&mdash;Demonstrates ability to repay. Higher revenue often unlocks larger amounts and better terms.</li>
+                    <li><strong>Fair or improving credit</strong>&mdash;Many programs work with 550+ FICO. Strong credit (680+) typically secures better rates.</li>
                 </ul>
                 <p>Programs exist for both strong and challenged credit situations. Unsecured working capital is available for qualified businesses; secured options may offer better rates. Businesses with consistent revenue may also consider <a href="revenue-based-financing.html">revenue-based financing</a>. <a href="/match.html">Apply to see what you qualify for</a>.</p>
                 <div class="section-cta"><a href="/match.html" class="btn-primary">Check Your Eligibility</a></div>
@@ -321,7 +419,7 @@
                     <div class="step-card">
                         <div class="step-number">02</div>
                         <h3>Share Supporting Documents</h3>
-                        <p>We·ll ask for bank statements, basic financials, and other documentation·only what lenders require to evaluate your request.</p>
+                        <p>We&mdash;ll ask for bank statements, basic financials, and other documentation&mdash;only what lenders require to evaluate your request.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">03</div>
@@ -331,7 +429,7 @@
                     <div class="step-card">
                         <div class="step-number">04</div>
                         <h3>Receive Funding</h3>
-                        <p>After approval, funds disburse to your account. Short-term: typically 48 hours to 1 week. SBA: 30-60+ days. You deploy capital where it·s needed.</p>
+                        <p>After approval, funds disburse to your account. Short-term: typically 48 hours to 1 week. SBA: 30-60+ days. You deploy capital where it&mdash;s needed.</p>
                     </div>
                 </div>
                 <p style="text-align:center; font-weight:600; margin-top:1rem;">Short-term working capital: decisions often in 24-48 hours.</p>
@@ -343,9 +441,9 @@
                     <div class="wcl-industry-text">
                         <h2>Working Capital for Retail &amp; Seasonal Businesses</h2>
                         <p>Retailers, seasonal businesses, and those with uneven cash flow face a recurring challenge: sales spikes require inventory and staffing before revenue arrives. Working capital financing lets you stock up for peak seasons, hire temporary staff, and maximize sales windows without depleting reserves.</p>
-                        <p>Typical amounts range from $25,000 for smaller operations to $250,000+ for multi-location retailers. Funding often occurs within 48 hours to 1 week·ideal for time-sensitive seasonal preparation. <a href="restaurants-business-financing.html">Restaurant financing</a> · <a href="/match.html">Apply now</a>.</p>
+                        <p>Typical amounts range from $25,000 for smaller operations to $250,000+ for multi-location retailers. Funding often occurs within 48 hours to 1 week&mdash;ideal for time-sensitive seasonal preparation. <a href="restaurants-business-financing.html">Restaurant financing</a> &mdash; <a href="/match.html">Apply now</a>.</p>
                     </div>
-                    <div class="wcl-industry-img"><img src="/assets/wcl-retail-seasonal.png" alt="Retail and seasonal business working capital" loading="lazy"></div>
+                    <div class="wcl-industry-img"><picture><source media="(max-width: 768px)" srcset="/assets/wcl-retail-seasonal-mobile.webp"><img  src="/assets/wcl-retail-seasonal.png" alt="Retail and seasonal business working capital" loading="lazy"></picture></div>
                 </div>
             </section>
 
@@ -353,10 +451,10 @@
                 <div class="wcl-industry-content wcl-industry-reverse">
                     <div class="wcl-industry-text">
                         <h2>Working Capital for Construction &amp; Contractors</h2>
-                        <p>Construction and contracting require upfront capital for materials, labor, and project advances. Cash flow gaps arise when progress payments lag behind costs. Working capital loans help bridge those gaps·paying for materials, subcontractors, and payroll while you wait for client payments.</p>
-                        <p>Typical amounts range from $50,000 for smaller contractors to $500,000+ for established firms. <a href="construction-business-financing.html">Construction business financing</a> · <a href="/match.html">Apply now</a>.</p>
+                        <p>Construction and contracting require upfront capital for materials, labor, and project advances. Cash flow gaps arise when progress payments lag behind costs. Working capital loans help bridge those gaps&mdash;paying for materials, subcontractors, and payroll while you wait for client payments.</p>
+                        <p>Typical amounts range from $50,000 for smaller contractors to $500,000+ for established firms. <a href="construction-business-financing.html">Construction business financing</a> &mdash; <a href="/match.html">Apply now</a>.</p>
                     </div>
-                    <div class="wcl-industry-img"><img src="/assets/wcl-contractors.png" alt="Construction and contractor working capital" loading="lazy"></div>
+                    <div class="wcl-industry-img"><picture><source media="(max-width: 768px)" srcset="/assets/wcl-contractors-mobile.webp"><img  src="/assets/wcl-contractors.png" alt="Construction and contractor working capital" loading="lazy"></picture></div>
                 </div>
             </section>
 
@@ -375,7 +473,7 @@
                     <li><a href="forestry-business-financing.html">Forestry</a></li>
                     <li><a href="logistics-warehousing-business-financing.html">Logistics &amp; Warehousing</a></li>
                 </ul>
-                <p>Our goal is to provide financing solutions that support business growth·regardless of industry.</p>
+                <p>Our goal is to provide financing solutions that support business growth&mdash;regardless of industry.</p>
                 <p><strong>Explore related financing:</strong> <a href="business-line-of-credit.html">Business Line of Credit</a> (revolving) &middot; <a href="business-term-loans.html">Business Term Loans</a> (lump-sum) &middot; <a href="revenue-based-financing.html">Revenue-Based Financing</a> (repayment tied to revenue) &middot; <a href="services.html">All services</a></p>
             </section>
 
@@ -383,10 +481,10 @@
                 <h2>Why Choose Axiant Partners</h2>
                 <p>We focus on connecting you with the right lender and moving your application forward efficiently.</p>
                 <ul>
-                    <li><strong>Streamlined process</strong>·We understand lender requirements and keep the process moving. Minimal back-and-forth.</li>
-                    <li><strong>Multiple lender relationships</strong>·Term loans, lines of credit, SBA·we help identify the structure that fits your goals.</li>
-                    <li><strong>Sector knowledge</strong>·Retail, construction, manufacturing, professional services, and more. We match you with lenders experienced in your field.</li>
-                    <li><strong>50-state reach</strong>·We serve businesses anywhere in the U.S., regardless of location.</li>
+                    <li><strong>Streamlined process</strong>&mdash;We understand lender requirements and keep the process moving. Minimal back-and-forth.</li>
+                    <li><strong>Multiple lender relationships</strong>&mdash;Term loans, lines of credit, SBA&mdash;we help identify the structure that fits your goals.</li>
+                    <li><strong>Sector knowledge</strong>&mdash;Retail, construction, manufacturing, professional services, and more. We match you with lenders experienced in your field.</li>
+                    <li><strong>50-state reach</strong>&mdash;We serve businesses anywhere in the U.S., regardless of location.</li>
                 </ul>
                 <p>One application, multiple options, and support at each stage. Our goal is to help you secure the working capital your business needs to run and grow.</p>
                 <div class="section-cta"><a href="/match.html" class="btn-primary">Get Started</a></div>
@@ -402,10 +500,10 @@
                 <p>Unsecured working capital is available for qualified businesses. Secured options may offer better rates and higher limits. Requirements vary by lender and structure. <a href="/match.html">Apply to learn your options</a>.</p>
                 <h4>Can startups qualify for working capital loans?</h4>
                 <p>Some programs serve businesses under two years in operation. SBA microloans and alternative lenders exist for newer businesses. Solid personal credit and credible revenue improve odds. We connect you with options that fit your profile. <a href="/match.html">Apply to see what you qualify for</a>.</p>
-                <h4>Working capital loan vs. line of credit·which is right for me?</h4>
-                <p><strong>Working capital term loans</strong> provide a lump sum with fixed repayment. Best for a specific need: inventory, a project, or a one-time gap. <strong>Lines of credit</strong> offer revolving access·draw as needed, repay, reuse. Best for ongoing, fluctuating needs. Many businesses use both. <a href="business-line-of-credit.html">Compare business lines of credit</a>.</p>
+                <h4>Working capital loan vs. line of credit&mdash;which is right for me?</h4>
+                <p><strong>Working capital term loans</strong> provide a lump sum with fixed repayment. Best for a specific need: inventory, a project, or a one-time gap. <strong>Lines of credit</strong> offer revolving access&mdash;draw as needed, repay, reuse. Best for ongoing, fluctuating needs. Many businesses use both. <a href="business-line-of-credit.html">Compare business lines of credit</a>.</p>
                 <h4>What credit score do I need?</h4>
-                <p>Requirements vary by program. Many accept <strong>550+ FICO</strong>. Strong credit (680+) typically unlocks better rates and terms. Lenders exist for B, C, or D credit·terms may reflect risk, but you can still access capital. <a href="/match.html">Apply to see your options</a>.</p>
+                <p>Requirements vary by program. Many accept <strong>550+ FICO</strong>. Strong credit (680+) typically unlocks better rates and terms. Lenders exist for B, C, or D credit&mdash;terms may reflect risk, but you can still access capital. <a href="/match.html">Apply to see your options</a>.</p>
                 <div class="section-cta" style="margin-top:1.5rem;"><a href="/match.html" class="btn-primary">Get Working Capital Today</a></div>
             </section>
 
@@ -469,7 +567,7 @@
     <footer class="site-footer">
         <p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a></p>
     </footer>
-    <script src="language-switcher.js?v=2025032027" defer></script>
+    <script>if(window.innerWidth>768){var s=document.createElement("script");s.src="language-switcher.js?v=2025032029";s.defer=true;document.body.appendChild(s);}</script>
     <script src="script.js" defer></script>
 <script>
   if ('serviceWorker' in navigator) {
@@ -515,7 +613,10 @@
     setTimeout(() => { window.location.href = href; }, 150);
   });
 </script>
-    </body>
+<script>
+if(window.innerWidth<=768){var ls=document.querySelectorAll('.about-section,.testimonials-section,.global-bottom-cta,.site-footer-enhanced,.services-grid,.blog-grid,.steps-grid,.benefits-grid');var so=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='none';so.unobserve(entry.target);}});},{rootMargin:'100px'});ls.forEach(function(s){s.style.opacity='0';s.style.transition='opacity 0.3s ease';so.observe(s);});}
+</script>
+</body>
 </html>
 
 

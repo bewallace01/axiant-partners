@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#0d1f3c">
 <style>
   body { opacity: 0; }
 </style>
@@ -22,7 +27,7 @@
       gtag('config', 'AW-18021105450');
     </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Securities-based lending lets you borrow against eligible investments without selling. Unlock liquidity for business needs, acquisitions, and tax nationwide.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="https://www.axiantpartners.com/securities-based-lending.html">
@@ -42,9 +47,102 @@
     <title>Securities-Based Lending | Borrow Without Selling | Axiant Partners</title>
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
     <link rel="preload" href="/assets/sbl-hero.png" as="image">
-    <link rel="stylesheet" href="critical.css?v=2025032027">
-    <link rel="stylesheet" href="styles.css?v=2025032027" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="styles.css?v=2025032027"></noscript>
+    <style id="mobile-critical">
+/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
+:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
+[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
+*{margin:0;padding:0;box-sizing:border-box}
+html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
+body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
+.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
+.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
+.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
+.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
+.nav-brand span{display:none !important}
+.nav-logo-dark{display:none !important}
+html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
+html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
+.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
+.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
+.hero-grid{min-height:280px}
+header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
+.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
+.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
+.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
+.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
+.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
+.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
+.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
+.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
+.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
+.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
+</style>
+<link rel="stylesheet" href="critical.css?v=2025032029">
+    <style id="mobile-critical">
+/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
+:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
+[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
+*{margin:0;padding:0;box-sizing:border-box}
+html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
+body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
+.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
+.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
+.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
+.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
+.nav-brand span{display:none !important}
+.nav-logo-dark{display:none !important}
+html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
+html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
+.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
+.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
+.hero-grid{min-height:280px}
+header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
+.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
+.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
+.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
+.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
+.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
+.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
+.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
+.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
+.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
+.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
+</style>
+<link rel="stylesheet" href="styles.css?v=2025032029" media="print" onload="this.media='all'">
+    <noscript><style id="mobile-critical">
+/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
+:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
+[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
+*{margin:0;padding:0;box-sizing:border-box}
+html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
+body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
+.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
+.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
+.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
+.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
+.nav-brand span{display:none !important}
+.nav-logo-dark{display:none !important}
+html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
+html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
+.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
+.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
+.hero-grid{min-height:280px}
+header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
+.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
+.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
+.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
+.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
+.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
+.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
+.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
+.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
+.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
+.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
+</style>
+<link rel="stylesheet" href="styles.css?v=2025032029"></noscript>
     <style>
         .ef-hero {
             position: relative;
@@ -167,7 +265,7 @@
                         <p>Axiant Partners connects qualified borrowers with SBL lenders nationwide. One application goes to multiple programs. We help you understand advance rates, margin requirements, and risk considerations so you can decide if SBL fits your situation. <a href="/match.html">Apply now</a> to see what you qualify for.</p>
                         <div class="section-cta"><a href="/match.html" class="btn-primary">Apply Now</a></div>
                     </div>
-                    <div class="ef-intro-img"><img src="/assets/sbl-intro.png" alt="Securities-based lending and portfolio-backed liquidity" loading="lazy"></div>
+                    <div class="ef-intro-img"><picture><source media="(max-width: 768px)" srcset="/assets/sbl-intro-mobile.webp"><img  src="/assets/sbl-intro.png" alt="Securities-based lending and portfolio-backed liquidity" loading="lazy"></picture></div>
                 </div>
             </section>
 
@@ -176,32 +274,32 @@
                 <p>SBL fits specific liquidity needs. Here are the most common ways borrowers use portfolio-backed financing:</p>
                 <div class="benefits-grid ef-equipment-cards">
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/sbl-business-capital.png" alt="Business working capital and liquidity" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/sbl-business-capital-mobile.webp"><img  src="/assets/sbl-business-capital.png" alt="Business working capital and liquidity" loading="lazy"></picture></div>
                         <h3>Business Working Capital</h3>
                         <p>Fund payroll, inventory, receivables gaps, or seasonal needs without liquidating investments. SBL provides revolving or term capital tied to portfolio value. Business owners use SBL when bank lines are maxed or when they prefer not to tap traditional credit.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/sbl-acquisition.png" alt="Acquisition deposits and deal financing" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/sbl-acquisition-mobile.webp"><img  src="/assets/sbl-acquisition.png" alt="Acquisition deposits and deal financing" loading="lazy"></picture></div>
                         <h3>Acquisition Deposits</h3>
                         <p>Earnest money, down payments, or short-duration bridge capital for business or real estate acquisitions. SBL can fund faster than SBA or conventional loans. Often used alongside <a href="commercial-bridge-loans.html">commercial bridge loans</a> or <a href="sba-loans.html">SBA financing</a>.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/sbl-tax-liquidity.png" alt="Tax-related liquidity and planning" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/sbl-tax-liquidity-mobile.webp"><img  src="/assets/sbl-tax-liquidity.png" alt="Tax-related liquidity and planning" loading="lazy"></picture></div>
                         <h3>Tax-Related Liquidity</h3>
                         <p>Cover estimated taxes, extension payments, or other tax obligations without selling investments. Avoid triggering capital gains or locking in losses. SBL provides short-to-medium term liquidity while your portfolio continues to compound.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/sbl-bridge.png" alt="Bridge financing for real estate or business" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/sbl-bridge-mobile.webp"><img  src="/assets/sbl-bridge.png" alt="Bridge financing for real estate or business" loading="lazy"></picture></div>
                         <h3>Bridge Financing</h3>
                         <p>Short-term capital to bridge the gap between selling one asset and acquiring another. Real estate transitions, business sales, or investment timing. SBL offers flexibility when you need liquidity quickly and expect to repay from a future event.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/sbl-concentrated-equity.png" alt="Concentrated equity and diversification" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/sbl-concentrated-equity-mobile.webp"><img  src="/assets/sbl-concentrated-equity.png" alt="Concentrated equity and diversification" loading="lazy"></picture></div>
                         <h3>Concentrated Equity</h3>
                         <p>Access liquidity from a concentrated stock position without selling. Diversify over time while meeting near-term capital needs. Lenders apply concentration haircuts; we match you with programs that accommodate your situation.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/sbl-strategic-timing.png" alt="Strategic capital and timing" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/sbl-strategic-timing-mobile.webp"><img  src="/assets/sbl-strategic-timing.png" alt="Strategic capital and timing" loading="lazy"></picture></div>
                         <h3>Strategic Capital</h3>
                         <p>Fund opportunities without selling at unfavorable times. Investment commitments, private placements, or time-sensitive transactions. SBL lets you act when the opportunity arises while keeping long-term positions intact.</p>
                     </div>
@@ -224,7 +322,7 @@
                         <p>Your actual amount depends on your holdings. <a href="/match.html">Apply to get a personalized assessment</a> and see what programs fit your portfolio.</p>
                         <div class="section-cta"><a href="/match.html" class="btn-primary">Apply Now</a></div>
                     </div>
-                    <div class="ef-amounts-img"><img src="/assets/sbl-amounts.png" alt="Securities-based lending amounts and facility sizes" loading="lazy"></div>
+                    <div class="ef-amounts-img"><picture><source media="(max-width: 768px)" srcset="/assets/sbl-amounts-mobile.webp"><img  src="/assets/sbl-amounts.png" alt="Securities-based lending amounts and facility sizes" loading="lazy"></picture></div>
                 </div>
             </section>
 
@@ -233,22 +331,22 @@
                 <p>Portfolio-backed financing offers distinct advantages when used appropriately:</p>
                 <div class="benefits-grid ef-why-cards">
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/sbl-preserve-portfolio.png" alt="Preserve portfolio and long-term strategy" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/sbl-preserve-portfolio-mobile.webp"><img  src="/assets/sbl-preserve-portfolio.png" alt="Preserve portfolio and long-term strategy" loading="lazy"></picture></div>
                         <h3>Preserve Portfolio</h3>
                         <p>Keep your investments intact. No sale means no capital gains, no timing risk, and continued participation in market upside. Your long-term strategy stays on track.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/sbl-fast-liquidity.png" alt="Fast liquidity and approval" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/sbl-fast-liquidity-mobile.webp"><img  src="/assets/sbl-fast-liquidity.png" alt="Fast liquidity and approval" loading="lazy"></picture></div>
                         <h3>Faster Than Traditional Loans</h3>
                         <p>Portfolio-backed facilities often approve and fund quicker than SBA, conventional commercial loans, or real estate-secured lending. Liquid collateral simplifies underwriting.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/sbl-competitive-pricing.png" alt="Competitive pricing for strong collateral" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/sbl-competitive-pricing-mobile.webp"><img  src="/assets/sbl-competitive-pricing.png" alt="Competitive pricing for strong collateral" loading="lazy"></picture></div>
                         <h3>Competitive Pricing</h3>
                         <p>Strong collateral profiles can secure attractive rates. Lenders price based on portfolio quality, concentration, and borrower profile. We help you access competitive programs.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
-                        <div class="ef-card-img"><img src="/assets/sbl-no-sale.png" alt="No sale required - avoid liquidation" loading="lazy"></div>
+                        <div class="ef-card-img"><picture><source media="(max-width: 768px)" srcset="/assets/sbl-no-sale-mobile.webp"><img  src="/assets/sbl-no-sale.png" alt="No sale required - avoid liquidation" loading="lazy"></picture></div>
                         <h3>No Sale Required</h3>
                         <p>Access liquidity without selling. Avoid lock-in losses, tax events, or disrupting rebalancing. Ideal when selling would be costly or strategically undesirable.</p>
                     </div>
@@ -331,7 +429,7 @@
                         <p>High-net-worth individuals and families often hold substantial investment portfolios. When liquidity needs arise - a major purchase, business opportunity, tax event, or estate planning - selling can trigger taxes, disrupt asset allocation, or create timing risk. Securities-based lending provides an alternative: borrow against the portfolio, keep positions intact, and access capital without liquidation.</p>
                         <p>Wealth managers and advisors frequently recommend SBL for clients who need flexibility. Facilities from $100,000 to $10,000,000+ are common. Revolving structures allow draws and repayments as circumstances change. <a href="/match.html">Apply to explore SBL options</a>.</p>
                     </div>
-                    <div class="ef-industry-img"><img src="/assets/sbl-wealth-management.png" alt="Wealth management and securities-based lending" loading="lazy"></div>
+                    <div class="ef-industry-img"><picture><source media="(max-width: 768px)" srcset="/assets/sbl-wealth-management-mobile.webp"><img  src="/assets/sbl-wealth-management.png" alt="Wealth management and securities-based lending" loading="lazy"></picture></div>
                 </div>
             </section>
 
@@ -342,7 +440,7 @@
                         <p>Business owners and C-suite executives often hold concentrated equity - company stock, options, or significant positions from prior roles. Selling can mean taxes, signaling, or locking in at a bad time. SBL lets you monetize without selling. Use proceeds for business capital, acquisition deposits, personal liquidity, or bridge needs.</p>
                         <p>Concentrated positions receive different advance rates than diversified portfolios. We work with lenders who understand executive compensation and concentrated equity. <a href="/match.html">Apply now</a> to see what structures are available for your situation.</p>
                     </div>
-                    <div class="ef-industry-img"><img src="/assets/sbl-business-owners.png" alt="Business owners and executives using SBL" loading="lazy"></div>
+                    <div class="ef-industry-img"><picture><source media="(max-width: 768px)" srcset="/assets/sbl-business-owners-mobile.webp"><img  src="/assets/sbl-business-owners.png" alt="Business owners and executives using SBL" loading="lazy"></picture></div>
                 </div>
             </section>
 
@@ -451,7 +549,7 @@
     <footer class="site-footer">
         <p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a></p>
     </footer>
-    <script src="language-switcher.js?v=2025032027" defer></script>
+    <script>if(window.innerWidth>768){var s=document.createElement("script");s.src="language-switcher.js?v=2025032029";s.defer=true;document.body.appendChild(s);}</script>
     <script src="script.js" defer></script>
 <script>
   if ('serviceWorker' in navigator) {
@@ -497,7 +595,10 @@
     setTimeout(() => { window.location.href = href; }, 150);
   });
 </script>
-    </body>
+<script>
+if(window.innerWidth<=768){var ls=document.querySelectorAll('.about-section,.testimonials-section,.global-bottom-cta,.site-footer-enhanced,.services-grid,.blog-grid,.steps-grid,.benefits-grid');var so=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='none';so.unobserve(entry.target);}});},{rootMargin:'100px'});ls.forEach(function(s){s.style.opacity='0';s.style.transition='opacity 0.3s ease';so.observe(s);});}
+</script>
+</body>
 </html>
 
 

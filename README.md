@@ -45,6 +45,16 @@ Simply open `index.html` in a web browser to view the website locally.
 
 For production deployment, upload all files to your web hosting service.
 
+## Mobile Image Optimization (Optional)
+
+To generate smaller mobile-specific images (saves 50–70% bandwidth on phones), run:
+
+```bash
+npm run optimize-mobile-images
+```
+
+This creates `*-mobile.webp` versions in `/assets/` and requires Node.js and the `sharp` package.
+
 ## Future Enhancements
 
 - Backend integration for form submissions
