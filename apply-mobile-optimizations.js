@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Applies mobile optimizations to all HTML files:
  * - Step 1: Inline critical-mobile.css as first stylesheet
  * - Step 5: Add lazy-load script before </body>

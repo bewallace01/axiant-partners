@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Adds equipment-specific content and hub elements to all how-to-finance pages.
  * Run from project root: node scripts/update-equipment-pages.js
  */

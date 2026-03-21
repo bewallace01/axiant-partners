@@ -1,4 +1,4 @@
-// Translations for Axiant Partners Website
+﻿// Translations for Axiant Partners Website
 const translations = {
     en: {
         // Navigation

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Business Loan & Lease Calculator
  * Toggle: Loan vs Lease. Loan uses Purchase Price - Down Payment. Lease uses Purchase Price - Down Payment - Residual.
  * Calculates payment, amount financed, interest rate, or term when 3 of 4 are provided.

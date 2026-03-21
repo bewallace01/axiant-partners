@@ -1,6 +1,6 @@
-/**
- * Convert PNG images in assets/ to WebP format.
- * Run: node scripts/convert-webp.js
+﻿/**
+ * Convert PNG/JPG/JPEG images in assets/ to WebP format.
+ * Skips if .webp already exists. Run: node scripts/convert-webp.js
  */
 const fs = require('fs');
 const path = require('path');
@@ -21,12 +21,17 @@ async function convertToWebP() {
   }
 
   const files = fs.readdirSync(assetsDir);
-  const pngs = files.filter(f => /\.png$/i.test(f));
+  const images = files.filter(f => /\.(png|jpg|jpeg)$/i.test(f));
   let converted = 0;
+  let skipped = 0;
 
-  for (const file of pngs) {
+  for (const file of images) {
     const inputPath = path.join(assetsDir, file);
-    const webpPath = inputPath.replace(/\.png$/i, '.webp');
+    const webpPath = inputPath.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+    if (fs.existsSync(webpPath)) {
+      skipped++;
+      continue;
+    }
     try {
       await sharp(inputPath)
         .webp({ quality: 82 })
@@ -38,7 +43,7 @@ async function convertToWebP() {
     }
   }
 
-  console.log(`Done. Converted ${converted}/${pngs.length} PNGs to WebP.`);
+  console.log(`Done. Converted ${converted} images to WebP (${skipped} already existed).`);
 }
 
 convertToWebP();
