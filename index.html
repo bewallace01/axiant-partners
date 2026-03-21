@@ -830,11 +830,6 @@
             .benefits-row-6 .benefit-card { padding: 1.25rem 1rem; }
             .benefits-row-6 .benefit-card h3 { font-size: 1rem; }
             .benefits-row-6 .benefit-card p { font-size: 0.9rem; line-height: 1.5; }
-            .financing-options-grid .industry-tile { flex: 0 1 calc(50% - 0.5rem); }
-        }
-
-        @media (max-width: 480px) {
-            .financing-options-grid .industry-tile { flex: 0 1 100%; }
         }
 
         .cta-banner {
@@ -1283,15 +1278,21 @@
                 gap: 1rem;
             }
 
+            .hero-form-financing {
+                overflow: hidden;
+            }
+
             .financing-options-grid {
                 flex-direction: column;
+                align-items: stretch;
                 gap: 1rem;
             }
 
             .financing-options-grid .industry-tile {
-                flex: 1 1 100%;
+                flex: 0 1 auto;
+                width: 100%;
+                max-width: 100%;
                 min-width: 0;
-                max-width: none;
             }
 
             .trust-line {
@@ -1566,6 +1567,7 @@
                         <h2>See What You Qualify For</h2>
                         <p class="hero-form-subtitle">No hard credit pull · Takes 60 seconds · No cost to you</p>
                         <form id="quoteForm" action="https://formspree.io/f/mbdzegkd" method="POST">
+                            <input type="hidden" name="_cc" value="jerry@axiantpartners.com">
                             <div class="form-row">
                                 <input type="text" name="firstName" placeholder="First Name" required>
                                 <input type="text" name="lastName" placeholder="Last Name" required>
