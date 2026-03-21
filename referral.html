@@ -47,63 +47,49 @@
     }
     </script>
     <style>
-        .referral-hero-wrap {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: calc(100vh - 180px);
-            text-align: center;
-        }
-        .referral-hero-wrap .form-container,
-        .referral-hero-wrap .referral-container,
-        .referral-hero-wrap .referral-main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .referral-hero-wrap .referral-header,
-        .referral-hero-wrap .referral-body,
-        .referral-hero-wrap .referral-actions {
-            text-align: center;
-        }
-        .referral-hero-wrap .referral-pills {
-            justify-content: center;
-        }
-        .referral-hero-wrap ul,
-        .referral-hero-wrap ol {
-            display: inline-block;
-            text-align: left;
+        .referral-hero-wrap { min-height: 100vh; }
+        /* Desktop: match calculator page layout */
+        @media (min-width: 769px) {
+            .referral-hero-wrap .referral-body { text-align: left; }
+            .referral-hero-wrap .referral-section { text-align: left; }
+            .referral-hero-wrap ul, .referral-hero-wrap ol { display: block; text-align: left; }
         }
         @media (max-width: 768px) {
+            .referral-hero-wrap { display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; text-align: center; }
+            .referral-hero-wrap .form-container, .referral-hero-wrap .referral-container, .referral-hero-wrap .referral-main { display: flex; flex-direction: column; align-items: center; text-align: center; }
+            .referral-hero-wrap .referral-header, .referral-hero-wrap .referral-body, .referral-hero-wrap .referral-actions { text-align: center; }
+            .referral-hero-wrap .referral-pills { justify-content: center; }
+            .referral-hero-wrap ul, .referral-hero-wrap ol { display: inline-block; text-align: left; }
             .referral-hero-wrap .form-container.referral-content {
                 width: 100%;
                 max-width: 100%;
-                padding: 0 20px;
+                padding: 0.75rem 1rem;
                 box-sizing: border-box;
                 margin: 0 auto;
-                align-self: stretch;
-                align-items: stretch;
+                align-items: center;
             }
             .referral-hero-wrap .referral-container {
                 width: 100%;
                 max-width: 100%;
                 margin: 0 auto;
-                align-items: stretch;
+                align-items: center;
             }
             .referral-hero-wrap .referral-main {
-                max-width: 600px;
+                max-width: min(720px, calc(100% - 1rem));
                 margin: 0 auto;
-                padding: 0 20px;
+                padding: 0 1rem;
                 width: 100%;
                 box-sizing: border-box;
-                align-items: stretch;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             .referral-hero-wrap .referral-body,
             .referral-hero-wrap .referral-section {
                 width: 100%;
-                max-width: 100%;
+                max-width: min(640px, 100%);
+                margin-left: auto;
+                margin-right: auto;
                 text-align: center;
             }
             .referral-hero-wrap ul,
