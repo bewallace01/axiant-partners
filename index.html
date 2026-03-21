@@ -58,6 +58,32 @@
             gap: 1.5rem;
             align-items: stretch;
         }
+        .hero-grid > .hero-copy,
+        .hero-grid > .hero-form {
+            display: flex;
+            flex-direction: column;
+            align-self: stretch;
+        }
+
+        .hero-form-inline {
+            margin: 1.25rem 0 1.5rem;
+            padding: 1.25rem 1.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            text-align: center;
+            max-width: 100%;
+        }
+        .hero-form-inline .form-row,
+        .hero-form-inline .form-row.full,
+        .hero-form-inline .form-row.form-row-two {
+            max-width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .hero-form-inline .form-row.form-row-two {
+            grid-template-columns: 1fr 1fr;
+        }
 
 
         .application-shell {
@@ -404,6 +430,68 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        .hero-form-quote h2 {
+            margin: 0 0 0.35rem;
+            font-size: 1.35rem;
+        }
+        .hero-form-quote .hero-form-subtitle {
+            margin: 0 0 1rem;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+        .hero-form-quote .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+            margin-bottom: 0.6rem;
+        }
+        .hero-form-quote .form-row.full {
+            grid-template-columns: 1fr;
+        }
+        .hero-form-quote input {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: var(--text-primary);
+            background: var(--bg-card);
+            box-sizing: border-box;
+        }
+        .hero-form-quote input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .hero-form-quote .submit-btn {
+            width: 100%;
+            padding: 12px 18px;
+            margin-top: 0.25rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .hero-form-quote .submit-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(45, 127, 184, 0.35);
+        }
+        .hero-form-quote .form-success {
+            display: none;
+            text-align: center;
+            padding: 1.25rem;
+            color: #059669;
+            font-weight: 600;
+        }
+        @media (max-width: 600px) {
+            .hero-form-quote .form-row,
+            .hero-form-quote .form-row.form-row-two { grid-template-columns: 1fr; }
         }
 
         .hero-form-urgency {
@@ -1473,20 +1561,27 @@
                 <div class="hero-copy">
                     <span class="hero-kicker">No cost to you — banks pay us</span>
                     <h1><span class="hero-h1-full">Business Financing That Fits Your Business</span><span class="hero-h1-short">Business Financing That Fits</span></h1>
-                    <p class="hero-subtext">We match your business with lenders that already approve companies like yours. One application, direct access to decision-makers—no generic comparison sites or endless applications.</p>
-                    <ul class="hero-bullets" aria-label="Financing we offer">
-                        <li>Equipment Financing</li>
-                        <li>Dump Trucks &amp; Construction Equipment</li>
-                        <li>Working Capital</li>
-                        <li>Lines of Credit</li>
-                    </ul>
-                    <p class="hero-urgency">Pre-qualify in minutes · No hard credit pull to check options · Same-day approvals available</p>
-                    <div class="hero-actions">
-                        <a class="hero-btn" href="/match.html" aria-label="Get matched with lenders">Check Your Financing Options</a>
-                        <a class="hero-btn-outline" href="tel:+19199072611">Talk to a Specialist</a>
+
+                    <div class="hero-form hero-form-quote hero-form-inline" id="quote-form">
+                        <h2>See What You Qualify For</h2>
+                        <p class="hero-form-subtitle">No hard credit pull · Takes 60 seconds · No cost to you</p>
+                        <form id="quoteForm" action="https://formspree.io/f/mbdzegkd" method="POST">
+                            <div class="form-row">
+                                <input type="text" name="firstName" placeholder="First Name" required>
+                                <input type="text" name="lastName" placeholder="Last Name" required>
+                            </div>
+                            <div class="form-row form-row-two">
+                                <input type="email" name="email" placeholder="Email Address" required>
+                                <input type="tel" name="phone" placeholder="Phone Number" required>
+                            </div>
+                            <div class="form-row full">
+                                <input type="text" name="zipCode" placeholder="Zip Code" required>
+                            </div>
+                            <button type="submit" class="submit-btn">See What You Qualify For →</button>
+                        </form>
+                        <div class="form-success" id="formSuccess">✅ Thank you! We&rsquo;ll be in touch shortly.</div>
                     </div>
-                    <p class="hero-cta-note">Free · No obligation · Takes about 2 minutes</p>
-                    <p class="hero-we-finance">We finance: <strong>Dump trucks</strong> · <strong>Excavators</strong> · <strong>Semi trucks</strong> · <strong>Construction</strong> · <strong>Restaurants</strong> · <strong>Medical equipment</strong></p>
+
                     <div class="metric-grid">
                         <div class="metric-card">
                             <div class="metric-icon" aria-hidden="true">
@@ -1849,9 +1944,28 @@
     <script src="script.js?v=2025032021" defer></script>
     <script>
       (function() {
+        var form = document.getElementById('quoteForm');
+        var success = document.getElementById('formSuccess');
+        if (form && success) {
+          form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            var data = new FormData(form);
+            var response = await fetch(form.action, {
+              method: 'POST',
+              body: data,
+              headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+              form.style.display = 'none';
+              success.style.display = 'block';
+            }
+          });
+        }
+      })();
+      (function() {
         var bar = document.getElementById('stickyCtaBar');
         if (!bar) return;
-        var hero = document.querySelector('.application-shell');
+        var hero = document.querySelector('.hero-grid') || document.querySelector('.application-shell');
         function onScroll() {
           var heroBottom = hero ? hero.getBoundingClientRect().bottom : 0;
           var show = window.scrollY > 300 || heroBottom < 0;
