@@ -27,5 +27,49 @@
     <title>Securities-Based Lending | Axiant Partners</title>
     <script>location.replace("articles/");</script>
 </head>
-<body><p><a href="articles/">Securities-Based Lending Articles</a></p></body>
+<body><p><a href="articles/">Securities-Based Lending Articles</a></p><script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
+<script>
+  const prefetched = new Set();
+  function prefetchPage(url) {
+    if (prefetched.has(url)) return;
+    prefetched.add(url);
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = url;
+    document.head.appendChild(link);
+  }
+  document.addEventListener('mouseover', function(e) {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+    prefetchPage(href);
+  });
+  document.addEventListener('touchstart', function(e) {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+    prefetchPage(href);
+  }, { passive: true });
+</script>
+<script>
+  document.addEventListener('click', function(e) {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || anchor.target === '_blank') return;
+    e.preventDefault();
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.15s ease';
+    setTimeout(() => { window.location.href = href; }, 150);
+  });
+</script>
+    </body>
 </html>

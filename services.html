@@ -39,9 +39,6 @@
     <meta name="twitter:description" content="Explore business financing services: SBA, equipment, working capital, lines of credit, term loans, CRE, bridge loans, and more—nationwide.">
     <title>Business Financing Services | Axiant Partners</title>
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="/assets/equipment-financing-hero.png" as="image">
     <link rel="preload" href="/assets/sba-hero.png" as="image">
     <link rel="stylesheet" href="critical.css?v=2025032027">
@@ -254,6 +251,50 @@
         <p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a></p>
     </footer>
     <script src="language-switcher.js?v=2025032027" defer></script>
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
+<script>
+  const prefetched = new Set();
+  function prefetchPage(url) {
+    if (prefetched.has(url)) return;
+    prefetched.add(url);
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = url;
+    document.head.appendChild(link);
+  }
+  document.addEventListener('mouseover', function(e) {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+    prefetchPage(href);
+  });
+  document.addEventListener('touchstart', function(e) {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+    prefetchPage(href);
+  }, { passive: true });
+</script>
+<script>
+  document.addEventListener('click', function(e) {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || anchor.target === '_blank') return;
+    e.preventDefault();
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.15s ease';
+    setTimeout(() => { window.location.href = href; }, 150);
+  });
+</script>
     </body>
 </html>
 

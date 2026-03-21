@@ -39,8 +39,6 @@
     <meta name="twitter:description" content="Mini excavator financing: equipment loans, leases, 24-48 hr approvals. $25K-$100K+. Apply now.">
     <title>Mini Excavator Financing | Loans & Leases | Axiant Partners</title>
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="/assets/mini-excavator-hero-bg.png" as="image">
     <link rel="stylesheet" href="../../critical.css?v=2025032027">
     <link rel="stylesheet" href="../../styles.css?v=2025032027" media="print" onload="this.media='all'">
@@ -419,7 +417,51 @@
     </footer>
     <script src="../../language-switcher.js?v=2025032027" defer></script>
     <script src="../../script.js" defer></script>
-</body>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
+<script>
+  const prefetched = new Set();
+  function prefetchPage(url) {
+    if (prefetched.has(url)) return;
+    prefetched.add(url);
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = url;
+    document.head.appendChild(link);
+  }
+  document.addEventListener('mouseover', function(e) {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+    prefetchPage(href);
+  });
+  document.addEventListener('touchstart', function(e) {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+    prefetchPage(href);
+  }, { passive: true });
+</script>
+<script>
+  document.addEventListener('click', function(e) {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || anchor.target === '_blank') return;
+    e.preventDefault();
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.15s ease';
+    setTimeout(() => { window.location.href = href; }, 150);
+  });
+</script>
+    </body>
 </html>
 
 
