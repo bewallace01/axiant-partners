@@ -1538,6 +1538,25 @@
     </script>
 </head>
 <body>
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="nav-top">
+            <img src="Axiant_light_logo.png" alt="Axiant Partners" style="height: 40px;">
+            <button class="nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+        </div>
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/services.html">Services</a>
+            <a href="/equipment.html">Equipment Guides</a>
+            <a href="/industries.html">Industries</a>
+            <a href="/calculator.html">Calculator</a>
+            <a href="/contact.html">Contact</a>
+            <a href="/referral.html">Referral</a>
+        </nav>
+        <div class="nav-bottom">
+            <a href="tel:9199072611" class="nav-phone">(919) 907-2611</a>
+            <a href="/match.html" class="nav-cta">Find Match</a>
+        </div>
+    </div>
     <div class="container">
         <nav class="main-nav">
             <div class="nav-brand"><a href="/"><img src="logo-horizontal-transparent.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-light" width="180" height="74"><img src="Axiant_light_logo.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-dark" width="180" height="74"></a><span>Axiant Partners</span></div>
@@ -1977,6 +1996,62 @@
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('resize', onScroll);
       })();
+    </script>
+    <script>
+    // Mobile nav overlay - new overlay takes over when hamburger clicked
+    (function() {
+        var mobileNavOverlay = document.getElementById('mobileNavOverlay');
+        var mobileNavClose = document.getElementById('mobileNavClose');
+        var hamburgerBtn = document.querySelector('.mobile-menu-toggle');
+
+        function closeOldNav() {
+            document.body.classList.remove('mobile-nav-open');
+            var navLinks = document.querySelector('.main-nav .nav-links');
+            var oldOverlay = document.querySelector('.mobile-menu-overlay');
+            if (navLinks) navLinks.classList.remove('active');
+            if (hamburgerBtn) hamburgerBtn.classList.remove('active');
+            if (oldOverlay) oldOverlay.style.pointerEvents = 'none';
+        }
+
+        function closeNewOverlay() {
+            if (mobileNavOverlay) mobileNavOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+            closeOldNav();
+        }
+
+        if (hamburgerBtn && mobileNavOverlay) {
+            hamburgerBtn.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    closeOldNav();
+                    mobileNavOverlay.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                    e.stopPropagation();
+                }
+            }, true);
+        }
+
+        if (mobileNavClose) {
+            mobileNavClose.addEventListener('click', closeNewOverlay);
+        }
+
+        if (mobileNavOverlay) {
+            mobileNavOverlay.querySelectorAll('.nav-links a').forEach(function(link) {
+                link.addEventListener('click', closeNewOverlay);
+            });
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileNavOverlay && mobileNavOverlay.classList.contains('open')) {
+                closeNewOverlay();
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileNavOverlay && mobileNavOverlay.classList.contains('open')) {
+                closeNewOverlay();
+            }
+        });
+    })();
     </script>
     </body>
 </html>
