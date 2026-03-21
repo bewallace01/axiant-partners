@@ -39,14 +39,17 @@
     {"@context":"https://schema.org","@type":"ContactPage","name":"Contact Us - Axiant Partners","description":"Contact Axiant Partners for business financing and advisory. Email, phone, and contact form.","url":"https://www.axiantpartners.com/contact.html","publisher":{"@type":"Organization","name":"Axiant Partners","url":"https://www.axiantpartners.com"}}
     </script>
     <style>
-        .contact-hero-wrap { min-height: 100vh; }
+        body.contact-page { display: flex; flex-direction: column; min-height: 100vh; }
+        body.contact-page .container { flex: 1; }
+        body.contact-page .site-footer { position: static !important; }
+        .contact-hero-wrap { min-height: calc(100vh - 200px); padding-bottom: 80px; }
         /* Desktop: match calculator page layout */
         @media (min-width: 769px) {
             .contact-hero-wrap .contact-form-area form { text-align: left; }
             .contact-hero-wrap .contact-form-area .form-group label { text-align: left; }
         }
         @media (max-width: 768px) {
-            .contact-hero-wrap { display: flex; flex-direction: column; justify-content: flex-start; align-items: center; min-height: auto; padding: 1rem 0 3rem; text-align: center; overflow-y: visible; }
+            .contact-hero-wrap { display: flex; flex-direction: column; justify-content: flex-start; align-items: center; min-height: auto; padding: 1rem 0 100px; text-align: center; overflow-y: visible; }
             .contact-hero-wrap .form-container, .contact-hero-wrap .contact-container, .contact-hero-wrap .contact-main { display: flex; flex-direction: column; align-items: center; text-align: center; }
             .contact-hero-wrap .contact-form-area, .contact-hero-wrap .contact-info-sticker { text-align: center; }
             .contact-hero-wrap .contact-form-area form { display: inline-block; text-align: left; max-width: 100%; }
@@ -140,7 +143,7 @@
         }
     </style>
 </head>
-<body>
+<body class="contact-page">
     <div class="container">
         <nav class="main-nav">
             <div class="nav-brand"><a href="/"><img src="logo-horizontal-transparent.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-light" width="180" height="74"><img src="Axiant_light_logo.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-dark" width="180" height="74"></a><span>Axiant Partners</span></div>
