@@ -117,7 +117,8 @@
   color: var(--text-secondary);
 }
 
-.form-container.blog-post-content .blog-rail-quick-answer .blog-rail-quick-content h2 {
+.form-container.blog-post-content .blog-rail-quick-answer .blog-rail-quick-content h2,
+.form-container.blog-post-content .blog-rail-quick-answer .blog-rail-quick-content h3 {
   font-size: 0.95rem;
   margin: 0 0 0.5rem;
   font-weight: 600;
@@ -130,9 +131,24 @@
   margin: 0;
 }
 
-/* TOC in right rail */
+/* TOC in right rail - On this page */
 .form-container.blog-post-content .blog-rail-toc {
-  margin-top: 0.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 12px var(--shadow-color);
+}
+
+.form-container.blog-post-content .blog-rail-toc h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .form-container.blog-post-content .blog-post-toc-list {
@@ -183,7 +199,8 @@
   margin-bottom: 2rem;
 }
 
-.form-container.blog-post-content .blog-post-main .blog-article-block h2 {
+.form-container.blog-post-content .blog-post-main .blog-article-block h2,
+.form-container.blog-post-content .blog-post-main h2 {
   font-size: 1.4rem;
   margin: 0 0 0.75rem;
   padding-bottom: 0.5rem;
