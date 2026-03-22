@@ -90,20 +90,22 @@ def main():
     if skyline.exists():
         print("Hero skyline bg:")
         convert_to_webp(skyline, ASSETS, MAX_WIDTH)
-    # Priority 3: Industry tiles (index.html)
-    tiles = [
+    # Priority 3: Hero backgrounds & industry tiles (used full-width - keep full resolution)
+    heroes = [
         "equipment-financing-hero.png", "sba-hero.png", "wcl-hero-operations.png",
         "bloc-hero-business-office.png", "btl-hero.png", "cre-hero.png", "cbl-hero.png",
         "faf-hero.png", "mca-hero.png", "rbf-hero.png", "sbl-hero.png",
         "construction-hero-bg.png", "medical-practices-hero-bg.png",
         "manufacturing-industry-overview.png", "trucking-hero-bg.png",
         "restaurants-hero-bg.png", "logistics-warehousing-hero-bg.png", "forestry-hero-bg.png",
+        "agriculture-hero-bg.png", "landscaping-hero-bg.png", "auto-repair-hero-bg.png",
+        "logistics-warehousing-industry-overview.png", "manufacturing-hero-bg.png",
     ]
-    print("Industry tiles:")
-    for name in tiles:
+    print("Hero backgrounds (full resolution):")
+    for name in heroes:
         p = ASSETS / name
         if p.exists():
-            convert_to_webp(p, ASSETS, MAX_TILE)
+            convert_to_webp(p, ASSETS, MAX_WIDTH)
     # Priority 4: ai-* images (match flow - huge files)
     print("ai-* visuals (match flow):")
     for p in sorted(ASSETS.glob("ai-*.png")):
@@ -120,7 +122,42 @@ def main():
             src = ASSETS / f"{stem}.png"
         if src.exists():
             create_responsive_small(src, ASSETS, 450)
+    # Priority 7: Equipment/card images - responsive variants (400w, 600w, 800w) for hub pages
+    print("Equipment/card responsive variants (400w, 600w, 800w):")
+    equipment_keywords = ("equipment", "intro", "industry", "forestry", "manufacturing",
+                         "restaurants", "trucking", "agriculture", "auto-repair",
+                         "medical-practices", "logistics")
+    for p in sorted(ASSETS.glob("*.webp")):
+        if "-" in p.stem and p.stem.split("-")[-1] in ("400w", "600w", "800w", "900w", "450w"):
+            continue
+        if not any(kw in p.stem for kw in equipment_keywords):
+            continue
+        create_responsive_card_variants(p, ASSETS)
     print("Done.")
+
+
+def create_responsive_card_variants(src: Path, out_dir: Path) -> None:
+    """Create 400w, 600w, 800w variants for equipment/card images (displayed ~353x197)."""
+    for target_w in (400, 600, 800):
+        out = out_dir / (src.stem + f"-{target_w}w.webp")
+        if out.exists():
+            continue
+        try:
+            img = Image.open(src)
+            if img.mode in ("RGBA", "LA", "P"):
+                img = img.convert("RGBA")
+            else:
+                img = img.convert("RGB")
+            w, h = img.size
+            if w <= target_w:
+                continue
+            ratio = target_w / w
+            nw, nh = target_w, int(h * ratio)
+            resized = img.resize((nw, nh), Image.Resampling.LANCZOS)
+            resized.save(out, "WEBP", quality=90, method=6)
+            print(f"  {out.name} ({nw}x{nh})")
+        except Exception as e:
+            print(f"  ERROR {src.name} {target_w}w: {e}")
 
 
 def create_responsive_small(src: Path, out_dir: Path, max_w: int) -> None:

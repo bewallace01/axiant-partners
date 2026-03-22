@@ -8,7 +8,9 @@
     "webp": "node scripts/convert-webp.js",
     "build": "npm run purgecss && npm run webp",
     "indexnow": "python scripts/submit_indexnow.py",
-    "optimize-mobile-images": "node optimize-mobile-images.js"
+    "optimize-mobile-images": "node optimize-mobile-images.js",
+    "optimize-images": "python scripts/optimize_images.py",
+    "add-responsive-srcset": "python scripts/add-responsive-srcset.py"
   },
   "devDependencies": {
     "purgecss": "^5.0.0",
