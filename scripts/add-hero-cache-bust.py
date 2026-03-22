@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CACHE_VERSION = "v=3"
+CACHE_VERSION = "v=4"
 
 def add_cache_bust(content: str) -> tuple[str, int]:
     """Add/update cache version on hero/equipment .webp URLs. Returns (new_content, count_changes)."""

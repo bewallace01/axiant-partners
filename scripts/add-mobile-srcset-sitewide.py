@@ -10,7 +10,7 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "assets"
-CACHE = "v=3"
+CACHE = "v=4"
 SIZES = "(max-width: 768px) 100vw, 800px"
 TILE_SIZES = (560, 800)
 QUALITY = 85

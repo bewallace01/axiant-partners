@@ -4,8 +4,8 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CACHE = "v=3"
-SIZES = '(max-width: 768px) 100vw, 565px'
+CACHE = "v=4"
+SIZES = '(max-width: 768px) 100vw, 560px'
 
 # Map base image stems to their tile variant availability
 TILE_STEMS = [
