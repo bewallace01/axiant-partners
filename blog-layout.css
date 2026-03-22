@@ -162,10 +162,21 @@
   border-left-color: var(--accent-color);
 }
 
-/* Center: article content */
+.form-container.blog-post-content .blog-post-toc-list a.toc-active {
+  color: var(--accent-color);
+  border-left-color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* Center: article content - card style like hub pages */
 .form-container.blog-post-content .blog-post-main {
   min-width: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
   padding-bottom: 2rem;
+  box-shadow: 0 2px 12px var(--shadow-color);
 }
 
 .form-container.blog-post-content .blog-post-main .blog-article-block {
@@ -178,6 +189,7 @@
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border-color);
   color: var(--text-primary);
+  scroll-margin-top: 100px;
 }
 
 .form-container.blog-post-content .blog-post-main .blog-article-block p {
@@ -290,8 +302,8 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Mobile: stack layout */
-@media (max-width: 1024px) {
+/* Tablet and below: stack layout (desktop 3-column above this) */
+@media (max-width: 1200px) {
   .form-container.blog-post-content .blog-post-shell {
     grid-template-columns: 1fr;
   }
