@@ -25,7 +25,7 @@
   padding: 0 1rem;
 }
 
-/* Left rail: back link, last updated, read time, TOC */
+/* Left rail: back link, last updated, read time, summary, quick answer */
 .form-container.blog-post-content .blog-post-rail-left {
   position: sticky;
   top: calc(88px + 1rem);
@@ -98,7 +98,27 @@
   margin: 0;
 }
 
-/* TOC in left rail */
+.form-container.blog-post-content .blog-rail-quick-answer {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.form-container.blog-post-content .blog-rail-quick-answer .blog-rail-quick-content h2 {
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border: none;
+  padding: 0;
+}
+
+.form-container.blog-post-content .blog-rail-quick-answer .blog-rail-quick-content p {
+  margin: 0;
+}
+
+/* TOC in right rail */
 .form-container.blog-post-content .blog-rail-toc {
   margin-top: 0.5rem;
 }
@@ -204,7 +224,7 @@
   border-top: 1px solid var(--border-color);
 }
 
-/* Right rail: sticky CTA */
+/* Right rail: On This Page TOC, sticky CTA */
 .form-container.blog-post-content .blog-post-rail-right {
   position: sticky;
   top: calc(88px + 1rem);
