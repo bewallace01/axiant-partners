@@ -11,8 +11,7 @@
 
 /* LEFT RAIL */
 .article-rail-left {
-  position: sticky;
-  top: 90px;
+  position: static;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -235,8 +234,7 @@
 
 /* RIGHT RAIL CTA */
 .article-rail-right {
-  position: sticky;
-  top: 90px;
+  position: static;
 }
 
 .article-cta-card {

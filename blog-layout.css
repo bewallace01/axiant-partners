@@ -8,7 +8,7 @@
 
 .form-container.blog-post-content .blog-post-shell {
   display: grid;
-  grid-template-columns: minmax(220px, 280px) min(72ch, 1fr) minmax(220px, 280px);
+  grid-template-columns: minmax(240px, 280px) min(72ch, 1fr) minmax(240px, 280px);
   gap: 2rem;
   align-items: start;
   margin-top: 1.5rem;
@@ -33,9 +33,11 @@
 }
 
 /* Left rail: back link, last updated, read time, summary, quick answer - boxed */
+/* position: static so rails scroll with page (no sticky) - high specificity + !important */
+.form-container.blog-post-content .blog-post-shell .blog-post-rail-left,
 .form-container.blog-post-content .blog-post-rail-left {
-  position: sticky;
-  top: calc(88px + 1rem);
+  position: static !important;
+  top: auto !important;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -131,8 +133,8 @@
   margin: 0;
 }
 
-/* TOC in right rail - On this page */
-.form-container.blog-post-content .blog-rail-toc {
+/* Right rail TOC - wrapped in blog-rail-card for same styling as left */
+.form-container.blog-post-content .blog-post-rail-right .blog-rail-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -265,10 +267,11 @@
   border-top: 1px solid var(--border-color);
 }
 
-/* Right rail: On This Page TOC, sticky CTA - boxed */
+/* Right rail: On This Page TOC, CTA - boxed (scrolls with page) */
+.form-container.blog-post-content .blog-post-shell .blog-post-rail-right,
 .form-container.blog-post-content .blog-post-rail-right {
-  position: sticky;
-  top: calc(88px + 1rem);
+  position: static !important;
+  top: auto !important;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -331,7 +334,7 @@
 
   .form-container.blog-post-content .blog-post-rail-left,
   .form-container.blog-post-content .blog-post-rail-right {
-    position: static;
+    position: static !important;
   }
 
   .form-container.blog-post-content .blog-post-rail-left {
