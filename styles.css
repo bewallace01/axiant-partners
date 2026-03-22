@@ -21,6 +21,8 @@ body.mobile-nav-open {
   height: 100dvh !important;
   z-index: 99999 !important;
   overscroll-behavior: contain !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
 }
 
 @media (min-width: 769px) {
