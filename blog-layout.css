@@ -4,9 +4,6 @@
 .form-container.blog-post-content {
   width: 100%;
   max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .form-container.blog-post-content .blog-post-shell {
@@ -36,7 +33,7 @@
   padding: 0 1rem;
 }
 
-/* Left rail: back link, last updated, quick facts - scrolls with page */
+/* Left rail: back link, last updated, quick facts, CTA */
 .form-container.blog-post-content .blog-post-shell .blog-post-rail-left,
 .form-container.blog-post-content .blog-post-rail-left {
   flex: 0 0 260px;
@@ -277,7 +274,7 @@
   border-top: 1px solid var(--border-color);
 }
 
-/* Right rail: On This Page TOC - scrolls with page */
+/* Right rail: On This Page TOC */
 .form-container.blog-post-content .blog-post-shell .blog-post-rail-right,
 .form-container.blog-post-content .blog-post-rail-right {
   flex: 0 0 260px;
