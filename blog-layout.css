@@ -4,6 +4,9 @@
 .form-container.blog-post-content {
   width: 100%;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-container.blog-post-content .blog-post-shell {
