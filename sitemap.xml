@@ -2083,14 +2083,14 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://www.axiantpartners.com/equipment/sprinter-vans/</loc>
-    <lastmod>2026-03-20</lastmod>
+    <loc>https://www.axiantpartners.com/equipment/cargo-vans/sprinter-van-financing-guide/</loc>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.axiantpartners.com/equipment/sprinter-vans/sprinter-van-financing-delivery/</loc>
-    <lastmod>2026-03-20</lastmod>
+    <loc>https://www.axiantpartners.com/equipment/cargo-vans/sprinter-van-financing-delivery/</loc>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2189,5 +2189,47 @@
     <lastmod>2026-03-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.axiantpartners.com/equipment/cargo-vans/</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.axiantpartners.com/equipment/box-trucks/box-truck-financing-guide/</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.axiantpartners.com/equipment/semi-trucks/small-fleet-financing/</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.axiantpartners.com/equipment/excavators/excavator-financing-guide/</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.axiantpartners.com/equipment/bulldozers/bulldozer-financing-leasing/</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.axiantpartners.com/trucking-business-financing/working-capital-for-trucking/</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.axiantpartners.com/trucking-business-financing/trucking-business-growth/</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
