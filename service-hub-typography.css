@@ -1,0 +1,82 @@
+.service-hub-content .ef-hero-copy h1,
+.equipment-financing-content .ef-hero-copy h1,
+.sba-loans-content .ef-hero-copy h1,
+.commercial-real-estate-loans-content .ef-hero-copy h1,
+.commercial-bridge-loans-content .ef-hero-copy h1,
+.revenue-based-financing-content .ef-hero-copy h1,
+.securities-based-lending-content .ef-hero-copy h1,
+.fix-and-flip-content .ef-hero-copy h1 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.2;
+}
+
+.service-hub-content .ef-hero-copy .ef-subhead,
+.equipment-financing-content .ef-hero-copy .ef-subhead,
+.sba-loans-content .ef-hero-copy .ef-subhead,
+.commercial-real-estate-loans-content .ef-hero-copy .ef-subhead,
+.commercial-bridge-loans-content .ef-hero-copy .ef-subhead,
+.revenue-based-financing-content .ef-hero-copy .ef-subhead,
+.securities-based-lending-content .ef-hero-copy .ef-subhead,
+.fix-and-flip-content .ef-hero-copy .ef-subhead {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* Unified text sizes across all service hubs */
+.service-hub-content .about-section h2 {
+  font-size: clamp(1.75rem, 2.1vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.service-hub-content .about-section h3 {
+  font-size: clamp(1.2rem, 1.45vw, 1.45rem);
+  line-height: 1.3;
+}
+
+.service-hub-content .about-section h4 {
+  font-size: clamp(1.05rem, 1.15vw, 1.2rem);
+  line-height: 1.35;
+}
+
+.service-hub-content .about-section p,
+.service-hub-content .about-section li {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* Shared service hub spacing rhythm */
+.service-hub-content .about-section {
+  margin-bottom: 1.9rem;
+}
+
+.service-hub-content .about-section:last-of-type {
+  margin-bottom: 0;
+}
+
+.service-hub-content .about-section > h2 {
+  margin-bottom: 0.95rem;
+}
+
+.service-hub-content .about-section p {
+  margin-bottom: 0.95rem;
+  line-height: 1.65;
+}
+
+.service-hub-content .about-section ul {
+  margin-top: 0.75rem;
+  padding-left: 1.2rem;
+}
+
+.service-hub-content .about-section li + li {
+  margin-top: 0.5rem;
+}
+
+.service-hub-content .section-cta {
+  margin-top: 1.25rem;
+}
+
+.service-hub-content .trust-stats,
+.service-hub-content .benefits-grid,
+.service-hub-content .steps-grid {
+  gap: 1.2rem;
+}
