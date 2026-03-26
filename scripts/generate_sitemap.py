@@ -4,7 +4,7 @@ from pathlib import Path
 from datetime import date
 
 BASE = Path(__file__).resolve().parent.parent
-BASE_URL = "https://www.axiantpartners.com"
+BASE_URL = "https://axiantpartners.com"
 TODAY = date.today().isoformat()
 
 def _file_for_path(loc_path):
@@ -72,7 +72,7 @@ def main():
         "sba-loans", "equipment-financing", "equipment", "business-line-of-credit",
         "working-capital-loans", "business-term-loans", "commercial-real-estate-loans",
         "commercial-bridge-loans", "fix-and-flip", "revenue-based-financing",
-        "securities-based-lending", "merchant-cash-advance"
+        "securities-based-lending", "merchant-cash-advance", "startup-financing",
     ]:
         add(f"/{p}.html")
 
@@ -81,7 +81,7 @@ def main():
         "sba-loans", "equipment-financing", "business-line-of-credit",
         "working-capital-loans", "business-term-loans", "commercial-real-estate-loans",
         "commercial-bridge-loans", "fix-and-flip", "revenue-based-financing",
-        "securities-based-lending", "merchant-cash-advance"
+        "securities-based-lending", "merchant-cash-advance", "startup-financing",
     ]:
         add(f"/{topic}/articles/", changefreq="weekly", priority="0.75")
 
@@ -119,6 +119,23 @@ def main():
     for d in (BASE / "merchant-cash-advance" / "articles").iterdir():
         if d.is_dir():
             add(f"/merchant-cash-advance/articles/{d.name}/", priority="0.7")
+    startup_articles = BASE / "startup-financing" / "articles"
+    if startup_articles.exists():
+        for d in startup_articles.iterdir():
+            if d.is_dir():
+                add(f"/startup-financing/articles/{d.name}/", priority="0.7")
+
+    # General articles hub (root /articles/)
+    articles_root = BASE / "articles"
+    if articles_root.exists():
+        add("/articles/", changefreq="weekly", priority="0.75")
+        for d in articles_root.iterdir():
+            if d.is_dir() and (d / "index.html").exists():
+                add(f"/articles/{d.name}/", priority="0.7")
+
+    # Get Matched product landers (noindex on-page; optional sitemap inclusion for GSC)
+    for p in ("equipment", "line-of-credit", "working-capital", "merchant-cash-advance"):
+        add(f"/get-matched/{p}/", priority="0.55")
 
     # Industries hub + individual industry pages
     add("/industries.html", priority="0.85")

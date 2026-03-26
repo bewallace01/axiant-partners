@@ -6,4 +6,4 @@ Example:
 Alex [Last Name]
 Title | Axiant Partners
 phone | email@axiantpartners.com
-https://www.axiantpartners.com
+https://axiantpartners.com

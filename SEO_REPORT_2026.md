@@ -22,7 +22,7 @@ The site has solid fundamentals: valid sitemap, clean robots.txt, strong meta ta
 ## 1. What’s Working Well
 
 - **robots.txt** – Sitemap declared; AI crawlers (GPTBot, PerplexityBot, etc.) allowed
-- **Canonicals** – All pages point to www.axiantpartners.com
+- **Canonicals** – All pages point to https://axiantpartners.com
 - **301 Redirects** – Blog migration and hub redirects configured in `_redirects` + `.htaccess`
 - **Schema** – Organization (with sameAs), WebSite, BreadcrumbList, Article, FAQPage, HowTo, FinancialService
 - **Meta tags** – Titles, descriptions, OG, Twitter on main pages

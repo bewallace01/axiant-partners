@@ -1,6 +1,6 @@
 # SEO Guide – Axiant Partners
 
-This guide summarizes the SEO work done on the site and what you should do next. The site is **live on Netlify** and pulls from **GitHub**; all URLs use `https://www.axiantpartners.com`. If your Netlify domain differs, do a find-and-replace (see below).
+This guide summarizes the SEO work done on the site and what you should do next. The site is **live on Netlify** and pulls from **GitHub**; all URLs use `https://axiantpartners.com`. If your Netlify domain differs, do a find-and-replace (see below).
 
 ## What’s in place
 
@@ -32,15 +32,15 @@ This guide summarizes the SEO work done on the site and what you should do next.
 ### 1. Confirm your live domain
 All canonical URLs, OG URLs, and the sitemap use:
 
-- **Base URL:** `https://www.axiantpartners.com`
+- **Base URL:** `https://axiantpartners.com`
 
 If your Netlify site uses a different URL (e.g. `https://axiantpartners.netlify.app` or a custom domain):
 
-1. **Find and replace** in the whole project: `https://www.axiantpartners.com` → your real base URL (with `https://`, no trailing slash).
+1. **Find and replace** in the whole project: `https://axiantpartners.com` → your real base URL (with `https://`, no trailing slash).
 2. Update **sitemap.xml** (every `<loc>`) and **robots.txt** (`Sitemap:` line).
 
 ### 2. Submit to search engines
-- **Google:** [Google Search Console](https://search.google.com/search-console) – add your property (your live URL), then submit **Sitemap** = `https://www.axiantpartners.com/sitemap.xml` (or your domain + `/sitemap.xml`).
+- **Google:** [Google Search Console](https://search.google.com/search-console) – add your property (your live URL), then submit **Sitemap** = `https://axiantpartners.com/sitemap.xml` (or your domain + `/sitemap.xml`).
 - **Bing:** [Bing Webmaster Tools](https://www.bing.com/webmasters) – add site and submit the same sitemap URL.
 
 ### 3. Social image (optional)

@@ -7,7 +7,7 @@
 ## 1. Site Overview
 
 **Business:** Axiant Partners – Business financing matchmaker (SBA loans, equipment financing, working capital, etc.)  
-**Domain:** https://www.axiantpartners.com  
+**Domain:** https://axiantpartners.com  
 **Tech:** Static HTML/CSS/JS, deployed on Netlify via GitHub
 
 ---

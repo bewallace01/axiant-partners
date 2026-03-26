@@ -71,7 +71,7 @@
 
 ### Gaps
 
-- **Organization schema** — Many pages reference `publisher: {"@id": "https://www.axiantpartners.com/#organization"}` but the Organization with `@id` must exist somewhere (e.g. index.html). Needs verification.
+- **Organization schema** — Many pages reference `publisher: {"@id": "https://axiantpartners.com/#organization"}` but the Organization with `@id` must exist somewhere (e.g. index.html). Needs verification.
 - **Internal links** — Services should cross-link where relevant (e.g. equipment ↔ equipment-financing).
 
 ---
@@ -116,7 +116,7 @@
 
 ### ~~Critical Issue: Relative og:image~~ (Fixed)
 
-All equipment pages now use **absolute** og:image URLs (e.g. `https://www.axiantpartners.com/assets/...`).
+All equipment pages now use **absolute** og:image URLs (e.g. `https://axiantpartners.com/assets/...`).
 
 ### Other Notes
 
@@ -157,13 +157,13 @@ All equipment pages now use **absolute** og:image URLs (e.g. `https://www.axiant
 |---------|--------|
 | Title | "Commercial Lending & Business Financing \| Get Matched \| Axiant Partners" |
 | Meta description | 155 chars, keyword-rich |
-| Canonical | https://www.axiantpartners.com/ |
+| Canonical | https://axiantpartners.com/ |
 | OG/Twitter | Complete |
 | Google verification | Present |
 | Preconnect/dns-prefetch | Fonts, Unsplash |
 | Preload | Hero images |
 
-**Organization schema:** Ensure `{"@type":"Organization","@id":"https://www.axiantpartners.com/#organization"}` is defined on the homepage (or a shared template) so publisher references resolve.
+**Organization schema:** Ensure `{"@type":"Organization","@id":"https://axiantpartners.com/#organization"}` is defined on the homepage (or a shared template) so publisher references resolve.
 
 ### Match, FAQ, Contact, Calculator
 

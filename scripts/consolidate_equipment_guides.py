@@ -25,7 +25,7 @@ def get_hub_to_guide():
 
 def consolidate_content(html: str, folder: str, how_to: str) -> str:
     """Transform guide HTML for consolidated URL equipment/folder/"""
-    base = "https://www.axiantpartners.com"
+    base = "https://axiantpartners.com"
     new_url = f"{base}/equipment/{folder}/"
     old_url = f"{base}/equipment/{folder}/{how_to}/"
 

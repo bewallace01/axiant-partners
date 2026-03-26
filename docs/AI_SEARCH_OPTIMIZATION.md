@@ -2,6 +2,23 @@
 
 The site has been optimized for AI search engines and assistants (ChatGPT, Perplexity, Google AI Overviews, etc.) using the same rigor applied to traditional SEO.
 
+## Canonical host and URLs
+
+- **Preferred origin:** `https://axiantpartners.com` (non-www) for `rel="canonical"`, `og:url`, JSON-LD URLs, and `sitemap.xml` `<loc>` values.
+- **Organization `@id`:** `https://axiantpartners.com/#organization`. Pages that reference this id in `publisher` or `provider` get a matching `Organization` JSON-LD node injected at runtime when `language-switcher.js` runs (deduplicated if a full Organization block is already present).
+
+## Article JSON-LD conventions (for new/edited pages)
+
+Use a single Article script block where possible:
+
+| Field | Convention |
+|--------|-------------|
+| **image** | Prefer `ImageObject` with `url`, `width` 1200, `height` 630 (or hero dimensions). Plain string URL is acceptable for legacy pages. |
+| **author** | `{ "@type": "Organization", "name": "Axiant Partners LLC", "url": "https://axiantpartners.com/" }` |
+| **publisher** | `{ "@id": "https://axiantpartners.com/#organization" }` (Organization node supplied sitewide as above). |
+| **datePublished** | ISO date `YYYY-MM-DD` when the article first shipped. |
+| **dateModified** | ISO date; set on substantive updates. If never updated, match `datePublished` or omit only when mirroring an existing legacy pattern. |
+
 ## Changes Implemented
 
 ### 1. robots.txt – AI crawler access
