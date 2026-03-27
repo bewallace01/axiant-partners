@@ -336,7 +336,30 @@
     position: static;
     order: 3;
   }
-  .article-body { padding: 20px 16px; }
+  .article-body {
+    padding: 20px 14px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: visible;
+  }
   .article-body p,
-  .article-body li { font-size: 1rem; }
+  .article-body li {
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+  .article-body img,
+  .article-body video,
+  .article-body iframe {
+    max-width: 100%;
+    height: auto;
+  }
+  .article-body table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }

@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""One-time helper: replace https://axiantpartners.com with https://axiantpartners.com in text assets."""
+"""One-time helper: replace https://www.axiantpartners.com with https://axiantpartners.com in text assets."""
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-OLD = "https://axiantpartners.com"
+OLD = "https://www.axiantpartners.com"
 NEW = "https://axiantpartners.com"
 SKIP_DIRS = {".git", "node_modules", "__pycache__", ".cursor"}
 EXT = {".html", ".xml", ".js", ".py", ".md", ".css", ".txt", ".json", ".webmanifest", ".csv"}
+
 
 def main():
     n_files = n_repl = 0
@@ -29,6 +30,7 @@ def main():
             n_files += 1
             n_repl += text.count(OLD)
     print(f"Updated {n_files} files ({n_repl} replacements)")
+
 
 if __name__ == "__main__":
     main()
