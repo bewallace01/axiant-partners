@@ -78,7 +78,8 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
 .mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
 </style>
 <link rel="stylesheet" href="../../critical.css?v=2026032199">
-<link rel="stylesheet" href="/blog-layout.css?v=2026032812">
+<link rel="stylesheet" href="/blog-layout.css?v=2026033014">
+<link rel="stylesheet" href="/article-rail.css?v=2026033015">
     <style id="mobile-critical">
 /* Mobile critical CSS - above-the-fold only, inline for zero network requests */
 :root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
@@ -194,22 +195,22 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             <p class="tagline">Progress payments are predictable. So are the cash flow gaps. Here&mdash;s how contractors stay liquid between draws.</p>
         </header>
 
-        <div class="form-container blog-post-content">    <div class="blog-post-shell">
-      <aside class="blog-post-rail-left">
-        <div class="blog-rail-card">
+        <div class="form-container blog-post-content article-page">    <div class="blog-post-shell">
+      <aside class="blog-post-rail-left article-rail article-rail--left"><div class="article-rail__inner">
+        <div class="article-rail__block">
           <p class="blog-rail-back"><a href="/construction-business-financing.html">&larr; Back to Construction Financing</a></p>
           <div class="blog-rail-meta-item"><span class="blog-rail-label">Updated</span> March 17, 2026</div>
         </div>
-        <div class="blog-rail-card">
+        <div class="article-rail__block">
           <div class="blog-rail-quick-answer"><div class="blog-rail-quick-content"><h3>Quick Facts</h3><p>If you&mdash;re a contractor, you already know the problem: you mobilize, buy materials, pay subs, and run payroll long before the next progress payment hits your account. The draw schedule looks clean on paper. Real life looks like daily expenses, delayed approvals, retainage, and change orders that don&mdash;t get paid for weeks. That&mdash;s why <strong>contractor cash flow between draws</strong> is one of the biggest growth limiters in construction&mdash;even for profitable companies.</p></div></div>
         </div>
-        <div class="blog-rail-card blog-rail-cta">
+        <div class="article-rail__block article-rail__block--cta blog-rail-cta">
           <h3>Ready to get funded?</h3>
           <p>Get matched with lenders who fit your business.</p>
           <a href="/match.html" class="btn-primary">Get Matched for Construction Financing</a>
         </div>
 
-      </aside>
+      </div></aside>
       <main class="blog-post-main"><p><strong>Quick Answer:</strong> Contractors usually go cash-negative between draws because payroll and materials are paid weekly while progress payments arrive later and often include retainage. The fastest fixes are matching financing to timing gaps (line of credit for recurring gaps, project-sized working capital for one-off gaps) and tightening billing/change-order workflows. For product comparisons, review <a href="/business-line-of-credit.html">business lines of credit</a> and <a href="/working-capital-loans.html">working capital loans</a>. If you want funding options mapped to your draw cycle, <a href="/match.html">get matched here</a>.</p><h2 id="faq-quick-hits">FAQ Quick Hits</h2><h3>Can retainage alone cause cash flow problems on profitable jobs?</h3><p>Yes. Even profitable projects can run tight when 5-10% retainage is withheld across multiple active jobs.</p><h3>Is a line of credit or short-term loan better between draws?</h3><p>A line often fits recurring monthly gaps, while short-term/project financing can fit one large temporary gap with a clear payoff event.</p><h2 id="draw-cycle-execution">Draw-Cycle Execution Framework for Contractors</h2><p>Most construction cash issues are execution mismatches, not profitability failures. Costs move weekly while pay applications move on slower approval cycles, and small process gaps compound into major cash pressure. High-performing contractors manage this with a draw-cycle operating model: pre-billed milestones, submission calendars, and disciplined change-order controls tied to funding triggers.</p><p>A practical framework is to map every active job into one of three states: front-loaded (mobilization-heavy), steady-state (predictable draw cadence), or closeout (retainage-heavy). Each state should have a specific cash strategy. Front-loaded jobs need short-cycle liquidity and supplier term alignment. Steady-state jobs need tight billing discipline. Closeout jobs need retainage forecasting and negotiated release milestones.</p><ul><li><strong>Billing control:</strong> submit pay apps on a fixed internal deadline before owner deadlines</li><li><strong>CO discipline:</strong> avoid self-funding change work without signed authorization path</li><li><strong>Vendor strategy:</strong> align supplier terms to expected draw timing where possible</li><li><strong>Liquidity rule:</strong> keep dedicated buffer for payroll-to-draw timing gaps</li></ul><p>This article stays focused on between-draw cash mechanics; project-specific estimating and bid-margin strategy should stay on separate pages to avoid cannibalization.</p><p>This guide is designed to be practical. You&mdash;ll see the most common reasons contractors go cash-negative between progress payments, how to diagnose which one is hitting you, and the financing and operational fixes that align with how construction actually gets paid.</p>
 <h2 id="why-contractor-cash-flow-breaks-between-progress-payments">Why contractor cash flow breaks between progress payments</h2>
             <p>Construction cash flow is &mdash;front-loaded.&mdash; The costs show up early (labor, materials, subs, equipment), while revenue is delayed (billing cycles, inspections, approvals, pay apps, retainage). Even when the job is profitable, timing alone can create a cash crunch.</p>
@@ -396,9 +397,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                 <a href="/match.html" class="btn-primary">Get Matched for Contractor Financing</a>
             </div>
       </main>
-                  <aside class="blog-post-rail-right">
-        <div class="blog-rail-card">
-        <div class="blog-rail-toc">
+                  <aside class="blog-post-rail-right article-rail article-rail--right"><div class="article-rail__inner article-rail__inner--toc"><div class="blog-rail-toc">
           <h3>On this page</h3>
           <nav aria-label="On this page">
             <ul class="blog-post-toc-list">
@@ -419,9 +418,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
               <li><a href="#final-thoughts">Final Thoughts</a></li>
             </ul>
           </nav>
-        </div>
-        </div>
-      </aside>
+        </div></div></aside>
     </div></div>
     </div>
 
