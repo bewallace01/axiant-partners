@@ -187,3 +187,45 @@
   font-size: var(--blog-rail-font);
   line-height: var(--blog-rail-line);
 }
+
+/* Figures / lead images in main column — centered block */
+.form-container.blog-post-content.article-page .blog-post-main figure {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  max-width: min(100%, 42rem);
+}
+
+.form-container.blog-post-content.article-page .blog-post-main figure img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Lead image directly under first body paragraph — SEO visual + readability */
+.form-container.blog-post-content.article-page .blog-post-main .article-lead-visual {
+  margin: 1.25rem auto 1.75rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px var(--shadow-color);
+  background: var(--bg-card);
+}
+
+.form-container.blog-post-content.article-page .blog-post-main .article-lead-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.form-container.blog-post-content.article-page .blog-post-main .article-lead-visual picture {
+  display: block;
+  line-height: 0;
+}
+
+/* Full-width data tables stay readable; optional wrapper charts */
+.form-container.blog-post-content.article-page .blog-post-main .table-wrap {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
