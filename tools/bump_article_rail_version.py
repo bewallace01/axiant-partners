@@ -2,7 +2,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VER = "2026040601"
+VER = "2026040801"
 pat = re.compile(r"/article-rail\.css\?v=\d+")
 
 def main() -> None:
