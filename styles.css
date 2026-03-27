@@ -30,3 +30,19 @@ body.mobile-nav-open {
     display: none !important;
   }
 }
+
+/* Industry hub pages (*-business-financing.html): in-column lead visual after intro paragraph */
+.ef-intro-text .article-lead-visual {
+  margin: 1.1rem auto 1.35rem;
+  max-width: min(100%, 720px);
+  text-align: center;
+}
+.ef-intro-text .article-lead-visual picture,
+.ef-intro-text .article-lead-visual img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
