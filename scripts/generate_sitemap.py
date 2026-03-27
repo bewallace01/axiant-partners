@@ -157,6 +157,13 @@ def main():
             if sub.is_dir() and (sub / "index.html").exists():
                 add(f"/construction-business-financing/{sub.name}/", priority="0.7")
 
+    # Trucking business financing subpages (long-form industry articles)
+    trucking_dir = BASE / "trucking-business-financing"
+    if trucking_dir.exists():
+        for sub in trucking_dir.iterdir():
+            if sub.is_dir() and (sub / "index.html").exists():
+                add(f"/trucking-business-financing/{sub.name}/", priority="0.7")
+
     # Equipment guides (equipment/[type]/index.html)
     equipment_dir = BASE / "equipment"
     if equipment_dir.exists():
