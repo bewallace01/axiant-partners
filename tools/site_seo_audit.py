@@ -16,8 +16,9 @@ CANON = re.compile(
 CANON2 = re.compile(
     r'href=["\']([^"\']+)["\'][^>]+rel=["\']canonical["\']', re.I
 )
+# Double-quoted content only (apostrophes inside description are common)
 DESC = re.compile(
-    r'<meta\s+name=["\']description["\']\s+content=["\']([^"\']*)["\']', re.I
+    r'<meta\s+name=["\']description["\']\s+content="([^"]*)"', re.I
 )
 ROBOTS = re.compile(
     r'<meta\s+name=["\']robots["\']\s+content=["\']([^"\']*)["\']', re.I
