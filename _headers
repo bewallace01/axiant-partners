@@ -28,3 +28,9 @@
 
 /*.html
   Cache-Control: public, max-age=3600, must-revalidate
+
+/
+  Content-Security-Policy: frame-ancestors https://www.wallacewebworkers.com https://wallacewebworkers.com
+
+/index.html
+  Content-Security-Policy: frame-ancestors https://www.wallacewebworkers.com https://wallacewebworkers.com
