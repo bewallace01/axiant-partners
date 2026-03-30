@@ -297,6 +297,13 @@
   font-size: 0.95rem;
 }
 
+.form-container.blog-post-content .blog-post-main p.article-lead {
+  font-size: 1.06rem;
+  line-height: 1.72;
+  margin-bottom: 1.35rem;
+  color: var(--text-primary);
+}
+
 .form-container.blog-post-content .blog-post-main .related-resources {
   margin: 2.5rem 0 1.5rem;
   padding: 1.25rem;
