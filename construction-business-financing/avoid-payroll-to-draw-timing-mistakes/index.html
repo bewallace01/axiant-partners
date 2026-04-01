@@ -6,6 +6,16 @@
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="theme-color" content="#0d1f3c">
+<style>
+  body { opacity: 0; }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.body.style.opacity = '1';
+    document.body.style.transition = 'opacity 0.2s ease';
+  });
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="description" content="Fix payroll-to-draw timing mistakes that squeeze contractor cash flow. Actionable playbook for scheduling labor, billing cadence, and financing buffers.">
@@ -31,8 +41,9 @@
 <link rel="stylesheet" href="../../critical.css?v=2026032199">
 <link rel="stylesheet" href="/blog-layout.css?v=2026033014">
 <link rel="stylesheet" href="/article-rail.css?v=2026040801">
-<link rel="stylesheet" href="../../styles.css?v=2026032199">
+<link rel="stylesheet" href="../../styles.css?v=2026032199" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="/article-layout.css">
+<noscript><link rel="stylesheet" href="../../styles.css?v=2026032199"></noscript>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://axiantpartners.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://axiantpartners.com/industries.html"},{"@type":"ListItem","position":3,"name":"Construction","item":"https://axiantpartners.com/construction-business-financing.html"},{"@type":"ListItem","position":4,"name":"Avoid Payroll-to-Draw Timing Mistakes: Contractor Survival Guide","item":"https://axiantpartners.com/construction-business-financing/avoid-payroll-to-draw-timing-mistakes/"}]}
 </script>
@@ -44,12 +55,31 @@
 </script>
 </head>
 <body>
+<div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <div class="nav-top">
+        <picture><source srcset="/Axiant_light_logo.webp" type="image/webp"><img src="/Axiant_light_logo.png" alt="Axiant Partners" style="height: 40px;"></picture>
+        <button class="nav-close" id="mobileNavClose" aria-label="Close menu">&#215;</button>
+    </div>
+    <nav class="mobile-overlay-links" id="mobileOverlayNavLinks">
+        <!-- Links copied from main nav by JS -->
+    </nav>
+</div>
 <div class="container">
 <nav class="main-nav">
-<div class="nav-brand"><a href="/index.html" aria-label="Axiant Partners Home"><img src="../../logo-horizontal-transparent.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-light" width="180" height="74"><span>Axiant Partners</span></a></div>
-<button class="mobile-menu-toggle" id="mobileNavToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-<div class="nav-links"><a href="/match.html">Find Match</a><a href="/index.html">Home</a><a href="/services.html">Services</a><a href="/industries.html">Industries</a><a href="/calculator.html">Calculator</a><a href="/contact.html">Contact</a></div>
-</nav>
+            <div class="nav-brand">
+                <a href="/index.html" aria-label="Axiant Partners Home"><picture><source srcset="../../logo-horizontal-transparent.webp" type="image/webp"><img src="../../logo-horizontal-transparent.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-light" width="180" height="74"></picture><picture><source srcset="../../Axiant_light_logo.webp" type="image/webp"><img src="../../Axiant_light_logo.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-dark" width="180" height="74"></picture></a><span>Axiant Partners</span>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileNavToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+            <div class="nav-links">
+                <a href="/match.html">Find Match</a>
+                <a href="/index.html">Home</a>
+                <div class="nav-dropdown nav-dropdown-desktop"><button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Services</button><div class="nav-dropdown-menu"></div></div><a href="/services.html" class="nav-link-mobile">Services</a>
+                <div class="nav-dropdown nav-dropdown-desktop"><button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Industries</button><div class="nav-dropdown-menu"></div></div><a href="/industries.html" class="nav-link-mobile">Industries</a>
+                <a href="/calculator.html">Calculator</a>
+                <a href="/contact.html">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+            </div>
+        </nav>
 <header style="padding: 2rem 0 0;">
 <h1>Avoid Payroll-to-Draw Timing Mistakes: Contractor Survival Guide</h1>
 <p class="tagline">Fix payroll-to-draw timing mistakes that squeeze contractor cash flow. Actionable playbook for scheduling labor, billing cadence, and financing buffers.</p>
@@ -127,5 +157,52 @@
 <footer class="site-footer"><p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="/privacy-policy.html">Privacy Policy</a> | <a href="/terms-and-conditions.html">Terms and Conditions</a> | <a href="/vendors.html">Vendors</a></p></footer>
 <script src="../../language-switcher.js?v=2026032199" defer></script>
 <script src="/script.js?v=2026032199" defer></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
+<script>
+  const prefetched = new Set();
+  function prefetchPage(url) {
+    if (prefetched.has(url)) return;
+    prefetched.add(url);
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = url;
+    document.head.appendChild(link);
+  }
+  document.addEventListener('mouseover', function(e) {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+    prefetchPage(href);
+  });
+  document.addEventListener('touchstart', function(e) {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+    prefetchPage(href);
+  }, { passive: true });
+</script>
+<script>
+  document.addEventListener('click', function(e) {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || anchor.target === '_blank') return;
+    e.preventDefault();
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.15s ease';
+    setTimeout(() => { window.location.href = href; }, 150);
+  });
+</script>
+<script>
+if(window.innerWidth<=768){var ls=document.querySelectorAll('.about-section,.testimonials-section,.global-bottom-cta,.site-footer-enhanced,.services-grid,.blog-grid,.steps-grid,.benefits-grid');var so=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='none';so.unobserve(entry.target);}});},{rootMargin:'100px'});ls.forEach(function(s){s.style.opacity='0';s.style.transition='opacity 0.3s ease';so.observe(s);});}
+</script>
 </body>
 </html>
