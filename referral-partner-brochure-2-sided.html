@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axiant Partners | Referral Partner Brochure</title>
+  <style>
+    :root {
+      --navy: #0d1f3c;
+      --blue: #2d7fb8;
+      --ink: #1c2530;
+      --muted: #4d5c6d;
+      --line: #d7e1ea;
+      --bg: #f4f8fc;
+      --white: #ffffff;
+      --ok: #1f7a52;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #e9f0f6;
+      line-height: 1.45;
+    }
+
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 16px auto;
+      background: var(--white);
+      box-shadow: 0 16px 40px rgba(13, 31, 60, 0.16);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .front-hero {
+      background: linear-gradient(135deg, rgba(13,31,60,0.96) 0%, rgba(45,127,184,0.94) 62%, rgba(13,31,60,0.96) 100%);
+      color: #fff;
+      padding: 34px 42px 28px;
+      position: relative;
+    }
+
+    .logo-frame {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 14px;
+      padding: 10px 14px 9px;
+      box-shadow: 0 10px 24px rgba(8, 18, 36, 0.28);
+      margin-bottom: 22px;
+    }
+
+    .logo {
+      width: 220px;
+      max-width: 100%;
+      display: block;
+      margin: 0;
+    }
+
+    .hero-kicker {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      margin: 0 0 10px;
+      font-weight: 700;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: 35px;
+      line-height: 1.15;
+      font-weight: 800;
+      max-width: 600px;
+    }
+
+    .hero-subtitle {
+      margin: 14px 0 0;
+      max-width: 620px;
+      font-size: 17px;
+      opacity: 0.97;
+    }
+
+    .front-main {
+      padding: 28px 42px 20px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 18px;
+    }
+
+    .pill {
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 7px 12px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 14px 12px;
+      background: #fff;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 15px;
+      color: var(--navy);
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card li { margin-bottom: 5px; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .section-title {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: var(--navy);
+    }
+
+    .box {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px 14px;
+      background: #fbfdff;
+    }
+
+    .box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .list li { margin-bottom: 6px; }
+
+    .cta-band {
+      margin-top: 16px;
+      border-radius: 12px;
+      border: 1px solid #b9d1e5;
+      background: linear-gradient(180deg, #f3f9ff 0%, #eaf4ff 100%);
+      padding: 14px 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .cta-band p {
+      margin: 0;
+      font-size: 13px;
+      color: #26435f;
+    }
+
+    .cta-pill {
+      border-radius: 999px;
+      background: var(--navy);
+      color: #fff;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .footer {
+      position: absolute;
+      left: 42px;
+      right: 42px;
+      bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      color: #5b6d80;
+      font-size: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+
+    .footer a { color: #244f77; text-decoration: none; }
+
+    .back-header {
+      background: linear-gradient(135deg, #102445 0%, #1e4f7b 45%, #2d7fb8 100%);
+      color: #fff;
+      padding: 28px 42px 22px;
+    }
+
+    .back-title {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .back-sub {
+      margin: 8px 0 0;
+      font-size: 15px;
+      opacity: 0.95;
+    }
+
+    .back-main {
+      padding: 24px 42px 20px;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .program {
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--blue);
+      border-radius: 10px;
+      padding: 11px 12px;
+      background: #fff;
+    }
+
+    .program h4 {
+      margin: 0 0 5px;
+      font-size: 14px;
+      color: var(--navy);
+    }
+
+    .program p {
+      margin: 0;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .bottom-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .checklist li::marker { color: var(--ok); }
+
+    .contact-box {
+      border: 1px solid #b9d1e5;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #f6fbff 0%, #edf6ff 100%);
+      padding: 12px 13px;
+      margin-top: 12px;
+    }
+
+    .contact-box p {
+      margin: 4px 0;
+      font-size: 13px;
+      color: #23435f;
+    }
+
+    .tiny {
+      font-size: 11px;
+      color: #6a7f93;
+      margin-top: 7px;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        min-height: 100%;
+        page-break-after: always;
+      }
+      .page:last-child { page-break-after: auto; }
+    }
+  </style>
+</head>
+<body>
+  <!-- FRONT SIDE -->
+  <section class="page">
+    <header class="front-hero">
+      <div class="logo-frame">
+        <img src="logo-horizontal-transparent.png" alt="Axiant Partners" class="logo">
+      </div>
+      <p class="hero-kicker">Referral Partner Program</p>
+      <h1 class="hero-title">Send Qualified Financing Referrals. Earn on Funded Deals.</h1>
+      <p class="hero-subtitle">
+        Axiant Partners matches business owners to lender programs that fit their profile, timeline, and funding goals.
+      </p>
+      <div class="pill-row">
+        <span class="pill">35% Referral Structure</span>
+        <span class="pill">Non-Circumvention</span>
+        <span class="pill">No Upfront Cost</span>
+        <span class="pill">Nationwide Coverage</span>
+      </div>
+    </header>
+
+    <main class="front-main">
+      <div class="card-grid">
+        <article class="card">
+          <h3>What We Finance</h3>
+          <ul>
+            <li>SBA loan guidance and bank programs</li>
+            <li>Equipment financing and sale-leaseback</li>
+            <li>Working capital and cash-flow products</li>
+            <li>Business line of credit and term loans</li>
+            <li>Commercial real estate and bridge options</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Why Partners Refer to Axiant</h3>
+          <ul>
+            <li>Fast match process and specialist follow-up</li>
+            <li>Access to multiple lender channels</li>
+            <li>Better fit routing, not one-size-fits-all</li>
+            <li>Clear payout terms and referral protection</li>
+            <li>Support from submission through funding</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="split">
+        <section class="box">
+          <h3 class="section-title">Best Referral Profiles</h3>
+          <ul class="list">
+            <li>Owner has a clear use of funds and timeline</li>
+            <li>Business has operating history and bank activity</li>
+            <li>Borrower can provide docs quickly</li>
+            <li>Deal has urgency (purchase, payroll, growth, refi)</li>
+          </ul>
+        </section>
+        <section class="box">
+          <h3 class="section-title">Typical Funding Range</h3>
+          <p>
+            Across the network, common deal sizes range from <strong>$10,000 to $5,000,000+</strong>, depending on
+            lender program, credit profile, revenue, time in business, and collateral.
+          </p>
+        </section>
+      </div>
+
+      <div class="cta-band">
+        <p><strong>Simple process:</strong> Submit referral → We route to best-fit channels → Deal funds → You are paid per agreement.</p>
+        <span class="cta-pill">Built For Professional Referrers</span>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span><strong>Axiant Partners</strong> | Business Financing Advisory & Lender Matching</span>
+      <span><a href="https://axiantpartners.com/referral.html">axiantpartners.com/referral</a></span>
+    </footer>
+  </section>
+
+  <!-- BACK SIDE -->
+  <section class="page">
+    <header class="back-header">
+      <h2 class="back-title">Product Guidelines Snapshot</h2>
+      <p class="back-sub">General qualification bands by product category for referral screening.</p>
+    </header>
+
+    <main class="back-main">
+      <div class="program-grid">
+        <article class="program">
+          <h4>Business Line of Credit</h4>
+          <p>Typical profile: 550-620+ FICO, 6-24+ months TIB, minimum revenue often $120K-$300K annual, recurring deposits, and clear short-term working-capital use.</p>
+        </article>
+        <article class="program">
+          <h4>Working Capital / Cash-Flow Products</h4>
+          <p>Typical profile: 500-620+ FICO, 3-12+ months TIB, minimum revenue often $120K-$250K annual (or about $10K-$20K/month), stable deposits, and recent bank statements.</p>
+        </article>
+        <article class="program">
+          <h4>Equipment Financing</h4>
+          <p>Typical profile: 580-680+ FICO, 1-24+ months TIB, minimum revenue often $100K-$500K annual (deal-size dependent), vendor quote/invoice, and asset details.</p>
+        </article>
+        <article class="program">
+          <h4>Business Term Loans</h4>
+          <p>Typical profile: 500-650+ FICO, 3-24+ months TIB, minimum revenue often $150K-$500K annual, and debt-service capacity supported by cash flow.</p>
+        </article>
+        <article class="program">
+          <h4>SBA / Bank Programs</h4>
+          <p>Typical profile: 620-700+ FICO, 2+ years TIB preferred, minimum revenue often $250K-$500K+ annual, stronger tax returns/financials, and lower leverage.</p>
+        </article>
+        <article class="program">
+          <h4>Commercial Real Estate / Bridge</h4>
+          <p>Typical profile: 620-700+ FICO, collateral-driven underwriting, revenue minimums vary by asset/collateral but often $250K+ annual for owner-occupied deals, plus full property docs.</p>
+        </article>
+      </div>
+
+      <div class="bottom-two">
+        <section class="box">
+          <h3 class="section-title">Referral Submission Checklist</h3>
+          <ul class="list checklist">
+            <li>Business legal name + owner contact</li>
+            <li>Requested amount + use of funds</li>
+            <li>Approx. annual revenue + time in business</li>
+            <li>Credit range (if available)</li>
+            <li>Existing debt overview (if applicable)</li>
+            <li>Recent bank statements when available</li>
+            <li>Any timeline-sensitive context</li>
+          </ul>
+        </section>
+        <section class="box">
+          <h3 class="section-title">Who This Is For</h3>
+          <ul class="list">
+            <li>Accountants and tax professionals</li>
+            <li>Attorneys and consultants</li>
+            <li>Commercial real estate professionals</li>
+            <li>Insurance and advisory partners</li>
+            <li>Business coaches and agencies</li>
+            <li>Anyone serving business owners with financing needs</li>
+          </ul>
+
+          <div class="contact-box">
+            <p><strong>Referral Contact</strong></p>
+            <p>Email: jerry@axiantpartners.com</p>
+            <p>Phone: (919) 907-2611</p>
+            <p>Web: axiantpartners.com/contact</p>
+          </div>
+        </section>
+      </div>
+
+      <p class="tiny">
+        Program availability, rates, terms, and approval criteria vary by lender, product, state, and underwriting outcomes.
+        This brochure is for referral partner orientation and does not guarantee approval or pricing.
+      </p>
+    </main>
+
+    <footer class="footer">
+      <span><strong>Axiant Partners</strong> | Nationwide Commercial Lending Match & Advisory</span>
+      <span>Referral Program Materials</span>
+    </footer>
+  </section>
+</body>
+</html>
