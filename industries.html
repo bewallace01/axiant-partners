@@ -213,6 +213,14 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
         .hub-select-prompt-mobile {
             display: none;
         }
+        .industries-grid-hint {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            font-weight: 500;
+            margin: 0 0 1.1rem;
+            line-height: 1.5;
+        }
         @media (max-width: 768px) {
             .hub-select-prompt-mobile {
                 display: block;
@@ -220,6 +228,10 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                 font-weight: 600;
                 text-align: center;
                 margin: 0 0 1rem 0;
+            }
+            .industries-grid-hint {
+                font-size: 0.92rem;
+                margin-bottom: 0.85rem;
             }
             .industry-tile { min-height: 185px; }
             .industries-hero .tagline { font-size: 1rem; }
@@ -270,6 +282,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
 
         <div class="form-container industries-content">
             <h2 class="hub-select-prompt-mobile">Select an industry for more information</h2>
+            <p class="industries-grid-hint">Click an industry below to see more financing options and guides.</p>
             <div class="industries-grid">
                 <a href="construction-business-financing.html" class="industry-tile" aria-label="Construction business financing">
                     <picture><source srcset="/assets/construction-hero-bg-560w.webp?v=4 560w, /assets/construction-hero-bg-800w.webp?v=4 800w" sizes="(max-width: 768px) 100vw, 560px" type="image/webp"><img  src="/assets/construction-hero-bg.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>

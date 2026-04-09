@@ -46,3 +46,27 @@ body.mobile-nav-open {
   height: auto;
   border-radius: 12px;
 }
+
+/* Fixed top navigation — stays visible while scrolling (sticky is unreliable when body uses overflow-x: hidden) */
+:root {
+  --main-nav-offset: 108px;
+}
+@media (max-width: 768px) {
+  :root {
+    --main-nav-offset: 72px;
+  }
+}
+html:has(.main-nav) {
+  scroll-padding-top: var(--main-nav-offset);
+}
+.main-nav {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+/* Offset page content so it does not sit under the fixed bar (works with or without a wrapping .container) */
+body:has(.main-nav) {
+  padding-top: var(--main-nav-offset);
+}
