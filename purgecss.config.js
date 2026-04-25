@@ -16,6 +16,8 @@
       /^hero/,
       /^cobranded/,
       /^calculator/,
+      /^article-/,
+      /^quick-/,
       'data-theme',
       'active',
       'show',
