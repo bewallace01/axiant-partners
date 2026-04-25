@@ -21,7 +21,7 @@
 
 ### SEO
 - **match.html** – Had no `<h1>` (only `<h2>Apply for Business Financing</h2>`). **Fixed:** Promoted to `<h1>Apply for Business Financing</h1>`.
-- **calculator-embed.html** – Missing `<meta name="description">` and `<link rel="canonical">`. **Fixed:** Added description and canonical to `https://www.axiantpartners.com/calculator-embed.html`.
+- **calculator-embed.html** – Missing `<meta name="description">` and `<link rel="canonical">`. **Fixed:** Added description and canonical to `https://axiantpartners.com/calculator-embed.html`.
 - **Duplicate titles** – Two pairs of pages shared identical titles (bad for SEO):
   - `equipment-financing/index.html` (redirect) and `equipment-financing/articles/index.html` both had “Equipment Financing Articles: Loans vs Leases | Axiant Partners”. **Fixed:** Redirect page title set to “Equipment Financing | Axiant Partners”.
   - `revenue-based-financing/index.html` (redirect) and `revenue-based-financing/articles/index.html` both had “Revenue-Based Financing Articles | Axiant Partners”. **Fixed:** Redirect page title set to “Revenue-Based Financing | Axiant Partners”.
@@ -58,7 +58,7 @@
 - No `ï¿½` (mojibake) or Unicode replacement character (U+FFFD) found in HTML. Previous encoding fixes (en-dash → hyphen, bullet checkmarks, trailing “?”) are in place.
 
 ### Technical
-- **Canonicals** – All audited pages use `https://www.axiantpartners.com/...`.
+- **Canonicals** – All audited pages use `https://axiantpartners.com/...`.
 - **Meta descriptions** – Present on all critical and sampled pages; none under 50 characters.
 - **Sitemap** – `sitemap.xml` exists and includes key URLs (home, match, services, calculator, embed-calculator, blog, equipment, articles).
 - **Redirects** – `.htaccess` defines 301s for blog migration and hub redirects (e.g. `sba-loans-blog.html` → `sba-loans/articles/`). No conflicting rules found for the audited flows.

@@ -72,7 +72,7 @@ Securities-Based Lending title ("Securities-Based Lending: Unlock Liquidity With
 ## 3. Technical SEO
 
 ### Canonical URLs
-All service pages have correct `rel="canonical"` pointing to `https://www.axiantpartners.com/{page}.html`.
+All service pages have correct `rel="canonical"` pointing to `https://axiantpartners.com/{page}.html`.
 
 ### Schema Markup
 All pages include:

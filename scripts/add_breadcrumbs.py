@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-BASE_URL = "https://www.axiantpartners.com"
+BASE_URL = "https://axiantpartners.com"
 
 TOPIC_NAMES = {
     "sba-loans": "SBA Loans",

@@ -31,7 +31,7 @@ def add_cache_bust(content: str) -> tuple[str, int]:
         content
     )
 
-    # Pattern 2: url('https://www.axiantpartners.com/assets/xxx.webp')
+    # Pattern 2: url('https://axiantpartners.com/assets/xxx.webp')
     def repl_abs(m):
         nonlocal count
         new = apply_version(m.group(0))

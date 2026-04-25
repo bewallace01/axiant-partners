@@ -10,7 +10,7 @@ BASE = Path(__file__).resolve().parent.parent
 SITEMAP = BASE / "sitemap.xml"
 INDEXNOW_URL = "https://api.indexnow.org/indexnow"
 
-HOST = "www.axiantpartners.com"
+HOST = "axiantpartners.com"
 KEY = "177edbb44de64c5d8f856713891bb8dd"
 KEY_LOCATION = f"https://{HOST}/{KEY}.txt"
 

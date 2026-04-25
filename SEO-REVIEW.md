@@ -19,7 +19,7 @@ The site has a solid SEO foundation: consistent canonicals, meta descriptions, a
 |------|--------|------|
 | **robots.txt** | ✅ Good | Allows all user-agents, references sitemap, allows common AI crawlers (GPTBot, PerplexityBot, etc.). |
 | **Sitemap** | ✅ Fixed | Single `sitemap.xml` with 50k limit. **Update:** Missing article URLs were added (e.g. MCA mistakes, CRE red flags, fix-and-flip red flags, SBL traps, RBF not right option, CRE mistakes, fix-and-flip mistakes, RBF traps, red flags MCA). |
-| **Canonicals** | ✅ Good | Sampled pages use `rel="canonical"` with absolute URLs. Pattern: `https://www.axiantpartners.com/...` with trailing slash for directory-style URLs (e.g. `/merchant-cash-advance/articles/mca-mistakes-keep-you-in-cycle/`). |
+| **Canonicals** | ✅ Good | Sampled pages use `rel="canonical"` with absolute URLs. Pattern: `https://axiantpartners.com/...` with trailing slash for directory-style URLs (e.g. `/merchant-cash-advance/articles/mca-mistakes-keep-you-in-cycle/`). |
 | **Meta robots** | ✅ Good | Articles use `index, follow, max-snippet:-1, max-image-preview:large` where checked. |
 | **Google site verification** | ✅ Present | On homepage and blog. |
 
@@ -35,7 +35,7 @@ The site has a solid SEO foundation: consistent canonicals, meta descriptions, a
 ### 2.3 Security & performance (headers)
 
 - **`_headers` (Netlify):** X-Frame-Options, X-Content-Type-Options, Referrer-Policy set. Cache rules for HTML (revalidate), static assets (long cache). Calculator embed has `frame-ancestors *` for iframe use.
-- **HTTPS:** Canonicals and sitemap use `https://www.axiantpartners.com`. Ensure SSL and redirects are configured on the host.
+- **HTTPS:** Canonicals and sitemap use `https://axiantpartners.com`. Ensure SSL and redirects are configured on the host.
 
 ---
 
@@ -69,7 +69,7 @@ The site has a solid SEO foundation: consistent canonicals, meta descriptions, a
 
 | Type | Status | Notes |
 |------|--------|------|
-| **Organization** | ✅ | On homepage (`@id`: `https://www.axiantpartners.com/#organization`). Name, url, logo, contactPoint, sameAs. |
+| **Organization** | ✅ | On homepage (`@id`: `https://axiantpartners.com/#organization`). Name, url, logo, contactPoint, sameAs. |
 | **Article** | ✅ | On article pages: headline, description, url, image, datePublished/Modified, author, publisher (`@id` to organization). |
 | **BreadcrumbList** | ✅ | On article and hub pages; 3–4 levels (Home → Service → Articles → Article). |
 | **FAQPage** | ✅ | On many articles; questions/answers match content. |

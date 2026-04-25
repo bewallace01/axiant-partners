@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-BASE_URL = "https://www.axiantpartners.com"
+BASE_URL = "https://axiantpartners.com"
 
 # topic slug -> final articles URL
 HUBS = {

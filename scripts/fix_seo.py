@@ -8,7 +8,7 @@ BASE = Path(__file__).resolve().parent.parent
 BLOG_DIR = BASE / "blog"
 REDIRECTS = BASE / "_redirects"
 SITEMAP = BASE / "sitemap.xml"
-BASE_URL = "https://www.axiantpartners.com"
+BASE_URL = "https://axiantpartners.com"
 
 def load_redirect_map():
     """Parse _redirects for blog/slug.html -> /topic/articles/slug/"""

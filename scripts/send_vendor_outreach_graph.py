@@ -103,7 +103,7 @@ def default_body() -> str:
         "We have a free embeddable calculator so visitors can estimate monthly payments on your product or listing pages. "
         "Teams use it so buyers self-check budget before sales spends time on unqualified leads.\n\n"
         "Preview and copy the embed code (usually a few minutes to add):\n"
-        "https://www.axiantpartners.com/embed-calculator/\n\n"
+        "https://axiantpartners.com/embed-calculator/\n\n"
         "No charge for the embed. If this isn't useful, reply unsubscribe and I won't follow up.\n"
     )
 

@@ -20,4 +20,4 @@ Allow: /
 User-agent: Cohere-AI
 Allow: /
 
-Sitemap: https://www.axiantpartners.com/sitemap.xml
+Sitemap: https://axiantpartners.com/sitemap.xml

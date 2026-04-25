@@ -195,6 +195,21 @@
   color: var(--text-primary);
 }
 
+.article-callout.growth-mini-case,
+.form-container.blog-post-content .blog-post-main .article-callout.growth-mini-case {
+  border-left: 4px solid var(--accent-color);
+  background: rgba(45, 127, 184, 0.1);
+}
+
+.form-container.blog-post-content .blog-post-main .article-callout.growth-mini-case p {
+  max-width: none;
+  margin-bottom: 0.85rem;
+}
+
+.form-container.blog-post-content .blog-post-main .article-callout.growth-mini-case p:last-child {
+  margin-bottom: 0;
+}
+
 /* HELPFUL SECTION */
 .article-helpful {
   display: flex;
@@ -336,7 +351,59 @@
     position: static;
     order: 3;
   }
-  .article-body { padding: 20px 16px; }
+  .article-body {
+    padding: 20px 14px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: visible;
+  }
   .article-body p,
-  .article-body li { font-size: 1rem; }
+  .article-body li {
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+  .article-body img,
+  .article-body video,
+  .article-body iframe {
+    max-width: 100%;
+    height: auto;
+  }
+  .article-body table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Inline editorial imagery (article body + blog-post-main long-form) */
+.article-body figure.article-inline-visual,
+.form-container.blog-post-content .blog-post-main figure.article-inline-visual {
+  margin: 1.75rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  max-width: 100%;
+  background: var(--bg-secondary);
+}
+
+.article-body figure.article-inline-visual img,
+.form-container.blog-post-content .blog-post-main figure.article-inline-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+.article-body figure.article-inline-visual figcaption,
+.form-container.blog-post-content .blog-post-main figure.article-inline-visual figcaption {
+  font-size: 0.88rem;
+  color: var(--text-tertiary);
+  padding: 10px 14px 12px;
+  line-height: 1.45;
+  border-top: 1px solid var(--border-color);
+  background: rgba(45, 127, 184, 0.06);
 }

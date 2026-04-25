@@ -32,7 +32,7 @@
 |-----------|--------|------|
 | Sitemap | ✅ | Valid XML, lastmod, changefreq, priority; covers main pages + equipment + articles |
 | robots.txt | ✅ | Sitemap referenced; AI crawlers (GPTBot, PerplexityBot, etc.) explicitly allowed |
-| Canonical URLs | ✅ | All audited pages have canonical pointing to www.axiantpartners.com |
+| Canonical URLs | ✅ | All audited pages have canonical pointing to https://axiantpartners.com |
 | 301 Redirects | ✅ | Blog migration, hub redirects, equipment landing pages in _redirects + .htaccess |
 | No broken internal links | ✅ | Equipment links fixed; Equipment Guides nav fixed |
 | Mobile viewport | ✅ | viewport meta present |
@@ -115,7 +115,7 @@
 
 ### Meta Tags
 - **Title & description** on main pages
-- **Canonical URLs** pointing to www.axiantpartners.com
+- **Canonical URLs** pointing to https://axiantpartners.com
 - **Robots** directives (`index, follow`, `max-snippet`, `max-image-preview`)
 - **Open Graph** (og:title, og:description, og:url, og:image, og:type)
 - **Twitter Cards** (summary_large_image)

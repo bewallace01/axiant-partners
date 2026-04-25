@@ -1,0 +1,231 @@
+/* Article rail layout — scoped to .article-page; avoids global .blog-rail-card overrides from styles.css.
+   Load after blog-layout.css. Unified left column + sticky rails with in-rail scroll. */
+
+@supports selector(:has(*)) {
+  html:has(.article-page),
+  body:has(.article-page) {
+    overflow-x: clip;
+  }
+
+  /* Tighter hero → article transition (overrides inline header padding on article templates) */
+  .container:has(> .form-container.blog-post-content.article-page) > header {
+    padding-top: 40px;
+    padding-bottom: 28px;
+  }
+}
+
+.form-container.blog-post-content.article-page {
+  /* Match styles.css .blog-post-rail-* { top: 126px } so rails clear sticky nav */
+  --article-rail-sticky-top: 7.875rem;
+  /* Extra bottom margin so sticky rails never sit under the viewport fold */
+  --article-rail-max-height: calc(100vh - var(--article-rail-sticky-top) - 2rem);
+  /* Pull article shell closer to hero; beat generic .form-container !important padding from styles.css */
+  padding-top: 14px !important;
+  padding-bottom: 36px !important;
+  /* One width for both rails — keeps the layout visually balanced */
+  --article-rail-width: clamp(260px, 20vw, 300px);
+  --blog-rail-font: 0.875rem;
+  --blog-rail-line: 1.55;
+}
+
+@supports (height: 100dvh) {
+  .form-container.blog-post-content.article-page {
+    --article-rail-max-height: calc(100dvh - var(--article-rail-sticky-top) - 2rem);
+  }
+}
+
+.form-container.blog-post-content.article-page .blog-post-shell {
+  margin-top: 0 !important;
+  padding-top: 0.65rem !important;
+  padding-left: clamp(0.5rem, 1.5vw, 1.25rem) !important;
+  padding-right: clamp(0.5rem, 1.5vw, 1.25rem) !important;
+  gap: clamp(0.75rem, 1.65vw, 1.4rem) !important;
+  width: 100%;
+  max-width: none;
+  align-items: flex-start;
+}
+
+/* Shared rail column: same width, same card chrome, same flex behavior */
+.form-container.blog-post-content.article-page .blog-post-shell .blog-post-rail-left.article-rail--left,
+.form-container.blog-post-content.article-page .blog-post-rail-left.article-rail--left,
+.form-container.blog-post-content.article-page .blog-post-shell .blog-post-rail-right.article-rail--right,
+.form-container.blog-post-content.article-page .blog-post-rail-right.article-rail--right {
+  align-self: flex-start;
+  position: sticky;
+  top: var(--article-rail-sticky-top);
+  max-height: var(--article-rail-max-height);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 2px 12px var(--shadow-color) !important;
+  z-index: 2;
+  padding: 0 !important;
+  box-sizing: border-box;
+  flex: 0 0 var(--article-rail-width) !important;
+  width: var(--article-rail-width) !important;
+  min-width: 0 !important;
+  max-width: var(--article-rail-width) !important;
+}
+
+.form-container.blog-post-content.article-page .blog-post-rail-left .article-rail__inner {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Section blocks inside unified left card (not .blog-rail-card — avoids hub/mobile !important rules) */
+.form-container.blog-post-content.article-page .blog-post-rail-left .article-rail__block {
+  margin-bottom: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.1rem 1.15rem;
+}
+
+.form-container.blog-post-content.article-page .blog-post-rail-left .article-rail__block:last-child {
+  border-bottom: none;
+}
+
+.form-container.blog-post-content.article-page .article-rail__block h3 {
+  font-size: var(--blog-rail-font, 0.875rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  line-height: var(--blog-rail-line, 1.55);
+}
+
+/* Right: outer aside is the card (matches left); inner wrapper is flush — no double border/shadow */
+.form-container.blog-post-content.article-page .blog-post-rail-right.article-rail--right .article-rail__inner--toc {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+}
+
+/* TOC body padding matches .article-rail__block horizontal rhythm */
+.form-container.blog-post-content.article-page .blog-post-rail-right .blog-rail-toc {
+  padding: 1.1rem 1.15rem;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* CTA block: keep .blog-rail-cta on element for existing gradient/button rules in blog-layout.css */
+.form-container.blog-post-content.article-page .blog-post-rail-left .article-rail__block--cta.blog-rail-cta {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 1200px) {
+  .form-container.blog-post-content.article-page .blog-post-rail-left.article-rail--left {
+    position: static;
+    top: auto;
+    max-height: none;
+    overflow: visible;
+    align-self: stretch;
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .form-container.blog-post-content.article-page .blog-post-rail-right.article-rail--right {
+    position: static;
+    top: auto;
+    max-height: none;
+    overflow: visible;
+    align-self: stretch;
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .form-container.blog-post-content.article-page .blog-post-rail-left .article-rail__block--cta.blog-rail-cta {
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-container.blog-post-content.article-page .article-rail__block,
+  .form-container.blog-post-content.article-page .article-rail__inner--toc {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+}
+
+/* Center column uses remaining width; cancel inner max-width caps where templates allow */
+.form-container.blog-post-content.article-page .blog-post-main {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+  width: auto;
+}
+
+/* One typography scale for both rails (avoids left/right mismatch) */
+.form-container.blog-post-content.article-page .blog-post-toc-list a {
+  font-size: var(--blog-rail-font);
+  line-height: var(--blog-rail-line);
+}
+
+/* Figures / lead images in main column — centered block */
+.form-container.blog-post-content.article-page .blog-post-main figure {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  max-width: min(100%, 42rem);
+}
+
+.form-container.blog-post-content.article-page .blog-post-main figure img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Lead image directly under first body paragraph — SEO visual + readability */
+.form-container.blog-post-content.article-page .blog-post-main .article-lead-visual {
+  margin: 1.25rem auto 1.75rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px var(--shadow-color);
+  background: var(--bg-card);
+}
+
+.form-container.blog-post-content.article-page .blog-post-main .article-lead-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.form-container.blog-post-content.article-page .blog-post-main .article-lead-visual picture {
+  display: block;
+  line-height: 0;
+}
+
+/* Full-width data tables stay readable; optional wrapper charts */
+.form-container.blog-post-content.article-page .blog-post-main .table-wrap {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
