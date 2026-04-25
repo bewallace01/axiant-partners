@@ -64,6 +64,7 @@ def main():
     add("/faq.html")
     add("/contact.html")
     add("/calculator.html")
+    add("/equipment-financing-calculator.html", priority="0.9")
     add("/blog.html", changefreq="weekly")
     add("/referral.html", priority="0.7")
 
