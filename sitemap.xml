@@ -68,7 +68,7 @@
   </url>
   <url>
     <loc>https://axiantpartners.com/equipment.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2215,6 +2215,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://axiantpartners.com/equipment/carpet-extractors/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
     <loc>https://axiantpartners.com/equipment/cnc-machines/</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
@@ -2267,6 +2273,12 @@
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment/commercial-vacuums/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://axiantpartners.com/equipment/conveyor-systems/</loc>
@@ -2375,6 +2387,12 @@
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment/floor-scrubbers/</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://axiantpartners.com/equipment/forklifts/</loc>
@@ -2523,6 +2541,12 @@
   <url>
     <loc>https://axiantpartners.com/equipment/press-brakes/</loc>
     <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment/pressure-washers/</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -2679,6 +2703,12 @@
   <url>
     <loc>https://axiantpartners.com/equipment/surgical-equipment/</loc>
     <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment/sweepers/</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
