@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 
 # AI search & assistant crawlers - explicitly allow for citation and inclusion in AI answers
 User-agent: GPTBot

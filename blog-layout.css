@@ -526,3 +526,302 @@
     font-size: 1.25rem;
   }
 }
+
+/* ============================================================
+ * Article aesthetics layer — polished typography + components.
+ * Applies to all article pages via .form-container.blog-post-content.
+ * Cache-busted via the version constant in language-switcher.js.
+ * ============================================================ */
+
+/* Polished Quick Answer card. */
+.form-container.blog-post-content .blog-post-main .quick-answer {
+  position: relative;
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 14px;
+  padding: 1.15rem 1.35rem;
+  margin: 0 0 2rem;
+  box-shadow: 0 4px 18px var(--shadow-color);
+}
+.form-container.blog-post-content .blog-post-main .quick-answer::before {
+  content: "Quick answer";
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-bottom: 0.45rem;
+}
+.form-container.blog-post-content .blog-post-main .quick-answer > strong:first-child {
+  display: none;
+}
+.form-container.blog-post-content .blog-post-main .quick-answer p {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+.form-container.blog-post-content .blog-post-main .quick-answer p + p {
+  margin-top: 0.85rem;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+.form-container.blog-post-content .blog-post-main .quick-answer a {
+  color: var(--accent-color);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--accent-color);
+  transition: border-bottom-style 0.15s, color 0.15s;
+}
+.form-container.blog-post-content .blog-post-main .quick-answer a:hover {
+  border-bottom-style: solid;
+}
+
+/* Heading rhythm. */
+.form-container.blog-post-content .blog-post-main h2 {
+  position: relative;
+  margin-top: 2.6rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.5rem;
+  font-size: clamp(1.32rem, 2.2vw, 1.6rem);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--text-primary);
+}
+.form-container.blog-post-content .blog-post-main h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-dark) 100%);
+}
+.form-container.blog-post-content .blog-post-main h3 {
+  margin-top: 1.85rem;
+  margin-bottom: 0.6rem;
+  padding-left: 0.7rem;
+  border-left: 3px solid var(--accent-color);
+  font-size: clamp(1.08rem, 1.6vw, 1.22rem);
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.form-container.blog-post-content .blog-post-main .quick-answer + h2 {
+  margin-top: 1rem;
+}
+
+/* Body text rhythm. */
+.form-container.blog-post-content .blog-post-main p {
+  margin: 0 0 1.15rem;
+  font-size: 1.04rem;
+  line-height: 1.72;
+  color: var(--text-primary);
+}
+.form-container.blog-post-content .blog-post-main p strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.form-container.blog-post-content .blog-post-main ul,
+.form-container.blog-post-content .blog-post-main ol {
+  margin: 0 0 1.4rem 1.25rem;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+.form-container.blog-post-content .blog-post-main li {
+  margin-bottom: 0.5rem;
+}
+.form-container.blog-post-content .blog-post-main li::marker {
+  color: var(--accent-color);
+}
+.form-container.blog-post-content .blog-post-main a {
+  color: var(--accent-color);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(45, 127, 184, 0.3);
+  transition: border-bottom-color 0.15s;
+}
+.form-container.blog-post-content .blog-post-main a:hover {
+  border-bottom-color: var(--accent-color);
+}
+
+/* Pull-quote / callout. */
+.form-container.blog-post-content .blog-post-main .article-callout {
+  margin: 1.75rem 0;
+  padding: 1.15rem 1.35rem 1.15rem 1.5rem;
+  background: var(--bg-card);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 0 12px 12px 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  font-style: italic;
+}
+.form-container.blog-post-content .blog-post-main .article-callout strong:first-child {
+  display: block;
+  font-style: normal;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-bottom: 0.4rem;
+}
+
+/* Stat row. */
+.form-container.blog-post-content .blog-post-main .article-stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.85rem;
+  margin: 1.75rem 0;
+}
+.form-container.blog-post-content .blog-post-main .article-stat-row .article-stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  text-align: left;
+}
+.form-container.blog-post-content .blog-post-main .article-stat-row .article-stat-value {
+  display: block;
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+.form-container.blog-post-content .blog-post-main .article-stat-row .article-stat-label {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Polished tables. */
+.form-container.blog-post-content .blog-post-main table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.75rem 0;
+  font-size: 0.96rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.form-container.blog-post-content .blog-post-main thead th {
+  background: var(--bg-secondary);
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-color);
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+}
+.form-container.blog-post-content .blog-post-main tbody td {
+  padding: 0.78rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  vertical-align: top;
+}
+.form-container.blog-post-content .blog-post-main tbody tr:last-child td {
+  border-bottom: none;
+}
+.form-container.blog-post-content .blog-post-main tbody tr:hover td {
+  background: rgba(45, 127, 184, 0.04);
+}
+
+/* Polished inline FAQ. */
+.form-container.blog-post-content .blog-post-main details {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0;
+  margin-bottom: 0.65rem;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.form-container.blog-post-content .blog-post-main details[open] {
+  box-shadow: 0 4px 14px var(--shadow-color);
+  border-color: var(--accent-color);
+}
+.form-container.blog-post-content .blog-post-main details summary {
+  cursor: pointer;
+  padding: 0.95rem 1.15rem;
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--text-primary);
+  list-style: none;
+  position: relative;
+  padding-right: 2.5rem;
+}
+.form-container.blog-post-content .blog-post-main details summary::-webkit-details-marker {
+  display: none;
+}
+.form-container.blog-post-content .blog-post-main details summary::after {
+  content: "+";
+  position: absolute;
+  right: 1.15rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--accent-color);
+  transition: transform 0.2s;
+}
+.form-container.blog-post-content .blog-post-main details[open] summary::after {
+  content: "−";
+}
+.form-container.blog-post-content .blog-post-main details > p,
+.form-container.blog-post-content .blog-post-main details > div {
+  padding: 0 1.15rem 1.05rem;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+/* Drop cap on first paragraph after the quick-answer/H2. */
+.form-container.blog-post-content .blog-post-main .quick-answer + h2 + p::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.92;
+  font-weight: 700;
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--accent-color);
+  padding: 0.3rem 0.65rem 0 0;
+}
+
+/* Mobile dial-back. */
+@media (max-width: 768px) {
+  .form-container.blog-post-content .blog-post-main h2 {
+    font-size: 1.28rem;
+    margin-top: 2rem;
+  }
+  .form-container.blog-post-content .blog-post-main h3 {
+    font-size: 1.08rem;
+    margin-top: 1.4rem;
+  }
+  .form-container.blog-post-content .blog-post-main p {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  .form-container.blog-post-content .blog-post-main .quick-answer {
+    padding: 1rem 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  .form-container.blog-post-content .blog-post-main .quick-answer p {
+    font-size: 0.96rem;
+  }
+  .form-container.blog-post-content .blog-post-main .quick-answer + h2 + p::first-letter {
+    font-size: 2.8rem;
+    padding-right: 0.5rem;
+  }
+  .form-container.blog-post-content .blog-post-main details summary {
+    font-size: 0.96rem;
+    padding: 0.85rem 2.4rem 0.85rem 1rem;
+  }
+}
