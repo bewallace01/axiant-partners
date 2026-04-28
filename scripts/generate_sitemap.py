@@ -145,7 +145,8 @@ def main():
         "agriculture-business-financing", "forestry-business-financing",
         "landscaping-business-financing", "manufacturing-business-financing",
         "medical-practices-business-financing", "restaurants-business-financing",
-        "auto-repair-business-financing", "logistics-warehousing-business-financing"
+        "auto-repair-business-financing", "logistics-warehousing-business-financing",
+        "cleaning-business-financing",
     ]
     for p in industries:
         if (BASE / f"{p}.html").exists():

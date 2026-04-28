@@ -79,6 +79,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://axiantpartners.com/business-financing-glossary/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://axiantpartners.com/working-capital-loans.html</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
@@ -453,6 +459,60 @@
   <url>
     <loc>https://axiantpartners.com/equipment-financing/articles/equipment-financing-requirements/</loc>
     <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/articles/heavy-equipment-financing/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/articles/contractor-equipment-financing/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/articles/how-to-apply-equipment-financing/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/articles/manufacturing-equipment-financing/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/articles/restaurant-equipment-financing/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/articles/trucking-equipment-financing/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/texas/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/working-capital-loans/articles/mca-vs-working-capital-loan/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/sba-loans/articles/sba-7a-vs-conventional-bank-loan/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1736,7 +1796,7 @@
   </url>
   <url>
     <loc>https://axiantpartners.com/industries.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -1797,6 +1857,12 @@
   <url>
     <loc>https://axiantpartners.com/logistics-warehousing-business-financing.html</loc>
     <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/cleaning-business-financing.html</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2753,5 +2819,185 @@
     <lastmod>2026-04-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/california/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/florida/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/new-york/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/illinois/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/pennsylvania/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/business-term-loans/articles/term-loan-vs-line-of-credit/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/articles/equipment-lease-vs-loan-vs-cash/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/sba-loans/articles/sba-7a-vs-sba-express/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/business-loan-rates-2026/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/how-lenders-decide/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/ohio/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/georgia/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/north-carolina/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/michigan/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/virginia/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/articles/equipment-financing-vs-vendor-financing/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/commercial-bridge-loans/articles/bridge-loan-vs-heloc/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/working-capital-loans/articles/invoice-factoring-vs-working-capital-loan/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/business-loan-documents-checklist/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/business-loan-approval-timeline/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/washington/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/massachusetts/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/tennessee/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/indiana/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/states/missouri/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/commercial-real-estate-loans/articles/hard-money-vs-conventional-cre/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/sba-loans/articles/sba-504-vs-conventional-cre/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/equipment-financing/articles/equipment-financing-vs-business-credit-card/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/buying-a-business-financing-guide/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/business-loan-eligibility/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
