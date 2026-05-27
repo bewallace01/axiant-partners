@@ -7,6 +7,7 @@ import re
 import pathlib
 
 DEAD_SLUGS = [
+    # Phase 3 — industry-child pages
     "avoid-payroll-to-draw-timing-mistakes",
     "avoid-supplier-cod-traps-material-prices-spike",
     "contractor-cash-flow-red-flags-before-applying-financing",
@@ -24,6 +25,27 @@ DEAD_SLUGS = [
     "detention-layover-pay-cash-crunch",
     "pre-peak-freight-capacity-financing-plan",
     "truck-note-lease-payment-slow-freight-weeks",
+    # Phase 4 — thin article pages
+    "arkansas-trucking-owner-operator-financing",
+    "colorado-craft-brewery-financing",
+    "florida-hurricane-contractor-financing",
+    "michigan-auto-tier-1-supplier-financing",
+    "north-dakota-bakken-oilfield-financing",
+    "washington-apple-orchard-financing",
+    "sba-loan-manufacturing-lost-supplier-overseas-conflict-pivot",
+    "sba-pre-approval-how-long-valid",
+    "veterinary-practice-loan-vs-small-business-loan",
+    "why-term-loan-funding-keeps-getting-pushed-back",
+    "open-line-of-credit-now-before-wartime-inflation-rates-higher",
+    "reasons-cre-loan-approval-taking-forever",
+    "why-cre-loan-keeps-coming-back-for-more-documents",
+    "why-bridge-loan-keeps-coming-back-for-more-documents",
+    "war-fuel-material-costs-cash-flow-squeezed-options",
+    "whats-keeping-you-from-refinancing-business-debt",
+    "reasons-working-capital-loan-keeps-denied",
+    "revenue-based-financing-professional-services",
+    "finance-inventory-new-ecommerce-startup",
+    "why-lender-keeps-asking-for-more-documents",
 ]
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
