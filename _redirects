@@ -237,3 +237,46 @@
 /equipment-financing/states/west-virginia /equipment-financing.html 301
 /equipment-financing/states/wisconsin/ /equipment-financing.html 301
 /equipment-financing/states/wisconsin /equipment-financing.html 301
+
+# Phase 2 cleanup 2026-05-27: 301s for pages Google "Crawled, currently not indexed".
+# Google explicitly rejected these as low quality after crawl. Killing + 301
+# to the nearest hub so any external link equity carries over.
+
+# Industry-child pages -> parent industry hub
+/construction-business-financing/how-contractor-equipment-financing-helps-you-take-on-bigger-jobs/ /construction-business-financing.html 301
+/construction-business-financing/how-contractor-equipment-financing-helps-you-take-on-bigger-jobs  /construction-business-financing.html 301
+/construction-business-financing/how-contractors-cover-payroll-materials-before-project-draws/ /construction-business-financing.html 301
+/construction-business-financing/how-contractors-cover-payroll-materials-before-project-draws  /construction-business-financing.html 301
+/medical-practices-business-financing/finance-medical-equipment-upgrades-without-disrupting-patient-flow/ /medical-practices-business-financing.html 301
+/medical-practices-business-financing/finance-medical-equipment-upgrades-without-disrupting-patient-flow  /medical-practices-business-financing.html 301
+/restaurants-business-financing/restaurant-working-capital-payroll-inventory-slow-weeks/ /restaurants-business-financing.html 301
+/restaurants-business-financing/restaurant-working-capital-payroll-inventory-slow-weeks  /restaurants-business-financing.html 301
+
+# Article pages -> parent product hub
+/business-growth/articles/scale-paid-ads-tight-margins-framework/ /business-growth.html 301
+/business-growth/articles/scale-paid-ads-tight-margins-framework  /business-growth.html 301
+/merchant-cash-advance/articles/whats-preventing-merchant-cash-advance/ /merchant-cash-advance.html 301
+/merchant-cash-advance/articles/whats-preventing-merchant-cash-advance  /merchant-cash-advance.html 301
+/commercial-bridge-loans/articles/commercial-bridge-loan-vs-sba-loan/ /commercial-bridge-loans.html 301
+/commercial-bridge-loans/articles/commercial-bridge-loan-vs-sba-loan  /commercial-bridge-loans.html 301
+/working-capital-loans/articles/how-fast-can-you-get-working-capital-loan/ /working-capital-loans.html 301
+/working-capital-loans/articles/how-fast-can-you-get-working-capital-loan  /working-capital-loans.html 301
+/business-line-of-credit/articles/line-of-credit-for-law-firms/ /business-line-of-credit.html 301
+/business-line-of-credit/articles/line-of-credit-for-law-firms  /business-line-of-credit.html 301
+
+# Tractor: redirect missing how-to-finance page to the hub
+/equipment/tractors/tractor-financing-new-farmers/ /equipment/tractors/ 301
+/equipment/tractors/tractor-financing-new-farmers  /equipment/tractors/ 301
+
+# Commercial mowers: missing how-to-finance page never built
+/equipment/commercial-mowers/how-to-finance-a-commercial-mower/ /equipment/commercial-mowers/ 301
+/equipment/commercial-mowers/how-to-finance-a-commercial-mower  /equipment/commercial-mowers/ 301
+
+# Empty article hub
+/startup-financing/articles/ /startup-financing.html 301
+/startup-financing/articles  /startup-financing.html 301
+
+# Canonical-clarification: clean-URL versions of root .html pages
+/blog /blog.html 301
+/services /services.html 301
+
