@@ -280,3 +280,41 @@
 /blog /blog.html 301
 /services /services.html 301
 
+
+# Phase 3 cleanup 2026-05-27: 17 industry-child pages -> parent industry hubs.
+# All had zero GSC impressions over 28 days. Folding into hub pages.
+
+/construction-business-financing/avoid-payroll-to-draw-timing-mistakes/ /construction-business-financing.html 301
+/construction-business-financing/avoid-payroll-to-draw-timing-mistakes /construction-business-financing.html 301
+/construction-business-financing/avoid-supplier-cod-traps-material-prices-spike/ /construction-business-financing.html 301
+/construction-business-financing/avoid-supplier-cod-traps-material-prices-spike /construction-business-financing.html 301
+/construction-business-financing/contractor-cash-flow-red-flags-before-applying-financing/ /construction-business-financing.html 301
+/construction-business-financing/contractor-cash-flow-red-flags-before-applying-financing /construction-business-financing.html 301
+/construction-business-financing/contractor-financing-mistakes-kill-approvals/ /construction-business-financing.html 301
+/construction-business-financing/contractor-financing-mistakes-kill-approvals /construction-business-financing.html 301
+/construction-business-financing/defense-contracts-equipment-financing-bid-axiant/ /construction-business-financing.html 301
+/construction-business-financing/defense-contracts-equipment-financing-bid-axiant /construction-business-financing.html 301
+/construction-business-financing/documentation-mistakes-delay-contractor-funding/ /construction-business-financing.html 301
+/construction-business-financing/documentation-mistakes-delay-contractor-funding /construction-business-financing.html 301
+/construction-business-financing/how-to-cover-materials-and-payroll-before-the-first-draw/ /construction-business-financing.html 301
+/construction-business-financing/how-to-cover-materials-and-payroll-before-the-first-draw /construction-business-financing.html 301
+/construction-business-financing/how-to-finance-used-equipment-without-overpaying/ /construction-business-financing.html 301
+/construction-business-financing/how-to-finance-used-equipment-without-overpaying /construction-business-financing.html 301
+/construction-business-financing/mistakes-financing-used-equipment-contractors/ /construction-business-financing.html 301
+/construction-business-financing/mistakes-financing-used-equipment-contractors /construction-business-financing.html 301
+/construction-business-financing/steel-lumber-prices-finance-job/ /construction-business-financing.html 301
+/construction-business-financing/steel-lumber-prices-finance-job /construction-business-financing.html 301
+/construction-business-financing/why-contractors-get-stuck-in-underwriting/ /construction-business-financing.html 301
+/construction-business-financing/why-contractors-get-stuck-in-underwriting /construction-business-financing.html 301
+/construction-business-financing/win-more-bids-by-financing-equipment-instead-of-draining-working-capital/ /construction-business-financing.html 301
+/construction-business-financing/win-more-bids-by-financing-equipment-instead-of-draining-working-capital /construction-business-financing.html 301
+/construction-business-financing/working-capital-vs-equipment-financing-contractors/ /construction-business-financing.html 301
+/construction-business-financing/working-capital-vs-equipment-financing-contractors /construction-business-financing.html 301
+/trucking-business-financing/bridge-net-30-net-45-gap-without-missing-fuel-and-payroll/ /trucking-business-financing.html 301
+/trucking-business-financing/bridge-net-30-net-45-gap-without-missing-fuel-and-payroll /trucking-business-financing.html 301
+/trucking-business-financing/detention-layover-pay-cash-crunch/ /trucking-business-financing.html 301
+/trucking-business-financing/detention-layover-pay-cash-crunch /trucking-business-financing.html 301
+/trucking-business-financing/pre-peak-freight-capacity-financing-plan/ /trucking-business-financing.html 301
+/trucking-business-financing/pre-peak-freight-capacity-financing-plan /trucking-business-financing.html 301
+/trucking-business-financing/truck-note-lease-payment-slow-freight-weeks/ /trucking-business-financing.html 301
+/trucking-business-financing/truck-note-lease-payment-slow-freight-weeks /trucking-business-financing.html 301
