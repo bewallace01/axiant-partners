@@ -362,3 +362,7 @@
 /startup-financing/articles/finance-inventory-new-ecommerce-startup /startup-financing.html 301
 /articles/why-lender-keeps-asking-for-more-documents/ /blog.html 301
 /articles/why-lender-keeps-asking-for-more-documents /blog.html 301
+
+# Duplicate "loan denied" article consolidated into the stronger page (more content + all inbound links)
+/articles/business-loan-denied-what-to-do/ /articles/what-to-do-if-business-loan-denied/ 301
+/articles/business-loan-denied-what-to-do /articles/what-to-do-if-business-loan-denied/ 301

@@ -22,7 +22,47 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
 User-agent: Cohere-AI
 Allow: /
 
+# OpenAI search crawler (powers ChatGPT search results) - distinct from GPTBot
+User-agent: OAI-SearchBot
+Allow: /
+
+# Google AI - gates inclusion in Google AI Overviews and Gemini grounding
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence / Siri
+User-agent: Applebot-Extended
+Allow: /
+
+# Amazon assistant
+User-agent: Amazonbot
+Allow: /
+
+# DuckDuckGo AI (DuckAssist)
+User-agent: DuckAssistBot
+Allow: /
+
+# Microsoft Copilot / Bing AI
+User-agent: bingbot
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Common Crawl (feeds many AI training/grounding datasets) - already allowed above as CCBot
+
 Sitemap: https://axiantpartners.com/sitemap.xml
+LLM: https://axiantpartners.com/llms.txt
