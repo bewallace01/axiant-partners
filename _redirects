@@ -110,7 +110,7 @@
 /fix-and-flip-blog.html /fix-and-flip/articles/ 301
 /revenue-based-financing/ /revenue-based-financing/articles/ 301
 /revenue-based-financing-blog.html /revenue-based-financing/articles/ 301
-/securities-based-lending/ /securities-based-lending/articles/ 301
+/securities-based-lending/ /securities-based-lending/articles/ 301!
 /securities-based-lending-blog.html /securities-based-lending/articles/ 301
 
 # Equipment landing pages -> main equipment page
@@ -361,5 +361,11 @@
 /articles/why-lender-keeps-asking-for-more-documents /blog.html 301
 
 # Duplicate "loan denied" article consolidated into the stronger page (more content + all inbound links)
-/articles/business-loan-denied-what-to-do/ /articles/what-to-do-if-business-loan-denied/ 301
-/articles/business-loan-denied-what-to-do /articles/what-to-do-if-business-loan-denied/ 301
+/articles/business-loan-denied-what-to-do/ /articles/what-to-do-if-business-loan-denied/ 301!
+/articles/business-loan-denied-what-to-do /articles/what-to-do-if-business-loan-denied/ 301!
+
+# Moved sprinter-van stubs consolidated into the cargo-vans pages (forced; static stubs exist)
+/equipment/sprinter-vans/sprinter-van-financing-delivery/ /equipment/cargo-vans/sprinter-van-financing-delivery/ 301!
+/equipment/sprinter-vans/sprinter-van-financing-delivery /equipment/cargo-vans/sprinter-van-financing-delivery/ 301!
+/equipment/sprinter-vans/ /equipment/cargo-vans/ 301!
+/equipment/sprinter-vans /equipment/cargo-vans/ 301!
