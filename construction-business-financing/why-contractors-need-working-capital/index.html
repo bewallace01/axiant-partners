@@ -155,21 +155,24 @@
                     </div>
                   </div>
                   <p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only, not a quote or offer of credit.</p>
-                  <a href="/match.html" class="btn-primary" style="margin-top:14px;">See what you qualify for &mdash; get matched</a>
+                  <a id="wcGapCta" href="/match.html?type=working-capital" class="btn-primary" style="margin-top:14px;">See what you qualify for &mdash; get matched</a>
+                  <p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won&rsquo;t affect your credit &middot; 24&ndash;48&nbsp;hr decisions &middot; no obligation.</p>
                 </div>
                 <script>
                 (function(){
                   var cost=document.getElementById('wcGapCost'),days=document.getElementById('wcGapDays'),
-                      outT=document.getElementById('wcGapTied'),outC=document.getElementById('wcGapCushion');
+                      outT=document.getElementById('wcGapTied'),outC=document.getElementById('wcGapCushion'),
+                      cta=document.getElementById('wcGapCta');
                   if(!cost) return;
                   var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
                   function calc(){
                     var c=parseFloat((cost.value||'').replace(/[^0-9.]/g,''))||0;
                     var d=+days.value;
-                    if(c<=0){outT.textContent='—';outC.textContent='—';return;}
+                    if(c<=0){outT.textContent='—';outC.textContent='—';if(cta){cta.href='/match.html?type=working-capital';cta.textContent='See what you qualify for — get matched';}return;}
                     var tied=c*(d/30);
                     outT.textContent=fmt(tied);
                     outC.textContent=fmt(tied)+' – '+fmt(tied*1.5);
+                    if(cta){cta.href='/match.html?type=working-capital&amount='+Math.round(tied);cta.textContent='See if you qualify for '+fmt(tied)+' →';}
                   }
                   cost.addEventListener('input',calc);
                   cost.addEventListener('blur',function(){var n=parseFloat((cost.value||'').replace(/[^0-9.]/g,''));if(n>0)cost.value=fmt(n);});

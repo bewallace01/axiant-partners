@@ -286,12 +286,14 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                 </div>
               </div>
               <p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only &mdash; excludes taxes, fees, and lease mileage/maintenance terms. Not a quote or offer of credit.</p>
-              <a href="/match.html" class="btn-primary" style="margin-top:14px;">Compare real lease &amp; loan offers &mdash; get matched</a>
+              <a id="svlCta" href="/match.html?type=equipment" class="btn-primary" style="margin-top:14px;">Compare real lease &amp; loan offers &mdash; get matched</a>
+              <p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won&rsquo;t affect your credit &middot; 24&ndash;48&nbsp;hr decisions &middot; no obligation.</p>
             </div>
             <script>
             (function(){
               var price=document.getElementById('svlPrice'),term=document.getElementById('svlTerm'),
-                  outLn=document.getElementById('svlLoan'),outLs=document.getElementById('svlLease');
+                  outLn=document.getElementById('svlLoan'),outLs=document.getElementById('svlLease'),
+                  cta=document.getElementById('svlCta');
               if(!price) return;
               var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
               function loanPay(P,apr,n){var r=apr/12;return P*r/(1-Math.pow(1+r,-n));}
@@ -299,10 +301,11 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
               function calc(){
                 var p=parseFloat((price.value||'').replace(/[^0-9.]/g,''))||0;
                 var n=+term.value;
-                if(p<=0){outLn.textContent='—';outLs.textContent='—';return;}
+                if(p<=0){outLn.textContent='—';outLs.textContent='—';if(cta){cta.href='/match.html?type=equipment';cta.textContent='Compare real lease & loan offers — get matched';}return;}
                 var financed=p*0.90;
                 outLn.textContent=fmt(loanPay(financed,0.09,n))+' – '+fmt(loanPay(financed,0.13,n));
                 outLs.textContent=fmt(leasePay(p,0.09,n))+' – '+fmt(leasePay(p,0.13,n));
+                if(cta){cta.href='/match.html?type=equipment&amount='+Math.round(p);cta.textContent='Get real offers on a '+fmt(p)+' truck →';}
               }
               price.addEventListener('input',calc);
               price.addEventListener('blur',function(){var x=parseFloat((price.value||'').replace(/[^0-9.]/g,''));if(x>0)price.value=fmt(x);});

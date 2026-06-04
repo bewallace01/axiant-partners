@@ -347,20 +347,23 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                 </div>
               </div>
               <p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative interest only &mdash; excludes draw, annual, and renewal fees. Not a quote or offer of credit.</p>
-              <a href="/match.html" class="btn-primary" style="margin-top:14px;">Compare real line-of-credit offers &mdash; get matched</a>
+              <a id="blocDrawCta" href="/match.html?type=line-of-credit" class="btn-primary" style="margin-top:14px;">Compare real line-of-credit offers &mdash; get matched</a>
+              <p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won&rsquo;t affect your credit &middot; 24&ndash;48&nbsp;hr decisions &middot; no obligation.</p>
             </div>
             <script>
             (function(){
               var amt=document.getElementById('blocDrawAmt'),type=document.getElementById('blocDrawType'),
-                  outM=document.getElementById('blocDrawMo'),outY=document.getElementById('blocDrawYr');
+                  outM=document.getElementById('blocDrawMo'),outY=document.getElementById('blocDrawYr'),
+                  cta=document.getElementById('blocDrawCta');
               if(!amt) return;
               var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
               function calc(){
                 var p=parseFloat((amt.value||'').replace(/[^0-9.]/g,''))||0;
                 var r=type.value.split(','),lo=+r[0]/100,hi=+r[1]/100;
-                if(p<=0){outM.textContent='—';outY.textContent='—';return;}
+                if(p<=0){outM.textContent='—';outY.textContent='—';if(cta){cta.href='/match.html?type=line-of-credit';cta.textContent='Compare real line-of-credit offers — get matched';}return;}
                 outM.textContent=fmt(p*lo/12)+' – '+fmt(p*hi/12);
                 outY.textContent=fmt(p*lo)+' – '+fmt(p*hi);
+                if(cta){cta.href='/match.html?type=line-of-credit&amount='+Math.round(p);cta.textContent='Get real rates on a '+fmt(p)+' line →';}
               }
               amt.addEventListener('input',calc);
               amt.addEventListener('blur',function(){var n=parseFloat((amt.value||'').replace(/[^0-9.]/g,''));if(n>0)amt.value=fmt(n);});
