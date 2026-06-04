@@ -150,7 +150,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://axiantpartners.com/"},{"@type":"ListItem","position":2,"name":"Equipment Financing Guides","item":"https://axiantpartners.com/equipment.html"},{"@type":"ListItem","position":3,"name":"Semi Trucks","item":"https://axiantpartners.com/equipment/semi-trucks/"},{"@type":"ListItem","position":4,"name":"Semi Truck Down Payment","item":"https://axiantpartners.com/equipment/semi-trucks/semi-truck-financing-down-payment/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"How Much Down Payment Do You Need for a Semi Truck?","description":"Guide to semi truck down payment expectations, including typical ranges for new and used trucks, owner-operators, credit profiles, and ways to reduce upfront cash needs.","image":{"@type":"ImageObject","url":"https://axiantpartners.com/assets/semi-truck-equipment.webp","width":1200,"height":630},"url":"https://axiantpartners.com/equipment/semi-trucks/semi-truck-financing-down-payment/","datePublished":"2026-03-17","dateModified":"2026-06-03","author":{"@type":"Organization","name":"Axiant Partners","url":"https://axiantpartners.com"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/equipment/semi-trucks/semi-truck-financing-down-payment/"},"articleSection":"Semi Truck Financing","keywords":"semi truck down payment, how much down payment for semi truck, truck financing down payment"}
+    {"@context":"https://schema.org","@type":"Article","headline":"How Much Down Payment Do You Need for a Semi Truck?","description":"Guide to semi truck down payment expectations, including typical ranges for new and used trucks, owner-operators, credit profiles, and ways to reduce upfront cash needs.","image":{"@type":"ImageObject","url":"https://axiantpartners.com/assets/semi-truck-equipment.webp","width":1200,"height":630},"url":"https://axiantpartners.com/equipment/semi-trucks/semi-truck-financing-down-payment/","datePublished":"2026-03-17","dateModified":"2026-06-04","author":{"@type":"Organization","name":"Axiant Partners","url":"https://axiantpartners.com"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/equipment/semi-trucks/semi-truck-financing-down-payment/"},"articleSection":"Semi Truck Financing","keywords":"semi truck down payment, how much down payment for semi truck, truck financing down payment"}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much down payment do you need for a semi truck?","acceptedAnswer":{"@type":"Answer","text":"A typical range is 0-20%, depending on credit, truck age, revenue, and lender. Strong borrowers with established revenue may qualify for 0-10% down, while newer businesses or riskier trucks often need 15-20% or more."}},{"@type":"Question","name":"Can you finance a semi truck with no money down?","acceptedAnswer":{"@type":"Answer","text":"Sometimes. Zero-down programs are usually reserved for strong credit, solid revenue, and a truck that fits the lender's guidelines. Most buyers should expect to put some money down, especially for used trucks or newer businesses."}},{"@type":"Question","name":"Do used semi trucks require more down payment?","acceptedAnswer":{"@type":"Answer","text":"Yes. Used semi trucks often require a larger down payment because age, mileage, and condition increase risk. Many used truck deals fall in the 10-20% range."}},{"@type":"Question","name":"Does a larger down payment lower the interest rate?","acceptedAnswer":{"@type":"Answer","text":"It can. A larger down payment reduces lender risk and may improve pricing, especially when paired with good credit and a strong truck selection."}},{"@type":"Question","name":"What is the best down payment amount?","acceptedAnswer":{"@type":"Answer","text":"The best amount is the one that gets you approved without straining cash flow. Many borrowers aim for 10-15% as a balance between approval strength and preserving working capital."}}]}
@@ -251,20 +251,23 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                 </div>
               </div>
               <p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only, not a quote or offer of credit.</p>
-              <a href="/match.html" class="btn-primary" style="margin-top:14px;">See real numbers &mdash; get matched</a>
+              <a id="stDpCta" href="/match.html?type=equipment" class="btn-primary" style="margin-top:14px;">See real numbers &mdash; get matched</a>
+              <p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won&rsquo;t affect your credit &middot; 24&ndash;48&nbsp;hr decisions &middot; no obligation.</p>
             </div>
             <script>
             (function(){
               var price=document.getElementById('stDpPrice'),type=document.getElementById('stDpType'),
-                  outD=document.getElementById('stDpDown'),outL=document.getElementById('stDpLoan');
+                  outD=document.getElementById('stDpDown'),outL=document.getElementById('stDpLoan'),
+                  cta=document.getElementById('stDpCta');
               if(!price) return;
               var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
               function calc(){
                 var p=parseFloat((price.value||'').replace(/[^0-9.]/g,''))||0;
                 var r=type.value.split(','),lo=+r[0]/100,hi=+r[1]/100;
-                if(p<=0){outD.textContent='—';outL.textContent='—';return;}
+                if(p<=0){outD.textContent='—';outL.textContent='—';if(cta){cta.href='/match.html?type=equipment';cta.textContent='See real numbers — get matched';}return;}
                 outD.textContent=(lo===0?fmt(0)+' – ':fmt(p*lo)+' – ')+fmt(p*hi);
                 outL.textContent=fmt(p*(1-hi))+' – '+fmt(p*(1-lo));
+                if(cta){var loan=p*(1-(lo+hi)/2);cta.href='/match.html?type=equipment&amount='+Math.round(loan);cta.textContent='See if you qualify for '+fmt(loan)+' →';}
               }
               price.addEventListener('input',calc);
               price.addEventListener('blur',function(){var n=parseFloat((price.value||'').replace(/[^0-9.]/g,''));if(n>0)price.value=fmt(n);});

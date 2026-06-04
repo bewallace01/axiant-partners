@@ -148,7 +148,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://axiantpartners.com/"},{"@type":"ListItem","position":2,"name":"SBA Loans","item":"https://axiantpartners.com/sba-loans.html"},{"@type":"ListItem","position":3,"name":"Articles","item":"https://axiantpartners.com/sba-loans/articles/"},{"@type":"ListItem","position":4,"name":"How Long Does It Take to Get Approved for an SBA Loan?","item":"https://axiantpartners.com/sba-loans/articles/how-long-sba-loan-approval/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"How Long Does It Take to Get Approved for an SBA Loan?","description":"SBA loan approval timelines, typical stages, and what speeds up or delays funding.","image":"https://axiantpartners.com/assets/sba-504.webp","url":"https://axiantpartners.com/sba-loans/articles/how-long-sba-loan-approval/","datePublished":"2025-02-26","dateModified":"2026-06-03","author":{"@type":"Organization","name":"Axiant Partners"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/sba-loans/articles/how-long-sba-loan-approval/"}}
+    {"@context":"https://schema.org","@type":"Article","headline":"How Long Does It Take to Get Approved for an SBA Loan?","description":"SBA loan approval timelines, typical stages, and what speeds up or delays funding.","image":"https://axiantpartners.com/assets/sba-504.webp","url":"https://axiantpartners.com/sba-loans/articles/how-long-sba-loan-approval/","datePublished":"2025-02-26","dateModified":"2026-06-04","author":{"@type":"Organization","name":"Axiant Partners"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/sba-loans/articles/how-long-sba-loan-approval/"}}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"WebPage","@id":"https://axiantpartners.com/sba-loans/articles/how-long-sba-loan-approval/#webpage","url":"https://axiantpartners.com/sba-loans/articles/how-long-sba-loan-approval/","name":"How Long Does It Take to Get Approved for an SBA Loan?","speakable":{"@type":"SpeakableSpecification","cssSelector":[".quick-answer"]}}
@@ -228,21 +228,24 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                 <div id="sbaPay" style="font-size:1.6rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
               </div>
               <p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only, not a quote or offer of credit. Actual rate, term, and payment depend on lender underwriting.</p>
-              <a href="/match.html" class="btn-primary" style="margin-top:14px;">Start early &mdash; get matched while you plan</a>
+              <a id="sbaCta" href="/match.html?type=sba" class="btn-primary" style="margin-top:14px;">Start early &mdash; get matched while you plan</a>
+              <p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won&rsquo;t affect your credit &middot; no obligation &middot; SBA timelines reward starting early.</p>
             </div>
             <script>
             (function(){
               var amt=document.getElementById('sbaAmt'),term=document.getElementById('sbaTerm'),
-                  rate=document.getElementById('sbaRate'),out=document.getElementById('sbaPay');
+                  rate=document.getElementById('sbaRate'),out=document.getElementById('sbaPay'),
+                  cta=document.getElementById('sbaCta');
               if(!amt) return;
               var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
               function calc(){
                 var p=parseFloat((amt.value||'').replace(/[^0-9.]/g,''))||0;
                 var apr=parseFloat((rate.value||'').replace(/[^0-9.]/g,''))||0;
                 var n=(+term.value)*12, r=apr/100/12;
-                if(p<=0||n<=0){out.textContent='—';return;}
+                if(p<=0||n<=0){out.textContent='—';if(cta){cta.href='/match.html?type=sba';cta.textContent='Start early — get matched while you plan';}return;}
                 var m=r>0?(p*r)/(1-Math.pow(1+r,-n)):p/n;
                 out.textContent=fmt(m)+' /mo';
+                if(cta){cta.href='/match.html?type=sba&amount='+Math.round(p);cta.textContent='Get matched for your '+fmt(p)+' SBA loan →';}
               }
               amt.addEventListener('input',calc); rate.addEventListener('input',calc); term.addEventListener('change',calc);
               amt.addEventListener('blur',function(){var v=parseFloat((amt.value||'').replace(/[^0-9.]/g,''));if(v>0)amt.value=fmt(v);});
