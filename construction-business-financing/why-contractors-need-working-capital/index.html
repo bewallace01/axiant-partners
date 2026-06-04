@@ -39,7 +39,7 @@
     ]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"Why Contractors Need Working Capital: The Short Gap Between Cost and Payment","description":"Definition-first guide explaining contractor working capital, pay-cycle gaps, retainage, supplier timing, and how lines of credit or working capital loans support construction cash flow.","image":{"@type":"ImageObject","url":"https://axiantpartners.com/assets/contractor-working-capital.webp","width":1200,"height":630},"url":"https://axiantpartners.com/construction-business-financing/why-contractors-need-working-capital/","datePublished":"2026-03-31","dateModified":"2026-03-31","author":{"@type":"Organization","name":"Axiant Partners","url":"https://axiantpartners.com"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/construction-business-financing/why-contractors-need-working-capital/"},"articleSection":"Construction Business Financing","keywords":"why contractors need working capital, contractor working capital, construction cash flow, contractor payroll financing"}
+    {"@context":"https://schema.org","@type":"Article","headline":"Why Contractors Need Working Capital: The Short Gap Between Cost and Payment","description":"Definition-first guide explaining contractor working capital, pay-cycle gaps, retainage, supplier timing, and how lines of credit or working capital loans support construction cash flow.","image":{"@type":"ImageObject","url":"https://axiantpartners.com/assets/contractor-working-capital.webp","width":1200,"height":630},"url":"https://axiantpartners.com/construction-business-financing/why-contractors-need-working-capital/","datePublished":"2026-03-31","dateModified":"2026-06-04","author":{"@type":"Organization","name":"Axiant Partners","url":"https://axiantpartners.com"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/construction-business-financing/why-contractors-need-working-capital/"},"articleSection":"Construction Business Financing","keywords":"why contractors need working capital, contractor working capital, construction cash flow, contractor payroll financing"}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -127,6 +127,56 @@
                 <h2 id="how-to-measure-working-capital-pressure">How to Measure Working-Capital Pressure in Real Time</h2>
                 <p>Contractors usually improve financing outcomes when they measure working-capital pressure directly instead of relying on instinct alone. A simple way to start is with a rolling weekly cash view that includes payroll dates, major supplier due dates, expected draw timing, and known uncertainties like pending approvals or retainage releases. This does not have to be a complex model. The value is in making timing visible before a crisis week forces reactive decisions. Businesses that do this consistently can often identify whether the problem is recurring in a specific phase of jobs, tied to one customer type, or tied to internal billing speed.</p>
                 <p>Another useful practice is separating “cash earned” from “cash collected” by project. Contractors sometimes treat backlog as if it were liquidity, but backlog is future opportunity, not current spend capacity. If your next two payroll cycles depend on one aging receivable clearing on time, you are not liquid even if your schedule is full. By contrast, if you can show multiple expected inflows and enough reserve to withstand one delay, you likely have healthier working-capital posture. These distinctions matter for lenders because they indicate whether the company is using financing to optimize growth or simply to survive avoidable timing stress.</p>
+                <h2 id="estimate-your-working-capital-gap">Estimate Your Working-Capital Gap</h2>
+                <p>Enter what you typically front each month (materials, payroll, and subs) and how long you wait to get paid after billing. This returns an illustrative estimate of the cash tied up in the gap and a suggested cushion to survive one slipped payment &mdash; <strong>an estimate, not a quote</strong>. Your real need depends on job mix, retainage, and how concentrated your receivables are.</p>
+                <div id="wc-gap-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+                  <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+                    <label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Monthly costs you front
+                      <input id="wcGapCost" type="text" inputmode="numeric" value="$80,000" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                    </label>
+                    <label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Days until you get paid
+                      <select id="wcGapDays" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                        <option value="30">Net 30</option>
+                        <option value="45" selected>Net 45</option>
+                        <option value="60">Net 60</option>
+                        <option value="75">Net 60 + retainage delay (~75)</option>
+                        <option value="90">Net 90</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div style="display:flex;flex-wrap:wrap;gap:14px;">
+                    <div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                      <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Cash tied up in the gap</div>
+                      <div id="wcGapTied" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                    </div>
+                    <div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                      <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Suggested cushion (survive one slip)</div>
+                      <div id="wcGapCushion" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                    </div>
+                  </div>
+                  <p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only, not a quote or offer of credit.</p>
+                  <a href="/match.html" class="btn-primary" style="margin-top:14px;">See what you qualify for &mdash; get matched</a>
+                </div>
+                <script>
+                (function(){
+                  var cost=document.getElementById('wcGapCost'),days=document.getElementById('wcGapDays'),
+                      outT=document.getElementById('wcGapTied'),outC=document.getElementById('wcGapCushion');
+                  if(!cost) return;
+                  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+                  function calc(){
+                    var c=parseFloat((cost.value||'').replace(/[^0-9.]/g,''))||0;
+                    var d=+days.value;
+                    if(c<=0){outT.textContent='—';outC.textContent='—';return;}
+                    var tied=c*(d/30);
+                    outT.textContent=fmt(tied);
+                    outC.textContent=fmt(tied)+' – '+fmt(tied*1.5);
+                  }
+                  cost.addEventListener('input',calc);
+                  cost.addEventListener('blur',function(){var n=parseFloat((cost.value||'').replace(/[^0-9.]/g,''));if(n>0)cost.value=fmt(n);});
+                  days.addEventListener('change',calc);
+                  calc();
+                })();
+                </script>
                 <h2 id="working-capital-and-growth-planning">Working Capital and Growth Planning</h2>
                 <p>Working capital becomes most valuable when tied to growth decisions, not just emergency moments. Contractors expanding into larger contracts, opening a new territory, or adding a second crew often face a short period where expenses increase before revenue normalizes. If that transition is planned, working capital can smooth the ramp and protect supplier relationships. If that transition is unplanned, the same financing can feel expensive and reactive because it is patching a gap the business did not model in advance. This is why growth planning should include a short working-capital stress test: what happens if first payment timing slips by two to four weeks, what happens if one supplier tightens terms, and what happens if an early change order is delayed.</p>
                 <p>That stress-test view also clarifies when to combine products and when to simplify. A contractor may use <a href="/business-line-of-credit.html">a line of credit</a> for recurring short swings and still finance specific assets through <a href="/equipment-financing.html">equipment financing</a> to preserve operating liquidity. Another contractor may need a defined-term facility for a specific ramp while keeping revolving debt low. Neither approach is universally right. The right approach is the one that aligns financing structure to actual cash behavior. This is exactly why the comparison in working capital vs equipment financing for contractors matters so much in practice.</p>
@@ -159,6 +209,7 @@
                         <li><a href="#working-capital-vs-buying-iron">Working Capital vs. Buying Iron</a></li>
                         <li><a href="#trade-and-material-pressure">Trade and Material Pressure</a></li>
                         <li><a href="#mistakes-that-delay-funding">Mistakes That Delay Funding</a></li>
+                        <li><a href="#estimate-your-working-capital-gap">Estimate Your Working-Capital Gap</a></li>
                         <li><a href="#bottom-line-working-capital">Bottom Line</a></li>
                     </ul>
                 </nav>
