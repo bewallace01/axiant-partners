@@ -149,7 +149,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://axiantpartners.com/"},{"@type":"ListItem","position":2,"name":"Equipment Financing Guides","item":"https://axiantpartners.com/equipment.html"},{"@type":"ListItem","position":3,"name":"Semi Trucks","item":"https://axiantpartners.com/equipment/semi-trucks/"},{"@type":"ListItem","position":4,"name":"Semi Truck Lease vs Loan","item":"https://axiantpartners.com/equipment/semi-trucks/semi-truck-lease-vs-loan/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"Semi Truck Lease vs Loan: Which Is Better?","description":"A practical comparison of semi truck leases and loans, including payment structure, ownership, tax treatment, mileage, and when each option fits best.","image":{"@type":"ImageObject","url":"https://axiantpartners.com/assets/semi-truck-equipment.webp","width":1200,"height":630},"url":"https://axiantpartners.com/equipment/semi-trucks/semi-truck-lease-vs-loan/","datePublished":"2026-03-17","dateModified":"2026-04-10","author":{"@type":"Organization","name":"Axiant Partners","url":"https://axiantpartners.com"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/equipment/semi-trucks/semi-truck-lease-vs-loan/"},"articleSection":"Semi Truck Financing","keywords":"semi truck lease vs loan, truck lease or buy, semi truck financing lease vs loan"}
+    {"@context":"https://schema.org","@type":"Article","headline":"Semi Truck Lease vs Loan: Which Is Better?","description":"A practical comparison of semi truck leases and loans, including payment structure, ownership, tax treatment, mileage, and when each option fits best.","image":{"@type":"ImageObject","url":"https://axiantpartners.com/assets/semi-truck-equipment.webp","width":1200,"height":630},"url":"https://axiantpartners.com/equipment/semi-trucks/semi-truck-lease-vs-loan/","datePublished":"2026-03-17","dateModified":"2026-06-04","author":{"@type":"Organization","name":"Axiant Partners","url":"https://axiantpartners.com"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/equipment/semi-trucks/semi-truck-lease-vs-loan/"},"articleSection":"Semi Truck Financing","keywords":"semi truck lease vs loan, truck lease or buy, semi truck financing lease vs loan"}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it better to lease or buy a semi truck?","acceptedAnswer":{"@type":"Answer","text":"It depends on your cash flow and ownership goals. Leasing usually lowers monthly payment and can make upgrades easier, while buying builds equity and gives you ownership at the end."}},{"@type":"Question","name":"Does a lease have a lower payment than a loan?","acceptedAnswer":{"@type":"Answer","text":"Usually yes. Semi truck leases, especially TRAC leases, often have lower monthly payments because the residual value reduces the amount financed."}},{"@type":"Question","name":"Can you buy the truck at the end of a lease?","acceptedAnswer":{"@type":"Answer","text":"Often yes, depending on the lease structure. Some leases allow a purchase option at the end, while others are designed around return or renewal."}},{"@type":"Question","name":"Which is better for taxes, lease or loan?","acceptedAnswer":{"@type":"Answer","text":"It depends on your situation. Loans can allow depreciation benefits, while lease payments may be deducted as operating expenses. Always confirm with your CPA."}},{"@type":"Question","name":"What is a TRAC lease?","acceptedAnswer":{"@type":"Answer","text":"A TRAC lease is a type of commercial lease that uses a residual value to lower payments and is common for trucks and other equipment."}}]}
@@ -259,6 +259,57 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
 <h2 id="cost-comparison-in-plain-language">Cost comparison in plain language</h2>
             <p>A lease usually reduces the monthly payment by leaving a residual value in place. That means you are not paying for the full truck value in the same way you would on a loan. A loan usually costs more per month, but those higher payments are buying ownership. So the question is not only "which payment is lower?" It is also "what do I own at the end, and what does that ownership do for the business?"</p>
             <p>For some trucking companies, the lower lease payment is worth more than the future equity. For others, the equity is the whole point. The right answer depends on whether you see the truck as a long-term operating asset or a shorter-cycle tool that should be rotated out more often.</p>
+<h2 id="estimate-lease-vs-loan-payment">Estimate your lease vs loan payment</h2>
+            <p>Enter a truck price and term to compare an illustrative monthly payment each way. The loan assumes ~10% down and builds toward ownership; the lease assumes a typical ~40% residual, so the payment is lower but you don&apos;t own the truck at the end. These are <strong>estimates across a 9&ndash;13% illustrative rate range, not quotes</strong> &mdash; your real numbers depend on credit, the truck, miles, and program.</p>
+            <div id="svl-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+              <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+                <label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Truck price
+                  <input id="svlPrice" type="text" inputmode="numeric" value="$150,000" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                </label>
+                <label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Term
+                  <select id="svlTerm" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                    <option value="36">36 months</option>
+                    <option value="48">48 months</option>
+                    <option value="60" selected>60 months</option>
+                    <option value="72">72 months</option>
+                  </select>
+                </label>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:14px;">
+                <div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                  <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Loan: est. monthly (builds ownership)</div>
+                  <div id="svlLoan" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                </div>
+                <div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                  <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Lease: est. monthly (no end equity)</div>
+                  <div id="svlLease" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                </div>
+              </div>
+              <p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only &mdash; excludes taxes, fees, and lease mileage/maintenance terms. Not a quote or offer of credit.</p>
+              <a href="/match.html" class="btn-primary" style="margin-top:14px;">Compare real lease &amp; loan offers &mdash; get matched</a>
+            </div>
+            <script>
+            (function(){
+              var price=document.getElementById('svlPrice'),term=document.getElementById('svlTerm'),
+                  outLn=document.getElementById('svlLoan'),outLs=document.getElementById('svlLease');
+              if(!price) return;
+              var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+              function loanPay(P,apr,n){var r=apr/12;return P*r/(1-Math.pow(1+r,-n));}
+              function leasePay(price,apr,n){var residual=price*0.40;var dep=(price-residual)/n;var fin=(price+residual)*(apr/24);return dep+fin;}
+              function calc(){
+                var p=parseFloat((price.value||'').replace(/[^0-9.]/g,''))||0;
+                var n=+term.value;
+                if(p<=0){outLn.textContent='—';outLs.textContent='—';return;}
+                var financed=p*0.90;
+                outLn.textContent=fmt(loanPay(financed,0.09,n))+' – '+fmt(loanPay(financed,0.13,n));
+                outLs.textContent=fmt(leasePay(p,0.09,n))+' – '+fmt(leasePay(p,0.13,n));
+              }
+              price.addEventListener('input',calc);
+              price.addEventListener('blur',function(){var x=parseFloat((price.value||'').replace(/[^0-9.]/g,''));if(x>0)price.value=fmt(x);});
+              term.addEventListener('change',calc);
+              calc();
+            })();
+            </script>
 <h2 id="simple-decision-matrix">Simple decision matrix</h2>
             <ul>
                 <li><strong>Choose a lease if:</strong> you want lower payments, keep trucks newer, or need more cash left over after closing</li>
@@ -334,6 +385,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
 <div class="services-cta">
                 <a href="/match.html" class="btn-primary">Get Matched for Semi Truck Financing</a>
             </div>
+</section>
       </main>
                   <aside class="blog-post-rail-right article-rail article-rail--right"><div class="article-rail__inner article-rail__inner--toc"><div class="blog-rail-toc">
           <h3>On this page</h3>
@@ -346,6 +398,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
               <li><a href="#when-a-lease-is-usually-better">When a lease is usually better</a></li>
               <li><a href="#when-a-loan-is-usually-better">When a loan is usually better</a></li>
               <li><a href="#cost-comparison-in-plain-language">Cost comparison in plain language</a></li>
+              <li><a href="#estimate-lease-vs-loan-payment">Estimate your lease vs loan payment</a></li>
               <li><a href="#simple-decision-matrix">Simple decision matrix</a></li>
               <li><a href="#business-type-matters">Business type matters</a></li>
               <li><a href="#questions-to-ask-before-you-sign">Questions to ask before you sign</a></li>
