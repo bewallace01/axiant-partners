@@ -387,6 +387,41 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
     <script src="language-switcher.js?v=2026033102" defer></script>
     <script src="script.js?v=2026032621" defer></script>
     <script>
+  /* Prefill from calculator widgets: /match.html?amount=150000&type=equipment */
+  (function(){
+    function init(){
+      try{
+        var p=new URLSearchParams(window.location.search);
+        var amt=p.get('amount'), type=p.get('type');
+        if(!amt && !type) return;
+        var amtField=document.getElementById('loanAmount');
+        var typeField=document.getElementById('loanType');
+        var label='';
+        if(amt){
+          var n=parseFloat((amt||'').replace(/[^0-9.]/g,''));
+          if(n>0 && amtField){var f='$'+Math.round(n).toLocaleString('en-US');amtField.value=f;label=f;}
+        }
+        var typeLabels={sba:'SBA Loan',equipment:'Equipment Financing','working-capital':'Working Capital','real-estate':'Commercial Real Estate','line-of-credit':'Line of Credit',expansion:'Business Expansion',refinance:'Refinance',other:'Other'};
+        if(type && typeField && typeLabels[type]){
+          typeField.value=type;
+          label=label?(label+' · '+typeLabels[type]):typeLabels[type];
+        }
+        if(label){
+          var form=document.getElementById('loanForm');
+          if(form && !document.getElementById('prefillBanner')){
+            var b=document.createElement('div');
+            b.id='prefillBanner';
+            b.setAttribute('style','margin:0 0 18px;padding:12px 14px;border:1px solid var(--border-color);border-left:3px solid var(--accent-color);border-radius:8px;background:var(--bg-card);font-size:0.92rem;line-height:1.45;color:var(--text-primary);');
+            b.innerHTML='Continuing from your estimate: <strong>'+label+'</strong>. Just add your details below and we&rsquo;ll match you with lenders — no obligation.';
+            form.insertBefore(b, form.firstChild);
+          }
+        }
+      }catch(e){}
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init); else init();
+  })();
+</script>
+    <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
       navigator.serviceWorker.register('/sw.js');

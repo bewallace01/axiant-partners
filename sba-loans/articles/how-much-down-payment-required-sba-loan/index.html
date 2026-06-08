@@ -148,10 +148,13 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://axiantpartners.com/"},{"@type":"ListItem","position":2,"name":"SBA Loans","item":"https://axiantpartners.com/sba-loans.html"},{"@type":"ListItem","position":3,"name":"Articles","item":"https://axiantpartners.com/sba-loans/articles/"},{"@type":"ListItem","position":4,"name":"How Much Down Payment Is Required for an SBA Loan?","item":"https://axiantpartners.com/sba-loans/articles/how-much-down-payment-required-sba-loan/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"How Much Down Payment Is Required for an SBA Loan?","description":"SBA 7(a) and 504 down payment requirements, equity injection rules, and impact on approval.","image":"https://axiantpartners.com/assets/sba-504.webp","url":"https://axiantpartners.com/sba-loans/articles/how-much-down-payment-required-sba-loan/","datePublished":"2026-02-27","dateModified":"2026-03-27","author":{"@type":"Organization","name":"Axiant Partners"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/sba-loans/articles/how-much-down-payment-required-sba-loan/"}}
+    {"@context":"https://schema.org","@type":"Article","headline":"How Much Down Payment Is Required for an SBA Loan?","description":"SBA 7(a) and 504 down payment requirements, equity injection rules, and impact on approval.","image":"https://axiantpartners.com/assets/sba-504.webp","url":"https://axiantpartners.com/sba-loans/articles/how-much-down-payment-required-sba-loan/","datePublished":"2026-02-27","dateModified":"2026-06-04","author":{"@type":"Organization","name":"Axiant Partners"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/sba-loans/articles/how-much-down-payment-required-sba-loan/"}}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"WebPage","@id":"https://axiantpartners.com/sba-loans/articles/how-much-down-payment-required-sba-loan/#webpage","url":"https://axiantpartners.com/sba-loans/articles/how-much-down-payment-required-sba-loan/","name":"How Much Down Payment Is Required for an SBA Loan?","speakable":{"@type":"SpeakableSpecification","cssSelector":[".quick-answer"]}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much down payment is required for an SBA loan?","acceptedAnswer":{"@type":"Answer","text":"Most SBA 7(a) loans require at least a 10% down payment (equity injection); business acquisitions or startups can require 10-20%. SBA 504 typically requires 10% from the borrower, structured as 50% bank, 40% CDC, and 10% borrower."}},{"@type":"Question","name":"What counts as an SBA equity injection?","acceptedAnswer":{"@type":"Answer","text":"Cash from the borrower, and in some cases gift funds or seller financing placed on full standby, can count toward the required equity injection."}},{"@type":"Question","name":"Why does the SBA require a down payment?","acceptedAnswer":{"@type":"Answer","text":"The equity injection reduces lender and SBA risk and demonstrates the borrower's commitment to the deal."}},{"@type":"Question","name":"Can you get an SBA loan with no money down?","acceptedAnswer":{"@type":"Answer","text":"Rarely. Some borrowers offset a low down payment with strong cash flow, gift funds, or standby seller financing, but most SBA loans require at least a 10% injection."}}]}
     </script>
 </head>
 <body>
@@ -274,6 +277,57 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             <p>Gift funds from family members may count toward equity injection if properly documented&ndash;lenders typically require a gift letter stating the funds are a gift with no repayment expected, and proof the funds were transferred to your account. Seller financing&ndash;where the seller carries a portion of the purchase price&ndash;may also count when structured per SBA guidelines. The seller note is often placed on standby (no payments during the SBA term). Work with an SBA-savvy lender or advisor to ensure your equity structure meets program requirements.</p>
 <h2 id="example-down-payment-by-transaction-type">Example: Down Payment by Transaction Type</h2>
             <p>For a <strong>$1.5 million business acquisition</strong>, expect 10&ndash;20% equity: $150,000&ndash;$300,000. For a <strong>$2 million SBA 504 commercial property purchase</strong>, the 10% borrower portion is $200,000. For <strong>working capital or equipment</strong> under 7(a), down payment may be minimal&ndash;lenders focus on cash flow and collateral. A $500,000 equipment purchase might require 10&ndash;20% ($50,000&ndash;$100,000) or possibly less if the equipment secures the loan and cash flow is strong. Use our <a href="/calculator.html">loan calculator</a> to estimate monthly payments based on your loan amount and term.</p>
+<h2 id="estimate-your-sba-down-payment">Estimate Your SBA Down Payment</h2>
+            <p>Enter a project amount and SBA use case to see an illustrative equity injection and financed amount. These use the <strong>typical equity ranges above, not a quote</strong> &mdash; your actual requirement depends on the deal, credit, collateral, and lender.</p>
+            <div id="sbadp-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+              <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+                <label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Project / loan amount
+                  <input id="sbaDpAmt" type="text" inputmode="numeric" value="$1,000,000" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                </label>
+                <label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">SBA use case
+                  <select id="sbaDpType" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                    <option value="10,10">504 owner-occupied real estate (10%)</option>
+                    <option value="10,20" selected>7(a) business acquisition (10&ndash;20%)</option>
+                    <option value="10,20">7(a) equipment purchase (10&ndash;20%)</option>
+                    <option value="20,30">7(a) startup / special-use (20&ndash;30%)</option>
+                  </select>
+                </label>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:14px;">
+                <div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                  <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Estimated equity injection</div>
+                  <div id="sbaDpDown" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                </div>
+                <div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                  <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Estimated financed amount</div>
+                  <div id="sbaDpLoan" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                </div>
+              </div>
+              <p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only, not a quote or offer of credit.</p>
+              <a id="sbaDpCta" href="/match.html?type=sba" class="btn-primary" style="margin-top:14px;">See real SBA terms &mdash; get matched</a>
+              <p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won&rsquo;t affect your credit &middot; no obligation &middot; SBA timelines reward starting early.</p>
+            </div>
+            <script>
+            (function(){
+              var amt=document.getElementById('sbaDpAmt'),type=document.getElementById('sbaDpType'),
+                  outD=document.getElementById('sbaDpDown'),outL=document.getElementById('sbaDpLoan'),
+                  cta=document.getElementById('sbaDpCta');
+              if(!amt) return;
+              var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+              function calc(){
+                var p=parseFloat((amt.value||'').replace(/[^0-9.]/g,''))||0;
+                var r=type.value.split(','),lo=+r[0]/100,hi=+r[1]/100;
+                if(p<=0){outD.textContent='—';outL.textContent='—';if(cta){cta.href='/match.html?type=sba';cta.textContent='See real SBA terms — get matched';}return;}
+                outD.textContent=(lo===hi?fmt(p*lo):fmt(p*lo)+' – '+fmt(p*hi));
+                outL.textContent=(lo===hi?fmt(p*(1-lo)):fmt(p*(1-hi))+' – '+fmt(p*(1-lo)));
+                if(cta){cta.href='/match.html?type=sba&amount='+Math.round(p*(1-(lo+hi)/2));cta.textContent='See if you qualify for '+fmt(p*(1-(lo+hi)/2))+' →';}
+              }
+              amt.addEventListener('input',calc);
+              amt.addEventListener('blur',function(){var v=parseFloat((amt.value||'').replace(/[^0-9.]/g,''));if(v>0)amt.value=fmt(v);});
+              type.addEventListener('change',calc);
+              calc();
+            })();
+            </script>
 <h2 id="when-sba-down-payment-is-a-barrier">When SBA Down Payment Is a Barrier</h2>
             <p>If the required equity injection exceeds your available liquidity, consider:</p>
             <ul>
@@ -312,6 +366,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
               <li><a href="#down-payment-vs-cash-flow-strength">Down Payment vs. Cash Flow Strength</a></li>
               <li><a href="#gift-funds-and-seller-financing-as-equity">Gift Funds and Seller Financing as Equity</a></li>
               <li><a href="#example-down-payment-by-transaction-type">Example: Down Payment by Transaction Type</a></li>
+              <li><a href="#estimate-your-sba-down-payment">Estimate Your SBA Down Payment</a></li>
               <li><a href="#when-sba-down-payment-is-a-barrier">When SBA Down Payment Is a Barrier</a></li>
               <li><a href="#final-thoughts">Final Thoughts</a></li>
             </ul>
