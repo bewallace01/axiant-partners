@@ -148,10 +148,13 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://axiantpartners.com/"},{"@type":"ListItem","position":2,"name":"SBA Loans","item":"https://axiantpartners.com/sba-loans.html"},{"@type":"ListItem","position":3,"name":"Articles","item":"https://axiantpartners.com/sba-loans/articles/"},{"@type":"ListItem","position":4,"name":"SBA 7(a) vs 504 Loan: Key Differences Explained","item":"https://axiantpartners.com/sba-loans/articles/sba-7a-vs-504-loan/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"SBA 7(a) vs 504 Loan: Key Differences Explained","description":"Compare SBA 7(a) vs 504 loans, eligibility, down payment, rates, and best use cases.","image":"https://axiantpartners.com/assets/sba-504.webp","url":"https://axiantpartners.com/sba-loans/articles/sba-7a-vs-504-loan/","datePublished":"2025-02-26","dateModified":"2026-03-27","author":{"@type":"Organization","name":"Axiant Partners"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/sba-loans/articles/sba-7a-vs-504-loan/"}}
+    {"@context":"https://schema.org","@type":"Article","headline":"SBA 7(a) vs 504 Loan: Key Differences Explained","description":"Compare SBA 7(a) vs 504 loans, eligibility, down payment, rates, and best use cases.","image":"https://axiantpartners.com/assets/sba-504.webp","url":"https://axiantpartners.com/sba-loans/articles/sba-7a-vs-504-loan/","datePublished":"2025-02-26","dateModified":"2026-06-04","author":{"@type":"Organization","name":"Axiant Partners"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/sba-loans/articles/sba-7a-vs-504-loan/"}}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"WebPage","@id":"https://axiantpartners.com/sba-loans/articles/sba-7a-vs-504-loan/#webpage","url":"https://axiantpartners.com/sba-loans/articles/sba-7a-vs-504-loan/","name":"SBA 7(a) vs 504 Loan: Key Differences Explained","speakable":{"@type":"SpeakableSpecification","cssSelector":[".quick-answer"]}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between an SBA 7(a) and 504 loan?","acceptedAnswer":{"@type":"Answer","text":"SBA 7(a) is flexible: working capital, equipment, acquisitions, debt refinance, partner buyouts, or real estate up to $5 million with terms to 25 years. SBA 504 funds fixed assets such as owner-occupied real estate or major equipment using a 50% bank, 40% SBA, 10% borrower structure, and cannot fund working capital."}},{"@type":"Question","name":"Which SBA loan is better for real estate?","acceptedAnswer":{"@type":"Answer","text":"SBA 504 is usually better for owner-occupied real estate because it offers long-term fixed rates, 20-25 year terms, and the lowest down payment. Use 7(a) when needs are mixed."}},{"@type":"Question","name":"How much can you borrow with SBA 7(a) vs 504?","acceptedAnswer":{"@type":"Answer","text":"SBA 7(a) goes up to $5 million. SBA 504 totals can reach $5M-$10M+ across the bank and CDC portions combined."}},{"@type":"Question","name":"Can the SBA 504 loan fund working capital?","acceptedAnswer":{"@type":"Answer","text":"No. The 504 program is for fixed assets only. If you need working capital or mixed uses, the 7(a) is the right program."}}]}
     </script>
 </head>
 <body>
@@ -291,6 +294,57 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             </table>
 <h2 id="example-7a-vs-504-for-real-estate">Example: 7(a) vs 504 for Real Estate</h2>
             <p>A manufacturing company needs to purchase a $2 million owner-occupied building. With <strong>SBA 504</strong>, the structure might be: $1 million bank first (50%), $800,000 SBA 504 second (40%), $200,000 borrower equity (10%). The 504 portion carries a long-term fixed rate, often lower than 7(a) variable rates for real estate. With <strong>SBA 7(a)</strong>, a single loan of $1.8 million (90% LTV) with $200,000 down could work, but terms and rates differ. For pure real estate purchases, 504 is often preferred due to its fixed-rate structure and 10% down. For mixed-use (real estate plus working capital), 7(a) offers flexibility. See <a href="../how-much-down-payment-required-sba-loan/">down payment requirements</a> for details.</p>
+<h2 id="estimate-7a-vs-504-payment">Estimate Your Payment: 7(a) vs 504</h2>
+            <p>Enter a project amount and term to compare an illustrative monthly payment under each program. SBA 504 typically carries a lower blended rate (the CDC portion is long-term fixed), while 7(a) is usually a variable rate tied to Prime. These use <strong>illustrative APR ranges, not quotes</strong> &mdash; your actual rate depends on credit, the deal, and current benchmarks.</p>
+            <div id="sba2-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+              <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+                <label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Project / loan amount
+                  <input id="sba2Amt" type="text" inputmode="numeric" value="$1,000,000" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                </label>
+                <label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Term
+                  <select id="sba2Term" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                    <option value="10">10 years</option>
+                    <option value="20">20 years</option>
+                    <option value="25" selected>25 years</option>
+                  </select>
+                </label>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:14px;">
+                <div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                  <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">SBA 7(a) est. monthly (variable)</div>
+                  <div id="sba27a" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                </div>
+                <div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                  <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">SBA 504 est. monthly (blended fixed)</div>
+                  <div id="sba2504" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                </div>
+              </div>
+              <p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only (7a ~10.5&ndash;11.5%, 504 blended ~6.5&ndash;7.5%) &mdash; excludes fees. Not a quote or offer of credit.</p>
+              <a id="sba2Cta" href="/match.html?type=sba" class="btn-primary" style="margin-top:14px;">See real SBA 7(a) &amp; 504 offers &mdash; get matched</a>
+              <p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won&rsquo;t affect your credit &middot; no obligation &middot; SBA timelines reward starting early.</p>
+            </div>
+            <script>
+            (function(){
+              var amt=document.getElementById('sba2Amt'),term=document.getElementById('sba2Term'),
+                  out7=document.getElementById('sba27a'),out5=document.getElementById('sba2504'),
+                  cta=document.getElementById('sba2Cta');
+              if(!amt) return;
+              var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+              function pay(p,apr,n){var r=apr/12;return r>0?(p*r)/(1-Math.pow(1+r,-n)):p/n;}
+              function calc(){
+                var p=parseFloat((amt.value||'').replace(/[^0-9.]/g,''))||0;
+                var n=(+term.value)*12;
+                if(p<=0){out7.textContent='—';out5.textContent='—';if(cta){cta.href='/match.html?type=sba';cta.textContent='See real SBA 7(a) & 504 offers — get matched';}return;}
+                out7.textContent=fmt(pay(p,0.105,n))+' – '+fmt(pay(p,0.115,n));
+                out5.textContent=fmt(pay(p,0.065,n))+' – '+fmt(pay(p,0.075,n));
+                if(cta){cta.href='/match.html?type=sba&amount='+Math.round(p);cta.textContent='Get matched for your '+fmt(p)+' SBA loan →';}
+              }
+              amt.addEventListener('input',calc);
+              amt.addEventListener('blur',function(){var v=parseFloat((amt.value||'').replace(/[^0-9.]/g,''));if(v>0)amt.value=fmt(v);});
+              term.addEventListener('change',calc);
+              calc();
+            })();
+            </script>
 <h2 id="which-sba-loan-is-better">Which SBA Loan Is Better?</h2>
             <p>There is no universal "better" option&ndash;it depends on your business objective.</p>
             <p><strong>Choose SBA 7(a) if:</strong></p>
@@ -351,6 +405,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
               <li><a href="#what-is-an-sba-504-loan">What Is an SBA 504 Loan?</a></li>
               <li><a href="#sba-7a-vs-sba-504-key-differences">SBA 7(a) vs SBA 504: Key Differences</a></li>
               <li><a href="#example-7a-vs-504-for-real-estate">Example: 7(a) vs 504 for Real Estate</a></li>
+              <li><a href="#estimate-7a-vs-504-payment">Estimate Your Payment: 7(a) vs 504</a></li>
               <li><a href="#which-sba-loan-is-better">Which SBA Loan Is Better?</a></li>
               <li><a href="#credit-qualification-considerations">Credit &amp; Qualification Considerations</a></li>
               <li><a href="#rates-and-fees-7a-vs-504">Rates and Fees: 7(a) vs 504</a></li>
