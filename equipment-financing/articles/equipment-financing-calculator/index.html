@@ -146,7 +146,12 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
 
             <p><strong>Quick Answer:</strong> An equipment financing calculator estimates your monthly payment from the amount financed, the interest rate, and the loan term. This guide explains the math behind that estimate, walks through a worked example, and shows what moves your rate up or down. When you are ready to plug in your own numbers, use the interactive tool below. Then, to turn an estimate into a real offer, <a href="/match.html">get matched with equipment lenders</a> who price the deal to your business.</p>
 
-            <p style="margin:0 0 28px;"><a href="/calculator.html" class="btn-primary" style="display:inline-flex;">Open the Equipment Financing Calculator &rarr;</a></p>
+            <h2 id="calculator">Equipment Financing Calculator</h2>
+            <p>Enter a price, down payment, interest rate, and term to estimate your monthly payment. Switch to <strong>Lease</strong> mode and add a residual value to compare a lease against a loan. The calculator runs entirely in your browser&mdash;nothing is submitted.</p>
+            <div style="border:1px solid var(--border-color);border-radius:12px;overflow:hidden;margin:0 0 12px;background:var(--bg-secondary);">
+              <iframe src="/calculator-embed.html" title="Equipment financing payment calculator" loading="lazy" style="width:100%; min-height:820px; border:0; display:block;"></iframe>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-tertiary);margin:0 0 28px;">Results are illustrative estimates, not quotes. Your real rate and payment come from a lender. <a href="/match.html" style="color:var(--accent-color);font-weight:600;">Get matched to see real offers &rarr;</a></p>
 
             <h2 id="how-payments-calculated">How Equipment Loan Payments Are Calculated</h2>
             <p>Every fixed-rate equipment loan payment comes from the same amortization formula. Three inputs do all the work: the <strong>principal</strong> (the amount you finance, which is the equipment price minus any down payment), the <strong>interest rate</strong> (an annual percentage, converted to a monthly rate), and the <strong>term</strong> (the number of monthly payments). The lender spreads the principal and interest evenly across the term so your payment stays the same every month, with more of each early payment going to interest and more of each later payment going to principal.</p>
@@ -199,6 +204,26 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             <h2 id="down-payment">Down Payment and $0-Down Options</h2>
             <p>Your down payment directly changes the amount financed, so it is one of the easiest levers for adjusting your payment. Down payments on equipment financing typically range from <strong>0% to 20%</strong>. Strong-credit, established businesses frequently qualify for <strong>$0-down</strong> or 10%-down programs, while newer businesses or lower credit tiers may need 10%-20% down to offset the lender's risk. Putting more down lowers both the payment and the total interest, but it ties up cash you might prefer to keep as working capital&mdash;so the right amount is a cash-flow decision, not just a math one. If preserving cash is the priority, explore <a href="../equipment-financing-no-money-down/">$0-down equipment financing</a> and weigh the slightly higher payment against keeping capital in the business.</p>
 
+            <h2 id="compare">Equipment Financing vs SBA Loan vs Business Term Loan</h2>
+            <p>If you are financing equipment, three products can fit. The right one depends on your time horizon, credit profile, and how fast you need to close. The ranges below are typical across U.S. lenders as of 2026; your actual terms depend on your profile.</p>
+            <div style="overflow-x:auto;margin:0 0 8px;">
+            <table>
+              <thead>
+                <tr><th scope="col">Feature</th><th scope="col">Equipment Financing</th><th scope="col">SBA 7(a) / 504</th><th scope="col">Business Term Loan</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Typical APR</strong></td><td>8&ndash;18%</td><td>Prime + 2.75% (&approx;11&ndash;13%)</td><td>10&ndash;25%</td></tr>
+                <tr><td><strong>Term length</strong></td><td>36&ndash;84 months</td><td>10&ndash;25 years</td><td>12&ndash;60 months</td></tr>
+                <tr><td><strong>Down payment</strong></td><td>0&ndash;20%</td><td>10&ndash;20%</td><td>0% (unsecured)</td></tr>
+                <tr><td><strong>Time to fund</strong></td><td>3&ndash;10 business days</td><td>30&ndash;90 days</td><td>3&ndash;14 days</td></tr>
+                <tr><td><strong>Collateral</strong></td><td>The equipment itself</td><td>All business assets + PG</td><td>Often unsecured</td></tr>
+                <tr><td><strong>Min. credit (typical)</strong></td><td>600+ (some 550)</td><td>680+</td><td>650+</td></tr>
+                <tr><td><strong>Best for</strong></td><td>Fast acquisition of one machine</td><td>Long-term cost on large assets</td><td>General growth capital, not asset-tied</td></tr>
+              </tbody>
+            </table>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-tertiary);margin:0 0 24px;">Illustrative ranges, not quotes. Compare related options in <a href="../equipment-financing-vs-sba-loan/">equipment financing vs SBA loan</a>. <a href="/match.html" style="color:var(--accent-color);">Get a real quote &rarr;</a></p>
+
             <h2 id="use-the-calculator">Use the Calculator, Then Get Matched</h2>
             <p>An estimate is the starting point, not the finish line. Use the <a href="/calculator.html">equipment financing calculator</a> to test combinations of price, down payment, rate, and term until you find a monthly payment that fits your budget. Treat the rate you enter as a placeholder based on your credit tier&mdash;the real number comes from a lender. When the estimate looks workable, the next step is to see actual offers: <a href="/match.html">get matched with equipment lenders</a> who will price the deal to your credit, time in business, and equipment. Comparing several offers, rather than accepting the first one, is the most reliable way to lower your real payment.</p>
             <p style="margin:0 0 24px;"><a href="/match.html" class="btn-primary" style="display:inline-flex;">Get matched with equipment lenders &rarr;</a></p>
@@ -237,11 +262,13 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
           <h3>On this page</h3>
           <nav aria-label="On this page">
             <ul class="blog-post-toc-list">
+              <li><a href="#calculator">Payment Calculator</a></li>
               <li><a href="#how-payments-calculated">How Payments Are Calculated</a></li>
               <li><a href="#worked-example">Worked Example</a></li>
               <li><a href="#what-affects-rate">What Affects Your Rate</a></li>
               <li><a href="#lease-vs-loan">Lease vs Loan Payments</a></li>
               <li><a href="#down-payment">Down Payment &amp; $0-Down</a></li>
+              <li><a href="#compare">Equipment vs SBA vs Term</a></li>
               <li><a href="#use-the-calculator">Use the Calculator</a></li>
               <li><a href="#next-steps">Next Steps</a></li>
               <li><a href="#faqs">FAQs</a></li></ul>
