@@ -370,3 +370,8 @@
 /equipment/sprinter-vans/sprinter-van-financing-delivery /equipment/cargo-vans/sprinter-van-financing-delivery/ 301!
 /equipment/sprinter-vans/ /equipment/cargo-vans/ 301!
 /equipment/sprinter-vans /equipment/cargo-vans/ 301!
+
+# Cannibalization consolidation 2026-06-11: duplicate BLOC-rates + term-loan-vs-LOC pages
+/business-line-of-credit/articles/typical-business-line-of-credit-rates-2026/ /business-line-of-credit/articles/what-are-typical-business-line-of-credit-rates/ 301
+/business-line-of-credit/articles/business-line-of-credit-vs-term-loan/ /business-term-loans/articles/term-loan-vs-line-of-credit/ 301
+/business-term-loans/articles/business-term-loan-vs-line-of-credit/ /business-term-loans/articles/term-loan-vs-line-of-credit/ 301
