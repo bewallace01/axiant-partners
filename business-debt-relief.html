@@ -346,33 +346,84 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                 <div class="section-cta" style="margin-top:1.5rem;"><a href="/match.html" class="btn-primary">Get a Free Debt Review</a></div>
             </section>
 
+            <section class="about-section">
+                <h2>Estimate Your Relief</h2>
+                <p>Enter your total advance balances and the combined weekly payment you send now to estimate a single, lower weekly payment and the monthly cash you could free up. Illustrative only &mdash; for real numbers, get a free review.</p>
+                <div id="sdr-calc" style="background:var(--bg-card);border:1px solid var(--border-default,var(--border-color));border-radius:12px;padding:18px 18px 20px;margin:0 0 8px;">
+                  <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+                    <label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Total balance owed across all advances
+                      <input id="sdrBal" type="text" inputmode="numeric" value="$150,000" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                    </label>
+                    <label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Combined weekly payment now
+                      <input id="sdrPay" type="text" inputmode="numeric" value="$5,000" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                    </label>
+                  </div>
+                  <div style="display:flex;flex-wrap:wrap;gap:14px;">
+                    <div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                      <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color,var(--accent));font-weight:700;">Estimated single weekly payment</div>
+                      <div id="sdrOutPay" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                    </div>
+                    <div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                      <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color,var(--accent));font-weight:700;">Estimated monthly cash freed up</div>
+                      <div id="sdrOutFreed" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                    </div>
+                  </div>
+                  <p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate based on a typical 40&ndash;60% payment reduction. Not a quote, approval, or offer of credit.</p>
+                  <a id="sdrCta" href="/match.html?type=refinance" class="btn-primary" style="margin-top:14px;">Get a free debt review &rarr;</a>
+                </div>
+                <p style="font-size:0.9rem;"><a href="business-debt-relief/articles/stacked-debt-relief-calculator/">Open the full stacked-debt relief calculator &rarr;</a></p>
+                <script>
+                (function(){
+                  var bal=document.getElementById('sdrBal'),pay=document.getElementById('sdrPay'),
+                      outPay=document.getElementById('sdrOutPay'),outFreed=document.getElementById('sdrOutFreed'),cta=document.getElementById('sdrCta');
+                  if(!pay) return;
+                  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+                  var num=function(el){return parseFloat((el.value||'').replace(/[^0-9.]/g,''))||0;};
+                  var LO=0.40, HI=0.60;
+                  function calc(){
+                    var w=num(pay), b=num(bal);
+                    if(w<=0){outPay.textContent='—';outFreed.textContent='—';if(cta){cta.href='/match.html?type=refinance';cta.textContent='Get a free debt review →';}return;}
+                    var newLo=w*(1-HI), newHi=w*(1-LO);
+                    outPay.textContent=fmt(newLo)+' – '+fmt(newHi)+' / wk';
+                    var freedLo=(w-newHi)*4.33, freedHi=(w-newLo)*4.33;
+                    outFreed.textContent=fmt(freedLo)+' – '+fmt(freedHi);
+                    if(cta){cta.href='/match.html?type=refinance'+(b>0?'&amount='+Math.round(b):'');cta.textContent='See if you qualify to cut your payment →';}
+                  }
+                  pay.addEventListener('input',calc); bal.addEventListener('input',calc);
+                  pay.addEventListener('blur',function(){var n=num(pay);if(n>0)pay.value=fmt(n);});
+                  bal.addEventListener('blur',function(){var n=num(bal);if(n>0)bal.value=fmt(n);});
+                  calc();
+                })();
+                </script>
+            </section>
+
             <section class="about-section relevant-info-section">
-                <h2>Business Debt Guides</h2>
-                <p>Go deeper on consolidation, refinancing, and getting out from under high-cost business debt.</p>
+                <h2>Business Debt Relief Guides</h2>
+                <p>Go deeper on the emergencies and the exits &mdash; from a frozen account to a single consolidated payment.</p>
                 <div class="relevant-posts">
                     <article class="relevant-post-card">
-                        <h3><a href="working-capital-loans/articles/how-to-get-out-of-bad-business-debt/">How to Get Out of Bad Business Debt</a></h3>
-                        <p>A practical playbook for businesses stuck with high-cost or stacked debt&mdash;and the ways out.</p>
-                        <a href="working-capital-loans/articles/how-to-get-out-of-bad-business-debt/" class="blog-card-link">Read more</a>
+                        <h3><a href="business-debt-relief/articles/mca-froze-my-bank-account/">My MCA Froze My Bank Account</a></h3>
+                        <p>Why a freeze happens, what to do in the first 24&ndash;48 hours, and the three routes to get a business account released.</p>
+                        <a href="business-debt-relief/articles/mca-froze-my-bank-account/" class="blog-card-link">Read more</a>
                     </article>
                     <article class="relevant-post-card">
-                        <h3><a href="refinancing-business-debt-guide/">Refinancing &amp; Consolidating Business Debt</a></h3>
-                        <p>How to combine multiple business debts into one payment and when refinancing makes sense.</p>
-                        <a href="refinancing-business-debt-guide/" class="blog-card-link">Read more</a>
+                        <h3><a href="business-debt-relief/articles/sued-by-mca-confession-of-judgment/">Sued by an MCA or Hit With a COJ?</a></h3>
+                        <p>What a Confession of Judgment is, what an MCA lawsuit means, and your real options to respond and resolve it.</p>
+                        <a href="business-debt-relief/articles/sued-by-mca-confession-of-judgment/" class="blog-card-link">Read more</a>
                     </article>
                     <article class="relevant-post-card">
-                        <h3><a href="working-capital-loans/articles/refinancing-business-debt-mistakes-cost-you/">Refinancing Mistakes That Cost You</a></h3>
-                        <p>The common errors businesses make when refinancing debt&mdash;and how to avoid paying for them.</p>
-                        <a href="working-capital-loans/articles/refinancing-business-debt-mistakes-cost-you/" class="blog-card-link">Read more</a>
+                        <h3><a href="business-debt-relief/articles/reverse-consolidation-stacked-mcas/">Reverse Consolidation Explained</a></h3>
+                        <p>How reverse consolidation replaces several daily debits with one lower weekly payment &mdash; and who it fits.</p>
+                        <a href="business-debt-relief/articles/reverse-consolidation-stacked-mcas/" class="blog-card-link">Read more</a>
                     </article>
                     <article class="relevant-post-card">
-                        <h3><a href="merchant-cash-advance.html">Merchant Cash Advances Explained</a></h3>
-                        <p>How MCAs work, what they really cost, and how stacked positions get refinanced or restructured.</p>
-                        <a href="merchant-cash-advance.html" class="blog-card-link">Read more</a>
+                        <h3><a href="business-debt-relief/articles/business-debt-mediation/">Business Debt Mediation</a></h3>
+                        <p>How mediation restructures stacked, distressed debt into one consolidated, cash-flow-aligned payment.</p>
+                        <a href="business-debt-relief/articles/business-debt-mediation/" class="blog-card-link">Read more</a>
                     </article>
                 </div>
                 <div class="relevant-info-cta">
-                    <a href="working-capital-loans/articles/" class="btn-secondary">See All Working Capital Articles</a>
+                    <a href="business-debt-relief/articles/" class="btn-secondary">See All Debt Relief Guides</a>
                 </div>
             </section>
 
