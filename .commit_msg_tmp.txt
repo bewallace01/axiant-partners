@@ -1,0 +1,20 @@
+feat(seo): interlink existing high-authority pages into the debt-relief cluster
+
+Post-launch interlinking pass so the new business-debt-relief cluster gets
+inbound links from the site's most relevant, already-indexed pages - passing
+ranking authority and routing existing distressed-borrower traffic to the
+converting service.
+
+12 contextual inbound links added, spread across the new cluster:
+- MCA distress articles (how-to-get-out-of-an-mca -> reverse consolidation;
+  get-out-of-stacked-mcas -> debt mediation; refinance-mca-to-term-loan ->
+  consolidation-vs-reverse-consolidation; why-stuck-in-mca-cycle -> options
+  router) via their Related Resources lists.
+- working-capital how-to-get-out-of-bad-business-debt + refinancing-business-
+  debt-guide -> business-debt-relief overview.
+- merchant-cash-advance.html: a 'stacking risk' item linking to debt relief.
+- 5 industry hubs (trucking, construction, restaurants, auto-repair,
+  landscaping) -> their matching industry debt-relief article.
+
+Validated: all 12 new links resolve, every article/li tag balanced, no
+regressions. (Pre-existing site broken links left untouched - separate batch.)
