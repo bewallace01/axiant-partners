@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /* Axiant Partners full-site audit -> self-contained HTML dashboard.
  * Run: node scripts/site-audit.js   (or: npm run audit)
- * Output: _analysis/site-audit.html  (gitignored; never deployed)
+ * Output: _analysis/site-audit.html      (gitignored; never deployed)
+ * History: _analysis/site-audit-history.json (gitignored; one snapshot/run, dedup by day)
  * Auto-runs via .git/hooks/post-commit after every commit. */
 const fs = require('fs'), path = require('path');
 const ROOT = process.cwd();
@@ -140,12 +141,15 @@ const ldFails = arr.filter(p=>p.ldFail>0);
 const stale = articles.filter(p=>!p.mod || p.mod < '2026-03-01');
 const filler = arr.filter(p=>p.dataBatch);
 const weak = indexable.filter(p=>isContent(p)&&p.inbound>0&&p.inbound<=2&&p.type!=='core'&&!CHROME.has(p.key));
+const noToolHubs = arr.filter(p=>['industry-hub','service-hub','landing','geo-landing'].includes(p.type)&&!p.hasTool);
 const clusters={};
 for(const p of arr){ const o=(clusters[p.cluster]=clusters[p.cluster]||{cluster:p.cluster,n:0,words:0,thin:0,orphan:0,noindex:0,inb:0,inSm:0,broken:0}); o.n++; o.words+=p.wc; if(p.wc<500&&isContent(p))o.thin++; if(p.inbound===0&&isContent(p)&&!CHROME.has(p.key))o.orphan++; if(p.noindex)o.noindex++; o.inb+=p.inbound; if(p.inSitemap)o.inSm++; o.broken+=p.broken.length; }
 const clusterArr = Object.values(clusters).map(o=>({...o, avgw:Math.round(o.words/o.n), avgInb:(o.inb/o.n).toFixed(1)})).sort((a,b)=>b.n-a.n);
 const typeDist={}; for(const p of arr) typeDist[p.type]=(typeDist[p.type]||0)+1;
 const buckets=[[0,300],[300,600],[600,900],[900,1200],[1200,1600],[1600,99999]];
 const hist=buckets.map(([a,b])=>({label:b>9000?(a+'+'):a+'-'+b, n: arr.filter(p=>isContent(p)&&p.wc>=a&&p.wc<b).length}));
+const artByCluster={}; arr.forEach(p=>{ if(p.type==='article') artByCluster[p.cluster]=(artByCluster[p.cluster]||0)+1; });
+const hubGaps = arr.filter(p=>p.type==='industry-hub').map(p=>{const base=p.rel.replace(/\.html$/,'');return {k:p.key,arts:artByCluster[base]||0};}).filter(h=>h.arts<3).sort((a,b)=>a.arts-b.arts);
 const summary = {
   totalFiles: files.length, indexable: indexable.length, noindex: arr.length-indexable.length,
   inSitemap: arr.filter(p=>p.inSitemap).length, clusters: Object.keys(clusters).length,
@@ -155,8 +159,49 @@ const summary = {
   brokenLinks: brokenList.length, notInSitemap: notInSitemap.length, noindexInSitemap: noindexInSitemap.length,
   deadSitemap: deadSitemap.length, noSchema: noSchema.length, ldFails: ldFails.length, dupTitles: dupTitles.length,
   filler: filler.length, stale: stale.length, sitemapTotal: sitemapKeys.size, withTool: arr.filter(p=>p.hasTool).length,
+  noToolHubs: noToolHubs.length,
 };
-const DATA = { summary, pages: arr, clusterArr, typeDist, hist, lists: {
+
+// ---------- history (append one snapshot/day, dedup by date) ----------
+if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
+const HIST_FILE = path.join(OUT_DIR, 'site-audit-history.json');
+let history = [];
+try { history = JSON.parse(fs.readFileSync(HIST_FILE,'utf8')); } catch(e){}
+const snap = { date: today, files: summary.totalFiles, indexable: summary.indexable, articles: summary.articles,
+  avgw: summary.avgArticleWords, broken: summary.brokenLinks, veryThin: summary.veryThin, thin: summary.thin,
+  weak: summary.weak, filler: summary.filler, noidxSm: summary.noindexInSitemap, notInSm: summary.notInSitemap,
+  stale: summary.stale, orphans: summary.orphans, tools: summary.withTool };
+history = history.filter(h => h.date !== today);
+history.push(snap);
+history = history.slice(-180);
+fs.writeFileSync(HIST_FILE, JSON.stringify(history));
+
+// ---------- suggested fixes (data-driven) ----------
+const brokenBy={}; brokenList.forEach(b=>{brokenBy[b.from]=(brokenBy[b.from]||0)+1;});
+const brokenTop = Object.entries(brokenBy).sort((a,b)=>b[1]-a[1]).slice(0,10).map(e=>e[0]+'  ('+e[1]+' broken)');
+const samp = (list,n) => list.slice(0,n||8).map(x=>x.k + (x.w!=null?'  ('+x.w+'w)':''));
+const fixes=[];
+if(summary.brokenLinks) fixes.push({pri:'NOW',effort:'Low',title:'Fix '+summary.brokenLinks+' broken internal links',how:'Largely resolved in PRs #49/#50 — merge them, then re-run this audit to confirm it drops to ~0. Worst offenders below.',sample:brokenTop});
+if(summary.veryThin) fixes.push({pri:'NOW',effort:'Med',title:'Expand, merge, or prune '+summary.veryThin+' very-thin pages (<500w)',how:'Sub-500-word pages dilute topical authority. For each: expand to 1,000w+, merge into a stronger sibling, or 301/prune.',sample:samp(veryThin.map(p=>({k:p.key,w:p.wc})),12)});
+if(summary.filler) fixes.push({pri:'NOW',effort:'Low',title:'Strip data-batch filler from '+summary.filler+' pages',how:'Empty/boilerplate H2 blocks that read as over-optimization. A deterministic strip pass exists; PR #49 covers most.',sample:samp(filler.map(p=>({k:p.key,w:p.wc})),10)});
+if(summary.orphans) fixes.push({pri:'NOW',effort:'Low',title:'Reconnect '+summary.orphans+' orphan pages (0 inbound)',how:'Add a contextual link from the relevant hub/sibling so they are discoverable.',sample:samp(orphans.map(p=>({k:p.key})),10)});
+if(summary.noindexInSitemap+summary.notInSitemap) fixes.push({pri:'SOON',effort:'Low',title:'Fix sitemap drift ('+summary.noindexInSitemap+' noindex in, '+summary.notInSitemap+' indexable missing)',how:'Remove noindex URLs from sitemap.xml and add the missing indexable pages. Keeps crawl signals clean.',sample:noindexInSitemap.map(p=>'(noindex-in) '+p.key).concat(notInSitemap.map(p=>'(missing) '+p.key)).slice(0,12)});
+if(summary.thin) fixes.push({pri:'SOON',effort:'Med',title:'Deepen '+summary.thin+' lean pages (500-800w)',how:'Add a worked example, FAQ, or comparison table to push toward the 1,000w+ house standard.',sample:samp(thin.map(p=>({k:p.key,w:p.wc})),10)});
+if(summary.weak) fixes.push({pri:'SOON',effort:'Med',title:'Strengthen internal links to '+summary.weak+' weak pages (1-2 inbound)',how:'Add 1-2 contextual links each from stronger cluster pages. Do not over-optimize past ~3.',sample:samp(weak.map(p=>({k:p.key,w:p.wc})),10)});
+if(summary.stale) fixes.push({pri:'SOON',effort:'Low',title:'Refresh '+summary.stale+' stale articles',how:'Update figures, bump dateModified, add a tool/FAQ where it fits. Freshness helps both ranking and trust.',sample:samp(stale.map(p=>({k:p.key,w:p.wc})),10)});
+if(summary.noToolHubs) fixes.push({pri:'SOON',effort:'Med',title:'Add conversion tools to '+summary.noToolHubs+' hubs/landing pages',how:'Only '+summary.withTool+' pages have an interactive tool today. Inline calculators + prefilled apply CTAs are the AIO-proof lever that actually converts.',sample:samp(noToolHubs.map(p=>({k:p.key})),12)});
+if(summary.noSchema) fixes.push({pri:'LATER',effort:'Low',title:'Add JSON-LD schema to '+summary.noSchema+' content pages',how:'Add BreadcrumbList + Article/FinancialService + FAQPage for AEO/GEO eligibility.',sample:samp(noSchema.map(p=>({k:p.key})),10)});
+
+// ---------- opportunities ("things to go after") ----------
+const opps=[];
+if(hubGaps.length) opps.push({title:'Build article clusters for '+hubGaps.length+' shallow industry hubs',impact:hubGaps.length+' hubs',detail:'These industry hubs have fewer than 3 supporting articles. Add a 3-problem cluster each (same proven pattern as septic/towing) to build topical depth.',sample:hubGaps.slice(0,12).map(h=>h.k+'  ('+h.arts+' articles)')});
+opps.push({title:'Net-new verticals (zero cannibalization by construction)',impact:'~9 clean gaps',detail:'Industries with no page yet — safe, additive ranking surface. Each = a hub + 3 problem-articles with apply CTAs.',sample:['welding & metal fabrication','catering','sign company','masonry','flooring','pool service & construction','demolition','pressure washing','IT / MSP','auto detailing']});
+opps.push({title:'Commercial comparison / "best-X" pages',impact:'highest click-intent',detail:'"X vs Y" and "best X for [audience]" earn the few clicks AI Overviews leave on the table. Dedup hard against the existing Best-X set first.',sample:['best equipment financing for [trade]','term loan vs SBA for [use]','more lender-type head-to-heads','best working capital for [industry]']});
+opps.push({title:'Factoring cluster Tier-2',impact:'depth + intent',detail:'Round out the invoice-factoring set (4 Tier-1 articles in flight) with vertical/specialty pieces.',sample:['medical / healthcare receivables factoring','government-contractor factoring (Assignment of Claims Act)','dedicated trucking/freight factoring (fuel advances, quick-pay)','staffing-agency factoring (dedicated)']});
+opps.push({title:'Local geo + industry landing pages',impact:'least AIO-suppressed',detail:'City + service combos (e.g. "HVAC financing in Atlanta") capture high-intent local traffic. Extends the metro work already shipped.',sample:['metro x service combinations','more city pages where Atlanta validates','state hub deepening']});
+opps.push({title:'Conversion funnel upgrades',impact:'revenue, not just traffic',detail:'Reorder the match form to ask loan details before contact info, add inline email micro-capture under calculators, and prefill from each page.',sample:['match.html step reorder (global — propose first)','email micro-capture under calc results','prefill ?type=&amount= on every calc CTA']});
+
+const DATA = { summary, pages: arr, clusterArr, typeDist, hist, history, fixes, opps, lists: {
   orphans: orphans.map(p=>({k:p.key,t:p.type,w:p.wc})).sort((a,b)=>a.k.localeCompare(b.k)),
   veryThin: veryThin.map(p=>({k:p.key,t:p.type,w:p.wc})).sort((a,b)=>a.w-b.w),
   thin: thin.map(p=>({k:p.key,t:p.type,w:p.wc})).sort((a,b)=>a.w-b.w),
@@ -215,10 +260,15 @@ tr:hover td{background:rgba(125,211,252,.05)}
 input,select{background:#0b1626;border:1px solid var(--line);color:var(--tx);border-radius:8px;padding:8px 11px;font-size:.85rem}
 input{min-width:240px}
 .note{background:rgba(245,158,11,.1);border-left:3px solid var(--warn);padding:12px 16px;border-radius:8px;margin:14px 0;font-size:.9rem;color:#fcd34d}
-.good-li,.plan-li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 16px;margin-bottom:10px;font-size:.9rem}
-.good-li b{color:var(--good)}.plan-li b{color:var(--cy)}
-.plan-li .tag{font-size:.7rem;padding:2px 8px;border-radius:10px;margin-right:8px;font-weight:700}
+.good-li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 16px;margin-bottom:10px;font-size:.9rem}
+.good-li b{color:var(--good)}
+.fixcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.fixhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.fixhead b{font-size:.95rem}
+.eff{margin-left:auto;font-size:.72rem;color:var(--tx2);background:#0b1626;border:1px solid var(--line);border-radius:10px;padding:2px 8px}
+.tag{font-size:.7rem;padding:2px 8px;border-radius:10px;font-weight:700}
 .t-now{background:var(--bad);color:#fff}.t-soon{background:var(--warn);color:#0b1626}.t-later{background:var(--bl);color:#fff}
+.trendgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:12px}
+details summary{cursor:pointer}
 .muted{color:var(--tx2)}
 code{background:#0b1626;padding:1px 6px;border-radius:5px;color:var(--cy);font-size:.85em}
 `;
@@ -247,6 +297,18 @@ const JS = [
 "function bars(id,items){var m=Math.max.apply(null,items.map(function(i){return i.n;}));document.getElementById(id).innerHTML=items.map(function(i){var w=(i.n/m*100).toFixed(1);return '<div class=barrow><div class=lab>'+esc(i.label)+'</div><div class=barwrap><div class=bar style=\"width:'+w+'%\"></div></div><div class=n>'+i.n+'</div></div>';}).join('');}",
 "bars('typedist',Object.keys(DATA.typeDist).map(function(k){return {label:k,n:DATA.typeDist[k]};}).sort(function(a,b){return b.n-a.n;}));",
 "bars('hist',DATA.hist.map(function(b){return {label:b.label+' w',n:b.n};}));",
+// fixes + opps
+"function fcard(f){var s=f.sample&&f.sample.length?'<details style=\"margin-top:8px\"><summary class=muted style=\"font-size:.8rem\">'+f.sample.length+' example pages</summary><div style=\"font-size:.78rem;color:var(--tx2);margin-top:6px;line-height:1.8;font-family:monospace\">'+f.sample.map(esc).join('<br>')+'</div></details>':'';return '<div class=fixcard><div class=fixhead><span class=\"tag t-'+f.pri.toLowerCase()+'\">'+f.pri+'</span><b>'+esc(f.title)+'</b><span class=eff>'+f.effort+' effort</span></div><div class=muted style=\"font-size:.85rem;margin-top:6px\">'+esc(f.how)+'</div>'+s+'</div>';}",
+"document.getElementById('fixes').innerHTML=DATA.fixes.map(fcard).join('')||'<div class=good-li>No open issues — clean.</div>';",
+"document.getElementById('opps').innerHTML=DATA.opps.map(function(o){var s=o.sample&&o.sample.length?'<div style=\"font-size:.8rem;color:var(--tx2);margin-top:8px;line-height:1.8\">'+o.sample.map(function(x){return '&bull; '+esc(x);}).join('<br>')+'</div>':'';return '<div class=fixcard><div class=fixhead><b>'+esc(o.title)+'</b><span class=eff>'+esc(o.impact)+'</span></div><div class=muted style=\"font-size:.85rem;margin-top:6px\">'+esc(o.detail)+'</div>'+s+'</div>';}).join('');",
+// trends
+"var H=DATA.history;",
+"function spark(vals){if(!vals||vals.length<2)return '<span class=muted style=\"font-size:.72rem\">collecting&hellip; (need 2+ runs)</span>';var mn=Math.min.apply(null,vals),mx=Math.max.apply(null,vals),r=(mx-mn)||1,w=170,h=34;var pts=vals.map(function(v,i){return (i/(vals.length-1)*w).toFixed(1)+','+(h-((v-mn)/r)*h).toFixed(1);}).join(' ');return '<svg width='+w+' height='+h+' style=\"display:block\"><polyline points=\"'+pts+'\" fill=none stroke=\"#7dd3fc\" stroke-width=2 stroke-linejoin=round stroke-linecap=round /></svg>';}",
+"var METR=[['broken','Broken links',1],['thin','Thin 500-800',1],['veryThin','Very thin',1],['filler','Filler',1],['weak','Weak inbound',1],['stale','Stale',1],['articles','Articles',0],['tools','Pages w/ tool',0]];",
+"document.getElementById('trendcards').innerHTML=METR.map(function(m){var vals=H.map(function(h){return h[m[0]];}).filter(function(v){return v!=null;});var last=vals.length?vals[vals.length-1]:0,prev=vals.length>1?vals[vals.length-2]:null;var d=prev==null?'':last-prev;var col=d===''?'var(--tx2)':((m[2]?(d<0):(d>0))?'var(--good)':(d===0?'var(--tx2)':'var(--bad)'));var dt=d===''?'&middot;':(d>0?'\\u25b2'+d:(d<0?'\\u25bc'+Math.abs(d):'\\u2014'));return '<div class=kpi><div style=\"display:flex;justify-content:space-between;align-items:baseline\"><div class=v style=\"font-size:1.3rem\">'+last+'</div><div style=\"font-size:.8rem;color:'+col+'\">'+dt+'</div></div><div class=l>'+m[1]+'</div><div style=\"margin-top:8px\">'+spark(vals)+'</div></div>';}).join('');",
+"var hcols=[['date','Date'],['files','Pages'],['articles','Articles'],['broken','Broken'],['veryThin','VThin'],['thin','Thin'],['weak','Weak'],['filler','Filler'],['stale','Stale'],['tools','Tools']];",
+"var hh='<table><thead><tr>'+hcols.map(function(c){return '<th'+(c[0]==='date'?'':' class=num')+'>'+c[1]+'</th>';}).join('')+'</tr></thead><tbody>';H.slice().reverse().forEach(function(r){hh+='<tr>'+hcols.map(function(c){return '<td'+(c[0]==='date'?'':' class=num')+'>'+(r[c[0]]==null?'':r[c[0]])+'</td>';}).join('')+'</tr>';});document.getElementById('histtbl').innerHTML=hh+'</tbody></table>';",
+// issues tabs
 "var L=DATA.lists;",
 "function listKW(a){return a.map(function(p){return row(p.k,'<span class=pill>'+p.t+'</span> <span class=pill>'+p.w+'w</span>');}).join('');}",
 "function row(k,meta){return '<div style=\"display:flex;justify-content:space-between;gap:10px;padding:7px 12px;border-bottom:1px solid var(--line);font-size:.82rem\"><span>'+esc(k)+'</span><span style=flex:none>'+meta+'</span></div>';}",
@@ -283,43 +345,33 @@ const JS = [
 "renderEx();"
 ].join("\n");
 
-const S = summary;
+const Sx = summary;
 const HTML =
 '<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">'+
 '<title>Axiant Partners &mdash; Site Audit</title><style>'+CSS+'</style></head><body>'+
 '<header class=hd><div class=wrap><h1>Axiant Partners &mdash; Full Site Audit</h1>'+
 '<p>Structural &amp; content-health breakdown of every page. Auto-generated '+today+' (rebuilds after each commit).</p>'+
-'<div><span class=badge>'+S.totalFiles+' pages</span><span class=badge>'+S.articles+' articles</span><span class=badge>'+S.clusters+' clusters</span><span class=badge>avg '+S.avgArticleWords+'w/article</span></div>'+
+'<div><span class=badge>'+Sx.totalFiles+' pages</span><span class=badge>'+Sx.articles+' articles</span><span class=badge>'+Sx.clusters+' clusters</span><span class=badge>avg '+Sx.avgArticleWords+'w/article</span></div>'+
 '</div></header><div class=wrap>'+
-'<div class=note><b>Top findings:</b> <b>'+S.brokenLinks+' broken internal links</b>, <b>'+S.filler+' pages with <code>data-batch</code> filler</b>, <b>'+S.noindexInSitemap+' noindex pages in the sitemap</b>, and <b>'+(S.veryThin+S.thin)+' thin pages</b>. Work through the Issues tabs below.</div>'+
+'<div class=note><b>Top findings:</b> <b>'+Sx.brokenLinks+' broken internal links</b>, <b>'+Sx.filler+' pages with <code>data-batch</code> filler</b>, <b>'+Sx.noindexInSitemap+' noindex pages in the sitemap</b>, and <b>'+(Sx.veryThin+Sx.thin)+' thin pages</b>. See <b>Suggested fixes</b> (section 5) for the prioritized worklist.</div>'+
 '<h2 class=sec>1. Scorecard</h2><div class=sub>Green = healthy, amber = attention, red = fix.</div><div class=kpis id=kpis></div>'+
 '<h2 class=sec>2. How the site is built</h2><div class=sub>Static, framework-free HTML on Netlify. Service clusters (equipment-financing, sba-loans, working-capital-loans) and industry hubs (*-business-financing.html), each with an /articles/ folder, plus amount/geo landing pages, calculators, and ad-landing variants.</div>'+
 '<div class=grid2><div class=panel><h3 style="margin-bottom:10px;font-size:.95rem">Page types</h3><div id=typedist></div></div>'+
 '<div class=panel><h3 style="margin-bottom:10px;font-size:.95rem">Content depth (words, content pages)</h3><div id=hist></div></div></div>'+
 '<h2 class=sec>3. Clusters &mdash; depth &amp; health</h2><div class=sub>Click headers to sort.</div><div class=panel style="overflow:auto;max-height:540px" id=cltbl></div>'+
-'<h2 class=sec>4. Issues &mdash; what needs work</h2><div class=sub>Each tab is a ready-to-action list. Red = highest priority.</div><div class=tabs id=tabs></div><div id=tabpanel></div>'+
-'<h2 class=sec>5. What is good</h2>'+
-'<div class="good-li"><b>Strong topical clustering.</b> '+S.clusters+' clusters, '+S.articles+' articles averaging '+S.avgArticleWords+' words.</div>'+
-'<div class="good-li"><b>Almost no orphans ('+S.orphans+').</b> Nearly every article is reachable from its hub/siblings.</div>'+
-'<div class="good-li"><b>'+S.dupTitles+' duplicate titles, '+S.ldFails+' JSON-LD parse failures.</b> Cannibalization + structured-data hygiene are solid.</div>'+
-'<div class="good-li"><b>Schema near-universal</b> &mdash; only '+S.noSchema+' content pages lack JSON-LD.</div>'+
-'<h2 class=sec>6. What is bad / risky</h2>'+
-'<div class="good-li" style="border-left:3px solid var(--bad)"><b style="color:#fca5a5">'+S.brokenLinks+' broken internal links.</b> Wastes crawl budget and drops link equity.</div>'+
-'<div class="good-li" style="border-left:3px solid var(--bad)"><b style="color:#fca5a5">'+(S.veryThin+S.thin)+' thin pages</b> ('+S.veryThin+' <500w, '+S.thin+' 500-800w). Expand, merge, or prune.</div>'+
-'<div class="good-li" style="border-left:3px solid var(--warn)"><b style="color:#fcd34d">'+S.filler+' pages carry <code>data-batch</code> filler</b> and '+S.noindexInSitemap+' noindex pages are wrongly in the sitemap; '+S.notInSitemap+' indexable pages are missing from it.</div>'+
-'<div class="good-li" style="border-left:3px solid var(--warn)"><b style="color:#fcd34d">'+S.weak+' pages have only 1-2 inbound links</b> and '+S.stale+' articles are stale. Both lift with light passes.</div>'+
-'<h2 class=sec>7. Forward plan</h2><div class=sub>Sequenced by impact-to-effort.</div>'+
-'<div class="plan-li"><span class="tag t-now">NOW</span><b>Clear the '+S.brokenLinks+' broken links + strip the '+S.filler+' filler pages + fix sitemap noindex.</b></div>'+
-'<div class="plan-li"><span class="tag t-now">NOW</span><b>Triage the '+S.veryThin+' very-thin pages</b> &mdash; expand to 1,000w+, merge, or 301/prune.</div>'+
-'<div class="plan-li"><span class="tag t-soon">SOON</span><b>Conversion capture:</b> inline calculators + tight apply CTAs on top-impression pages (only '+S.withTool+' have a tool today).</div>'+
-'<div class="plan-li"><span class="tag t-soon">SOON</span><b>Internal-linking pass on the '+S.weak+' weak pages</b> + refresh the '+S.stale+' stale articles.</div>'+
-'<div class="plan-li"><span class="tag t-later">LATER</span><b>Net-new only where it can\'t cannibalize</b> &mdash; new verticals + comparison/"best-X" pages, each with apply CTAs.</div>'+
-'<h2 class=sec>8. Explore every page</h2><div class=sub>Search, filter by type, click headers to sort. Flags show each page\'s issues.</div>'+
+'<h2 class=sec>4. Issues &mdash; raw lists</h2><div class=sub>Each tab is a working list. Red = highest priority.</div><div class=tabs id=tabs></div><div id=tabpanel></div>'+
+'<h2 class=sec>5. Suggested fixes</h2><div class=sub>Auto-derived from the data, prioritized NOW / SOON / LATER with effort and example pages. Expand any card for the affected URLs.</div><div id=fixes></div>'+
+'<h2 class=sec>6. Things to go after</h2><div class=sub>Growth opportunities that won\'t cannibalize existing pages &mdash; sized by data where possible.</div><div id=opps></div>'+
+'<h2 class=sec>7. Trends over time</h2><div class=sub>Each run appends a snapshot (deduped per day). Arrows compare to the previous run — green is the good direction. Sparklines fill in as history accumulates.</div><div class=trendgrid id=trendcards style="margin-bottom:18px"></div><div class=panel style="overflow:auto;max-height:340px" id=histtbl></div>'+
+'<h2 class=sec>8. Strengths</h2>'+
+'<div class="good-li"><b>Strong topical clustering.</b> '+Sx.clusters+' clusters, '+Sx.articles+' articles averaging '+Sx.avgArticleWords+' words.</div>'+
+'<div class="good-li"><b>Almost no orphans ('+Sx.orphans+') and '+Sx.dupTitles+' duplicate titles.</b> Interlinking + cannibalization work paid off.</div>'+
+'<div class="good-li"><b>'+Sx.ldFails+' JSON-LD parse failures; schema near-universal</b> ('+Sx.noSchema+' content pages without it). Strong AEO/GEO base.</div>'+
+'<h2 class=sec>9. Explore every page</h2><div class=sub>Search, filter by type, click headers to sort. Flags show each page\'s issues.</div>'+
 '<div class=controls><input id=q placeholder="Search URL or title..."><select id=ft></select><span class=muted id=excount style="align-self:center"></span></div>'+
 '<div class=panel style="overflow:auto;max-height:640px" id=extbl></div>'+
-'<p class=muted style="margin-top:30px;font-size:.8rem">Auto-generated by scripts/site-audit.js from '+S.totalFiles+' HTML files. Word counts use the &lt;main&gt; region where present. Orphan = 0 resolved inbound links excluding global nav/footer.</p>'+
+'<p class=muted style="margin-top:30px;font-size:.8rem">Auto-generated by scripts/site-audit.js from '+Sx.totalFiles+' HTML files. Word counts use the &lt;main&gt; region where present. Orphan = 0 resolved inbound links excluding global nav/footer.</p>'+
 '</div><script>\nvar DATA='+JSON.stringify(DATA)+';\n'+JS+'\n</script></body></html>';
 
-if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 fs.writeFileSync(path.join(OUT_DIR, 'site-audit.html'), HTML);
-console.log('[site-audit] '+S.totalFiles+' pages, '+S.articles+' articles | broken:'+S.brokenLinks+' thin:'+(S.veryThin+S.thin)+' filler:'+S.filler+' -> _analysis/site-audit.html');
+console.log('[site-audit] '+Sx.totalFiles+' pages, '+Sx.articles+' articles | broken:'+Sx.brokenLinks+' thin:'+(Sx.veryThin+Sx.thin)+' filler:'+Sx.filler+' | history:'+history.length+' snapshot(s) -> _analysis/site-audit.html');
