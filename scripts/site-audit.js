@@ -8,6 +8,10 @@ const fs = require('fs'), path = require('path');
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, '_analysis');
 const today = new Date().toISOString().slice(0, 10);
+const _now = new Date();
+const _mon = ['January','February','March','April','May','June','July','August','September','October','November','December'][_now.getMonth()];
+let _h = _now.getHours(); const _ap = _h >= 12 ? 'PM' : 'AM'; _h = _h % 12 || 12;
+const stamp = _mon + ' ' + _now.getDate() + ', ' + _now.getFullYear() + ' at ' + _h + ':' + String(_now.getMinutes()).padStart(2,'0') + ' ' + _ap;
 
 // ---------- crawl ----------
 function walk(dir, out) {
@@ -204,7 +208,25 @@ opps.push({title:'Factoring cluster Tier-2',impact:'depth + intent',detail:'Roun
 opps.push({title:'Local geo + industry landing pages',impact:'least AIO-suppressed',detail:'City + service combos (e.g. "HVAC financing in Atlanta") capture high-intent local traffic. Extends the metro work already shipped.',sample:['metro x service combinations','more city pages where Atlanta validates','state hub deepening']});
 opps.push({title:'Conversion funnel upgrades',impact:'revenue, not just traffic',detail:'Reorder the match form to ask loan details before contact info, add inline email micro-capture under calculators, and prefill from each page.',sample:['match.html step reorder (global — propose first)','email micro-capture under calc results','prefill ?type=&amount= on every calc CTA']});
 
-const DATA = { summary, pages: arr, clusterArr, typeDist, hist, history, fixes, opps, lists: {
+// ---------- visual architecture (route-prefix breakdown into categories) ----------
+const PRODUCTS = new Set(['equipment-financing','sba-loans','working-capital-loans','business-line-of-credit','commercial-real-estate-loans','business-term-loans','merchant-cash-advance','invoice-factoring','commercial-bridge-loans','revenue-based-financing','securities-based-lending','fix-and-flip','accounts-receivable-financing','inventory-financing','business-debt-relief','startup-financing']);
+function archCat(c){
+  if(/-business-financing$/.test(c)) return 'Industries (hubs + clusters)';
+  if(PRODUCTS.has(c)) return 'Financing products';
+  if(c==='equipment') return 'Equipment by type';
+  if(/glossary|comparison|guide|^articles$|blog/.test(c)) return 'Guides & reference';
+  if(c==='(root)') return 'Root pages';
+  return 'Other sections';
+}
+const archMap={};
+for(const o of clusterArr){ const cat=archCat(o.cluster); (archMap[cat]=archMap[cat]||[]).push({label:o.cluster==='(root)'?'/':('/'+o.cluster), n:o.n}); }
+// root pages: break into type pills instead of one giant "(root)"
+const rootByType={}; for(const p of arr){ if(p.cluster==='(root)') rootByType[p.type]=(rootByType[p.type]||0)+1; }
+archMap['Root pages']=Object.entries(rootByType).map(([t,n])=>({label:t,n})).sort((a,b)=>b.n-a.n);
+const ARCH_ORDER=['Financing products','Industries (hubs + clusters)','Equipment by type','Guides & reference','Root pages','Other sections'];
+const arch=ARCH_ORDER.filter(c=>archMap[c]).map(cat=>({cat, items: archMap[cat].sort((a,b)=>b.n-a.n)}));
+
+const DATA = { summary, stamp, pages: arr, clusterArr, typeDist, hist, history, fixes, opps, arch, lists: {
   orphans: orphans.map(p=>({k:p.key,t:p.type,w:p.wc})).sort((a,b)=>a.k.localeCompare(b.k)),
   veryThin: veryThin.map(p=>({k:p.key,t:p.type,w:p.wc})).sort((a,b)=>a.w-b.w),
   thin: thin.map(p=>({k:p.key,t:p.type,w:p.wc})).sort((a,b)=>a.w-b.w),
@@ -228,9 +250,23 @@ body{font-family:Inter,-apple-system,Segoe UI,sans-serif;background:var(--bg);co
 a{color:var(--cy);text-decoration:none}a:hover{text-decoration:underline}
 .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
 header.hd{background:linear-gradient(135deg,#0d1f3c,#1e3a5f);padding:34px 0 28px;border-bottom:1px solid var(--line);margin-bottom:26px}
-.hd h1{font-size:1.9rem;font-weight:800;letter-spacing:-.02em}
-.hd p{color:var(--tx2);margin-top:6px;font-size:.95rem}
+.hd h1{font-size:2.1rem;font-weight:800;letter-spacing:-.02em;margin-top:14px}
+.hd .lede{color:var(--tx2);margin-top:12px;font-size:.98rem;max-width:780px;line-height:1.6}
+.hd .lede b{color:var(--tx)}
 .badge{display:inline-block;background:#0b1626;border:1px solid var(--line);color:var(--cy);border-radius:20px;padding:3px 12px;font-size:.78rem;margin-right:8px;margin-top:10px}
+.pillbadge{display:inline-flex;align-items:center;gap:7px;border-radius:20px;padding:5px 13px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-right:10px}
+.pb-green{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.4);color:#86efac}
+.pb-gen{background:rgba(125,211,252,.08);border:1px solid var(--line);color:var(--tx2)}
+.pb-gen .dot{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 8px var(--good)}
+.toptabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin:22px 0 6px}
+.toptab{padding:11px 18px;cursor:pointer;font-size:.95rem;font-weight:600;color:var(--tx2);border-bottom:2px solid transparent;margin-bottom:-1px}
+.toptab.on{color:var(--cy);border-bottom-color:var(--cy)}
+.tabpane{display:none}.tabpane.on{display:block}
+.arch-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:820px){.arch-grid{grid-template-columns:1fr}}
+.arch-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.arch-card h3{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--tx2);margin-bottom:12px}
+.routepill{display:inline-flex;align-items:center;gap:6px;background:#0b1626;border:1px solid var(--line);border-radius:8px;padding:5px 10px;margin:0 7px 8px 0;font-size:.82rem;font-family:ui-monospace,Menlo,monospace}
+.routepill .ct{background:rgba(125,211,252,.14);color:var(--cy);border-radius:6px;padding:0 6px;font-weight:700;font-family:Inter,sans-serif}
 h2.sec{font-size:1.25rem;font-weight:700;margin:38px 0 6px;padding-top:10px}
 .sub{color:var(--tx2);font-size:.9rem;margin-bottom:16px;max-width:900px}
 .kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
@@ -345,35 +381,47 @@ const JS = [
 " document.querySelectorAll('#extbl th').forEach(function(t){t.onclick=function(){var k=t.getAttribute('data-k');eSort.d=(eSort.k===k?-eSort.d:-1);eSort.k=k;renderEx();};});}",
 "document.getElementById('q').oninput=renderEx;document.getElementById('ft').onchange=renderEx;",
 "document.getElementById('ft').innerHTML='<option value=\"\">All types</option>'+Object.keys(DATA.typeDist).sort().map(function(t){return '<option>'+t+'</option>';}).join('');",
-"renderEx();"
+"renderEx();",
+// visual architecture pills
+"document.getElementById('arch').innerHTML=DATA.arch.map(function(g){var pills=g.items.map(function(i){return '<span class=routepill>'+esc(i.label)+'<span class=ct>'+i.n+'</span></span>';}).join('');return '<div class=arch-card><h3>'+esc(g.cat)+'</h3>'+pills+'</div>';}).join('');",
+// top-level tab switching
+"document.querySelectorAll('.toptab').forEach(function(t){t.onclick=function(){var p=t.getAttribute('data-pane');document.querySelectorAll('.toptab').forEach(function(x){x.classList.toggle('on',x===t);});document.querySelectorAll('.tabpane').forEach(function(pane){pane.classList.toggle('on',pane.id==='pane-'+p);});window.scrollTo(0,0);};});"
 ].join("\n");
 
 const Sx = summary;
 const HTML =
 '<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">'+
 '<title>Axiant Partners &mdash; Site Audit</title><style>'+CSS+'</style></head><body>'+
-'<header class=hd><div class=wrap><h1>Axiant Partners &mdash; Full Site Audit</h1>'+
-'<p>Structural &amp; content-health breakdown of every page. Auto-generated '+today+' (rebuilds after each commit).</p>'+
-'<div><span class=badge>'+Sx.totalFiles+' pages</span><span class=badge>'+Sx.articles+' articles</span><span class=badge>'+Sx.clusters+' clusters</span><span class=badge>avg '+Sx.avgArticleWords+'w/article</span></div>'+
+'<header class=hd><div class=wrap>'+
+'<span class="pillbadge pb-green">Site Architecture &amp; SEO Audit</span>'+
+'<span class="pillbadge pb-gen"><span class=dot></span>Auto-generated '+stamp+'</span>'+
+'<h1>Axiant Partners &mdash; Full Site Breakdown</h1>'+
+'<p class=lede>Every published page on axiantpartners.com, mapped by type, cluster, and content health. Page counts and structure are <b>auto-derived from the codebase on every commit</b> &mdash; this report regenerated <b>'+stamp+'</b>. The <b>Fixes &amp; Opportunities</b> tab is where the work is.</p>'+
 '</div></header><div class=wrap>'+
-'<div class=note><b>Top findings:</b> <b>'+Sx.brokenLinks+' broken internal links</b>, <b>'+Sx.filler+' pages with <code>data-batch</code> filler</b>, <b>'+Sx.noindexInSitemap+' noindex pages in the sitemap</b>, and <b>'+(Sx.veryThin+Sx.thin)+' thin pages</b>. See <b>Suggested fixes</b> (section 5) for the prioritized worklist.</div>'+
-'<h2 class=sec>1. Scorecard</h2><div class=sub>Green = healthy, amber = attention, red = fix.</div><div class=kpis id=kpis></div>'+
-'<h2 class=sec>2. How the site is built</h2><div class=sub>Static, framework-free HTML on Netlify. Service clusters (equipment-financing, sba-loans, working-capital-loans) and industry hubs (*-business-financing.html), each with an /articles/ folder, plus amount/geo landing pages, calculators, and ad-landing variants.</div>'+
+'<div class=kpis id=kpis></div>'+
+'<div class=note><b>Top findings:</b> <b>'+Sx.brokenLinks+' broken internal links</b>, <b>'+Sx.filler+' pages with <code>data-batch</code> filler</b>, <b>'+Sx.noindexInSitemap+' noindex pages in the sitemap</b>, and <b>'+(Sx.veryThin+Sx.thin)+' thin articles</b> &mdash; see the Fixes &amp; Opportunities tab.</div>'+
+'<div class=toptabs><div class="toptab on" data-pane="overview">&#128202; Overview &amp; Audit</div><div class=toptab data-pane="fixes">&#128295; Fixes &amp; Opportunities</div></div>'+
+'<div class="tabpane on" id="pane-overview">'+
+'<h2 class=sec>Visual architecture</h2><div class=sub>Every section of the site by route prefix, with live page counts &mdash; auto-derived from the codebase. Financing products and industry clusters are the backbone; equipment subtypes, guides, and landing pages fill the long tail.</div><div class=arch-grid id=arch></div>'+
+'<h2 class=sec>Page types &amp; content depth</h2><div class=sub>Static, framework-free HTML on Netlify: service hubs, industry hubs, per-cluster articles, amount/geo landing pages, calculators, and ad-landing variants.</div>'+
 '<div class=grid2><div class=panel><h3 style="margin-bottom:10px;font-size:.95rem">Page types</h3><div id=typedist></div></div>'+
 '<div class=panel><h3 style="margin-bottom:10px;font-size:.95rem">Content depth (words, content pages)</h3><div id=hist></div></div></div>'+
-'<h2 class=sec>3. Clusters &mdash; depth &amp; health</h2><div class=sub>Click headers to sort.</div><div class=panel style="overflow:auto;max-height:540px" id=cltbl></div>'+
-'<h2 class=sec>4. Issues &mdash; raw lists</h2><div class=sub>Each tab is a working list. Red = highest priority.</div><div class=tabs id=tabs></div><div id=tabpanel></div>'+
-'<h2 class=sec>5. Suggested fixes</h2><div class=sub>Auto-derived from the data, prioritized NOW / SOON / LATER with effort and example pages. Expand any card for the affected URLs.</div><div id=fixes></div>'+
-'<h2 class=sec>6. Things to go after</h2><div class=sub>Growth opportunities that won\'t cannibalize existing pages &mdash; sized by data where possible.</div><div id=opps></div>'+
-'<h2 class=sec>7. Trends over time</h2><div class=sub>Each run appends a snapshot (deduped per day). Arrows compare to the previous run — green is the good direction. Sparklines fill in as history accumulates.</div><div class=trendgrid id=trendcards style="margin-bottom:18px"></div><div class=panel style="overflow:auto;max-height:340px" id=histtbl></div>'+
-'<h2 class=sec>8. Strengths</h2>'+
+'<h2 class=sec>Clusters &mdash; depth &amp; health</h2><div class=sub>Click headers to sort.</div><div class=panel style="overflow:auto;max-height:540px" id=cltbl></div>'+
+'<h2 class=sec>Issues &mdash; raw lists</h2><div class=sub>Each tab is a working list. Red = highest priority.</div><div class=tabs id=tabs></div><div id=tabpanel></div>'+
+'<h2 class=sec>What is good</h2>'+
 '<div class="good-li"><b>Strong topical clustering.</b> '+Sx.clusters+' clusters, '+Sx.articles+' articles averaging '+Sx.avgArticleWords+' words.</div>'+
 '<div class="good-li"><b>Almost no orphans ('+Sx.orphans+') and '+Sx.dupTitles+' duplicate titles.</b> Interlinking + cannibalization work paid off.</div>'+
 '<div class="good-li"><b>'+Sx.ldFails+' JSON-LD parse failures; schema near-universal</b> ('+Sx.noSchema+' content pages without it). Strong AEO/GEO base.</div>'+
-'<h2 class=sec>9. Explore every page</h2><div class=sub>Search, filter by type, click headers to sort. Flags show each page\'s issues.</div>'+
+'<h2 class=sec>Explore every page</h2><div class=sub>Search, filter by type, click headers to sort. Flags show each page\'s issues.</div>'+
 '<div class=controls><input id=q placeholder="Search URL or title..."><select id=ft></select><span class=muted id=excount style="align-self:center"></span></div>'+
 '<div class=panel style="overflow:auto;max-height:640px" id=extbl></div>'+
-'<p class=muted style="margin-top:30px;font-size:.8rem">Auto-generated by scripts/site-audit.js from '+Sx.totalFiles+' HTML files. Word counts use the &lt;main&gt; region where present. Orphan = 0 resolved inbound links excluding global nav/footer.</p>'+
+'</div>'+
+'<div class=tabpane id="pane-fixes">'+
+'<h2 class=sec>Suggested fixes</h2><div class=sub>Auto-derived from the data, prioritized NOW / SOON / LATER with effort and example pages. Expand any card for the affected URLs.</div><div id=fixes></div>'+
+'<h2 class=sec>Things to go after</h2><div class=sub>Growth opportunities that won\'t cannibalize existing pages &mdash; sized by data where possible.</div><div id=opps></div>'+
+'<h2 class=sec>Trends over time</h2><div class=sub>Each run appends a snapshot (deduped per day). Arrows compare to the previous run &mdash; green is the good direction. Sparklines fill in as history accumulates.</div><div class=trendgrid id=trendcards style="margin-bottom:18px"></div><div class=panel style="overflow:auto;max-height:340px" id=histtbl></div>'+
+'</div>'+
+'<p class=muted style="margin-top:30px;font-size:.8rem">Auto-generated '+stamp+' by scripts/site-audit.js from '+Sx.totalFiles+' HTML files. Word counts use the &lt;main&gt; region where present. Orphan = 0 resolved inbound links excluding global nav/footer.</p>'+
 '</div><script>\nvar DATA='+JSON.stringify(DATA)+';\n'+JS+'\n</script></body></html>';
 
 fs.writeFileSync(path.join(OUT_DIR, 'site-audit.html'), HTML);
