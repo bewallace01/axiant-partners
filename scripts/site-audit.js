@@ -130,8 +130,11 @@ for(const p of indexable){ if(p.type==='fragment'||p.type==='ad-landing')continu
 const dupTitles = Object.entries(titleMap).filter(([t,v])=>v.length>1);
 const orphans = indexable.filter(p=>p.inbound===0 && !CHROME.has(p.key) && isContent(p) && p.type!=='core');
 const articles = arr.filter(p=>p.type==='article');
-const veryThin = indexable.filter(p=>isContent(p)&&p.wc<500 && p.type!=='cluster-index');
-const thin = indexable.filter(p=>isContent(p)&&p.wc>=500&&p.wc<800 && p.type!=='cluster-index');
+// Thin = genuine ARTICLES only. Calculators/embeds, article-index card grids, hubs,
+// print brochures, and vendor pages are legitimately short and are NOT thin content.
+const isArticleType = p => p.type==='article' && !/calculator|embed|brochure/.test(p.rel);
+const veryThin = indexable.filter(p=>isArticleType(p)&&p.wc<500);
+const thin = indexable.filter(p=>isArticleType(p)&&p.wc>=500&&p.wc<800);
 const brokenList=[]; for(const p of arr) for(const b of p.broken) brokenList.push({from:p.key, href:b});
 const notInSitemap = indexable.filter(p=>!p.inSitemap && !['core','fragment','ad-landing','cluster-index'].includes(p.type));
 const noindexInSitemap = arr.filter(p=>p.noindex && p.inSitemap);
@@ -143,7 +146,7 @@ const filler = arr.filter(p=>p.dataBatch);
 const weak = indexable.filter(p=>isContent(p)&&p.inbound>0&&p.inbound<=2&&p.type!=='core'&&!CHROME.has(p.key));
 const noToolHubs = arr.filter(p=>['industry-hub','service-hub','landing','geo-landing'].includes(p.type)&&!p.hasTool);
 const clusters={};
-for(const p of arr){ const o=(clusters[p.cluster]=clusters[p.cluster]||{cluster:p.cluster,n:0,words:0,thin:0,orphan:0,noindex:0,inb:0,inSm:0,broken:0}); o.n++; o.words+=p.wc; if(p.wc<500&&isContent(p))o.thin++; if(p.inbound===0&&isContent(p)&&!CHROME.has(p.key))o.orphan++; if(p.noindex)o.noindex++; o.inb+=p.inbound; if(p.inSitemap)o.inSm++; o.broken+=p.broken.length; }
+for(const p of arr){ const o=(clusters[p.cluster]=clusters[p.cluster]||{cluster:p.cluster,n:0,words:0,thin:0,orphan:0,noindex:0,inb:0,inSm:0,broken:0}); o.n++; o.words+=p.wc; if(p.wc<500&&isArticleType(p))o.thin++; if(p.inbound===0&&isContent(p)&&!CHROME.has(p.key))o.orphan++; if(p.noindex)o.noindex++; o.inb+=p.inbound; if(p.inSitemap)o.inSm++; o.broken+=p.broken.length; }
 const clusterArr = Object.values(clusters).map(o=>({...o, avgw:Math.round(o.words/o.n), avgInb:(o.inb/o.n).toFixed(1)})).sort((a,b)=>b.n-a.n);
 const typeDist={}; for(const p of arr) typeDist[p.type]=(typeDist[p.type]||0)+1;
 const buckets=[[0,300],[300,600],[600,900],[900,1200],[1200,1600],[1600,99999]];
@@ -182,11 +185,11 @@ const brokenTop = Object.entries(brokenBy).sort((a,b)=>b[1]-a[1]).slice(0,10).ma
 const samp = (list,n) => list.slice(0,n||8).map(x=>x.k + (x.w!=null?'  ('+x.w+'w)':''));
 const fixes=[];
 if(summary.brokenLinks) fixes.push({pri:'NOW',effort:'Low',title:'Fix '+summary.brokenLinks+' broken internal links',how:'Largely resolved in PRs #49/#50 — merge them, then re-run this audit to confirm it drops to ~0. Worst offenders below.',sample:brokenTop});
-if(summary.veryThin) fixes.push({pri:'NOW',effort:'Med',title:'Expand, merge, or prune '+summary.veryThin+' very-thin pages (<500w)',how:'Sub-500-word pages dilute topical authority. For each: expand to 1,000w+, merge into a stronger sibling, or 301/prune.',sample:samp(veryThin.map(p=>({k:p.key,w:p.wc})),12)});
+if(summary.veryThin) fixes.push({pri:'NOW',effort:'Med',title:'Expand, merge, or prune '+summary.veryThin+' very-thin articles (<500w)',how:'Genuine articles only (calculators, index/card-grid, hubs and brochures are excluded). For each: expand to 1,000w+, merge into a stronger sibling, or 301/prune. Start by pruning the dated "wartime/inflation" set.',sample:samp(veryThin.map(p=>({k:p.key,w:p.wc})),12)});
 if(summary.filler) fixes.push({pri:'NOW',effort:'Low',title:'Strip data-batch filler from '+summary.filler+' pages',how:'Empty/boilerplate H2 blocks that read as over-optimization. A deterministic strip pass exists; PR #49 covers most.',sample:samp(filler.map(p=>({k:p.key,w:p.wc})),10)});
 if(summary.orphans) fixes.push({pri:'NOW',effort:'Low',title:'Reconnect '+summary.orphans+' orphan pages (0 inbound)',how:'Add a contextual link from the relevant hub/sibling so they are discoverable.',sample:samp(orphans.map(p=>({k:p.key})),10)});
 if(summary.noindexInSitemap+summary.notInSitemap) fixes.push({pri:'SOON',effort:'Low',title:'Fix sitemap drift ('+summary.noindexInSitemap+' noindex in, '+summary.notInSitemap+' indexable missing)',how:'Remove noindex URLs from sitemap.xml and add the missing indexable pages. Keeps crawl signals clean.',sample:noindexInSitemap.map(p=>'(noindex-in) '+p.key).concat(notInSitemap.map(p=>'(missing) '+p.key)).slice(0,12)});
-if(summary.thin) fixes.push({pri:'SOON',effort:'Med',title:'Deepen '+summary.thin+' lean pages (500-800w)',how:'Add a worked example, FAQ, or comparison table to push toward the 1,000w+ house standard.',sample:samp(thin.map(p=>({k:p.key,w:p.wc})),10)});
+if(summary.thin) fixes.push({pri:'SOON',effort:'Med',title:'Deepen '+summary.thin+' lean articles (500-800w)',how:'Genuine articles only. Add a worked example, FAQ, or comparison table to push toward the 1,000w+ house standard.',sample:samp(thin.map(p=>({k:p.key,w:p.wc})),10)});
 if(summary.weak) fixes.push({pri:'SOON',effort:'Med',title:'Strengthen internal links to '+summary.weak+' weak pages (1-2 inbound)',how:'Add 1-2 contextual links each from stronger cluster pages. Do not over-optimize past ~3.',sample:samp(weak.map(p=>({k:p.key,w:p.wc})),10)});
 if(summary.stale) fixes.push({pri:'SOON',effort:'Low',title:'Refresh '+summary.stale+' stale articles',how:'Update figures, bump dateModified, add a tool/FAQ where it fits. Freshness helps both ranking and trust.',sample:samp(stale.map(p=>({k:p.key,w:p.wc})),10)});
 if(summary.noToolHubs) fixes.push({pri:'SOON',effort:'Med',title:'Add conversion tools to '+summary.noToolHubs+' hubs/landing pages',how:'Only '+summary.withTool+' pages have an interactive tool today. Inline calculators + prefilled apply CTAs are the AIO-proof lever that actually converts.',sample:samp(noToolHubs.map(p=>({k:p.key})),12)});
@@ -281,8 +284,8 @@ const JS = [
 " kpi(S.totalFiles,'HTML pages','neu'),kpi(S.indexable,'Indexable','neu'),kpi(S.inSitemap+' / '+S.sitemapTotal,'In sitemap','neu'),",
 " kpi(S.clusters,'Clusters/sections','neu'),kpi(S.articles,'Articles','neu'),kpi(S.avgArticleWords,'Avg article words',S.avgArticleWords>=1000?'good':'warn'),",
 " kpi(S.dupTitles,'Duplicate titles',S.dupTitles?'bad':'good'),kpi(S.orphans,'Orphans (0 inbound)',S.orphans>5?'bad':'good'),",
-" kpi(S.brokenLinks,'Broken internal links',S.brokenLinks?'bad':'good'),kpi(S.veryThin,'Very thin (<500w)',S.veryThin>20?'bad':'warn'),",
-" kpi(S.thin,'Thin (500-800w)',S.thin>50?'warn':'good'),kpi(S.weak,'Weak links (1-2 inb)','warn'),",
+" kpi(S.brokenLinks,'Broken internal links',S.brokenLinks?'bad':'good'),kpi(S.veryThin,'Very thin articles',S.veryThin>20?'bad':'warn'),",
+" kpi(S.thin,'Thin articles',S.thin>50?'warn':'good'),kpi(S.weak,'Weak links (1-2 inb)','warn'),",
 " kpi(S.notInSitemap,'Not in sitemap',S.notInSitemap?'warn':'good'),kpi(S.noindexInSitemap,'Noindex in sitemap',S.noindexInSitemap?'warn':'good'),",
 " kpi(S.filler,'data-batch filler',S.filler?'warn':'good'),kpi(S.stale,'Stale articles',S.stale?'warn':'good'),",
 " kpi(S.noSchema,'Missing schema',S.noSchema?'warn':'good'),kpi(S.withTool,'Pages w/ tool','neu')",
@@ -314,8 +317,8 @@ const JS = [
 "function row(k,meta){return '<div style=\"display:flex;justify-content:space-between;gap:10px;padding:7px 12px;border-bottom:1px solid var(--line);font-size:.82rem\"><span>'+esc(k)+'</span><span style=flex:none>'+meta+'</span></div>';}",
 "var TABS=[",
 " {name:'Broken links',crit:1,n:L.broken.length,render:function(){var by={};L.broken.forEach(function(b){(by[b.from]=by[b.from]||[]).push(b.href);});return Object.keys(by).sort().map(function(f){return '<div style=\"padding:8px 12px;border-bottom:1px solid var(--line)\"><b>'+esc(f)+'</b> <span class=muted>('+by[f].length+')</span><br><span class=muted style=\"font-size:.8rem\">'+by[f].map(esc).join(' &middot; ')+'</span></div>';}).join('')||'<div style=padding:14px>None.</div>';}},",
-" {name:'Very thin <500w',crit:1,n:L.veryThin.length,render:function(){return listKW(L.veryThin);}},",
-" {name:'Thin 500-800w',warnc:1,n:L.thin.length,render:function(){return listKW(L.thin);}},",
+" {name:'Very thin articles',crit:1,n:L.veryThin.length,render:function(){return listKW(L.veryThin);}},",
+" {name:'Thin articles',warnc:1,n:L.thin.length,render:function(){return listKW(L.thin);}},",
 " {name:'Weak (1-2 inbound)',warnc:1,n:L.weak.length,render:function(){return L.weak.map(function(p){return row(p.k,'<span class=pill>'+p.t+'</span> <span class=pill>'+p.w+'w</span> <span class=pill>'+p.i+' inbound</span>');}).join('');}},",
 " {name:'Orphans',crit:1,n:L.orphans.length,render:function(){return listKW(L.orphans)||'<div style=padding:14px>None.</div>';}},",
 " {name:'Not in sitemap',warnc:1,n:L.notInSitemap.length,render:function(){return L.notInSitemap.map(function(p){return row(p.k,'<span class=pill>'+p.t+'</span>');}).join('')||'<div style=padding:14px>None.</div>';}},",
