@@ -10,7 +10,8 @@
     "indexnow": "python scripts/submit_indexnow.py",
     "optimize-mobile-images": "node optimize-mobile-images.js",
     "optimize-images": "python scripts/optimize_images.py",
-    "add-responsive-srcset": "python scripts/add-responsive-srcset.py"
+    "add-responsive-srcset": "python scripts/add-responsive-srcset.py",
+    "audit": "node scripts/site-audit.js"
   },
   "devDependencies": {
     "purgecss": "^5.0.0",
