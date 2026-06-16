@@ -59,3 +59,7 @@ _outreach/do-not-email.txt
 
 # Outreach send logs (contain recipient emails)
 _analysis/outreach-email/
+
+# Generated site-audit dashboard (run scripts/site-audit.js; do not deploy)
+_analysis/site-audit.html
+_analysis/site-audit-history.json
