@@ -87,11 +87,16 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             min-height: 420px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            gap: 2.5rem;
             width: 100%;
             padding: 4rem clamp(2rem, 6vw, 4rem) 4rem;
             background: linear-gradient(135deg, rgba(30, 58, 95, 0.96) 0%, rgba(45, 127, 184, 0.85) 50%, rgba(30, 58, 95, 0.7) 100%);
         }
         .ef-hero-copy { position: relative; z-index: 2; max-width: 640px; }
+        .ef-hero-visual { position: relative; z-index: 2; flex: 1 1 360px; display: flex; align-items: center; justify-content: center; min-width: 0; }
+        .ef-hero-visual img { width: 100%; max-width: 560px; height: auto; filter: drop-shadow(0 18px 40px rgba(0,0,0,0.28)); }
+        @media (max-width: 900px) { .ef-hero-visual { display: none; } }
         .ef-hero-copy h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; margin: 0 0 0.75rem; color: #ffffff; letter-spacing: -0.02em; text-shadow: 0 2px 12px rgba(0,0,0,0.2); }
         .ef-hero-copy .ef-subhead { font-size: 1.2rem; color: rgba(255,255,255,0.95); margin: 0 0 1.5rem; line-height: 1.5; }
         .ef-hero-bullets { list-style: none; padding: 0; margin: 0 0 1.75rem; }
@@ -159,6 +164,9 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                     <a href="/match.html" class="btn-primary" style="padding:0.9rem 1.5rem; font-size:1.05rem;">Apply for Invoice Factoring</a>
                     <a href="tel:+19199072611" class="ef-phone-cta">Call Now: (919) 907-2611</a>
                 </div>
+            </div>
+            <div class="ef-hero-visual">
+                <img src="/assets/invoice-factoring-hero.svg" alt="An unpaid net-60 invoice for $24,800 converted into same-week working capital with an 80 to 95 percent advance" width="600" height="480" loading="eager" decoding="async">
             </div>
         </section>
 
