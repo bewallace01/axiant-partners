@@ -388,6 +388,52 @@ const JS = [
 "document.querySelectorAll('.toptab').forEach(function(t){t.onclick=function(){var p=t.getAttribute('data-pane');document.querySelectorAll('.toptab').forEach(function(x){x.classList.toggle('on',x===t);});document.querySelectorAll('.tabpane').forEach(function(pane){pane.classList.toggle('on',pane.id==='pane-'+p);});window.scrollTo(0,0);};});"
 ].join("\n");
 
+// ---------- GSC performance pane (static snapshot from the 2026-06-17 Search Console pull) ----------
+// Hand-maintained: this generator crawls the codebase, not GSC. Update these figures when a fresh
+// Search Console export is dropped (window/totals/tables below), then re-run the audit.
+const gscRow = (u, imp, clk, pos) => '<tr><td style="font-family:ui-monospace,Menlo,monospace;font-size:.8rem">'+u+'</td><td class=num>'+imp+'</td><td class=num>'+clk+'</td><td class=num>'+pos+'</td></tr>';
+const gscPane =
+'<div class="note" style="border-left-color:var(--bad);background:rgba(239,68,68,.1);color:#fca5a5"><b>Headline &mdash; this is a CTR collapse, not a ranking problem.</b> ~24,700 impressions in 28 days produced <b>~82 clicks</b> (0.33%). The cause is <b>AI Overviews / Google AI Mode answering queries in-SERP</b>: pages rank on page 1 but the click never happens. Source: GSC export dated <b>2026-06-17</b>, window <b>May 19 &ndash; Jun 15</b>.</div>'+
+'<div class=kpis>'+
+'<div class="kpi neu"><div class=v>~24.7k</div><div class=l>Impressions (28d)</div></div>'+
+'<div class="kpi bad"><div class=v>~82</div><div class=l>Clicks (28d)</div></div>'+
+'<div class="kpi bad"><div class=v>0.33%</div><div class=l>Site-wide CTR</div></div>'+
+'<div class="kpi warn"><div class=v>~21</div><div class=l>Avg position</div></div>'+
+'<div class="kpi bad"><div class=v>3,774&rarr;0</div><div class=l>Top page impr&rarr;clicks @ pos 3.9</div></div>'+
+'</div>'+
+'<h2 class=sec>Where the clicks are leaking &mdash; high impressions, ~0 clicks</h2>'+
+'<div class=sub>Pages ranking well but barely clicked. Position 4 with 3,774 impressions and zero clicks is the textbook signature of AI-answer cannibalization &mdash; not a ranking issue. The one bright spot, the <code>carecredit-vs-patientfi</code> comparison page at 7 clicks, shows what survives: "vs", "rates", and concrete-data pages.</div>'+
+'<div class=panel style="overflow:auto"><table><thead><tr><th>Page</th><th class=num>Impr.</th><th class=num>Clicks</th><th class=num>Position</th></tr></thead><tbody>'+
+gscRow('/construction-business-financing/why-contractors-need-working-capital','3,774','<b style="color:var(--bad)">0</b>','3.94')+
+gscRow('/commercial-real-estate-loans/&hellip;/how-much-down-payment-required-commercial-property-loan','1,436','1','16.97')+
+gscRow('/equipment-financing/&hellip;/carecredit-vs-patientfi-imaging-radiology','614','<b style="color:var(--good)">7</b>','18.42')+
+gscRow('/business-line-of-credit/&hellip;/what-are-typical-business-line-of-credit-rates','613','2','39.87')+
+gscRow('/articles/same-day-business-funding-whats-actually-possible','593','0','8.94')+
+gscRow('/equipment/semi-trucks/semi-truck-financing-down-payment','510','1','9.08')+
+'</tbody></table></div>'+
+'<h2 class=sec>Recovery from the May 18 dilution event</h2>'+
+'<div class=sub>Real but early. Average position recovered from ~27 to ~17&ndash;21 and daily clicks rose from ~1 to 4&ndash;10 across June. The cleanup-before-publishing strategy is working &mdash; <b>hold the freeze on new programmatic pages</b> until index count and position fully stabilize.</div>'+
+'<h2 class=sec>Bridge loan cluster &mdash; detail</h2>'+
+'<div class=sub>The full bridge cluster pulled <b>~260 impressions and 2 clicks</b> in 28 days. The hub itself got <b>5 impressions</b> while its own child articles pulled 30&ndash;70 &mdash; the classic signature of <b>keyword cannibalization</b> (authority for "commercial bridge loan" split across child URLs instead of concentrating on the hub). The cluster is over-built relative to its search demand.</div>'+
+'<div class=panel style="overflow:auto"><table><thead><tr><th>Bridge page</th><th class=num>Impr.</th><th class=num>Clicks</th><th class=num>Position</th></tr></thead><tbody>'+
+gscRow('/commercial-bridge-loans/articles/typical-commercial-bridge-loan-rates-2026','69','<b style="color:var(--good)">1</b>','5.43')+
+gscRow('/commercial-bridge-loans/articles/how-fast-can-you-close-commercial-bridge-loan','36','0','<b style="color:var(--bad)">27.7</b> (was 10.1)')+
+gscRow('/commercial-bridge-loans/articles/when-should-you-use-commercial-bridge-loan','33','0','10.30')+
+gscRow('/commercial-bridge-loans/articles/5m-bridge-loan-multifamily-structure-closing-timeline','31','0','6.68')+
+gscRow('/commercial-bridge-loans/articles/what-do-lenders-look-for-commercial-bridge-loan','25','0','18.88')+
+gscRow('/commercial-bridge-loans/articles/bridge-loan-pitfalls-what-can-go-wrong','24','0','9.54')+
+gscRow('/commercial-bridge-loans/articles/bridge-loan-value-add-commercial-property','11','1','7.45')+
+gscRow('/commercial-bridge-loans/articles/bridge-loan-vs-heloc','11','0','50.64')+
+gscRow('<b>/commercial-bridge-loans.html &nbsp;(HUB)</b>','<b>5</b>','0','5.80')+
+'</tbody></table></div>'+
+'<h2 class=sec>What "more agency on bridge" should mean &mdash; not more pages</h2>'+
+'<div class=fixcard><div class=fixhead><span class="tag t-now">NOW</span><b>Fix the hub cannibalization</b><span class=eff>~1 hr</span></div><div class=muted style="font-size:.85rem;margin-top:6px">Find which bridge URL Google ranks for core "commercial bridge loan" terms and consolidate intent onto the hub so authority stops splitting across child articles. Zero new URLs.</div></div>'+
+'<div class=fixcard><div class=fixhead><span class="tag t-now">NOW</span><b>Recover the article that fell off page 1</b><span class=eff>~30 min</span></div><div class=muted style="font-size:.85rem;margin-top:6px"><code>how-fast-can-you-close</code> dropped from position 10 to 28. Rewrite title/meta to the seo-geo-aeo bar and refresh &mdash; it is an answer-intent query you used to rank for.</div></div>'+
+'<div class=fixcard><div class=fixhead><span class="tag t-soon">SOON</span><b>Win AI-citation with data + tables</b><span class=eff>~half day</span></div><div class=muted style="font-size:.85rem;margin-top:6px">Port the rates-2026 page approach to the hub: a real comparison table (bridge vs hard money vs construction vs SBA &mdash; term / speed / LTV / rate) plus dated 2026 rate ranges. Tables and dated numbers get extracted and cited by AI engines.</div></div>'+
+'<div class=fixcard><div class=fixhead><span class="tag t-later">HOLD</span><b>No net-new bridge URLs yet</b><span class=eff>gated</span></div><div class=muted style="font-size:.85rem;margin-top:6px">Do not publish new bridge pages until the recovery gates clear (index count down, avg position up). Adding supply where there is little demand, mid-penalty, is the wrong lever.</div></div>'+
+'<div class="good-li" style="margin-top:14px"><b>Bigger-picture priority:</b> bridge is high-ticket but low-volume (~260 impr/28d). The recoverable traffic is in construction working capital, CRE down-payment, equipment, and "vs/comparison" queries &mdash; pages already pulling 600&ndash;3,700 impressions at near-zero CTR. Fixing CTR / AI-citation on those is roughly <b>10&times; the prize</b> of bridge. Fix bridge because deals are large; spend the most effort on the high-impression CTR leak.</div>'+
+'<p class=muted style="margin-top:16px;font-size:.8rem">Static snapshot &mdash; figures hand-entered from the 2026-06-17 GSC export (this dashboard crawls the codebase, not Search Console). Full write-up: <code>_analysis/GSC_ANALYSIS_2026-06-17.md</code>.</p>';
+
 const Sx = summary;
 const HTML =
 '<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">'+
@@ -400,7 +446,7 @@ const HTML =
 '</div></header><div class=wrap>'+
 '<div class=kpis id=kpis></div>'+
 '<div class=note><b>Top findings:</b> <b>'+Sx.brokenLinks+' broken internal links</b>, <b>'+Sx.filler+' pages with <code>data-batch</code> filler</b>, <b>'+Sx.noindexInSitemap+' noindex pages in the sitemap</b>, and <b>'+(Sx.veryThin+Sx.thin)+' thin articles</b> &mdash; see the Fixes &amp; Opportunities tab.</div>'+
-'<div class=toptabs><div class="toptab on" data-pane="overview">&#128202; Overview &amp; Audit</div><div class=toptab data-pane="fixes">&#128295; Fixes &amp; Opportunities</div></div>'+
+'<div class=toptabs><div class="toptab on" data-pane="overview">&#128202; Overview &amp; Audit</div><div class=toptab data-pane="fixes">&#128295; Fixes &amp; Opportunities</div><div class=toptab data-pane="gsc">&#128201; GSC Performance</div></div>'+
 '<div class="tabpane on" id="pane-overview">'+
 '<h2 class=sec>Visual architecture</h2><div class=sub>Every section of the site by route prefix, with live page counts &mdash; auto-derived from the codebase. Financing products and industry clusters are the backbone; equipment subtypes, guides, and landing pages fill the long tail.</div><div class=arch-grid id=arch></div>'+
 '<h2 class=sec>Page types &amp; content depth</h2><div class=sub>Static, framework-free HTML on Netlify: service hubs, industry hubs, per-cluster articles, amount/geo landing pages, calculators, and ad-landing variants.</div>'+
@@ -421,6 +467,7 @@ const HTML =
 '<h2 class=sec>Things to go after</h2><div class=sub>Growth opportunities that won\'t cannibalize existing pages &mdash; sized by data where possible.</div><div id=opps></div>'+
 '<h2 class=sec>Trends over time</h2><div class=sub>Each run appends a snapshot (deduped per day). Arrows compare to the previous run &mdash; green is the good direction. Sparklines fill in as history accumulates.</div><div class=trendgrid id=trendcards style="margin-bottom:18px"></div><div class=panel style="overflow:auto;max-height:340px" id=histtbl></div>'+
 '</div>'+
+'<div class=tabpane id="pane-gsc">'+gscPane+'</div>'+
 '<p class=muted style="margin-top:30px;font-size:.8rem">Auto-generated '+stamp+' by scripts/site-audit.js from '+Sx.totalFiles+' HTML files. Word counts use the &lt;main&gt; region where present. Orphan = 0 resolved inbound links excluding global nav/footer.</p>'+
 '</div><script>\nvar DATA='+JSON.stringify(DATA)+';\n'+JS+'\n</script></body></html>';
 

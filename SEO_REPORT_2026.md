@@ -1,7 +1,21 @@
 # Axiant Partners – Full SEO Report
 
-**Date:** March 2026  
-**Overall Grade:** **84/100 (B+)**
+**Date:** March 2026 · **Last updated:** June 17, 2026 (live GSC data)
+**Overall Grade:** **84/100 (B+)** *(code/technical fundamentals — see live-data caveat below)*
+
+---
+
+## ⚠️ June 17, 2026 Update — Live GSC Data Changes the Picture
+
+The B+ grade below reflects **technical fundamentals from a code audit.** The first full Search Console pull since the **May 18 indexing-dilution event** tells a harder story on real performance. Full detail: [`_analysis/GSC_ANALYSIS_2026-06-17.md`](_analysis/GSC_ANALYSIS_2026-06-17.md).
+
+**28-day totals (May 19 – Jun 15):** ~24,700 impressions · **~82 clicks** · CTR ≈ **0.33%** · avg position ~21.
+
+1. **Site-wide CTR collapse — the #1 issue.** Strong fundamentals are not converting to clicks. `construction-business-financing/why-contractors-need-working-capital` pulled **3,774 impressions, 0 clicks, at position 3.94.** The cause is **AI Overviews / Google AI Mode answering queries in-SERP** — confirmed by a query report saturated with natural-language/persona prompts. Comparison ("vs"), "rates", and concrete-data pages survive best (the `carecredit-vs-patientfi` page is the top non-branded earner at 7 clicks).
+2. **May-drop recovery is real but early** — position recovered ~27 → ~17–21 and daily clicks rose from ~1 to 4–10 over June. **Hold the publishing freeze** until index count and position fully stabilize.
+3. **Bridge cluster is over-built vs demand** — ~260 impressions / 2 clicks in 28 days; the **hub itself got 5 impressions**, out-competed by its own child articles (keyword cannibalization). The fix is consolidation + an AEO/GEO comparison table, **not more pages.**
+
+**Revised priority order:** (1) site-wide CTR/AEO rewrite of top high-impression / zero-click pages → (2) bridge hub cannibalization fix + comparison table → (3) continue May cleanup / hold freeze → (4) re-pull GSC in ~2 weeks. Tables and dated data, not new URLs, are the lever.
 
 ---
 
