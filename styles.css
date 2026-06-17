@@ -70,3 +70,7 @@ html:has(.main-nav) {
 body:has(.main-nav) {
   padding-top: var(--main-nav-offset);
 }
+/* Amount-page template visual fixes (hero CTA width + content column + FAQ answer alignment) */
+.amt-page-wrap .amt-content{max-width:1080px;margin-left:auto;margin-right:auto}
+.amt-content .about-section p{max-width:none;margin-left:0;margin-right:0}
+.amt-hero-ctas .btn-primary{width:auto;border-radius:10px}
