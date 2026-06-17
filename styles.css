@@ -78,7 +78,8 @@ body:has(.main-nav) {
 /* Sticky mobile CTA bar (landing pages) */
 .mobile-cta-bar{display:none}
 @media (max-width:768px){
-.mobile-cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:1200;display:flex;gap:.5rem;padding:.55rem .75rem;background:rgba(13,31,60,.97);box-shadow:0 -2px 16px rgba(0,0,0,.28)}
+.mobile-cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:1200;display:flex;gap:.5rem;padding:.55rem .75rem;background:rgba(13,31,60,.97);box-shadow:0 -2px 16px rgba(0,0,0,.28);transform:translateY(120%);transition:transform .25s ease;will-change:transform}
+.mobile-cta-bar.is-visible{transform:translateY(0)}
 .mobile-cta-bar .mcta-primary{flex:1;display:flex;align-items:center;justify-content:center;padding:.85rem 1rem;background:linear-gradient(135deg,#2d7fb8 0%,#1e3a5f 100%);color:#fff;font-weight:700;text-decoration:none;border-radius:10px;font-size:1.02rem}
 .mobile-cta-bar .mcta-phone{display:flex;align-items:center;justify-content:center;min-width:54px;padding:.85rem;border:1px solid rgba(255,255,255,.45);border-radius:10px;color:#fff;text-decoration:none;font-size:1.15rem}
 body{padding-bottom:76px}
