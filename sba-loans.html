@@ -344,6 +344,68 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                 </div>
             </section>
 
+            <section class="inline-calc about-section" aria-label="Estimate your monthly payment">
+                <h2>Estimate Your Monthly Payment</h2>
+                <div class="ic-wrap">
+                    <div class="ic-controls">
+                        <label class="ic-field">
+                            <span>Loan amount</span>
+                            <input type="range" class="ic-amount-range" min="10000" max="5000000" step="5000" value="500000" aria-label="Loan amount">
+                            <input type="text" class="ic-amount-num" inputmode="numeric" value="$500,000" aria-label="Loan amount in dollars">
+                        </label>
+                        <div class="ic-row">
+                            <label class="ic-field">
+                                <span>Term</span>
+                                <select class="ic-term">
+                                    <option value="60">5 years</option>
+                                    <option value="84">7 years</option>
+                                    <option value="120" selected>10 years</option>
+                                    <option value="180">15 years</option>
+                                    <option value="240">20 years</option>
+                                    <option value="300">25 years</option>
+                                </select>
+                            </label>
+                            <label class="ic-field">
+                                <span>Estimated rate (%)</span>
+                                <input type="number" class="ic-rate" min="0" max="40" step="0.1" value="10.5">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="ic-result">
+                        <div class="ic-result-label">Estimated monthly payment</div>
+                        <div class="ic-monthly">$0</div>
+                        <div class="ic-sub"><span class="ic-total">$0</span> total over <span class="ic-months">0</span> payments</div>
+                        <a href="/match.html" class="btn-primary ic-cta">See If You Qualify &rarr;</a>
+                    </div>
+                </div>
+                <p class="ic-disclaimer">Estimates only, for planning purposes &mdash; not a quote, offer, or guarantee of terms. Your actual rate and payment depend on your business profile, the SBA program, and the lender.</p>
+            </section>
+            <script>
+            (function(){
+                function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
+                function fmtAmt(v){return '$'+(parseInt(v,10)||0).toLocaleString('en-US');}
+                function calc(w){
+                    var P=parseFloat(w.querySelector('.ic-amount-range').value)||0;
+                    var n=parseInt(w.querySelector('.ic-term').value,10)||1;
+                    var annual=parseFloat(w.querySelector('.ic-rate').value)||0;
+                    var r=annual/100/12;
+                    var m=r>0 ? P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1) : P/n;
+                    w.querySelector('.ic-monthly').textContent=money(m);
+                    w.querySelector('.ic-total').textContent=money(m*n);
+                    w.querySelector('.ic-months').textContent=n;
+                }
+                document.querySelectorAll('.inline-calc').forEach(function(w){
+                    var range=w.querySelector('.ic-amount-range'), num=w.querySelector('.ic-amount-num');
+                    range.addEventListener('input',function(){num.value=fmtAmt(range.value);calc(w);});
+                    num.addEventListener('input',function(){range.value=(num.value+'').replace(/[^0-9]/g,'');calc(w);});
+                    num.addEventListener('blur',function(){num.value=fmtAmt(range.value);});
+                    w.querySelector('.ic-term').addEventListener('change',function(){calc(w);});
+                    w.querySelector('.ic-rate').addEventListener('input',function(){calc(w);});
+                    calc(w);
+                });
+            })();
+            </script>
+
             <section class="about-section">
                 <h2>Why Businesses Choose SBA Loans</h2>
                 <p>SBA financing offers advantages that conventional bank loans often cannot match. Here's why business owners nationwide turn to SBA programs:</p>
