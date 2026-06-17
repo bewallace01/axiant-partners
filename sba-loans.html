@@ -152,11 +152,11 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             align-items: center;
             width: 100%;
             padding: 4rem clamp(2rem, 6vw, 4rem) 4rem;
-            background: linear-gradient(135deg, rgba(30, 58, 95, 0.88) 0%, rgba(45, 127, 184, 0.75) 50%, rgba(30, 58, 95, 0.6) 100%),
+            background: linear-gradient(135deg, rgba(13, 31, 60, 0.93) 0%, rgba(20, 50, 90, 0.88) 55%, rgba(13, 31, 60, 0.86) 100%),
                 url('/assets/sba-hero.webp?v=4') center/cover no-repeat;
         }
         .ef-hero-copy { position: relative; z-index: 2; max-width: 620px; }
-        .ef-hero-copy h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; margin: 0 0 0.75rem; color: #ffffff; letter-spacing: -0.02em; text-shadow: 0 2px 12px rgba(0,0,0,0.2); }
+        .ef-hero-copy h1 { font-family: inherit; font-weight: 800; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.15; margin: 0 0 0.75rem; color: #ffffff; letter-spacing: -0.02em; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
         .ef-hero-copy .ef-subhead { font-size: 1.2rem; color: rgba(255,255,255,0.95); margin: 0 0 1.5rem; line-height: 1.5; }
         .ef-hero-bullets { list-style: none; padding: 0; margin: 0 0 1.75rem; }
         .ef-hero-bullets li { position: relative; padding-left: 1.5rem; margin-bottom: 0.6rem; color: rgba(255,255,255,0.9); }
@@ -165,6 +165,9 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
         .ef-phone-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: transparent; border: 2px solid rgba(255,255,255,0.9); border-radius: 10px; color: #fff; font-weight: 600; text-decoration: none; transition: all 0.2s; }
         .ef-phone-cta:hover { background: rgba(255,255,255,0.2); color: #fff; border-color: #fff; transform: translateY(-1px); }
         .ef-hero .btn-primary { box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
+        .ef-hero-primary { padding: 1rem 2rem; font-size: 1.1rem; font-weight: 700; }
+        .ef-hero-phone { margin: 1rem 0 0; color: rgba(255,255,255,0.85); font-size: 0.95rem; }
+        .ef-hero-phone a { color: #fff; font-weight: 600; text-decoration: underline; }
         .ef-page-wrap { background: var(--bg-primary); width: 100%; }
         .ef-content { max-width: 100%; width: 100%; margin: 0; padding: 0 clamp(2rem, 6vw, 4rem) 3rem; }
         @media (max-width: 768px) {
@@ -213,18 +216,18 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
 
         <section class="ef-hero">
             <div class="ef-hero-copy">
-                <h1>SBA Loans: Government-Backed Financing to Grow Your Business</h1>
-                <p class="ef-subhead">SBA 7(a) and 504 loans for U.S. businesses -up to $5 million. 10-25 year terms, lower down payments, competitive rates. Working capital, equipment, commercial real estate, business acquisition. One application, we match you with the right program. Apply today.</p>
+                <h1>Get Up to $5M to Grow Your Business &mdash; Backed by the SBA</h1>
+                <p class="ef-subhead">One application. We match you with the right SBA program for working capital, equipment, real estate, or buying a business.</p>
                 <ul class="ef-hero-bullets">
                     <li>Up to $5M with SBA 7(a)</li>
-                    <li>10% down with SBA 504 for real estate</li>
-                    <li>10-25 year terms</li>
-                    <li>Working capital, equipment, CRE, acquisition</li>
+                    <li>As little as 10% down with SBA 504</li>
+                    <li>Low payments with 10&ndash;25 year terms</li>
+                    <li>No cost, no obligation to apply</li>
                 </ul>
                 <div class="ef-hero-ctas">
-                    <a href="/match.html" class="btn-primary" style="padding:0.9rem 1.5rem; font-size:1.05rem;">Apply for SBA Financing</a>
-                    <a href="tel:+19199072611" class="ef-phone-cta">Call Now: (919) 907-2611</a>
+                    <a href="/match.html" class="btn-primary ef-hero-primary">See If You Qualify &rarr;</a>
                 </div>
+                <p class="ef-hero-phone">Prefer to talk? Call <a href="tel:+19199072611">(919) 907-2611</a></p>
             </div>
         </section>
 
@@ -232,7 +235,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
         <div class="form-container service-hub-content equipment-financing-content sba-loans-content ef-content">
             <section class="about-section">
                 <h2>Quick Answer: What SBA Loans Are Best For</h2>
-                <p>SBA loans are best when you want longer terms and lower payments than many conventional options&mdash;especially for owner-occupied real estate, large equipment purchases, business acquisitions, or refinancing high-cost debt.</p>
+                <p>SBA loans&mdash;backed by the U.S. <strong>Small Business Administration</strong>, a federal agency that guarantees part of the loan so banks can lend on better terms&mdash;are best when you want longer terms and lower payments than many conventional options, especially for owner-occupied real estate, large equipment purchases, business acquisitions, or refinancing high-cost debt.</p>
                 <ul>
                     <li><strong>SBA 7(a):</strong> flexible (working capital, acquisition, equipment, CRE)</li>
                     <li><strong>SBA 504:</strong> fixed assets (owner-occupied CRE, heavy equipment) with lower down payments</li>
@@ -288,13 +291,13 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                 <div class="benefits-grid ef-equipment-cards">
                     <div class="benefit-card ef-card-with-img">
                         <div class="ef-card-img"><picture><source srcset="/assets/sba-7a-560w.webp?v=4 560w, /assets/sba-7a-800w.webp?v=4 800w, /assets/sba-7a-1200w.webp?v=4 1200w" sizes="(max-width: 768px) 100vw, 1200px" type="image/webp"><img width="1376" height="768"  src="/assets/sba-7a.png" alt="SBA 7(a) flexible business funding" loading="lazy"></picture></div>
-                        <h3>SBA 7(a) Loans -Flexible Use</h3>
-                        <p>The most common SBA program. 7(a) loans fund working capital, business acquisition, debt refinancing, equipment, and commercial real estate. Up to $5 million with terms up to 10-25 years. Variable or fixed rate options. If your need doesn't fit 504's fixed-asset structure, 7(a) is usually the answer.</p>
+                        <h3>SBA 7(a) Loans &mdash; Flexible Funding for Almost Anything</h3>
+                        <p>Get up to $5 million to grow your business your way &mdash; working capital, buying a business, refinancing debt, equipment, or real estate. Long repayment terms (10&ndash;25 years) keep payments low, with fixed or variable rates. It's the SBA's most popular loan because it fits almost any need.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
                         <div class="ef-card-img"><picture><source srcset="/assets/sba-504-560w.webp?v=4 560w, /assets/sba-504-800w.webp?v=4 800w, /assets/sba-504-1200w.webp?v=4 1200w" sizes="(max-width: 768px) 100vw, 1200px" type="image/webp"><img width="1376" height="768"  src="/assets/sba-504.png" alt="SBA 504 fixed assets financing" loading="lazy"></picture></div>
-                        <h3>SBA 504 Loans -Fixed Assets</h3>
-                        <p>For owner-occupied commercial real estate and long-term equipment. 10% borrower down, 40% SBA-backed second lien, 50% bank first lien. Long-term fixed rates, 10-25 year terms. Best when you're buying a building or major equipment and want predictable payments.</p>
+                        <h3>SBA 504 Loans &mdash; Buy Property or Major Equipment</h3>
+                        <p>Built for buying a building or big equipment you'll use for years. Put down as little as 10% and lock in a long-term fixed rate, so your payments stay predictable for 10&ndash;25 years. Best when you want to own your space instead of renting &mdash; and keep more cash in the business.</p>
                     </div>
                     <div class="benefit-card ef-card-with-img">
                         <div class="ef-card-img"><picture><source srcset="/assets/sba-working-capital-560w.webp?v=4 560w, /assets/sba-working-capital-800w.webp?v=4 800w, /assets/sba-working-capital-1200w.webp?v=4 1200w" sizes="(max-width: 768px) 100vw, 1200px" type="image/webp"><img width="1376" height="768"  src="/assets/sba-working-capital.png" alt="SBA working capital for business" loading="lazy"></picture></div>
@@ -620,6 +623,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
 <script>
 if(window.innerWidth<=768){var ls=document.querySelectorAll('.about-section,.testimonials-section,.global-bottom-cta,.site-footer-enhanced,.services-grid,.blog-grid,.steps-grid,.benefits-grid');var so=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='none';so.unobserve(entry.target);}});},{rootMargin:'100px'});ls.forEach(function(s){s.style.opacity='0';s.style.transition='opacity 0.3s ease';so.observe(s);});}
 </script>
+<div class="mobile-cta-bar"><a href="/match.html" class="mcta-primary">See If You Qualify</a><a href="tel:+19199072611" class="mcta-phone" aria-label="Call (919) 907-2611">&#9742;</a></div>
 </body>
 </html>
 
