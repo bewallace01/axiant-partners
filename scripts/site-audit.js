@@ -325,6 +325,36 @@ input{min-width:240px}
 details summary{cursor:pointer}
 .muted{color:var(--tx2)}
 code{background:#0b1626;padding:1px 6px;border-radius:5px;color:var(--cy);font-size:.85em}
+/* Start Here: plain-English Fix / Improve / Grow */
+.sh-intro{font-size:.95rem;color:var(--tx2);line-height:1.65;max-width:880px;margin:18px 0 0}.sh-intro b{color:var(--tx)}
+.sh-verdict{display:flex;align-items:center;gap:12px;margin-top:16px;padding:15px 18px;border-radius:12px;border:1px solid var(--line);background:var(--card);flex-wrap:wrap}
+.sh-verdict.good{border-left:4px solid var(--good)}.sh-verdict.attn{border-left:4px solid var(--warn)}
+.sh-verdict .vh{font-size:1.15rem;font-weight:800}.sh-verdict.good .vh{color:var(--good)}.sh-verdict.attn .vh{color:var(--warn)}
+.sh-verdict .vsub{font-size:.85rem;color:var(--tx2)}
+.sh-sec{margin-top:26px}
+.sh-sechead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.sh-sechead h2{margin:0;font-size:1.2rem}
+.sh-sechead .cnt{font-size:.72rem;font-weight:800;padding:2px 10px;border-radius:20px}
+.sh-fix .cnt{color:#fca5a5;background:rgba(239,68,68,.16)}.sh-improve .cnt{color:#fcd34d;background:rgba(245,158,11,.16)}.sh-grow .cnt{color:var(--cy);background:rgba(125,211,252,.14)}
+.sh-sechead .blurb{font-size:.83rem;color:var(--tx2)}
+.sh-cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:13px}@media(max-width:900px){.sh-cards{grid-template-columns:1fr}}
+.sh-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 17px;border-left:3px solid var(--line)}
+.sh-fix .sh-card{border-left-color:var(--bad)}.sh-improve .sh-card{border-left-color:var(--warn)}.sh-grow .sh-card{border-left-color:var(--cy)}
+.sh-card .t{font-size:.97rem;font-weight:700;color:var(--tx);line-height:1.4}
+.sh-card .row{margin-top:9px;font-size:.85rem;color:var(--tx2);line-height:1.55;display:grid;grid-template-columns:58px 1fr;gap:10px}
+.sh-card .row .k{font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--tx2);padding-top:2px}
+.sh-card .row.do .v{color:var(--tx)}.sh-card .row.do .k{color:var(--cy)}
+.sh-empty{margin-top:13px;padding:15px 18px;border-radius:12px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:var(--tx);font-size:.9rem}.sh-empty b{color:var(--good)}
+.sh-gloss{margin-top:30px;border-top:1px solid var(--line);padding-top:16px}
+.sh-gloss>summary{cursor:pointer;font-size:.9rem;font-weight:700;color:var(--cy);list-style:none}
+.sh-gloss>summary::-webkit-details-marker{display:none}.sh-gloss>summary::before{content:"▸ ";color:var(--tx2)}.sh-gloss[open]>summary::before{content:"▾ "}
+.sh-gloss dl{margin:14px 0 0;display:grid;grid-template-columns:180px 1fr;gap:8px 18px;font-size:.85rem}
+.sh-gloss dt{font-weight:700;color:var(--tx)}.sh-gloss dd{margin:0;color:var(--tx2)}
+@media(max-width:760px){.sh-gloss dl{grid-template-columns:1fr;gap:2px 0}.sh-gloss dd{margin:0 0 8px}}
+.techwrap{margin-top:28px;border-top:1px solid var(--line)}
+.techwrap>summary{cursor:pointer;list-style:none;padding:16px 0 4px;font-size:.92rem;font-weight:700;color:var(--tx2)}
+.techwrap>summary::-webkit-details-marker{display:none}.techwrap>summary::before{content:"▸ ";color:var(--tx2)}.techwrap[open]>summary::before{content:"▾ "}
+.techwrap>summary:hover{color:var(--tx)}.techwrap .techhint{font-size:.8rem;color:var(--tx2);font-weight:400;margin-left:6px}
+@media print{.sh-card,.sh-verdict{break-inside:avoid}.sh-gloss,.techwrap{break-inside:avoid}.techwrap>summary{display:none}}
 `;
 
 const JS = [
@@ -450,6 +480,41 @@ gscRow('<b>/commercial-bridge-loans.html &nbsp;(HUB)</b>','<b style="color:var(-
 '<p class=muted style="margin-top:16px;font-size:.8rem">Static snapshot &mdash; figures hand-entered from the 2026-06-18 GSC export (7-day window; this dashboard crawls the codebase, not Search Console). Full write-up: <code>_analysis/GSC_ANALYSIS_2026-06-18.md</code>.</p>';
 
 const Sx = summary;
+
+// ---------- Start Here: plain-English Fix / Improve / Grow ----------
+const eH = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const shFixItems = fixes.filter(f => f.pri === 'NOW');
+const shImproveItems = fixes.filter(f => f.pri !== 'NOW');
+const shGrowItems = opps;
+const fixCard = f => '<div class=sh-card><div class=t>' + eH(f.title) + '</div><div class="row do"><span class=k>Do</span><span class=v>' + eH(f.how) + '</span></div></div>';
+const oppCard = o => '<div class=sh-card><div class=t>' + eH(o.title) + '</div><div class=row><span class=k>Why</span><span class=v>' + eH(o.detail) + '</span></div>' + (o.impact ? '<div class="row do"><span class=k>Upside</span><span class=v>' + eH(o.impact) + '</span></div>' : '') + '</div>';
+const shSection = (cls, icon, name, blurb, items, cards, empty) =>
+  '<div class="sh-sec ' + cls + '"><div class=sh-sechead><h2>' + icon + ' ' + name + '</h2>' + (items.length ? '<span class=cnt>' + items.length + '</span>' : '') + '<span class=blurb>' + eH(blurb) + '</span></div>' +
+  (items.length ? '<div class=sh-cards>' + items.map(cards).join('') + '</div>' : '<div class=sh-empty><b>&#10003;</b> ' + eH(empty) + '</div>') + '</div>';
+const shHealthy = shFixItems.length === 0;
+const shVerdict = shHealthy
+  ? '<div class="sh-verdict good"><span class=vh>&#9989; Nothing urgent to fix right now.</span><span class=vsub>There are still ways to improve and grow &mdash; see below.</span></div>'
+  : '<div class="sh-verdict attn"><span class=vh>&#9888;&#65039; ' + shFixItems.length + ' thing' + (shFixItems.length === 1 ? '' : 's') + ' to fix first.</span><span class=vsub>Start with the &#128295; Fix list &mdash; broken or risky right now.</span></div>';
+const shGloss = [
+  ['Broken link', 'A link on your site that points to a page that no longer exists &mdash; visitors (and Google) hit a dead end.'],
+  ['Thin article', 'A page with too little content (under ~500&ndash;800 words) to rank or be useful.'],
+  ['Orphan page', 'A page nothing else links to, so visitors and Google can barely find it.'],
+  ['Sitemap', 'The file that tells Google every page you want it to find. &ldquo;Drift&rdquo; = it lists the wrong pages.'],
+  ['Schema (JSON-LD)', 'Hidden labels that tell Google what a page is (an article, a service, an FAQ) so it can show rich results.'],
+  ['Impression', 'One time your page showed up in someone&rsquo;s Google results (whether or not they clicked).'],
+  ['Click / CTR', 'A click is someone visiting from Google. CTR = clicks &divide; impressions. Low CTR = shown a lot, clicked rarely.'],
+  ['Position', 'Average ranking spot. 1&ndash;10 = page 1. ~19 means bottom of page 2.'],
+  ['AI Overviews / AIO', 'Google answering the question directly at the top, so users never click through &mdash; your biggest click leak.'],
+  ['Cannibalization', 'Two of your own pages chasing the same search, so they compete and split the ranking instead of one winning.'],
+].map(g => '<dt>' + g[0] + '</dt><dd>' + g[1] + '</dd>').join('');
+const startHere =
+  '<p class=sh-intro>&#128203; <b>What this page is:</b> an automatic health check of every page on axiantpartners.com &mdash; how many you have, how they link together, which are thin or broken, and how they&rsquo;re doing in Google. It rebuilds from the live site on every commit. Below is what to <b>fix</b>, what to <b>improve</b>, and where to <b>grow</b>.</p>' +
+  shVerdict +
+  shSection('sh-fix', '&#128295;', 'Fix', 'Broken or risky &mdash; handle these first.', shFixItems, fixCard, 'Nothing broken or urgent right now.') +
+  shSection('sh-improve', '&#128200;', 'Improve', 'Works today, but tightening these makes it stronger.', shImproveItems, fixCard, 'No cleanup items right now.') +
+  shSection('sh-grow', '&#128640;', 'Grow', 'New ground to win more traffic &mdash; without cannibalizing what you have.', shGrowItems, oppCard, 'No growth items flagged.') +
+  '<details class=sh-gloss><summary>Plain-English dictionary &mdash; what every term here means</summary><dl>' + shGloss + '</dl></details>';
+
 const HTML =
 '<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">'+
 '<title>Axiant Partners &mdash; Site Audit</title><style>'+CSS+'</style></head><body>'+
@@ -462,6 +527,8 @@ const HTML =
 '</div></header><div class=wrap>'+
 '<div class=kpis id=kpis></div>'+
 '<div class=note><b>Top findings:</b> <b>'+Sx.brokenLinks+' broken internal links</b>, <b>'+Sx.filler+' pages with <code>data-batch</code> filler</b>, <b>'+Sx.noindexInSitemap+' noindex pages in the sitemap</b>, and <b>'+(Sx.veryThin+Sx.thin)+' thin articles</b> &mdash; see the Fixes &amp; Opportunities tab.</div>'+
+startHere+
+'<details class=techwrap><summary>&#128295; Technical details <span class=techhint>&mdash; full inventory, page-by-page explorer, raw issue lists, and the GSC performance data. Open this when you want to dig in.</span></summary>'+
 '<div class=toptabs><div class="toptab on" data-pane="overview">&#128202; Overview &amp; Audit</div><div class=toptab data-pane="fixes">&#128295; Fixes &amp; Opportunities</div><div class=toptab data-pane="gsc">&#128201; GSC Performance</div></div>'+
 '<div class="tabpane on" id="pane-overview">'+
 '<h2 class=sec>Visual architecture</h2><div class=sub>Every section of the site by route prefix, with live page counts &mdash; auto-derived from the codebase. Financing products and industry clusters are the backbone; equipment subtypes, guides, and landing pages fill the long tail.</div><div class=arch-grid id=arch></div>'+
@@ -492,6 +559,7 @@ const HTML =
 '<h2 class=sec>Trends over time</h2><div class=sub>Each run appends a snapshot (deduped per day). Arrows compare to the previous run &mdash; green is the good direction. Sparklines fill in as history accumulates.</div><div class=trendgrid id=trendcards style="margin-bottom:18px"></div><div class=panel style="overflow:auto;max-height:340px" id=histtbl></div>'+
 '</div>'+
 '<div class=tabpane id="pane-gsc">'+gscPane+'</div>'+
+'</details>'+
 '<p class=muted style="margin-top:30px;font-size:.8rem">Auto-generated '+stamp+' by scripts/site-audit.js from '+Sx.totalFiles+' HTML files. Word counts use the &lt;main&gt; region where present. Orphan = 0 resolved inbound links excluding global nav/footer.</p>'+
 '</div><script>\nvar DATA='+JSON.stringify(DATA)+';\nfunction downloadReport(){var o=[];document.querySelectorAll("details:not([open])").forEach(function(d){d.open=true;o.push(d);});function r(){o.forEach(function(d){d.open=false;});window.removeEventListener("afterprint",r);}window.addEventListener("afterprint",r);window.print();}\n'+JS+'\n</script></body></html>';
 
