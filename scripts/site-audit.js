@@ -354,7 +354,21 @@ code{background:#0b1626;padding:1px 6px;border-radius:5px;color:var(--cy);font-s
 .techwrap>summary{cursor:pointer;list-style:none;padding:16px 0 4px;font-size:.92rem;font-weight:700;color:var(--tx2)}
 .techwrap>summary::-webkit-details-marker{display:none}.techwrap>summary::before{content:"▸ ";color:var(--tx2)}.techwrap[open]>summary::before{content:"▾ "}
 .techwrap>summary:hover{color:var(--tx)}.techwrap .techhint{font-size:.8rem;color:var(--tx2);font-weight:400;margin-left:6px}
-@media print{.sh-card,.sh-verdict{break-inside:avoid}.sh-gloss,.techwrap{break-inside:avoid}.techwrap>summary{display:none}}
+.sh-focus{margin-top:16px;padding:15px 18px;border-radius:12px;background:rgba(125,211,252,.08);border:1px solid var(--cy);border-left:4px solid var(--cy)}
+.sh-focus-h{font-size:.95rem;font-weight:800;color:var(--cy)}
+.sh-focus-sub{font-size:.7rem;font-weight:600;color:var(--tx2);margin-left:8px}
+.sh-focus-list{margin:10px 0 0;padding-left:22px}.sh-focus-list li{font-size:.92rem;color:var(--tx);margin:6px 0;line-height:1.5}
+.scoreboard{margin-top:13px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.scoreboard table{width:100%;border-collapse:collapse;font-size:.85rem}
+.scoreboard th,.scoreboard td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line)}
+.scoreboard th{font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--tx2);font-weight:700}
+.scoreboard td.ax,.scoreboard th.ax{text-align:center}
+.scoreboard tr:last-child td{border-bottom:0}
+.sdot{display:inline-block;font-weight:800;font-size:.95rem}.sdot.ok{color:var(--good)}.sdot.mid{color:var(--warn)}.sdot.no{color:var(--bad)}
+.scoreboard .miss{color:var(--tx2);font-size:.8rem}
+.axhead{display:flex;flex-direction:column;gap:1px}.axhead small{font-size:.6rem;color:var(--tx2);font-weight:600;text-transform:none;letter-spacing:0}
+.sgrid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:12px 0 16px}@media(max-width:820px){.sgrid3{grid-template-columns:1fr}}
+@media print{.sh-card,.sh-verdict,.sh-focus,.scoreboard tr{break-inside:avoid}.sh-gloss,.techwrap{break-inside:avoid}.techwrap>summary{display:none}}
 `;
 
 const JS = [
@@ -483,6 +497,29 @@ const Sx = summary;
 
 // ---------- Start Here: plain-English Fix / Improve / Grow ----------
 const eH = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+// ---------- SEO / AEO / GEO readiness (from each page's parsed schema) ----------
+// SEO = found in Google (in sitemap, linked, real content, has schema).
+// AEO = answer-engine ready (FAQ / HowTo schema for answer boxes & "People also ask").
+// GEO = AI-citation ready (a freshness date + article/service/FAQ schema AI can extract).
+const contentPagesG = arr.filter(isContent);
+const hasType = (p, t) => p.schema.includes(t);
+const aeoReady = p => hasType(p, 'FAQPage') || hasType(p, 'HowTo');
+const geoReady = p => !!p.mod && (hasType(p, 'Article') || hasType(p, 'FAQPage') || hasType(p, 'FinancialService') || hasType(p, 'HowTo'));
+const seoReady = p => p.inSitemap && p.inbound > 0 && p.wc >= 500 && p.schema.length > 0 && !p.noindex;
+const aeoGapPages = contentPagesG.filter(p => !aeoReady(p));
+const geoGapPages = contentPagesG.filter(p => !p.mod);
+// fold AEO/GEO gaps into the fixes list so they flow into Start Here + the fixes tab
+if (aeoGapPages.length) fixes.push({ pri: 'SOON', effort: 'Med', title: aeoGapPages.length + ' content pages have no FAQ/Q&A schema (AEO)', how: 'Add an FAQ block + FAQPage schema so Google answer boxes and "People also ask" can lift the answer. Most of the site already has this — these are the stragglers.', sample: aeoGapPages.slice(0, 12).map(p => p.key) });
+if (geoGapPages.length) fixes.push({ pri: 'SOON', effort: 'Low', title: geoGapPages.length + ' pages show no "last updated" date (GEO)', how: 'Add dateModified / article:modified_time so AI engines (Google AI Overviews, ChatGPT, Perplexity) trust and cite them. Freshness is the strongest GEO signal.', sample: geoGapPages.slice(0, 12).map(p => p.key) });
+// per-content-type scorecard (% of pages in each type that are ready on each axis)
+const byTypeG = {};
+for (const p of contentPagesG) { const t = byTypeG[p.type] = byTypeG[p.type] || { type: p.type, n: 0, aeo: 0, geo: 0, seo: 0 }; t.n++; if (aeoReady(p)) t.aeo++; if (geoReady(p)) t.geo++; if (seoReady(p)) t.seo++; }
+const typeScores = Object.values(byTypeG).filter(t => t.n >= 3).sort((a, b) => b.n - a.n);
+const pctG = (x, n) => (n ? Math.round(x / n * 100) : 0);
+const sdotG = v => v >= 70 ? '<span class="sdot ok">&#9679;</span>' : v >= 30 ? '<span class="sdot mid">&#9680;</span>' : '<span class="sdot no">&#9675;</span>';
+const scoreRowsG = typeScores.map(t => { const a = pctG(t.aeo, t.n), g = pctG(t.geo, t.n), s = pctG(t.seo, t.n); const gap = [a < 70 ? 'FAQ schema' : null, g < 70 ? 'freshness date' : null, s < 70 ? 'links/depth/sitemap' : null].filter(Boolean).join(' &middot; ') || '&mdash;'; return '<tr><td><code>' + eH(t.type) + '</code> <span class=muted>&times;' + t.n + '</span></td><td class=ax>' + sdotG(s) + '</td><td class=ax>' + sdotG(a) + '</td><td class=ax>' + sdotG(g) + '</td><td class=miss>' + gap + '</td></tr>'; }).join('');
+
 const shFixItems = fixes.filter(f => f.pri === 'NOW');
 const shImproveItems = fixes.filter(f => f.pri !== 'NOW');
 const shGrowItems = opps;
@@ -496,6 +533,9 @@ const shVerdict = shHealthy
   ? '<div class="sh-verdict good"><span class=vh>&#9989; Nothing urgent to fix right now.</span><span class=vsub>There are still ways to improve and grow &mdash; see below.</span></div>'
   : '<div class="sh-verdict attn"><span class=vh>&#9888;&#65039; ' + shFixItems.length + ' thing' + (shFixItems.length === 1 ? '' : 's') + ' to fix first.</span><span class=vsub>Start with the &#128295; Fix list &mdash; broken or risky right now.</span></div>';
 const shGloss = [
+  ['SEO', 'Search Engine Optimization &mdash; getting found in normal Google results (the blue links). Driven by unique content, internal links, and ranking position.'],
+  ['AEO', 'Answer Engine Optimization &mdash; getting your answer lifted into Google\'s answer box and &ldquo;People also ask.&rdquo; Needs clear Q&amp;A plus FAQ / HowTo schema.'],
+  ['GEO', 'Generative Engine Optimization &mdash; getting quoted by AI engines (ChatGPT, Perplexity, Google AI Overviews). Needs fresh dates, named authors, and data-rich structured facts AI can extract.'],
   ['Broken link', 'A link on your site that points to a page that no longer exists &mdash; visitors (and Google) hit a dead end.'],
   ['Thin article', 'A page with too little content (under ~500&ndash;800 words) to rank or be useful.'],
   ['Orphan page', 'A page nothing else links to, so visitors and Google can barely find it.'],
@@ -507,12 +547,33 @@ const shGloss = [
   ['AI Overviews / AIO', 'Google answering the question directly at the top, so users never click through &mdash; your biggest click leak.'],
   ['Cannibalization', 'Two of your own pages chasing the same search, so they compete and split the ranking instead of one winning.'],
 ].map(g => '<dt>' + g[0] + '</dt><dd>' + g[1] + '</dd>').join('');
+// Today's focus: top 3 moves, re-derived every build
+const focusG = [];
+shFixItems.forEach(f => focusG.push('<b>' + eH(f.title) + '</b>'));
+if (geoGapPages.length) focusG.push('<b>Add &ldquo;last updated&rdquo; dates to ' + geoGapPages.length + ' pages</b> so AI engines (ChatGPT, Perplexity, Google AI) trust and cite you. <span class=muted>GEO</span>');
+if (aeoGapPages.length) focusG.push('<b>Add FAQ blocks to ' + aeoGapPages.length + ' pages</b> so Google&rsquo;s answer box can feature you. <span class=muted>AEO</span>');
+const focusTopG = focusG.slice(0, 3);
+const focusBoxG = focusTopG.length
+  ? '<div class=sh-focus><div class=sh-focus-h>&#127919; Today\'s focus <span class=sh-focus-sub>the top moves right now &mdash; this list re-sorts itself as pages change</span></div><ol class=sh-focus-list>' + focusTopG.map(f => '<li>' + f + '</li>').join('') + '</ol></div>'
+  : '';
+const seoStrategyG =
+  '<h2 class=sec style="margin-top:30px">&#128202; Your SEO &middot; AEO &middot; GEO playbook <span class=muted style="font-weight:400;font-size:.85rem">live-scored from each page\'s structured data</span></h2>' +
+  '<div class=sub>There are three ways people find you now &mdash; optimize for all three. Fix a page and its dots below flip automatically on the next build.</div>' +
+  '<div class=sgrid3>' +
+  '<div class=panel style="border-left:3px solid var(--cy)"><b>&#128269; SEO</b> &mdash; classic Google results.<div class=muted style="margin-top:6px">Be crawlable, internally linked, and substantial. Win = a blue link on page 1.</div></div>' +
+  '<div class=panel style="border-left:3px solid var(--warn)"><b>&#128172; AEO</b> &mdash; answer engines.<div class=muted style="margin-top:6px">Get lifted into Google\'s answer box &amp; &ldquo;People also ask.&rdquo; Needs clear Q&amp;A + FAQ / HowTo schema.</div></div>' +
+  '<div class=panel style="border-left:3px solid var(--good)"><b>&#129302; GEO</b> &mdash; AI engines (ChatGPT, Perplexity, AI Overviews).<div class=muted style="margin-top:6px">Get quoted by AI. Needs fresh dates and data-rich structured facts it can extract.</div></div>' +
+  '</div>' +
+  '<div class=scoreboard><table><thead><tr><th>Page type</th><th class=ax><div class=axhead>SEO<small>found</small></div></th><th class=ax><div class=axhead>AEO<small>answer box</small></div></th><th class=ax><div class=axhead>GEO<small>AI cites</small></div></th><th>Biggest gap to close</th></tr></thead><tbody>' + scoreRowsG + '</tbody></table></div>' +
+  '<p class=muted style="margin-top:8px">&#9679; 70%+ of pages ready &nbsp; &#9680; partial &nbsp; &#9675; under 30% &mdash; auto-scored from each page\'s schema every build. The &ldquo;Improve&rdquo; items above come straight from these gaps.</p>';
 const startHere =
-  '<p class=sh-intro>&#128203; <b>What this page is:</b> an automatic health check of every page on axiantpartners.com &mdash; how many you have, how they link together, which are thin or broken, and how they&rsquo;re doing in Google. It rebuilds from the live site on every commit. Below is what to <b>fix</b>, what to <b>improve</b>, and where to <b>grow</b>.</p>' +
+  '<p class=sh-intro>&#128203; <b>What this page is:</b> an automatic health check of every page on axiantpartners.com &mdash; which are thin or broken, how they link together, and how they&rsquo;re doing across Google search (<b>SEO</b>), Google&rsquo;s answer boxes (<b>AEO</b>), and AI engines like ChatGPT &amp; Perplexity (<b>GEO</b>). It rebuilds from the live site every commit, so the to-do list below stays current on its own.</p>' +
   shVerdict +
+  focusBoxG +
   shSection('sh-fix', '&#128295;', 'Fix', 'Broken or risky &mdash; handle these first.', shFixItems, fixCard, 'Nothing broken or urgent right now.') +
   shSection('sh-improve', '&#128200;', 'Improve', 'Works today, but tightening these makes it stronger.', shImproveItems, fixCard, 'No cleanup items right now.') +
   shSection('sh-grow', '&#128640;', 'Grow', 'New ground to win more traffic &mdash; without cannibalizing what you have.', shGrowItems, oppCard, 'No growth items flagged.') +
+  seoStrategyG +
   '<details class=sh-gloss><summary>Plain-English dictionary &mdash; what every term here means</summary><dl>' + shGloss + '</dl></details>';
 
 const HTML =
