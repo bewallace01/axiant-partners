@@ -337,7 +337,20 @@ code{background:#0b1626;padding:1px 6px;border-radius:5px;color:var(--cy);font-s
 .sh-fix .cnt{color:#fca5a5;background:rgba(239,68,68,.16)}.sh-improve .cnt{color:#fcd34d;background:rgba(245,158,11,.16)}.sh-grow .cnt{color:var(--cy);background:rgba(125,211,252,.14)}
 .sh-sechead .blurb{font-size:.83rem;color:var(--tx2)}
 .sh-cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:13px}@media(max-width:900px){.sh-cards{grid-template-columns:1fr}}
-.sh-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 17px;border-left:3px solid var(--line)}
+.sh-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 17px;border-left:3px solid var(--line);cursor:pointer;transition:border-color .12s,transform .12s,box-shadow .12s}
+.sh-card:hover{border-color:var(--cy);transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.sh-card:focus-visible{outline:2px solid var(--cy);outline-offset:2px}
+.sh-more{margin-top:10px;font-size:.74rem;font-weight:700;color:var(--cy);opacity:.85}
+.shmodal{position:fixed;inset:0;background:rgba(3,8,15,.7);display:none;align-items:flex-start;justify-content:center;padding:6vh 20px;z-index:100;overflow:auto}
+.shmodal.on{display:flex}
+.shmodal-box{background:var(--card);border:1px solid var(--line);border-radius:16px;max-width:680px;width:100%;padding:26px 30px 30px;position:relative;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+.shmodal-x{position:absolute;top:12px;right:16px;background:none;border:0;color:var(--tx2);font-size:1.7rem;line-height:1;cursor:pointer}.shmodal-x:hover{color:var(--tx)}
+.shmodal-tag{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--cy)}
+.shmodal-title{font-size:1.3rem;margin:8px 36px 0 0;color:var(--tx);line-height:1.3}
+.shmodal-h{font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--tx2);margin:18px 0 7px}
+.shmodal-body{font-size:.95rem;line-height:1.65;color:var(--tx)}
+.shmodal-list{display:flex;flex-wrap:wrap;gap:6px}
+.shmodal-list code{font-size:.78rem;font-family:ui-monospace,Menlo,monospace;background:#0b1626;border:1px solid var(--line);border-radius:5px;padding:2px 7px;color:var(--cy)}
 .sh-fix .sh-card{border-left-color:var(--bad)}.sh-improve .sh-card{border-left-color:var(--warn)}.sh-grow .sh-card{border-left-color:var(--cy)}
 .sh-card .t{font-size:.97rem;font-weight:700;color:var(--tx);line-height:1.4}
 .sh-card .row{margin-top:9px;font-size:.85rem;color:var(--tx2);line-height:1.55;display:grid;grid-template-columns:58px 1fr;gap:10px}
@@ -523,11 +536,20 @@ const scoreRowsG = typeScores.map(t => { const a = pctG(t.aeo, t.n), g = pctG(t.
 const shFixItems = fixes.filter(f => f.pri === 'NOW');
 const shImproveItems = fixes.filter(f => f.pri !== 'NOW');
 const shGrowItems = opps;
-const fixCard = f => '<div class=sh-card><div class=t>' + eH(f.title) + '</div><div class="row do"><span class=k>Do</span><span class=v>' + eH(f.how) + '</span></div></div>';
-const oppCard = o => '<div class=sh-card><div class=t>' + eH(o.title) + '</div><div class=row><span class=k>Why</span><span class=v>' + eH(o.detail) + '</span></div>' + (o.impact ? '<div class="row do"><span class=k>Upside</span><span class=v>' + eH(o.impact) + '</span></div>' : '') + '</div>';
-const shSection = (cls, icon, name, blurb, items, cards, empty) =>
-  '<div class="sh-sec ' + cls + '"><div class=sh-sechead><h2>' + icon + ' ' + name + '</h2>' + (items.length ? '<span class=cnt>' + items.length + '</span>' : '') + '<span class=blurb>' + eH(blurb) + '</span></div>' +
-  (items.length ? '<div class=sh-cards>' + items.map(cards).join('') + '</div>' : '<div class=sh-empty><b>&#10003;</b> ' + eH(empty) + '</div>') + '</div>';
+const fixCard = (f, i) => '<div class=sh-card role=button tabindex=0 data-sh="' + i + '"><div class=t>' + eH(f.title) + '</div><div class="row do"><span class=k>Do</span><span class=v>' + eH(f.how) + '</span></div><div class=sh-more>Click for details + the exact pages &rarr;</div></div>';
+const oppCard = (o, i) => '<div class=sh-card role=button tabindex=0 data-sh="' + i + '"><div class=t>' + eH(o.title) + '</div><div class=row><span class=k>Why</span><span class=v>' + eH(o.detail) + '</span></div>' + (o.impact ? '<div class="row do"><span class=k>Upside</span><span class=v>' + eH(o.impact) + '</span></div>' : '') + '<div class=sh-more>Click for details + examples &rarr;</div></div>';
+// blurb/empty are author-controlled literals (may contain HTML entities) — do NOT eH them.
+const shSection = (cls, icon, name, blurb, items, cards, empty, base) =>
+  '<div class="sh-sec ' + cls + '"><div class=sh-sechead><h2>' + icon + ' ' + name + '</h2>' + (items.length ? '<span class=cnt>' + items.length + '</span>' : '') + '<span class=blurb>' + blurb + '</span></div>' +
+  (items.length ? '<div class=sh-cards>' + items.map((it, j) => cards(it, (base || 0) + j)).join('') + '</div>' : '<div class=sh-empty><b>&#10003;</b> ' + empty + '</div>') + '</div>';
+// flat card data for the click-to-open detail modal (same order as rendered: fix, improve, grow)
+const shCardData = [];
+shFixItems.forEach((o) => shCardData.push({ grp: 'Fix', pri: o.pri || '', effort: o.effort || '', title: o.title, body: o.how, pages: o.sample || [] }));
+shImproveItems.forEach((o) => shCardData.push({ grp: 'Improve', pri: o.pri || '', effort: o.effort || '', title: o.title, body: o.how, pages: o.sample || [] }));
+shGrowItems.forEach((o) => shCardData.push({ grp: 'Grow', impact: o.impact || '', title: o.title, body: o.detail, pages: o.sample || [] }));
+// click-to-open detail modal for the Start Here cards (self-contained IIFE)
+const SH_MODAL_JS = "(function(){var M=document.getElementById('shmodal');if(!M)return;function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}function openCard(i){var c=SH_CARDS[i];if(!c)return;M.querySelector('.shmodal-tag').textContent=[c.grp,c.pri,c.effort?c.effort+' effort':'',c.impact].filter(Boolean).join('  \\u00b7  ');M.querySelector('.shmodal-title').textContent=c.title;M.querySelector('.shmodal-body').textContent=c.body;var pg=M.querySelector('.shmodal-pages');if(c.pages&&c.pages.length){pg.innerHTML='<div class=shmodal-h>'+(c.grp==='Grow'?'Examples to model':'Pages to work on')+' ('+c.pages.length+(c.pages.length>=12?'+':'')+')</div><div class=shmodal-list>'+c.pages.map(function(p){return '<code>'+esc(p)+'</code>';}).join('')+'</div>';}else{pg.innerHTML='';}M.classList.add('on');document.body.style.overflow='hidden';}function closeCard(){M.classList.remove('on');document.body.style.overflow='';}document.querySelectorAll('[data-sh]').forEach(function(el){el.addEventListener('click',function(){openCard(+el.getAttribute('data-sh'));});el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openCard(+el.getAttribute('data-sh'));}});});M.addEventListener('click',function(e){if(e.target===M||e.target.classList.contains('shmodal-x'))closeCard();});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCard();});})();";
+const shModalHtml = '<div id=shmodal class=shmodal><div class=shmodal-box role=dialog aria-modal=true><button class=shmodal-x aria-label=Close>&times;</button><div class=shmodal-tag></div><h3 class=shmodal-title></h3><div class=shmodal-h>What to do &amp; why</div><div class=shmodal-body></div><div class=shmodal-pages></div></div></div>';
 const shHealthy = shFixItems.length === 0;
 const shVerdict = shHealthy
   ? '<div class="sh-verdict good"><span class=vh>&#9989; Nothing urgent to fix right now.</span><span class=vsub>There are still ways to improve and grow &mdash; see below.</span></div>'
@@ -570,9 +592,9 @@ const startHere =
   '<p class=sh-intro>&#128203; <b>What this page is:</b> an automatic health check of every page on axiantpartners.com &mdash; which are thin or broken, how they link together, and how they&rsquo;re doing across Google search (<b>SEO</b>), Google&rsquo;s answer boxes (<b>AEO</b>), and AI engines like ChatGPT &amp; Perplexity (<b>GEO</b>). It rebuilds from the live site every commit, so the to-do list below stays current on its own.</p>' +
   shVerdict +
   focusBoxG +
-  shSection('sh-fix', '&#128295;', 'Fix', 'Broken or risky &mdash; handle these first.', shFixItems, fixCard, 'Nothing broken or urgent right now.') +
-  shSection('sh-improve', '&#128200;', 'Improve', 'Works today, but tightening these makes it stronger.', shImproveItems, fixCard, 'No cleanup items right now.') +
-  shSection('sh-grow', '&#128640;', 'Grow', 'New ground to win more traffic &mdash; without cannibalizing what you have.', shGrowItems, oppCard, 'No growth items flagged.') +
+  shSection('sh-fix', '&#128295;', 'Fix', 'Broken or risky &mdash; handle these first.', shFixItems, fixCard, 'Nothing broken or urgent right now.', 0) +
+  shSection('sh-improve', '&#128200;', 'Improve', 'Works today, but tightening these makes it stronger.', shImproveItems, fixCard, 'No cleanup items right now.', shFixItems.length) +
+  shSection('sh-grow', '&#128640;', 'Grow', 'New ground to win more traffic &mdash; without cannibalizing what you have.', shGrowItems, oppCard, 'No growth items flagged.', shFixItems.length + shImproveItems.length) +
   seoStrategyG +
   '<details class=sh-gloss><summary>Plain-English dictionary &mdash; what every term here means</summary><dl>' + shGloss + '</dl></details>';
 
@@ -622,7 +644,8 @@ startHere+
 '<div class=tabpane id="pane-gsc">'+gscPane+'</div>'+
 '</details>'+
 '<p class=muted style="margin-top:30px;font-size:.8rem">Auto-generated '+stamp+' by scripts/site-audit.js from '+Sx.totalFiles+' HTML files. Word counts use the &lt;main&gt; region where present. Orphan = 0 resolved inbound links excluding global nav/footer.</p>'+
-'</div><script>\nvar DATA='+JSON.stringify(DATA)+';\nfunction downloadReport(){var o=[];document.querySelectorAll("details:not([open])").forEach(function(d){d.open=true;o.push(d);});function r(){o.forEach(function(d){d.open=false;});window.removeEventListener("afterprint",r);}window.addEventListener("afterprint",r);window.print();}\n'+JS+'\n</script></body></html>';
+shModalHtml+
+'</div><script>\nvar DATA='+JSON.stringify(DATA)+';\nvar SH_CARDS='+JSON.stringify(shCardData)+';\nfunction downloadReport(){var o=[];document.querySelectorAll("details:not([open])").forEach(function(d){d.open=true;o.push(d);});function r(){o.forEach(function(d){d.open=false;});window.removeEventListener("afterprint",r);}window.addEventListener("afterprint",r);window.print();}\n'+JS+'\n'+SH_MODAL_JS+'\n</script></body></html>';
 
 fs.writeFileSync(path.join(OUT_DIR, 'site-audit.html'), HTML);
 // Best-effort: also drop a copy in ~/Downloads (as axiant-site-audit.html) so a
