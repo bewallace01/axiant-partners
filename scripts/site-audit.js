@@ -496,4 +496,13 @@ const HTML =
 '</div><script>\nvar DATA='+JSON.stringify(DATA)+';\nfunction downloadReport(){var o=[];document.querySelectorAll("details:not([open])").forEach(function(d){d.open=true;o.push(d);});function r(){o.forEach(function(d){d.open=false;});window.removeEventListener("afterprint",r);}window.addEventListener("afterprint",r);window.print();}\n'+JS+'\n</script></body></html>';
 
 fs.writeFileSync(path.join(OUT_DIR, 'site-audit.html'), HTML);
+// Best-effort: also drop a copy in ~/Downloads (as axiant-site-audit.html) so a
+// locally-opened copy is never stale. No-ops silently if there is no Downloads dir.
+try {
+  const dl = path.join(require('os').homedir(), 'Downloads');
+  if (fs.existsSync(dl)) {
+    fs.copyFileSync(path.join(OUT_DIR, 'site-audit.html'), path.join(dl, 'axiant-site-audit.html'));
+    console.log('[site-audit] copied -> ' + path.join(dl, 'axiant-site-audit.html'));
+  }
+} catch (e) { /* best-effort */ }
 console.log('[site-audit] '+Sx.totalFiles+' pages, '+Sx.articles+' articles | broken:'+Sx.brokenLinks+' thin:'+(Sx.veryThin+Sx.thin)+' filler:'+Sx.filler+' | history:'+history.length+' snapshot(s) -> _analysis/site-audit.html');
