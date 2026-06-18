@@ -248,7 +248,7 @@ const CSS = `
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--tx);line-height:1.5;padding:0 0 80px}
 a{color:var(--cy);text-decoration:none}a:hover{text-decoration:underline}
-.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.wrap{max-width:none;margin:0 auto;padding:0 40px}
 header.hd{background:linear-gradient(135deg,#0d1f3c,#1e3a5f);padding:34px 0 28px;border-bottom:1px solid var(--line);margin-bottom:26px}
 .hd h1{font-size:2.1rem;font-weight:800;letter-spacing:-.02em;margin-top:14px}
 .hd .lede{color:var(--tx2);margin-top:12px;font-size:.98rem;max-width:780px;line-height:1.6}
@@ -262,6 +262,21 @@ header.hd{background:linear-gradient(135deg,#0d1f3c,#1e3a5f);padding:34px 0 28px
 .toptab{padding:11px 18px;cursor:pointer;font-size:.95rem;font-weight:600;color:var(--tx2);border-bottom:2px solid transparent;margin-bottom:-1px}
 .toptab.on{color:var(--cy);border-bottom-color:var(--cy)}
 .tabpane{display:none}.tabpane.on{display:block}
+header.hd{position:relative}
+.dlbtn{position:absolute;top:22px;right:40px;appearance:none;cursor:pointer;border:1px solid var(--cy);background:rgba(125,211,252,.12);color:var(--cy);font:700 .8rem Inter,sans-serif;padding:9px 16px;border-radius:9px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.dlbtn:hover{background:rgba(125,211,252,.22)}
+.dlbtn svg{width:15px;height:15px}
+@media print{
+  @page{size:A3 landscape;margin:11mm}
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+  html,body{background:var(--bg) !important}
+  .toptabs,.dlbtn,.tabs{display:none !important}
+  .tabpane{display:block !important}
+  .tabpane+.tabpane{page-break-before:always}
+  .panel,[style*="max-height"]{max-height:none !important;overflow:visible !important}
+  h2.sec{page-break-after:avoid}
+  .arch-card,.fixcard,.good-li,tr{page-break-inside:avoid}
+}
 .arch-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:820px){.arch-grid{grid-template-columns:1fr}}
 .arch-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
 .arch-card h3{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--tx2);margin-bottom:12px}
@@ -439,6 +454,7 @@ const HTML =
 '<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">'+
 '<title>Axiant Partners &mdash; Site Audit</title><style>'+CSS+'</style></head><body>'+
 '<header class=hd><div class=wrap>'+
+'<button class=dlbtn onclick="downloadReport()" title="Save this report as a PDF"><svg viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1=12 y1=15 x2=12 y2=3 /></svg>Download report (PDF)</button>'+
 '<span class="pillbadge pb-green">Site Architecture &amp; SEO Audit</span>'+
 '<span class="pillbadge pb-gen"><span class=dot></span>Auto-generated '+stamp+'</span>'+
 '<h1>Axiant Partners &mdash; Full Site Breakdown</h1>'+
@@ -477,7 +493,7 @@ const HTML =
 '</div>'+
 '<div class=tabpane id="pane-gsc">'+gscPane+'</div>'+
 '<p class=muted style="margin-top:30px;font-size:.8rem">Auto-generated '+stamp+' by scripts/site-audit.js from '+Sx.totalFiles+' HTML files. Word counts use the &lt;main&gt; region where present. Orphan = 0 resolved inbound links excluding global nav/footer.</p>'+
-'</div><script>\nvar DATA='+JSON.stringify(DATA)+';\n'+JS+'\n</script></body></html>';
+'</div><script>\nvar DATA='+JSON.stringify(DATA)+';\nfunction downloadReport(){var o=[];document.querySelectorAll("details:not([open])").forEach(function(d){d.open=true;o.push(d);});function r(){o.forEach(function(d){d.open=false;});window.removeEventListener("afterprint",r);}window.addEventListener("afterprint",r);window.print();}\n'+JS+'\n</script></body></html>';
 
 fs.writeFileSync(path.join(OUT_DIR, 'site-audit.html'), HTML);
 console.log('[site-audit] '+Sx.totalFiles+' pages, '+Sx.articles+' articles | broken:'+Sx.brokenLinks+' thin:'+(Sx.veryThin+Sx.thin)+' filler:'+Sx.filler+' | history:'+history.length+' snapshot(s) -> _analysis/site-audit.html');
