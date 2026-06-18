@@ -388,51 +388,51 @@ const JS = [
 "document.querySelectorAll('.toptab').forEach(function(t){t.onclick=function(){var p=t.getAttribute('data-pane');document.querySelectorAll('.toptab').forEach(function(x){x.classList.toggle('on',x===t);});document.querySelectorAll('.tabpane').forEach(function(pane){pane.classList.toggle('on',pane.id==='pane-'+p);});window.scrollTo(0,0);};});"
 ].join("\n");
 
-// ---------- GSC performance pane (static snapshot from the 2026-06-17 Search Console pull) ----------
+// ---------- GSC performance pane (static snapshot from the 2026-06-18 Search Console pull, 7-day window) ----------
 // Hand-maintained: this generator crawls the codebase, not GSC. Update these figures when a fresh
 // Search Console export is dropped (window/totals/tables below), then re-run the audit.
 const gscRow = (u, imp, clk, pos) => '<tr><td style="font-family:ui-monospace,Menlo,monospace;font-size:.8rem">'+u+'</td><td class=num>'+imp+'</td><td class=num>'+clk+'</td><td class=num>'+pos+'</td></tr>';
 const gscPane =
-'<div class="note" style="border-left-color:var(--bad);background:rgba(239,68,68,.1);color:#fca5a5"><b>Headline &mdash; this is a CTR collapse, not a ranking problem.</b> ~24,700 impressions in 28 days produced <b>~82 clicks</b> (0.33%). The cause is <b>AI Overviews / Google AI Mode answering queries in-SERP</b>: pages rank on page 1 but the click never happens. Source: GSC export dated <b>2026-06-17</b>, window <b>May 19 &ndash; Jun 15</b>.</div>'+
+'<div class="note" style="border-left-color:var(--warn);background:rgba(245,158,11,.1);color:#fcd34d"><b>Headline &mdash; recovery holding; the CTR leak is still the core problem.</b> The last 7 days (Jun 10&ndash;16) pulled <b>~6,631 impressions</b> and <b>31 clicks</b> &mdash; CTR <b>~0.47%</b>, up from the 28-day 0.33%, with avg position tightening to <b>~19</b> (from ~21). Rankings are fine; <b>AI Overviews / Google AI Mode</b> still answer most queries in-SERP so the click never happens. Source: GSC export dated <b>2026-06-18</b>, window <b>Last 7 days (Jun 10 &ndash; Jun 16)</b>.</div>'+
 '<div class=kpis>'+
-'<div class="kpi neu"><div class=v>~24.7k</div><div class=l>Impressions (28d)</div></div>'+
-'<div class="kpi bad"><div class=v>~82</div><div class=l>Clicks (28d)</div></div>'+
-'<div class="kpi bad"><div class=v>0.33%</div><div class=l>Site-wide CTR</div></div>'+
-'<div class="kpi warn"><div class=v>~21</div><div class=l>Avg position</div></div>'+
-'<div class="kpi bad"><div class=v>3,774&rarr;0</div><div class=l>Top page impr&rarr;clicks @ pos 3.9</div></div>'+
+'<div class="kpi neu"><div class=v>~6.6k</div><div class=l>Impressions (7d)</div></div>'+
+'<div class="kpi warn"><div class=v>31</div><div class=l>Clicks (7d)</div></div>'+
+'<div class="kpi warn"><div class=v>0.47%</div><div class=l>Site-wide CTR (was 0.33%)</div></div>'+
+'<div class="kpi good"><div class=v>~19</div><div class=l>Avg position (was ~21)</div></div>'+
+'<div class="kpi bad"><div class=v>321&rarr;0</div><div class=l>Top page impr&rarr;clicks @ pos 3.8</div></div>'+
 '</div>'+
 '<h2 class=sec>Where the clicks are leaking &mdash; high impressions, ~0 clicks</h2>'+
-'<div class=sub>Pages ranking well but barely clicked. Position 4 with 3,774 impressions and zero clicks is the textbook signature of AI-answer cannibalization &mdash; not a ranking issue. The one bright spot, the <code>carecredit-vs-patientfi</code> comparison page at 7 clicks, shows what survives: "vs", "rates", and concrete-data pages.</div>'+
+'<div class=sub>Pages ranking well but barely clicked. The calculator guide at position 3.8 with 321 impressions and zero clicks is the textbook signature of AI-answer cannibalization &mdash; not a ranking issue. The bright spot, the <code>carecredit-vs-patientfi</code> comparison page at 3 clicks, shows what survives: "vs", "rates", and concrete-data pages.</div>'+
 '<div class=panel style="overflow:auto"><table><thead><tr><th>Page</th><th class=num>Impr.</th><th class=num>Clicks</th><th class=num>Position</th></tr></thead><tbody>'+
-gscRow('/construction-business-financing/why-contractors-need-working-capital','3,774','<b style="color:var(--bad)">0</b>','3.94')+
-gscRow('/commercial-real-estate-loans/&hellip;/how-much-down-payment-required-commercial-property-loan','1,436','1','16.97')+
-gscRow('/equipment-financing/&hellip;/carecredit-vs-patientfi-imaging-radiology','614','<b style="color:var(--good)">7</b>','18.42')+
-gscRow('/business-line-of-credit/&hellip;/what-are-typical-business-line-of-credit-rates','613','2','39.87')+
-gscRow('/articles/same-day-business-funding-whats-actually-possible','593','0','8.94')+
-gscRow('/equipment/semi-trucks/semi-truck-financing-down-payment','510','1','9.08')+
+gscRow('/commercial-real-estate-loans/&hellip;/how-much-down-payment-required-commercial-property-loan','491','1','12.43')+
+gscRow('/equipment-financing/&hellip;/carecredit-vs-patientfi-imaging-radiology','332','<b style="color:var(--good)">3</b>','19.09')+
+gscRow('/business-loan-calculator-guide','321','<b style="color:var(--bad)">0</b>','3.77')+
+gscRow('/commercial-real-estate-loans/&hellip;/multifamily-loan-down-payment','203','0','8.94')+
+gscRow('/business-line-of-credit/&hellip;/what-are-typical-business-line-of-credit-rates','178','<b style="color:var(--bad)">0</b>','37.05')+
+gscRow('/business-line-of-credit/&hellip;/how-fast-can-you-get-approved-business-line-of-credit','154','0','9.09')+
 '</tbody></table></div>'+
 '<h2 class=sec>Recovery from the May 18 dilution event</h2>'+
-'<div class=sub>Real but early. Average position recovered from ~27 to ~17&ndash;21 and daily clicks rose from ~1 to 4&ndash;10 across June. The cleanup-before-publishing strategy is working &mdash; <b>hold the freeze on new programmatic pages</b> until index count and position fully stabilize.</div>'+
+'<div class=sub>Holding. Across Jun 10&ndash;16 daily clicks averaged <b>~4</b> (stable after the early-June 4&ndash;10 spike), impressions rose <b>925&rarr;1,313/day</b>, and avg position tightened from <b>18.3 to 15.6</b> over the week. Site-wide CTR ticked up to 0.47%. The cleanup-before-publishing strategy is working &mdash; <b>hold the freeze on new programmatic pages</b> until index count and position fully stabilize.</div>'+
 '<h2 class=sec>Bridge loan cluster &mdash; detail</h2>'+
-'<div class=sub>The full bridge cluster pulled <b>~260 impressions and 2 clicks</b> in 28 days. The hub itself got <b>5 impressions</b> while its own child articles pulled 30&ndash;70 &mdash; the classic signature of <b>keyword cannibalization</b> (authority for "commercial bridge loan" split across child URLs instead of concentrating on the hub). The cluster is over-built relative to its search demand.</div>'+
+'<div class=sub>The full bridge cluster pulled only <b>~41 impressions and 1 click</b> in the last 7 days, and the hub (<code>/commercial-bridge-loans.html</code>) recorded <b>zero impressions</b> &mdash; authority for "commercial bridge loan" is still split across child URLs while the hub itself goes unseen (<b>keyword cannibalization</b>). The cluster is over-built relative to its search demand.</div>'+
 '<div class=panel style="overflow:auto"><table><thead><tr><th>Bridge page</th><th class=num>Impr.</th><th class=num>Clicks</th><th class=num>Position</th></tr></thead><tbody>'+
-gscRow('/commercial-bridge-loans/articles/typical-commercial-bridge-loan-rates-2026','69','<b style="color:var(--good)">1</b>','5.43')+
-gscRow('/commercial-bridge-loans/articles/how-fast-can-you-close-commercial-bridge-loan','36','0','<b style="color:var(--bad)">27.7</b> (was 10.1)')+
-gscRow('/commercial-bridge-loans/articles/when-should-you-use-commercial-bridge-loan','33','0','10.30')+
-gscRow('/commercial-bridge-loans/articles/5m-bridge-loan-multifamily-structure-closing-timeline','31','0','6.68')+
-gscRow('/commercial-bridge-loans/articles/what-do-lenders-look-for-commercial-bridge-loan','25','0','18.88')+
-gscRow('/commercial-bridge-loans/articles/bridge-loan-pitfalls-what-can-go-wrong','24','0','9.54')+
-gscRow('/commercial-bridge-loans/articles/bridge-loan-value-add-commercial-property','11','1','7.45')+
-gscRow('/commercial-bridge-loans/articles/bridge-loan-vs-heloc','11','0','50.64')+
-gscRow('<b>/commercial-bridge-loans.html &nbsp;(HUB)</b>','<b>5</b>','0','5.80')+
+gscRow('/commercial-bridge-loans/articles/5m-bridge-loan-multifamily-structure-closing-timeline','15','0','7.53')+
+gscRow('/commercial-bridge-loans/articles/typical-commercial-bridge-loan-rates-2026','7','<b style="color:var(--good)">1</b>','6.00')+
+gscRow('/commercial-bridge-loans/articles/when-should-you-use-commercial-bridge-loan','7','0','5.14')+
+gscRow('/commercial-bridge-loans/articles/bridge-loan-pay-off-construction-debt','4','0','8.25')+
+gscRow('/commercial-bridge-loans/articles/what-do-lenders-look-for-commercial-bridge-loan','4','0','20.00')+
+gscRow('/commercial-bridge-loans/articles/bridge-loan-pitfalls-what-can-go-wrong','2','0','11.00')+
+gscRow('/commercial-bridge-loans/articles/bridge-loan-value-add-commercial-property','1','0','3.00')+
+gscRow('/commercial-bridge-loans/articles/construction-loan-vs-bridge-loan','1','0','66.00')+
+gscRow('<b>/commercial-bridge-loans.html &nbsp;(HUB)</b>','<b style="color:var(--bad)">0</b>','0','&mdash;')+
 '</tbody></table></div>'+
 '<h2 class=sec>What "more agency on bridge" should mean &mdash; not more pages</h2>'+
-'<div class=fixcard><div class=fixhead><span class="tag t-now">NOW</span><b>Fix the hub cannibalization</b><span class=eff>~1 hr</span></div><div class=muted style="font-size:.85rem;margin-top:6px">Find which bridge URL Google ranks for core "commercial bridge loan" terms and consolidate intent onto the hub so authority stops splitting across child articles. Zero new URLs.</div></div>'+
-'<div class=fixcard><div class=fixhead><span class="tag t-now">NOW</span><b>Recover the article that fell off page 1</b><span class=eff>~30 min</span></div><div class=muted style="font-size:.85rem;margin-top:6px"><code>how-fast-can-you-close</code> dropped from position 10 to 28. Rewrite title/meta to the seo-geo-aeo bar and refresh &mdash; it is an answer-intent query you used to rank for.</div></div>'+
+'<div class=fixcard><div class=fixhead><span class="tag t-now">NOW</span><b>Fix the hub cannibalization</b><span class=eff>~1 hr</span></div><div class=muted style="font-size:.85rem;margin-top:6px">The hub pulled <b>0 impressions</b> while child articles ranked &mdash; Google is ignoring it entirely. Find which bridge URL ranks for core "commercial bridge loan" terms and consolidate intent onto the hub so authority stops splitting across child articles. Zero new URLs.</div></div>'+
+'<div class=fixcard><div class=fixhead><span class="tag t-now">NOW</span><b>Recover the BLoC rates page stuck on page 4</b><span class=eff>~30 min</span></div><div class=muted style="font-size:.85rem;margin-top:6px"><code>what-are-typical-business-line-of-credit-rates</code> pulled <b>178 impressions at position 37</b> with 0 clicks &mdash; a high-demand "rates" query buried on page 4. Rewrite title/meta to the seo-geo-aeo bar, add a dated 2026 rate table, and refresh.</div></div>'+
 '<div class=fixcard><div class=fixhead><span class="tag t-soon">SOON</span><b>Win AI-citation with data + tables</b><span class=eff>~half day</span></div><div class=muted style="font-size:.85rem;margin-top:6px">Port the rates-2026 page approach to the hub: a real comparison table (bridge vs hard money vs construction vs SBA &mdash; term / speed / LTV / rate) plus dated 2026 rate ranges. Tables and dated numbers get extracted and cited by AI engines.</div></div>'+
 '<div class=fixcard><div class=fixhead><span class="tag t-later">HOLD</span><b>No net-new bridge URLs yet</b><span class=eff>gated</span></div><div class=muted style="font-size:.85rem;margin-top:6px">Do not publish new bridge pages until the recovery gates clear (index count down, avg position up). Adding supply where there is little demand, mid-penalty, is the wrong lever.</div></div>'+
-'<div class="good-li" style="margin-top:14px"><b>Bigger-picture priority:</b> bridge is high-ticket but low-volume (~260 impr/28d). The recoverable traffic is in construction working capital, CRE down-payment, equipment, and "vs/comparison" queries &mdash; pages already pulling 600&ndash;3,700 impressions at near-zero CTR. Fixing CTR / AI-citation on those is roughly <b>10&times; the prize</b> of bridge. Fix bridge because deals are large; spend the most effort on the high-impression CTR leak.</div>'+
-'<p class=muted style="margin-top:16px;font-size:.8rem">Static snapshot &mdash; figures hand-entered from the 2026-06-17 GSC export (this dashboard crawls the codebase, not Search Console). Full write-up: <code>_analysis/GSC_ANALYSIS_2026-06-17.md</code>.</p>';
+'<div class="good-li" style="margin-top:14px"><b>Bigger-picture priority:</b> bridge is high-ticket but low-volume (~41 impr/7d). The recoverable traffic is in CRE down-payment, the business-loan calculator guide, equipment, and "vs/comparison" queries &mdash; pages already pulling 150&ndash;500 impressions at near-zero CTR. Fixing CTR / AI-citation on those is the far larger prize. Fix bridge because deals are large; spend the most effort on the high-impression CTR leak.</div>'+
+'<p class=muted style="margin-top:16px;font-size:.8rem">Static snapshot &mdash; figures hand-entered from the 2026-06-18 GSC export (7-day window; this dashboard crawls the codebase, not Search Console). Full write-up: <code>_analysis/GSC_ANALYSIS_2026-06-18.md</code>.</p>';
 
 const Sx = summary;
 const HTML =
