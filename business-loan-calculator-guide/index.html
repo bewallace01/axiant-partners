@@ -43,7 +43,7 @@
     <meta property="og:site_name" content="Axiant Partners">
     <meta property="article:section" content="Equipment Financing">
     <meta property="article:published_time" content="2026-04-28">
-    <meta property="article:modified_time" content="2026-04-28">
+    <meta property="article:modified_time" content="2026-06-19">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Business Loan Calculator + Payment Formulas | Axiant Partners">
     <meta name="twitter:description" content="Free business loan calculator plus the formulas behind it: amortization, factor rate to APR, and total cost with worked examples.">
@@ -152,7 +152,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://axiantpartners.com/"},{"@type":"ListItem","position":2,"name":"Business Loan Calculator Guide","item":"https://axiantpartners.com/business-loan-calculator-guide/"}]}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"Business Loan Calculator Guide","description":"How to compute business loan payments and total cost by hand for every major U.S. loan product.","image":{"@type":"ImageObject","url":"https://axiantpartners.com/assets/equipment-financing-hero.webp","width":1200,"height":630},"url":"https://axiantpartners.com/business-loan-calculator-guide/","datePublished":"2026-04-28","dateModified":"2026-04-28","author":{"@type":"Organization","name":"Axiant Partners","url":"https://axiantpartners.com"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/business-loan-calculator-guide/"},"articleSection":"Reference","keywords":"business loan calculator, how to calculate business loan payment, amortization formula, factor rate to APR"}
+    {"@context":"https://schema.org","@type":"Article","headline":"Business Loan Calculator Guide","description":"How to compute business loan payments and total cost by hand for every major U.S. loan product.","image":{"@type":"ImageObject","url":"https://axiantpartners.com/assets/equipment-financing-hero.webp","width":1200,"height":630},"url":"https://axiantpartners.com/business-loan-calculator-guide/","datePublished":"2026-04-28","dateModified":"2026-06-19","author":{"@type":"Organization","name":"Axiant Partners","url":"https://axiantpartners.com"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/business-loan-calculator-guide/"},"articleSection":"Reference","keywords":"business loan calculator, how to calculate business loan payment, amortization formula, factor rate to APR"}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the amortization formula?","acceptedAnswer":{"@type":"Answer","text":"M = P[r(1+r)^n] / [(1+r)^n - 1] where M = monthly payment, P = principal, r = monthly interest rate (annual / 12), n = number of monthly payments. This is the standard formula behind every loan calculator."}},{"@type":"Question","name":"How do I convert factor rate to APR?","acceptedAnswer":{"@type":"Answer","text":"Quick approximation: (factor - 1) / term in years × 1.8. A 1.30 factor rate over 6 months: (0.30 / 0.5) × 1.8 = 108% APR. The 1.8 multiplier adjusts for declining-balance interest assumed in APR vs flat factor rate."}},{"@type":"Question","name":"How do I compute total cost of capital?","acceptedAnswer":{"@type":"Answer","text":"Monthly payment × number of payments + any origination, points, or fees - any rebates. For factor-rate products: principal × factor rate + any extras. Always include fees in the comparison."}},{"@type":"Question","name":"Why don&apos;t I just use an online calculator?","acceptedAnswer":{"@type":"Answer","text":"Online calculators are fine for the basic amortization math but rarely include origination, prepayment penalties, or factor-rate conversions. Knowing the formulas lets you verify any quote and compare offers across different structures (loan vs lease vs MCA)."}},{"@type":"Question","name":"How do I compute the impact of a balloon payment?","acceptedAnswer":{"@type":"Answer","text":"Compute the monthly payment using full amortization (e.g., 25 years), then identify the remaining balance at the balloon date (often 5-10 years in). The remaining balance becomes the balloon. Use a standard amortization calculator or the formula at any point in the schedule."}}]}
@@ -195,7 +195,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
       <aside class="blog-post-rail-left article-rail article-rail--left"><div class="article-rail__inner">
         <div class="article-rail__block">
           <p class="blog-rail-back"><a href="/">&larr; Back to Home</a></p>
-          <div class="blog-rail-meta-item"><span class="blog-rail-label">Updated</span> April 10, 2026</div>
+          <div class="blog-rail-meta-item"><span class="blog-rail-label">Updated</span> June 19, 2026</div>
         </div>
         <div class="article-rail__block">
           <div class="blog-rail-quick-answer"><div class="blog-rail-quick-content"><h3>Quick Facts</h3><p>Amortization formula: M = P[r(1+r)^n] / [(1+r)^n - 1]. Factor rate to APR rough conversion: (factor - 1) / years × 1.8. Total cost: monthly P&I × number of payments + fees.</p></div></div>
@@ -286,6 +286,20 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             </ul>
             <p>The fixed annual fee makes lines expensive at low utilization. Compare against an equivalent term loan to see which structure fits the actual draw pattern.</p>
 
+            <h2 id="quick-reference">Quick Reference: Monthly Payment per $10,000 Borrowed</h2>
+            <p>To estimate a fixed-rate loan payment fast, look up the figure below for your APR and term, then multiply by the number of $10,000 increments you're borrowing. For example, a $250,000 loan at 10% APR over 10 years &asymp; 25 &times; $132 = <strong>$3,300/month</strong>. Figures are rounded amortized payments for illustration; your actual quote depends on the exact rate, term, and any fees.</p>
+            <div class="table-wrap" style="overflow-x:auto;margin:18px 0;">
+            <table>
+              <thead><tr><th>APR</th><th>3-year term</th><th>5-year term</th><th>10-year term</th></tr></thead>
+              <tbody>
+                <tr><td><strong>8%</strong></td><td>$313</td><td>$203</td><td>$121</td></tr>
+                <tr><td><strong>10%</strong></td><td>$323</td><td>$212</td><td>$132</td></tr>
+                <tr><td><strong>12%</strong></td><td>$332</td><td>$222</td><td>$143</td></tr>
+                <tr><td><strong>15%</strong></td><td>$347</td><td>$238</td><td>$161</td></tr>
+              </tbody>
+            </table>
+            </div>
+            <p>Two takeaways the table makes obvious: a longer term lowers the monthly payment sharply (but raises total interest), and at short terms the rate matters far less to the payment than the term does. Use the amortization formula above when you need an exact figure or a term the table doesn't list.</p>
             <h2 id="how-to-verify">How to Verify Any Quote</h2>
             <ol>
                 <li><strong>Confirm the structure</strong> &mdash; amortizing, factor rate, revolving, balloon</li>
