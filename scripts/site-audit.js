@@ -521,7 +521,7 @@ const aeoReady = p => hasType(p, 'FAQPage') || hasType(p, 'HowTo');
 const geoReady = p => !!p.mod && (hasType(p, 'Article') || hasType(p, 'FAQPage') || hasType(p, 'FinancialService') || hasType(p, 'HowTo'));
 const seoReady = p => p.inSitemap && p.inbound > 0 && p.wc >= 500 && p.schema.length > 0 && !p.noindex;
 const aeoGapPages = contentPagesG.filter(p => !aeoReady(p));
-const geoGapPages = contentPagesG.filter(p => !p.mod);
+const geoGapPages = contentPagesG.filter(p => !p.mod && !p.noindex);
 // fold AEO/GEO gaps into the fixes list so they flow into Start Here + the fixes tab
 if (aeoGapPages.length) fixes.push({ pri: 'SOON', effort: 'Med', title: aeoGapPages.length + ' content pages have no FAQ/Q&A schema (AEO)', how: 'Add an FAQ block + FAQPage schema so Google answer boxes and "People also ask" can lift the answer. Most of the site already has this — these are the stragglers.', sample: aeoGapPages.slice(0, 12).map(p => p.key) });
 if (geoGapPages.length) fixes.push({ pri: 'SOON', effort: 'Low', title: geoGapPages.length + ' pages show no "last updated" date (GEO)', how: 'Add dateModified / article:modified_time so AI engines (Google AI Overviews, ChatGPT, Perplexity) trust and cite them. Freshness is the strongest GEO signal.', sample: geoGapPages.slice(0, 12).map(p => p.key) });
