@@ -85,6 +85,7 @@ for (const rel of files) {
   const titleM = html.match(/<title>([^<]*)<\/title>/i);
   const descM = html.match(/<meta name="description" content="([^"]*)"/i);
   const robotsM = html.match(/<meta name="robots" content="([^"]*)"/i);
+  const canonM = html.match(/<link rel="canonical"[^>]*href="([^"]+)"/i);
   const noindex = robotsM ? /noindex/i.test(robotsM[1]) : false;
   const h1 = (html.match(/<h1[\s>]/gi)||[]).length;
   const ldBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)];
@@ -119,7 +120,7 @@ for (const rel of files) {
   pages[key] = { key, rel, type: classify(rel), cluster: rel.includes('/')?rel.split('/')[0]:'(root)',
     title: titleM?norm(titleM[1]):'', desc: descM?descM[1].length:0, h1, noindex,
     schema:[...types], ldFail, wc, wcSrc:src, imgs:imgs.length, imgNoAlt,
-    out:[...outKeys], broken, inSitemap: sitemapKeys.has(key), mod: modM?modM[1]:null, dataBatch, hasTool, nonascii:na };
+    out:[...outKeys], broken, inSitemap: sitemapKeys.has(key), mod: modM?modM[1]:null, canonical: canonM?canonM[1]:null, dataBatch, hasTool, nonascii:na };
   for (const ok of outKeys) inbound[ok]=(inbound[ok]||0)+1;
 }
 for (const k in pages) pages[k].inbound = inbound[k]||0;
@@ -140,7 +141,17 @@ const isArticleType = p => p.type==='article' && !/calculator|embed|brochure/.te
 const veryThin = indexable.filter(p=>isArticleType(p)&&p.wc<500);
 const thin = indexable.filter(p=>isArticleType(p)&&p.wc>=500&&p.wc<800);
 const brokenList=[]; for(const p of arr) for(const b of p.broken) brokenList.push({from:p.key, href:b});
-const notInSitemap = indexable.filter(p=>!p.inSitemap && !['core','fragment','ad-landing','cluster-index'].includes(p.type));
+// A page that canonicals to a DIFFERENT URL is intentionally non-canonical and
+// correctly excluded from the sitemap (the sitemap should list canonical URLs
+// only). Treat such pages as self-canonical=false so they are not flagged as
+// "missing from sitemap" — only genuinely-missing self-canonical pages are.
+const trimSlash = s => (s.replace(/\/$/,'') || '/');
+const isSelfCanonical = p => {
+  if (!p.canonical) return true;
+  const cpath = p.canonical.replace(/^https?:\/\/[^/]+/,'').replace(/index\.html$/,'') || '/';
+  return trimSlash(cpath) === trimSlash(p.key);
+};
+const notInSitemap = indexable.filter(p=>!p.inSitemap && !['core','fragment','ad-landing','cluster-index'].includes(p.type) && isSelfCanonical(p));
 const noindexInSitemap = arr.filter(p=>p.noindex && p.inSitemap);
 const deadSitemap=[...sitemapKeys].filter(k=>!pages[k]);
 const noSchema = indexable.filter(p=>isContent(p)&&p.schema.length===0 && p.type!=='cluster-index');
