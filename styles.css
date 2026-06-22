@@ -123,3 +123,5 @@ body{padding-bottom:76px}
 .trust-band-num{font-size:2rem;font-weight:800;color:var(--accent-color);line-height:1}
 .trust-band-label{margin-top:.45rem;font-size:.9rem;color:var(--text-secondary);line-height:1.35}
 @media (max-width:680px){.trust-band-grid{grid-template-columns:repeat(2,1fr)}}
+/* Mobile: full-width hero text needs a uniform dark scrim over the photo (the desktop left-weighted overlay is too light on the right/lower areas on small screens). */
+@media (max-width:768px){.ef-hero{position:relative}.ef-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,18,35,0.42) 0%,rgba(8,18,35,0.70) 100%);z-index:1;pointer-events:none}.ef-hero-copy{position:relative;z-index:3}}
