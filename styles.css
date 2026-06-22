@@ -145,3 +145,9 @@ body{padding-bottom:76px}
   /* 4. Mobile menu — bigger, easier-to-tap links */
   .mobile-overlay-links a{min-height:48px;display:flex;align-items:center}
 }
+
+/* Mobile menu overlay logo — img has width="1177" attr + inline height:40px, which
+   stretches it. Force width:auto so height drives a proportional, correct logo. */
+@media (max-width:768px){
+  .mobile-nav-overlay .nav-top img,.mobile-nav-overlay .nav-top picture img{width:auto;height:38px;max-width:62%}
+}
