@@ -110,6 +110,31 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
         .relief-disclaimer p { margin: 0 0 0.75rem; font-size: 0.95rem; color: var(--text-secondary); }
         .relief-disclaimer p:last-child { margin-bottom: 0; }
         @media (max-width: 768px) { .ef-hero { min-height: 380px; padding: 3rem 1.5rem 3rem; } }
+        .ci-section { background: var(--bg-secondary); padding: 2.5rem clamp(1.25rem, 5vw, 4rem) 3rem; }
+        .ci-wrap { max-width: 920px; margin: 0 auto; }
+        .ci-form { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: clamp(1.25rem, 3vw, 2rem); box-shadow: 0 4px 18px var(--shadow-color); }
+        .ci-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        @media (max-width: 640px) { .ci-grid { grid-template-columns: 1fr; } }
+        .ci-field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+        .ci-field label { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); }
+        .ci-field .req { color: #ef4444; }
+        .ci-field input, .ci-field select { padding: 11px 12px; font-size: 1rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary, #fff); color: var(--text-primary); box-sizing: border-box; width: 100%; font-family: inherit; }
+        .ci-field input:focus, .ci-field select:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(45,127,184,0.15); }
+        .ci-row2 { display: flex; gap: 0.6rem; }
+        .ci-row2 input { flex: 1 1 auto; }
+        .ci-row2 select { flex: 0 0 132px; }
+        .ci-checks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 0.15rem; }
+        .ci-check { display: inline-flex; align-items: center; gap: 7px; font-size: 0.92rem; color: var(--text-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 9px 13px; cursor: pointer; }
+        .ci-check input { width: auto; }
+        .ci-consent { display: flex; align-items: flex-start; gap: 9px; font-size: 0.9rem; color: var(--text-secondary); margin: 0.25rem 0 1.1rem; }
+        .ci-consent input { width: auto; margin-top: 3px; }
+        .ci-submit { width: 100%; font-size: 1.1rem; padding: 0.95rem 1.5rem; }
+        .ci-error { display: none; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.4); color: #b91c1c; border-radius: 8px; padding: 11px 14px; margin-bottom: 1rem; font-size: 0.92rem; }
+        [data-theme="dark"] .ci-error { color: #fca5a5; }
+        .ci-fineprint { margin: 0.9rem 0 0; font-size: 0.82rem; color: var(--text-tertiary); text-align: center; }
+        .ci-thanks { display: none; background: var(--bg-card); border: 1px solid var(--border-color); border-left: 4px solid var(--accent-color); border-radius: 14px; padding: 2rem; text-align: center; box-shadow: 0 4px 18px var(--shadow-color); }
+        .ci-thanks h3 { font-size: 1.4rem; margin: 0 0 0.6rem; color: var(--text-primary); }
+        .ci-thanks p { color: var(--text-secondary); margin: 0 0 0.5rem; }
     </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://axiantpartners.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://axiantpartners.com/services.html"},{"@type":"ListItem","position":3,"name":"Business Debt Consolidation","item":"https://axiantpartners.com/business-debt-consolidation.html"}]}
@@ -162,7 +187,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                     <li>Free, no-obligation review&mdash;nationwide</li>
                 </ul>
                 <div class="ef-hero-ctas">
-                    <a href="/match.html?type=refinance" class="btn-primary" style="padding:0.9rem 1.5rem; font-size:1.05rem;">Get a Free Consolidation Quote</a>
+                    <a href="#consolidation-intake" class="btn-primary" style="padding:0.9rem 1.5rem; font-size:1.05rem;">Get a Free Consolidation Quote</a>
                     <a href="tel:+19199072611" class="ef-phone-cta">Call Now: (919) 907-2611</a>
                 </div>
             </div>
@@ -171,6 +196,99 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                     <source srcset="/assets/debt-consolidation-hero.webp" type="image/webp">
                     <img src="/assets/debt-consolidation-hero.svg" width="560" height="460" alt="Multiple stacked merchant cash advance and loan payments consolidating into one lower payment" loading="eager">
                 </picture>
+            </div>
+        </section>
+
+        <section id="consolidation-intake" class="ci-section">
+            <div class="ci-wrap">
+                <div style="text-align:center;margin-bottom:1.5rem;">
+                    <h2 style="font-size:clamp(1.5rem,3vw,2rem);margin:0 0 0.5rem;color:var(--text-primary);">Get Your Free Consolidation Review</h2>
+                    <p style="color:var(--text-secondary);max-width:640px;margin:0 auto;font-size:1.02rem;">Tell us about your current advances and loans. A specialist reviews your positions and maps the realistic ways to one lower payment&mdash;no obligation, and no hard credit pull to get started.</p>
+                </div>
+                <form id="consolidationForm" novalidate class="ci-form">
+                    <div class="ci-error" id="ciError"></div>
+                    <div class="ci-grid">
+                        <div class="ci-field"><label for="ciName">Full name <span class="req">*</span></label><input id="ciName" type="text" autocomplete="name" placeholder="John Doe" required></div>
+                        <div class="ci-field"><label for="ciEmail">Email <span class="req">*</span></label><input id="ciEmail" type="email" autocomplete="email" placeholder="john@example.com" required></div>
+                        <div class="ci-field"><label for="ciPhone">Phone <span class="req">*</span></label><input id="ciPhone" type="tel" autocomplete="tel" placeholder="(555) 123-4567" required></div>
+                        <div class="ci-field"><label for="ciBusiness">Business name</label><input id="ciBusiness" type="text" autocomplete="organization" placeholder="Acme Corporation"></div>
+                    </div>
+                    <div class="ci-grid">
+                        <div class="ci-field"><label for="ciPositions">Open advances / loans <span class="req">*</span></label>
+                            <select id="ciPositions" required>
+                                <option value="">How many do you have?</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5+">5 or more</option>
+                            </select>
+                        </div>
+                        <div class="ci-field"><label for="ciBalance">Total balance owed (all debts) <span class="req">*</span></label><input id="ciBalance" type="text" inputmode="numeric" placeholder="e.g., $150,000" required></div>
+                    </div>
+                    <div class="ci-grid">
+                        <div class="ci-field"><label for="ciPayment">Current total payment <span class="req">*</span></label>
+                            <div class="ci-row2">
+                                <input id="ciPayment" type="text" inputmode="numeric" placeholder="e.g., $5,000" required>
+                                <select id="ciPayFreq" aria-label="Payment frequency">
+                                    <option value="per week">per week</option>
+                                    <option value="per day">per day</option>
+                                    <option value="per month">per month</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ci-field"><label for="ciRevenue">Average monthly revenue</label>
+                            <select id="ciRevenue">
+                                <option value="">Select range</option>
+                                <option value="Under $10k/mo">Under $10k</option>
+                                <option value="$10k–$25k/mo">$10k – $25k</option>
+                                <option value="$25k–$50k/mo">$25k – $50k</option>
+                                <option value="$50k–$100k/mo">$50k – $100k</option>
+                                <option value="$100k+/mo">$100k+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ci-field">
+                        <label>What kind of debt are you carrying? <span style="font-weight:400;color:var(--text-tertiary);">(select all that apply)</span></label>
+                        <div class="ci-checks">
+                            <label class="ci-check"><input type="checkbox" name="ciDebtType" value="Stacked merchant cash advances"> Stacked MCAs</label>
+                            <label class="ci-check"><input type="checkbox" name="ciDebtType" value="High-cost short-term loan"> Short-term loan</label>
+                            <label class="ci-check"><input type="checkbox" name="ciDebtType" value="Business credit cards"> Business credit cards</label>
+                            <label class="ci-check"><input type="checkbox" name="ciDebtType" value="Business line of credit"> Line of credit</label>
+                            <label class="ci-check"><input type="checkbox" name="ciDebtType" value="Other unsecured debt"> Other</label>
+                        </div>
+                    </div>
+                    <div class="ci-grid">
+                        <div class="ci-field"><label for="ciYears">Time in business</label>
+                            <select id="ciYears">
+                                <option value="">Select</option>
+                                <option value="Under 1 year">Under 1 year</option>
+                                <option value="1–2 years">1 – 2 years</option>
+                                <option value="2–5 years">2 – 5 years</option>
+                                <option value="5+ years">5+ years</option>
+                            </select>
+                        </div>
+                        <div class="ci-field"><label for="ciCredit">Credit score range</label>
+                            <select id="ciCredit">
+                                <option value="">Select</option>
+                                <option value="720+">Excellent (720+)</option>
+                                <option value="680–719">Good (680–719)</option>
+                                <option value="620–679">Fair (620–679)</option>
+                                <option value="580–619">Poor (580–619)</option>
+                                <option value="Below 580">Below 580</option>
+                            </select>
+                        </div>
+                    </div>
+                    <label class="ci-consent"><input type="checkbox" id="ciConsent" required> <span>I agree to the <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-and-conditions.html">Terms</a>, and consent to be contacted about my request. This is not an application for credit.</span></label>
+                    <button type="submit" class="btn-primary ci-submit" id="ciSubmit">Get My Free Consolidation Review</button>
+                    <p class="ci-fineprint">No hard credit pull to start &middot; No obligation &middot; Free &middot; We never sell your information.</p>
+                </form>
+                <div class="ci-thanks" id="ciThankYou">
+                    <h3>Thanks &mdash; your consolidation review is in.</h3>
+                    <p>A specialist will review your positions and reach out, usually the same business day.</p>
+                    <p>Your reference number: <strong id="ciRef"></strong></p>
+                    <p style="margin-top:1rem;">Want to talk now? <a href="tel:+19199072611" style="color:var(--accent-color);font-weight:600;">Call (919) 907-2611</a></p>
+                </div>
             </div>
         </section>
 
@@ -209,8 +327,8 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             <section class="about-section">
                 <h2>What Is Business Debt Consolidation?</h2>
                 <p>Business debt consolidation combines several business debts into a single new facility with <strong>one payment</strong>. Instead of juggling multiple loans, merchant cash advances, and card balances with different due dates and rates, you refinance them into one loan or line&mdash;ideally at a lower rate or a longer term&mdash;so the combined payment is smaller and easier to manage. It is a refinancing strategy that keeps your accounts in good standing, not a settlement of debt for less than you owe.</p>
-                <p>Axiant Partners reviews the debt you carry and connects you with the lender or consolidation partner that actually fits. We are a matching and advisory service&mdash;we do not lend, settle debt, or give legal or tax advice ourselves. If you are already badly behind and consolidation is not realistic, we will tell you and point you to <a href="business-debt-relief.html">other debt-relief paths</a>. Otherwise, <a href="/match.html?type=refinance">get a free consolidation review</a>.</p>
-                <div class="section-cta"><a href="/match.html?type=refinance" class="btn-primary">Get a Free Consolidation Quote</a></div>
+                <p>Axiant Partners reviews the debt you carry and connects you with the lender or consolidation partner that actually fits. We are a matching and advisory service&mdash;we do not lend, settle debt, or give legal or tax advice ourselves. If you are already badly behind and consolidation is not realistic, we will tell you and point you to <a href="business-debt-relief.html">other debt-relief paths</a>. Otherwise, <a href="#consolidation-intake">get a free consolidation review</a>.</p>
+                <div class="section-cta"><a href="#consolidation-intake" class="btn-primary">Get a Free Consolidation Quote</a></div>
             </section>
 
             <section class="about-section">
@@ -234,7 +352,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                         <p>Most unsecured obligations weighing on cash flow can be reviewed for consolidation into cheaper, better-structured <a href="working-capital-loans.html">working capital</a>.</p>
                     </div>
                 </div>
-                <div class="section-cta section-cta--center"><a href="/match.html?type=refinance" class="btn-primary">See What You Can Consolidate</a></div>
+                <div class="section-cta section-cta--center"><a href="#consolidation-intake" class="btn-primary">See What You Can Consolidate</a></div>
             </section>
 
             <section class="about-section">
@@ -261,7 +379,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                         <p>Replace the stack of overlapping debits with a single, more manageable payment&mdash;and get back to running the business.</p>
                     </div>
                 </div>
-                <div class="section-cta section-cta--center"><a href="/match.html?type=refinance" class="btn-primary">Start Your Free Review</a></div>
+                <div class="section-cta section-cta--center"><a href="#consolidation-intake" class="btn-primary">Start Your Free Review</a></div>
             </section>
 
             <section class="about-section">
@@ -275,7 +393,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                     <li><strong>Borrowing to make payments</strong> &mdash; you have started taking new financing mostly to cover old financing.</li>
                 </ul>
                 <p>If two or more sound familiar, a review is worth it. Read about the <a href="working-capital-loans/articles/refinancing-business-debt-mistakes-cost-you/">mistakes that cost businesses money when refinancing debt</a> before you decide.</p>
-                <div class="section-cta"><a href="/match.html?type=refinance" class="btn-primary">Get a Free Consolidation Quote</a></div>
+                <div class="section-cta"><a href="#consolidation-intake" class="btn-primary">Get a Free Consolidation Quote</a></div>
             </section>
 
             <section class="about-section">
@@ -301,7 +419,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                     </div>
                   </div>
                   <p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate based on a typical 40&ndash;60% payment reduction. Not a quote, approval, or offer of credit.</p>
-                  <a id="sdrCta" href="/match.html?type=refinance" class="btn-primary" style="margin-top:14px;">Get a free consolidation review &rarr;</a>
+                  <a id="sdrCta" href="#consolidation-intake" class="btn-primary" style="margin-top:14px;">Get a free consolidation review &rarr;</a>
                 </div>
                 <p style="font-size:0.9rem;"><a href="business-debt-relief/articles/stacked-debt-relief-calculator/">Open the full stacked-debt consolidation calculator &rarr;</a></p>
                 <script>
@@ -345,7 +463,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                             <tr>
                                 <td>Debt Consolidation</td>
                                 <td>Businesses that still qualify for new financing and want to combine several payments into one lower one.</td>
-                                <td><a href="/match.html?type=refinance">Get matched &rarr;</a></td>
+                                <td><a href="#consolidation-intake">Get matched &rarr;</a></td>
                             </tr>
                             <tr>
                                 <td>MCA Reverse Consolidation</td>
@@ -370,8 +488,8 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                         </tbody>
                     </table>
                 </div>
-                <p>Not sure which fits? Use our <a href="calculator.html">financing calculator</a> to estimate payments, or <a href="/match.html?type=refinance">get matched</a> and let a specialist map it out.</p>
-                <div class="section-cta"><a href="/match.html?type=refinance" class="btn-primary">Get Matched</a></div>
+                <p>Not sure which fits? Use our <a href="calculator.html">financing calculator</a> to estimate payments, or <a href="#consolidation-intake">get matched</a> and let a specialist map it out.</p>
+                <div class="section-cta"><a href="#consolidation-intake" class="btn-primary">Get Matched</a></div>
             </section>
 
             <section class="about-section">
@@ -392,7 +510,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                     <li><strong>50-state reach</strong> &mdash; we work with businesses nationwide across trucking, construction, retail, services, and more.</li>
                     <li><strong>No cost for match guidance</strong> &mdash; our matching service is free to you; we are compensated by our lending and partner network.</li>
                 </ul>
-                <div class="section-cta"><a href="/match.html?type=refinance" class="btn-primary">Get a Free Consolidation Quote</a></div>
+                <div class="section-cta"><a href="#consolidation-intake" class="btn-primary">Get a Free Consolidation Quote</a></div>
             </section>
 
             <section class="about-section">
@@ -409,7 +527,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                 <p>Axiant's matching and review service is free to you. We are compensated by our lending and partner network. We help you understand your consolidation options and connect you with the lender or partner that fits your situation. Axiant Partners is a financing match and advisory service and does not provide legal, tax, or debt-settlement services itself.</p>
                 <h4>Do I qualify to consolidate my business debt?</h4>
                 <p>Most consolidation programs look at your monthly revenue, time in business, the size and number of existing positions, and your credit. Businesses with steady revenue that still service their debt are the strongest candidates for a lower-cost consolidation. If you are already badly behind, a different relief path may fit better. The fastest way to know is a free, no-obligation review of your specific positions.</p>
-                <div class="section-cta" style="margin-top:1.5rem;"><a href="/match.html?type=refinance" class="btn-primary">Get a Free Consolidation Quote</a></div>
+                <div class="section-cta" style="margin-top:1.5rem;"><a href="#consolidation-intake" class="btn-primary">Get a Free Consolidation Quote</a></div>
             </section>
 
             <section class="about-section relevant-info-section">
@@ -446,7 +564,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                 <h2>Get a Free Business Debt Consolidation Review</h2>
                 <p>If stacked advances and high-cost debt are choking your cash flow, there is usually a way to one lower payment. Tell us about your debt once and we will review your options and match you with the right lender or consolidation partner&mdash;no cost for the match guidance, no obligation.</p>
                 <div class="ef-hero-ctas" style="justify-content:center;">
-                    <a href="/match.html?type=refinance" class="btn-primary" style="padding:0.9rem 1.5rem; font-size:1.05rem;">Start My Free Review</a>
+                    <a href="#consolidation-intake" class="btn-primary" style="padding:0.9rem 1.5rem; font-size:1.05rem;">Start My Free Review</a>
                     <a href="tel:+19199072611" class="ef-phone-cta" style="border-color:#fff; color:#fff;">Call (919) 907-2611</a>
                 </div>
             </section>
@@ -457,6 +575,64 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
     <footer class="site-footer">
         <p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-and-conditions.html">Terms and Conditions</a> | <a href="vendors.html">Vendors</a></p>
     </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+    (function(){
+      function ready(fn){ if(document.readyState!=='loading') fn(); else document.addEventListener('DOMContentLoaded',fn); }
+      ready(function(){
+        if(window.emailjs){ try{ emailjs.init("VCRoHGxbB5ZkCxxUg"); }catch(e){} }
+        var form=document.getElementById('consolidationForm');
+        if(!form) return;
+        var btn=document.getElementById('ciSubmit'), err=document.getElementById('ciError');
+        function fmtMoney(el){ var n=parseFloat((el.value||'').replace(/[^0-9.]/g,'')); if(n>0) el.value='$'+Math.round(n).toLocaleString('en-US'); }
+        ['ciBalance','ciPayment'].forEach(function(id){ var el=document.getElementById(id); if(el) el.addEventListener('blur',function(){ fmtMoney(el); }); });
+        function showErr(m){ err.textContent=m; err.style.display='block'; err.scrollIntoView({behavior:'smooth',block:'center'}); }
+        form.addEventListener('submit',function(e){
+          e.preventDefault();
+          err.style.display='none';
+          var name=document.getElementById('ciName').value.trim(),
+              email=document.getElementById('ciEmail').value.trim(),
+              phone=document.getElementById('ciPhone').value.trim(),
+              biz=document.getElementById('ciBusiness').value.trim(),
+              positions=document.getElementById('ciPositions').value,
+              balance=document.getElementById('ciBalance').value.trim(),
+              payment=document.getElementById('ciPayment').value.trim(),
+              freq=document.getElementById('ciPayFreq').value,
+              revenue=document.getElementById('ciRevenue').value,
+              years=document.getElementById('ciYears').value,
+              credit=document.getElementById('ciCredit').value,
+              consent=document.getElementById('ciConsent').checked;
+          var types=[].slice.call(document.querySelectorAll('input[name=ciDebtType]:checked')).map(function(c){ return c.value; });
+          if(!name||!email||!phone||!positions||!balance||!payment){ showErr('Please fill in your name, email, phone, number of debts, total balance, and current payment.'); return; }
+          if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ showErr('Please enter a valid email address.'); return; }
+          if(!consent){ showErr('Please agree to the Privacy Policy and Terms to continue.'); return; }
+          var ref='AXC-'+Math.random().toString(36).slice(2,7).toUpperCase();
+          var details='CONSOLIDATION REQUEST — Open positions: '+positions+
+                      ' | Total balance owed: '+balance+
+                      ' | Current payment: '+payment+' '+freq+
+                      ' | Debt types: '+(types.length?types.join(', '):'Not specified');
+          var params={ full_name:name, email:email, phone:phone, business_name:biz||'Not provided',
+            loan_type:'Debt Consolidation', loan_amount:balance, credit_score:credit||'Not provided',
+            revenue:revenue||'Not provided', years_in_business:years||'Not provided',
+            equipment_description:details, reference_number:ref, to_email:'alex@axiantpartners.com' };
+          btn.disabled=true; var orig=btn.textContent; btn.textContent='Submitting…';
+          function done(ok){
+            if(ok){
+              try{ if(window.gtag) gtag('event','generate_lead',{event_category:'consolidation',event_label:'business-debt-consolidation'}); }catch(e){}
+              document.getElementById('ciRef').textContent=ref;
+              form.style.display='none';
+              var ty=document.getElementById('ciThankYou'); ty.style.display='block'; ty.scrollIntoView({behavior:'smooth',block:'center'});
+            } else {
+              btn.disabled=false; btn.textContent=orig;
+              showErr('Something went wrong submitting your request. Please call (919) 907-2611 and we\'ll take it by phone.');
+            }
+          }
+          if(!window.emailjs){ done(false); return; }
+          emailjs.send('service_jweh7na','template_dmwg1ey',params).then(function(){ done(true); },function(){ done(false); });
+        });
+      });
+    })();
+    </script>
     <script src="language-switcher.js?v=202606171" defer></script>
     <script src="script.js?v=2026032199" defer></script>
 <script>
@@ -506,6 +682,6 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
 <script>
 if(window.innerWidth<=768){var ls=document.querySelectorAll('.about-section,.testimonials-section,.global-bottom-cta,.site-footer-enhanced,.services-grid,.blog-grid,.steps-grid,.benefits-grid');var so=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='none';so.unobserve(entry.target);}});},{rootMargin:'100px'});ls.forEach(function(s){s.style.opacity='0';s.style.transition='opacity 0.3s ease';so.observe(s);});}
 </script>
-<div class="mobile-cta-bar"><a href="/match.html?type=refinance" class="mcta-primary">Get a Consolidation Quote</a><a href="tel:+19199072611" class="mcta-phone" aria-label="Call (919) 907-2611">&#9742;</a></div>
+<div class="mobile-cta-bar"><a href="#consolidation-intake" class="mcta-primary">Get a Consolidation Quote</a><a href="tel:+19199072611" class="mcta-phone" aria-label="Call (919) 907-2611">&#9742;</a></div>
 </body>
 </html>
