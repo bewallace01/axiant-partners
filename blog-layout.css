@@ -555,7 +555,10 @@
   margin-bottom: 0.45rem;
 }
 .form-container.blog-post-content .blog-post-main .quick-answer > strong:first-child {
-  display: none;
+  /* The ::before above supplies the "Quick answer" label. The injected inline
+     strong carries style="display:block", which beats a plain display:none —
+     hence the double label. !important wins so only the ::before label shows. */
+  display: none !important;
 }
 .form-container.blog-post-content .blog-post-main .quick-answer p {
   margin: 0;
