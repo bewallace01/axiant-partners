@@ -166,3 +166,29 @@ body{padding-bottom:76px}
 @media (max-width:768px){
   .ef-subhead{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 }
+
+/* Mobile polish: left-align the contact form + labels (was centered, reads
+   template-y); desktop unchanged. */
+@media (max-width:768px){
+  .contact-hero-wrap .contact-form-area,
+  .contact-hero-wrap .contact-form-area form,
+  .contact-hero-wrap .contact-form-area .form-group label{text-align:left}
+}
+/* Mobile: give footer links a comfortable tap height (were ~17px tall). */
+@media (max-width:768px){
+  .site-footer a,.footer-col a,.footer-legal a,.footer-services-grid a{display:inline-block;padding-top:7px;padding-bottom:7px}
+}
+
+/* Logo: remove the % max-width that squished the overlay logo too narrow. */
+@media (max-width:768px){
+  .mobile-nav-overlay .nav-top img,.mobile-nav-overlay .nav-top picture img{max-width:none}
+}
+/* Dark mode: lift article rail cards off the near-black background (mobile). */
+@media (max-width:768px){
+  [data-theme="dark"] .blog-rail-card{background:linear-gradient(180deg,#22324a 0,#18243a 100%) !important;border-color:rgba(125,211,252,0.4) !important}
+}
+/* Contact: force labels + form area left-aligned on mobile. */
+@media (max-width:768px){
+  .contact-hero-wrap .contact-form-area{text-align:left !important}
+  .contact-hero-wrap .contact-form-area .form-group label{text-align:left !important}
+}
