@@ -125,3 +125,23 @@ body{padding-bottom:76px}
 @media (max-width:680px){.trust-band-grid{grid-template-columns:repeat(2,1fr)}}
 /* Mobile: full-width hero text needs a uniform dark scrim over the photo (the desktop left-weighted overlay is too light on the right/lower areas on small screens). */
 @media (max-width:768px){.ef-hero{position:relative}.ef-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,18,35,0.42) 0%,rgba(8,18,35,0.70) 100%);z-index:1;pointer-events:none}.ef-hero-copy{position:relative;z-index:3}}
+
+/* ===== Mobile UI polish (mobile-only @<=768px; desktop untouched) ===== */
+@media (max-width:768px){
+  /* 1. Heroes — scale long headlines down so they don't fill the whole screen */
+  .ef-hero-copy h1,.ef-hero h1{font-size:1.72rem;line-height:1.22}
+  .ef-hero-copy .ef-subhead,.ef-hero-copy>p{font-size:1rem;line-height:1.55}
+  /* 2. Readability — comfortable line-height for body copy */
+  .ef-hero-bullets li,.benefit-card p,.about-section p{line-height:1.6}
+  /* 3a. Hero CTAs — stacked, full-width, easy to tap */
+  .ef-hero-ctas{flex-direction:column;align-items:stretch;gap:10px}
+  .ef-hero-ctas .btn-primary,.ef-hero-ctas .ef-phone-cta{width:100%;min-height:50px}
+  /* 3b. Buttons everywhere — comfortable tap height */
+  .btn-primary,.btn-secondary{min-height:48px}
+  /* 3c. Cards — breathing room + consistent gaps */
+  .benefit-card{padding:18px}
+  .benefits-grid{gap:14px}
+  .industry-tile{min-height:148px}
+  /* 4. Mobile menu — bigger, easier-to-tap links */
+  .mobile-overlay-links a{min-height:48px;display:flex;align-items:center}
+}
