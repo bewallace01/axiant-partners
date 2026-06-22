@@ -151,3 +151,18 @@ body{padding-bottom:76px}
 @media (max-width:768px){
   .mobile-nav-overlay .nav-top img,.mobile-nav-overlay .nav-top picture img{width:auto;height:38px;max-width:62%}
 }
+
+/* Mobile-only hero copy swap: show a short punchy subhead on phones, keep the
+   full desktop copy unchanged. Desktop renders exactly as before. */
+.ef-subhead.ef-mobile-only{display:none}
+@media (max-width:768px){
+  .ef-subhead.ef-mobile-only{display:block}
+  .ef-subhead.ef-desktop-only{display:none}
+}
+
+/* Mobile: cap hero subheads at 3 lines (auto-ellipsis) so no hero is a wall of
+   text. Full copy stays in the DOM for SEO; desktop unchanged. Pages with a
+   bespoke .ef-mobile-only short subhead are unaffected (higher specificity). */
+@media (max-width:768px){
+  .ef-subhead{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+}
