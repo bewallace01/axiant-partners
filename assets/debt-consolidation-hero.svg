@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 460" role="img" aria-label="Multiple stacked merchant cash advance and loan payments consolidating into one lower payment">
+  <defs>
+    <linearGradient id="dcBar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7dd3fc"/>
+      <stop offset="1" stop-color="#2d7fb8"/>
+    </linearGradient>
+    <linearGradient id="dcBarFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bae6fd"/>
+      <stop offset="1" stop-color="#7dd3fc"/>
+    </linearGradient>
+    <filter id="dcShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#0b1f3c" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect x="40" y="48" width="480" height="364" rx="20"
+        fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" filter="url(#dcShadow)"/>
+
+  <rect x="68" y="78" width="170" height="12" rx="6" fill="rgba(255,255,255,0.45)"/>
+  <rect x="68" y="100" width="110" height="9" rx="4.5" fill="rgba(255,255,255,0.22)"/>
+
+  <!-- many overlapping payment chips on the left = stacked debts -->
+  <g>
+    <rect x="70"  y="150" width="150" height="34" rx="8" fill="rgba(125,211,252,0.30)" stroke="#7dd3fc" stroke-width="1.5"/>
+    <rect x="84"  y="196" width="150" height="34" rx="8" fill="rgba(125,211,252,0.30)" stroke="#7dd3fc" stroke-width="1.5"/>
+    <rect x="70"  y="242" width="150" height="34" rx="8" fill="rgba(125,211,252,0.30)" stroke="#7dd3fc" stroke-width="1.5"/>
+    <rect x="84"  y="288" width="150" height="34" rx="8" fill="rgba(125,211,252,0.30)" stroke="#7dd3fc" stroke-width="1.5"/>
+    <text x="92" y="172" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="600" fill="#ffffff">MCA #1</text>
+    <text x="106" y="218" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="600" fill="#ffffff">MCA #2</text>
+    <text x="92" y="264" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="600" fill="#ffffff">Term loan</text>
+    <text x="106" y="310" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="600" fill="#ffffff">Card debt</text>
+  </g>
+
+  <!-- consolidation arrows converging -->
+  <g fill="none" stroke="#fbbf24" stroke-width="4" stroke-linecap="round">
+    <path d="M236 167 C 290 180, 300 215, 350 232"/>
+    <path d="M250 213 C 300 222, 312 228, 350 235"/>
+    <path d="M236 259 C 290 252, 300 244, 350 240"/>
+    <path d="M250 305 C 300 290, 308 258, 350 244"/>
+  </g>
+  <path d="M350 236 l-14 -7 m14 7 l-9 13" fill="none" stroke="#fbbf24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- one consolidated payment on the right -->
+  <rect x="362" y="196" width="120" height="84" rx="12" fill="url(#dcBar)" filter="url(#dcShadow)"/>
+  <text x="422" y="232" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" fill="#0b1f3c">ONE</text>
+  <text x="422" y="254" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="700" fill="#0b1f3c">PAYMENT</text>
+
+  <!-- lower-payment tag -->
+  <g transform="translate(366,300)">
+    <rect x="0" y="0" width="150" height="40" rx="20" fill="#fbbf24"/>
+    <text x="75" y="26" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="700" fill="#0b1f3c">Lower &amp; simpler</text>
+  </g>
+</svg>
