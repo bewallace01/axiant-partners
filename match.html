@@ -468,6 +468,15 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
 <script>
 if(window.innerWidth<=768){var ls=document.querySelectorAll('.about-section,.testimonials-section,.global-bottom-cta,.site-footer-enhanced,.services-grid,.blog-grid,.steps-grid,.benefits-grid');var so=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='none';so.unobserve(entry.target);}});},{rootMargin:'100px'});ls.forEach(function(s){s.style.opacity='0';s.style.transition='opacity 0.3s ease';so.observe(s);});}
 </script>
+<!-- Netlify Forms detection (hidden): server-side backup of every lead so none is lost if EmailJS fails. The real form submits via JS; script.js also POSTs here. -->
+<form name="loan-application" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true">
+  <input type="hidden" name="form-name" value="loan-application">
+  <input type="text" name="fullName"><input type="email" name="email"><input type="tel" name="phone">
+  <input type="text" name="loanAmount"><input type="text" name="businessName"><input type="text" name="loanType">
+  <input type="text" name="creditScore"><input type="text" name="revenue"><input type="text" name="yearsInBusiness">
+  <input type="text" name="equipmentDescription"><input type="text" name="lead_type"><input type="text" name="page_url">
+  <input name="bot-field">
+</form>
 </body>
 </html>
 
