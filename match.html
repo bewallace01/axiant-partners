@@ -218,17 +218,17 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                 <div class="form-row">
                     <div class="form-group">
                         <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" required placeholder="John Doe">
+                        <input type="text" id="fullName" name="fullName" required autocomplete="name" placeholder="John Doe">
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" required placeholder="john@example.com">
+                        <input type="email" id="email" name="email" required autocomplete="email" inputmode="email" placeholder="john@example.com">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" required placeholder="(555) 123-4567">
+                        <input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="(555) 123-4567">
                     </div>
                 </div>
                 </div>
@@ -240,7 +240,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                     </div>
                     <div class="form-group">
                         <label for="businessName">Business Name</label>
-                        <input type="text" id="businessName" placeholder="e.g., Acme Corporation">
+                        <input type="text" id="businessName" name="businessName" autocomplete="organization" placeholder="e.g., Acme Corporation">
                     </div>
                 </div>
                 <div class="form-group">
@@ -261,8 +261,8 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                 <div class="form-step form-step-3" data-step="3">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="creditScore">Credit Score</label>
-                        <select id="creditScore" required>
+                        <label for="creditScore">Credit Score <span class="field-optional">(optional)</span></label>
+                        <select id="creditScore" name="creditScore">
                             <option value="">Select your credit score range</option>
                             <option value="800+">800+</option>
                             <option value="799-750">799 to 750</option>
