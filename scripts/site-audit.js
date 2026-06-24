@@ -130,10 +130,19 @@ const arr = Object.values(pages);
 const indexable = arr.filter(p=>!p.noindex);
 const contentTypes = new Set(['article','industry-hub','service-hub','guide','article-index','equipment-hub','cluster-index','landing','geo-landing','root-page','page']);
 const isContent = p => contentTypes.has(p.type);
+// A page that canonicals to a DIFFERENT URL is a duplicate that consolidates elsewhere; it is
+// correctly excluded from the sitemap and should NOT be flagged as orphan/weak — link equity is
+// meant to flow to its canonical, not to it.
+const trimSlash = s => (s.replace(/\/$/,'') || '/');
+const isSelfCanonical = p => {
+  if (!p.canonical) return true;
+  const cpath = p.canonical.replace(/^https?:\/\/[^/]+/,'').replace(/index\.html$/,'') || '/';
+  return trimSlash(cpath) === trimSlash(p.key);
+};
 const titleMap={};
 for(const p of indexable){ if(p.type==='fragment'||p.type==='ad-landing')continue; const t=p.title.replace(/\s*\|\s*Axiant.*/i,'').trim().toLowerCase(); if(!t)continue; (titleMap[t]=titleMap[t]||[]).push(p.key); }
 const dupTitles = Object.entries(titleMap).filter(([t,v])=>v.length>1);
-const orphans = indexable.filter(p=>p.inbound===0 && !CHROME.has(p.key) && isContent(p) && p.type!=='core');
+const orphans = indexable.filter(p=>p.inbound===0 && !CHROME.has(p.key) && isContent(p) && p.type!=='core' && isSelfCanonical(p));
 const articles = arr.filter(p=>p.type==='article');
 // Thin = genuine ARTICLES only. Calculators/embeds, article-index card grids, hubs,
 // print brochures, and vendor pages are legitimately short and are NOT thin content.
@@ -141,16 +150,6 @@ const isArticleType = p => p.type==='article' && !/calculator|embed|brochure/.te
 const veryThin = indexable.filter(p=>isArticleType(p)&&p.wc<500);
 const thin = indexable.filter(p=>isArticleType(p)&&p.wc>=500&&p.wc<800);
 const brokenList=[]; for(const p of arr) for(const b of p.broken) brokenList.push({from:p.key, href:b});
-// A page that canonicals to a DIFFERENT URL is intentionally non-canonical and
-// correctly excluded from the sitemap (the sitemap should list canonical URLs
-// only). Treat such pages as self-canonical=false so they are not flagged as
-// "missing from sitemap" — only genuinely-missing self-canonical pages are.
-const trimSlash = s => (s.replace(/\/$/,'') || '/');
-const isSelfCanonical = p => {
-  if (!p.canonical) return true;
-  const cpath = p.canonical.replace(/^https?:\/\/[^/]+/,'').replace(/index\.html$/,'') || '/';
-  return trimSlash(cpath) === trimSlash(p.key);
-};
 const notInSitemap = indexable.filter(p=>!p.inSitemap && !['core','fragment','ad-landing','cluster-index'].includes(p.type) && isSelfCanonical(p));
 const noindexInSitemap = arr.filter(p=>p.noindex && p.inSitemap);
 const deadSitemap=[...sitemapKeys].filter(k=>!pages[k]);
@@ -158,10 +157,10 @@ const noSchema = indexable.filter(p=>isContent(p)&&p.schema.length===0 && p.type
 const ldFails = arr.filter(p=>p.ldFail>0);
 const stale = articles.filter(p=>!p.mod || p.mod < '2026-03-01');
 const filler = arr.filter(p=>p.dataBatch);
-const weak = indexable.filter(p=>isContent(p)&&p.inbound>0&&p.inbound<=2&&p.type!=='core'&&!CHROME.has(p.key));
+const weak = indexable.filter(p=>isContent(p)&&p.inbound>0&&p.inbound<=2&&p.type!=='core'&&!CHROME.has(p.key)&&isSelfCanonical(p));
 const noToolHubs = arr.filter(p=>['industry-hub','service-hub','landing','geo-landing'].includes(p.type)&&!p.hasTool);
 const clusters={};
-for(const p of arr){ const o=(clusters[p.cluster]=clusters[p.cluster]||{cluster:p.cluster,n:0,words:0,thin:0,orphan:0,noindex:0,inb:0,inSm:0,broken:0}); o.n++; o.words+=p.wc; if(p.wc<500&&isArticleType(p))o.thin++; if(p.inbound===0&&isContent(p)&&!CHROME.has(p.key))o.orphan++; if(p.noindex)o.noindex++; o.inb+=p.inbound; if(p.inSitemap)o.inSm++; o.broken+=p.broken.length; }
+for(const p of arr){ const o=(clusters[p.cluster]=clusters[p.cluster]||{cluster:p.cluster,n:0,words:0,thin:0,orphan:0,noindex:0,inb:0,inSm:0,broken:0}); o.n++; o.words+=p.wc; if(p.wc<500&&isArticleType(p))o.thin++; if(p.inbound===0&&isContent(p)&&!CHROME.has(p.key)&&isSelfCanonical(p))o.orphan++; if(p.noindex)o.noindex++; o.inb+=p.inbound; if(p.inSitemap)o.inSm++; o.broken+=p.broken.length; }
 const clusterArr = Object.values(clusters).map(o=>({...o, avgw:Math.round(o.words/o.n), avgInb:(o.inb/o.n).toFixed(1)})).sort((a,b)=>b.n-a.n);
 const typeDist={}; for(const p of arr) typeDist[p.type]=(typeDist[p.type]||0)+1;
 const buckets=[[0,300],[300,600],[600,900],[900,1200],[1200,1600],[1600,99999]];

@@ -618,6 +618,36 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                     <a href="tel:+19199072611" class="ef-phone-cta" style="border-color:#fff; color:#fff;">Call (919) 907-2611</a>
                 </div>
             </section>
+    <section class="calc" aria-label="Business financing payment estimator">
+      <h2>Estimate your monthly payment</h2>
+      <p class="sub">See a rough monthly payment for a fixed-rate business loan. Adjust the amount, rate, and term to fit your scenario.</p>
+      <div class="calc-grid">
+        <div class="fld"><label for="feAmt">Loan amount ($)</label><input id="feAmt" type="number" inputmode="numeric" value="100000" min="1000" step="1000"></div>
+        <div class="fld"><label for="feRate">Estimated APR (%)</label><input id="feRate" type="number" value="12" min="1" max="60" step="0.5"></div>
+        <div class="fld"><label for="feTerm">Term (months)</label><input id="feTerm" type="number" value="36" min="3" max="120" step="1"></div>
+      </div>
+      <div class="calc-out">
+        <div class="outbox"><div class="k">Est. monthly payment</div><div class="v" id="fePay">$3,321</div></div>
+        <div class="outbox flag"><div class="k">Total of payments</div><div class="v" id="feTotal">$119,564</div></div>
+        <div class="outbox flag"><div class="k">Total interest</div><div class="v" id="feInt">$19,564</div></div>
+      </div>
+      <p class="calc-note">Estimate only &mdash; your actual rate and term depend on your business profile and the lender. <a href="/match.html">Get matched</a> for a real quote.</p>
+      <script>
+      (function(){
+        var a=document.getElementById('feAmt'),r=document.getElementById('feRate'),t=document.getElementById('feTerm');
+        var pay=document.getElementById('fePay'),tot=document.getElementById('feTotal'),intl=document.getElementById('feInt');
+        if(!a||!r||!t)return;
+        function fmt(n){return '$'+Math.round(n).toLocaleString('en-US');}
+        function calc(){
+          var P=+a.value||0, i=((+r.value||0)/100)/12, n=Math.max(1,+t.value||1);
+          var m = i>0 ? P*i/(1-Math.pow(1+i,-n)) : P/n, total=m*n;
+          pay.textContent=fmt(m); tot.textContent=fmt(total); intl.textContent=fmt(total-P);
+        }
+        [a,r,t].forEach(function(el){el.addEventListener('input',calc);}); calc();
+      })();
+      </script>
+    </section>
+
         </div>
         </div>
     </div>
