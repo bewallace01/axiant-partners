@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://axiantpartners.com/commercial-real-estate-loans/articles/commercial-real-estate-loan-calculator/">
+<title>Commercial Real Estate Loan Calculator — Axiant Partners</title>
+<style>
+:root{--bg-card:#fff;--bg-secondary:#f8fafc;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--text-primary:#16202e;--text-secondary:#46566a}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:transparent;color:var(--text-primary);padding:10px;line-height:1.5}
+h2.embed-title{font-size:1.1rem;margin:0 0 12px;color:var(--accent-dark)}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 20px;font-weight:600;border-radius:10px;background:linear-gradient(135deg,var(--accent-color),var(--accent-dark));color:#fff!important;text-decoration:none;border:0;cursor:pointer}
+.embed-attr{font-size:.8rem;color:var(--text-secondary);margin:12px 0 0;text-align:center}
+.embed-attr a{color:var(--accent-color);font-weight:600;text-decoration:none}
+</style>
+</head>
+<body>
+<h2 class="embed-title">Commercial Real Estate Loan Calculator</h2>
+            <div id="cre-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 8px;">
+              <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+                <label style="flex:1 1 220px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Purchase price
+                  <input id="ccPrice" type="text" inputmode="numeric" value="$1,000,000" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                </label>
+                <label style="flex:1 1 220px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Loan program
+                  <select id="ccProg" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                    <option value="10">SBA 504 (owner-occupied) &mdash; ~10% down</option>
+                    <option value="15">SBA 7(a) (owner-occupied) &mdash; ~15% down</option>
+                    <option value="25" selected>Conventional commercial &mdash; ~25% down</option>
+                    <option value="30">Investment / non-owner-occupied &mdash; ~30% down</option>
+                    <option value="25">Multifamily (5+ units) &mdash; ~25% down</option>
+                  </select>
+                </label>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+                <label style="flex:1 1 130px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Down payment %
+                  <input id="ccDown" type="number" min="0" max="90" step="1" value="25" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                </label>
+                <label style="flex:1 1 130px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Interest rate %
+                  <input id="ccRate" type="number" min="0" max="20" step="0.05" value="7.5" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                </label>
+                <label style="flex:1 1 130px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Amortization (yrs)
+                  <select id="ccAmort" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                    <option>15</option><option>20</option><option selected>25</option><option>30</option>
+                  </select>
+                </label>
+                <label style="flex:1 1 130px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Balloon (yrs)
+                  <select id="ccBalloon" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                    <option value="0">None (fully amortizing)</option>
+                    <option value="5">5</option><option value="7">7</option><option value="10" selected>10</option>
+                  </select>
+                </label>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:14px;">
+                <div style="flex:1 1 160px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                  <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Monthly payment</div>
+                  <div id="ccPay" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                </div>
+                <div style="flex:1 1 160px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                  <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Loan amount</div>
+                  <div id="ccLoan" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                </div>
+                <div style="flex:1 1 160px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                  <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Down payment</div>
+                  <div id="ccDownAmt" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;">
+                <div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                  <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Total interest (to balloon)</div>
+                  <div id="ccInt" style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                </div>
+                <div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                  <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Balloon balance due</div>
+                  <div id="ccBal" style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                </div>
+              </div>
+              <p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only, not a quote or offer of credit. Principal &amp; interest only.</p>
+              <a id="ccCta" href="https://axiantpartners.com/match.html?type=real-estate" target="_blank" rel="noopener" class="btn-primary" style="margin-top:14px;">See real numbers &mdash; get matched</a>
+            </div>
+<p class="embed-attr">Commercial real estate loan calculator by <a href="https://axiantpartners.com/commercial-real-estate-loans/articles/commercial-real-estate-loan-calculator/" target="_blank" rel="noopener">Axiant Partners</a></p>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  var price=$('ccPrice'),prog=$('ccProg'),down=$('ccDown'),rate=$('ccRate'),amort=$('ccAmort'),balloon=$('ccBalloon'),
+      outPay=$('ccPay'),outLoan=$('ccLoan'),outDownAmt=$('ccDownAmt'),outInt=$('ccInt'),outBal=$('ccBal'),cta=$('ccCta');
+  if(!price) return;
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+  var num=function(el){return parseFloat((el.value||'').replace(/[^0-9.]/g,''))||0;};
+  prog.addEventListener('change',function(){down.value=prog.value;calc();});
+  function calc(){
+    var p=num(price),d=Math.min(Math.max(num(down),0),90)/100,r=num(rate)/100/12,
+        nAmort=(+amort.value)*12,balYrs=+balloon.value;
+    if(p<=0){[outPay,outLoan,outDownAmt,outInt,outBal].forEach(function(o){o.textContent='—';});return;}
+    var loan=p*(1-d),downAmt=p*d;
+    var pay=r>0?loan*r/(1-Math.pow(1+r,-nAmort)):loan/nAmort;
+    outLoan.textContent=fmt(loan);outDownAmt.textContent=fmt(downAmt);outPay.textContent=fmt(pay)+'/mo';
+    var months=balYrs>0?Math.min(balYrs*12,nAmort):nAmort;
+    var bal=r>0?loan*Math.pow(1+r,months)-pay*((Math.pow(1+r,months)-1)/r):loan-pay*months;
+    bal=Math.max(0,bal);
+    outInt.textContent=fmt(pay*months-(loan-bal));
+    outBal.textContent=balYrs>0?fmt(bal):'Paid off';
+    if(cta){cta.href='https://axiantpartners.com/match.html?type=real-estate&amount='+Math.round(loan);cta.textContent='See if you qualify for '+fmt(loan)+' →';}
+  }
+  [price,down,rate].forEach(function(el){el.addEventListener('input',calc);});
+  [amort,balloon].forEach(function(el){el.addEventListener('change',calc);});
+  price.addEventListener('blur',function(){var n=num(price);if(n>0)price.value=fmt(n);});
+  calc();
+})();
+</script>
+</body>
+</html>
