@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://axiantpartners.com/mca-calculator.html">
+<title>Merchant Cash Advance Calculator — Axiant Partners</title>
+<style>
+:root{--bg-card:#fff;--bg-secondary:#f8fafc;--border-color:rgba(45,127,184,0.2);--shadow-color:rgba(30,58,95,0.15);--text-primary:#16202e;--text-secondary:#46566a;--text-tertiary:#6b7280;--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--header-overlay:linear-gradient(135deg,#1e3a5f 0,#2d7fb8 100%)}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:transparent;color:var(--text-primary);padding:10px;line-height:1.6}
+h2.embed-title{font-size:1.15rem;margin:0 0 4px;color:var(--accent-dark)}
+.embed-lede{font-size:.92rem;color:var(--text-secondary);margin:0 0 12px}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;background:linear-gradient(135deg,var(--accent-color),var(--accent-dark));color:#fff!important;text-decoration:none;border:0;cursor:pointer;font-size:1rem}
+.mca-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:16px;padding:24px;box-shadow:0 10px 30px -12px var(--shadow-color)}
+.mca-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.mca-grid{grid-template-columns:1fr}}
+.mca-field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:6px;color:var(--text-primary)}
+.mca-field input,.mca-field select{width:100%;min-height:48px;padding:10px 12px;border:1px solid var(--border-color);border-radius:10px;background:var(--bg-secondary);color:var(--text-primary);font-size:1rem}
+.mca-field small{display:block;color:var(--text-tertiary);font-size:.8rem;margin-top:4px}
+.mca-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.mca-error{color:#dc2626;font-weight:600;font-size:.9rem;margin-top:10px;min-height:1.2em}
+.mca-results{margin-top:24px;display:none}
+.mca-results.show{display:block}
+.mca-headline{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.mca-headline{grid-template-columns:1fr}}
+.mca-stat{background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:12px;padding:18px}
+.mca-stat .v{font-size:1.9rem;font-weight:800;line-height:1.1}
+.mca-stat .l{color:var(--text-secondary);font-size:.85rem;margin-top:4px}
+.mca-stat.apr{border-color:#dc2626;background:rgba(220,38,38,.07)}
+.mca-stat.apr .v{color:#dc2626}
+.mca-rows{margin-top:16px;border:1px solid var(--border-color);border-radius:12px;overflow:hidden}
+.mca-row{display:flex;justify-content:space-between;gap:12px;padding:11px 16px;border-bottom:1px solid var(--border-color);font-size:.95rem}
+.mca-row:last-child{border-bottom:0}
+.mca-row .rl{color:var(--text-secondary)}
+.mca-row .rv{font-weight:700;color:var(--text-primary);text-align:right}
+.mca-compare{margin-top:16px;background:rgba(45,127,184,.08);border:1px solid var(--border-color);border-radius:12px;padding:16px}
+.mca-compare b{color:var(--accent-color)}
+.mca-cta{margin-top:22px;text-align:center;background:var(--header-overlay);border-radius:14px;padding:26px 20px;color:#fff}
+.mca-cta h2{color:#fff;font-size:1.3rem;margin-bottom:8px}
+.mca-cta p{color:rgba(255,255,255,.92);max-width:560px;margin:0 auto 16px}
+.embed-attr{font-size:.8rem;color:var(--text-secondary);margin:14px 0 0;text-align:center}
+.embed-attr a{color:var(--accent-color);font-weight:600;text-decoration:none}
+</style>
+</head>
+<body>
+<h2 class="embed-title">Merchant Cash Advance Calculator</h2>
+<p class="embed-lede">A factor rate hides the true cost of an MCA. Enter your advance, factor rate, and term to see the real APR, total fees, and your daily or weekly payment.</p>
+<section class="mca-card" aria-label="MCA calculator">
+    <form id="mcaForm" class="mca-grid" novalidate>
+        <div class="mca-field">
+            <label for="advance">Advance Amount ($)</label>
+            <input type="text" id="advance" inputmode="decimal" placeholder="e.g., 50,000" value="50,000">
+        </div>
+        <div class="mca-field">
+            <label for="factor">Factor Rate</label>
+            <input type="number" id="factor" step="0.01" min="1" max="2" placeholder="e.g., 1.40" value="1.40">
+            <small>Usually 1.1&ndash;1.5. Total payback = advance &times; factor.</small>
+        </div>
+        <div class="mca-field">
+            <label for="term">Estimated Term (months)</label>
+            <input type="number" id="term" step="1" min="1" max="60" placeholder="e.g., 9" value="9">
+            <small>How long until it's paid off.</small>
+        </div>
+        <div class="mca-field">
+            <label for="freq">Payment Frequency</label>
+            <select id="freq">
+                <option value="daily" selected>Daily (business days)</option>
+                <option value="weekly">Weekly</option>
+            </select>
+        </div>
+        <div class="mca-field">
+            <label for="compareApr">Compare to a loan at this APR (%)</label>
+            <input type="number" id="compareApr" step="0.1" min="1" max="100" placeholder="e.g., 20" value="20">
+            <small>Typical term loan / line of credit for comparison.</small>
+        </div>
+        <div class="mca-field" style="display:flex;align-items:flex-end">
+            <div class="mca-actions" style="margin-top:0;width:100%">
+                <button type="submit" class="btn-primary" style="width:100%">Calculate True Cost</button>
+            </div>
+        </div>
+    </form>
+    <div class="mca-error" id="mcaError" role="alert"></div>
+
+    <div class="mca-results" id="mcaResults" aria-live="polite">
+        <div class="mca-headline">
+            <div class="mca-stat apr"><div class="v" id="rApr">&mdash;</div><div class="l">Estimated true APR</div></div>
+            <div class="mca-stat"><div class="v" id="rCost">&mdash;</div><div class="l">Total cost (fees)</div></div>
+        </div>
+        <div class="mca-rows">
+            <div class="mca-row"><span class="rl">Total payback</span><span class="rv" id="rPayback">&mdash;</span></div>
+            <div class="mca-row"><span class="rl">Cost per $1 borrowed</span><span class="rv" id="rCents">&mdash;</span></div>
+            <div class="mca-row"><span class="rl" id="rPayLabel">Estimated payment</span><span class="rv" id="rPay">&mdash;</span></div>
+            <div class="mca-row"><span class="rl">Number of payments</span><span class="rv" id="rN">&mdash;</span></div>
+        </div>
+        <div class="mca-compare" id="rCompare"></div>
+        <div class="mca-cta">
+            <h2>Paying too much for an MCA?</h2>
+            <p>We match businesses with lenders that may offer lower-cost term loans and lines of credit &mdash; and help you refinance or consolidate an expensive advance.</p>
+            <a href="https://axiantpartners.com/match.html?type=working-capital" target="_blank" rel="noopener" class="btn-primary" style="background:#fff;color:var(--accent-dark) !important;border-color:#fff">Get Matched With Lower-Cost Financing &rarr;</a>
+        </div>
+    </div>
+</section>
+<p class="embed-attr">MCA calculator by <a href="https://axiantpartners.com/mca-calculator.html" target="_blank" rel="noopener">Axiant Partners</a></p>
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var fmtUSD = function(n){ return '$' + Math.round(n).toLocaleString('en-US'); };
+  var fmtUSD2 = function(n){ return '$' + n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}); };
+  var num = function(v){ return parseFloat(String(v).replace(/[^0-9.\-]/g,'')) || 0; };
+
+  // Solve the periodic rate i that makes the present value of n level payments of A equal the advance P.
+  function periodicRate(P, A, n){
+    if(A * n <= P) return 0;
+    var lo = 1e-9, hi = 1.0;
+    function pv(i){ return i <= 0 ? A * n : A * (1 - Math.pow(1 + i, -n)) / i; }
+    for(var k = 0; k < 200; k++){
+      var mid = (lo + hi) / 2;
+      if(pv(mid) > P) lo = mid; else hi = mid;
+    }
+    return (lo + hi) / 2;
+  }
+
+  function calc(e){
+    if(e) e.preventDefault();
+    var err = $('mcaError'); err.textContent = '';
+    var P = num($('advance').value);
+    var factor = num($('factor').value);
+    var termM = num($('term').value);
+    var freq = $('freq').value;
+    var cmpApr = num($('compareApr').value);
+
+    if(P <= 0){ err.textContent = 'Enter an advance amount greater than $0.'; return; }
+    if(factor <= 1){ err.textContent = 'Factor rate must be greater than 1 (e.g., 1.40).'; return; }
+    if(termM <= 0){ err.textContent = 'Enter an estimated term of at least 1 month.'; return; }
+
+    var payback = P * factor;
+    var cost = payback - P;
+    var periodsPerYear = (freq === 'daily') ? 252 : 52;
+    var n = Math.max(1, Math.round(termM / 12 * periodsPerYear));
+    var A = payback / n;
+    var i = periodicRate(P, A, n);
+    var apr = i * periodsPerYear * 100;
+
+    $('rApr').textContent = apr.toFixed(1) + '%';
+    $('rCost').textContent = fmtUSD(cost);
+    $('rPayback').textContent = fmtUSD(payback);
+    $('rCents').textContent = '$' + (cost / P).toFixed(2) + ' per $1';
+    $('rPayLabel').textContent = (freq === 'daily' ? 'Estimated daily payment' : 'Estimated weekly payment');
+    $('rPay').textContent = fmtUSD2(A);
+    $('rN').textContent = n.toLocaleString('en-US') + ' ' + (freq === 'daily' ? 'business days' : 'weeks');
+
+    var cmp = $('rCompare');
+    if(cmpApr > 0){
+      var rM = (cmpApr / 100) / 12;
+      var nm = Math.max(1, Math.round(termM));
+      var pmt = rM > 0 ? P * rM / (1 - Math.pow(1 + rM, -nm)) : P / nm;
+      var loanTotal = pmt * nm;
+      var loanCost = loanTotal - P;
+      var savings = cost - loanCost;
+      if(savings > 0){
+        cmp.innerHTML = 'A <b>' + cmpApr + '% APR</b> term loan of ' + fmtUSD(P) + ' over ' + nm + ' months would cost about <b>' + fmtUSD(loanCost) + '</b> in interest &mdash; roughly <b>' + fmtUSD(savings) + ' less</b> than this advance.';
+      } else {
+        cmp.innerHTML = 'At ' + cmpApr + '% APR over ' + nm + ' months, a term loan would cost about ' + fmtUSD(loanCost) + ' &mdash; similar to or more than this advance. MCAs make the most sense only when you can\'t qualify for lower-cost options.';
+      }
+    } else { cmp.innerHTML = ''; }
+
+    $('mcaResults').classList.add('show');
+  }
+
+  var form = $('mcaForm');
+  if(form){ form.addEventListener('submit', calc); calc(); }
+})();
+</script>
+</body>
+</html>
