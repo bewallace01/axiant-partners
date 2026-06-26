@@ -5,6 +5,9 @@
 /equipment-financing/articles/how-equipment-financing-works/ /equipment-financing/articles/ 301
 /sba-loans/articles/sba-loan-basics/ /sba-loans/articles/ 301
 
+# Consolidated imaging EQUIPMENT financing into the canonical hub (de-cannibalize)
+/equipment-financing/articles/medical-imaging-financing-radiology-practices/ /equipment/medical-imaging/ 301
+
 # Netlify redirects (301) - blog URL migration Option C
 # /blog/slug.html -> /topic/articles/slug/
 # /*-blog.html -> /topic/
