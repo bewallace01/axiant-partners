@@ -114,13 +114,15 @@ for (const rel of files) {
     else outKeys.add(keyOf(r));
   }
   const modM = html.match(/(?:article:modified_time|dateModified)["']?\s*[:=]\s*["']?(\d{4}-\d{2}-\d{2})/);
+  // A meta-refresh redirect stub is not real content — it should not be flagged as thin/stale/no-FAQ.
+  const redirect = /<meta[^>]+http-equiv=["']?refresh["']?[^>]*content=["'][^"']*url=/i.test(html);
   const dataBatch = /data-batch/.test(html);
   const hasTool = /<iframe[^>]*calculator|<input\b|id="[^"]*[Cc]alc/.test(html);
   let na=0; for(const b of Buffer.from(html)){ if(b>127) na++; }
   pages[key] = { key, rel, type: classify(rel), cluster: rel.includes('/')?rel.split('/')[0]:'(root)',
     title: titleM?norm(titleM[1]):'', desc: descM?descM[1].length:0, h1, noindex,
     schema:[...types], ldFail, wc, wcSrc:src, imgs:imgs.length, imgNoAlt,
-    out:[...outKeys], broken, inSitemap: sitemapKeys.has(key), mod: modM?modM[1]:null, canonical: canonM?canonM[1]:null, dataBatch, hasTool, nonascii:na };
+    out:[...outKeys], broken, inSitemap: sitemapKeys.has(key), mod: modM?modM[1]:null, canonical: canonM?canonM[1]:null, redirect, dataBatch, hasTool, nonascii:na };
   for (const ok of outKeys) inbound[ok]=(inbound[ok]||0)+1;
 }
 for (const k in pages) pages[k].inbound = inbound[k]||0;
@@ -130,6 +132,8 @@ const arr = Object.values(pages);
 const indexable = arr.filter(p=>!p.noindex);
 const contentTypes = new Set(['article','industry-hub','service-hub','guide','article-index','equipment-hub','cluster-index','landing','geo-landing','root-page','page']);
 const isContent = p => contentTypes.has(p.type);
+// List/card-grid page types are not Q&A/answer targets — FAQPage schema is inappropriate there.
+const LIST_TYPES = new Set(['article-index','cluster-index']);
 // A page that canonicals to a DIFFERENT URL is a duplicate that consolidates elsewhere; it is
 // correctly excluded from the sitemap and should NOT be flagged as orphan/weak — link equity is
 // meant to flow to its canonical, not to it.
@@ -142,22 +146,22 @@ const isSelfCanonical = p => {
 const titleMap={};
 for(const p of indexable){ if(p.type==='fragment'||p.type==='ad-landing')continue; const t=p.title.replace(/\s*\|\s*Axiant.*/i,'').trim().toLowerCase(); if(!t)continue; (titleMap[t]=titleMap[t]||[]).push(p.key); }
 const dupTitles = Object.entries(titleMap).filter(([t,v])=>v.length>1);
-const orphans = indexable.filter(p=>p.inbound===0 && !CHROME.has(p.key) && isContent(p) && p.type!=='core' && isSelfCanonical(p));
+const orphans = indexable.filter(p=>p.inbound===0 && !CHROME.has(p.key) && isContent(p) && p.type!=='core' && !p.redirect && isSelfCanonical(p));
 const articles = arr.filter(p=>p.type==='article');
 // Thin = genuine ARTICLES only. Calculators/embeds, article-index card grids, hubs,
 // print brochures, and vendor pages are legitimately short and are NOT thin content.
 const isArticleType = p => p.type==='article' && !/calculator|embed|brochure/.test(p.rel);
-const veryThin = indexable.filter(p=>isArticleType(p)&&p.wc<500);
-const thin = indexable.filter(p=>isArticleType(p)&&p.wc>=500&&p.wc<800);
+const veryThin = indexable.filter(p=>isArticleType(p)&&!p.redirect&&p.wc<500);
+const thin = indexable.filter(p=>isArticleType(p)&&!p.redirect&&p.wc>=500&&p.wc<800);
 const brokenList=[]; for(const p of arr) for(const b of p.broken) brokenList.push({from:p.key, href:b});
 const notInSitemap = indexable.filter(p=>!p.inSitemap && !['core','fragment','ad-landing','cluster-index'].includes(p.type) && isSelfCanonical(p));
 const noindexInSitemap = arr.filter(p=>p.noindex && p.inSitemap);
 const deadSitemap=[...sitemapKeys].filter(k=>!pages[k]);
-const noSchema = indexable.filter(p=>isContent(p)&&p.schema.length===0 && p.type!=='cluster-index');
+const noSchema = indexable.filter(p=>isContent(p)&&p.schema.length===0 && p.type!=='cluster-index' && p.inSitemap && !p.redirect);
 const ldFails = arr.filter(p=>p.ldFail>0);
-const stale = articles.filter(p=>!p.mod || p.mod < '2026-03-01');
+const stale = articles.filter(p=>!p.redirect && (!p.mod || p.mod < '2026-03-01'));
 const filler = arr.filter(p=>p.dataBatch);
-const weak = indexable.filter(p=>isContent(p)&&p.inbound>0&&p.inbound<=2&&p.type!=='core'&&!CHROME.has(p.key)&&isSelfCanonical(p));
+const weak = indexable.filter(p=>isContent(p)&&p.inbound>0&&p.inbound<=2&&p.type!=='core'&&!CHROME.has(p.key)&&!p.redirect&&isSelfCanonical(p));
 const noToolHubs = arr.filter(p=>['industry-hub','service-hub','landing','geo-landing'].includes(p.type)&&!p.hasTool);
 const clusters={};
 for(const p of arr){ const o=(clusters[p.cluster]=clusters[p.cluster]||{cluster:p.cluster,n:0,words:0,thin:0,orphan:0,noindex:0,inb:0,inSm:0,broken:0}); o.n++; o.words+=p.wc; if(p.wc<500&&isArticleType(p))o.thin++; if(p.inbound===0&&isContent(p)&&!CHROME.has(p.key)&&isSelfCanonical(p))o.orphan++; if(p.noindex)o.noindex++; o.inb+=p.inbound; if(p.inSitemap)o.inSm++; o.broken+=p.broken.length; }
@@ -530,8 +534,11 @@ const hasType = (p, t) => p.schema.includes(t);
 const aeoReady = p => hasType(p, 'FAQPage') || hasType(p, 'HowTo');
 const geoReady = p => !!p.mod && (hasType(p, 'Article') || hasType(p, 'FAQPage') || hasType(p, 'FinancialService') || hasType(p, 'HowTo'));
 const seoReady = p => p.inSitemap && p.inbound > 0 && p.wc >= 500 && p.schema.length > 0 && !p.noindex;
-const aeoGapPages = contentPagesG.filter(p => !aeoReady(p));
-const geoGapPages = contentPagesG.filter(p => !p.mod && !p.noindex);
+// Only flag REAL indexable, sitemap-listed pages. Exclude noindex, non-sitemap includes
+// (e.g. tools/article_supplements), meta-refresh redirects, and — for FAQ — list/card-grid
+// index pages where FAQPage schema does not belong.
+const aeoGapPages = contentPagesG.filter(p => !aeoReady(p) && !p.noindex && p.inSitemap && !p.redirect && !LIST_TYPES.has(p.type));
+const geoGapPages = contentPagesG.filter(p => !p.mod && !p.noindex && p.inSitemap && !p.redirect);
 // fold AEO/GEO gaps into the fixes list so they flow into Start Here + the fixes tab
 if (aeoGapPages.length) fixes.push({ pri: 'SOON', effort: 'Med', title: aeoGapPages.length + ' content pages have no FAQ/Q&A schema (AEO)', how: 'Add an FAQ block + FAQPage schema so Google answer boxes and "People also ask" can lift the answer. Most of the site already has this — these are the stragglers.', sample: aeoGapPages.slice(0, 12).map(p => p.key) });
 if (geoGapPages.length) fixes.push({ pri: 'SOON', effort: 'Low', title: geoGapPages.length + ' pages show no "last updated" date (GEO)', how: 'Add dateModified / article:modified_time so AI engines (Google AI Overviews, ChatGPT, Perplexity) trust and cite them. Freshness is the strongest GEO signal.', sample: geoGapPages.slice(0, 12).map(p => p.key) });
