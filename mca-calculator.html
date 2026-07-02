@@ -115,7 +115,6 @@ html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibi
       .mca-hero-bg{width:100%;background:linear-gradient(180deg,rgba(5,12,24,0.85) 0%,rgba(5,12,24,0.68) 45%,rgba(5,12,24,0.88) 100%),url('/assets/calculator-hero-city.webp') center/cover no-repeat}
       .mca-hero-bg .mca-head h1{color:#fff}
       .mca-hero-bg .mca-head p.lede{color:rgba(255,255,255,0.92)}
-      .mca-below{max-width:980px;margin:0 auto;padding:0 16px 56px}
       /* Floating "How it works" button */
       .mca-info-fab{position:fixed;right:22px;bottom:22px;z-index:1200;display:inline-flex;align-items:center;gap:9px;padding:13px 20px;border:0;border-radius:999px;cursor:pointer;font-family:inherit;font-size:.95rem;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .15s ease,box-shadow .15s ease}
       .mca-info-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.45)}
@@ -130,6 +129,10 @@ html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibi
       .mca-modal-close:hover{color:var(--text-primary)}
       .mca-modal .mca-content{margin:0;max-width:none}
       .mca-modal .mca-content h2:first-child{margin-top:0}
+      .mca-modal-wide{max-width:960px}
+      .mca-modal-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+      .mca-modal-cols>.mca-content{min-width:0}
+      @media(max-width:760px){.mca-modal-cols{grid-template-columns:1fr;gap:4px}}
     </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"WebApplication","name":"Merchant Cash Advance (MCA) Calculator","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free MCA calculator that converts a merchant cash advance amount, factor rate, and term into the true APR, total cost, and daily or weekly payment, then compares it to lower-cost financing.","url":"https://axiantpartners.com/mca-calculator.html","publisher":{"@type":"Organization","name":"Axiant Partners","url":"https://axiantpartners.com"}}
@@ -235,38 +238,37 @@ html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibi
         </main>
         </div>
 
-        <section class="mca-below">
-            <article class="mca-content">
-                <h2 id="embed">Embed This Calculator on Your Site</h2>
-                <p>Free to use &mdash; just keep the attribution link. Paste this snippet into any page to give your readers a true-APR MCA calculator:</p>
-                <textarea readonly onclick="this.select()" aria-label="Embed code" style="width:100%;height:130px;font-family:monospace;font-size:0.8rem;line-height:1.5;padding:12px;border:1px solid var(--border-color);border-radius:10px;background:var(--bg-card);color:var(--text-primary);box-sizing:border-box;">&lt;iframe src="https://axiantpartners.com/mca-calculator-embed.html" width="100%" height="760" style="border:1px solid #e2e8f0;border-radius:12px;" loading="lazy" title="Merchant Cash Advance Calculator"&gt;&lt;/iframe&gt;
-&lt;p style="font-size:.85rem"&gt;MCA calculator by &lt;a href="https://axiantpartners.com/mca-calculator.html"&gt;Axiant Partners&lt;/a&gt;&lt;/p&gt;</textarea>
-                <p style="font-size:0.85rem;color:var(--text-secondary);margin-top:8px;">Click the box to select all, then copy. The calculator stays up to date automatically.</p>
-                <p class="mca-disclaim">This calculator provides estimates for educational purposes only and is not a loan offer or financial advice. Actual MCA terms, holdback percentages, and payoff timing vary by provider and your business's revenue. APR is an estimate derived from the inputs you provide.</p>
-            </article>
-        </section>
-
-        <!-- Floating "How it works" button -->
-        <button class="mca-info-fab" id="mcaInfoBtn" type="button" aria-haspopup="dialog" aria-controls="mcaInfoModal"><span class="fab-q" aria-hidden="true">?</span> How it works</button>
+        <!-- Floating "How it works / Embed" button -->
+        <button class="mca-info-fab" id="mcaInfoBtn" type="button" aria-haspopup="dialog" aria-controls="mcaInfoModal"><span class="fab-q" aria-hidden="true">?</span> How it works / Embed</button>
 
         <!-- Info modal (opened by the floating button) -->
         <div class="mca-modal" id="mcaInfoModal" role="dialog" aria-modal="true" aria-labelledby="mcaModalTitle" hidden>
             <div class="mca-modal-backdrop" data-close></div>
-            <div class="mca-modal-box">
+            <div class="mca-modal-box mca-modal-wide">
                 <button class="mca-modal-close" type="button" data-close aria-label="Close">&times;</button>
-                <div class="mca-content">
-                    <h2 id="mcaModalTitle">How the MCA calculator works</h2>
-                    <p>A merchant cash advance doesn't quote an interest rate — it quotes a <strong>factor rate</strong>. That makes the real cost hard to see. This calculator does the math for you:</p>
-                    <ul>
-                        <li><strong>Total payback</strong> = advance × factor rate. A $50,000 advance at a 1.40 factor means you repay $70,000.</li>
-                        <li><strong>Total cost</strong> = payback − advance. In that example, $20,000.</li>
-                        <li><strong>True APR</strong> is calculated from the actual repayment schedule (your daily or weekly payments over the term), not a simplified estimate — so it reflects what the advance really costs on an annual basis.</li>
-                    </ul>
-                    <h2>Why factor rates hide the real cost</h2>
-                    <p>Because MCAs are repaid quickly — often in 4 to 12 months — the same dollar cost is squeezed into a short window, which pushes the annual rate far higher than it looks. A 1.40 factor rate sounds like "40%," but repaid over 9 months it can work out to an APR well above 70–90%. Spread the identical fee over three years and the APR would be a fraction of that. <strong>Term matters as much as the factor rate.</strong></p>
-                    <h3>MCA vs. a term loan or line of credit</h3>
-                    <p>For most businesses that qualify, a term loan or business line of credit costs far less than an MCA for the same amount of capital. Use the comparison field on the calculator to see the difference in real dollars. If you're stuck in an expensive advance, refinancing or consolidating into lower-cost financing can free up daily cash flow.</p>
+                <div class="mca-modal-cols">
+                    <div class="mca-content">
+                        <h2 id="mcaModalTitle">How the MCA calculator works</h2>
+                        <p>A merchant cash advance doesn't quote an interest rate — it quotes a <strong>factor rate</strong>. That makes the real cost hard to see. This calculator does the math for you:</p>
+                        <ul>
+                            <li><strong>Total payback</strong> = advance × factor rate. A $50,000 advance at a 1.40 factor means you repay $70,000.</li>
+                            <li><strong>Total cost</strong> = payback − advance. In that example, $20,000.</li>
+                            <li><strong>True APR</strong> is calculated from the actual repayment schedule (your daily or weekly payments over the term), not a simplified estimate — so it reflects what the advance really costs on an annual basis.</li>
+                        </ul>
+                        <h2>Why factor rates hide the real cost</h2>
+                        <p>Because MCAs are repaid quickly — often in 4 to 12 months — the same dollar cost is squeezed into a short window, which pushes the annual rate far higher than it looks. A 1.40 factor rate sounds like "40%," but repaid over 9 months it can work out to an APR well above 70–90%. Spread the identical fee over three years and the APR would be a fraction of that. <strong>Term matters as much as the factor rate.</strong></p>
+                        <h3>MCA vs. a term loan or line of credit</h3>
+                        <p>For most businesses that qualify, a term loan or business line of credit costs far less than an MCA for the same amount of capital. Use the comparison field on the calculator to see the difference in real dollars. If you're stuck in an expensive advance, refinancing or consolidating into lower-cost financing can free up daily cash flow.</p>
+                    </div>
+                    <div class="mca-content">
+                        <h2>Embed This Calculator on Your Site</h2>
+                        <p>Free to use &mdash; just keep the attribution link. Paste this snippet into any page to give your readers a true-APR MCA calculator:</p>
+                        <textarea readonly onclick="this.select()" aria-label="Embed code" style="width:100%;height:170px;font-family:monospace;font-size:0.8rem;line-height:1.5;padding:12px;border:1px solid var(--border-color);border-radius:10px;background:var(--bg-secondary);color:var(--text-primary);box-sizing:border-box;">&lt;iframe src="https://axiantpartners.com/mca-calculator-embed.html" width="100%" height="760" style="border:1px solid #e2e8f0;border-radius:12px;" loading="lazy" title="Merchant Cash Advance Calculator"&gt;&lt;/iframe&gt;
+&lt;p style="font-size:.85rem"&gt;MCA calculator by &lt;a href="https://axiantpartners.com/mca-calculator.html"&gt;Axiant Partners&lt;/a&gt;&lt;/p&gt;</textarea>
+                        <p style="font-size:0.85rem;color:var(--text-secondary);margin-top:8px;">Click the box to select all, then copy. The calculator stays up to date automatically.</p>
+                    </div>
                 </div>
+                <p class="mca-disclaim">This calculator provides estimates for educational purposes only and is not a loan offer or financial advice. Actual MCA terms, holdback percentages, and payoff timing vary by provider and your business's revenue. APR is an estimate derived from the inputs you provide.</p>
             </div>
         </div>
     </div>
