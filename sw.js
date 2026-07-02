@@ -1,4 +1,4 @@
-const CACHE_NAME = 'axiant-v12';
+const CACHE_NAME = 'axiant-v13';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -30,10 +30,24 @@ self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
 
-  // Cache first for static assets
+  // Network first for scripts so JS updates appear on the next load.
+  // Falls back to the cached copy when offline / the network fails.
+  if (event.request.destination === 'script') {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+          return response;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // Cache first for other static assets (styles, images, fonts)
   if (
     event.request.destination === 'style' ||
-    event.request.destination === 'script' ||
     event.request.destination === 'image' ||
     event.request.destination === 'font'
   ) {
