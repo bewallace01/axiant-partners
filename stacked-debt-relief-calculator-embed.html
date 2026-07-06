@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://axiantpartners.com/business-debt-relief/articles/stacked-debt-relief-calculator/">
+<title>Stacked-Debt Relief Calculator — Axiant Partners</title>
+<style>
+:root{--bg-card:#fff;--bg-secondary:#f8fafc;--border-color:rgba(45,127,184,0.2);--shadow-color:rgba(30,58,95,0.15);--text-primary:#16202e;--text-secondary:#46566a;--text-tertiary:#6b7280;--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--header-overlay:linear-gradient(135deg,#1e3a5f 0,#2d7fb8 100%)}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:transparent;color:var(--text-primary);padding:10px;line-height:1.6}
+h2.embed-title{font-size:1.15rem;margin:0 0 10px;color:var(--accent-dark)}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;background:linear-gradient(135deg,var(--accent-color),var(--accent-dark));color:#fff!important;text-decoration:none;border:0;cursor:pointer;font-size:1rem}
+.sdr-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:16px;padding:24px;box-shadow:0 10px 30px -12px var(--shadow-color)}
+.sdr-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.sdr-grid{grid-template-columns:1fr}}
+.sdr-field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:6px;color:var(--text-primary)}
+.sdr-field input,.sdr-field select{width:100%;min-height:48px;padding:10px 12px;border:1px solid var(--border-color);border-radius:10px;background:var(--bg-secondary);color:var(--text-primary);font-size:1rem}
+.sdr-results{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.sdr-results{grid-template-columns:1fr}}
+.sdr-stat{background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:12px;padding:18px}
+.sdr-stat .l{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-color);font-weight:700}
+.sdr-stat .v{font-size:1.5rem;font-weight:800;line-height:1.15;margin-top:4px;color:var(--text-primary)}
+.sdr-note{margin:14px 0 0;font-size:.85rem;color:var(--text-secondary)}
+.sdr-cta{margin-top:20px;text-align:center;background:var(--header-overlay);border-radius:14px;padding:24px 20px;color:#fff}
+.sdr-cta h2{color:#fff;font-size:1.25rem;margin:0 0 8px}
+.sdr-cta p{color:rgba(255,255,255,.92);max-width:560px;margin:0 auto 16px}
+.sdr-cta small{display:block;color:rgba(255,255,255,.8);font-size:.8rem;margin-top:12px}
+.embed-attr{font-size:.8rem;color:var(--text-secondary);margin:14px 0 0;text-align:center}
+.embed-attr a{color:var(--accent-color);font-weight:600;text-decoration:none}
+</style>
+</head>
+<body>
+<h2 class="embed-title">Stacked-Debt Relief Calculator</h2>
+<section class="sdr-card" aria-label="Stacked-debt relief calculator">
+    <div class="sdr-grid">
+        <div class="sdr-field">
+            <label for="sdrBal">Total balance owed across all advances</label>
+            <input id="sdrBal" type="text" inputmode="numeric" value="$150,000">
+        </div>
+        <div class="sdr-field">
+            <label for="sdrPay">Combined weekly payment now</label>
+            <input id="sdrPay" type="text" inputmode="numeric" value="$5,000">
+        </div>
+        <div class="sdr-field">
+            <label for="sdrPos">Number of positions</label>
+            <select id="sdrPos">
+                <option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option>
+            </select>
+        </div>
+    </div>
+    <div class="sdr-results">
+        <div class="sdr-stat"><div class="l">Estimated single weekly payment</div><div class="v" id="sdrOutPay">&mdash;</div></div>
+        <div class="sdr-stat"><div class="l">Estimated monthly cash freed up</div><div class="v" id="sdrOutFreed">&mdash;</div></div>
+    </div>
+    <p class="sdr-note">Illustrative estimate based on a typical 40&ndash;60% payment reduction. Not a quote, approval, or offer of credit.</p>
+    <div class="sdr-cta">
+        <h2>See your real number</h2>
+        <p>Get a free, confidential review of every position and a path to one lower payment &mdash; even if you&rsquo;re behind, frozen, or being sued.</p>
+        <a id="sdrCta" href="https://axiantpartners.com/match.html?type=refinance" target="_blank" rel="noopener" class="btn-primary" style="background:#fff;color:var(--accent-dark) !important;border-color:#fff">Get a Free Debt Review &rarr;</a>
+        <small>No cost for match guidance &middot; checking options won&rsquo;t affect your credit &middot; no obligation.</small>
+    </div>
+</section>
+<p class="embed-attr">Stacked-debt relief calculator by <a href="https://axiantpartners.com/business-debt-relief/articles/stacked-debt-relief-calculator/" target="_blank" rel="noopener">Axiant Partners</a></p>
+<script>
+(function(){
+  var bal=document.getElementById('sdrBal'),pay=document.getElementById('sdrPay'),pos=document.getElementById('sdrPos'),
+      outPay=document.getElementById('sdrOutPay'),outFreed=document.getElementById('sdrOutFreed'),cta=document.getElementById('sdrCta');
+  if(!pay) return;
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+  var num=function(el){return parseFloat((el.value||'').replace(/[^0-9.]/g,''))||0;};
+  var LO=0.40, HI=0.60; // typical payment-reduction band
+  var BASE='https://axiantpartners.com/match.html?type=refinance';
+  function calc(){
+    var w=num(pay), b=num(bal);
+    if(w<=0){outPay.textContent='—';outFreed.textContent='—';if(cta){cta.href=BASE;cta.textContent='Get a Free Debt Review →';}return;}
+    var newLo=w*(1-HI), newHi=w*(1-LO);
+    outPay.textContent=fmt(newLo)+' – '+fmt(newHi)+' / wk';
+    var freedLo=(w-newHi)*4.33, freedHi=(w-newLo)*4.33;
+    outFreed.textContent=fmt(freedLo)+' – '+fmt(freedHi);
+    if(cta){cta.href=BASE+(b>0?'&amount='+Math.round(b):'');cta.textContent='See If You Qualify to Cut Your Payment →';}
+  }
+  pay.addEventListener('input',calc); bal.addEventListener('input',calc); pos.addEventListener('change',calc);
+  pay.addEventListener('blur',function(){var n=num(pay);if(n>0)pay.value=fmt(n);});
+  bal.addEventListener('blur',function(){var n=num(bal);if(n>0)bal.value=fmt(n);});
+  calc();
+})();
+</script>
+</body>
+</html>
