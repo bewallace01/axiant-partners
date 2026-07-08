@@ -188,55 +188,95 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
             </div>
         </nav>
-        <header>
-            <h1>The State of Small-Business Financing</h1>
-            <p class="tagline">What $159.7 billion in SBA 7(a) loans reveals about who gets funded &mdash; and who defaults</p>
+        <header class="rep-hero">
+            <svg class="rep-hero-motif" viewBox="0 0 600 260" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="hm" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#7fb2e6" stop-opacity=".55"/><stop offset="1" stop-color="#7fb2e6" stop-opacity="0"/></linearGradient></defs><g stroke="#9cc2ea" stroke-opacity=".10" stroke-width="1"><line x1="0" y1="52" x2="600" y2="52"/><line x1="0" y1="104" x2="600" y2="104"/><line x1="0" y1="156" x2="600" y2="156"/><line x1="0" y1="208" x2="600" y2="208"/></g><path d="M0 210 L100 196 L200 205 L300 120 L400 92 L500 132 L600 70 L600 260 L0 260 Z" fill="url(#hm)"/><path d="M0 210 L100 196 L200 205 L300 120 L400 92 L500 132 L600 70" fill="none" stroke="#a9cbf0" stroke-opacity=".5" stroke-width="2"/></svg>
+            <div class="rep-hero-inner">
+                <div class="rep-eyebrow">Axiant Partners &middot; Research</div>
+                <h1>The State of Small-Business Financing</h1>
+                <p class="tagline">What $159.7 billion in SBA 7(a) loans reveals about who gets funded &mdash; and who defaults</p>
+                <div class="rep-hero-meta">
+                    <span><b>Source</b> SBA 7(a) FOIA data</span>
+                    <span><b>Sample</b> 304,320 loans</span>
+                    <span><b>Period</b> FY2020&ndash;FY2025</span>
+                    <span><b>Current</b> Mar 31, 2026</span>
+                </div>
+            </div>
         </header>
 <style>
   .report{--rep-accent:var(--accent-color);--rep-accent-dark:var(--accent-dark);
     --rep-ink:var(--text-primary);--rep-ink2:var(--text-secondary);--rep-muted:var(--text-tertiary);
     --rep-card:var(--bg-card);--rep-track:var(--border-color);--rep-grid:var(--border-color);
-    --rep-risk:#cf3b3b;--rep-risk-soft:#f6e0df;--rep-gold:#9a7b23;
+    --rep-risk:#cf3b3b;--rep-risk-soft:#f6e0df;--rep-gold:#a67c1a;--rep-navy:#0d1f3c;
+    --rep-shadow:0 1px 2px rgba(13,31,60,.06),0 12px 32px -12px rgba(13,31,60,.18);
     font-variant-numeric:tabular-nums}
-  html[data-theme="dark"] .report{--rep-risk:#e46a68;--rep-risk-soft:#3a2321;--rep-gold:#cdaa5a}
-  .rep-wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+  html[data-theme="dark"] .report{--rep-risk:#e8726f;--rep-risk-soft:#3a2321;--rep-gold:#d8b45e;
+    --rep-shadow:0 1px 2px rgba(0,0,0,.4),0 14px 34px -14px rgba(0,0,0,.6)}
+  .rep-wrap{max-width:1040px;margin:0 auto;padding:0 22px}
   .report .serif{font-family:'Playfair Display',Georgia,serif}
 
-  /* byline strip under the navy hero */
-  .rep-byline{background:var(--bg-secondary);border-bottom:1px solid var(--border-color)}
-  .rep-byline .rep-wrap{display:flex;flex-wrap:wrap;gap:6px 26px;padding-top:14px;padding-bottom:14px;
-    font-size:0.82rem;color:var(--rep-muted)}
-  .rep-byline b{color:var(--rep-ink2);font-weight:600}
+  /* ---------- HERO (report cover) ---------- */
+  header.rep-hero{background:radial-gradient(120% 140% at 82% 0%,#1c3a63 0%,#0d1f3c 58%,#0a1830 100%)!important;
+    color:#fff;text-align:left;padding:0;position:relative;overflow:hidden;border-bottom:3px solid var(--rep-gold)}
+  .rep-hero-motif{position:absolute;right:0;bottom:0;width:min(58%,720px);height:78%;pointer-events:none}
+  .rep-hero-inner{max-width:1040px;margin:0 auto;padding:64px 22px 92px;position:relative;z-index:2}
+  .rep-eyebrow{font-size:0.72rem;letter-spacing:.22em;text-transform:uppercase;color:#e7c983;font-weight:700;
+    display:inline-flex;align-items:center;gap:11px;margin-bottom:20px}
+  .rep-eyebrow::before{content:"";width:30px;height:2px;background:var(--rep-gold)}
+  header.rep-hero h1{font-family:'Playfair Display',Georgia,serif;color:#fff;font-weight:700;
+    font-size:clamp(2.1rem,5.4vw,3.5rem);line-height:1.04;letter-spacing:-.015em;margin:0;max-width:16ch;text-wrap:balance}
+  header.rep-hero .tagline{color:#c6d6ea;font-size:clamp(1rem,2.1vw,1.22rem);margin:18px 0 0;max-width:56ch;line-height:1.5}
+  .rep-hero-meta{display:flex;flex-wrap:wrap;gap:10px 30px;margin-top:32px;padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.16);font-size:0.8rem;color:#9fb4cf}
+  .rep-hero-meta b{display:block;font-size:0.62rem;letter-spacing:.13em;text-transform:uppercase;color:#e7c983;
+    font-weight:700;margin-bottom:3px}
+  .rep-hero-meta span{color:#e8eef6;font-weight:600}
 
-  .rep-dek{font-size:clamp(1rem,2.2vw,1.22rem);color:var(--rep-ink2);max-width:60ch;margin:34px auto 0;
-    padding:0 20px;line-height:1.55}
-  .rep-dek .rep-wrap{padding:0}
-
-  /* key figures */
+  /* ---------- key figures (overlaps hero) ---------- */
   .rep-figs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rep-track);
-    border:1px solid var(--rep-track);border-radius:14px;overflow:hidden;margin:34px 0 8px}
-  .rep-fig{background:var(--rep-card);padding:22px 20px}
-  .rep-fig .k{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.6rem,3.6vw,2.35rem);
+    border:1px solid var(--rep-track);border-radius:16px;overflow:hidden;
+    margin:-56px 0 0;position:relative;z-index:5;box-shadow:var(--rep-shadow)}
+  .rep-fig{background:var(--rep-card);padding:24px 22px;position:relative}
+  .rep-fig::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--rep-accent);opacity:.9}
+  .rep-fig.risk::before{background:var(--rep-risk)}
+  .rep-fig .k{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.7rem,3.7vw,2.5rem);
     font-weight:700;line-height:1;letter-spacing:-.01em;color:var(--rep-ink)}
   .rep-fig.accent .k{color:var(--rep-accent)}
   .rep-fig.risk .k{color:var(--rep-risk)}
-  .rep-fig .l{font-size:0.8rem;color:var(--rep-ink2);margin-top:10px;line-height:1.35}
+  .rep-fig .l{font-size:0.82rem;color:var(--rep-ink2);margin-top:11px;line-height:1.35;font-weight:500}
   .rep-fig .s{font-size:0.72rem;color:var(--rep-muted);margin-top:3px}
 
-  .report section{padding:34px 0}
-  .rep-sec-head{display:flex;gap:14px;align-items:baseline;margin-bottom:8px}
-  .rep-no{font-family:'Playfair Display',Georgia,serif;font-size:1rem;color:var(--rep-gold);font-weight:700}
-  .report h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.45rem,3.2vw,1.95rem);
-    font-weight:700;margin:0;letter-spacing:-.01em;line-height:1.15;color:var(--rep-ink)}
-  .rep-lede{font-size:1.02rem;color:var(--rep-ink2);max-width:70ch;margin:12px 0 24px;line-height:1.6}
+  /* ---------- intro with drop cap ---------- */
+  .rep-dek{font-size:clamp(1.05rem,2.1vw,1.24rem);color:var(--rep-ink2);max-width:64ch;margin:44px 0 8px;line-height:1.62}
+  .rep-dek::first-letter{font-family:'Playfair Display',Georgia,serif;float:left;font-size:3.3em;line-height:.82;
+    font-weight:700;color:var(--rep-accent);margin:6px 12px 0 0}
+  .rep-dek b{color:var(--rep-ink);font-weight:600}
+
+  .report section{padding:38px 0}
+  .rep-sec-head{display:flex;gap:16px;align-items:center;margin-bottom:12px}
+  .rep-no{font-family:'Playfair Display',Georgia,serif;font-size:0.9rem;color:var(--rep-gold);font-weight:700;
+    flex:0 0 auto;width:38px;height:38px;border:1.5px solid var(--rep-gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center}
+  .report h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.5rem,3.3vw,2.05rem);
+    font-weight:700;margin:0;letter-spacing:-.015em;line-height:1.14;color:var(--rep-ink);flex:1}
+  .rep-lede{font-size:1.04rem;color:var(--rep-ink2);max-width:72ch;margin:0 0 26px;line-height:1.62}
   .rep-lede b{color:var(--rep-ink);font-weight:600}
   .rep-lede a{color:var(--rep-accent);font-weight:600}
 
-  .rep-card{background:var(--rep-card);border:1px solid var(--rep-track);border-radius:14px;padding:22px}
-  .rep-ct{font-size:0.82rem;font-weight:700;letter-spacing:.02em;color:var(--rep-ink);margin:0 0 2px}
-  .rep-cn{font-size:0.76rem;color:var(--rep-muted);margin:0 0 16px}
-  .rep-grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  .rep-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .rep-card{background:var(--rep-card);border:1px solid var(--rep-track);border-radius:16px;padding:24px;
+    box-shadow:var(--rep-shadow)}
+  .rep-ct{font-size:0.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--rep-accent);margin:0 0 3px}
+  .rep-cn{font-size:0.78rem;color:var(--rep-muted);margin:0 0 18px}
+  .rep-grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .rep-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+  /* pull-stat */
+  .rep-pull{display:flex;align-items:baseline;gap:16px;margin:0 0 22px;padding:20px 24px;
+    background:linear-gradient(100deg,var(--rep-risk-soft),transparent 85%);
+    border-left:4px solid var(--rep-risk);border-radius:0 12px 12px 0}
+  .rep-pull .pv{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.4rem,6vw,3.4rem);font-weight:700;
+    color:var(--rep-risk);line-height:.9;letter-spacing:-.02em}
+  .rep-pull .pl{font-size:0.98rem;color:var(--rep-ink2);line-height:1.4}
+  .rep-pull .pl b{color:var(--rep-ink)}
 
   .report svg{display:block;width:100%;height:auto;overflow:visible}
   .report .ax{font-size:11px;fill:var(--rep-muted)}
@@ -296,14 +336,6 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
 </style>
 
 <div class="report" id="repMain">
-<div class="rep-byline"><div class="rep-wrap">
-  <span><b>Source:</b> U.S. Small Business Administration &mdash; 7(a) FOIA dataset</span>
-  <span><b>Sample:</b> 304,320 approved loans</span>
-  <span><b>Data current:</b> March 31, 2026</span>
-</div></div>
-
-<div class="rep-dek"><div class="rep-wrap">Every year the SBA publishes loan-level records for the 7(a) program &mdash; the backbone of guaranteed small-business lending. We analyzed <b>every approved loan from fiscal 2020 through 2025</b>: $159.7 billion across 304,320 businesses. Here is what it shows about who gets funded, at what cost, and which industries actually pay it back.</div></div>
-
 <div class="rep-wrap">
 
   <div class="rep-figs">
@@ -312,6 +344,8 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
     <div class="rep-fig"><div class="k">$524.9K</div><div class="l">Average loan size</div><div class="s">across all industries</div></div>
     <div class="rep-fig risk"><div class="k">5.5&rarr;11.1%</div><div class="l">Avg. starting interest rate</div><div class="s">FY2021 low &rarr; FY2024 peak</div></div>
   </div>
+
+  <p class="rep-dek">Every year the SBA publishes loan-level records for the 7(a) program &mdash; the backbone of guaranteed small-business lending. We analyzed <b>every approved loan from fiscal 2020 through 2025</b>: $159.7 billion across 304,320 businesses. Here is what it shows about who gets funded, at what cost, and which industries actually pay it back.</p>
 
   <section>
     <div class="rep-sec-head"><span class="rep-no serif">01</span><h2 class="serif">The rate shock reshaped every loan</h2></div>
@@ -334,7 +368,8 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
 
   <section>
     <div class="rep-sec-head"><span class="rep-no serif">03</span><h2 class="serif">Where the risk is</h2></div>
-    <p class="rep-lede">Getting approved is not the same as paying it back. Measured on a <b>seasoned cohort</b> (loans approved FY2020&ndash;FY2022, given years to mature), <b>transportation and warehousing charges off at 5.7%</b> &mdash; the highest of any major sector and more than triple the safest. This curve maps directly onto how lenders price rate and demand collateral.</p>
+    <p class="rep-lede">Getting approved is not the same as paying it back. Measured on a <b>seasoned cohort</b> (loans approved FY2020&ndash;FY2022, given years to mature), the spread between the safest and riskiest industries is more than threefold &mdash; and it maps directly onto how lenders price rate and demand collateral.</p>
+    <div class="rep-pull"><span class="pv">5.7%</span><span class="pl"><b>Transportation &amp; warehousing has the highest charge-off rate</b> of any major sector &mdash; more than 3&times; the 1.8% seen in health care.</span></div>
     <div class="rep-card"><p class="rep-ct">Charge-off rate by sector</p><p class="rep-cn">Share of seasoned FY2020&ndash;FY2022 loans that charged off &middot; hover for cohort size</p><div id="c_chargeoff"></div></div>
     <div class="rep-callout"><b>Read it this way:</b> a 5.7% charge-off rate means roughly 1 in 18 seasoned transportation loans went bad &mdash; versus about 1 in 55 in health care. If you finance <a href="/trucking-company-financing-guide/">trucking equipment</a>, this is why terms are tighter.</div>
   </section>
