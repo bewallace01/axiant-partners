@@ -21,3 +21,6 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 14:19 — fix(mca-calc): keep the floating button fixed while scrolling (`a1fbd0eb9`) — Alex
 - 14:32 — chore(cache): bump language-switcher.js ?v to 202607021 (force fresh nav JS) (`9b73b580e`) — Alex
 - 14:33 — chore: keep WORKLOG.md unchanged on main (exclude WIP from cache-bump commit) (`fbf621e65`) — Alex
+
+## 2026-07-09
+- 10:14 — Add Restaurant Equipment World partner to /equipment-for-sale/ (`5c1d1cfff`) — Alex Solopenkov
