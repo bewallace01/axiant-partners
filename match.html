@@ -393,8 +393,8 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
     function init(){
       try{
         var p=new URLSearchParams(window.location.search);
-        var amt=p.get('amount'), type=p.get('type');
-        if(!amt && !type) return;
+        var amt=p.get('amount'), type=p.get('type'), eq=p.get('equipment');
+        if(!amt && !type && !eq) return;
         var amtField=document.getElementById('loanAmount');
         var typeField=document.getElementById('loanType');
         var label='';
@@ -406,6 +406,12 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
         if(type && typeField && typeLabels[type]){
           typeField.value=type;
           label=label?(label+' · '+typeLabels[type]):typeLabels[type];
+        }
+        if(eq){
+          var eqField=document.getElementById('equipmentDescription');
+          if(eqField) eqField.value=eq;
+          if(!type && typeField){typeField.value='equipment';if(!label) label=typeLabels.equipment;}
+          label=label?(label+' · '+eq):eq;
         }
         if(label){
           var form=document.getElementById('loanForm');
