@@ -388,3 +388,7 @@
 # Repurposed dead SBA comparison pages -> new 504 targets (SEO batch)
 /sba-loans/articles/sba-7a-vs-conventional-bank-loan/  /sba-loans/articles/sba-504-loan-rates/  301
 /sba-loans/articles/sba-7a-with-seller-carry-zero-down-acquisition-structure/  /sba-loans/articles/what-is-an-sba-504-loan/  301
+
+# Repurposed dead LOC pages -> brand-LOC targets (SEO batch)
+/business-line-of-credit/articles/compare-unsecured-loc-offers-fees-apr/  /business-line-of-credit/articles/chase-business-line-of-credit/  301
+/business-line-of-credit/articles/bank-cut-loc-limit-overnight-replacement-in-2-weeks/  /business-line-of-credit/articles/wells-fargo-business-line-of-credit/  301
