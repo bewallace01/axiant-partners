@@ -392,3 +392,19 @@
 # Repurposed dead LOC pages -> brand-LOC targets (SEO batch)
 /business-line-of-credit/articles/compare-unsecured-loc-offers-fees-apr/  /business-line-of-credit/articles/chase-business-line-of-credit/  301
 /business-line-of-credit/articles/bank-cut-loc-limit-overnight-replacement-in-2-weeks/  /business-line-of-credit/articles/wells-fargo-business-line-of-credit/  301
+
+# Consolidated dead fix-and-flip + MCA spokes -> pillar sections
+/fix-and-flip/articles/fix-and-flip-loan-requirements/  /fix-and-flip.html  301
+/fix-and-flip/articles/how-fast-can-you-close-fix-and-flip-loan/  /fix-and-flip.html#ff-timeline  301
+/fix-and-flip/articles/reasons-fix-and-flip-lenders-back-out/  /fix-and-flip.html#ff-fall-through  301
+/fix-and-flip/articles/typical-fix-and-flip-loan-rates/  /fix-and-flip.html#ff-rates  301
+/fix-and-flip/articles/what-credit-score-needed-fix-and-flip-loan/  /fix-and-flip.html#ff-credit  301
+/fix-and-flip/articles/what-is-arv-fix-and-flip-loan/  /fix-and-flip.html#ff-arv-ltv  301
+/fix-and-flip/articles/what-is-maximum-ltv-fix-and-flip-loan/  /fix-and-flip.html#ff-arv-ltv  301
+/fix-and-flip/articles/why-fix-and-flip-loan-keeps-falling-through/  /fix-and-flip.html#ff-fall-through  301
+/merchant-cash-advance/articles/how-fast-can-you-get-merchant-cash-advance/  /merchant-cash-advance.html#mca-speed  301
+/merchant-cash-advance/articles/mca-mistakes-keep-you-in-cycle/  /merchant-cash-advance.html#mca-mistakes  301
+/merchant-cash-advance/articles/merchant-cash-advance-requirements/  /merchant-cash-advance.html  301
+/merchant-cash-advance/articles/what-credit-score-needed-merchant-cash-advance/  /merchant-cash-advance.html#mca-credit  301
+/merchant-cash-advance/articles/what-is-merchant-cash-advance-how-does-it-work/  /merchant-cash-advance.html  301
+/merchant-cash-advance/articles/why-mca-daily-payment-higher-than-expected/  /merchant-cash-advance.html#mca-daily-payment  301
