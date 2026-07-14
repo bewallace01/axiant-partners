@@ -25,3 +25,6 @@ A running, timestamped log of what shipped — appended automatically on every c
 ## 2026-07-09
 - 10:14 — Add Restaurant Equipment World partner to /equipment-for-sale/ (`5c1d1cfff`) — Alex Solopenkov
 - 10:54 — Add internal links from restaurant financing pages to REW equipment listings (`37e9c0a93`) — Alex Solopenkov
+
+## 2026-07-14
+- 12:48 — Equipment-for-Sale: reusable category template (catalog layout) (`4cc433b57`) — Alex Solopenkov

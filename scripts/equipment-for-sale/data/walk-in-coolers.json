@@ -1,0 +1,178 @@
+{
+  "slug": "walk-in-coolers",
+  "breadcrumb_label": "Walk-In Coolers & Freezers",
+  "_seo_note": "meta / schema / prose are preserved VERBATIM in the _*.html sidecars. This is a re-layout -- do not rewrite them here.",
+  "meta_file": "_walk-in-coolers.meta.html",
+  "schema_file": "_walk-in-coolers.schema.html",
+  "seo_sections_file": "_walk-in-coolers.seo.html",
+  "dealer": {
+    "name": "Restaurant Equipment World",
+    "logo": "/assets/equipment/rew/logo.jpg",
+    "logo_w": 158,
+    "logo_h": 52,
+    "blurb": "Dealer &middot; commercial kitchen, refrigeration &amp; warewashing equipment &middot; nationwide shipping",
+    "phone": "&#9742; (800) 821-9153",
+    "phone_href": "tel:8008219153",
+    "website": "&#9993; Request a quote",
+    "website_href": "https://www.rewonline.com/contact-us.html",
+    "inventory_url": "https://www.rewonline.com/contact-us.html",
+    "disclosure": "Equipment is sold by Restaurant Equipment World and the respective manufacturers. Axiant Partners is an independent financing partner and arranges equipment financing; pricing and full specifications are provided by the dealer/manufacturer. Financing is subject to credit approval."
+  },
+  "hero": {
+    "eyebrow": "Restaurant Equipment World &middot; Nor-Lake &middot; American Panel",
+    "h1": "Walk-In Coolers & Freezers",
+    "intro_html": "Modular walk-in coolers, freezers and combination boxes for restaurants, groceries and commissaries. Indoor and outdoor, self-contained or remote refrigeration, floored or floorless &mdash; from compact 6&#39;-square boxes up to 10&#39;&times;20&#39; combination cooler/freezers.",
+    "intro_link": {
+      "href": "/equipment-financing.html",
+      "label": "How financing works &rarr;"
+    },
+    "image": "/assets/equipment/rew/walk-in-coolers.jpg",
+    "image_alt": "Walk-In Coolers & Freezers at Restaurant Equipment World",
+    "image_caption": "Restaurant Equipment World &mdash; Walk-In Coolers & Freezers"
+  },
+  "finance_card": {
+    "eyebrow": "Finance with Axiant",
+    "title": "Finance any walk-in cooler or freezer",
+    "body": "Pick your model, and finance it through Axiant &mdash; spread the cost over time and keep your cash working in the business.",
+    "cta": {
+      "label": "Get pre-approved &mdash; 24hr financing",
+      "href": "/match.html?type=equipment&amp;equipment=Walk-In%20Coolers%20%26%20Freezers"
+    },
+    "cta2": {
+      "label": "Request pricing from REW &#8599;",
+      "href": "https://www.rewonline.com/contact-us.html"
+    },
+    "checks": [
+      "Approvals in as little as 24 hours",
+      "New &amp; used equipment financed",
+      "Terms up to 60&ndash;72 months",
+      "Startups &amp; established businesses"
+    ],
+    "estimator": {
+      "equip": "Walk-In%20Coolers%20%26%20Freezers"
+    }
+  },
+  "models_section": {
+    "heading": "Walk-In Coolers & Freezers models",
+    "subhead": "All financeable through Axiant. Live inventory &amp; pricing on Restaurant Equipment World.",
+    "view_all": {
+      "label": "Browse the full Walk-In Coolers & Freezers line &amp; live pricing on REW &#8599;",
+      "href": "https://www.rewonline.com/category/1030/Walk-Ins"
+    },
+    "table_heading": "Full lineup &amp; specs"
+  },
+  "models": [
+    {
+      "name": "Nor-Lake 10&times;12 Combo",
+      "capacity": "10&#39; &times; 12&#39; &middot; cooler/freezer",
+      "chips": [
+        "Fast-Trak",
+        "two compartments, 7&#39;7&quot; H"
+      ],
+      "spec": "Fast-Trak &middot; two compartments, 7&#39;7&quot; H",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "Nor-Lake 10&times;14 Combo",
+      "capacity": "10&#39; &times; 14&#39; &middot; cooler/freezer",
+      "chips": [
+        "Fast-Trak",
+        "8&#39;7&quot; H combination box"
+      ],
+      "spec": "Fast-Trak &middot; 8&#39;7&quot; H combination box",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "Nor-Lake 10&times;16 Combo",
+      "capacity": "10&#39; &times; 16&#39; &middot; cooler/freezer",
+      "chips": [
+        "Fast-Trak",
+        "7&#39;7&quot; H, split compartments"
+      ],
+      "spec": "Fast-Trak &middot; 7&#39;7&quot; H, split compartments",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "American Panel AMP-6&times;12",
+      "capacity": "6&#39; &times; 12&#39; &middot; indoor",
+      "chips": [
+        "50/50 split cooler/freezer box"
+      ],
+      "spec": "50/50 split cooler/freezer box",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "American Panel AMP-8&times;12",
+      "capacity": "8&#39; &times; 12&#39; &middot; indoor",
+      "chips": [
+        "Walk-in box, reach-in depth"
+      ],
+      "spec": "Walk-in box, reach-in depth",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "American Panel AMP-10&times;20",
+      "capacity": "10&#39; &times; 20&#39; &middot; indoor",
+      "chips": [
+        "Large-format combination box"
+      ],
+      "spec": "Large-format combination box",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "Master-Bilt",
+      "capacity": "Custom sizes &middot; modular",
+      "chips": [
+        "Indoor/outdoor, self-contained or remote"
+      ],
+      "spec": "Indoor/outdoor, self-contained or remote",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    }
+  ],
+  "related": [
+    {
+      "href": "/equipment-for-sale/combi-ovens/",
+      "image": "/assets/equipment/rew/combi-ovens.jpg",
+      "alt": "Combi Ovens",
+      "name": "Combi Ovens"
+    },
+    {
+      "href": "/equipment-for-sale/commercial-dishwashers/",
+      "image": "/assets/equipment/rew/commercial-dishwashers.jpg",
+      "alt": "Commercial Dishwashers",
+      "name": "Commercial Dishwashers"
+    }
+  ],
+  "related_heading": "Walk-In Coolers & Freezers models</h2><table class=\"mx-modtbl\"><thead><tr><th>Model</th><th>Type / Capacity</th><th>Configuration</th></tr></thead><tbody><tr><td class=\"mdl\">Nor-Lake 10&times;12 Combo</td><td class=\"cap\">10&#39; &times; 12&#39; &middot; cooler/freezer</td><td>Fast-Trak &middot; two compartments, 7&#39;7&quot; H</td></tr><tr><td class=\"mdl\">Nor-Lake 10&times;14 Combo</td><td class=\"cap\">10&#39; &times; 14&#39; &middot; cooler/freezer</td><td>Fast-Trak &middot; 8&#39;7&quot; H combination box</td></tr><tr><td class=\"mdl\">Nor-Lake 10&times;16 Combo</td><td class=\"cap\">10&#39; &times; 16&#39; &middot; cooler/freezer</td><td>Fast-Trak &middot; 7&#39;7&quot; H, split compartments</td></tr><tr><td class=\"mdl\">American Panel AMP-6&times;12</td><td class=\"cap\">6&#39; &times; 12&#39; &middot; indoor</td><td>50/50 split cooler/freezer box</td></tr><tr><td class=\"mdl\">American Panel AMP-8&times;12</td><td class=\"cap\">8&#39; &times; 12&#39; &middot; indoor</td><td>Walk-in box, reach-in depth</td></tr><tr><td class=\"mdl\">American Panel AMP-10&times;20</td><td class=\"cap\">10&#39; &times; 20&#39; &middot; indoor</td><td>Large-format combination box</td></tr><tr><td class=\"mdl\">Master-Bilt</td><td class=\"cap\">Custom sizes &middot; modular</td><td>Indoor/outdoor, self-contained or remote</td></tr></tbody></table><a class=\"mx-catlink\" href=\"https://www.rewonline.com/category/1030/Walk-Ins\" target=\"_blank\" rel=\"noopener\">Browse the full Walk-In Coolers & Freezers line &amp; live pricing on REW &#8599;</a><div class=\"mx-fine\">Equipment is sold by Restaurant Equipment World and the respective manufacturers. Axiant Partners is an independent financing partner and arranges equipment financing; pricing and full specifications are provided by the dealer/manufacturer. Financing is subject to credit approval.</div></section><section style=\"padding-top:8px\"><h2 class=\"mx-sec-h serif\">Walk-In Coolers & Freezers financing &mdash; FAQ</h2><div class=\"rew-faq\"><details class=\"rew-fq\"><summary>How much does a walk-in cooler or freezer cost?</summary><p>Walk-in boxes typically range from around $10,000 for compact indoor coolers to $40,000 or more for large combination cooler and freezer units. Nor-Lake combination boxes commonly land around $17,000 to $23,000. Size, refrigeration type (self-contained or remote), and indoor or outdoor rating drive the final quote.</p></details><details class=\"rew-fq\"><summary>Can I finance a walk-in cooler with Axiant?</summary><p>Yes. Axiant finances new and used walk-in coolers and freezers with terms up to 60 to 72 months and approvals in as little as 24 hours, for startups and established operators alike, subject to credit approval.</p></details><details class=\"rew-fq\"><summary>Should I buy a new or used walk-in?</summary><p>Both are financeable. A new box comes with full warranty and exact-fit sizing, while a used or quick-ship unit can lower the upfront cost. Financing either way keeps cash available for the rest of your buildout.</p></details><details class=\"rew-fq\"><summary>How fast can I get a walk-in cooler?</summary><p>Lead times vary by manufacturer and whether the box is a quick-ship or custom size — the dealer confirms availability. Financing can be pre-approved in about 24 hours, so you are ready to order the moment you choose a unit.</p></details></div></section><section style=\"padding-top:8px\"><h2 class=\"mx-sec-h serif\" style=\"font-size:1.3rem\">More commercial kitchen equipment",
+  "band": {
+    "title": "Finance any walk-in cooler or freezer",
+    "body": "Pick your model, and finance it through Axiant &mdash; spread the cost over time and keep your cash working in the business.",
+    "proofs": [
+      "24-hour approvals",
+      "New &amp; used",
+      "Asset-based &mdash; the equipment carries the deal"
+    ],
+    "cta": {
+      "label": "Get pre-approved &rarr;",
+      "href": "/match.html?type=equipment&amp;equipment=Walk-In%20Coolers%20%26%20Freezers"
+    },
+    "phone": {
+      "label": "Call (561) 268-0465",
+      "href": "tel:+15612680465"
+    }
+  }
+}

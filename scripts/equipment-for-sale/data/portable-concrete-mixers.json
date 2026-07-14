@@ -1,0 +1,151 @@
+{
+  "slug": "portable-concrete-mixers",
+  "breadcrumb_label": "Portable Concrete Mixers",
+  "_seo_note": "meta / schema / prose are preserved VERBATIM in the _*.html sidecars. This is a re-layout -- do not rewrite them here.",
+  "meta_file": "_portable-concrete-mixers.meta.html",
+  "schema_file": "_portable-concrete-mixers.schema.html",
+  "seo_sections_file": "_portable-concrete-mixers.seo.html",
+  "dealer": {
+    "name": "Right Manufacturing Systems, Inc. (Mix Right)",
+    "logo": "/assets/equipment/mixright/logo.jpg",
+    "logo_w": 158,
+    "logo_h": 52,
+    "blurb": "Manufacturer &middot; concrete batching, mixing &amp; storage equipment &middot; Made in the USA",
+    "phone": "&#9742; (801) 796-9641",
+    "phone_href": "tel:8017969641",
+    "website": "",
+    "website_href": "",
+    "inventory_url": "",
+    "disclosure": "Equipment is manufactured and sold by Right Manufacturing Systems, Inc. (Mix Right). Axiant Partners is an independent financing partner and arranges equipment financing; pricing and full specifications are provided by the manufacturer. Financing is subject to credit approval."
+  },
+  "hero": {
+    "eyebrow": "Mix Right &middot; 2DH Series",
+    "h1": "Portable Concrete Mixers",
+    "intro_html": "Towable concrete mixer trailers engineered for contractors who need concrete on demand without short-load fees. Pull to the job with a pickup, batch, and pour — from 1 to 3 cubic yards.",
+    "intro_link": {
+      "href": "/equipment-financing.html",
+      "label": "How financing works &rarr;"
+    },
+    "image": "/assets/equipment/mixright/portable-concrete-mixers.jpg",
+    "image_alt": "Mix Right Portable Concrete Mixers",
+    "image_caption": "Right Manufacturing Systems, Inc. (Mix Right) &mdash; Portable Concrete Mixers"
+  },
+  "finance_card": {
+    "eyebrow": "Finance with Axiant",
+    "title": "Finance any Portable Concrete Mixer",
+    "body": "Choose your model, and finance it through Axiant &mdash; spread the cost and keep your cash working.",
+    "cta": {
+      "label": "Get pre-approved &mdash; 24hr financing",
+      "href": "/match.html"
+    },
+    "cta2": {
+      "label": "Request a quote from Mix Right &#8599;",
+      "href": "https://www.mixright.com/contact"
+    },
+    "checks": [
+      "Approvals in as little as 24 hours",
+      "New &amp; used equipment financed",
+      "Terms up to 60&ndash;72 months",
+      "Startups &amp; established businesses"
+    ]
+  },
+  "models_section": {
+    "heading": "Portable Concrete Mixers models",
+    "subhead": "All financeable through Axiant. Live inventory &amp; pricing on Right Manufacturing Systems, Inc. (Mix Right).",
+    "view_all": {
+      "label": "View the full Portable Concrete Mixers line on Mix Right &#8599;",
+      "href": "https://www.mixright.com/portable-concrete-mixers"
+    },
+    "table_heading": "Full lineup &amp; specs"
+  },
+  "models": [
+    {
+      "name": "2DH-3",
+      "capacity": "3 cu yd",
+      "chips": [
+        "Towable with a 1-ton pickup · 18,000 GVWR"
+      ],
+      "spec": "Towable with a 1-ton pickup · 18,000 GVWR",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/2dh-3-portable-concrete-mixer"
+    },
+    {
+      "name": "2DH-S",
+      "capacity": "2 cu yd",
+      "chips": [
+        "Drum swivels 180° to pour over either fender"
+      ],
+      "spec": "Drum swivels 180° to pour over either fender",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/2dh-s-portable-hydraulic-concrete-mixer"
+    },
+    {
+      "name": "2DH-2",
+      "capacity": "2 cu yd",
+      "chips": [
+        "Towable with a 3/4-ton pickup · 14,000 GVWR"
+      ],
+      "spec": "Towable with a 3/4-ton pickup · 14,000 GVWR",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/2dh-2-portable-concrete-mixer"
+    },
+    {
+      "name": "2DH-1",
+      "capacity": "1 cu yd",
+      "chips": [
+        "Towable with a 1/2-ton pickup (3/4-ton preferred)"
+      ],
+      "spec": "Towable with a 1/2-ton pickup (3/4-ton preferred)",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/2dh-1-portable-concrete-mixer-trailer"
+    }
+  ],
+  "related": [
+    {
+      "href": "/equipment-for-sale/wet-batch-plants/",
+      "image": "/assets/equipment/mixright/wet-batch-plants.jpg",
+      "alt": "Wet Batch Plants",
+      "name": "Wet Batch Plants"
+    },
+    {
+      "href": "/equipment-for-sale/dry-batch-plants/",
+      "image": "/assets/equipment/mixright/dry-batch-plants.jpg",
+      "alt": "Dry Batch Plants",
+      "name": "Dry Batch Plants"
+    },
+    {
+      "href": "/equipment-for-sale/cement-silos/",
+      "image": "/assets/equipment/mixright/cement-silos.jpg",
+      "alt": "Portable Cement Silos",
+      "name": "Portable Cement Silos"
+    },
+    {
+      "href": "/equipment-for-sale/rock-tumblers/",
+      "image": "/assets/equipment/mixright/rock-tumblers.jpg",
+      "alt": "Industrial Rock Tumblers",
+      "name": "Industrial Rock Tumblers"
+    }
+  ],
+  "related_heading": "Portable Concrete Mixers models</h2><table class=\"mx-modtbl\"><thead><tr><th>Model</th><th>Capacity</th><th>Configuration</th><th style=\"text-align:right\">Specs</th></tr></thead><tbody><tr><td class=\"mdl\">2DH-3</td><td class=\"cap\">3 cu yd</td><td>Towable with a 1-ton pickup · 18,000 GVWR</td><td class=\"lk\"><a href=\"https://www.mixright.com/2dh-3-portable-concrete-mixer\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">2DH-S</td><td class=\"cap\">2 cu yd</td><td>Drum swivels 180° to pour over either fender</td><td class=\"lk\"><a href=\"https://www.mixright.com/2dh-s-portable-hydraulic-concrete-mixer\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">2DH-2</td><td class=\"cap\">2 cu yd</td><td>Towable with a 3/4-ton pickup · 14,000 GVWR</td><td class=\"lk\"><a href=\"https://www.mixright.com/2dh-2-portable-concrete-mixer\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">2DH-1</td><td class=\"cap\">1 cu yd</td><td>Towable with a 1/2-ton pickup (3/4-ton preferred)</td><td class=\"lk\"><a href=\"https://www.mixright.com/2dh-1-portable-concrete-mixer-trailer\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr></tbody></table><a class=\"mx-catlink\" href=\"https://www.mixright.com/portable-concrete-mixers\" target=\"_blank\" rel=\"noopener\">View the full Portable Concrete Mixers line on Mix Right &#8599;</a><div class=\"mx-fine\">Equipment is manufactured and sold by Right Manufacturing Systems, Inc. (Mix Right). Axiant Partners is an independent financing partner and arranges equipment financing; pricing and full specifications are provided by the manufacturer. Financing is subject to credit approval.</div></section><section style=\"padding-top:8px\"><h2 class=\"mx-sec-h serif\" style=\"font-size:1.3rem\">More Mix Right equipment",
+  "band": {
+    "title": "Finance any Portable Concrete Mixer",
+    "body": "Choose your model, and finance it through Axiant &mdash; spread the cost and keep your cash working.",
+    "proofs": [
+      "24-hour approvals",
+      "New &amp; used",
+      "Asset-based &mdash; the equipment carries the deal"
+    ],
+    "cta": {
+      "label": "Get pre-approved &rarr;",
+      "href": "/match.html?type=equipment&amp;equipment=Portable%20Concrete%20Mixers"
+    },
+    "phone": {
+      "label": "Call (561) 268-0465",
+      "href": "tel:+15612680465"
+    }
+  }
+}

@@ -176,6 +176,35 @@ CSS = """<style>
   .efs-tbl .lk{text-align:right;white-space:nowrap}
   .efs-tbl .lk a{color:var(--a);text-decoration:none;font-weight:700}
 
+  /* 3b. related categories -- preserves the sibling cross-links */
+  .efs-rel{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+  .efs-relcard{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    text-decoration:none;box-shadow:var(--sh);transition:transform .18s}
+  .efs-relcard:hover{transform:translateY(-3px);border-color:var(--a)}
+  .efs-relcard .ri{aspect-ratio:3/2;overflow:hidden;background:var(--navy)}
+  .efs-relcard .ri img{width:100%;height:100%;object-fit:cover;display:block}
+  .efs-relcard .rn{padding:11px 13px;font-size:.82rem;font-weight:700;color:var(--ink)}
+
+  /* estimator (carried over from the pages that already had one -- do not drop) */
+  .efs-est{background:var(--bg-secondary);border:1px solid var(--line);border-radius:12px;
+    padding:13px 14px;margin:0 0 13px}
+  .efs-est>label{display:block;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--mut);font-weight:700;margin-bottom:8px}
+  .efs-est-in{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);
+    border-radius:9px;padding:9px 11px;color:var(--ink);font-weight:700}
+  .efs-est-in input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:inherit;
+    font-weight:700;outline:none;padding:0}
+  .efs-est-in input::placeholder{color:var(--mut);font-weight:500}
+  .efs-est-row{display:flex;gap:9px;margin-top:9px}
+  .efs-est-row label{flex:1;font-size:.66rem;color:var(--mut);font-weight:600;display:flex;
+    flex-direction:column;gap:4px}
+  .efs-est-row select{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    border-radius:9px;padding:7px 8px;font:inherit;font-size:.84rem;font-weight:700}
+  .efs-est-out{margin-top:10px;font-size:.95rem;color:var(--body)}
+  .efs-est-out b{font-family:'Playfair Display',Georgia,serif;font-size:1.35rem;color:var(--a)}
+  .efs-est-note{font-size:.67rem;color:var(--mut);line-height:1.45;margin-top:7px}
+  .efs-rr{font-size:.7rem;color:var(--mut);text-align:center;margin-top:8px;line-height:1.4}
+
   /* 4. finance band */
   .efs-band{margin-top:44px;background:linear-gradient(120deg,#1c3358,#0f1d33);border-radius:18px;
     padding:28px 30px;display:flex;align-items:center;gap:26px;color:#fff}
@@ -215,9 +244,9 @@ CSS = """<style>
     .efs-bandcta{width:100%}
     .efs-bandcta a:first-child{display:block}
   }
-  @media (max-width:820px){.efs-cards{grid-template-columns:1fr 1fr}}
+  @media (max-width:820px){.efs-cards{grid-template-columns:1fr 1fr}.efs-rel{grid-template-columns:1fr 1fr}}
   @media (max-width:560px){
-    .efs-cards{grid-template-columns:1fr}
+    .efs-cards,.efs-rel{grid-template-columns:1fr}
     .efs-dealer{flex-wrap:wrap}
     .efs-dc{margin-left:0;width:100%}
   }
@@ -255,9 +284,12 @@ def hero(h, fc):
         '<aside class="efs-fcard">'
         f'<div class="fe">{fc["eyebrow"]}</div><h2 class="serif">{fc["title"]}</h2>'
         f'<p>{fc["body"]}</p>'
-        f'<a class="efs-cta" href="{fc["cta"]["href"]}">{fc["cta"]["label"]}</a>'
-        f'<a class="efs-cta2" href="{fc["cta2"]["href"]}" target="_blank" rel="noopener">'
-        f'{fc["cta2"]["label"]}</a>'
+        + (estimator(fc["estimator"]) if fc.get("estimator") else "")
+        + f'<a class="efs-cta" id="efsCta" href="{fc["cta"]["href"]}">{fc["cta"]["label"]}</a>'
+        + ("<div class=\"efs-rr\">Checking options won&rsquo;t affect your credit &middot; 24&ndash;48 hr "
+           "decisions &middot; no obligation</div>" if fc.get("estimator") else "")
+        + f'<a class="efs-cta2" href="{fc["cta2"]["href"]}" target="_blank" rel="noopener">'
+          f'{fc["cta2"]["label"]}</a>'
         f'<ul class="efs-checks">{checks}</ul>'
         "</aside></div>"
     )
@@ -320,6 +352,70 @@ def full_table(models, hero_data, sec):
     )
 
 
+def estimator(est):
+    """Inline payment estimator. Carried over verbatim in behaviour from the pages
+    that already shipped one (REW + SENNEBOGEN) -- re-laying out a page must not
+    delete a working conversion tool. No default price is seeded: these dealers
+    quote rather than publish, so the buyer enters the figure they were quoted and
+    the output stays "--" until they do."""
+    return (
+        '<div class="efs-est">'
+        '<label for="efsPrice">Estimate your monthly payment</label>'
+        '<div class="efs-est-in">$<input type="text" inputmode="numeric" id="efsPrice" '
+        f'placeholder="{est.get("placeholder","Price you were quoted")}" aria-label="Equipment price"></div>'
+        '<div class="efs-est-row">'
+        '<label for="efsDown">Down payment<select id="efsDown">'
+        '<option value="0">0%</option><option value="10" selected>10%</option>'
+        '<option value="20">20%</option><option value="30">30%</option></select></label>'
+        '<label for="efsTerm">Term<select id="efsTerm">'
+        '<option value="36">36 mo</option><option value="48">48 mo</option>'
+        '<option value="60" selected>60 mo</option><option value="72">72 mo</option>'
+        '</select></label></div>'
+        '<div class="efs-est-out">&asymp; <b id="efsMo">&mdash;</b> / month</div>'
+        f'<div class="efs-est-note">{est.get("note","Illustrative only, at ~9% APR. Your actual rate and term are set on approval.")}</div>'
+        '</div>'
+    )
+
+
+def estimator_js(equip_q):
+    return (
+        "<script>(function(){var p=document.getElementById('efsPrice'),d=document.getElementById('efsDown'),"
+        "t=document.getElementById('efsTerm'),mo=document.getElementById('efsMo'),c=document.getElementById('efsCta');"
+        "if(!p||!c)return;var EQ='%s',DEF=c.textContent;"
+        "function n(v){v=String(v||'').replace(/[^0-9.]/g,'');return v?parseFloat(v):0;}"
+        "function f(x){return '$'+Math.round(x).toLocaleString('en-US');}"
+        "function pay(P,apr,m){var r=apr/12;return r>0?(P*r)/(1-Math.pow(1+r,-m)):P/m;}"
+        "function calc(){var price=n(p.value);"
+        "if(!(price>0)){mo.innerHTML='\u2014';c.href='/match.html?type=equipment&equipment='+EQ;c.textContent=DEF;return;}"
+        "var loan=price*(1-parseFloat(d.value)/100),m=parseInt(t.value,10);"
+        "mo.textContent=f(pay(loan,0.09,m));"
+        "c.href='/match.html?type=equipment&amount='+Math.round(loan)+'&equipment='+EQ;"
+        "c.textContent='See if you qualify for '+f(loan)+' \u2192';}"
+        "p.addEventListener('input',calc);"
+        "p.addEventListener('blur',function(){var v=n(p.value);if(v>0)p.value=Math.round(v).toLocaleString('en-US');});"
+        "d.addEventListener('change',calc);t.addEventListener('change',calc);calc();})();</script>"
+        % equip_q
+    )
+
+
+def related_row(rel, heading):
+    """Sibling / dealer cross-links. KEEP THIS: on the Mix Right pages this grid is
+    the only internal cross-linking between sibling categories, so dropping it would
+    lose internal links. Entries that merely duplicate a model card are filtered out
+    by the extractor."""
+    if not rel:
+        return ""
+    cards = "".join(
+        f'<a class="efs-relcard" href="{r["href"]}"'
+        + ("" if r["href"].startswith("/") else ' target="_blank" rel="noopener"')
+        + f'><div class="ri"><img src="{r["image"]}" width="720" height="480" '
+          f'alt="{r["alt"]}" loading="lazy"></div><div class="rn">{r["name"]}</div></a>'
+        for r in rel
+    )
+    return (f'<section class="efs-sec"><h2 class="efs-sh" style="font-size:1.2rem">{heading}</h2>'
+            f'<div class="efs-rel">{cards}</div></section>')
+
+
 def band(b):
     props = "".join(f"<li>{p}</li>" for p in b["proofs"])
     phone = (f'<a class="efs-bandphone" href="{b["phone"]["href"]}">{b["phone"]["label"]}</a>'
@@ -366,10 +462,13 @@ def render(slug):
         f'{sec["view_all"]["label"]}</a>',
         f'<p class="efs-note">{cfg["dealer"]["disclosure"]}</p>',
         "</section>",
+        related_row(cfg.get("related", []), cfg.get("related_heading", "Related equipment")),
         band(cfg["band"]),
-        f'<div class="efs-seo">{seo}</div>',
+        f'<div class="efs-seo">{seo}</div>' if seo else "",
         "</div></div>",
     ]
+    if fc.get("estimator"):
+        body.append(estimator_js(fc["estimator"]["equip"]))
 
     page = (chrome
             .replace("{{META}}", meta)

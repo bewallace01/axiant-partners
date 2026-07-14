@@ -1,0 +1,206 @@
+{
+  "slug": "dry-batch-plants",
+  "breadcrumb_label": "Dry Batch Plants",
+  "_seo_note": "meta / schema / prose are preserved VERBATIM in the _*.html sidecars. This is a re-layout -- do not rewrite them here.",
+  "meta_file": "_dry-batch-plants.meta.html",
+  "schema_file": "_dry-batch-plants.schema.html",
+  "seo_sections_file": "_dry-batch-plants.seo.html",
+  "dealer": {
+    "name": "Right Manufacturing Systems, Inc. (Mix Right)",
+    "logo": "/assets/equipment/mixright/logo.jpg",
+    "logo_w": 158,
+    "logo_h": 52,
+    "blurb": "Manufacturer &middot; concrete batching, mixing &amp; storage equipment &middot; Made in the USA",
+    "phone": "&#9742; (801) 796-9641",
+    "phone_href": "tel:8017969641",
+    "website": "",
+    "website_href": "",
+    "inventory_url": "",
+    "disclosure": "Equipment is manufactured and sold by Right Manufacturing Systems, Inc. (Mix Right). Axiant Partners is an independent financing partner and arranges equipment financing; pricing and full specifications are provided by the manufacturer. Financing is subject to credit approval."
+  },
+  "hero": {
+    "eyebrow": "Mix Right &middot; 2CL Series",
+    "h1": "Dry Batch Plants",
+    "intro_html": "Portable dry-batch plants that weigh and dispense aggregate, sand, and cement into a mixer or ready-mix truck. Computer-controlled and manual configurations from 5 to 36+ cubic yards, in single- and multi-bin layouts.",
+    "intro_link": {
+      "href": "/equipment-financing.html",
+      "label": "How financing works &rarr;"
+    },
+    "image": "/assets/equipment/mixright/dry-batch-plants.jpg",
+    "image_alt": "Mix Right Dry Batch Plants",
+    "image_caption": "Right Manufacturing Systems, Inc. (Mix Right) &mdash; Dry Batch Plants"
+  },
+  "finance_card": {
+    "eyebrow": "Finance with Axiant",
+    "title": "Finance any Dry Batch Plant",
+    "body": "Choose your model, and finance it through Axiant &mdash; spread the cost and keep your cash working.",
+    "cta": {
+      "label": "Get pre-approved &mdash; 24hr financing",
+      "href": "/match.html"
+    },
+    "cta2": {
+      "label": "Request a quote from Mix Right &#8599;",
+      "href": "https://www.mixright.com/contact"
+    },
+    "checks": [
+      "Approvals in as little as 24 hours",
+      "New &amp; used equipment financed",
+      "Terms up to 60&ndash;72 months",
+      "Startups &amp; established businesses"
+    ]
+  },
+  "models_section": {
+    "heading": "Dry Batch Plants models",
+    "subhead": "All financeable through Axiant. Live inventory &amp; pricing on Right Manufacturing Systems, Inc. (Mix Right).",
+    "view_all": {
+      "label": "View the full Dry Batch Plants line on Mix Right &#8599;",
+      "href": "https://www.mixright.com/portable-concrete-batching-plants"
+    },
+    "table_heading": "Full lineup &amp; specs"
+  },
+  "models": [
+    {
+      "name": "2CL-36-3",
+      "capacity": "36+ cu yd",
+      "chips": [
+        "Computer-controlled · 3 aggregate bins (12 yd each)"
+      ],
+      "spec": "Computer-controlled · 3 aggregate bins (12 yd each)",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/2cl-36-3-portable-concrete-batching-plant"
+    },
+    {
+      "name": "2CL-24-2",
+      "capacity": "24+ cu yd",
+      "chips": [
+        "Automated · 2 aggregate bins (12 yd each)"
+      ],
+      "spec": "Automated · 2 aggregate bins (12 yd each)",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/2cl-24-2-portable-concrete-batching-plant"
+    },
+    {
+      "name": "2CL-16-2",
+      "capacity": "16+ cu yd",
+      "chips": [
+        "Computer-operated · 2 bins (8 yd each)"
+      ],
+      "spec": "Computer-operated · 2 bins (8 yd each)",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/2cl-16-2-portable-concrete-batching-plant"
+    },
+    {
+      "name": "2CL-12-2",
+      "capacity": "12+ cu yd",
+      "chips": [
+        "Automated · 2 bins (6 yd each)"
+      ],
+      "spec": "Automated · 2 bins (6 yd each)",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/2cl-12-2-portable-concrete-batching-plant"
+    },
+    {
+      "name": "2CL-8-2",
+      "capacity": "8+ cu yd",
+      "chips": [
+        "Computer-controlled · 2 bins (4 yd each)"
+      ],
+      "spec": "Computer-controlled · 2 bins (4 yd each)",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/2cl-8-2-portable-concrete-batching-plant"
+    },
+    {
+      "name": "2CL-5-2",
+      "capacity": "5+ cu yd",
+      "chips": [
+        "Automated · 2 bins (2.5 yd each)"
+      ],
+      "spec": "Automated · 2 bins (2.5 yd each)",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/2cl-5-2-stationary-concrete-batching-plant"
+    },
+    {
+      "name": "2CL-12",
+      "capacity": "12+ cu yd",
+      "chips": [
+        "Manual controls · single bin"
+      ],
+      "spec": "Manual controls · single bin",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/2cl-12-portable-concrete-batching-plant"
+    },
+    {
+      "name": "2CL-8",
+      "capacity": "8+ cu yd",
+      "chips": [
+        "Manually operated · single bin"
+      ],
+      "spec": "Manually operated · single bin",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/2cl-8-portable-concrete-batching-plant"
+    },
+    {
+      "name": "2CL-5",
+      "capacity": "5+ cu yd",
+      "chips": [
+        "Manual control · single aggregate bin"
+      ],
+      "spec": "Manual control · single aggregate bin",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/2cl-5-portable-concrete-batching-plant"
+    }
+  ],
+  "related": [
+    {
+      "href": "/equipment-for-sale/wet-batch-plants/",
+      "image": "/assets/equipment/mixright/wet-batch-plants.jpg",
+      "alt": "Wet Batch Plants",
+      "name": "Wet Batch Plants"
+    },
+    {
+      "href": "/equipment-for-sale/portable-concrete-mixers/",
+      "image": "/assets/equipment/mixright/portable-concrete-mixers.jpg",
+      "alt": "Portable Concrete Mixers",
+      "name": "Portable Concrete Mixers"
+    },
+    {
+      "href": "/equipment-for-sale/cement-silos/",
+      "image": "/assets/equipment/mixright/cement-silos.jpg",
+      "alt": "Portable Cement Silos",
+      "name": "Portable Cement Silos"
+    },
+    {
+      "href": "/equipment-for-sale/rock-tumblers/",
+      "image": "/assets/equipment/mixright/rock-tumblers.jpg",
+      "alt": "Industrial Rock Tumblers",
+      "name": "Industrial Rock Tumblers"
+    }
+  ],
+  "related_heading": "Dry Batch Plants models</h2><table class=\"mx-modtbl\"><thead><tr><th>Model</th><th>Capacity</th><th>Configuration</th><th style=\"text-align:right\">Specs</th></tr></thead><tbody><tr><td class=\"mdl\">2CL-36-3</td><td class=\"cap\">36+ cu yd</td><td>Computer-controlled · 3 aggregate bins (12 yd each)</td><td class=\"lk\"><a href=\"https://www.mixright.com/2cl-36-3-portable-concrete-batching-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">2CL-24-2</td><td class=\"cap\">24+ cu yd</td><td>Automated · 2 aggregate bins (12 yd each)</td><td class=\"lk\"><a href=\"https://www.mixright.com/2cl-24-2-portable-concrete-batching-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">2CL-16-2</td><td class=\"cap\">16+ cu yd</td><td>Computer-operated · 2 bins (8 yd each)</td><td class=\"lk\"><a href=\"https://www.mixright.com/2cl-16-2-portable-concrete-batching-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">2CL-12-2</td><td class=\"cap\">12+ cu yd</td><td>Automated · 2 bins (6 yd each)</td><td class=\"lk\"><a href=\"https://www.mixright.com/2cl-12-2-portable-concrete-batching-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">2CL-8-2</td><td class=\"cap\">8+ cu yd</td><td>Computer-controlled · 2 bins (4 yd each)</td><td class=\"lk\"><a href=\"https://www.mixright.com/2cl-8-2-portable-concrete-batching-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">2CL-5-2</td><td class=\"cap\">5+ cu yd</td><td>Automated · 2 bins (2.5 yd each)</td><td class=\"lk\"><a href=\"https://www.mixright.com/2cl-5-2-stationary-concrete-batching-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">2CL-12</td><td class=\"cap\">12+ cu yd</td><td>Manual controls · single bin</td><td class=\"lk\"><a href=\"https://www.mixright.com/2cl-12-portable-concrete-batching-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">2CL-8</td><td class=\"cap\">8+ cu yd</td><td>Manually operated · single bin</td><td class=\"lk\"><a href=\"https://www.mixright.com/2cl-8-portable-concrete-batching-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">2CL-5</td><td class=\"cap\">5+ cu yd</td><td>Manual control · single aggregate bin</td><td class=\"lk\"><a href=\"https://www.mixright.com/2cl-5-portable-concrete-batching-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr></tbody></table><a class=\"mx-catlink\" href=\"https://www.mixright.com/portable-concrete-batching-plants\" target=\"_blank\" rel=\"noopener\">View the full Dry Batch Plants line on Mix Right &#8599;</a><div class=\"mx-fine\">Equipment is manufactured and sold by Right Manufacturing Systems, Inc. (Mix Right). Axiant Partners is an independent financing partner and arranges equipment financing; pricing and full specifications are provided by the manufacturer. Financing is subject to credit approval.</div></section><section style=\"padding-top:8px\"><h2 class=\"mx-sec-h serif\" style=\"font-size:1.3rem\">More Mix Right equipment",
+  "band": {
+    "title": "Finance any Dry Batch Plant",
+    "body": "Choose your model, and finance it through Axiant &mdash; spread the cost and keep your cash working.",
+    "proofs": [
+      "24-hour approvals",
+      "New &amp; used",
+      "Asset-based &mdash; the equipment carries the deal"
+    ],
+    "cta": {
+      "label": "Get pre-approved &rarr;",
+      "href": "/match.html?type=equipment&amp;equipment=Dry%20Batch%20Plants"
+    },
+    "phone": {
+      "label": "Call (561) 268-0465",
+      "href": "tel:+15612680465"
+    }
+  }
+}
