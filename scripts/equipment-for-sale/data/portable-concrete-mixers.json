@@ -47,7 +47,10 @@
       "New &amp; used equipment financed",
       "Terms up to 60&ndash;72 months",
       "Startups &amp; established businesses"
-    ]
+    ],
+    "estimator": {
+      "equip": "Portable%20Concrete%20Mixers"
+    }
   },
   "models_section": {
     "heading": "Portable Concrete Mixers models",

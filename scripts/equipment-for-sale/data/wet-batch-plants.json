@@ -47,7 +47,10 @@
       "New &amp; used equipment financed",
       "Terms up to 60&ndash;72 months",
       "Startups &amp; established businesses"
-    ]
+    ],
+    "estimator": {
+      "equip": "Wet%20Batch%20Plants"
+    }
   },
   "models_section": {
     "heading": "Wet Batch Plants models",

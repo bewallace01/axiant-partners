@@ -47,7 +47,10 @@
       "New &amp; used rigs financed",
       "Terms structured to the equipment",
       "Owner-operators &amp; established fleets"
-    ]
+    ],
+    "estimator": {
+      "equip": "Drilling%20Rigs"
+    }
   },
   "models_section": {
     "heading": "Drilling rig models",

@@ -33,3 +33,6 @@ A running, timestamped log of what shipped — appended automatically on every c
 ## 2026-07-14
 - 09:56 — Add SENNEBOGEN as partner #5 on /equipment-for-sale/ (`84d9324af`) — Alex Solopenkov
 - 10:41 — Fix invisible SENNEBOGEN logo: use their official white-on-green lockup (`35e27c926`) — Alex Solopenkov
+- 11:39 — Optimize the SENNEBOGEN pages: estimator, meta, CLS, depth, inbound links (`32a30bdba`) — Alex Solopenkov
+- 13:17 — Apply the catalog template to all 11 equipment-for-sale categories (`b8aa88785`) — Alex Solopenkov
+- 13:44 — Apply the catalog template to the 5 SENNEBOGEN pages — all 16 categories done (`30d4e7b7f`) — Alex Solopenkov

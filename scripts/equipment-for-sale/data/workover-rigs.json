@@ -47,7 +47,10 @@
       "New &amp; used rigs financed",
       "Terms structured to the equipment",
       "Owner-operators &amp; established fleets"
-    ]
+    ],
+    "estimator": {
+      "equip": "Workover%20%26%20Well%20Service%20Rigs"
+    }
   },
   "models_section": {
     "heading": "Workover &amp; well service rig models",
