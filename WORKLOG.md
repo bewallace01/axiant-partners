@@ -28,3 +28,8 @@ A running, timestamped log of what shipped — appended automatically on every c
 
 ## 2026-07-14
 - 12:48 — Equipment-for-Sale: reusable category template (catalog layout) (`4cc433b57`) — Alex Solopenkov
+- 12:18 — Improve REW equipment pages: FAQ+schema, payment estimator, equipment-tagged CTA (`6a46e2052`) — Alex Solopenkov
+
+## 2026-07-14
+- 09:56 — Add SENNEBOGEN as partner #5 on /equipment-for-sale/ (`84d9324af`) — Alex Solopenkov
+- 10:41 — Fix invisible SENNEBOGEN logo: use their official white-on-green lockup (`35e27c926`) — Alex Solopenkov
