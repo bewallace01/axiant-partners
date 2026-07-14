@@ -129,7 +129,10 @@ def extract(slug):
     model_urls = {m["inventory_url"] for m in models}
     if rm:
         rel_heading = rm.group(1)
-        for card in re.findall(r'<a class="mx-fcard" href="([^"]+)".*?<img src="([^"]+)" alt="([^"]*)".*?'
+        # `[^>]*` between src and alt: the SENNEBOGEN cards carry width/height
+        # attributes in between, and a stricter pattern silently matched nothing —
+        # which dropped the whole grid and lost its external links.
+        for card in re.findall(r'<a class="mx-fcard" href="([^"]+)".*?<img src="([^"]+)"[^>]*?alt="([^"]*)".*?'
                                r'class="mx-fname"[^>]*>(.*?)</div>', rm.group(2), re.S):
             href, img, alt, name = card
             # drop entries that merely duplicate a model card / the view-all link
@@ -144,10 +147,16 @@ def extract(slug):
     asset_dir = os.path.dirname(logo.lstrip("/"))
     for m in models:
         stem = re.sub(r"[^a-z0-9]+", "-", txt(m["name"]).lower()).strip("-")
-        for ext in (".jpg", ".webp", ".png", ".jpeg"):
-            cand = os.path.join(ROOT, asset_dir, stem + ext)
-            if os.path.exists(cand):
-                m["image"] = "/" + os.path.join(asset_dir, stem + ext).replace(os.sep, "/")
+        # SENNEBOGEN files are named "825-e-series.jpg" while the model is "825 E",
+        # so try the bare stem and the -series form.
+        for base in (stem, stem + "-series"):
+            hit = None
+            for ext in (".jpg", ".webp", ".png", ".jpeg"):
+                if os.path.exists(os.path.join(ROOT, asset_dir, base + ext)):
+                    hit = base + ext
+                    break
+            if hit:
+                m["image"] = "/" + os.path.join(asset_dir, hit).replace(os.sep, "/")
                 m["image_alt"] = f"{dname} {txt(m['name'])}"
                 break
 
