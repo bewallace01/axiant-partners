@@ -205,6 +205,48 @@ CSS = """<style>
   .efs-est-note{font-size:.67rem;color:var(--mut);line-height:1.45;margin-top:7px}
   .efs-rr{font-size:.7rem;color:var(--mut);text-align:center;margin-top:8px;line-height:1.4}
 
+  /* ---------- hub (/equipment-for-sale/) ---------- */
+  .efs-hero{background:linear-gradient(120deg,#1c3358,#0f1d33);color:#fff;border-bottom:3px solid #a67c1a;
+    padding:52px clamp(20px,4vw,44px) 46px;margin:0}
+  .efs-hero-in{max-width:1160px;margin:0 auto}
+  .efs-hero .eb{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#e7c983;font-weight:700;
+    margin-bottom:14px;display:flex;gap:10px;align-items:center}
+  .efs-hero .eb::before{content:"";width:26px;height:2px;background:#a67c1a}
+  .efs-hero h1{font-family:'Playfair Display',Georgia,serif;color:#fff;font-size:clamp(1.9rem,4.4vw,2.9rem);
+    line-height:1.06;margin:0;max-width:20ch;font-weight:600}
+  .efs-hero p{color:#c6d6ea;font-size:clamp(.95rem,2vw,1.1rem);margin:15px 0 0;max-width:62ch;line-height:1.55}
+  .efs-hstats{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:26px;padding-top:17px;
+    border-top:1px solid rgba(255,255,255,.16);font-size:.79rem;color:#9fb4cf;list-style:none}
+  .efs-hstats b{color:#e8eef6;font-weight:600}
+  .efs-jump{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px}
+  .efs-jump .lbl{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);
+    font-weight:700;align-self:center;margin-right:4px}
+  .efs-grouphead{margin:34px 0 2px;scroll-margin-top:80px}
+  .efs-grouphead:first-of-type{margin-top:0}
+  .efs-grouphead .pe{font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:#a67c1a;font-weight:700}
+  html[data-theme="dark"] .efs-grouphead .pe{color:#d8b45e}
+  .efs-grouphead h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.3rem,2.6vw,1.6rem);
+    color:var(--ink);margin:5px 0 0;font-weight:600}
+  .efs-catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:20px;margin-top:18px}
+  .efs-catcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    box-shadow:var(--sh);text-decoration:none;display:flex;flex-direction:column;
+    transition:transform .18s,box-shadow .18s}
+  .efs-catcard:hover{transform:translateY(-4px);box-shadow:0 16px 40px -16px rgba(13,31,60,.42)}
+  .efs-catphoto{position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--navy)}
+  .efs-catphoto img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+  .efs-catcard:hover .efs-catphoto img{transform:scale(1.05)}
+  .efs-catbadge{position:absolute;top:12px;left:12px;background:#fff;padding:5px 8px;border-radius:9px;
+    box-shadow:0 2px 10px rgba(0,0,0,.28);line-height:0}
+  .efs-catbadge img{height:24px;width:auto;display:block}
+  .efs-catbody{padding:15px 17px 17px;display:flex;flex-direction:column;flex:1}
+  .efs-catseries{font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--a);font-weight:700}
+  .efs-catname{font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--ink);
+    margin:3px 0 6px}
+  .efs-cattag{font-size:.83rem;color:var(--body);flex:1}
+  .efs-catmore{margin-top:13px;padding-top:11px;border-top:1px solid var(--line);font-size:.78rem;
+    font-weight:700;color:var(--a);display:flex;justify-content:space-between}
+  @media (max-width:560px){.efs-catgrid{grid-template-columns:1fr}}
+
   /* 4. finance band */
   .efs-band{margin-top:44px;background:linear-gradient(120deg,#1c3358,#0f1d33);border-radius:18px;
     padding:28px 30px;display:flex;align-items:center;gap:26px;color:#fff}
@@ -488,12 +530,82 @@ def render(slug):
     return dest
 
 
+
+def render_hub():
+    """The /equipment-for-sale/ hub.
+
+    Card photos, dealer badges and model counts are DERIVED from the 16 category
+    data files, so adding a category keeps the hub in sync automatically. Only the
+    industry grouping and the per-card copy live in _hub.json -- both lifted
+    verbatim from the previous hub. Meta + JSON-LD come from the sidecars.
+    """
+    cfg = json.loads(read(os.path.join(DATA, "_hub.json")))
+    chrome = read(os.path.join(HERE, "_chrome.html"))
+    meta = read(os.path.join(DATA, cfg["meta_file"]))
+    schema = read(os.path.join(DATA, cfg["schema_file"]))
+
+    cats = {}
+    for f in os.listdir(DATA):
+        if f.endswith(".json") and not f.startswith("_"):
+            c = json.loads(read(os.path.join(DATA, f)))
+            cats[c["slug"]] = c
+
+    h = cfg["hero"]
+    hero = (
+        '<header class="efs-hero"><div class="efs-hero-in">'
+        f'<div class="eb">{h["eyebrow"]}</div><h1>{h["h1"]}</h1><p>{h["intro_html"]}</p>'
+        + ('<ul class="efs-hstats">' + "".join(f"<li>{x}</li>" for x in h["stats"]) + "</ul>")
+        + "</div></header>"
+    )
+
+    chips = ('<div class="efs-jump"><span class="lbl">' + cfg["chips_label"] + "</span>"
+             + "".join(f'<a class="mx-chip efs-dbtn" href="#{g["anchor"]}">{g["chip"]}</a>'
+                       for g in cfg["groups"]) + "</div>")
+
+    groups = []
+    for g in cfg["groups"]:
+        cards = []
+        for it in g["items"]:
+            c = cats[it["slug"]]
+            cards.append(
+                f'<a class="efs-catcard" href="/equipment-for-sale/{it["slug"]}/">'
+                f'<div class="efs-catphoto"><img src="{c["hero"]["image"]}" width="1200" height="800" '
+                f'alt="{c["hero"]["image_alt"]}" loading="lazy">'
+                f'<span class="efs-catbadge"><img src="{c["dealer"]["logo"]}" width="72" height="24" '
+                f'alt="{c["dealer"]["name"]}"></span></div>'
+                f'<div class="efs-catbody"><div class="efs-catseries">{it["series"]}</div>'
+                f'<div class="efs-catname">{it["name"]}</div>'
+                f'<div class="efs-cattag">{it["tag"]}</div>'
+                f'<div class="efs-catmore"><span>{it["count"]}</span>'
+                "<span>View &amp; finance &rarr;</span></div></div></a>"
+            )
+        groups.append(
+            f'<div class="efs-grouphead" id="{g["anchor"]}"><div class="pe">{g["eyebrow"]}</div>'
+            f'<h2>{g["heading"]}</h2></div>'
+            f'<div class="efs-catgrid">{"".join(cards)}</div>'
+        )
+
+    body = (f'<div class="efs">{CSS}{hero}<div class="efs-wrap" style="padding-top:34px">'
+            + chips + "".join(groups)
+            + band(cfg["band"])
+            + f'<p class="efs-note">{cfg["fine"]}</p>'
+            + "</div></div>")
+
+    page = (chrome.replace("{{META}}", meta).replace("{{SCHEMA}}", schema)
+            .replace("{{BREADCRUMB}}", "").replace("{{BODY}}", body))
+    dest = os.path.join(OUT, "index.html")
+    io.open(dest, "w", encoding="utf-8", newline="\n").write(page)
+    n = sum(len(g["items"]) for g in cfg["groups"])
+    print(f"  hub: {len(cfg['groups'])} industries, {n} category cards")
+
+
 if __name__ == "__main__":
     slugs = sys.argv[1:] or [
         f[:-5] for f in sorted(os.listdir(DATA))
         if f.endswith(".json") and not f.startswith("_")
     ]
-    print(f"Building {len(slugs)} category page(s):")
+    print(f"Building {len(slugs)} category page(s) + the hub:")
     for s in slugs:
         render(s)
+    render_hub()
     print("Done.")

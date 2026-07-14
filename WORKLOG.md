@@ -36,3 +36,5 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 11:39 — Optimize the SENNEBOGEN pages: estimator, meta, CLS, depth, inbound links (`32a30bdba`) — Alex Solopenkov
 - 13:17 — Apply the catalog template to all 11 equipment-for-sale categories (`b8aa88785`) — Alex Solopenkov
 - 13:44 — Apply the catalog template to the 5 SENNEBOGEN pages — all 16 categories done (`30d4e7b7f`) — Alex Solopenkov
+- 13:46 — Estimator on all 16 catalog pages + fix the site's last broken link (`234f2db0c`) — Alex Solopenkov
+- 13:52 — Fix the 5 thin Mix Right pages: real content + FAQPage schema (`f4d3763d3`) — Alex Solopenkov
