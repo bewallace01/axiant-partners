@@ -26,3 +26,6 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 10:14 — Add Restaurant Equipment World partner to /equipment-for-sale/ (`5c1d1cfff`) — Alex Solopenkov
 - 10:54 — Add internal links from restaurant financing pages to REW equipment listings (`37e9c0a93`) — Alex Solopenkov
 - 12:18 — Improve REW equipment pages: FAQ+schema, payment estimator, equipment-tagged CTA (`6a46e2052`) — Alex Solopenkov
+
+## 2026-07-14
+- 09:56 — Add SENNEBOGEN as partner #5 on /equipment-for-sale/ (`84d9324af`) — Alex Solopenkov
