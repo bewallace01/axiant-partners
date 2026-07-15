@@ -434,3 +434,10 @@
 /securities-based-lending/articles/securities-based-lending-business-acquisition/  /securities-based-lending.html  301
 /articles/business-financing-options-bad-credit/  /business-loans-bad-credit.html  301
 /construction-business-financing/can-contractors-finance-used-equipment/  /construction-business-financing.html  301
+
+# Removed "how-to-finance-<category>" equipment articles -> parent category page (2026-07-14)
+/equipment/diagnostic-devices-medical/how-to-finance-diagnostic-devices/  /equipment/diagnostic-devices-medical/  301
+/equipment/injection-molding/how-to-finance-injection-molding-equipment/  /equipment/injection-molding/  301
+/equipment/lab-equipment-medical/how-to-finance-lab-equipment/  /equipment/lab-equipment-medical/  301
+/equipment/prep-equipment-restaurant/how-to-finance-prep-equipment/  /equipment/prep-equipment-restaurant/  301
+/equipment/restaurant-refrigeration/how-to-finance-restaurant-refrigeration/  /equipment/restaurant-refrigeration/  301
