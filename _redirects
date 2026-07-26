@@ -449,9 +449,18 @@
 # broker, which is why the set was noindexed. Three articles were rewritten and
 # moved to jyni.io, where the subject matter is on-topic; those 301 across.
 # The remaining seven were thin content-spun padding and are gone for good (410).
-/digital-marketing/articles/seo-cost-2026-agency-freelancer-in-house/  https://jyni.io/blog/how-much-does-seo-cost-2026  301!
-/digital-marketing/articles/seo-agency-vs-in-house-vs-fractional-model/  https://jyni.io/blog/seo-agency-vs-in-house-vs-fractional  301!
-/digital-marketing/articles/small-business-website-pages-seo-conversion/  https://jyni.io/blog/how-many-pages-small-business-website-needs  301!
+# TEMPORARY (2026-07-26): the three replacement posts are committed to the CRM
+# staging branch but jyni.io serves from main, so the exact URLs 404 right now.
+# Pointing a 301 at a 404 is worse than pointing a 302 at a valid index, so these
+# are 302 to /blog until the posts reach production.
+# TO FINISH: once jyni.io/blog/how-much-does-seo-cost-2026 returns 200, delete the
+# three 302 lines below and uncomment the three 301! lines beneath them.
+/digital-marketing/articles/seo-cost-2026-agency-freelancer-in-house/  https://jyni.io/blog  302
+/digital-marketing/articles/seo-agency-vs-in-house-vs-fractional-model/  https://jyni.io/blog  302
+/digital-marketing/articles/small-business-website-pages-seo-conversion/  https://jyni.io/blog  302
+# /digital-marketing/articles/seo-cost-2026-agency-freelancer-in-house/  https://jyni.io/blog/how-much-does-seo-cost-2026  301!
+# /digital-marketing/articles/seo-agency-vs-in-house-vs-fractional-model/  https://jyni.io/blog/seo-agency-vs-in-house-vs-fractional  301!
+# /digital-marketing/articles/small-business-website-pages-seo-conversion/  https://jyni.io/blog/how-many-pages-small-business-website-needs  301!
 /digital-marketing/articles/ai-appointment-setting-vs-human-sdrs/  /  410
 /digital-marketing/articles/ai-lead-generation-what-you-are-buying/  /  410
 /digital-marketing/articles/cold-email-ai-personalization-compliance-us/  /  410
