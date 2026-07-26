@@ -50,8 +50,8 @@
 /blog/how-fast-can-you-get-business-term-loan.html /business-term-loans/articles/how-fast-can-you-get-business-term-loan/ 301
 /blog/what-credit-score-needed-business-term-loan.html /business-term-loans/articles/what-credit-score-needed-business-term-loan/ 301
 /blog/business-term-loan-vs-line-of-credit.html  /business-line-of-credit.html  301
-/business-term-loans/articles/business-term-loan-vs-line-of-credit  /business-line-of-credit.html  301
-/business-term-loans/articles/business-term-loan-vs-line-of-credit  /business-line-of-credit.html  301
+/business-term-loans/articles/business-term-loan-vs-line-of-credit  /business-line-of-credit.html  301!
+/business-term-loans/articles/business-term-loan-vs-line-of-credit/  /business-line-of-credit.html  301!
 /blog/equipment-financing-guide.html /equipment-financing/articles/equipment-leasing-vs-loan-which-is-better/ 301
 /blog/what-do-lenders-look-for-business-term-loan.html /business-term-loans/articles/what-do-lenders-look-for-business-term-loan/ 301
 /blog/cash-out-refinance-commercial-property.html /commercial-real-estate-loans/articles/cash-out-refinance-commercial-property/ 301
@@ -94,28 +94,31 @@
 /blog/how-much-can-you-borrow-with-securities-based-lending.html /securities-based-lending/articles/how-much-can-you-borrow-with-securities-based-lending/ 301
 /blog/working-capital-explained.html  /working-capital-loans/articles/  301
 
-/sba-loans-blog.html /sba-loans/articles/ 301
-/sba-loans/ /sba-loans/articles/ 301
-/sba-loans/index.html /sba-loans/articles/ 301
-/equipment-financing-blog.html /equipment-financing/articles/ 301
-/equipment-financing/ /equipment-financing/articles/ 301
+# NOTE: these all need the ! force flag. A stub file exists at each source path
+# (a noindex meta-refresh page), and Netlify serves an existing file in
+# preference to a redirect rule unless the rule is forced.
+/sba-loans-blog.html /sba-loans/articles/ 301!
+/sba-loans/ /sba-loans/articles/ 301!
+/sba-loans/index.html /sba-loans/articles/ 301!
+/equipment-financing-blog.html /equipment-financing/articles/ 301!
+/equipment-financing/ /equipment-financing/articles/ 301!
 /equipment-financing-calculator.html /equipment-financing/articles/equipment-financing-calculator/ 301
-/business-line-of-credit-blog.html /business-line-of-credit/articles/ 301
-/business-line-of-credit/ /business-line-of-credit/articles/ 301
-/working-capital-loans-blog.html /working-capital-loans/articles/ 301
-/working-capital-loans/ /working-capital-loans/articles/ 301
-/business-term-loans-blog.html /business-term-loans/articles/ 301
-/business-term-loans/ /business-term-loans/articles/ 301
-/commercial-real-estate-loans/ /commercial-real-estate-loans/articles/ 301
-/commercial-real-estate-loans-blog.html /commercial-real-estate-loans/articles/ 301
-/commercial-bridge-loans/ /commercial-bridge-loans/articles/ 301
-/commercial-bridge-loans-blog.html /commercial-bridge-loans/articles/ 301
-/fix-and-flip/ /fix-and-flip/articles/ 301
-/fix-and-flip-blog.html /fix-and-flip/articles/ 301
-/revenue-based-financing/ /revenue-based-financing/articles/ 301
-/revenue-based-financing-blog.html /revenue-based-financing/articles/ 301
+/business-line-of-credit-blog.html /business-line-of-credit/articles/ 301!
+/business-line-of-credit/ /business-line-of-credit/articles/ 301!
+/working-capital-loans-blog.html /working-capital-loans/articles/ 301!
+/working-capital-loans/ /working-capital-loans/articles/ 301!
+/business-term-loans-blog.html /business-term-loans/articles/ 301!
+/business-term-loans/ /business-term-loans/articles/ 301!
+/commercial-real-estate-loans/ /commercial-real-estate-loans/articles/ 301!
+/commercial-real-estate-loans-blog.html /commercial-real-estate-loans/articles/ 301!
+/commercial-bridge-loans/ /commercial-bridge-loans/articles/ 301!
+/commercial-bridge-loans-blog.html /commercial-bridge-loans/articles/ 301!
+/fix-and-flip/ /fix-and-flip/articles/ 301!
+/fix-and-flip-blog.html /fix-and-flip/articles/ 301!
+/revenue-based-financing/ /revenue-based-financing/articles/ 301!
+/revenue-based-financing-blog.html /revenue-based-financing/articles/ 301!
 /securities-based-lending/ /securities-based-lending/articles/ 301!
-/securities-based-lending-blog.html /securities-based-lending/articles/ 301
+/securities-based-lending-blog.html /securities-based-lending/articles/ 301!
 
 # Equipment landing pages -> main equipment page
 /construction-equipment-financing.html /equipment-financing.html 301
@@ -138,7 +141,11 @@
 /used-equipment-loans.html /equipment-financing.html 301
 /bad-credit-equipment-financing.html /equipment-financing.html 301
 /equipment-financing-contractors.html /equipment-financing.html 301
-/medical-equipment-financing.html /equipment-financing.html 301
+# /medical-equipment-financing.html was removed from this block on 2026-07-26.
+# The page was deleted in 77ea15d72 but deliberately re-created as a standalone
+# vertical hub in 130a4db0d (2026-07-14). The stale rule never fired (the file
+# shadowed it), so the only damage was that a later chain-collapse script read
+# the rule as authoritative and canonicalised the live page away.
 
 /food-service-equipment-loans.html /equipment-financing.html 301
 /manufacturing-equipment-financing.html /equipment-financing.html 301
