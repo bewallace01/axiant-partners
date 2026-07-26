@@ -6,7 +6,6 @@ Disallow: /_outreach/
 Disallow: /_marketing/
 Disallow: /_analysis/
 Disallow: /_components/
-Disallow: /digital-marketing/fragments/
 
 # AI search & assistant crawlers - explicitly allow for citation and inclusion in AI answers
 User-agent: GPTBot

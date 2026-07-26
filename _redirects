@@ -444,3 +444,20 @@
 
 # Merged duplicate reverse-consolidation pages (2026-07-25)
 /business-debt-relief/articles/consolidation-vs-reverse-consolidation/  /business-debt-relief/articles/reverse-consolidation-stacked-mcas/  301
+
+# Removed /digital-marketing/ (2026-07-26). Off-topic for a business-financing
+# broker, which is why the set was noindexed. Three articles were rewritten and
+# moved to jyni.io, where the subject matter is on-topic; those 301 across.
+# The remaining seven were thin content-spun padding and are gone for good (410).
+/digital-marketing/articles/seo-cost-2026-agency-freelancer-in-house/  https://jyni.io/blog/how-much-does-seo-cost-2026  301!
+/digital-marketing/articles/seo-agency-vs-in-house-vs-fractional-model/  https://jyni.io/blog/seo-agency-vs-in-house-vs-fractional  301!
+/digital-marketing/articles/small-business-website-pages-seo-conversion/  https://jyni.io/blog/how-many-pages-small-business-website-needs  301!
+/digital-marketing/articles/ai-appointment-setting-vs-human-sdrs/  /  410
+/digital-marketing/articles/ai-lead-generation-what-you-are-buying/  /  410
+/digital-marketing/articles/cold-email-ai-personalization-compliance-us/  /  410
+/digital-marketing/articles/lead-gen-stack-seo-website-outbound-order/  /  410
+/digital-marketing/articles/red-flags-hiring-seo-company/  /  410
+/digital-marketing/articles/rfp-template-leads-seo-website-vendor/  /  410
+/digital-marketing/articles/website-redesign-vs-conversion-refresh-leads/  /  410
+/digital-marketing/articles/  /blog.html  301
+/digital-marketing/*  /blog.html  301
