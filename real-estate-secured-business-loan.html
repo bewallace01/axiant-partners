@@ -112,6 +112,17 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
         .ba-table th { background: var(--bg-card); font-weight: 700; color: var(--text-primary); }
         .ba-table td { color: var(--text-secondary); }
         .ba-table td:first-child { font-weight: 600; color: var(--text-primary); }
+        .ef-breadcrumb { max-width:100%; padding:0.9rem clamp(2rem,6vw,4rem) 0; font-size:0.88rem; color:var(--text-tertiary); }
+        .ef-breadcrumb ol { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:0.4rem; align-items:center; }
+        .ef-breadcrumb li { display:flex; align-items:center; gap:0.4rem; }
+        .ef-breadcrumb li+li::before { content:'/'; color:var(--border-color); }
+        .ef-breadcrumb a { color:var(--accent-color); text-decoration:none; }
+        .ef-breadcrumb a:hover { text-decoration:underline; }
+        .ef-breadcrumb [aria-current] { color:var(--text-secondary); }
+        .ef-midcta { margin:2rem 0; padding:1.5rem 1.75rem; border-radius:12px; border:1px solid var(--border-color); background:var(--bg-card); display:flex; flex-wrap:wrap; gap:1rem; align-items:center; justify-content:space-between; }
+        .ef-midcta p { margin:0; flex:1 1 300px; color:var(--text-secondary); }
+        .ef-midcta strong { color:var(--text-primary); }
+        .ef-midcta .btn-primary { white-space:nowrap; padding:0.75rem 1.4rem; }
         @media (max-width: 768px) { .ef-hero { min-height: 380px; padding: 3rem 1.5rem 3rem; } }
     </style>
     <script type="application/ld+json">
@@ -124,7 +135,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
     {"@context":"https://schema.org","@type":"WebPage","@id":"https://axiantpartners.com/real-estate-secured-business-loan.html#webpage","url":"https://axiantpartners.com/real-estate-secured-business-loan.html","name":"Real Estate Secured Business Loan: Raising Capital in 2nd and 3rd Position","speakable":{"@type":"SpeakableSpecification","cssSelector":[".ef-speakable"]}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a real estate secured business loan?","acceptedAnswer":{"@type":"Answer","text":"It is business financing collateralized by real property the borrower already owns, rather than by receivables, credit, or future card sales. The lender records a lien against the property and advances against the available equity. Because the collateral is real and recoverable, these loans generally carry longer terms and lower costs than unsecured business debt, and can be approved for borrowers whose credit or bank statements would not clear an unsecured lender."}},{"@type":"Question","name":"Can I get a business loan in second position behind my mortgage?","acceptedAnswer":{"@type":"Answer","text":"Yes. Specialty and asset-based lenders will lend in second and sometimes third position behind an existing mortgage, sizing the loan on combined loan-to-value across all liens rather than on the new loan alone. This lets an owner raise capital without disturbing a low-rate first mortgage. Subordinate positions are priced for the added risk, and the lender typically requires that the senior loan be current and that no prohibition on junior financing exists in the senior documents."}},{"@type":"Question","name":"What is combined loan to value?","acceptedAnswer":{"@type":"Answer","text":"Combined loan-to-value, or CLTV, is the total of every loan secured by the property divided by its appraised value. If a property appraises at $1,000,000 and carries a $500,000 first mortgage, that is 50 percent. A lender willing to go to 70 percent CLTV would look at roughly $200,000 of remaining capacity for a second lien. CLTV, not the size of the new loan by itself, is what determines how much can be raised."}},{"@type":"Question","name":"Can I use residential property to secure a business loan?","acceptedAnswer":{"@type":"Answer","text":"In many cases yes, where the loan proceeds are used for genuine business purposes. Investment and rental properties are the most straightforward. Using a primary residence is more complicated: some lenders will not touch owner-occupied homes at all, and consumer mortgage protections can apply depending on the structure and the state, which is why documenting business purpose matters. Pledging a home for business debt also puts the family residence behind a lien, which deserves serious thought before proceeding."}},{"@type":"Question","name":"What property types qualify?","acceptedAnswer":{"@type":"Answer","text":"Office, retail, industrial and warehouse, multifamily, residential investment property, and in some cases infill land. Lenders generally want a meaningful minimum value per property, clear title, current property taxes, and insurance in force. Special-purpose buildings with thin resale markets, properties in serious disrepair, environmentally impaired sites, and raw rural land are the usual exclusions."}},{"@type":"Question","name":"How is this different from a cash-out refinance?","acceptedAnswer":{"@type":"Answer","text":"A cash-out refinance replaces the existing mortgage with a new, larger one. A second or third lien loan sits behind the existing mortgage and leaves it untouched. If your current first mortgage carries a rate meaningfully below today's market, refinancing means giving that rate up on the entire balance, which frequently costs more than borrowing a smaller amount in a subordinate position. If your existing rate is at or above market, a refinance is often the cleaner and cheaper route."}},{"@type":"Question","name":"What can the money be used for?","acceptedAnswer":{"@type":"Answer","text":"Typical uses include working capital, consolidating or refinancing expensive short-term debt such as stacked merchant cash advances, purchasing equipment, funding property improvements, buying another property, or bridging a gap until longer-term financing is in place. Lenders normally require a written statement of the intended use of funds, and how credible that use is affects the approval."}}]}
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a real estate secured business loan?", "acceptedAnswer": {"@type": "Answer", "text": "It is business financing collateralized by real property the borrower already owns, rather than by receivables, credit, or future card sales. The lender records a lien against the property and advances against the available equity. Because the collateral is real and recoverable, these loans generally carry longer terms and lower costs than unsecured business debt, and can be approved for borrowers whose credit or bank statements would not clear an unsecured lender."}}, {"@type": "Question", "name": "Can I get a business loan in second position behind my mortgage?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Specialty and asset-based lenders will lend in second and sometimes third position behind an existing mortgage, sizing the loan on combined loan-to-value across all liens rather than on the new loan alone. This lets an owner raise capital without disturbing a low-rate first mortgage. Subordinate positions are priced for the added risk, and the lender typically requires that the senior loan be current and that no prohibition on junior financing exists in the senior documents."}}, {"@type": "Question", "name": "What is combined loan to value?", "acceptedAnswer": {"@type": "Answer", "text": "Combined loan-to-value, or CLTV, is the total of every loan secured by the property divided by its appraised value. If a property appraises at $1,000,000 and carries a $500,000 first mortgage, that is 50 percent. A lender willing to go to 70 percent CLTV would look at roughly $200,000 of remaining capacity for a second lien. CLTV, not the size of the new loan by itself, is what determines how much can be raised."}}, {"@type": "Question", "name": "Can I use residential property to secure a business loan?", "acceptedAnswer": {"@type": "Answer", "text": "In many cases yes, where the loan proceeds are used for genuine business purposes. Investment and rental properties are the most straightforward. Using a primary residence is more complicated: some lenders will not touch owner-occupied homes at all, and consumer mortgage protections can apply depending on the structure and the state, which is why documenting business purpose matters. Pledging a home for business debt also puts the family residence behind a lien, which deserves serious thought before proceeding."}}, {"@type": "Question", "name": "What property types qualify?", "acceptedAnswer": {"@type": "Answer", "text": "Office, retail, industrial and warehouse, multifamily, residential investment property, and in some cases infill land. Lenders generally want a meaningful minimum value per property, clear title, current property taxes, and insurance in force. Special-purpose buildings with thin resale markets, properties in serious disrepair, environmentally impaired sites, and raw rural land are the usual exclusions."}}, {"@type": "Question", "name": "How is this different from a cash-out refinance?", "acceptedAnswer": {"@type": "Answer", "text": "A cash-out refinance replaces the existing mortgage with a new, larger one. A second or third lien loan sits behind the existing mortgage and leaves it untouched. If your current first mortgage carries a rate meaningfully below today's market, refinancing means giving that rate up on the entire balance, which frequently costs more than borrowing a smaller amount in a subordinate position. If your existing rate is at or above market, a refinance is often the cleaner and cheaper route."}}, {"@type": "Question", "name": "What can the money be used for?", "acceptedAnswer": {"@type": "Answer", "text": "Typical uses include working capital, consolidating or refinancing expensive short-term debt such as stacked merchant cash advances, purchasing equipment, funding property improvements, buying another property, or bridging a gap until longer-term financing is in place. Lenders normally require a written statement of the intended use of funds, and how credible that use is affects the approval."}}, {"@type": "Question", "name": "Can I get a business loan against property that already has a mortgage?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. That is what a second or third lien does. The lender records behind your existing mortgage and advances against the equity above it, sizing the loan on combined loan-to-value across all liens. Your existing mortgage stays exactly as it is, which is the main reason owners choose this over a refinance when their current rate is below market."}}, {"@type": "Question", "name": "What credit score do I need for a real estate secured business loan?", "acceptedAnswer": {"@type": "Answer", "text": "Less than you would need unsecured, because the property carries most of the decision. Asset-based and specialty lenders in this space work well below conventional bank thresholds when there is genuine equity and clear title. Credit still influences pricing and how much of the available equity a lender will advance against."}}, {"@type": "Question", "name": "How much equity do I need in the property?", "acceptedAnswer": {"@type": "Answer", "text": "Enough that the total of all liens stays under the lender's combined loan-to-value ceiling once the new loan is added. The practical implication is that a property already heavily mortgaged leaves little room regardless of how much it is worth, and the appraisal, not your estimate, sets the value the calculation runs on."}}, {"@type": "Question", "name": "Can I use a property I own personally to secure a business loan?", "acceptedAnswer": {"@type": "Answer", "text": "Often, where the proceeds are used for genuine business purposes. Investment and rental property is the most straightforward. A primary residence is more complicated, because some lenders will not lend against owner-occupied homes at all and consumer mortgage protections can apply depending on structure and state. It also puts your home behind business debt, which deserves deliberate thought rather than default."}}]}
     </script>
     <meta name="author" content="Axiant Partners">
 </head>
@@ -172,6 +183,13 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             </div>
         </section>
 
+                <nav class="ef-breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/commercial-real-estate-loans.html">Commercial Real Estate Loans</a></li>
+            <li><span aria-current="page">Real Estate Secured Business Loan</span></li>
+          </ol>
+        </nav>
         <div class="ef-page-wrap">
         <div class="form-container ef-content">
             <section class="about-section">
@@ -197,6 +215,10 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                     <tr><td><strong>Available for a 2nd lien</strong></td><td><strong>About $200,000</strong></td><td>70%</td></tr>
                   </tbody>
                 </table>
+              </div>
+              <div class="ef-midcta">
+                <p><strong>Curious what your property leaves available?</strong> Send the value and the liens already recorded and get the CLTV arithmetic back.</p>
+                <a href="/match.html" class="btn-primary">Run My Numbers</a>
               </div>
               <p>Change any input and the answer moves. A larger first mortgage leaves less room. A higher appraisal creates more. Illustrative figures only &mdash; every lender sets its own CLTV ceiling, and the appraisal, not your estimate of value, is what the calculation runs on.</p>
               <p>Two practical constraints worth knowing before you apply. First, your existing mortgage documents may restrict or prohibit junior financing, so those need reading before anything else. Second, the senior loan generally has to be current; a subordinate lender is not going to sit behind a mortgage in default.</p>
@@ -276,6 +298,48 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
               <p>The distinction that actually matters is not the label but the <strong>position</strong>. A commercial equity loan in first position replaces your existing mortgage; in second or third it sits behind it and leaves a low-rate first loan untouched. That single choice usually moves the total cost more than any difference between one lender's product name and another's.</p>
               <p>Worth separating this from home equity borrowing, which owners often consider in the same breath. A commercial equity loan is secured by business or investment property; a <a href="/heloc-for-business.html">HELOC used for business</a> is secured by your residence. Same idea, very different consequences if the business struggles.</p>
             </section>
+            <section class="about-section">
+              <h2>What Lenders Check on the Property</h2>
+              <p>Real estate diligence is heavier than equipment diligence, and knowing what gets examined explains most of the timeline.</p>
+              <ul>
+                <li><strong>Appraisal.</strong> The lender orders it; your estimate of value does not drive the calculation. This is usually the longest single item.</li>
+                <li><strong>Title search.</strong> Every recorded lien, judgment, and easement. Unrecorded contractor liens and unpaid property taxes surface here and stop deals.</li>
+                <li><strong>Existing loan documents.</strong> Read these before applying. Some mortgages restrict or prohibit junior financing outright, which ends a second-lien plan before it starts.</li>
+                <li><strong>Insurance.</strong> Adequate coverage in force, with the lender named.</li>
+                <li><strong>Environmental.</strong> For industrial and some commercial use, a Phase I may be required. Contamination history can make a property unlendable regardless of equity.</li>
+                <li><strong>Income, if tenanted.</strong> Rent roll, leases, and payment history, since the property's own cash flow supports the debt.</li>
+              </ul>
+              <p>The two that most often blindside owners are the junior-financing restriction and unpaid property taxes. Both are checkable in an afternoon before you spend weeks on an application.</p>
+            </section>
+            <section class="about-section">
+              <h2>Timeline: Where the Weeks Actually Go</h2>
+              <p>Property-secured deals take longer than equipment-secured ones, and it is worth knowing which parts you control.</p>
+              <div class="ba-table-wrap">
+                <table class="ba-table">
+                  <thead><tr><th>Stage</th><th>Driven by</th><th>You can speed it up by</th></tr></thead>
+                  <tbody>
+                    <tr><td>Application and review</td><td>Your paperwork</td><td>Having financials and mortgage statements ready</td></tr>
+                    <tr><td>Appraisal</td><td>The appraiser's calendar</td><td>Nothing much; this is the fixed cost in time</td></tr>
+                    <tr><td>Title work</td><td>The title company</td><td>Clearing known liens and tax arrears in advance</td></tr>
+                    <tr><td>Underwriting</td><td>The lender</td><td>Answering document requests same-day</td></tr>
+                    <tr><td>Closing</td><td>Coordination</td><td>Confirming payoff figures are still good-through</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>Assembling property financials, current mortgage statements, and a rent roll before you apply is the single biggest lever you have. Deals rarely die on the merits; they die because a document took three weeks to produce and something else expired in the meantime.</p>
+            </section>
+            <section class="about-section">
+              <h2>What Happens After You Apply</h2>
+              <p>So you know what you are committing to before you start:</p>
+              <ol>
+                <li><strong>Position review.</strong> What the property is worth, what is already recorded against it, and what that leaves.</li>
+                <li><strong>Structure recommendation.</strong> Whether a second lien or a cash-out refinance costs less given the rate on your existing first.</li>
+                <li><strong>Lender matching.</strong> CLTV ceilings and appetite for subordinate positions vary widely, so this is where the spread between offers shows up.</li>
+                <li><strong>Diligence.</strong> Appraisal and title, as above.</li>
+                <li><strong>Close and fund.</strong></li>
+              </ol>
+<a href="/match.html">Send us the property and the liens already on it</a> and you will get the CLTV arithmetic back before committing to anything. It is free and checking won't affect your credit.            </section>
+
 
             <section class="about-section" id="faq">
               <h2>Real Estate Secured Business Loan FAQs</h2>
@@ -293,6 +357,15 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
               <p>A cash-out refinance replaces your existing mortgage with a new, larger one. A second or third lien sits behind it and leaves it untouched. If your first mortgage is meaningfully below market, refinancing means giving that rate up on the whole balance, which often costs more than borrowing a smaller amount in second position. If your existing rate is at or above market, a refinance is usually cleaner and cheaper.</p>
               <h3>What can the money be used for?</h3>
               <p>Working capital, consolidating or refinancing expensive short-term debt such as stacked merchant cash advances, equipment purchases, property improvements, buying another property, or bridging until longer-term financing is in place. Lenders normally require a written use of funds, and how credible that use is affects the approval.</p>
+              <h3>Can I get a business loan against property that already has a mortgage?</h3>
+              <p>Yes. That is what a second or third lien does. The lender records behind your existing mortgage and advances against the equity above it, sizing the loan on combined loan-to-value across all liens. Your existing mortgage stays exactly as it is, which is the main reason owners choose this over a refinance when their current rate is below market.</p>
+              <h3>What credit score do I need for a real estate secured business loan?</h3>
+              <p>Less than you would need unsecured, because the property carries most of the decision. Asset-based and specialty lenders in this space work well below conventional bank thresholds when there is genuine equity and clear title. Credit still influences pricing and how much of the available equity a lender will advance against.</p>
+              <h3>How much equity do I need in the property?</h3>
+              <p>Enough that the total of all liens stays under the lender's combined loan-to-value ceiling once the new loan is added. The practical implication is that a property already heavily mortgaged leaves little room regardless of how much it is worth, and the appraisal, not your estimate, sets the value the calculation runs on.</p>
+              <h3>Can I use a property I own personally to secure a business loan?</h3>
+              <p>Often, where the proceeds are used for genuine business purposes. Investment and rental property is the most straightforward. A primary residence is more complicated, because some lenders will not lend against owner-occupied homes at all and consumer mortgage protections can apply depending on structure and state. It also puts your home behind business debt, which deserves deliberate thought rather than default.</p>
+
             </section>
             <section class="about-section cta-section">
               <h2>See What Your Property Can Raise</h2>

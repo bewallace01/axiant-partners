@@ -112,6 +112,17 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
         .ba-table th { background: var(--bg-card); font-weight: 700; color: var(--text-primary); }
         .ba-table td { color: var(--text-secondary); }
         .ba-table td:first-child { font-weight: 600; color: var(--text-primary); }
+        .ef-breadcrumb { max-width:100%; padding:0.9rem clamp(2rem,6vw,4rem) 0; font-size:0.88rem; color:var(--text-tertiary); }
+        .ef-breadcrumb ol { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:0.4rem; align-items:center; }
+        .ef-breadcrumb li { display:flex; align-items:center; gap:0.4rem; }
+        .ef-breadcrumb li+li::before { content:'/'; color:var(--border-color); }
+        .ef-breadcrumb a { color:var(--accent-color); text-decoration:none; }
+        .ef-breadcrumb a:hover { text-decoration:underline; }
+        .ef-breadcrumb [aria-current] { color:var(--text-secondary); }
+        .ef-midcta { margin:2rem 0; padding:1.5rem 1.75rem; border-radius:12px; border:1px solid var(--border-color); background:var(--bg-card); display:flex; flex-wrap:wrap; gap:1rem; align-items:center; justify-content:space-between; }
+        .ef-midcta p { margin:0; flex:1 1 300px; color:var(--text-secondary); }
+        .ef-midcta strong { color:var(--text-primary); }
+        .ef-midcta .btn-primary { white-space:nowrap; padding:0.75rem 1.4rem; }
         @media (max-width: 768px) { .ef-hero { min-height: 380px; padding: 3rem 1.5rem 3rem; } }
     </style>
     <script type="application/ld+json">
@@ -124,7 +135,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
     {"@context":"https://schema.org","@type":"WebPage","@id":"https://axiantpartners.com/commercial-truck-title-loan.html#webpage","url":"https://axiantpartners.com/commercial-truck-title-loan.html","name":"Commercial Truck Title Loan: Borrow Against a Truck You Already Own","speakable":{"@type":"SpeakableSpecification","cssSelector":[".ef-speakable"]}}
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a commercial truck title loan?","acceptedAnswer":{"@type":"Answer","text":"A commercial truck title loan is business-purpose financing secured by a commercial vehicle the borrower already owns. The lender places a lien on the truck's title and advances a percentage of its value, and the owner keeps possession and keeps the truck working. It is used to raise working capital from equity already sitting in the equipment, rather than to purchase a new vehicle."}},{"@type":"Question","name":"Is a commercial truck title loan the same as a car title loan?","acceptedAnswer":{"@type":"Answer","text":"No. A consumer car title loan is a short-term personal loan, often due in 30 days, and is heavily restricted or banned in many states. A commercial truck title loan is a business-purpose loan to a company or owner-operator secured by a titled revenue-producing asset, underwritten on the truck's value and the business's ability to repay, and structured over months rather than weeks. The two products are governed by different rules and should not be confused."}},{"@type":"Question","name":"Do I need to own my truck free and clear?","acceptedAnswer":{"@type":"Answer","text":"Not always. A clean title with no existing lien produces the largest advance and the simplest closing. If you still owe on the truck, the usual route is a refinance that pays off the existing lender and returns the remaining equity to you as cash, which requires enough equity to cover the payoff plus the new advance. If the loan balance is close to the truck's value, there is nothing to draw against."}},{"@type":"Question","name":"How much can I borrow against my semi truck?","acceptedAnswer":{"@type":"Answer","text":"Advances are a percentage of the truck's appraised or book value, and lenders lend against liquidation value rather than retail asking price. Year, mileage, engine make and model, maintenance records, condition, and how easily the unit resells all move the number. A newer, low-mileage sleeper with a mainstream engine and clean title supports far more than a high-mileage unit with a rebuilt or salvaged title."}},{"@type":"Question","name":"Can I keep driving the truck?","acceptedAnswer":{"@type":"Answer","text":"Yes. That is the point of the structure. The lender records a lien on the title as security, but you keep possession and keep the truck in revenue service. Lenders typically require that you maintain insurance naming them as lienholder, and many require ACH payments and a GPS unit on the vehicle."}},{"@type":"Question","name":"Can I get one with bad credit?","acceptedAnswer":{"@type":"Answer","text":"Often, yes. Because the loan is secured by a titled asset the lender can value and recover, credit carries less weight than it does on an unsecured business loan. Some asset-based lenders in this space work with challenged credit, thin credit files, start-ups, and discharged bankruptcies. Credit still affects pricing and how much you can draw, and open tax liens, a current bankruptcy, or a rebuilt or salvaged title will usually stop a deal."}},{"@type":"Question","name":"What kinds of trucks qualify?","acceptedAnswer":{"@type":"Answer","text":"Titled, commercially used vehicles with an active resale market: sleeper and day cab tractors, box and straight trucks, dump trucks, tow trucks and wreckers, service and vacuum trucks, and in many cases trailers and reefers. Newer units with lower mileage and mainstream drivetrains qualify most easily. Private-party purchases, rebuilt or salvage titles, and units without clear ownership are generally excluded."}}]}
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a commercial truck title loan?", "acceptedAnswer": {"@type": "Answer", "text": "A commercial truck title loan is business-purpose financing secured by a commercial vehicle the borrower already owns. The lender places a lien on the truck's title and advances a percentage of its value, and the owner keeps possession and keeps the truck working. It is used to raise working capital from equity already sitting in the equipment, rather than to purchase a new vehicle."}}, {"@type": "Question", "name": "Is a commercial truck title loan the same as a car title loan?", "acceptedAnswer": {"@type": "Answer", "text": "No. A consumer car title loan is a short-term personal loan, often due in 30 days, and is heavily restricted or banned in many states. A commercial truck title loan is a business-purpose loan to a company or owner-operator secured by a titled revenue-producing asset, underwritten on the truck's value and the business's ability to repay, and structured over months rather than weeks. The two products are governed by different rules and should not be confused."}}, {"@type": "Question", "name": "Do I need to own my truck free and clear?", "acceptedAnswer": {"@type": "Answer", "text": "Not always. A clean title with no existing lien produces the largest advance and the simplest closing. If you still owe on the truck, the usual route is a refinance that pays off the existing lender and returns the remaining equity to you as cash, which requires enough equity to cover the payoff plus the new advance. If the loan balance is close to the truck's value, there is nothing to draw against."}}, {"@type": "Question", "name": "How much can I borrow against my semi truck?", "acceptedAnswer": {"@type": "Answer", "text": "Advances are a percentage of the truck's appraised or book value, and lenders lend against liquidation value rather than retail asking price. Year, mileage, engine make and model, maintenance records, condition, and how easily the unit resells all move the number. A newer, low-mileage sleeper with a mainstream engine and clean title supports far more than a high-mileage unit with a rebuilt or salvaged title."}}, {"@type": "Question", "name": "Can I keep driving the truck?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. That is the point of the structure. The lender records a lien on the title as security, but you keep possession and keep the truck in revenue service. Lenders typically require that you maintain insurance naming them as lienholder, and many require ACH payments and a GPS unit on the vehicle."}}, {"@type": "Question", "name": "Can I get one with bad credit?", "acceptedAnswer": {"@type": "Answer", "text": "Often, yes. Because the loan is secured by a titled asset the lender can value and recover, credit carries less weight than it does on an unsecured business loan. Some asset-based lenders in this space work with challenged credit, thin credit files, start-ups, and discharged bankruptcies. Credit still affects pricing and how much you can draw, and open tax liens, a current bankruptcy, or a rebuilt or salvaged title will usually stop a deal."}}, {"@type": "Question", "name": "What kinds of trucks qualify?", "acceptedAnswer": {"@type": "Answer", "text": "Titled, commercially used vehicles with an active resale market: sleeper and day cab tractors, box and straight trucks, dump trucks, tow trucks and wreckers, service and vacuum trucks, and in many cases trailers and reefers. Newer units with lower mileage and mainstream drivetrains qualify most easily. Private-party purchases, rebuilt or salvage titles, and units without clear ownership are generally excluded."}}, {"@type": "Question", "name": "How much can I get for a title loan on a semi truck?", "acceptedAnswer": {"@type": "Answer", "text": "A percentage of the truck's liquidation value rather than its retail price, which is why the figure usually comes in below what owners expect. Year, mileage, engine make and model, condition, maintenance records, and whether the title is clean and lien-free all move it. A newer low-mileage sleeper with a mainstream drivetrain supports substantially more than a high-mileage unit with a hard-to-place engine."}}, {"@type": "Question", "name": "Do I have to give up my truck during a commercial title loan?", "acceptedAnswer": {"@type": "Answer", "text": "No. You keep possession and keep the truck in revenue service for the whole term. The lender records a lien against the title as security only. Expect to maintain insurance naming them as lienholder, and expect most lenders to require ACH payments and a GPS unit on the vehicle."}}, {"@type": "Question", "name": "Can I get a title loan on a truck I am still paying for?", "acceptedAnswer": {"@type": "Answer", "text": "Only if there is real equity. The usual structure is a cash-out refinance that pays off the existing lender and returns the surplus to you, which requires the truck to be worth meaningfully more than the payoff. If you owe close to what it is worth, there is nothing to draw against and the productive conversation is about the payment instead."}}, {"@type": "Question", "name": "What paperwork do I need for a commercial truck title loan?", "acceptedAnswer": {"@type": "Answer", "text": "The title, VIN, and current registration; year, make, model, mileage, engine and transmission details; photos and any maintenance records; proof of insurance; recent business bank statements, usually three months; and a current payoff quote if a lender is still on the title. Having the title physically in hand is the single biggest determinant of speed."}}]}
     </script>
     <meta name="author" content="Axiant Partners">
 </head>
@@ -172,6 +183,13 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             </div>
         </section>
 
+                <nav class="ef-breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/trucking-business-financing.html">Trucking Business Financing</a></li>
+            <li><span aria-current="page">Commercial Truck Title Loan</span></li>
+          </ol>
+        </nav>
         <div class="ef-page-wrap">
         <div class="form-container ef-content">
             <section class="about-section">
@@ -203,6 +221,10 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                     <tr><td>Regulation</td><td>Capped, restricted, or banned in many states</td><td>Commercial lending rules</td></tr>
                   </tbody>
                 </table>
+              </div>
+              <div class="ef-midcta">
+                <p><strong>Not sure what your truck supports?</strong> Send the year, make, model and mileage and get a real number back rather than a guess.</p>
+                <a href="/match.html" class="btn-primary">Check My Truck</a>
               </div>
               <p>Everything on this page refers to the commercial product: <strong>business-purpose financing for a company or owner-operator, secured by a titled commercial vehicle</strong>. If you need money for personal reasons, this is the wrong product and we are the wrong people to ask.</p>
             </section>
@@ -278,6 +300,54 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
               <h2>Compare Your Options in One Place</h2>
               <p>Title lenders, refinance desks, and asset-based lenders all value the same truck differently, and the spread between the best and worst offer on an identical unit is wide. Rather than call each one, <a href="/match.html">tell us about your truck once</a> and compare what is actually available against it. It is free, there is no obligation, and checking won't affect your credit.</p>
             </section>
+            <section class="about-section">
+              <h2>What Your Truck Is Actually Worth to a Lender</h2>
+              <p>Owners almost always start from the wrong number. The figure in your head is usually a dealer's asking price or what you paid. A lender works from what it could recover in a quick sale, which is a materially lower number, and then advances a percentage of <em>that</em>.</p>
+              <p>A rough sense of how the gap compounds on a typical late-model sleeper:</p>
+              <div class="ba-table-wrap">
+                <table class="ba-table">
+                  <thead><tr><th>Figure</th><th>What it represents</th><th>Direction</th></tr></thead>
+                  <tbody>
+                    <tr><td>Dealer asking price</td><td>Retail, reconditioned, with a warranty</td><td>Highest</td></tr>
+                    <tr><td>Clean trade / book value</td><td>What a dealer would allow you</td><td>Lower</td></tr>
+                    <tr><td>Orderly liquidation</td><td>Sold over a reasonable window</td><td>Lower again</td></tr>
+                    <tr><td>Forced liquidation</td><td>Auctioned quickly</td><td>Lowest</td></tr>
+                    <tr><td>Your advance</td><td>A percentage of the liquidation figure</td><td>Lower still</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>That is not a lender being unreasonable. It is what a repossessed unit with unknown maintenance history actually fetches at auction. The practical takeaway: get the value established before you build a plan around a number. Our guide to <a href="/equipment-appraisal.html">equipment and machinery appraisal</a> explains fair market, orderly liquidation, and forced liquidation value and why lenders use the lower ones.</p>
+<strong>What moves your number up:</strong> complete service records, a mainstream engine with an active resale market, lower mileage for the model year, a clean and lien-free title, and photographs that show the unit has been looked after. <strong>What moves it down:</strong> an engine that is hard to place, deferred maintenance, an accident history, or a title with anything unusual on it.            </section>
+            <section class="about-section">
+              <h2>Title Loan, Sale-Leaseback, or Just Sell It?</h2>
+              <p>If the goal is cash and you own the truck, three structures compete. They differ mainly in whether you keep the unit and whether you keep the title.</p>
+              <div class="ba-table-wrap">
+                <table class="ba-table">
+                  <thead><tr><th></th><th>Title loan</th><th>Sale-leaseback</th><th>Outright sale</th></tr></thead>
+                  <tbody>
+                    <tr><td>Keep driving it</td><td>Yes</td><td>Yes</td><td>No</td></tr>
+                    <tr><td>Keep the title</td><td>Yes</td><td>No, with buy-back</td><td>No</td></tr>
+                    <tr><td>Cash raised</td><td>Percentage of value</td><td>Often more</td><td>Full market value</td></tr>
+                    <tr><td>Ongoing payment</td><td>Yes</td><td>Yes, lease</td><td>None</td></tr>
+                    <tr><td>Best when</td><td>You need the unit and the cash</td><td>You want maximum cash and can lease</td><td>The unit is surplus or idle</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>The one owners overlook is the third column. If a truck is sitting because you cannot crew it, financing it to raise cash means paying interest on an asset that is not earning. Selling it and keeping the proceeds is frequently the better answer, and no lender will volunteer that. <a href="/match.html">Tell us the situation</a> and we will say which of the three raises the most net of cost.</p>
+            </section>
+            <section class="about-section">
+              <h2>What Happens After You Apply</h2>
+              <p>The process is short when the paperwork is in order, and the steps are predictable:</p>
+              <ol>
+                <li><strong>Value the unit.</strong> Year, make, model, mileage, engine, condition, and photos. Usually same-day.</li>
+                <li><strong>Confirm the title.</strong> Clean and in your name, or a payoff quote if a lender is still on it.</li>
+                <li><strong>Light underwriting.</strong> Typically the last three months of business bank statements. The collateral carries most of the decision.</li>
+                <li><strong>Offer and terms.</strong> Advance amount, payment, and term, with any GPS or documentation requirements stated up front.</li>
+                <li><strong>Lien and funding.</strong> The lender records against the title and funds. You keep the truck the entire time.</li>
+              </ol>
+              <p>Deals stall for boring reasons: the title is not physically in hand, ownership does not match the business name, or a payoff figure turns out to be a guess. Sorting those before you apply is the difference between days and weeks. <a href="/match.html">Start the review</a> and we will tell you what is missing before it costs you time.</p>
+            </section>
+
             <section class="about-section" id="faq">
               <h2>Commercial Truck Title Loan FAQs</h2>
               <h3>What is a commercial truck title loan?</h3>
@@ -294,6 +364,15 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
               <p>Often, yes. Because the loan is secured by a titled asset the lender can value and recover, credit carries less weight than on an unsecured business loan. Lenders in this space do work with challenged credit, thin files, start-ups, and discharged bankruptcies. Credit still affects how much you can draw. An open bankruptcy, sizeable unresolved tax liens, or a rebuilt or salvaged title will usually stop a deal regardless of score.</p>
               <h3>What kinds of trucks qualify?</h3>
               <p>Titled commercial units with an active resale market: sleeper and day cab tractors, box and straight trucks, dump trucks, tow trucks and wreckers, service and vacuum trucks, and in many cases trailers and reefers. Rebuilt or salvage titles, unclear ownership, and units with no dependable resale market are generally excluded.</p>
+              <h3>How much can I get for a title loan on a semi truck?</h3>
+              <p>A percentage of the truck's liquidation value rather than its retail price, which is why the figure usually comes in below what owners expect. Year, mileage, engine make and model, condition, maintenance records, and whether the title is clean and lien-free all move it. A newer low-mileage sleeper with a mainstream drivetrain supports substantially more than a high-mileage unit with a hard-to-place engine.</p>
+              <h3>Do I have to give up my truck during a commercial title loan?</h3>
+              <p>No. You keep possession and keep the truck in revenue service for the whole term. The lender records a lien against the title as security only. Expect to maintain insurance naming them as lienholder, and expect most lenders to require ACH payments and a GPS unit on the vehicle.</p>
+              <h3>Can I get a title loan on a truck I am still paying for?</h3>
+              <p>Only if there is real equity. The usual structure is a cash-out refinance that pays off the existing lender and returns the surplus to you, which requires the truck to be worth meaningfully more than the payoff. If you owe close to what it is worth, there is nothing to draw against and the productive conversation is about the payment instead.</p>
+              <h3>What paperwork do I need for a commercial truck title loan?</h3>
+              <p>The title, VIN, and current registration; year, make, model, mileage, engine and transmission details; photos and any maintenance records; proof of insurance; recent business bank statements, usually three months; and a current payoff quote if a lender is still on the title. Having the title physically in hand is the single biggest determinant of speed.</p>
+
             </section>
             <section class="about-section cta-section">
               <h2>Find Out What Your Truck Can Unlock</h2>
