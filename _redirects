@@ -487,3 +487,32 @@
 /articles/reasons-business-loan-interest-rate-higher-than-expected/why-lender-keeps-asking-for-more-documents  /articles/reasons-business-loan-interest-rate-higher-than-expected/  301
 /commercial-bridge-loans/articles/when-to-use-bridge-loan-business/  /commercial-bridge-loans/articles/when-should-you-use-commercial-bridge-loan/  301
 /commercial-bridge-loans/articles/when-to-use-bridge-loan-business  /commercial-bridge-loans/articles/when-should-you-use-commercial-bridge-loan/  301
+
+# Semi-truck cluster consolidation (2026-07-29). The cluster was 12 pages all
+# targeting "semi truck financing" variants: ~1,867 impressions and 1 click,
+# with the hub itself down to 11 impressions. Four of the twelve sat in GSC's
+# "Crawled - currently not indexed" bucket. Google was picking one or two per
+# topic and discarding the rest - split authority, not thin content.
+#
+# Surviving pages (4): the hub, -down-payment (603 impr), -lease-vs-loan
+# (508 impr), and -bad-credit. The unique material from each merged page was
+# folded into its survivor before redirecting, so no coverage is lost.
+#
+# The source files still exist on disk, so every rule below needs the ! force
+# flag - Netlify serves an existing file in preference to an unforced rule.
+/equipment/semi-trucks/how-to-finance-a-semi-truck/  /equipment/semi-trucks/  301!
+/equipment/semi-trucks/how-to-finance-a-semi-truck  /equipment/semi-trucks/  301!
+/equipment/semi-trucks/semi-truck-financing-requirements/  /equipment/semi-trucks/#st-requirements  301!
+/equipment/semi-trucks/semi-truck-financing-requirements  /equipment/semi-trucks/#st-requirements  301!
+/equipment/semi-trucks/semi-truck-financing-fast-approval/  /equipment/semi-trucks/#st-timeline  301!
+/equipment/semi-trucks/semi-truck-financing-fast-approval  /equipment/semi-trucks/#st-timeline  301!
+/equipment/semi-trucks/used-semi-truck-financing/  /equipment/semi-trucks/#st-used  301!
+/equipment/semi-trucks/used-semi-truck-financing  /equipment/semi-trucks/#st-used  301!
+/equipment/semi-trucks/financing-owner-operators/  /equipment/semi-trucks/#st-borrower-type  301!
+/equipment/semi-trucks/financing-owner-operators  /equipment/semi-trucks/#st-borrower-type  301!
+/equipment/semi-trucks/small-fleet-financing/  /equipment/semi-trucks/#st-borrower-type  301!
+/equipment/semi-trucks/small-fleet-financing  /equipment/semi-trucks/#st-borrower-type  301!
+/equipment/semi-trucks/semi-truck-lease-down-payment/  /equipment/semi-trucks/semi-truck-financing-down-payment/#lease-down-payment  301!
+/equipment/semi-trucks/semi-truck-lease-down-payment  /equipment/semi-trucks/semi-truck-financing-down-payment/#lease-down-payment  301!
+/equipment/semi-trucks/semi-truck-financing-denied-reasons-fixes/  /equipment/semi-trucks/semi-truck-financing-bad-credit/#denied  301!
+/equipment/semi-trucks/semi-truck-financing-denied-reasons-fixes  /equipment/semi-trucks/semi-truck-financing-bad-credit/#denied  301!
