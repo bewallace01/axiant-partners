@@ -471,3 +471,19 @@
 /digital-marketing/articles/website-redesign-vs-conversion-refresh-leads/  /  410
 /digital-marketing/articles/  /blog.html  301
 /digital-marketing/*  /blog.html  301
+
+# The last two live 404s in GSC's "Not found" bucket (2026-07-29). Neither is
+# linked from anywhere on the site — both are stale URLs Google still re-crawls.
+#
+# 1. A nested resolution of the why-lender-keeps-asking slug against its sibling
+#    article's directory. The flat form is already handled above; this deeper
+#    path never was. Sent to the parent article, which covers the same question.
+# 2. Never existed as a file in this repo at any point in git history. Google
+#    likely resolved it from an external or since-edited link. Sent to the
+#    article that actually answers it.
+#
+# No file exists at either source path, so no ! force flag is needed here.
+/articles/reasons-business-loan-interest-rate-higher-than-expected/why-lender-keeps-asking-for-more-documents/  /articles/reasons-business-loan-interest-rate-higher-than-expected/  301
+/articles/reasons-business-loan-interest-rate-higher-than-expected/why-lender-keeps-asking-for-more-documents  /articles/reasons-business-loan-interest-rate-higher-than-expected/  301
+/commercial-bridge-loans/articles/when-to-use-bridge-loan-business/  /commercial-bridge-loans/articles/when-should-you-use-commercial-bridge-loan/  301
+/commercial-bridge-loans/articles/when-to-use-bridge-loan-business  /commercial-bridge-loans/articles/when-should-you-use-commercial-bridge-loan/  301
