@@ -498,8 +498,11 @@
 # (508 impr), and -bad-credit. The unique material from each merged page was
 # folded into its survivor before redirecting, so no coverage is lost.
 #
-# The source files still exist on disk, so every rule below needs the ! force
-# flag - Netlify serves an existing file in preference to an unforced rule.
+# The source directories were deleted once the merge was verified in production,
+# so the ! force flag is no longer strictly required. It is kept deliberately:
+# these slugs come from generator scripts (scripts/build_13_articles.py,
+# scripts/generate_new_articles.py) that could recreate the files, and an
+# unforced rule would silently stop firing the moment that happened.
 /equipment/semi-trucks/how-to-finance-a-semi-truck/  /equipment/semi-trucks/  301!
 /equipment/semi-trucks/how-to-finance-a-semi-truck  /equipment/semi-trucks/  301!
 /equipment/semi-trucks/semi-truck-financing-requirements/  /equipment/semi-trucks/#st-requirements  301!
