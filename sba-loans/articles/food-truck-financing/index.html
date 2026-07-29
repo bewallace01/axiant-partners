@@ -161,6 +161,65 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             </div>
             <p>For the kitchen build specifically, see <a href="/equipment-financing.html">equipment financing</a>; for startup-stage options, <a href="/startup-financing.html">startup financing</a>.</p>
 
+<h2 id="estimate-payment">Estimate Your Food Truck Loan Payment</h2>
+            <p>Enter a project cost, down payment, and term to see an illustrative loan amount and monthly payment. These are <strong>planning estimates, not a quote</strong> &mdash; your actual rate depends on credit, the equipment, and the lender.</p>
+            <div id="ft-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+              <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+                <label style="flex:1 1 150px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Project cost
+                  <input id="ftPrice" type="text" inputmode="numeric" value="$90,000" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                </label>
+                <label style="flex:1 1 110px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Down payment
+                  <select id="ftDown" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                    <option value="0">0%</option>
+                    <option value="10" selected>10%</option>
+                    <option value="20">20%</option>
+                  </select>
+                </label>
+                <label style="flex:1 1 110px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Term
+                  <select id="ftTerm" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                    <option value="36">3 years</option>
+                    <option value="60" selected>5 years</option>
+                    <option value="84">7 years</option>
+                  </select>
+                </label>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:14px;">
+                <div style="flex:1 1 180px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                  <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Estimated loan amount</div>
+                  <div id="ftLoan" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                </div>
+                <div style="flex:1 1 180px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                  <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Est. monthly payment</div>
+                  <div id="ftPay" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                </div>
+              </div>
+              <p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only at an assumed ~10% APR, not a quote or offer of credit. Startup and limited-credit borrowers may see higher rates.</p>
+              <a id="ftCta" href="/match.html?type=equipment" class="btn-primary" style="margin-top:14px;">See real food truck rates &mdash; get matched</a>
+              <p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won&rsquo;t affect your credit &middot; no obligation.</p>
+            </div>
+            <script>
+            (function(){
+              var price=document.getElementById('ftPrice'),down=document.getElementById('ftDown'),
+                  term=document.getElementById('ftTerm'),outL=document.getElementById('ftLoan'),
+                  outP=document.getElementById('ftPay'),cta=document.getElementById('ftCta');
+              if(!price) return;
+              var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+              function pay(p,apr,n){var r=apr/12;return r>0?(p*r)/(1-Math.pow(1+r,-n)):p/n;}
+              function calc(){
+                var p=parseFloat((price.value||'').replace(/[^0-9.]/g,''))||0;
+                if(p<=0){outL.innerHTML='&mdash;';outP.innerHTML='&mdash;';if(cta){cta.href='/match.html?type=equipment';cta.textContent='See real food truck rates — get matched';}return;}
+                var loan=p*(1-(+down.value)/100);
+                var m=pay(loan,0.10,+term.value);
+                outL.textContent=fmt(loan);
+                outP.textContent=fmt(m)+'/mo';
+                if(cta){cta.href='/match.html?type=equipment&amount='+Math.round(loan);cta.textContent='See if you qualify for '+fmt(loan)+' →';}
+              }
+              price.addEventListener('input',calc);
+              price.addEventListener('blur',function(){var n=parseFloat((price.value||'').replace(/[^0-9.]/g,''));if(n>0)price.value=fmt(n);});
+              down.addEventListener('change',calc);term.addEventListener('change',calc);
+              calc();
+            })();
+            </script>
             <h2 id="startup">Qualifying as a Startup or With Limited Credit</h2>
             <p>Most food trucks have no business track record, so lenders underwrite the <strong>owner</strong>: personal credit, available down payment, and any industry experience, with the equipment as collateral. The most accessible startup paths are <strong>SBA microloans</strong> and CDFI/nonprofit lenders, which are designed for new and underserved owners. A clear business plan, a realistic budget that includes soft costs, and a 10&ndash;20% down payment materially improve approval odds when there's no revenue history yet.</p>
 
@@ -230,6 +289,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
           <nav aria-label="On this page">
             <ul class="blog-post-toc-list">
               <li><a href="#options">Financing Options</a></li>
+              <li><a href="#estimate-payment">Estimate Your Payment</a></li>
               <li><a href="#startup">Startup / Limited Credit</a></li>
               <li><a href="#full-cost">Budget Beyond the Truck</a></li>
               <li><a href="#what-lenders-want">What Lenders Check</a></li>
