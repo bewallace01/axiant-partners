@@ -519,3 +519,26 @@
 /equipment/semi-trucks/semi-truck-lease-down-payment  /equipment/semi-trucks/semi-truck-financing-down-payment/#lease-down-payment  301!
 /equipment/semi-trucks/semi-truck-financing-denied-reasons-fixes/  /equipment/semi-trucks/semi-truck-financing-bad-credit/#denied  301!
 /equipment/semi-trucks/semi-truck-financing-denied-reasons-fixes  /equipment/semi-trucks/semi-truck-financing-bad-credit/#denied  301!
+
+# Equipment cluster consolidation, round 2 (2026-07-29). Same pattern as the
+# semi-truck pilot above: near-duplicate "Guide" pages splitting authority with
+# their own hub. Across excavators + forklifts + box-trucks these 13 pages drew
+# 260 impressions and 0 clicks, with children averaging ~1,100 words against
+# 2,700-word hubs. Two of the merged pages openly announced the overlap, with
+# sections titled "When to use this guide vs the full hub" and "Search intent:
+# why contractors land on this page".
+#
+# Only genuine duplicates were merged. Distinct intents were kept as their own
+# pages: lease-vs-loan, used-*, and the box-truck delivery use case.
+# Unique material was folded into each hub before redirecting.
+#
+# ! flag retained for the same reason as the semi-truck block: these slugs come
+# from generator scripts that could recreate the files.
+/equipment/excavators/how-to-finance-an-excavator/  /equipment/excavators/  301!
+/equipment/excavators/how-to-finance-an-excavator  /equipment/excavators/  301!
+/equipment/excavators/excavator-financing-guide/  /equipment/excavators/  301!
+/equipment/excavators/excavator-financing-guide  /equipment/excavators/  301!
+/equipment/forklifts/electric-forklift-financing/  /equipment/forklifts/#fl-electric  301!
+/equipment/forklifts/electric-forklift-financing  /equipment/forklifts/#fl-electric  301!
+/equipment/box-trucks/box-truck-financing-guide/  /equipment/box-trucks/#bt-upfits  301!
+/equipment/box-trucks/box-truck-financing-guide  /equipment/box-trucks/#bt-upfits  301!
