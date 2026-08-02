@@ -542,3 +542,21 @@
 /equipment/forklifts/electric-forklift-financing  /equipment/forklifts/#fl-electric  301!
 /equipment/box-trucks/box-truck-financing-guide/  /equipment/box-trucks/#bt-upfits  301!
 /equipment/box-trucks/box-truck-financing-guide  /equipment/box-trucks/#bt-upfits  301!
+
+# Fix-and-flip first-timer consolidation (2026-08-01). Two pages split the same
+# intent: "first-time investors" (2,008 words) and "first-time flippers" (1,606
+# words), both self-canonical, 71% title/H1 token overlap. GSC 2026-06-03 shows
+# them at positions 5.5 and 6.1 on the same query space, 49 combined impressions,
+# 0 clicks -- classic split authority. The flippers page kept the URL: more
+# impressions (35 v 14), more inbound internal links (8 v 5), and still present
+# in the 06-18 export.
+#
+# DataForSEO: neither "first-time investors" nor "first-time flippers" has
+# measurable volume. "fix and flip loans for beginners" does -- 320/mo, KD 0,
+# CPC $23.61 -- so the survivor was retargeted to that phrasing and the investor
+# wording kept as a secondary variant in the FAQ and schema keywords.
+#
+# Unique sections folded into the survivor before redirecting: project selection,
+# rates and costs, building a track record, when to consider alternatives.
+/fix-and-flip/articles/fix-and-flip-first-time-investors/  /fix-and-flip/articles/fix-and-flip-loan-first-time-flippers/  301
+/fix-and-flip/articles/fix-and-flip-first-time-investors  /fix-and-flip/articles/fix-and-flip-loan-first-time-flippers/  301
