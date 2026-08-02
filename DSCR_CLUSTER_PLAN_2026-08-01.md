@@ -108,32 +108,63 @@ It can be folded into 1.2 if hub length allows — decide at build time, do not 
 
 ---
 
-## Phase 3 — Geo pages (27 terms, ~12,000/mo, every one KD 0)
+## Phase 3 — Geo pages (43 states mapped, 7,570/mo, 42 of 43 at KD 0)
 
-| State | Volume | CPC | | State | Volume | CPC |
+**Funding coverage is not a constraint — Axiant can place DSCR in any state** (confirmed
+2026-08-01). That removes the business gate. It does *not* remove the content gate, and with
+43 buildable pages on the table the content gate is now the only thing preventing a
+doorway-page problem.
+
+Average CPC across the set is **$23.51**. Ranked by volume × CPC:
+
+### Tier 1 — build first (8 pages, ~60% of cluster value)
+
+| Keyword | Vol | CPC | | Keyword | Vol | CPC |
 |---|---|---|---|---|---|---|
-| Texas | 1,300 | $20.03 | | Illinois | 170 | $19.19 |
-| Florida | 1,300 | $19.48 | | **Pennsylvania** | 170 | **$41.74** |
-| Ohio | 480 | $22.38 | | Alabama | 170 | $16.99 |
-| Michigan | 480 | $16.90 | | Maryland | 170 | $14.18 |
-| North Carolina | 390 | $20.05 | | Colorado | 140 | $17.20 |
-| Georgia | 320 | $23.69 | | Virginia | 140 | $21.72 |
-| California | 320 | $25.03 | | | | |
+| `dscr loan texas` | 1,300 | $20.03 | | `dscr loan california` | 320 | $25.03 |
+| `dscr loan florida` | 1,300 | $19.48 | | `dscr loan nc` | 390 | $20.05 |
+| `dscr loan ohio` | 480 | $22.38 | | `dscr loan georgia` | 320 | $23.69 |
+| `dscr loan michigan` | 480 | $16.90 | | **`dscr loan tennessee`** | 70 | **$103.01** |
+
+Tennessee is only 70/mo but carries a **$103 CPC** — the highest single CPC found anywhere in
+this account, by a factor of two. Worth a page on economics alone.
+
+### Tier 2 — after Tier 1 ranks (10 pages)
+
+Pennsylvania (170 / **$41.74**), Massachusetts (90 / **$43.93**), Illinois (170), Virginia
+(140), New Jersey abbrev. (110 / $26.33), Alabama (170), Indiana (140), Maryland (170),
+Colorado (140), Nevada (90).
+
+### Tier 3 — 25 remaining states, 20–110/mo each
+
+**Do not build these as individual pages.** Volumes of 20–90/mo do not justify 25 separate
+URLs, and 25 near-identical pages is precisely the pattern that gets a site classed as
+doorway content. Serve them from **one** "DSCR loans by state" page with a substantive
+section per state, linking out to the Tier 1/2 pages where they exist.
+
+Exceptions worth their own page on CPC alone: New Mexico (20 / **$57.47**), New Jersey
+(30 / **$45.16**), Mississippi (30 / $30.29).
+
+### The content gate — now the only gate
 
 **Validated by a competitor:** txpremiermortgage.com ranks #5 for `dscr loan lenders` on a
-Texas-specific page.
+Texas-specific page. The play works. It works because that page is *about Texas*.
 
-**Two conditions before building any of these:**
+Each Tier 1/2 page must carry genuinely state-specific substance:
 
-1. **Confirm Axiant can actually place DSCR in the state.** These are lender-intent queries;
-   ranking in a state you cannot fund wastes the click and the reputation. This is a business
-   question, not an SEO one, and it gates the whole phase.
-2. **Each page must carry genuinely state-specific substance** — local lender behaviour,
-   state-level LLC and transfer-tax treatment, typical rents and DSCR maths for that market.
-   Spun templates with the state name swapped are what Google's 2024–25 updates target, and
-   this site has already paid for duplicate content three times this cycle.
+- State LLC treatment and whether title can be held in an entity without a due-on-sale issue
+- Transfer/recordation tax and typical closing costs in that state
+- Realistic rent-to-price ratios for 2–3 named metros, and what DSCR that produces
+- Whether the state is judicial or non-judicial foreclosure — DSCR lenders price for it
+- Local appraisal and insurance conditions (FL wind, CA wildfire, TX property tax) that
+  materially move the DSCR calculation
 
-Start with Texas and Florida only. Measure for 6 weeks. Expand only if they rank.
+If a page cannot clear that bar, it should not ship. This site has already had **three
+duplicate pairs** suppress clusters this cycle; 43 templated pages would be a far more
+expensive version of the same mistake.
+
+**Sequence:** Texas and Florida first, as a genuine pilot. Measure 6 weeks. Only if both
+rank does Tier 1 continue — and only if Tier 1 ranks does Tier 2 start.
 
 ---
 
@@ -162,8 +193,10 @@ suppressing a cluster. Rules for this build:
 | 3 | DSCR loan lenders | **New** | KD 0 at $44.74 CPC — highest-value term in the account |
 | 4 | DSCR loan requirements | **New** | 2,900/mo, KD 10 |
 | 5 | DSCR loan rates | **New** | 3,600/mo, KD 6 |
-| 6 | Texas + Florida geo | **New** | 2,600/mo combined, KD 0 — pilot only |
-| 7 | Remaining 10 states | **New** | Only if 6 ranks |
+| 6 | Texas + Florida geo | **New** | 2,600/mo combined, KD 0 — genuine pilot |
+| 7 | Tier 1 remainder (6 states) | **New** | Only if 6 ranks |
+| 8 | Tier 2 (10 states) | **New** | Only if 7 ranks |
+| 9 | "DSCR loans by state" roll-up | **New** | Serves the 25 low-volume states from one URL |
 
 Items 1–5 are the core. Item 1 is an edit; 2–5 are four new pages.
 
