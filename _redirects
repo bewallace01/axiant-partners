@@ -560,3 +560,19 @@
 # rates and costs, building a track record, when to consider alternatives.
 /fix-and-flip/articles/fix-and-flip-first-time-investors/  /fix-and-flip/articles/fix-and-flip-loan-first-time-flippers/  301
 /fix-and-flip/articles/fix-and-flip-first-time-investors  /fix-and-flip/articles/fix-and-flip-loan-first-time-flippers/  301
+
+# SBA 504 vs conventional consolidation (2026-08-01). Two pages answered the same
+# question: /sba-loans/articles/sba-504-vs-conventional-cre (1,329 words) and
+# /commercial-real-estate-loans/articles/sba-504-vs-conventional-commercial-real-estate-loan
+# (1,525 words). GSC 2026-06-03: 42 impressions v 3, and the CRE-cluster page
+# carries 28 inbound internal links against 12 -- so the CRE page survives.
+#
+# The retired page's two worked dollar examples ($2M structure split, $1.5M cost
+# comparison) were folded into the survivor first; it had no worked example at all,
+# which the content playbook asks for. The retired page also repeated itself
+# ("When SBA 504 Wins" / "When Conventional Wins" / "When Each Option Wins").
+#
+# Context: the whole 504 cluster ranks position 52-67 on ~400 monthly impressions
+# for "504 vs 7a" variants. Splitting it across two URLs was part of why.
+/sba-loans/articles/sba-504-vs-conventional-cre/  /commercial-real-estate-loans/articles/sba-504-vs-conventional-commercial-real-estate-loan/  301
+/sba-loans/articles/sba-504-vs-conventional-cre  /commercial-real-estate-loans/articles/sba-504-vs-conventional-commercial-real-estate-loan/  301
