@@ -205,5 +205,10 @@ body{padding-bottom:76px}
    top border on top of the existing left accent. The contents keep the article
    typography they already use; this only draws the card around them.
 
-   Inline styles win on the 51, so those are unchanged. */
-.article-faq{margin:36px 0 28px;padding:24px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border-color)}
+   Inline styles win on the 51, so those are unchanged.
+   Padding and radius softened 2026-08-02. The border stays at 1px and is load
+   bearing: in the dark theme --bg-card (#1e293b to #0f172a) and --bg-primary
+   (#0f172a to #1e293b to #0f172a) are the same two colours reversed, so the card
+   has almost no background contrast to sit on and the border is the only thing
+   that defines its edge. Removing it would make the card vanish in dark mode. */
+.article-faq{margin:32px 0 24px;padding:18px 20px;background:var(--bg-card);border-radius:10px;border:1px solid var(--border-color)}
