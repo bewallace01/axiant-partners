@@ -194,16 +194,16 @@ body{padding-bottom:76px}
 }
 
 /* Article FAQ card.
-   Two variants exist. 51 pages use <section class="article-faq" style="...">, which
-   carries its own inline styling and nests questions in .article-faq__list /
-   .article-faq__item. The other 298 use a plain <div class="article-faq"> holding
-   h3/p pairs directly, and had no styling at all - the class was never defined.
+   .article-faq was referenced by 349 pages and declared by no stylesheet. 51 use
+   <section class="article-faq" style="..."> and carry the card inline; the other 298
+   use a plain <div class="article-faq"> and had nothing.
 
-   The container values below are the same ones the inline variant sets, so that
-   variant renders exactly as before (inline styles win regardless). The child rules
-   use > so they reach only the plain variant's direct children; the section variant
-   has no direct h3 or p. */
+   Container only, deliberately. blog-layout.css already styles headings and
+   paragraphs inside .blog-post-main at (0,3,1) - h3 gets a left accent bar and its
+   own spacing, p gets margin, colour and line-height. Those beat anything scoped to
+   .article-faq, so typography rules here would either be inert or, worse, stack a
+   top border on top of the existing left accent. The contents keep the article
+   typography they already use; this only draws the card around them.
+
+   Inline styles win on the 51, so those are unchanged. */
 .article-faq{margin:36px 0 28px;padding:24px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border-color)}
-.article-faq > h3{margin:18px 0 8px;padding-top:18px;border-top:1px solid var(--border-color);font-size:1.08rem;color:var(--text-primary)}
-.article-faq > h3:first-child{margin-top:0;padding-top:0;border-top:0}
-.article-faq > p{margin:0;color:var(--text-secondary);line-height:1.6}
