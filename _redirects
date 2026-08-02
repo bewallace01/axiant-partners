@@ -542,3 +542,53 @@
 /equipment/forklifts/electric-forklift-financing  /equipment/forklifts/#fl-electric  301!
 /equipment/box-trucks/box-truck-financing-guide/  /equipment/box-trucks/#bt-upfits  301!
 /equipment/box-trucks/box-truck-financing-guide  /equipment/box-trucks/#bt-upfits  301!
+
+# Fix-and-flip first-timer consolidation (2026-08-01). Two pages split the same
+# intent: "first-time investors" (2,008 words) and "first-time flippers" (1,606
+# words), both self-canonical, 71% title/H1 token overlap. GSC 2026-06-03 shows
+# them at positions 5.5 and 6.1 on the same query space, 49 combined impressions,
+# 0 clicks -- classic split authority. The flippers page kept the URL: more
+# impressions (35 v 14), more inbound internal links (8 v 5), and still present
+# in the 06-18 export.
+#
+# DataForSEO: neither "first-time investors" nor "first-time flippers" has
+# measurable volume. "fix and flip loans for beginners" does -- 320/mo, KD 0,
+# CPC $23.61 -- so the survivor was retargeted to that phrasing and the investor
+# wording kept as a secondary variant in the FAQ and schema keywords.
+#
+# Unique sections folded into the survivor before redirecting: project selection,
+# rates and costs, building a track record, when to consider alternatives.
+/fix-and-flip/articles/fix-and-flip-first-time-investors/  /fix-and-flip/articles/fix-and-flip-loan-first-time-flippers/  301
+/fix-and-flip/articles/fix-and-flip-first-time-investors  /fix-and-flip/articles/fix-and-flip-loan-first-time-flippers/  301
+
+# SBA 504 vs conventional consolidation (2026-08-01). Two pages answered the same
+# question: /sba-loans/articles/sba-504-vs-conventional-cre (1,329 words) and
+# /commercial-real-estate-loans/articles/sba-504-vs-conventional-commercial-real-estate-loan
+# (1,525 words). GSC 2026-06-03: 42 impressions v 3, and the CRE-cluster page
+# carries 28 inbound internal links against 12 -- so the CRE page survives.
+#
+# The retired page's two worked dollar examples ($2M structure split, $1.5M cost
+# comparison) were folded into the survivor first; it had no worked example at all,
+# which the content playbook asks for. The retired page also repeated itself
+# ("When SBA 504 Wins" / "When Conventional Wins" / "When Each Option Wins").
+#
+# Context: the whole 504 cluster ranks position 52-67 on ~400 monthly impressions
+# for "504 vs 7a" variants. Splitting it across two URLs was part of why.
+/sba-loans/articles/sba-504-vs-conventional-cre/  /commercial-real-estate-loans/articles/sba-504-vs-conventional-commercial-real-estate-loan/  301
+/sba-loans/articles/sba-504-vs-conventional-cre  /commercial-real-estate-loans/articles/sba-504-vs-conventional-commercial-real-estate-loan/  301
+
+# SBA 504 vs 7(a) consolidation (2026-08-01). Third duplicate pair in this cluster.
+# /sba-loans/articles/sba-504-vs-7a-decision-tree (1,442 words, 2 impressions, 33
+# inbound links) vs /sba-loans/articles/sba-7a-vs-504-loan (1,452 words, 498
+# impressions, 47 inbound links). Near-identical length and title, same query.
+#
+# The split is what was holding the cluster down: one URL absorbed 498 impressions
+# at position 57 while the other sat at position 3.5 on 2 impressions -- Google
+# picking the weaker page and neither accumulating authority. DataForSEO: both
+# orderings ("sba 504 vs 7a" / "sba 7a vs 504") are 590/mo at KD 0-2, same group.
+#
+# Folded into the survivor first: the decision tree, combined 504+7(a) structuring,
+# and the when-conventional-beats-both counter-positioning. Survivor retitled to
+# lead with the 504-first ordering.
+/sba-loans/articles/sba-504-vs-7a-decision-tree/  /sba-loans/articles/sba-7a-vs-504-loan/  301
+/sba-loans/articles/sba-504-vs-7a-decision-tree  /sba-loans/articles/sba-7a-vs-504-loan/  301

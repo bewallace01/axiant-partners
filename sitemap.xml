@@ -512,7 +512,7 @@
   </url>
   <url>
     <loc>https://axiantpartners.com/sba-loans/articles/sba-7a-vs-504-loan/</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1526,7 +1526,7 @@
   </url>
   <url>
     <loc>https://axiantpartners.com/commercial-real-estate-loans/articles/commercial-real-estate-loan-calculator/</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1544,7 +1544,7 @@
   </url>
   <url>
     <loc>https://axiantpartners.com/commercial-real-estate-loans/articles/sba-504-vs-conventional-commercial-real-estate-loan/</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1615,14 +1615,8 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://axiantpartners.com/fix-and-flip/articles/fix-and-flip-first-time-investors/</loc>
-    <lastmod>2026-04-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://axiantpartners.com/fix-and-flip/articles/fix-and-flip-loan-first-time-flippers/</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -3217,12 +3211,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://axiantpartners.com/sba-loans/articles/sba-504-vs-conventional-cre/</loc>
-    <lastmod>2026-04-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://axiantpartners.com/equipment-financing/articles/equipment-financing-vs-business-credit-card/</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
@@ -3440,12 +3428,6 @@
   </url>
   <url>
     <loc>https://axiantpartners.com/business-line-of-credit/articles/best-unsecured-business-lines-of-credit-2026/</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://axiantpartners.com/sba-loans/articles/sba-504-vs-7a-decision-tree/</loc>
     <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -4091,5 +4073,23 @@
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/sba-loans/articles/sba-504-lenders/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/commercial-real-estate-loans/articles/commercial-mortgage-broker/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/sba-loans/articles/sba-504-refinance/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
