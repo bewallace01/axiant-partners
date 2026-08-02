@@ -576,3 +576,19 @@
 # for "504 vs 7a" variants. Splitting it across two URLs was part of why.
 /sba-loans/articles/sba-504-vs-conventional-cre/  /commercial-real-estate-loans/articles/sba-504-vs-conventional-commercial-real-estate-loan/  301
 /sba-loans/articles/sba-504-vs-conventional-cre  /commercial-real-estate-loans/articles/sba-504-vs-conventional-commercial-real-estate-loan/  301
+
+# SBA 504 vs 7(a) consolidation (2026-08-01). Third duplicate pair in this cluster.
+# /sba-loans/articles/sba-504-vs-7a-decision-tree (1,442 words, 2 impressions, 33
+# inbound links) vs /sba-loans/articles/sba-7a-vs-504-loan (1,452 words, 498
+# impressions, 47 inbound links). Near-identical length and title, same query.
+#
+# The split is what was holding the cluster down: one URL absorbed 498 impressions
+# at position 57 while the other sat at position 3.5 on 2 impressions -- Google
+# picking the weaker page and neither accumulating authority. DataForSEO: both
+# orderings ("sba 504 vs 7a" / "sba 7a vs 504") are 590/mo at KD 0-2, same group.
+#
+# Folded into the survivor first: the decision tree, combined 504+7(a) structuring,
+# and the when-conventional-beats-both counter-positioning. Survivor retitled to
+# lead with the 504-first ordering.
+/sba-loans/articles/sba-504-vs-7a-decision-tree/  /sba-loans/articles/sba-7a-vs-504-loan/  301
+/sba-loans/articles/sba-504-vs-7a-decision-tree  /sba-loans/articles/sba-7a-vs-504-loan/  301
