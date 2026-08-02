@@ -28,6 +28,22 @@ Everything waits for review in the morning.
 | Sitemap | Entry added with correct priority |
 | Voice | Zero banned phrases, zero AI-tell structures, sentence stdev ≥ 6 |
 
+**Conversion is the point.** Ranking is the means; a submitted form at `/match.html` is the
+outcome. A page that ranks and does not convert has failed. Every page must clear:
+
+| Requirement | Standard |
+|---|---|
+| CTA density | **≥5 links to `/match.html` per 1,000 words** of body copy |
+| Placement | Hero CTA above the fold, a contextual CTA closing **most** substantive sections, and a closing CTA block |
+| Wording | Contextual, never generic. "Send us the property and we will tell you which requirements your file clears" converts; "Apply now" does not |
+| Honesty as conversion | Where the page says a product may be wrong for the reader, the CTA should offer to tell them which fits &mdash; that earns the submission rather than demanding it |
+| Phone | `tel:+15612680465` present alongside the primary CTA |
+
+Measured baseline on pages that already work: `commercial-real-estate-loans.html` 6.8,
+`fix-and-flip.html` 6.5, `trucking-business-financing.html` 7.1 per 1,000 words. The first two
+DSCR pages were built at 2.1&ndash;2.2 and had to be corrected to 5.9 and 4.9 &mdash; do not
+repeat that. **Add CTAs while writing the section, not as a pass at the end.**
+
 **Cannibalization gate — run before writing, not after.** For each new page, compute title/H1
 token Jaccard against every existing page. **≥0.45 means stop and resolve** — either retarget
 the new page or move the competing section onto it, as was done with the "Top DSCR Lenders"
@@ -35,14 +51,15 @@ section. Three duplicate pairs have already suppressed clusters on this site; a 
 acceptable.
 
 **Verification per page, in this order:**
-1. `python qa.py` — 0 hard fails. *Known false positive on root pages: "links to a sibling
+1. **CTA density ≥5 per 1,000 words**, wording contextual, hero + per-section + closing placement
+2. `python qa.py` — 0 hard fails. *Known false positive on root pages: "links to a sibling
    article" checks for `../` paths, which root pages do not use. Ignore that one only.*
-2. `python voice_audit.py` — no banned phrases, no AI-tell structures
-3. FAQ visible count == schema count; every visible question present in schema
-4. All JSON-LD parses
-5. Serve locally and verify every internal link returns 200
-6. `npm run audit` — broken:0 thin:0 filler:0
-7. **Confirm the file ends with `</html>` and nothing follows it.** An insertion anchor has
+3. `python voice_audit.py` — no banned phrases, no AI-tell structures
+4. FAQ visible count == schema count; every visible question present in schema
+5. All JSON-LD parses
+6. Serve locally and verify every internal link returns 200
+7. `npm run audit` — broken:0 thin:0 filler:0
+8. **Confirm the file ends with `</html>` and nothing follows it.** An insertion anchor has
    misfired three times on this site, once dumping 2,051 characters after `</html>`.
 
 **Accuracy rules.** Every number published must be verifiable. Worked examples must reproduce
