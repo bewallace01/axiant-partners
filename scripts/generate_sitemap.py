@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Generate sitemap.xml with final URLs only (no redirect sources)."""
+import sys
 from pathlib import Path
 from datetime import date
 
@@ -16,9 +17,48 @@ def _file_for_path(loc_path):
         return BASE / p.lstrip("/")
     return BASE / p.lstrip("/") / "index.html"
 
+def _git_dates():
+    """path -> date of the commit that last touched it, in one pass.
+
+    Preferred over mtime: mtime is whenever the working tree was last written,
+    so a fresh clone dates every page to the clone. Git knows when the content
+    actually changed, and gives the same answer on every machine.
+    """
+    import subprocess
+    try:
+        out = subprocess.run(
+            ["git", "log", "--name-only", "--date=short", "--format=%ad"],
+            cwd=BASE, capture_output=True, text=True, timeout=120,
+        ).stdout
+    except (OSError, subprocess.SubprocessError):
+        return {}
+    dates, cur = {}, None
+    for line in out.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if len(line) == 10 and line[4] == "-" and line[7] == "-":
+            cur = line
+        elif cur and line not in dates:
+            dates[line] = cur          # log is newest-first, so first wins
+    return dates
+
+
+_GIT_DATES = _git_dates()
+
+
 def _lastmod(loc_path):
-    """Use file mtime for lastmod when available; else today. W3C format YYYY-MM-DD."""
+    """When the page actually last changed. W3C format YYYY-MM-DD.
+
+    The committed sitemap had 400 of 764 entries reading 2026-04 while the files
+    had been rewritten the week before, because this generator is not wired into
+    any build step and had not been run since. A lastmod that lags the content
+    tells Google there is nothing to re-look at.
+    """
     f = _file_for_path(loc_path)
+    rel = f.relative_to(BASE).as_posix() if f.is_relative_to(BASE) else None
+    if rel and rel in _GIT_DATES:
+        return _GIT_DATES[rel]
     if f.exists():
         try:
             from datetime import datetime
@@ -195,7 +235,23 @@ def main():
         + "\n".join(urls)
         + "\n</urlset>\n"
     )
-    (BASE / "sitemap.xml").write_text(out, encoding="utf-8")
+    # This generator enumerates a hand-maintained list rather than discovering
+    # pages, so it drifts behind the site. As of 2026-08-02 it emits 576 URLs
+    # against 764 in the committed sitemap - running it would silently drop 198,
+    # including all of business-debt-relief and equipment-for-sale. Refuse to
+    # shrink the sitemap unless that is explicitly what the caller wants.
+    existing = BASE / "sitemap.xml"
+    if existing.exists():
+        import re as _re
+        have = len(_re.findall(r"<loc>", existing.read_text(encoding="utf-8")))
+        if len(urls) < have and "--allow-shrink" not in sys.argv:
+            sys.exit(
+                f"refusing to write: would go from {have} URLs to {len(urls)}, "
+                f"dropping {have - len(urls)}. The page list in this script is "
+                f"behind the site. Update it, or pass --allow-shrink if the "
+                f"removals are intended."
+            )
+    existing.write_text(out, encoding="utf-8")
     print(f"Generated sitemap with {len(urls)} URLs")
 
 if __name__ == "__main__":
