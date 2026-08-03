@@ -28,8 +28,49 @@ The FAQ referred to "the ARV cap" without ever stating it, while the body gave
 consistently across body, FAQ and schema.
 
 Nothing was invented in either case — both figures were already published
-elsewhere on the same page. The rest of this document is unreviewed and remains
-open.
+elsewhere on the same page.
+
+
+## The other 33 reviewed 2026-08-03 — nothing lost
+
+All 35 rows in the section below have now been checked. **Not one lost
+information.** Method and results:
+
+**23 rows with distinctive figures** (`5,000,000`, `477,571`, `680`, `70-75%`):
+the figure is present in the page text today. String match is reliable at this
+length.
+
+**12 rows whose figures are one or two digits** (`1`, `2`, `36`, `60`) where a
+match could occur by chance: each was checked by recovering the pre-parity schema
+answer from git and comparing it against the current page answer. **10 were
+character-for-character identical** — the schema had simply repeated the page.
+
+**2 rows flagged as genuinely absent were typography, not content:**
+
+| Page | Schema said | Page says |
+|---|---|---|
+| `business-acquisition-financing.html` | 20&ndash;30% (en dash) | 20-30% (hyphen) |
+| `equipment-for-sale/drilling-rigs/` | 3.5-inch | 3&frac12;" |
+
+Same claim, different characters. The figure-extraction that produced this
+document matched on literal strings and could not see that.
+
+**1 row was a real difference and still lost nothing.**
+`manufacturing-equipment-financing-expand-capacity-without-cash-crunch` carried a
+**2,400-character** schema answer — the article body stuffed into a single FAQ
+entry. Every sentence of it was sampled against the rendered page and all of it
+is there as prose. The parity fix trimmed the markup to the actual answer, which
+is what Google asks for anyway; a 2,400-character FAQ answer was the defect.
+
+**This document is closed.** It was written to flag content that existed only in
+markup, on the assumption some of it deserved promoting to the page. On
+inspection, the schema was duplicating visible text throughout, and the two
+entries that mattered were contradictions rather than omissions — both fixed and
+confirmed above.
+
+Limit of the check, stated: the 23-row string match confirms a figure is
+*somewhere* on the page, not that it appears in the same context. The 12
+ambiguous rows were verified properly by direct comparison; the 23 were not.
 
 
 ## Answers that lost a figure — 35
