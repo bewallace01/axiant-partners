@@ -246,13 +246,45 @@ to `margin: 0` and removing it changed the `.tldr` box height by **0px**.
 Stray close tags across the site are now **0**, with no tags left open at EOF.
 
 
-### Unrelated: three pages declare `FAQPage` twice
+### Three pages declared `FAQPage` twice &mdash; fixed
 
-Found while checking this set. `commercial-bridge-loans.html`,
-`trucking-business-financing.html` and
-`equipment/diagnostic-equipment-auto/scan-tool-financing/` each carry two
-`FAQPage` blocks. 740 pages declare one; only these three declare two. Not
-fixed here.
+`commercial-bridge-loans.html`, `trucking-business-financing.html` and
+`equipment/diagnostic-equipment-auto/scan-tool-financing/` each carried two
+`FAQPage` blocks against 740 pages with one.
+
+
+On all three the two `<script>` elements were **byte-identical and adjacent**,
+separated by a newline and indent, so the second was removed with its separator.
+Had they differed, the fix would have been a merge rather than a delete. Pages
+declaring more than one `FAQPage` is now **0**.
+
+
+### Found on the way out: 153 double-escaped entities on 72 pages
+
+The FAQ parity sweep run after that fix reported 57 answers not supported by
+visible text. Sampling three showed two different causes, and the larger one is
+a **reader-visible defect**:
+
+
+| Entity | Count |
+|---|---|
+| `&amp;amp;mdash;` | 75 |
+| `&amp;amp;amp;` | 38 |
+| `&amp;amp;ndash;` | 24 |
+| `&amp;amp;rsquo;` | 16 |
+| **Total** | **153 across 72 pages** |
+
+
+All 153 sit in body text, none inside an attribute, so a reader sees the literal
+string on the page &mdash; for example, in a visible FAQ question on
+`business-term-loans.html`:
+
+
+> Business term loan vs line of credit&amp;mdash;which is right?
+
+
+The remaining parity misses are answers whose text genuinely is not on the page.
+Neither is fixed here; the entity problem is the larger and more visible.
 >
 > Speakable was extended at the same time. 430 of the 431 pages that already had
 > a block point `cssSelector` at `.quick-answer`; the 73 pointed at `h1`,
