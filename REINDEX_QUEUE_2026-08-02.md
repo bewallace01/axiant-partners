@@ -1,34 +1,49 @@
 # Re-index queue - pages Google crawled and declined
 
+> **CORRECTED 2026-08-03.** The first version listed `/services`, `/blog`,
+> `/vendors` and `/terms-and-conditions` as the top priorities. They are
+> extensionless duplicates that correctly canonicalise to their `.html` twins,
+> and the `.html` pages are indexed. Google declining to index a canonicalised
+> duplicate is the intended outcome, not a failure. They are removed from the
+> queue entirely. Corrected total: **86** genuine rejections, not 90.
+
 Ranked by inbound internal links (the site's own vote of importance), then length.
 Google's Request Indexing quota is roughly 10-12 URLs per property per day.
 Search Console > URL inspection > paste URL > REQUEST INDEXING.
 
-## Submitted 2026-08-02 (quota used)
+## Not in the queue - canonicalised duplicates, working as intended
 
-- [x] https://axiantpartners.com/vendors   (641 links, 1049 words)
-- [x] https://axiantpartners.com/equipment-financing/articles/equipment-leasing-vs-loan-which-is-better/   (269 links, 1712 words)
-- [x] https://axiantpartners.com/equipment-financing/articles/what-credit-score-needed-equipment-financing/   (189 links, 1469 words)
-- [x] https://axiantpartners.com/equipment-financing/articles/equipment-financing-requirements/   (78 links, 2256 words)
+- https://axiantpartners.com/vendors &rarr; canonical `/vendors.html` (indexed)
+- https://axiantpartners.com/terms-and-conditions &rarr; canonical `/terms-and-conditions.html` (indexed)
+- https://axiantpartners.com/blog &rarr; canonical `/blog.html` (indexed)
+- https://axiantpartners.com/services &rarr; canonical `/services.html` (indexed)
+
+## Submitted 2026-08-02
+
+- [x] https://axiantpartners.com/equipment-financing/articles/equipment-leasing-vs-loan-which-is-better/   (270 links, 1712 words)
+- [x] https://axiantpartners.com/equipment-financing/articles/what-credit-score-needed-equipment-financing/   (190 links, 1469 words)
+- [x] https://axiantpartners.com/equipment-financing/articles/equipment-financing-requirements/   (79 links, 2256 words)
 - [x] https://axiantpartners.com/restaurants-business-financing.html   (53 links, 2806 words)
-- [x] https://axiantpartners.com/working-capital-loans/articles/business-loans-for-bad-credit/   (40 links, 4091 words)
+- [x] https://axiantpartners.com/working-capital-loans/articles/business-loans-for-bad-credit/   (41 links, 4091 words)
 - [x] https://axiantpartners.com/logistics-warehousing-business-financing.html   (35 links, 2838 words)
 - [x] https://axiantpartners.com/equipment-financing/articles/equipment-financing-vs-sba-loan/   (33 links, 1922 words)
 - [x] https://axiantpartners.com/equipment/semi-trucks/   (32 links, 3260 words)
 
-## Do not request - fix the page instead
+## Submitted 2026-08-03 - after rewriting both pages
 
-- [ ] https://axiantpartners.com/services   (762 links, 363 words) - 363 words - thin, fix the page not the crawl
-- [ ] https://axiantpartners.com/terms-and-conditions   (640 links, 1179 words) - legal boilerplate, Google rarely indexes these
-- [ ] https://axiantpartners.com/blog   (123 links, 400 words) - 400 words - thin hub, fix the page not the crawl
+- [x] https://axiantpartners.com/services.html   (762 links, 363 -> 1,303 words)
+- [x] https://axiantpartners.com/blog.html   (123 links, 400 -> 1,274 words)
+
+Both were already indexed. Requested because the content changed substantially,
+which is what the *Page changed?* prompt on that button is for.
 
 ## Remaining queue
 
 - [ ] https://axiantpartners.com/equipment/medical-imaging/   (32 links, 1306 words)
 - [ ] https://axiantpartners.com/landscaping-business-financing.html   (31 links, 3034 words)
-- [ ] https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-vs-merchant-cash-advance/   (29 links, 1931 words)
+- [ ] https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-vs-merchant-cash-advance/   (30 links, 1931 words)
 - [ ] https://axiantpartners.com/equipment-financing/articles/equipment-financing-new-businesses/   (28 links, 1850 words)
-- [ ] https://axiantpartners.com/business-line-of-credit/articles/business-line-of-credit-for-startups/   (25 links, 2100 words)
+- [ ] https://axiantpartners.com/business-line-of-credit/articles/business-line-of-credit-for-startups/   (26 links, 2100 words)
 - [ ] https://axiantpartners.com/articles/how-to-prequalify-business-loan/   (24 links, 1787 words)
 - [ ] https://axiantpartners.com/equipment-financing/articles/construction-heavy-equipment-financing/   (20 links, 1722 words)
 - [ ] https://axiantpartners.com/equipment/cargo-vans/   (19 links, 2715 words)
@@ -42,7 +57,7 @@ Search Console > URL inspection > paste URL > REQUEST INDEXING.
 - [ ] https://axiantpartners.com/equipment-financing/articles/medical-dental-equipment-financing/   (15 links, 2191 words)
 - [ ] https://axiantpartners.com/merchant-cash-advance/articles/merchant-cash-advance-vs-working-capital-loan/   (15 links, 1253 words)
 - [ ] https://axiantpartners.com/articles/business-loan-guarantee-traps/   (15 links, 1036 words)
-- [ ] https://axiantpartners.com/fix-and-flip/articles/   (14 links, 441 words)
+- [ ] https://axiantpartners.com/fix-and-flip/articles/   (15 links, 441 words)
 - [ ] https://axiantpartners.com/equipment-financing/articles/equipment-financing-no-money-down/   (12 links, 2132 words)
 - [ ] https://axiantpartners.com/startup-financing/articles/startup-financing-credit-score-guide/   (11 links, 1604 words)
 - [ ] https://axiantpartners.com/sba-loans/articles/sba-loan-alternatives-when-you-dont-qualify/   (11 links, 1369 words)
@@ -103,4 +118,4 @@ Search Console > URL inspection > paste URL > REQUEST INDEXING.
 - [ ] https://axiantpartners.com/equipment/forklifts/used-forklift-financing/   (1 links, 1349 words)
 - [ ] https://axiantpartners.com/faq.html   (1 links, 1030 words)
 
-Total remaining: 78
+Total genuine rejections: 86 | submitted: 9 | remaining: 78

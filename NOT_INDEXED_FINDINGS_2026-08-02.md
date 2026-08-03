@@ -30,19 +30,46 @@ and are not in the sitemap &mdash; including an entire `digital-marketing/articl
 section that has been deleted. Crawled between March and July, now gone.
 
 
-Nothing to fix; they will age out. **The real count of live pages Google rejected
-is 90.**
+Nothing to fix; they will age out.
 
 
-## The 90 are not thin, orphaned or duplicative
+## 4 more are canonicalised duplicates, working correctly
 
-The obvious hypotheses all fail. Against the other 678 indexable pages:
+> **CORRECTED 2026-08-03.** This section was missing from the original, and its
+> absence made the four most-linked entries look like the worst failures. They
+> are not failures at all.
+
+The export lists `/services`, `/blog`, `/vendors` and `/terms-and-conditions`
+&mdash; **extensionless**, not the `.html` URLs. Both forms return 200, and the
+extensionless one carries a canonical pointing at the `.html` version:
 
 
-| Measure | Rejected (90) | Everything else (678) |
+| URL | Status | Canonical |
 |---|---|---|
-| Median words | **1,455** | 1,281 |
-| Median inbound internal links | **8** | 5 |
+| `/services` | 200 | &rarr; `/services.html` |
+| `/services.html` | 200 | self &mdash; **indexed** |
+
+
+Google crawled the duplicate, read the canonical, and declined to index it
+separately. That is exactly the intended outcome. URL inspection confirms
+`services.html` and `blog.html` are both **on Google and indexed**.
+
+These four carry the highest inbound-link counts on the site, which is why they
+sorted to the top of the priority ranking and were read as "the most-linked
+pages, rejected". They should never have been in the queue.
+
+**The real count of live pages Google rejected is 86.**
+
+
+## The 86 are not thin, orphaned or duplicative
+
+The obvious hypotheses all fail. Against the other 682 indexable pages:
+
+
+| Measure | Rejected (86) | Everything else (682) |
+|---|---|---|
+| Median words | **1,586** | 1,304 |
+| Median inbound internal links | **7** | 5 |
 | Nearest-sibling content overlap | 32.6% | 33.6% |
 | Pages with zero inbound links | **0** | &mdash; |
 
@@ -75,10 +102,10 @@ one batch, months ago, that has never been revisited.
 
 | | |
 |---|---|
-| Live rejected pages | 90 |
-| Present in `sitemap.xml` | 90 |
-| Carrying `lastmod` of **2026-04** | **86** |
-| Actually modified in the repo since 2026-07-25 | **90** |
+| Live rejected pages | 86 |
+| Present in `sitemap.xml` | 86 |
+| Carrying `lastmod` of **2026-04** | **82** |
+| Actually modified in the repo since 2026-07-25 | **86** |
 
 Every one of them was rewritten in the last week &mdash; FAQ schema, titles,
 headlines, breadcrumbs, answer parity &mdash; while the sitemap told Google they
@@ -125,8 +152,8 @@ claiming April when they were rewritten in August &mdash; that was simply false.
 ## What to watch
 
 The next crawl is the test. If the March cohort gets re-fetched and a meaningful
-share of the 90 moves into the index, the diagnosis was right and the remedy was
+share of the 86 moves into the index, the diagnosis was right and the remedy was
 recrawl rather than rewrite. If they are re-crawled and still rejected, then it *is*
-a content judgement &mdash; and that is worth knowing, because it would mean 90
-pages of 1,455 median words are not earning their place.
+a content judgement &mdash; and that is worth knowing, because it would mean 86
+pages of 1,586 median words are not earning their place.
 
