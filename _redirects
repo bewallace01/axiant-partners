@@ -681,3 +681,29 @@
 /veteran-business-loans  /veteran-business-loans.html  301!
 /working-capital-loans-blog  /working-capital-loans/articles/  301!
 /workover-rig-financing  /workover-rig-financing.html  301!
+
+# Same pattern: these slugs have a directory but no index.html, so
+# Netlify still answers /slug from slug.html.
+/agriculture-business-financing  /agriculture-business-financing.html  301!
+/auto-repair-business-financing  /auto-repair-business-financing.html  301!
+/business-debt-relief  /business-debt-relief.html  301!
+/business-growth  /business-growth.html  301!
+/cleaning-business-financing  /cleaning-business-financing.html  301!
+/construction-business-financing  /construction-business-financing.html  301!
+/equipment  /equipment.html  301!
+/fencing-business-financing  /fencing-business-financing.html  301!
+/forestry-business-financing  /forestry-business-financing.html  301!
+/hvac-business-financing  /hvac-business-financing.html  301!
+/landscaping-business-financing  /landscaping-business-financing.html  301!
+/logistics-warehousing-business-financing  /logistics-warehousing-business-financing.html  301!
+/manufacturing-business-financing  /manufacturing-business-financing.html  301!
+/medical-practices-business-financing  /medical-practices-business-financing.html  301!
+/merchant-cash-advance  /merchant-cash-advance.html  301!
+/moving-company-business-financing  /moving-company-business-financing.html  301!
+/plumbing-business-financing  /plumbing-business-financing.html  301!
+/restaurants-business-financing  /restaurants-business-financing.html  301!
+/roofing-business-financing  /roofing-business-financing.html  301!
+/septic-business-financing  /septic-business-financing.html  301!
+/startup-financing  /startup-financing.html  301!
+/towing-business-financing  /towing-business-financing.html  301!
+/trucking-business-financing  /trucking-business-financing.html  301!
