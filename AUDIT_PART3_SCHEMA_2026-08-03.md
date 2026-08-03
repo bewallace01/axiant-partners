@@ -125,8 +125,32 @@ a markup one and belongs with part 4, not a bulk edit here.
 > certificate on a bucket truck). **708 figures were checked against their own
 > page before writing.** Coverage **657 &rarr; 714**, missing **111 &rarr; 54**.
 >
-> Remaining: 17 `equipment-for-sale/`, 14 root, 5 `articles/`, and the 17 index
-> pages that should not have one.
+> The **17 `equipment-for-sale/` pages** followed. These are dealer and
+> manufacturer listing pages rather than financing guides, so each answer leads
+> on the machine and closes on the financing, using that page's own
+> specifications &mdash; Service King's depth ratings, SENNEBOGEN's lift
+> figures, Mix Right's batch sizes, Albach's throughput.
+>
+> None of the 17 carried a `WebPage` node, so there was nothing for speakable to
+> attach to &mdash; the property is valid on `WebPage` and `Article`, not on the
+> `Product` and `ItemList` these pages use. A `WebPage` node was added in the
+> shape `BLOG_POST_TEMPLATE.md` section 4 specifies, with every pre-existing
+> JSON-LD payload compared byte for byte afterwards.
+>
+> Coverage **714 &rarr; 731**, missing **54 &rarr; 37**. Speakable **620 &rarr;
+> 637**.
+>
+> Remaining: 14 root, 5 `articles/`, 2 `trucking-business-financing/`, and the
+> index pages that should not have one.
+
+
+### Unrelated: three pages declare `FAQPage` twice
+
+Found while checking this set. `commercial-bridge-loans.html`,
+`trucking-business-financing.html` and
+`equipment/diagnostic-equipment-auto/scan-tool-financing/` each carry two
+`FAQPage` blocks. 740 pages declare one; only these three declare two. Not
+fixed here.
 >
 > Speakable was extended at the same time. 430 of the 431 pages that already had
 > a block point `cssSelector` at `.quick-answer`; the 73 pointed at `h1`,
