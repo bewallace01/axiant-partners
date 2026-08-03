@@ -114,8 +114,19 @@ a markup one and belongs with part 4, not a bulk edit here.
 > meaningless (the calculator, the contact and application forms, the FAQ page,
 > the homepage, the industries directory, the partner application, and the two
 > legal pages). **73 blocks added; coverage 584 &rarr; 657, missing 184 &rarr;
-> 111.** Remaining: 57 `equipment/`, 17 `equipment-for-sale/`, 14 root, 17
-> index pages.
+> 111.**
+>
+> The **57 `equipment/` category pages** followed. These were the easiest set to
+> write well, because each page already carries its own cost tiers, term range,
+> credit line and a worked payment example &mdash; so every answer leads with a
+> direct yes, quotes that machine's own numbers, and closes on the thing an
+> underwriter actually looks at for it (undercarriage percentage on an
+> excavator, reefer unit hours on a refrigerated truck, the dielectric
+> certificate on a bucket truck). **708 figures were checked against their own
+> page before writing.** Coverage **657 &rarr; 714**, missing **111 &rarr; 54**.
+>
+> Remaining: 17 `equipment-for-sale/`, 14 root, 5 `articles/`, and the 17 index
+> pages that should not have one.
 >
 > Speakable was extended at the same time. 430 of the 431 pages that already had
 > a block point `cssSelector` at `.quick-answer`; the 73 pointed at `h1`,
