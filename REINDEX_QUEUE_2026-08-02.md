@@ -8,8 +8,24 @@
 > queue entirely. Corrected total: **86** genuine rejections, not 90.
 
 Ranked by inbound internal links (the site's own vote of importance), then length.
-Google's Request Indexing quota is roughly 10-12 URLs per property per day.
 Search Console > URL inspection > paste URL > REQUEST INDEXING.
+
+**Quota is a rolling window, not a daily reset.** 10 URLs were submitted on
+2026-08-02 and 2 on 2026-08-03; the third attempt on the 3rd returned *"you've
+exceeded your daily quota"*. Assume roughly a dozen per rolling 24 hours and
+expect the allowance to still be spent the next morning.
+
+Resubmitting a URL wastes a slot &mdash; Google's own dialog says submitting a
+page again "will not change its queue position or priority". At least two slots
+went that way on 2026-08-02 because the confirmation dialog steals focus, so the
+next URL never loads and the button re-fires on the previous one. Confirm the
+inspected URL in the header before clicking.
+
+**On hold as of 2026-08-03.** At a dozen a day this is eight more sessions for 78
+pages, and the sitemap `lastmod` refresh already covers all 86 at once at no
+further cost. If that works the queue is redundant; if it does not, hand-feeding
+78 URLs is unlikely to save them either. Revisit only if the March cohort has not
+moved a few weeks after the crawl.
 
 ## Not in the queue - canonicalised duplicates, working as intended
 
