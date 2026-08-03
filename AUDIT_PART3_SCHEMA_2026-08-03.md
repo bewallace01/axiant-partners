@@ -157,8 +157,32 @@ a markup one and belongs with part 4, not a bulk edit here.
 >
 > Coverage **731 &rarr; 738**, missing **37 &rarr; 30**.
 >
-> Remaining: 8 root (all non-candidates above), 5 `articles/`, 2
-> `trucking-business-financing/`, and the index pages that should not have one.
+> Finally the last **7 candidates**: four `articles/` guides (which loan is
+> right, first-time borrower, improving approval odds, behind on payments), the
+> `articles/` hub, and two `trucking-business-financing/` pages (growth, working
+> capital). These are process and decision articles rather than product pages,
+> so they carry far fewer numbers &mdash; only 4 figures across all seven, all
+> grounded.
+>
+> `articles/index.html` is included on a second look. The previous pass filed it
+> with the article indexes as a blog roll, but its H1 is a real query
+> (*&ldquo;Applying for Business Loans&rdquo;*) with a real answer, which the
+> other indexes' H1s are not.
+>
+> Coverage **738 &rarr; 745**, missing **30 &rarr; 23**.
+
+
+### Where the Quick answer pass ended
+
+| | Start of pass | End |
+|---|---|---|
+| Pages with a direct answer block | 584 | **745** of 768 |
+| `SpeakableSpecification` declared | 538 | **644** |
+| Selectors resolving to nothing | 0 | **0** |
+
+The remaining 23 are the ones that should not have one: the two calculators
+without prose, the contact, application and partner forms, the homepage,
+`faq.html`, the two legal pages, and the article index pages.
 
 
 ### Unrelated: three pages declare `FAQPage` twice
