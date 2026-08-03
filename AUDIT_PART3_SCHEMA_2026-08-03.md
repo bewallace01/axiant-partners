@@ -100,6 +100,29 @@ Around 250 pages have no answer-first block. That is a content task rather than
 a markup one and belongs with part 4, not a bulk edit here.
 
 
+> **Corrected 2026-08-03.** The 515 count matched one class name and missed the
+> other three block variants in use. Counting all of them &mdash; `quick-answer`,
+> `blog-rail-quick-answer`, `article-quick-answer`, `tldr`, and the visible
+> "Quick answer" / "Short answer" / "Quick Take" labels &mdash; the real figure
+> was **584 of 768**, so **184** pages lacked a block, not ~250.
+>
+> Of those 184: 82 hub / landing / state pages, 66 articles, 19
+> `equipment-for-sale` listings, and 17 article index pages where a direct
+> answer does not belong.
+>
+> The 82 hubs are now done, less nine utility pages where the block is
+> meaningless (the calculator, the contact and application forms, the FAQ page,
+> the homepage, the industries directory, the partner application, and the two
+> legal pages). **73 blocks added; coverage 584 &rarr; 657, missing 184 &rarr;
+> 111.** Remaining: 57 `equipment/`, 17 `equipment-for-sale/`, 14 root, 17
+> index pages.
+>
+> Speakable was extended at the same time. 430 of the 431 pages that already had
+> a block point `cssSelector` at `.quick-answer`; the 73 pointed at `h1`,
+> `.ef-speakable` or nothing. All 73 now follow the convention, and all 563
+> declarations resolve to something on the page.
+
+
 ## Verification
 
 3,233 JSON-LD blocks parse; 0 broken. FAQ parity 756/756. Title/headline
