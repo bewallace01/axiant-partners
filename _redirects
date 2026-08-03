@@ -5,8 +5,14 @@
 /equipment-financing/articles/how-equipment-financing-works/ /equipment-financing/articles/ 301
 /sba-loans/articles/sba-loan-basics/ /sba-loans/articles/ 301
 
-# Consolidated imaging EQUIPMENT financing into the canonical hub (de-cannibalize)
-/equipment-financing/articles/medical-imaging-financing-radiology-practices/ /equipment/medical-imaging/ 301
+# Retargeted 2026-08-03. This URL was consolidated into the EQUIPMENT hub on the
+# assumption it was about financing imaging machines. Search Console says
+# otherwise: its queries were radiology/imaging PATIENT financing (124, 118,
+# 112, 108, 107 impressions) against 26 for radiology equipment financing. The
+# redirect was pouring patient-financing demand into an equipment page, which
+# is why /equipment/medical-imaging/ ranks 41-64 for patient queries it does
+# not serve. Now points at the page that ranks 7.8-10.0 for exactly those terms.
+/equipment-financing/articles/medical-imaging-financing-radiology-practices/ /equipment-financing/articles/patient-financing-imaging-centers/ 301
 
 # Netlify redirects (301) - blog URL migration Option C
 # /blog/slug.html -> /topic/articles/slug/
