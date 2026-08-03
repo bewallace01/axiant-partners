@@ -259,32 +259,76 @@ Had they differed, the fix would have been a merge rather than a delete. Pages
 declaring more than one `FAQPage` is now **0**.
 
 
-### Found on the way out: 153 double-escaped entities on 72 pages
+### Double-escaped text readers could see &mdash; fixed
 
-The FAQ parity sweep run after that fix reported 57 answers not supported by
-visible text. Sampling three showed two different causes, and the larger one is
-a **reader-visible defect**:
+The first count here was 153 across 72 pages, from a pattern that checked eight
+named entities. Validating candidates against the actual HTML entity list, and
+separating by where they sit, gave three different problems:
+
+
+| | Count | Pages | |
+|---|---|---|---|
+| **1** Entities a reader sees literally | 175 | 77 | **fixed** |
+| **2** HTML tags a reader sees literally | 230 | 9 | **fixed** |
+| **3** Entities inside JSON-LD | 1,302 | 237 | reported below |
+
+
+Problem 2 was the worse of the two visible ones. 228 `<strong>` and 2 `<em>`,
+all inside `<p class="ax-faq__a">`, so a reader saw this in a live FAQ answer on
+`business-loan-denied-what-to-do`:
+
+
+> The top 5 denial reasons in 2026 are: `<strong>`(1) Credit score below
+> threshold`</strong>` `&mdash;` usually 600 for online, 680 for SBA&hellip;
+
+
+which now reads:
+
+
+> The top 5 denial reasons in 2026 are: **(1) Credit score below threshold**
+> &mdash; usually 600 for online, 680 for SBA&hellip;
+
+
+**405 edits across 81 pages. Both counts are now 0.**
+
+
+Two things were deliberately left escaped. Four calculator pages put copy-paste
+embed code in a `<textarea>`, where `&lt;iframe src=&hellip;` is correct. And
+eleven `P&amp;amp;L;` matches are not entities at all &mdash; `&L;` does not
+exist; that is `P&amp;L` followed by a sentence semicolon, and it was already
+right.
+
+
+A side effect worth recording: FAQ answer parity misses fell from **57 to 4**,
+because 53 of them were this bug rather than missing content. The remaining four
+are all under `business-debt-relief/articles/` and are genuinely answers whose
+text is not on the page.
+
+
+### Still open: 1,302 entities inside JSON-LD on 237 pages
+
+Script content is raw text, so the HTML parser does not decode entities inside a
+`<script type="application/ld+json">`. A consumer reads the literal characters
+rather than the punctuation they stand for.
 
 
 | Entity | Count |
 |---|---|
-| `&amp;amp;mdash;` | 75 |
-| `&amp;amp;amp;` | 38 |
-| `&amp;amp;ndash;` | 24 |
-| `&amp;amp;rsquo;` | 16 |
-| **Total** | **153 across 72 pages** |
+| `&ndash;` | 632 |
+| `&mdash;` | 391 |
+| `&amp;` | 111 |
+| `&apos;` | 62 |
+| `&rsquo;` | 61 |
+| `&ldquo;` and others | 45 |
+| **Total** | **1,302 across 237 pages** |
 
 
-All 153 sit in body text, none inside an attribute, so a reader sees the literal
-string on the page &mdash; for example, in a visible FAQ question on
-`business-term-loans.html`:
+Six of these are product names on `equipment-for-sale/walk-in-coolers/`, where
+`"Nor-Lake 10&amp;times;12 Combo"` should read `10&times;12`.
 
 
-> Business term loan vs line of credit&amp;mdash;which is right?
-
-
-The remaining parity misses are answers whose text genuinely is not on the page.
-Neither is fixed here; the entity problem is the larger and more visible.
+This is structured data rather than anything a reader sees, and at 237 pages it
+is a larger change than the visible fix. Left for a separate decision.
 >
 > Speakable was extended at the same time. 430 of the 431 pages that already had
 > a block point `cssSelector` at `.quick-answer`; the 73 pointed at `h1`,
