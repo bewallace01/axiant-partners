@@ -76,6 +76,76 @@ individual attention, pick it from Search Console demand rather than from a
 duplication score.
 
 
+## What was done instead (2026-08-03)
+
+The recommendation above was overruled and the pages were fixed. Re-measuring
+first changed the shape of the job twice.
+
+
+**The cluster is 18 pages, not 21.** Counting pages that share 20+ verbatim
+sentences with at least one sibling gives 25, but eight of those are hangers-on
+with one to four connections. Eighteen pages share copy with 17 siblings each.
+
+
+**Verbatim matching undercounted the template badly.** The template substitutes
+the machine name inline &mdash; *&ldquo;Requirements to Finance a Backhoe&rdquo;*,
+*&ldquo;when financing backhoes&rdquo;* &mdash; so sentences that are otherwise
+identical do not match across the cluster. Normalising the machine name to a
+placeholder raises the worst pair from 90 identical sentences to **116**, and
+the median pair from 33 to **59**.
+
+
+Attributed by section, the shared prose per pair sat at: FAQ 121 words,
+Requirements 99, What to Have Ready 81, Process 77, Options 69, Tips 59,
+Rates 52, When to Apply 52, Common Mistakes 50.
+
+
+### Four sections rewritten per machine
+
+| | |
+|---|---|
+| What to Have Ready Before You Apply | 18 machine-specific document lists |
+| When to Apply | 18 machine-specific timing arguments |
+| Tips to Get Approved | 18 machine-specific tip sets |
+| Common Mistakes to Avoid | 18 machine-specific mistake lists |
+
+
+These are the four where a different answer genuinely exists. A bucket truck
+needs a current dielectric test certificate; a tanker needs its DOT
+specification and its position in the test cycle; an excavator needs a measured
+undercarriage percentage; a reefer has an hour meter independent of the truck's
+odometer; a log truck needs the haul agreement and the seasonality stated
+plainly. The shared copy said none of that on any of the eighteen pages.
+
+
+Result: worst pair **116 &rarr; 87** normalised shared sentences, median
+**59 &rarr; 43**. Pages grew 2,157&ndash;3,260 words to 2,250&ndash;3,425.
+
+
+### What was deliberately left alone, and why
+
+Requirements, Financing Options, Rates, the four process steps, Related
+Resources and the FAQ still share copy. That copy is identical on the **other
+75 equipment pages too** &mdash; *Rather Than Pay Cash* appears on 36 pages
+across the family, the approval-time FAQ answer on every page checked. Removing
+it from 18 pages would make the cluster the odd one out in its own family, which
+is the failure this document originally warned about.
+
+
+If that boilerplate is worth fixing it is a 93-page family-wide job, not a
+cluster job, and it should be decided as one.
+
+
+### One defect introduced and caught before shipping
+
+The first draft of the new copy used British spellings &mdash; *tyres*,
+*aluminium*, *labour*, *mobilisation*, *authorised*, *favour*, *autumn*
+&mdash; on pages addressed to U.S. contractors. 41 instances across the
+equipment copy, plus 15 that had already shipped in the construction rewrite
+(#214). All corrected; the equipment pages were reverted and regenerated rather
+than patched in place.
+
+
 ## One real defect found on the way
 
 `scripts/equipment_specific_content.json` is **stale, and dangerous to regenerate
