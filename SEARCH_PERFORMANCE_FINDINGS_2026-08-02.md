@@ -87,17 +87,32 @@ Site-wide, in the query export:
 
 ## The number to sit with
 
-The query export covers 1,000 queries: **15,894 impressions, 42 clicks, CTR 0.26%**.
+> **CORRECTED 2026-08-02.** The figures in this section were wrong. See
+> `PER_QUERY_PAGE_FINDINGS_2026-08-02.md`. The original text is kept below,
+> struck through, because the way it failed is the point.
 
+~~The query export covers 1,000 queries: **15,894 impressions, 42 clicks, CTR
+0.26%**. **37 of those 42 clicks are branded** — *axiant partners*,
+*axiantpartners.com*, *axiant*. Five clicks in 28 days came from anything else.~~
 
-**37 of those 42 clicks are branded** — *axiant partners*, *axiantpartners.com*,
-*axiant*. Five clicks in 28 days came from anything else.
+`Queries.csv` is **capped at 1,000 rows**. It captured the branded head and
+truncated a long non-branded tail, which inflated the branded share roughly
+fourfold. Queried directly against Search Console for 2026-05-01 to 2026-07-31:
 
+| | Clicks | Impressions | CTR |
+|---|---|---|---|
+| **Total** | **424** | 109,000 | 0.4% |
+| Branded (contains "axiant") | 79 | 779 | 10.1% |
+| **Non-branded** | **345** | ~108,000 | 0.3% |
 
-One caveat, stated rather than glossed: `Pages.csv` reports 218 clicks across 672
-pages for the same window, so the 1,000-query export does not account for every
-click. The branded share above is exact within the query export and should not be
-read as the whole site. The direction is not in doubt; the precise ratio is.
+**Branded is 19% of clicks, not 88%.** Non-branded search earns roughly 115 clicks
+a month, not five.
+
+The caveat below was the visible edge of this error, and should have been chased
+rather than footnoted: `Pages.csv` reports 218 clicks across 672 pages for the
+same window, so the 1,000-query export did not account for every click. Writing
+"the direction is not in doubt" was the mistake — the direction was exactly what
+was in doubt, and it was wrong.
 
 
 ## What this means for the excavator consolidation
@@ -130,10 +145,11 @@ The whole excavator cluster produces **0 clicks on 295 impressions**.
 2. **Head terms are where the clicks are** — all 39 non-long-tail clicks. They sit at
    a median position of 35.7. Moving "excavator financing" from 46 to the first page
    is worth more than any consolidation in this report.
-3. **Pull the per-query page export** before merging anything. It is the one piece of
-   data that separates cannibalization from ordinary weakness, and it is a few
-   minutes of work in Search Console.
-4. **Non-branded search is close to zero.** Whatever the exact ratio, the site earns
-   its clicks on its own name. That is the headline, and no amount of FAQ schema,
-   breadcrumb markup or page consolidation changes it.
+3. ~~**Pull the per-query page export** before merging anything.~~ **Done** — see
+   `PER_QUERY_PAGE_FINDINGS_2026-08-02.md`. Result: none of the nine pairs is
+   cannibalization, and nothing should be merged or redirected.
+4. ~~**Non-branded search is close to zero.**~~ **Wrong** — non-branded is 345 of
+   424 clicks (81%) over three months. The real constraint is CTR, not branding:
+   109,000 impressions at position 16.6 produce 424 clicks, and one page takes
+   10,951 impressions for 11 clicks.
 
