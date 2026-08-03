@@ -6,6 +6,32 @@ Nothing visible was removed. This is the list of what disappeared, so you can
 decide whether any of it deserves to be written onto the page as real content.
 
 
+## CLOSED 2026-08-03
+
+Two entries below were escalated as judgement calls because they were factual
+claims about Axiant's products rather than editorial choices. Both were resolved
+from what the pages themselves already said, and **both figures were confirmed
+correct by the site owner on 2026-08-03**. No further action.
+
+**`revenue-based-financing/.../how-fast-can-you-get-revenue-based-financing/`**
+The FAQ claimed funding "sometimes as little as 24–48 hours" while the body of
+the same page stated 3–10 business days four times, including a comparison
+saying RBF is *slower* than a merchant cash advance at 24–72 hours. The claim
+made RBF faster than the product the page says beats it. Reconciled to the
+page's own timeline in PR #189. Now reads *3–10 business days: 24–72 hours
+initial review, 1–3 days to conditional approval, 2–5 days underwriting*.
+Zero 24–48 hour claims remain; "3–10 business days" appears 3× consistently.
+
+**`fix-and-flip/articles/how-much-down-payment-fix-and-flip-loan/`**
+The FAQ referred to "the ARV cap" without ever stating it, while the body gave
+70–75% twice. Named in the answer in PR #189. 70–75% now appears 3×
+consistently across body, FAQ and schema.
+
+Nothing was invented in either case — both figures were already published
+elsewhere on the same page. The rest of this document is unreviewed and remains
+open.
+
+
 ## Answers that lost a figure — 35
 
 These matter most: the schema stated a number the page never showed, so the
