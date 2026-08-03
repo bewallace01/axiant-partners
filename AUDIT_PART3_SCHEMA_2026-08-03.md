@@ -140,8 +140,25 @@ a markup one and belongs with part 4, not a bulk edit here.
 > Coverage **714 &rarr; 731**, missing **54 &rarr; 37**. Speakable **620 &rarr;
 > 637**.
 >
-> Remaining: 14 root, 5 `articles/`, 2 `trucking-business-financing/`, and the
-> index pages that should not have one.
+> Then the **root pages**. Sixteen lacked a block, but only **seven** are
+> candidates: the two calculators (`dscr-calculator`, `mca-calculator`), the two
+> sourced data reports (`small-business-lending-statistics`,
+> `small-business-financing-report`), and the three section landing pages
+> (`services`, `equipment`, `industries`). Between them they carry the strongest
+> AEO material on the site &mdash; DSCR thresholds, factor-rate arithmetic,
+> Federal Reserve approval rates, six years of SBA 7(a) loan-level data.
+>
+> The other **nine are not candidates** and are deliberately left: the loan
+> calculator and contact form (no prose), the application form, the partner
+> application form, the homepage (a designed landing experience, not a
+> document), `faq.html` (already entirely question-and-answer, so a summary box
+> duplicates its own first item), the two legal pages, and
+> `articles/index.html`, a blog roll like the other article indexes.
+>
+> Coverage **731 &rarr; 738**, missing **37 &rarr; 30**.
+>
+> Remaining: 8 root (all non-candidates above), 5 `articles/`, 2
+> `trucking-business-financing/`, and the index pages that should not have one.
 
 
 ### Unrelated: three pages declare `FAQPage` twice
