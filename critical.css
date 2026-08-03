@@ -10,7 +10,12 @@ body:has(.main-nav){padding-top:var(--main-nav-offset)}
 /* comparison tables - moved out of the inline critical block so
    657 pages without a table stop carrying it */
 .cmp-table-wrap{overflow-x:auto;margin:0 0 24px;-webkit-overflow-scrolling:touch}
-.cmp-table{width:100%;border-collapse:collapse;font-size:0.92rem;min-width:560px}
+/* No min-width. Measured in the browser at a 390px wrapper: a table cannot be
+   used narrower than its min-content width, so the 5-column comparison renders
+   586px and scrolls whether min-width is 560px, 520px or absent. The floor was
+   protecting nothing on wide tables, and on a 2-column table it forced 560px
+   and a horizontal scrollbar where the table would otherwise fit at 390px. */
+.cmp-table{width:100%;border-collapse:collapse;font-size:0.92rem}
 .cmp-table th,.cmp-table td{border:1px solid var(--border-color);padding:10px 12px;text-align:left;vertical-align:top}
 .cmp-table th{background:var(--bg-card);font-weight:600;color:var(--text-primary)}
 .cmp-table td:first-child,.cmp-table th:first-child{font-weight:600}
