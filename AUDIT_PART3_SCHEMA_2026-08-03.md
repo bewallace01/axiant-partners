@@ -214,10 +214,36 @@ already balanced: `div.mobile-nav-overlay`, `div.container`,
 `footer.site-footer`, `div.mobile-cta-bar`.
 
 
-### Still open: 14 stray close tags for other elements
+### Stray close tags: the count was 1, not 14
 
-The same parser sweep found `</meta>` on 12 pages, plus one `</p>` and one
-`</br>`. Browsers discard all of them. Not fixed.
+The sweep above reported `</meta>` on 12 pages, one `</p>` and one `</br>`.
+**Thirteen of those were a bug in the sweep, not defects in the pages.**
+
+
+Python's `HTMLParser` calls `handle_starttag` then `handle_endtag` from its
+default `handle_startendtag`, so every self-closing tag in the source &mdash;
+`<meta ... />` on 12 pages, `<br/>` on one &mdash; arrived at `handle_endtag`
+and was recorded as a stray close. Both are valid markup. Defining
+`handle_startendtag` as a no-op leaves exactly **one** real stray, on
+`articles/factor-rate-vs-apr-business-loan-cost/`:
+
+
+```html
+<div class="tldr"><b>The short version:</b> ...in writing.</p></div>
+```
+
+
+There is no `<p>` in that block. Per the HTML parsing spec, an end tag for `p`
+with no `p` in button scope is a parse error that **inserts an empty
+`<p></p>`** &mdash; which the live page did contain. The site's other two
+`.tldr` blocks have no `<p>` and no stray `</p>`, so removing it matches them.
+
+
+Checked on the live page before the edit: the inserted empty paragraph computed
+to `margin: 0` and removing it changed the `.tldr` box height by **0px**.
+
+
+Stray close tags across the site are now **0**, with no tags left open at EOF.
 
 
 ### Unrelated: three pages declare `FAQPage` twice
