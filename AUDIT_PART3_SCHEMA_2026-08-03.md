@@ -185,6 +185,41 @@ without prose, the contact, application and partner forms, the homepage,
 `faq.html`, the two legal pages, and the article index pages.
 
 
+### Div markup: 41 pages balanced
+
+Counting `<div` against `</div>` said 41 pages were unbalanced, but that count
+cannot tell you what to do &mdash; a browser auto-closes an unclosed div at its
+parent's close, so a `</div>` inserted in the wrong place *changes* the
+rendering rather than preserving it. Walking the tag stack with a real parser
+gave three distinct shapes:
+
+
+| | Count | Shape | Fix |
+|---|---|---|---|
+| **A** | 8 on 4 pages | `<div class="wrap sh">` absorbed by `</section>` | close it before `</section>`, as the sibling sections on the same page already do |
+| **B** | 31 on 31 pages | `<div class="container">` absorbed by `</body>` | close it before `<footer class="site-footer">`, as ~700 balanced pages do |
+| **C** | 6 on 6 pages | stray `</div>`, one close too many | remove it |
+
+
+Shape B was the only one that could plausibly move something, so it was tested
+in the browser against the live site first. Moving the footer and everything
+after it out of `.container` gives **byte-identical geometry** &mdash; footer
+x/y/w/h, document height, body scroll width &mdash; and identical hit-testing at
+the CTA bar's position. `.container` computes to `width:100%; max-width:100%;
+margin:0; padding:0`, so it carries no box model at all.
+
+
+After the fix the 41 pages have body children identical to the pages that were
+already balanced: `div.mobile-nav-overlay`, `div.container`,
+`footer.site-footer`, `div.mobile-cta-bar`.
+
+
+### Still open: 14 stray close tags for other elements
+
+The same parser sweep found `</meta>` on 12 pages, plus one `</p>` and one
+`</br>`. Browsers discard all of them. Not fixed.
+
+
 ### Unrelated: three pages declare `FAQPage` twice
 
 Found while checking this set. `commercial-bridge-loans.html`,
