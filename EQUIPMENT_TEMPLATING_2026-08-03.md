@@ -136,6 +136,55 @@ If that boilerplate is worth fixing it is a 93-page family-wide job, not a
 cluster job, and it should be decided as one.
 
 
+### Correction: the family is not verbose, only the cluster is
+
+The paragraph above &mdash; and what I told the user &mdash; said the remaining
+boilerplate was *&ldquo;identical on the other 75 equipment pages too&rdquo;*, so
+removing it from 18 would make the cluster the odd one out. That was measured on
+**headings**, not on the sections underneath them. Measuring the sections
+reverses the conclusion:
+
+
+| Section | Cluster median | Rest of family median |
+|---|---|---|
+| Requirements to Finance | 193 words | **39** |
+| Financing Options | 214 | **120** |
+| Rates and Monthly Payments | 112 | **36** |
+| Rather Than Pay Cash | 119 | **51** |
+
+
+`dental-equipment` and `pos-systems-restaurant` carry *Requirements* as a table
+plus one line of links. `tractors` carries it as a single paragraph. Only the
+cluster carries three paragraphs saying the same thing on all eighteen pages.
+
+
+So bringing the cluster down to the family length makes it **consistent** with
+its family, not different from it. That is the opposite of the risk this
+document originally identified, and the original recommendation rested on it.
+
+
+Applied to all 18: requirement tables kept with their own values, payment
+examples kept with their own figures, term ranges and the TRAC-lease and SBA
+*best for* clauses kept. What was removed is prose measured as identical across
+the cluster. Worst pair **87 &rarr; 66** normalised shared sentences, median
+**43 &rarr; 34**; pages 2,076&ndash;3,142 words.
+
+
+Still shared, and deliberately: the four process steps (Axiant's own process,
+identical everywhere because it is), the FAQ answers (universal facts &mdash;
+rewriting them eighteen ways would be paraphrase-spinning, which is worse than
+duplication), and the Related Resources link list.
+
+
+### Separately: four pages with unclosed `<p>` tags
+
+Found by the integrity sweep, present in HEAD, not caused by any of this work:
+`used-box-truck-financing`, `used-dump-truck-financing`,
+`used-mini-excavator-financing` and `used-skid-steer-financing` each had four or
+five paragraphs never closed. Browsers auto-close at the next block tag so
+nothing rendered wrong, but the markup was invalid. Closed.
+
+
 ### One defect introduced and caught before shipping
 
 The first draft of the new copy used British spellings &mdash; *tyres*,
