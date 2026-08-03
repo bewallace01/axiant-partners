@@ -594,7 +594,7 @@
 # Extensionless duplicates. Netlify answers 200 at /foo as well as
 # /foo.html; canonicals point at .html, so this only removes wasted
 # crawl surface. No internal link uses the bare form.
-/1-million-business-loan  /1-million-business-loan.html  301
+/1-million-business-loan  /1-million-business-loan.html  301!
 /100000-business-loan  /100000-business-loan.html  301
 /150000-business-loan  /150000-business-loan.html  301
 /2-million-business-loan  /2-million-business-loan.html  301
