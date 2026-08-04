@@ -300,9 +300,33 @@ right.
 
 
 A side effect worth recording: FAQ answer parity misses fell from **57 to 4**,
-because 53 of them were this bug rather than missing content. The remaining four
-are all under `business-debt-relief/articles/` and are genuinely answers whose
-text is not on the page.
+because 53 of them were this bug rather than missing content.
+
+
+### The last four were not missing either
+
+I described the remaining four, all under `business-debt-relief/articles/`, as
+answers whose text is not on the page. That was wrong. **All four are on their
+pages**, word for word. The schema was written with ASCII apostrophes and
+hyphens while the page renders `&rsquo;` and `&mdash;`, so the strings differed
+only in punctuation:
+
+
+```
+page    No. Axiant’s match and advisory service is free to you — we are…
+schema  No. Axiant's match and advisory service is free to you - we are…
+```
+
+
+Each was aligned by substituting the page's own string into the schema, rather
+than converting the characters back, because that reversal is ambiguous: on the
+page both an em dash and an en dash fold to a plain hyphen, so the schema cannot
+say which belongs where. A swap only ran when the **whole** folded visible
+answer equalled the whole schema answer.
+
+
+**FAQ answer parity: 3,945 of 3,945.** The check now reports a true zero, which
+is worth more than a standing 4 that everyone learns to ignore.
 
 
 ### 1,302 entities inside JSON-LD on 237 pages &mdash; fixed
