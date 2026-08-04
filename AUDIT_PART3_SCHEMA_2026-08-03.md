@@ -305,30 +305,46 @@ are all under `business-debt-relief/articles/` and are genuinely answers whose
 text is not on the page.
 
 
-### Still open: 1,302 entities inside JSON-LD on 237 pages
+### 1,302 entities inside JSON-LD on 237 pages &mdash; fixed
 
-Script content is raw text, so the HTML parser does not decode entities inside a
-`<script type="application/ld+json">`. A consumer reads the literal characters
-rather than the punctuation they stand for.
-
-
-| Entity | Count |
-|---|---|
-| `&ndash;` | 632 |
-| `&mdash;` | 391 |
-| `&amp;` | 111 |
-| `&apos;` | 62 |
-| `&rsquo;` | 61 |
-| `&ldquo;` and others | 45 |
-| **Total** | **1,302 across 237 pages** |
+Script content is raw text, so the HTML parser never decodes entities inside a
+`<script type="application/ld+json">`. A consumer read the literal seven
+characters `&ndash;` where an en dash was meant. **1,123 of the 1,302 were in
+`text`** &mdash; the FAQ answer field Google reads for rich results.
 
 
-Six of these are product names on `equipment-for-sale/walk-in-coolers/`, where
-`"Nor-Lake 10&amp;times;12 Combo"` should read `10&times;12`.
+| Entity | Count | | Entity | Count |
+|---|---|---|---|---|
+| `&ndash;` | 632 | | `&rarr;` | 7 |
+| `&mdash;` | 391 | | `&lt;` `&gt;` | 5 |
+| `&amp;` | 111 | | `&divide;` | 3 |
+| `&apos;` | 62 | | `&minus;` | 2 |
+| `&rsquo;` | 61 | | `&#x27;` | 2 |
+| `&times;` | 11 | | `&eacute;` | 1 |
+| `&ldquo;` `&rdquo;` | 20 | | **Total** | **1,302** |
 
 
-This is structured data rather than anything a reader sees, and at 237 pages it
-is a larger change than the visible fix. Left for a separate decision.
+Three hazards were checked before anything was written. There were **no
+`&quot;`**, which would have needed JSON escaping. The five `&lt;`/`&gt;` are
+comparison operators in prose (`<7 year terms`, `>9% return`), never followed by
+`/script`, and the assertions re-check the finished payload for `</script`
+anyway. And six product names on `equipment-for-sale/walk-in-coolers` were
+**double**-escaped as `&amp;times;`, so the decoder loops until stable rather
+than running a fixed depth.
+
+
+Only `&name;` and `&#nnn;` are touched, and only for real entity names, so a
+bare `&` is never modified &mdash; `Dun & Bradstreet` and `P&L` come through
+untouched. Payloads are edited textually rather than re-serialised, because
+re-serialising a JSON-LD block is how 204 dashes became U+FFFD in PR #212.
+
+
+**1,308 replacements across 237 pages** (1,302 plus the six second-pass
+decodes). All 3,247 JSON-LD blocks still parse. Entities inside JSON-LD: **0**.
+
+
+With this, all three entity problems are closed: reader-visible entities 0,
+reader-visible tags 0, JSON-LD entities 0.
 >
 > Speakable was extended at the same time. 430 of the 431 pages that already had
 > a block point `cssSelector` at `.quick-answer`; the 73 pointed at `h1`,
