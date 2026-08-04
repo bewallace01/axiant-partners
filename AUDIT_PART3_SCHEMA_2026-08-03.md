@@ -66,19 +66,39 @@ Breadcrumb coverage: **652 &rarr; 704**. Breadcrumbs naming an invisible step:
 ## Reported, not changed
 
 
-### 645 of 652 breadcrumbs are markup-only
+### Corrected: breadcrumb coverage was measured with the wrong test
 
-Only **7 pages** render a visible breadcrumb trail. The other 645 carry the
-structured data with nothing on screen.
+This section originally said only **7 pages** render a visible breadcrumb trail
+and 645 are markup-only. Both figures came from searching for
+`class="...crumbs..."`, which matches exactly one of the four class names the
+site actually uses.
 
 
-Google commonly accepts this and the site already gets breadcrumb enhancements
-reported in Search Console, so it is not breaking anything today. But the
-general structured-data guideline is that markup should reflect visible content,
-and a visible trail is also a genuine navigation aid on a site three levels deep.
-Adding one sitewide is a design change across 645 pages &mdash; an owner's
-decision, not an audit's. The 7 that have one use `<nav class="ef-breadcrumb">`,
-so the pattern already exists.
+Detecting the element by its role &mdash; `<nav aria-label="Breadcrumb">` &mdash;
+gives a completely different answer:
+
+
+| Breadcrumb nav class | Pages |
+|---|---|
+| `crumbs` | 656 |
+| `efs-crumb` | 8 |
+| `mx-crumb` | 8 |
+| `ef-breadcrumb` | 7 |
+| **Visible trails** | **679** |
+
+
+| | Pages |
+|---|---|
+| Schema **and** visible trail | **679** |
+| Schema only | 25 |
+| Neither | 64 |
+
+
+So there is no markup-only backlog. The 25 with schema and no trail are all
+`X/index.html` at a top-level URL &mdash; `/articles/`,
+`/business-loan-rates-2026/` &mdash; whose schema reads `Home > Page`. A visible
+`Home > Page` trail on a top-level URL conveys nothing the URL does not, which
+is the same reason the 64 below are left alone.
 
 
 ### 64 root-level pages still have no breadcrumb
