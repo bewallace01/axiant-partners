@@ -64,6 +64,22 @@ requested &mdash; URL was added to a priority crawl queue"* dialog:
 - [x] https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-vs-merchant-cash-advance/
 - [x] https://axiantpartners.com/equipment-financing/articles/equipment-financing-new-businesses/
 - [x] https://axiantpartners.com/business-line-of-credit/articles/business-line-of-credit-for-startups/   (Discovered, **never crawled**)
+- [x] https://axiantpartners.com/equipment-financing/articles/construction-heavy-equipment-financing/
+- [x] https://axiantpartners.com/equipment/cargo-vans/   (last crawl May 29)
+- [x] https://axiantpartners.com/equipment/auto-lifts/
+
+**Eight submitted, two skipped as already indexed.** Roughly two thirds of a
+rolling-window allowance; no quota message was returned, so the ceiling was not
+reached.
+
+Already indexed and struck from the queue:
+
+- `articles/how-to-prequalify-business-loan/`
+- `equipment/dental-equipment/`
+
+That is **2 of the 10 inspected**, both listed here as rejections. Extrapolating
+naively, something like a fifth of the remaining 70 may no longer need anything
+&mdash; which is why the next session should inspect before it clicks.
 
 
 ### The queue is stale &mdash; verify status before spending a slot
@@ -99,10 +115,41 @@ Three failures hit on 2026-08-04, all silent:
   URL goes nowhere and the header still shows the previous page.
 - With focus lost, **Return activates the still-focused *Request again* button**
   and re-submits the page just done. Caught once and cancelled mid-test.
-- A stray keystroke set browser zoom to 250%. `getBoundingClientRect` then
-  reports CSS pixels that no longer match click coordinates, so scripted clicks
-  miss silently. Reset with Ctrl+0 before continuing &mdash; the automation
-  cannot do it.
+- Browser zoom flips to 250% on its own during a session, apparently from a
+  keystroke landing outside the input. At that zoom the screenshot is in device
+  pixels while `getBoundingClientRect` returns CSS pixels, so a click computed
+  from the DOM lands in the wrong place. The fix that works: read the rect,
+  `scrollIntoView`, then multiply by `devicePixelRatio` for the click. Check
+  `window.devicePixelRatio` at the start of every page &mdash; it changes
+  mid-session.
+
+
+### What to verify with, instead of screenshots
+
+Screenshots time out on this console often enough to be unreliable, and they
+cannot distinguish the two status texts because **the DOM contains both** and
+hides one. Read the visible leaf nodes instead:
+
+```js
+const vis = el => { const r = el.getBoundingClientRect();
+  return r.width > 0 && r.height > 0 && getComputedStyle(el).visibility !== 'hidden'; };
+const txt = [...document.querySelectorAll('*')]
+  .filter(e => e.children.length === 0 && vis(e))
+  .map(e => (e.textContent || '').trim());
+txt.find(t => /^URL is (not )?on Google$/.test(t))   // the real status
+txt.some(t => /indexing requested/i.test(t))          // the real confirmation
+```
+
+An earlier check that ignored visibility reported *"URL is on Google"* for a
+page that was plainly not indexed.
+
+
+### One thing that does not work
+
+`input.focus()` reliably focuses the box where clicking often does not &mdash;
+but the typing that follows still goes nowhere, because the type action is
+delivered at the OS level and the programmatic focus does not hold it. Focus has
+to be established by a real click, in its own round trip.
 
 ## Remaining queue
 
@@ -111,11 +158,11 @@ Three failures hit on 2026-08-04, all silent:
 - [x] https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-vs-merchant-cash-advance/   (30 links, 1931 words)
 - [x] https://axiantpartners.com/equipment-financing/articles/equipment-financing-new-businesses/   (28 links, 1850 words)
 - [x] https://axiantpartners.com/business-line-of-credit/articles/business-line-of-credit-for-startups/   (26 links, 2100 words)
-- [ ] https://axiantpartners.com/articles/how-to-prequalify-business-loan/   (24 links, 1787 words)
-- [ ] https://axiantpartners.com/equipment-financing/articles/construction-heavy-equipment-financing/   (20 links, 1722 words)
-- [ ] https://axiantpartners.com/equipment/cargo-vans/   (19 links, 2715 words)
-- [ ] https://axiantpartners.com/equipment/dental-equipment/   (18 links, 1189 words)
-- [ ] https://axiantpartners.com/equipment/auto-lifts/   (18 links, 1043 words)
+- [~] https://axiantpartners.com/articles/how-to-prequalify-business-loan/  **already indexed &mdash; no request needed**   (24 links, 1787 words)
+- [x] https://axiantpartners.com/equipment-financing/articles/construction-heavy-equipment-financing/   (20 links, 1722 words)
+- [x] https://axiantpartners.com/equipment/cargo-vans/   (19 links, 2715 words)
+- [~] https://axiantpartners.com/equipment/dental-equipment/  **already indexed &mdash; no request needed**   (18 links, 1189 words)
+- [x] https://axiantpartners.com/equipment/auto-lifts/   (18 links, 1043 words)
 - [ ] https://axiantpartners.com/equipment/dump-trucks/   (16 links, 2637 words)
 - [ ] https://axiantpartners.com/trucking-business-financing/fuel-advance-cash-crunch/   (16 links, 2057 words)
 - [ ] https://axiantpartners.com/construction-business-financing/retainage-cash-flow-gap/   (16 links, 1988 words)
