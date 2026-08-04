@@ -53,13 +53,64 @@ moved a few weeks after the crawl.
 Both were already indexed. Requested because the content changed substantially,
 which is what the *Page changed?* prompt on that button is for.
 
+
+## Submitted 2026-08-04
+
+Queue taken off hold. Five submitted, each confirmed by the *"Indexing
+requested &mdash; URL was added to a priority crawl queue"* dialog:
+
+- [x] https://axiantpartners.com/equipment/medical-imaging/   (last crawl Jul 6)
+- [x] https://axiantpartners.com/landscaping-business-financing.html   (last crawl Apr 10)
+- [x] https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-vs-merchant-cash-advance/
+- [x] https://axiantpartners.com/equipment-financing/articles/equipment-financing-new-businesses/
+- [x] https://axiantpartners.com/business-line-of-credit/articles/business-line-of-credit-for-startups/   (Discovered, **never crawled**)
+
+
+### The queue is stale &mdash; verify status before spending a slot
+
+`https://axiantpartners.com/articles/how-to-prequalify-business-loan/` is
+**already indexed**. It sits in this queue as a rejection, and inspecting it
+returns *"URL is on Google &mdash; Page is indexed"*. Submitting it would have
+burned a slot on a page that needs nothing.
+
+**Inspecting a URL costs no quota; only Request Indexing does.** So inspect
+first, read the status, and only click for pages that still say *"URL is not on
+Google"*. The remaining 73 should be re-checked this way rather than submitted
+blind &mdash; some number of them have been picked up since 2026-08-02, which is
+also the first real evidence that the sitemap `lastmod` refresh is working.
+
+
+### Working procedure, and the three ways it fails
+
+The confirmation dialog steals focus, and the failure is silent. What works:
+
+1. Navigate to the console overview to get a clean page (no dialog).
+2. Click the inspect box **in its own round trip** &mdash; a click batched
+   immediately before typing does not take focus.
+3. Type the URL, then **screenshot and confirm the text is in the box** before
+   pressing Return.
+4. After Return, **confirm the header shows the new URL** and the button reads
+   *Request indexing*, not *Request again*.
+5. Click, then wait ~30s and confirm the dialog text.
+
+Three failures hit on 2026-08-04, all silent:
+
+- After *Dismiss*, the next click on the search box is swallowed, so the typed
+  URL goes nowhere and the header still shows the previous page.
+- With focus lost, **Return activates the still-focused *Request again* button**
+  and re-submits the page just done. Caught once and cancelled mid-test.
+- A stray keystroke set browser zoom to 250%. `getBoundingClientRect` then
+  reports CSS pixels that no longer match click coordinates, so scripted clicks
+  miss silently. Reset with Ctrl+0 before continuing &mdash; the automation
+  cannot do it.
+
 ## Remaining queue
 
-- [ ] https://axiantpartners.com/equipment/medical-imaging/   (32 links, 1306 words)
-- [ ] https://axiantpartners.com/landscaping-business-financing.html   (31 links, 3034 words)
-- [ ] https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-vs-merchant-cash-advance/   (30 links, 1931 words)
-- [ ] https://axiantpartners.com/equipment-financing/articles/equipment-financing-new-businesses/   (28 links, 1850 words)
-- [ ] https://axiantpartners.com/business-line-of-credit/articles/business-line-of-credit-for-startups/   (26 links, 2100 words)
+- [x] https://axiantpartners.com/equipment/medical-imaging/   (32 links, 1306 words)
+- [x] https://axiantpartners.com/landscaping-business-financing.html   (31 links, 3034 words)
+- [x] https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-vs-merchant-cash-advance/   (30 links, 1931 words)
+- [x] https://axiantpartners.com/equipment-financing/articles/equipment-financing-new-businesses/   (28 links, 1850 words)
+- [x] https://axiantpartners.com/business-line-of-credit/articles/business-line-of-credit-for-startups/   (26 links, 2100 words)
 - [ ] https://axiantpartners.com/articles/how-to-prequalify-business-loan/   (24 links, 1787 words)
 - [ ] https://axiantpartners.com/equipment-financing/articles/construction-heavy-equipment-financing/   (20 links, 1722 words)
 - [ ] https://axiantpartners.com/equipment/cargo-vans/   (19 links, 2715 words)
