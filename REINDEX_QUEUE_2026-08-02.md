@@ -67,10 +67,22 @@ requested &mdash; URL was added to a priority crawl queue"* dialog:
 - [x] https://axiantpartners.com/equipment-financing/articles/construction-heavy-equipment-financing/
 - [x] https://axiantpartners.com/equipment/cargo-vans/   (last crawl May 29)
 - [x] https://axiantpartners.com/equipment/auto-lifts/
+- [x] https://axiantpartners.com/equipment/dump-trucks/   (last crawl Jun 8)
+- [x] https://axiantpartners.com/trucking-business-financing/fuel-advance-cash-crunch/   (last crawl May 18)
 
-**Eight submitted, two skipped as already indexed.** Roughly two thirds of a
-rolling-window allowance; no quota message was returned, so the ceiling was not
-reached.
+**Ten submitted, two skipped as already indexed, and then the wall.** The
+eleventh attempt &mdash; `construction-business-financing/retainage-cash-flow-gap/`
+&mdash; returned:
+
+> **Quota Exceeded.** Sorry, we couldn't process this request because you've
+> exceeded your daily quota. Please try submitting this again tomorrow.
+
+**So the allowance is exactly 10 per rolling 24 hours for this property**, not
+"roughly a dozen" as this doc previously guessed. Ten succeeded; the eleventh
+was refused outright. Plan sessions around 10.
+
+Note that the two already-indexed pages did **not** consume anything &mdash;
+inspecting is free, and ten requests still went through after them.
 
 Already indexed and struck from the queue:
 
@@ -163,8 +175,8 @@ to be established by a real click, in its own round trip.
 - [x] https://axiantpartners.com/equipment/cargo-vans/   (19 links, 2715 words)
 - [~] https://axiantpartners.com/equipment/dental-equipment/  **already indexed &mdash; no request needed**   (18 links, 1189 words)
 - [x] https://axiantpartners.com/equipment/auto-lifts/   (18 links, 1043 words)
-- [ ] https://axiantpartners.com/equipment/dump-trucks/   (16 links, 2637 words)
-- [ ] https://axiantpartners.com/trucking-business-financing/fuel-advance-cash-crunch/   (16 links, 2057 words)
+- [x] https://axiantpartners.com/equipment/dump-trucks/   (16 links, 2637 words)
+- [x] https://axiantpartners.com/trucking-business-financing/fuel-advance-cash-crunch/   (16 links, 2057 words)
 - [ ] https://axiantpartners.com/construction-business-financing/retainage-cash-flow-gap/   (16 links, 1988 words)
 - [ ] https://axiantpartners.com/equipment-financing/articles/restaurant-commercial-kitchen-equipment-financing/   (16 links, 1815 words)
 - [ ] https://axiantpartners.com/equipment/commercial-kitchen/   (16 links, 1258 words)
