@@ -245,3 +245,37 @@ to be established by a real click, in its own round trip.
 - [ ] https://axiantpartners.com/faq.html   (1 links, 1030 words)
 
 Total genuine rejections: 86 | submitted: 9 | remaining: 78
+
+
+---
+
+## 2026-08-14 - three new pages (not rejections)
+
+These are **new URLs**, not pages Google crawled and declined, so they do not
+change the 86/78 counts above. Listed here because new URLs with no inbound
+authority are the case where a manual request actually earns its quota slot -
+there is no prior crawl scheduled for them at all.
+
+Shipped in `57b4204` and confirmed live (HTTP 200, post-QA content, present in
+the live `sitemap.xml`):
+
+- [x] https://axiantpartners.com/equipment-financing/articles/rent-to-own-equipment-financing/   (2 inbound, 2072 words)
+- [x] https://axiantpartners.com/equipment-financing/articles/truck-repair-financing/   (3 inbound, 2060 words)
+- [x] https://axiantpartners.com/equipment-financing/articles/itin-business-loans/   (2 inbound, 1740 words)
+
+**IndexNow: submitted 2026-08-14**, 767/767 URLs accepted, 0 failed. That covers
+Bing and Yandex. It does **not** cover Google, which ignores IndexNow - Google
+still needs either the sitemap `lastmod` crawl or a manual request.
+
+**Google Search Console: all three submitted 2026-08-14.** Each returned
+*"Indexing requested - URL was added to a priority crawl queue"*, and each was
+*"URL is unknown to Google"* beforehand, so no slot went to a page Google had
+already scheduled. No quota error on any of the three; three slots of the
+rolling ~12 spent.
+
+The focus-stealing trap described at the top of this file is real and was worked
+around: after each request the confirmation dialog was explicitly dismissed, and
+the inspected URL in the page header was verified against the intended URL
+*before* each click. All three headers matched. Zero wasted slots.
+
+Research and targeting rationale: `OVERHAUL_RPO_KEYWORD_RESEARCH_2026-08-13.md`.
