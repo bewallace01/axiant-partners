@@ -1,6 +1,21 @@
 #!/usr/bin/env python3
-"""Submit all sitemap URLs to IndexNow for immediate search engine indexing."""
+"""Submit URLs to IndexNow so Bing, Yandex and DuckDuckGo pick up changes at once.
+
+Matters more than Bing's own traffic share, because that index feeds Copilot and
+parts of AI search - the surfaces this site is explicitly built to be cited in.
+
+    python3 scripts/submit_indexnow.py --changed   # only pages changed in HEAD
+    python3 scripts/submit_indexnow.py --changed --since HEAD~5
+    python3 scripts/submit_indexnow.py             # every sitemap URL
+    python3 scripts/submit_indexnow.py --dry-run   # print, submit nothing
+
+Prefer --changed for routine deploys: IndexNow is a change-notification
+protocol, and resubmitting the whole site on every push is wasteful. A full
+submit is appropriate after a long gap with no submissions.
+"""
 import re
+import sys
+import subprocess
 import urllib.request
 import urllib.error
 import json
@@ -21,6 +36,47 @@ def extract_urls_from_sitemap(path: Path) -> list[str]:
     """Extract <loc> URLs from sitemap.xml."""
     text = path.read_text(encoding="utf-8")
     return re.findall(r"<loc>([^<]+)</loc>", text)
+
+
+def url_for_file(rel: str) -> str:
+    """Map a repo-relative .html path to its canonical public URL."""
+    rel = rel.replace("\\", "/")
+    if rel == "index.html":
+        return f"https://{HOST}/"
+    if rel.endswith("/index.html"):
+        return f"https://{HOST}/" + rel[: -len("index.html")]
+    return f"https://{HOST}/" + rel
+
+
+def changed_urls(since: str, sitemap_urls: list[str]) -> list[str]:
+    """URLs for .html files touched since `since`, limited to sitemap members.
+
+    Filtering against the sitemap keeps noindex pages, canonicalised duplicates
+    and redirect sources out of the submission - IndexNow should only ever be
+    told about URLs we actually want indexed.
+    """
+    try:
+        out = subprocess.run(
+            ["git", "diff", "--name-only", "--diff-filter=ACMRT", since, "HEAD"],
+            cwd=BASE, capture_output=True, text=True, timeout=60, check=True,
+        ).stdout
+    except (OSError, subprocess.SubprocessError) as e:
+        print(f"git diff failed ({e}); cannot compute changed set.")
+        return []
+    allowed = {u.rstrip("/") or f"https://{HOST}/" for u in sitemap_urls}
+    urls, skipped = [], 0
+    for line in out.split():
+        if not line.endswith(".html"):
+            continue
+        u = url_for_file(line)
+        if (u.rstrip("/") or f"https://{HOST}/") in allowed:
+            urls.append(u)
+        else:
+            skipped += 1
+    if skipped:
+        print(f"  ({skipped} changed page(s) skipped - not in sitemap: noindex, "
+              f"canonicalised elsewhere, or a redirect source)")
+    return sorted(set(urls))
 
 
 def submit_batch(url_list: list[str]) -> bool:
@@ -63,10 +119,32 @@ def main():
         print(f"Sitemap not found: {SITEMAP}")
         return 1
 
-    urls = extract_urls_from_sitemap(SITEMAP)
-    if not urls:
+    sitemap_urls = extract_urls_from_sitemap(SITEMAP)
+    if not sitemap_urls:
         print("No URLs found in sitemap.")
         return 1
+
+    dry = "--dry-run" in sys.argv
+    if "--changed" in sys.argv:
+        since = "HEAD~1"
+        if "--since" in sys.argv:
+            since = sys.argv[sys.argv.index("--since") + 1]
+        print(f"Changed-page mode (diff {since}..HEAD)")
+        urls = changed_urls(since, sitemap_urls)
+        if not urls:
+            print("No indexable pages changed. Nothing to submit.")
+            return 0
+    else:
+        urls = sitemap_urls
+        print(f"Full-sitemap mode ({len(urls)} URLs)")
+
+    if dry:
+        print(f"\n[dry run] would submit {len(urls)} URL(s):")
+        for u in urls[:40]:
+            print(f"   {u}")
+        if len(urls) > 40:
+            print(f"   ... and {len(urls) - 40} more")
+        return 0
 
     print(f"Found {len(urls)} URLs in sitemap.xml")
     print(f"Submitting to IndexNow in batches of {BATCH_SIZE}...")
