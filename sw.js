@@ -1,4 +1,4 @@
-const CACHE_NAME = 'axiant-v14';
+const CACHE_NAME = 'axiant-v15';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
