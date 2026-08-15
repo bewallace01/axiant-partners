@@ -1,0 +1,59 @@
+name: IndexNow
+
+# Tell Bing, Yandex and DuckDuckGo about changed pages as soon as they land on
+# main. That index feeds Copilot and parts of AI search, which is the surface
+# this site is explicitly built to be cited in.
+#
+# Push-triggered, never scheduled - a cron here would resubmit unchanged pages.
+# Manual runs can do a full-sitemap submit, which is what you want after a gap
+# with no submissions at all.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'full = resubmit every sitemap URL; changed = only pages in the last commit'
+        required: true
+        default: changed
+        type: choice
+        options: [changed, full]
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # need the parent commit so `git diff HEAD~1 HEAD` resolves
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify the IndexNow key is actually served
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' \
+            https://axiantpartners.com/177edbb44de64c5d8f856713891bb8dd.txt)
+          echo "key file status: $code"
+          if [ "$code" != "200" ]; then
+            echo "::error::IndexNow key file is not reachable; submissions would be rejected."
+            exit 1
+          fi
+
+      - name: Submit changed pages
+        if: github.event_name == 'push' || inputs.mode == 'changed'
+        run: python3 scripts/submit_indexnow.py --changed --since HEAD~1
+
+      - name: Submit full sitemap
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'full'
+        run: python3 scripts/submit_indexnow.py
