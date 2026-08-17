@@ -131,7 +131,13 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             overflow: hidden;
             border: 3px solid rgba(45, 127, 184, 0.45);
             box-shadow: 0 8px 22px var(--shadow-color);
-            background-color: #64748b;
+            /* The ground a tile shows when it has no photo. Was a flat slate
+               #64748b, which read as a missing image rather than a choice —
+               and with nine of twenty-two tiles carrying no photo, that made
+               a third of the grid look broken. A brand gradient reads as
+               deliberate, and the ::before scrim below still lands the text
+               on the dark end of it. Photo tiles cover this entirely. */
+            background: linear-gradient(145deg, #1e3a5f 0%, #2d7fb8 100%);
             text-decoration: none;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
@@ -343,6 +349,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                     </div>
                 </a>
                 <a href="commercial-truck-title-loan.html" class="industry-tile" aria-label="Commercial truck title loan - borrow against trucks and trailers you own outright">
+                    <picture><source srcset="/assets/semi-truck-hero-bg.webp?v=4" type="image/webp"><img  src="/assets/semi-truck-hero-bg.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
                     <div class="industry-tile-content">
                         <h3>Commercial Truck Title Loan</h3>
                         <p>Borrow against trucks and trailers you already own outright, keeping them on the road while you do it.</p>
