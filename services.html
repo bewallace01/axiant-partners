@@ -131,7 +131,13 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             overflow: hidden;
             border: 3px solid rgba(45, 127, 184, 0.45);
             box-shadow: 0 8px 22px var(--shadow-color);
-            background-color: #64748b;
+            /* The ground a tile shows when it has no photo. Was a flat slate
+               #64748b, which read as a missing image rather than a choice —
+               and with nine of twenty-two tiles carrying no photo, that made
+               a third of the grid look broken. A brand gradient reads as
+               deliberate, and the ::before scrim below still lands the text
+               on the dark end of it. Photo tiles cover this entirely. */
+            background: linear-gradient(145deg, #1e3a5f 0%, #2d7fb8 100%);
             text-decoration: none;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
@@ -230,7 +236,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             <div class="nav-links">
                 <a href="/match.html">Find Match</a>
                 <a href="/equipment-for-sale/">Equipment for Sale</a>
-                <div class="nav-dropdown nav-dropdown-desktop"><button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Services</button><div class="nav-dropdown-menu"></div></div><a href="/services.html" class="nav-link-mobile">Services</a>
+                <a href="/services.html" class="nav-services-hub-link">Services</a>
                 <div class="nav-dropdown nav-dropdown-desktop"><button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Industries</button><div class="nav-dropdown-menu"></div></div><a href="/industries.html" class="nav-link-mobile">Industries</a>
                 <a href="calculator.html">Calculator</a>
                 <a href="contact.html">Contact</a>
@@ -247,7 +253,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
             <h1>Financing Options for Every Stage of Growth</h1>
 <div class="quick-answer" style="background:var(--bg-card);border-left:4px solid var(--accent-color);padding:16px 18px;margin:0 0 28px;border-radius:10px;">
 <strong style="display:block;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent-color);margin-bottom:6px;">Quick answer</strong>
-<p style="margin:0;font-size:1rem;line-height:1.55;color:var(--text-primary);">Axiant Partners matches U.S. businesses across <strong>fifteen products from $5,000 to $10 million+</strong> &mdash; equipment financing, SBA 7(a) and 504, working capital, lines of credit, term loans, commercial real estate and bridge, fix and flip, merchant cash advances and invoice factoring. Start with your deadline: equipment, lines of credit and working capital commonly decide in <strong>24&ndash;48 hours</strong>, advances fund in 1&ndash;3 days, while SBA and commercial real estate take a month or more.</p>
+<p style="margin:0;font-size:1rem;line-height:1.55;color:var(--text-primary);">Axiant Partners matches U.S. businesses across <strong>twenty-two products from $5,000 to $10 million+</strong> &mdash; equipment financing and appraisal, SBA 7(a) and 504, working capital, lines of credit, term loans, commercial real estate and bridge, property- and title-secured lending, fix and flip, merchant cash advances, invoice factoring, and consolidation or relief for businesses already carrying advances. Start with your deadline: equipment, lines of credit and working capital commonly decide in <strong>24&ndash;48 hours</strong>, advances fund in 1&ndash;3 days, while SBA and commercial real estate take a month or more.</p>
 <p style="margin:12px 0 0;font-size:0.92rem;color:var(--text-secondary);"><a href="/match.html" style="color:var(--accent-color);font-weight:600;">Get matched for the product that fits your situation &rarr;</a></p>
 </div>
             <p class="tagline">Every business is different. Our network and advisory team help you structure financing around your goals, timeline, and current financial profile.</p>
@@ -255,7 +261,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
 
         <div class="form-container services-content">
             <section class="about-section">
-                <p><strong>Axiant Partners matches U.S. businesses to the financing that fits the situation, across fifteen products from $5,000 to $10 million+.</strong> There is no single best business loan &mdash; equipment financing, an SBA loan and a merchant cash advance solve different problems, and the wrong one is expensive even when it is approved. <a href="/match.html">Tell us what you need the money for and how fast</a>, and we will come back with the programs your numbers actually clear.</p>
+                <p><strong>Axiant Partners matches U.S. businesses to the financing that fits the situation, across twenty-two products from $5,000 to $10 million+.</strong> There is no single best business loan &mdash; equipment financing, an SBA loan and a merchant cash advance solve different problems, and the wrong one is expensive even when it is approved. <a href="/match.html">Tell us what you need the money for and how fast</a>, and we will come back with the programs your numbers actually clear.</p>
                 <div class="section-cta section-cta--center"><a href="/match.html" class="btn-primary">Get Matched &mdash; No Cost, No Obligation</a></div>
             </section>
 
@@ -266,6 +272,12 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                     <div class="industry-tile-content">
                         <h3>Equipment Financing</h3>
                         <p>Finance new or used equipment with flexible terms based on use case and asset type.</p>
+                    </div>
+                </a>
+                <a href="equipment-appraisal.html" class="industry-tile" aria-label="Equipment appraisal - establish what your equipment is worth before financing against it">
+                    <div class="industry-tile-content">
+                        <h3>Equipment Appraisal</h3>
+                        <p>Establish what machinery is actually worth before you finance against it, sell it, or use it as collateral.</p>
                     </div>
                 </a>
                 <a href="sba-loans.html" class="industry-tile" aria-label="SBA loan guidance - choose the right SBA path and lender program">
@@ -324,6 +336,25 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                         <p>Short-term financing for acquisitions, refinance gaps, value-add, and construction. Close in 7-21 days.</p>
                     </div>
                 </a>
+                <a href="real-estate-secured-business-loan.html" class="industry-tile" aria-label="Real estate secured business loan - raise capital in second or third lien position">
+                    <div class="industry-tile-content">
+                        <h3>Real Estate Secured Business Loan</h3>
+                        <p>Raise business capital against property you already own, in second or third position, without touching your first mortgage.</p>
+                    </div>
+                </a>
+                <a href="heloc-for-business.html" class="industry-tile" aria-label="HELOC for business - using home equity to fund a business, and the trade-offs">
+                    <div class="industry-tile-content">
+                        <h3>HELOC for Business</h3>
+                        <p>Home equity is the cheapest credit most owners can reach &mdash; and your house is what secures it. The trade, stated plainly.</p>
+                    </div>
+                </a>
+                <a href="commercial-truck-title-loan.html" class="industry-tile" aria-label="Commercial truck title loan - borrow against trucks and trailers you own outright">
+                    <picture><source srcset="/assets/semi-truck-hero-bg.webp?v=4" type="image/webp"><img  src="/assets/semi-truck-hero-bg.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
+                    <div class="industry-tile-content">
+                        <h3>Commercial Truck Title Loan</h3>
+                        <p>Borrow against trucks and trailers you already own outright, keeping them on the road while you do it.</p>
+                    </div>
+                </a>
                 <a href="fix-and-flip.html" class="industry-tile" aria-label="Fix and flip - short-term financing for real estate investors">
                     <picture><source srcset="/assets/faf-hero-560w.webp?v=4 560w, /assets/faf-hero-800w.webp?v=4 800w" sizes="(max-width: 768px) 100vw, 560px" type="image/webp"><img  src="/assets/faf-hero.png" alt="" class="industry-tile-img" loading="lazy" width="280" height="210"></picture>
                     <div class="industry-tile-content">
@@ -348,6 +379,24 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
                     <div class="industry-tile-content">
                         <h3>Business Debt Relief</h3>
                         <p>Get out from under stacked payments. Compare consolidation, restructuring, and settlement, then get matched to the right path.</p>
+                    </div>
+                </a>
+                <a href="mca-consolidation-loan.html" class="industry-tile" aria-label="MCA consolidation loan - pay off stacked advances with one scheduled payment">
+                    <div class="industry-tile-content">
+                        <h3>MCA Consolidation Loan</h3>
+                        <p>Use equity in equipment, trucks, or property to pay off stacked advances and replace daily debits with one scheduled payment.</p>
+                    </div>
+                </a>
+                <a href="mca-debt-relief.html" class="industry-tile" aria-label="MCA debt relief - four routes out of stacked merchant cash advances">
+                    <div class="industry-tile-content">
+                        <h3>MCA Debt Relief</h3>
+                        <p>Stacked advances taking a slice of every deposit? Four real routes out, and which one fits depends on your revenue.</p>
+                    </div>
+                </a>
+                <a href="business-debt-settlement.html" class="industry-tile" aria-label="Business debt settlement - negotiating balances down, and what it costs">
+                    <div class="industry-tile-content">
+                        <h3>Business Debt Settlement</h3>
+                        <p>Negotiating balances down when the business genuinely cannot repay in full &mdash; and an honest account of what it costs you.</p>
                     </div>
                 </a>
                 <a href="revenue-based-financing.html" class="industry-tile" aria-label="Revenue-based financing - growth capital that flexes with revenue">
