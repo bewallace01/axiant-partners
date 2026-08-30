@@ -1,3 +1,11 @@
+# Every group below repeats the Disallow list on purpose.
+# Under the robots.txt spec a crawler obeys ONLY its most specific matching
+# group and ignores 'User-agent: *' entirely - so a group containing just
+# 'Allow: /' grants that crawler access to the private directories.
+#
+# Access control is enforced in _redirects (these paths return 404).
+# robots.txt is a request; _redirects is the actual block.
+
 User-agent: *
 Allow: /
 Disallow: /tools/article_supplements/
@@ -7,63 +15,182 @@ Disallow: /_marketing/
 Disallow: /_analysis/
 Disallow: /_components/
 
-# AI search & assistant crawlers - explicitly allow for citation and inclusion in AI answers
+
+# ---------------------------------------------------------------------------
+# AI search & assistant crawlers - explicitly allowed for citation and
+# inclusion in AI answers, and explicitly held to the same private paths.
+# ---------------------------------------------------------------------------
+
+# OpenAI training crawler
 User-agent: GPTBot
 Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
 
+# OpenAI - user-initiated fetch during a ChatGPT conversation
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
 
-User-agent: CCBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: Claude-SearchBot
-Allow: /
-
-User-agent: Cohere-AI
-Allow: /
-
-# OpenAI search crawler (powers ChatGPT search results) - distinct from GPTBot
+# OpenAI search crawler (powers ChatGPT search) - distinct from GPTBot
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
 
-# Google AI - gates inclusion in Google AI Overviews and Gemini grounding
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
+
+# Anthropic - training
+User-agent: ClaudeBot
+Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
+
+# Anthropic - builds Claude's search index
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
+
+# Anthropic - fetches a page live when a user asks Claude about it
+User-agent: Claude-User
+Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
+
+# Anthropic - legacy agent, kept for older deployments
+User-agent: anthropic-ai
+Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
+
+# Anthropic - legacy agent, kept for older deployments
+User-agent: Claude-Web
+Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
+
+# Google AI - gates Google AI Overviews and Gemini grounding
 User-agent: Google-Extended
 Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
 
-# Apple Intelligence / Siri
-User-agent: Applebot-Extended
+# Bing - also the index behind Microsoft Copilot and ChatGPT search
+User-agent: bingbot
 Allow: /
-
-# Amazon assistant
-User-agent: Amazonbot
-Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
 
 # DuckDuckGo AI (DuckAssist)
 User-agent: DuckAssistBot
 Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
 
-# Microsoft Copilot / Bing AI
-User-agent: bingbot
+# Apple Intelligence / Siri
+User-agent: Applebot-Extended
 Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
+
+# Amazon assistant
+User-agent: Amazonbot
+Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
 
 # Meta AI
 User-agent: Meta-ExternalAgent
 Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
 
-# Common Crawl (feeds many AI training/grounding datasets) - already allowed above as CCBot
+# Cohere
+User-agent: Cohere-AI
+Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
+
+# Common Crawl - feeds many AI training and grounding datasets
+User-agent: CCBot
+Allow: /
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
+Disallow: /_components/
+
 
 Sitemap: https://axiantpartners.com/sitemap.xml
 LLM: https://axiantpartners.com/llms.txt

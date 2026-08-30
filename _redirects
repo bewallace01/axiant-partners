@@ -1,3 +1,17 @@
+# ---------------------------------------------------------------------------
+# Private working directories - internal marketing, outreach and analysis docs.
+# These are committed to the repo and therefore deployed, so robots.txt alone
+# does not protect them: a Disallow is a request, not access control, and the
+# files stay readable by anyone with the URL. These rules are the actual block.
+# Kept at the top of the file because _redirects is first-match-wins.
+# ---------------------------------------------------------------------------
+/_analysis/*    /404.html  404!
+/_outreach/*    /404.html  404!
+/_marketing/*   /404.html  404!
+/_components/*  /404.html  404!
+/tools/article_supplements/*  /404.html  404!
+/tools/includes/*             /404.html  404!
+
 # Glossary removed - redirect to articles hub
 /glossary.html /blog.html 301
 
