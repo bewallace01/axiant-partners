@@ -622,7 +622,7 @@ header{background:var(--header-overlay) center/cover no-repeat;text-align:center
           var params={ full_name:name, email:email, phone:phone, business_name:biz||'Not provided',
             loan_type:'Debt Consolidation', loan_amount:balance, credit_score:credit||'Not provided',
             revenue:revenue||'Not provided', years_in_business:years||'Not provided',
-            equipment_description:details, reference_number:ref, to_email:'alex@axiantpartners.com' };
+            equipment_description:details+(typeof window.__axAttr==='function'?'\n\n--- Source ---\n'+window.__axAttr().lead_source:''), reference_number:ref, to_email:'alex@axiantpartners.com' };
           btn.disabled=true; var orig=btn.textContent; btn.textContent='Submitting…';
           function done(ok){
             if(ok){
