@@ -1,0 +1,187 @@
+{
+  "slug": "wet-batch-plants",
+  "breadcrumb_label": "Wet Batch Plants",
+  "_seo_note": "meta / schema / prose are preserved VERBATIM in the _*.html sidecars. This is a re-layout -- do not rewrite them here.",
+  "meta_file": "_wet-batch-plants.meta.html",
+  "schema_file": "_wet-batch-plants.schema.html",
+  "seo_sections_file": "_wet-batch-plants.seo.html",
+  "dealer": {
+    "name": "Right Manufacturing Systems, Inc. (Mix Right)",
+    "logo": "/assets/equipment/mixright/logo.jpg",
+    "logo_w": 158,
+    "logo_h": 52,
+    "blurb": "Manufacturer &middot; concrete batching, mixing &amp; storage equipment &middot; Made in the USA",
+    "phone": "&#9742; (801) 796-9641",
+    "phone_href": "tel:8017969641",
+    "website": "",
+    "website_href": "",
+    "inventory_url": "",
+    "disclosure": "Equipment is manufactured and sold by Right Manufacturing Systems, Inc. (Mix Right). Axiant Partners is an independent financing partner and arranges equipment financing; pricing and full specifications are provided by the manufacturer. Financing is subject to credit approval."
+  },
+  "hero": {
+    "eyebrow": "Mix Right &middot; EZ Series",
+    "h1": "Wet Batch Plants",
+    "intro_html": "Portable wet-batch plants that mix and discharge finished concrete on site. Computer-automated weight batching (or manual models) with a flow-through rotating drum — materials in dry, low-slump concrete out. Batches from 1.25 to 4 cubic yards.",
+    "intro_link": {
+      "href": "/equipment-financing.html",
+      "label": "How financing works &rarr;"
+    },
+    "image": "/assets/equipment/mixright/wet-batch-plants.jpg",
+    "image_alt": "Mix Right Wet Batch Plants",
+    "image_caption": "Right Manufacturing Systems, Inc. (Mix Right) &mdash; Wet Batch Plants"
+  },
+  "finance_card": {
+    "eyebrow": "Finance with Axiant",
+    "title": "Finance any Wet Batch Plant",
+    "body": "Choose your model, and finance it through Axiant &mdash; spread the cost and keep your cash working.",
+    "cta": {
+      "label": "Get pre-approved &mdash; 24hr financing",
+      "href": "/match.html"
+    },
+    "cta2": {
+      "label": "Request a quote from Mix Right &#8599;",
+      "href": "https://www.mixright.com/contact"
+    },
+    "checks": [
+      "Approvals in as little as 24 hours",
+      "New &amp; used equipment financed",
+      "Terms up to 60&ndash;72 months",
+      "Startups &amp; established businesses"
+    ],
+    "estimator": {
+      "equip": "Wet%20Batch%20Plants"
+    }
+  },
+  "models_section": {
+    "heading": "Wet Batch Plants models",
+    "subhead": "All financeable through Axiant. Live inventory &amp; pricing on Right Manufacturing Systems, Inc. (Mix Right).",
+    "view_all": {
+      "label": "View the full Wet Batch Plants line on Mix Right &#8599;",
+      "href": "https://www.mixright.com/wet-batch-plants"
+    },
+    "table_heading": "Full lineup &amp; specs"
+  },
+  "models": [
+    {
+      "name": "EZ 4-24-2",
+      "capacity": "4 cu yd",
+      "chips": [
+        "Computer-automated · 24 yd aggregate storage across 2 bins"
+      ],
+      "spec": "Computer-automated · 24 yd aggregate storage across 2 bins",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/ez-4-24-2-portable-concrete-batch-plant"
+    },
+    {
+      "name": "EZ 4-12-2",
+      "capacity": "4 cu yd",
+      "chips": [
+        "Computer-automated · 12 yd aggregate across 2 bins"
+      ],
+      "spec": "Computer-automated · 12 yd aggregate across 2 bins",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/ez-4-12-2-portable-concrete-batch-plant"
+    },
+    {
+      "name": "EZ 2-8-2",
+      "capacity": "2.5 cu yd",
+      "chips": [
+        "Computer-automated · 8 yd aggregate across 2 bins"
+      ],
+      "spec": "Computer-automated · 8 yd aggregate across 2 bins",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/ez-2-8-2-portable-concrete-mixer-batching-plant"
+    },
+    {
+      "name": "EZ 1-5-2",
+      "capacity": "1.3+ cu yd",
+      "chips": [
+        "Computer-automated · 5 yd aggregate across 2 bins"
+      ],
+      "spec": "Computer-automated · 5 yd aggregate across 2 bins",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/ez-1-5-2-portable-concrete-mixer-batching-plant"
+    },
+    {
+      "name": "EZ 4-5",
+      "capacity": "4 cu yd",
+      "chips": [
+        "Manually operated · 5 yd aggregate, single bin"
+      ],
+      "spec": "Manually operated · 5 yd aggregate, single bin",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/ez-4-5-portable-concrete-mixer-batching-plant"
+    },
+    {
+      "name": "EZ 2-3",
+      "capacity": "2.5 cu yd",
+      "chips": [
+        "Manually operated · 3 yd aggregate, single bin"
+      ],
+      "spec": "Manually operated · 3 yd aggregate, single bin",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/ez-2-3-portable-concrete-mixer-batching-plant"
+    },
+    {
+      "name": "EZ 1-1",
+      "capacity": "1.3+ cu yd",
+      "chips": [
+        "Manually operated · belt-driven loading hopper"
+      ],
+      "spec": "Manually operated · belt-driven loading hopper",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/ez-1-1-portable-concrete-mixer-batching-plant"
+    }
+  ],
+  "related": [
+    {
+      "href": "/equipment-for-sale/dry-batch-plants/",
+      "image": "/assets/equipment/mixright/dry-batch-plants.jpg",
+      "alt": "Dry Batch Plants",
+      "name": "Dry Batch Plants"
+    },
+    {
+      "href": "/equipment-for-sale/portable-concrete-mixers/",
+      "image": "/assets/equipment/mixright/portable-concrete-mixers.jpg",
+      "alt": "Portable Concrete Mixers",
+      "name": "Portable Concrete Mixers"
+    },
+    {
+      "href": "/equipment-for-sale/cement-silos/",
+      "image": "/assets/equipment/mixright/cement-silos.jpg",
+      "alt": "Portable Cement Silos",
+      "name": "Portable Cement Silos"
+    },
+    {
+      "href": "/equipment-for-sale/rock-tumblers/",
+      "image": "/assets/equipment/mixright/rock-tumblers.jpg",
+      "alt": "Industrial Rock Tumblers",
+      "name": "Industrial Rock Tumblers"
+    }
+  ],
+  "related_heading": "Wet Batch Plants models</h2><table class=\"mx-modtbl\"><thead><tr><th>Model</th><th>Capacity</th><th>Configuration</th><th style=\"text-align:right\">Specs</th></tr></thead><tbody><tr><td class=\"mdl\">EZ 4-24-2</td><td class=\"cap\">4 cu yd</td><td>Computer-automated · 24 yd aggregate storage across 2 bins</td><td class=\"lk\"><a href=\"https://www.mixright.com/ez-4-24-2-portable-concrete-batch-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">EZ 4-12-2</td><td class=\"cap\">4 cu yd</td><td>Computer-automated · 12 yd aggregate across 2 bins</td><td class=\"lk\"><a href=\"https://www.mixright.com/ez-4-12-2-portable-concrete-batch-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">EZ 2-8-2</td><td class=\"cap\">2.5 cu yd</td><td>Computer-automated · 8 yd aggregate across 2 bins</td><td class=\"lk\"><a href=\"https://www.mixright.com/ez-2-8-2-portable-concrete-mixer-batching-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">EZ 1-5-2</td><td class=\"cap\">1.3+ cu yd</td><td>Computer-automated · 5 yd aggregate across 2 bins</td><td class=\"lk\"><a href=\"https://www.mixright.com/ez-1-5-2-portable-concrete-mixer-batching-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">EZ 4-5</td><td class=\"cap\">4 cu yd</td><td>Manually operated · 5 yd aggregate, single bin</td><td class=\"lk\"><a href=\"https://www.mixright.com/ez-4-5-portable-concrete-mixer-batching-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">EZ 2-3</td><td class=\"cap\">2.5 cu yd</td><td>Manually operated · 3 yd aggregate, single bin</td><td class=\"lk\"><a href=\"https://www.mixright.com/ez-2-3-portable-concrete-mixer-batching-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">EZ 1-1</td><td class=\"cap\">1.3+ cu yd</td><td>Manually operated · belt-driven loading hopper</td><td class=\"lk\"><a href=\"https://www.mixright.com/ez-1-1-portable-concrete-mixer-batching-plant\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr></tbody></table><a class=\"mx-catlink\" href=\"https://www.mixright.com/wet-batch-plants\" target=\"_blank\" rel=\"noopener\">View the full Wet Batch Plants line on Mix Right &#8599;</a><div class=\"mx-fine\">Equipment is manufactured and sold by Right Manufacturing Systems, Inc. (Mix Right). Axiant Partners is an independent financing partner and arranges equipment financing; pricing and full specifications are provided by the manufacturer. Financing is subject to credit approval.</div></section><section style=\"padding-top:8px\"><h2 class=\"mx-sec-h serif\" style=\"font-size:1.3rem\">More Mix Right equipment",
+  "band": {
+    "title": "Finance any Wet Batch Plant",
+    "body": "Choose your model, and finance it through Axiant &mdash; spread the cost and keep your cash working.",
+    "proofs": [
+      "24-hour approvals",
+      "New &amp; used",
+      "Asset-based &mdash; the equipment carries the deal"
+    ],
+    "cta": {
+      "label": "Get pre-approved &rarr;",
+      "href": "/match.html?type=equipment&amp;equipment=Wet%20Batch%20Plants"
+    },
+    "phone": {
+      "label": "Call (561) 268-0465",
+      "href": "tel:+15612680465"
+    }
+  }
+}

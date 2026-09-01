@@ -1,0 +1,175 @@
+{
+  "slug": "combi-ovens",
+  "breadcrumb_label": "Combi Ovens",
+  "_seo_note": "meta / schema / prose are preserved VERBATIM in the _*.html sidecars. This is a re-layout -- do not rewrite them here.",
+  "meta_file": "_combi-ovens.meta.html",
+  "schema_file": "_combi-ovens.schema.html",
+  "seo_sections_file": "_combi-ovens.seo.html",
+  "dealer": {
+    "name": "Restaurant Equipment World",
+    "logo": "/assets/equipment/rew/logo.jpg",
+    "logo_w": 158,
+    "logo_h": 52,
+    "blurb": "Dealer &middot; commercial kitchen, refrigeration &amp; warewashing equipment &middot; nationwide shipping",
+    "phone": "&#9742; (800) 821-9153",
+    "phone_href": "tel:8008219153",
+    "website": "&#9993; Request a quote",
+    "website_href": "https://www.rewonline.com/contact-us.html",
+    "inventory_url": "https://www.rewonline.com/contact-us.html",
+    "disclosure": "Equipment is sold by Restaurant Equipment World and the respective manufacturers. Axiant Partners is an independent financing partner and arranges equipment financing; pricing and full specifications are provided by the dealer/manufacturer. Financing is subject to credit approval."
+  },
+  "hero": {
+    "eyebrow": "Restaurant Equipment World &middot; Vulcan &middot; Alto-Shaam",
+    "h1": "Combi Ovens",
+    "intro_html": "Combination oven-steamers that roast, bake, steam, retherm and hold in a single cabinet, with precise humidity control for higher yields and consistent results across every station. Electric and gas, boilerless and boiler models, from mid-size units to full-size production floor models.",
+    "intro_link": {
+      "href": "/equipment-financing.html",
+      "label": "How financing works &rarr;"
+    },
+    "image": "/assets/equipment/rew/combi-ovens.jpg",
+    "image_alt": "Combi Ovens at Restaurant Equipment World",
+    "image_caption": "Restaurant Equipment World &mdash; Combi Ovens"
+  },
+  "finance_card": {
+    "eyebrow": "Finance with Axiant",
+    "title": "Finance any combi oven",
+    "body": "Pick your model, and finance it through Axiant &mdash; spread the cost over time and keep your cash working in the business.",
+    "cta": {
+      "label": "Get pre-approved &mdash; 24hr financing",
+      "href": "/match.html?type=equipment&amp;equipment=Combi%20Ovens"
+    },
+    "cta2": {
+      "label": "Request pricing from REW &#8599;",
+      "href": "https://www.rewonline.com/contact-us.html"
+    },
+    "checks": [
+      "Approvals in as little as 24 hours",
+      "New &amp; used equipment financed",
+      "Terms up to 60&ndash;72 months",
+      "Startups &amp; established businesses"
+    ],
+    "estimator": {
+      "equip": "Combi%20Ovens"
+    }
+  },
+  "models_section": {
+    "heading": "Combi Ovens models",
+    "subhead": "All financeable through Axiant. Live inventory &amp; pricing on Restaurant Equipment World.",
+    "view_all": {
+      "label": "Browse the full Combi Ovens line &amp; live pricing on REW &#8599;",
+      "href": "https://www.rewonline.com/category/2394/Combi-Ovens"
+    },
+    "table_heading": "Full lineup &amp; specs"
+  },
+  "models": [
+    {
+      "name": "Alto-Shaam CTC10-10E",
+      "capacity": "10 pans &middot; electric",
+      "chips": [
+        "Combitherm boilerless oven-steamer"
+      ],
+      "spec": "Combitherm boilerless oven-steamer",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "Alto-Shaam CTC10-10G",
+      "capacity": "10 pans &middot; gas",
+      "chips": [
+        "Boilerless combi &mdash; roast, steam, bake"
+      ],
+      "spec": "Boilerless combi &mdash; roast, steam, bake",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "Alto-Shaam CTC10-20E",
+      "capacity": "20 pans &middot; electric",
+      "chips": [
+        "High-capacity boilerless combi"
+      ],
+      "spec": "High-capacity boilerless combi",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "Vulcan ABC7E-208",
+      "capacity": "7 full-size pans &middot; electric",
+      "chips": [
+        "208V boilerless combi oven"
+      ],
+      "spec": "208V boilerless combi oven",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "Vulcan ABC7G-NAT",
+      "capacity": "7 full-size pans &middot; gas",
+      "chips": [
+        "Natural-gas combi oven-steamer"
+      ],
+      "spec": "Natural-gas combi oven-steamer",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "Alto-Shaam CTC20-10E",
+      "capacity": "20 pans &middot; electric",
+      "chips": [
+        "Production-volume electric combi"
+      ],
+      "spec": "Production-volume electric combi",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "Alto-Shaam 20&middot;20G PRO",
+      "capacity": "40 full-size pans &middot; gas",
+      "chips": [
+        "Full-size floor model &mdash; top capacity"
+      ],
+      "spec": "Full-size floor model &mdash; top capacity",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    }
+  ],
+  "related": [
+    {
+      "href": "/equipment-for-sale/walk-in-coolers/",
+      "image": "/assets/equipment/rew/walk-in-coolers.jpg",
+      "alt": "Walk-In Coolers & Freezers",
+      "name": "Walk-In Coolers & Freezers"
+    },
+    {
+      "href": "/equipment-for-sale/commercial-dishwashers/",
+      "image": "/assets/equipment/rew/commercial-dishwashers.jpg",
+      "alt": "Commercial Dishwashers",
+      "name": "Commercial Dishwashers"
+    }
+  ],
+  "related_heading": "Combi Ovens models</h2><table class=\"mx-modtbl\"><thead><tr><th>Model</th><th>Type / Capacity</th><th>Configuration</th></tr></thead><tbody><tr><td class=\"mdl\">Alto-Shaam CTC10-10E</td><td class=\"cap\">10 pans &middot; electric</td><td>Combitherm boilerless oven-steamer</td></tr><tr><td class=\"mdl\">Alto-Shaam CTC10-10G</td><td class=\"cap\">10 pans &middot; gas</td><td>Boilerless combi &mdash; roast, steam, bake</td></tr><tr><td class=\"mdl\">Alto-Shaam CTC10-20E</td><td class=\"cap\">20 pans &middot; electric</td><td>High-capacity boilerless combi</td></tr><tr><td class=\"mdl\">Vulcan ABC7E-208</td><td class=\"cap\">7 full-size pans &middot; electric</td><td>208V boilerless combi oven</td></tr><tr><td class=\"mdl\">Vulcan ABC7G-NAT</td><td class=\"cap\">7 full-size pans &middot; gas</td><td>Natural-gas combi oven-steamer</td></tr><tr><td class=\"mdl\">Alto-Shaam CTC20-10E</td><td class=\"cap\">20 pans &middot; electric</td><td>Production-volume electric combi</td></tr><tr><td class=\"mdl\">Alto-Shaam 20&middot;20G PRO</td><td class=\"cap\">40 full-size pans &middot; gas</td><td>Full-size floor model &mdash; top capacity</td></tr></tbody></table><a class=\"mx-catlink\" href=\"https://www.rewonline.com/category/2394/Combi-Ovens\" target=\"_blank\" rel=\"noopener\">Browse the full Combi Ovens line &amp; live pricing on REW &#8599;</a><div class=\"mx-fine\">Equipment is sold by Restaurant Equipment World and the respective manufacturers. Axiant Partners is an independent financing partner and arranges equipment financing; pricing and full specifications are provided by the dealer/manufacturer. Financing is subject to credit approval.</div></section><section style=\"padding-top:8px\"><h2 class=\"mx-sec-h serif\">Combi Ovens financing &mdash; FAQ</h2><div class=\"rew-faq\"><details class=\"rew-fq\"><summary>How much does a commercial combi oven cost?</summary><p>Combi ovens generally run from about $14,000 for smaller electric and half-size units up to $50,000 or more for full-size gas production floor models. Mid-size 10- and 20-pan units usually fall between roughly $17,000 and $32,000. Exact pricing is quoted by the dealer for the specific model and configuration.</p></details><details class=\"rew-fq\"><summary>Can I finance a combi oven through Axiant?</summary><p>Yes. Axiant arranges financing on new and used combi ovens with terms up to 60 to 72 months and approvals in as little as 24 hours. Startups and established restaurants are both eligible, subject to credit approval.</p></details><details class=\"rew-fq\"><summary>Should I finance a new or a used combi oven?</summary><p>Both are financeable. New units carry full warranties and the latest controls, while certified used units lower the upfront figure. Because a combi oven is a long-life, high-ticket asset, financing either way keeps your opening cash free for inventory, labor, and rent.</p></details><details class=\"rew-fq\"><summary>Does it matter if the combi oven is electric or gas?</summary><p>Not for financing — both qualify. The choice usually comes down to your kitchen&#x27;s available utilities and ventilation. We finance either based on the dealer&#x27;s quoted price.</p></details></div></section><section style=\"padding-top:8px\"><h2 class=\"mx-sec-h serif\" style=\"font-size:1.3rem\">More commercial kitchen equipment",
+  "band": {
+    "title": "Finance any combi oven",
+    "body": "Pick your model, and finance it through Axiant &mdash; spread the cost over time and keep your cash working in the business.",
+    "proofs": [
+      "24-hour approvals",
+      "New &amp; used",
+      "Asset-based &mdash; the equipment carries the deal"
+    ],
+    "cta": {
+      "label": "Get pre-approved &rarr;",
+      "href": "/match.html?type=equipment&amp;equipment=Combi%20Ovens"
+    },
+    "phone": {
+      "label": "Call (561) 268-0465",
+      "href": "tel:+15612680465"
+    }
+  }
+}

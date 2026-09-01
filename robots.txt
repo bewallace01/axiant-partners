@@ -8,62 +8,200 @@ Disallow: /_analysis/
 Disallow: /_components/
 
 # AI search & assistant crawlers - explicitly allow for citation and inclusion in AI answers
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
 User-agent: GPTBot
 Allow: /
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 
 User-agent: CCBot
 Allow: /
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 
 User-agent: Cohere-AI
 Allow: /
 
 # OpenAI search crawler (powers ChatGPT search results) - distinct from GPTBot
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 User-agent: OAI-SearchBot
 Allow: /
 
 # Google AI - gates inclusion in Google AI Overviews and Gemini grounding
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 User-agent: Google-Extended
 Allow: /
 
 # Apple Intelligence / Siri
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 User-agent: Applebot-Extended
 Allow: /
 
 # Amazon assistant
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 User-agent: Amazonbot
 Allow: /
 
 # DuckDuckGo AI (DuckAssist)
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 User-agent: DuckAssistBot
 Allow: /
 
 # Microsoft Copilot / Bing AI
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 User-agent: bingbot
 Allow: /
 
 # Meta AI
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 User-agent: Meta-ExternalAgent
 Allow: /
 
 # Common Crawl (feeds many AI training/grounding datasets) - already allowed above as CCBot
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/
 
 Sitemap: https://axiantpartners.com/sitemap.xml
 LLM: https://axiantpartners.com/llms.txt
+Disallow: /_backup-pre-v2-swap/
+Disallow: /_preview/
+Disallow: /_components/
+Disallow: /tools/article_supplements/
+Disallow: /tools/includes/
+Disallow: /_outreach/
+Disallow: /_marketing/
+Disallow: /_analysis/

@@ -1,0 +1,136 @@
+{
+  "slug": "electric-material-handlers",
+  "breadcrumb_label": "Electric Material Handlers",
+  "_seo_note": "meta / schema / prose are preserved VERBATIM in the _*.html sidecars. This is a re-layout -- do not rewrite them here.",
+  "meta_file": "_electric-material-handlers.meta.html",
+  "schema_file": "_electric-material-handlers.schema.html",
+  "seo_sections_file": "_electric-material-handlers.seo.html",
+  "dealer": {
+    "name": "SENNEBOGEN",
+    "logo": "/assets/equipment/sennebogen/logo.svg",
+    "logo_w": 158,
+    "logo_h": 52,
+    "blurb": "Manufacturer &middot; material handlers, tree care handlers &amp; telescopic loaders &middot; sold in North America through the SENNEBOGEN dealer network &middot; Stanley, North Carolina",
+    "phone": "&#9742; (704) 347-4910",
+    "phone_href": "tel:+17043474910",
+    "website": "&#127760; sennebogen-na.com",
+    "website_href": "https://sennebogen-na.com/",
+    "inventory_url": "https://sennebogen-na.com/",
+    "disclosure": "SENNEBOGEN machines are manufactured by SENNEBOGEN and sold in North America through its authorized dealer network. Axiant Partners is an independent equipment finance broker &mdash; we are not a SENNEBOGEN dealer and are not affiliated with SENNEBOGEN. We arrange the financing for the buyer; machine pricing, configuration and availability come from SENNEBOGEN and its dealers. Specifications shown are from SENNEBOGEN North America and are for reference only &mdash; confirm every figure with the dealer before you buy. Financing is subject to credit approval."
+  },
+  "hero": {
+    "eyebrow": "SENNEBOGEN &middot; eGreen",
+    "h1": "Electric Material Handlers",
+    "intro_html": "SENNEBOGEN builds electric versions of its core <b>material handlers</b> &mdash; cable-electric, battery-electric and dual-power &mdash; for scrap yards, recycling plants and waste facilities that want the machine without the diesel. No engine means no fuel, no oil changes, no DEF, no exhaust and a far quieter yard, which is what makes indoor sorting halls practical in the first place. SENNEBOGEN reports that its eGreen machines have cut operating costs by as much as 50% versus the same machine on diesel. The catch is that an electric machine costs more up front &mdash; which is exactly the problem financing exists to solve.",
+    "intro_link": {
+      "href": "/equipment-financing.html",
+      "label": "How equipment financing works &rarr;"
+    },
+    "image": "/assets/equipment/sennebogen/electric-material-handlers.jpg",
+    "image_alt": "SENNEBOGEN electric material handler working inside a recycling facility",
+    "image_caption": "SENNEBOGEN &mdash; Electric Material Handlers"
+  },
+  "finance_card": {
+    "eyebrow": "Finance with Axiant",
+    "title": "Finance the electric machine",
+    "body": "Electric costs more to buy and less to run. Financing is how you get the second half without paying for the first half in cash &mdash; spread the purchase and let the savings show up while you pay.",
+    "cta": {
+      "label": "Get pre-approved &mdash; 24hr financing",
+      "href": "/match.html?type=equipment&amp;equipment=SENNEBOGEN%20electric%20material%20handler"
+    },
+    "cta2": {
+      "label": "Find a SENNEBOGEN dealer &#8599;",
+      "href": "https://sennebogen-na.com/find-sales-service/"
+    },
+    "checks": [
+      "Approvals in as little as 24 hours",
+      "New &amp; used machines financed",
+      "Terms structured to the equipment",
+      "Owner-operators &amp; established fleets"
+    ],
+    "estimator": {
+      "equip": "Electric%20Material%20Handlers"
+    }
+  },
+  "models_section": {
+    "heading": "Electric &amp; hybrid power options",
+    "subhead": "All financeable through Axiant. Live inventory &amp; pricing on SENNEBOGEN.",
+    "view_all": {
+      "label": "See the eGreen electric line at SENNEBOGEN North America &#8599;",
+      "href": "https://sennebogen-na.com/products/electric-material-handlers/"
+    },
+    "table_heading": "Full lineup &amp; specs"
+  },
+  "models": [
+    {
+      "name": "Cable-electric",
+      "capacity": "818 E, 821 E, 825 E, 830 E, 835 E, 840 E, 850 E",
+      "chips": [
+        "Machines that stay put &mdash; pedestal handlers over a shredder, indoor sorting lines, fixed loading stations. Plugged into the grid, so there is no fuel bill and no engine at all."
+      ],
+      "spec": "Machines that stay put &mdash; pedestal handlers over a shredder, indoor sorting lines, fixed loading stations. Plugged into the grid, so there is no fuel bill and no engine at all.",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://sennebogen-na.com/products/electric-material-handlers/"
+    },
+    {
+      "name": "Battery-electric",
+      "capacity": "817 E, 821 E, 824 G, 825 E, 826 G",
+      "chips": [
+        "Zero exhaust with full mobility &mdash; the answer for indoor waste and recycling halls where a diesel machine means ventilation, and where the machine still has to drive around."
+      ],
+      "spec": "Zero exhaust with full mobility &mdash; the answer for indoor waste and recycling halls where a diesel machine means ventilation, and where the machine still has to drive around.",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://sennebogen-na.com/products/electric-material-handlers/"
+    },
+    {
+      "name": "Dual-power",
+      "capacity": "821 M, 825",
+      "chips": [
+        "Runs on grid power where the cable reaches, then unplugs and repositions on battery. Removes the one real objection to cable-electric."
+      ],
+      "spec": "Runs on grid power where the cable reaches, then unplugs and repositions on battery. Removes the one real objection to cable-electric.",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://sennebogen-na.com/products/electric-material-handlers/"
+    },
+    {
+      "name": "Diesel hybrid",
+      "capacity": "835 G, 850 G, 855 E, 865 E, 870 E, 875 E, 885 G, 895 E",
+      "chips": [
+        "Energy recovery on boom-down. On a big port machine the boom drops thousands of times a shift &mdash; the hybrid captures that instead of burning it off as heat."
+      ],
+      "spec": "Energy recovery on boom-down. On a big port machine the boom drops thousands of times a shift &mdash; the hybrid captures that instead of burning it off as heat.",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://sennebogen-na.com/products/material-handlers/"
+    }
+  ],
+  "related": [
+    {
+      "href": "https://sennebogen-na.com/se-products/825-e-series/",
+      "image": "/assets/equipment/sennebogen/825-scrap-magnet.jpg",
+      "alt": "SENNEBOGEN 825 E with scrap magnet",
+      "name": "825 E &mdash; Scrap"
+    }
+  ],
+  "related_heading": "Electric &amp; hybrid power options</h2><div class=\"mx-tblwrap\" style=\"overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px\"><table class=\"mx-modtbl\" style=\"min-width:680px\"><thead><tr><th>Power Option</th><th>Available On</th><th>Best For</th><th style=\"text-align:right\">Specs</th></tr></thead><tbody><tr><td class=\"mdl\">Cable-electric</td><td class=\"cap\">818 E, 821 E, 825 E, 830 E, 835 E, 840 E, 850 E</td><td>Machines that stay put &mdash; pedestal handlers over a shredder, indoor sorting lines, fixed loading stations. Plugged into the grid, so there is no fuel bill and no engine at all.</td><td class=\"lk\"><a href=\"https://sennebogen-na.com/products/electric-material-handlers/\" target=\"_blank\" rel=\"noopener\">Specs &#8599;</a></td></tr><tr><td class=\"mdl\">Battery-electric</td><td class=\"cap\">817 E, 821 E, 824 G, 825 E, 826 G</td><td>Zero exhaust with full mobility &mdash; the answer for indoor waste and recycling halls where a diesel machine means ventilation, and where the machine still has to drive around.</td><td class=\"lk\"><a href=\"https://sennebogen-na.com/products/electric-material-handlers/\" target=\"_blank\" rel=\"noopener\">Specs &#8599;</a></td></tr><tr><td class=\"mdl\">Dual-power</td><td class=\"cap\">821 M, 825</td><td>Runs on grid power where the cable reaches, then unplugs and repositions on battery. Removes the one real objection to cable-electric.</td><td class=\"lk\"><a href=\"https://sennebogen-na.com/products/electric-material-handlers/\" target=\"_blank\" rel=\"noopener\">Specs &#8599;</a></td></tr><tr><td class=\"mdl\">Diesel hybrid</td><td class=\"cap\">835 G, 850 G, 855 E, 865 E, 870 E, 875 E, 885 G, 895 E</td><td>Energy recovery on boom-down. On a big port machine the boom drops thousands of times a shift &mdash; the hybrid captures that instead of burning it off as heat.</td><td class=\"lk\"><a href=\"https://sennebogen-na.com/products/material-handlers/\" target=\"_blank\" rel=\"noopener\">Specs &#8599;</a></td></tr></tbody></table></div><a class=\"mx-catlink\" href=\"https://sennebogen-na.com/products/electric-material-handlers/\" target=\"_blank\" rel=\"noopener\">See the eGreen electric line at SENNEBOGEN North America &#8599;</a><div class=\"mx-fine\">SENNEBOGEN machines are manufactured by SENNEBOGEN and sold in North America through its authorized dealer network. Axiant Partners is an independent equipment finance broker &mdash; we are not a SENNEBOGEN dealer and are not affiliated with SENNEBOGEN. We arrange the financing for the buyer; machine pricing, configuration and availability come from SENNEBOGEN and its dealers. Specifications shown are from SENNEBOGEN North America and are for reference only &mdash; confirm every figure with the dealer before you buy. Financing is subject to credit approval.</div></section><section style=\"padding:24px 0 8px\"><h2 class=\"mx-sec-h serif\">Why electric changes the financing math</h2><p class=\"mx-intro\" style=\"max-width:80ch;margin:12px 0 10px\">On a diesel machine the purchase and the running cost are two separate problems: you buy it, then you feed it fuel, filters, oil, DEF and engine service for the next decade. An electric machine collapses most of that second bill &mdash; there is no engine to service &mdash; and moves the money to the front, into the purchase price. That is a worse deal if you are paying cash and a better one if you are financing, because financing is what turns a lump sum into a monthly number you can set against a monthly saving.</p><p class=\"mx-intro\" style=\"max-width:80ch;margin:0 0 10px\">The honest way to size it: take what you actually spend per year on that machine&rsquo;s fuel and engine service today, subtract your expected power cost, and compare the difference to the payment on the price gap between the diesel and the electric build. Sometimes the saving covers most of the gap; sometimes it does not, and diesel is the right call. It depends on your power rate, your hours and your fuel price &mdash; not on a brochure. Get the two quotes from the dealer and we will run the payments on both so you are comparing real numbers.</p><p class=\"mx-intro\" style=\"max-width:80ch;margin:0\">There is one more lever worth asking about: many utilities and states run rebate or incentive programs for electric off-road equipment. Those are worth checking before you sign, because they come off the purchase price and therefore off the amount you finance.</p></section><section style=\"padding:16px 0 8px\"><h2 class=\"mx-sec-h serif\">Cable, battery, or dual-power?</h2><p class=\"mx-intro\" style=\"max-width:80ch;margin:12px 0 10px\">The three are not competing options so much as three answers to &ldquo;how much does this machine need to move?&rdquo;</p><ul class=\"mx-flist\" style=\"margin:0 0 14px;max-width:80ch\"><li><b>Cable-electric</b> &mdash; the machine works one spot: a pedestal over the shredder infeed, a fixed sorting station, a baler feed. Cheapest to run, and there is no battery to age out.</li><li><b>Battery-electric</b> &mdash; the machine has to drive. Indoor waste and recycling halls are the obvious case, because a diesel in an enclosed building is a ventilation problem before it is a fuel problem.</li><li><b>Dual-power</b> &mdash; plugged in for the working shift, on battery to reposition. It answers the one real complaint about cable-electric, which is that the cable decides where you work.</li><li><b>Diesel hybrid</b> &mdash; for the big port and scrap machines where going fully electric is not practical, but the boom coming down thousands of times a shift is energy you would rather recover than waste.</li></ul><p class=\"mx-intro\" style=\"max-width:80ch;margin:0\">All four finance the same way. <a href=\"/match.html?type=equipment&amp;equipment=SENNEBOGEN%20electric%20material%20handler\" style=\"color:var(--a);font-weight:600\">See what your machine qualifies for &rarr;</a></p></section><section style=\"padding:16px 0 8px\"><h2 class=\"mx-sec-h serif\">Electric material handler FAQs</h2><div style=\"margin:12px 0 0;max-width:82ch\"><div style=\"margin:0 0 16px\"><h3 class=\"serif\" style=\"font-size:1.06rem;color:var(--ink);margin:0 0 5px\">Are electric material handlers cheaper to run than diesel?</h3><p class=\"mx-intro\" style=\"margin:0\">SENNEBOGEN reports operating-cost reductions of up to 50% on its eGreen machines versus the same machine on diesel &mdash; no fuel, no engine oil, no DEF, no engine service, and longer intervals overall. Whether you hit that number depends on your power rate, your hours and what you pay for fuel today, so run it against your own figures rather than the brochure.</p></div><div style=\"margin:0 0 16px\"><h3 class=\"serif\" style=\"font-size:1.06rem;color:var(--ink);margin:0 0 5px\">Do electric material handlers cost more to buy?</h3><p class=\"mx-intro\" style=\"margin:0\">Yes, generally &mdash; the electric build carries a higher purchase price than the diesel equivalent, which is why financing matters here. Financing converts that higher price into a monthly payment you can set directly against the monthly operating saving. Ask the dealer for both quotes and we will price the payment on each.</p></div><div style=\"margin:0 0 16px\"><h3 class=\"serif\" style=\"font-size:1.06rem;color:var(--ink);margin:0 0 5px\">Can a battery-electric material handler work a full shift?</h3><p class=\"mx-intro\" style=\"margin:0\">That is a spec question for your dealer, because it depends on the machine, the battery, the duty cycle and whether you can opportunity-charge between loads. Dual-power machines exist precisely for operations that want grid power for the shift and battery only to reposition.</p></div><div style=\"margin:0 0 16px\"><h3 class=\"serif\" style=\"font-size:1.06rem;color:var(--ink);margin:0 0 5px\">Can I finance an electric material handler?</h3><p class=\"mx-intro\" style=\"margin:0\">Yes. It finances like any other equipment purchase &mdash; asset-based, terms structured to the life of the machine, approvals commonly in about 24 hours. Ask about utility or state incentives for electric off-road equipment first, since those reduce the amount you need to finance.</p></div></div></section><section style=\"padding-top:8px\"><h2 class=\"mx-sec-h serif\" style=\"font-size:1.3rem\">SENNEBOGEN eGreen machines",
+  "band": {
+    "title": "Ready to put an electric machine to work?",
+    "body": "Get the diesel quote and the electric quote from your SENNEBOGEN dealer, and we will price the payment on both &mdash; so you can see whether the running saving actually covers the difference.",
+    "proofs": [
+      "24-hour approvals",
+      "New &amp; used",
+      "Asset-based &mdash; the equipment carries the deal"
+    ],
+    "cta": {
+      "label": "Get pre-approved &rarr;",
+      "href": "/match.html?type=equipment&amp;equipment=Electric%20Material%20Handlers"
+    },
+    "phone": {
+      "label": "Call (561) 268-0465",
+      "href": "tel:+15612680465"
+    }
+  }
+}

@@ -1,0 +1,1956 @@
+/* Axiant design system - v2
+   Single source of truth for every v2 page. Edit here, not in a page.
+   Rules: every value is a token; zero !important; three breakpoints;
+   motion responds to intent only. */
+
+/* ==========================================================================
+   AXIANT DESIGN TOKENS
+   The whole point: every value below is defined ONCE. No literals in
+   component rules, no !important anywhere in this file.
+   ========================================================================== */
+:root{
+  /* --- color ------------------------------------------------------------ */
+  --navy-900:#0a1830;
+  --navy-800:#0d1f3c;   /* brand navy - theme-color, fixed */
+  --navy-700:#16304f;
+  --navy-600:#1e3a5f;   /* the site's existing --accent-dark */
+  --navy-100:#dbeafe;
+
+  /* Accent is the site's existing --accent-color, not a new colour. */
+  --accent:#2d7fb8;
+  --accent-600:#1f5f8d;
+  --accent-100:#e8f1f8;
+
+  --ink:#1a1a1a;        /* was --text-primary   */
+  --body:#4a4a4a;       /* was --text-secondary */
+  --muted:#666666;      /* was --text-tertiary  */
+
+  --surface:#ffffff;
+  --ground:#f0f4f8;     /* from --bg-primary */
+  --ground-2:#e8f0f6;
+  --line:#e2e8f0;
+  --line-strong:rgba(45,127,184,.28);
+
+  /* footer surface - the footer is the one dark region with its own
+     text ramp, so it gets tokens instead of six literals sprinkled
+     through two separate blocks. */
+  --footer-bg:var(--navy-900);
+  --footer-text:#9fb0c6;
+  --footer-muted:#7f92ab;
+  --footer-head:#ffffff;
+  --footer-line:rgba(255,255,255,.10);
+  --footer-chip:rgba(255,255,255,.05);
+  --footer-chip-line:rgba(255,255,255,.12);
+  --footer-chip-hover:rgba(45,127,184,.18);
+
+  /* payment estimator - a small instrument, so it gets its own surface ramp */
+  --calc-bg:#0c1c33;
+  --calc-face:#13284a;
+  --calc-line:rgba(255,255,255,.10);
+  --calc-display:#071324;
+  --calc-digit:#7fd4ff;
+  --calc-label:#8fa6c4;
+  --calc-text:#e6eef8;
+
+  /* --- spacing scale ---------------------------------------------------- */
+  --s1:4px;  --s2:8px;  --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:64px; --s9:96px; --s10:128px;
+
+  /* --- type scale ------------------------------------------------------- */
+  --t-xs:12px; --t-sm:14px; --t-base:16px; --t-md:18px;
+  --t-lg:21px; --t-xl:27px; --t-2xl:34px; --t-3xl:56px;
+
+  /* --- radius / shadow / motion ----------------------------------------- */
+  --r-sm:4px; --r-md:8px; --r-lg:14px;
+  --sh-1:0 1px 2px rgba(15,26,39,.06), 0 1px 3px rgba(15,26,39,.08);
+  --sh-2:0 4px 12px rgba(15,26,39,.08), 0 2px 4px rgba(15,26,39,.05);
+  --sh-3:0 24px 48px -12px rgba(8,20,38,.35), 0 8px 16px -8px rgba(8,20,38,.2);
+  --ease:cubic-bezier(.2,.6,.3,1);
+  --dur:180ms;
+
+  --container:1200px;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--surface);
+  color:var(--body);
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:var(--t-base);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{color:var(--ink);margin:0;text-wrap:balance}
+h1,h2{font-family:"Playfair Display",Georgia,serif;font-weight:700;letter-spacing:-.015em;line-height:1.1}
+h3,h4{font-weight:600;letter-spacing:-.005em;line-height:1.3}
+p{margin:0}
+a{color:inherit}
+.container{max-width:var(--container);margin:0 auto;padding-inline:var(--s5)}
+.eyebrow{
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);margin:0;
+}
+:where(a,button,input,select,summary):focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;border-radius:var(--r-sm);
+}
+
+/* ==========================================================================
+   UTILITY BAR  — persistent trust signals, the thing GoKapital does well
+   ========================================================================== */
+.utility{background:var(--navy-900);color:#c3d0e2;font-size:var(--t-sm)}
+/* One centred group, not two edges. */
+.utility .container{
+  display:flex;align-items:center;justify-content:center;
+  gap:var(--s3) var(--s5);min-height:42px;flex-wrap:wrap;text-align:center;
+}
+.utility-facts{display:flex;gap:var(--s3) var(--s5);flex-wrap:wrap;align-items:center;justify-content:center}
+.utility-facts span{display:inline-flex;align-items:center;gap:var(--s2)}
+.utility a{color:#fff;text-decoration:none;font-weight:700}
+.utility a:hover{color:var(--accent)}
+.dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex:none}
+/* thin rules between the groups instead of a big gap */
+.utility-sep{width:1px;height:14px;background:rgba(255,255,255,.22);flex:none}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.header{
+  position:sticky;top:0;z-index:50;background:var(--surface);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 1px 0 rgba(15,26,39,.03);
+}
+/* The header runs wider than the page container so the logo sits hard
+   left and the nav hard right, instead of both floating in the middle. */
+.header-bar{
+  max-width:1640px;margin:0 auto;padding-inline:var(--s7);
+  display:flex;align-items:center;gap:var(--s6);
+  min-height:84px;
+}
+/* the CTA is the tallest thing in the bar; centre it on the row and keep it
+   off the right edge rather than letting it sit flush against the viewport */
+.header-bar > .nav{margin-left:auto;align-items:center}
+/* margin-block:0 is load-bearing on the legacy pages (calculators, matcher,
+   get-matched, print pieces). They also load styles.css, whose
+   `.btn-primary,.btn-secondary,a.btn-primary,a.btn-secondary` rule carries
+   margin-top:20px for standalone CTAs in page content. align-self:center
+   centres the MARGIN box, so that 20px pushed the header CTA exactly 10px
+   below the nav links it should sit level with. */
+.header .nav .btn{margin-left:var(--s4);align-self:center;margin-block:0}
+.brand{flex:none;display:flex;align-items:center;margin-right:auto}
+.brand img{height:50px;width:auto}
+.nav{
+  display:flex;align-items:center;gap:var(--s6);
+  font-size:15px;font-weight:600;
+}
+/* :not(.btn) keeps this rule from beating .btn-primary on the CTA.
+   Without it, .nav a (0,1,1) overrides .btn-primary (0,1,0) and the
+   button renders with nav-link text colour. */
+.nav a:not(.btn){
+  color:var(--ink);text-decoration:none;padding:var(--s2) 0;
+  border-bottom:2px solid transparent;letter-spacing:-.005em;
+  transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.nav a:not(.btn):hover{color:var(--accent);border-bottom-color:var(--accent)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);
+  font-family:inherit;font-size:var(--t-sm);font-weight:600;
+  padding:var(--s3) var(--s5);border-radius:var(--r-md);
+  border:1px solid transparent;cursor:pointer;text-decoration:none;
+  transition:background var(--dur) var(--ease),color var(--dur) var(--ease),
+             border-color var(--dur) var(--ease),transform var(--dur) var(--ease);
+}
+/* The pre-v2 markup uses class="btn-primary" on its own, without .btn, so
+   these carry the base button properties themselves. Harmless when .btn is
+   also present; without this every legacy button renders as tinted text. */
+.btn-primary,.btn-secondary{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);
+  font-family:inherit;font-size:var(--t-sm);font-weight:700;
+  padding:var(--s3) var(--s5);border-radius:var(--r-md);
+  border:1px solid transparent;cursor:pointer;text-decoration:none;
+  transition:background var(--dur) var(--ease),color var(--dur) var(--ease),
+             border-color var(--dur) var(--ease),transform var(--dur) var(--ease);
+}
+.btn-secondary{background:var(--surface);color:var(--accent);border-color:var(--line-strong)}
+.btn-secondary:hover{border-color:var(--accent);background:var(--accent-100)}
+.btn-primary{
+  background:var(--accent);color:#fff;
+  box-shadow:0 1px 2px rgba(13,31,60,.2), 0 4px 12px -4px rgba(45,127,184,.5);
+}
+.btn-primary:hover{
+  background:var(--accent-600);color:#fff;
+  box-shadow:0 2px 4px rgba(13,31,60,.24), 0 8px 18px -6px rgba(45,127,184,.55);
+  transform:translateY(-1px);
+}
+.btn-primary:active{transform:translateY(0)}
+/* The nav CTA is the loudest thing in the header - it should look it. */
+.nav .btn-primary{
+  font-size:15px;font-weight:700;letter-spacing:.01em;
+  padding:var(--s3) var(--s5);border-radius:var(--r-md);
+}
+.btn-navy{background:var(--navy-800);color:#fff}
+.btn-navy:hover{background:var(--navy-600)}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn-lg{font-size:var(--t-md);padding:var(--s4) var(--s6)}
+.nav-toggle{display:none}
+
+/* ==========================================================================
+   HERO  — full-bleed image, directional scrim, form sitting ON the image
+   ========================================================================== */
+.hero{position:relative;isolation:isolate;background:var(--navy-900);overflow:hidden}
+.hero-media{position:absolute;inset:0;z-index:-2}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
+/* Two scrims: a directional one so the left copy stays legible, and a base
+   one so the whole image sits back behind the content. */
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(100deg,
+      rgba(8,20,38,.95) 0%,
+      rgba(8,20,38,.86) 34%,
+      rgba(8,20,38,.55) 60%,
+      rgba(8,20,38,.42) 100%);
+}
+/* Grid areas so the FORM can jump above the supporting copy on a phone
+   without changing source order for screen readers or SEO. */
+.hero .container{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  grid-template-areas:
+    "lede    form"
+    "support form";
+  gap:var(--s5) var(--s9);
+  align-content:center;padding-block:var(--s9);
+}
+.hero-lede{grid-area:lede;align-self:end}
+.hero-support{grid-area:support;align-self:start}
+.form-card{grid-area:form;align-self:center}
+.hero-lede,.hero-support{color:#e8eef7;max-width:34rem}
+.hero h1{
+  color:#fff;font-size:var(--t-3xl);margin:var(--s4) 0 var(--s5);
+}
+.hero-lead{font-size:var(--t-md);line-height:1.55;color:#cbd8e8}
+.hero-lead strong{color:#fff;font-weight:600}
+
+/* Three scoped, quotable facts. Written to be liftable as a passage:
+   concrete numbers, no adjectives, qualification stated plainly. */
+.hero-checks{list-style:none;margin:0;padding:0;display:grid;gap:var(--s3)}
+.hero-checks li{
+  display:grid;grid-template-columns:auto 1fr;gap:var(--s3);align-items:start;
+  font-size:var(--t-base);line-height:1.45;color:#dbe5f1;
+}
+.hero-checks b{color:#fff;font-weight:700}
+.hero-checks svg{
+  width:20px;height:20px;margin-top:1px;flex:none;color:var(--accent);
+}
+/* --- the form card --- */
+.form-card{
+  background:var(--surface);border-radius:var(--r-lg);
+  box-shadow:var(--sh-3);padding:var(--s6);
+  border-top:4px solid var(--accent);
+}
+.form-card h2{font-size:var(--t-xl);margin-bottom:var(--s2)}
+.form-card .sub{font-size:var(--t-sm);color:var(--muted);margin-bottom:var(--s5)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.form-grid .full{grid-column:1 / -1}
+.form-card input,
+.form-card select{
+  width:100%;font-family:inherit;font-size:var(--t-base);color:var(--ink);
+  padding:var(--s3) var(--s4);border:1px solid var(--line-strong);
+  border-radius:var(--r-md);background:var(--surface);
+  min-height:46px;  /* keeps every control a valid touch target */
+  transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease);
+}
+.form-card input::placeholder{color:var(--muted)}
+.form-card input:hover,.form-card select:hover{border-color:var(--muted)}
+.form-card input:focus,.form-card select:focus{
+  outline:none;border-color:var(--navy-600);
+  box-shadow:0 0 0 3px var(--navy-100);
+}
+/* Native select chrome differs on every OS - draw our own chevron so the
+   selects sit flush with the text inputs. */
+.form-card select{
+  appearance:none;-webkit-appearance:none;
+  padding-right:var(--s7);cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--accent) 50%),
+                   linear-gradient(135deg,var(--accent) 50%,transparent 50%);
+  background-position:calc(100% - 21px) calc(50% + 1px), calc(100% - 15px) calc(50% + 1px);
+  background-size:6px 6px, 6px 6px;
+  background-repeat:no-repeat;
+}
+/* Unselected placeholder option reads as placeholder, not as an answer */
+.form-card select:has(option[value=""]:checked){color:var(--muted)}
+/* Echoes GoKapital's "From $20K to $50MM" - the range restated at the
+   moment of decision, not buried in the headline. */
+.form-range{
+  grid-column:1 / -1;text-align:center;margin-top:var(--s1);
+  font-size:var(--t-sm);color:var(--muted);
+}
+.submit-btn{
+  grid-column:1 / -1;width:100%;margin-top:var(--s1);
+  font-family:inherit;font-size:var(--t-md);font-weight:700;
+  padding:var(--s4);border:0;border-radius:var(--r-md);cursor:pointer;
+  background:var(--navy-800);color:#fff;
+  transition:background var(--dur) var(--ease);
+}
+.submit-btn:hover{background:var(--navy-600)}
+/* Reassurance sits AT the decision point, not floating above the fields */
+.form-reassure{
+  grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);
+  justify-content:center;margin-top:var(--s3);
+  font-size:var(--t-xs);color:var(--muted);
+}
+.form-reassure span{display:inline-flex;align-items:center;gap:var(--s1)}
+.tick{color:var(--accent-600);font-weight:700}
+
+/* ==========================================================================
+   SECTIONS
+   ========================================================================== */
+.section{padding-block:var(--s9)}
+.section-alt{background:var(--ground)}
+.section-head{max-width:44rem;margin:0 auto var(--s8);text-align:center}
+.section-head h2{font-size:var(--t-2xl);margin:var(--s3) 0 var(--s4)}
+.section-head p{color:var(--muted);font-size:var(--t-md)}
+
+/* --- product cards: the GoKapital mechanic, in Axiant's palette ---------- */
+/* Card structure follows GoKapital's: big outline icon, coloured title,
+   one-line description, then hard facts on dashed rules, then a button.
+   The dashed spec rows are what make theirs feel substantial - they are
+   concrete claims, not adjectives. Every row here is pulled from Axiant's
+   own product pages. */
+/* Flex rather than grid so a trailing row of 1 or 2 centres instead of
+   leaving dead slots on the right - that gap was reading as emptiness. */
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--s5)}
+.cards > .card{flex:0 1 calc((100% - var(--s5) * 2) / 3);min-width:260px}
+.card{
+  position:relative;display:flex;flex-direction:column;text-align:center;
+  padding:var(--s6) var(--s5);border-radius:var(--r-lg);
+  background:var(--surface);border:1px solid var(--line);
+  text-decoration:none;
+  transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease),
+             transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease);
+}
+/* Icon sits in a tinted disc so it anchors the card instead of floating.
+   The disc is what stops six cards reading as six blank rectangles. */
+.card-icon{
+  width:72px;height:72px;margin:0 auto var(--s5);
+  display:grid;place-items:center;border-radius:50%;
+  background:var(--accent-100);color:var(--accent);
+  transition:color var(--dur) var(--ease),background var(--dur) var(--ease);
+}
+.card-icon svg{width:34px;height:34px;stroke-width:1.6}
+.card:hover .card-icon{background:rgba(255,255,255,.12)}
+.card-featured .card-icon{background:rgba(255,255,255,.12)}
+.card h3{
+  font-family:"Inter",sans-serif;font-size:var(--t-md);font-weight:700;
+  letter-spacing:.02em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:var(--s4);
+  transition:color var(--dur) var(--ease);
+}
+.card > p{
+  font-size:var(--t-sm);color:var(--body);margin-bottom:var(--s5);
+  transition:color var(--dur) var(--ease);
+}
+.card-specs{
+  list-style:none;margin:0 0 var(--s5);padding:0;
+  border-top:1px dashed var(--line-strong);flex:1;
+}
+.card-specs li{
+  padding:var(--s3) 0;font-size:var(--t-sm);color:var(--body);
+  border-bottom:1px dashed var(--line-strong);
+  transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.card-cta{
+  /* margin-top:auto pins the button to the bottom of the card, so a row of
+     cards with different amounts of copy still has its buttons on one line. */
+  align-self:center;margin-top:auto;display:inline-flex;align-items:center;justify-content:center;
+  padding:var(--s3) var(--s6);border-radius:100px;
+  font-size:var(--t-sm);font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--accent);color:#fff;border:1px solid var(--accent);
+  transition:background var(--dur) var(--ease),color var(--dur) var(--ease),
+             border-color var(--dur) var(--ease);
+}
+
+/* One hover, every child changes state together - the GoKapital mechanic. */
+.card:hover{
+  background:var(--navy-800);border-color:var(--navy-800);
+  transform:translateY(-3px);box-shadow:var(--sh-3);
+}
+.card:hover .card-icon{color:#fff}
+.card:hover h3{color:#fff}
+.card:hover > p{color:#c3d0e2}
+.card:hover .card-specs li{color:#dbe5f1;border-bottom-color:rgba(255,255,255,.22)}
+.card:hover .card-specs{border-top-color:rgba(255,255,255,.22)}
+.card:hover .card-cta{background:#fff;color:var(--navy-800);border-color:#fff}
+
+/* One card ships merchandised, the way GoKapital pre-fills theirs. */
+.card-featured{background:var(--navy-800);border-color:var(--navy-800)}
+.card-featured .card-icon,.card-featured h3{color:#fff}
+.card-featured > p{color:#c3d0e2}
+.card-featured .card-specs{border-top-color:rgba(255,255,255,.22)}
+.card-featured .card-specs li{color:#dbe5f1;border-bottom-color:rgba(255,255,255,.22)}
+.card-featured .card-cta{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+.card-featured:hover .card-cta{background:#fff;color:var(--navy-800);border-color:#fff}
+
+/* --- steps: numbered because the order genuinely matters here --- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6);counter-reset:step}
+.step{counter-increment:step;display:flex;flex-direction:column}
+.step-media{
+  position:relative;border-radius:var(--r-lg);overflow:hidden;
+  margin-bottom:var(--s5);background:var(--ground-2);
+  aspect-ratio:16/9;
+}
+.step-media img{width:100%;height:100%;object-fit:cover}
+/* The number sits on the image, so it reads as a caption not a bullet */
+.step-media::after{
+  content:counter(step,decimal-leading-zero);
+  position:absolute;left:0;bottom:0;
+  display:grid;place-items:center;min-width:46px;height:40px;
+  padding-inline:var(--s3);
+  background:var(--navy-800);color:#fff;
+  font-family:"Playfair Display",Georgia,serif;font-size:var(--t-lg);
+  font-weight:700;line-height:1;border-radius:0 var(--r-md) 0 0;
+}
+.step h3{font-size:var(--t-lg);margin-bottom:var(--s3)}
+.step p{font-size:var(--t-sm);color:var(--muted)}
+
+/* --- mission + founders: copy left, the two people right --- */
+.mission{
+  display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);
+  gap:var(--s9);align-items:start;
+}
+.mission-copy{max-width:56ch}
+.mission h2{font-size:var(--t-2xl);margin-bottom:var(--s5);text-wrap:balance}
+.mission p{
+  font-size:var(--t-md);line-height:1.62;color:var(--body);margin-bottom:var(--s4);
+}
+.mission p:last-of-type{margin-bottom:0}
+.mission strong{color:var(--ink);font-weight:600}
+
+.founders{
+  display:flex;gap:var(--s7);justify-content:center;flex-wrap:wrap;
+  align-self:center;   /* sit against the middle of the copy, not its top */
+}
+.founder{text-align:center}
+.founder-photo{
+  width:136px;height:136px;border-radius:50%;overflow:hidden;
+  margin:0 auto var(--s4);background:var(--navy-800);
+}
+.founder-photo img{width:100%;height:100%;object-fit:cover}
+.founder .name{display:block;font-weight:700;color:var(--ink);font-size:var(--t-md);line-height:1.3}
+.founder .role{display:block;font-size:var(--t-sm);color:var(--muted);margin-top:2px}
+
+/* --- faq --- */
+.faq{max-width:46rem;margin:0 auto}
+.faq details{
+  border-bottom:1px solid var(--line);
+}
+.faq summary{
+  list-style:none;cursor:pointer;padding:var(--s5) var(--s6) var(--s5) 0;
+  position:relative;font-weight:600;color:var(--ink);font-size:var(--t-md);
+  transition:color var(--dur) var(--ease);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"";position:absolute;right:var(--s2);top:50%;
+  width:9px;height:9px;border-right:2px solid var(--accent);
+  border-bottom:2px solid var(--accent);
+  transform:translateY(-70%) rotate(45deg);
+  transition:transform var(--dur) var(--ease);
+}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq summary:hover{color:var(--navy-600)}
+.faq .answer{padding:0 var(--s6) var(--s5) 0;color:var(--body);font-size:var(--t-base)}
+
+/* --- closing cta --- */
+.cta{background:var(--navy-800);color:#fff;text-align:center}
+.cta h2{color:#fff;font-size:var(--t-2xl);margin-bottom:var(--s4)}
+.cta p{color:#c3d0e2;max-width:40rem;margin:0 auto var(--s7);font-size:var(--t-md)}
+.cta-actions{display:flex;gap:var(--s4);justify-content:center;flex-wrap:wrap}
+
+/* --- footer --- */
+/* ==========================================================================
+   FOOTER
+   Deliberately small. A footer is not a sitemap: sitewide links are treated
+   as boilerplate, so 51 of them across 849 pages diluted each other. This is
+   ~22 links to hubs, and the amount/credit/owner/compare clusters moved to
+   blog.html where they are topically at home (see .clusters below).
+     .footer-brand   logo on the left, contact + CTA on the right, one line
+     .footer-top     four link columns
+     .footer-bottom  copyright, then the one disclaimer
+   ========================================================================== */
+.footer{background:var(--footer-bg);color:var(--footer-text);font-size:var(--t-sm)}
+/* The width here is load-bearing on the legacy pages. They also load
+   styles.css, where .container is the full-bleed white content card, and
+   the generated chrome sheet never emits a scoped base .container - so the
+   footer inherited max-width:100% with no padding and ran edge to edge,
+   clipping the first column off the left of the screen. These are the
+   values a v2 page already computes, so those 805 pages do not move. */
+.footer .container{max-width:var(--container);margin-inline:auto;
+  padding-inline:var(--s5);padding-block:var(--s8) var(--s6)}
+/* Same sheet, same cause: its .btn-primary is width:100% for full-width
+   CTAs under a block of copy, which stretched the footer button across
+   the whole page. v2 sizes it to its content. */
+.footer .btn{width:auto;margin-block:0}
+.footer a{text-decoration:none;transition:color var(--dur) var(--ease)}
+.footer a:hover{color:var(--accent)}
+
+.footer-brand{
+  display:flex;flex-wrap:wrap;gap:var(--s5);
+  align-items:center;justify-content:space-between;
+  padding-bottom:var(--s6);
+  border-bottom:1px solid var(--footer-line);
+}
+.footer-brand img{height:40px;width:auto}
+.footer-brand-contact{display:flex;align-items:center;gap:var(--s6);flex-wrap:wrap}
+.footer-brand-reach{display:grid;gap:var(--s1)}
+.footer-brand-label{
+  color:var(--footer-muted);font-size:var(--t-xs);font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+.footer-phone{color:var(--footer-head);font-size:var(--t-lg);font-weight:700}
+.footer-brand-note{margin:0;color:var(--footer-muted);font-size:var(--t-xs)}
+
+/* The brokerage blurb that used to sit beside the logo is gone: the
+   disclaimer below already says it, and the Organization JSON-LD says it to
+   machines. Three times was noise to both. */
+.footer-top{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:var(--s6) var(--s5);
+  padding-block:var(--s7);
+  border-bottom:1px solid var(--footer-line);
+}
+.footer h4{color:var(--footer-head);font-size:var(--t-sm);margin:0 0 var(--s3);letter-spacing:.02em}
+.footer ul{list-style:none;margin:0;padding:0}
+.footer li a{display:inline-block;padding-block:var(--s2);line-height:1.35}
+
+.footer-bottom{
+  padding-top:var(--s5);display:grid;gap:var(--s2);
+  font-size:var(--t-xs);color:var(--footer-muted);
+}
+
+/* ==========================================================================
+   CLUSTER BAND - labelled rows of related landing pages (by amount, by
+   credit, by owner, comparisons). Was 16 chips in the sitewide footer; now
+   lives on the hub page that is actually about these topics, on a light
+   surface instead of the footer's dark one.
+   ========================================================================== */
+.clusters{display:grid;gap:var(--s4)}
+.cluster-row{
+  display:grid;grid-template-columns:9rem minmax(0,1fr);
+  gap:var(--s4);align-items:baseline;
+}
+.cluster-label{
+  color:var(--muted);font-size:var(--t-xs);font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+.cluster-links{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.cluster-links a{
+  display:inline-block;padding:var(--s2) var(--s3);
+  font-size:var(--t-sm);color:var(--navy-600);text-decoration:none;
+  background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--r-sm);
+  transition:color var(--dur) var(--ease),background var(--dur) var(--ease),
+             border-color var(--dur) var(--ease);
+}
+.cluster-links a:hover{
+  color:var(--accent);background:var(--accent-100);border-color:var(--line-strong);
+}
+
+/* ==========================================================================
+   RESPONSIVE — three breakpoints. Not twelve.
+   ========================================================================== */
+/* ==========================================================================
+   PROSE - a readable text column for content pages. The ~700 article pages
+   will want this too; it is deliberately plain so it inherits the tokens
+   rather than restyling type per page.
+   ========================================================================== */
+.prose{max-width:46rem}
+.prose > p{margin:0 0 var(--s4);line-height:1.7;color:var(--body);font-size:var(--t-base)}
+.prose > p:last-child{margin-bottom:0}
+.prose ul,.prose ol{margin:0 0 var(--s4);padding-left:var(--s5);color:var(--body);line-height:1.7}
+.prose li{margin-bottom:var(--s2)}
+.prose h3{font-size:var(--t-lg);margin:var(--s6) 0 var(--s3);color:var(--ink)}
+.prose strong{color:var(--ink)}
+.prose a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+.prose a:hover{color:var(--accent-600)}
+
+/* image slot inside a .card - no negative margins, so it is safe whatever
+   padding .card carries */
+.card-media{margin-bottom:var(--s4);border-radius:var(--r-md);overflow:hidden}
+.card-media img{display:block;width:100%;height:170px;object-fit:cover}
+
+/* STATS - short label/meaning pairs. Not numbers: the site has no funded
+   totals or years-in-business to claim, so these carry concepts. */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4)}
+.stat{
+  background:var(--surface);border:1px solid var(--line);
+  border-left:3px solid var(--accent);border-radius:var(--r-md);padding:var(--s5);
+}
+.stat-key{display:block;font-size:var(--t-lg);font-weight:700;color:var(--navy-800);margin-bottom:var(--s1)}
+.stat-label{display:block;font-size:var(--t-sm);color:var(--muted);line-height:1.45}
+
+/* CALLOUT - the "quick answer" block.
+   This is the answer an engine lifts and the first thing a skimming owner
+   reads, so it is the one element on the page that should command attention.
+   A pale tint on a pale band did the opposite. Navy panel, light type,
+   the band's tone as the edge. Every colour is stated explicitly - an
+   answer block must never inherit its way to low contrast. */
+.callout{
+  background:linear-gradient(135deg,var(--navy-800) 0%,var(--navy-900) 100%);
+  color:#dbe5f1;
+  border:1px solid var(--navy-700);
+  border-left:4px solid var(--tone,var(--accent));
+  border-radius:var(--r-lg);
+  padding:var(--s6);box-shadow:var(--sh-2);
+  text-align:left;max-width:52rem;
+}
+.callout .prose{max-width:none}
+.callout .prose > p,.callout .prose li{color:#dbe5f1}
+/* the label sits on the navy panel: accent blue on navy is unreadable */
+.callout .eyebrow{color:#8ecbf0;margin-bottom:var(--s3)}
+.callout .prose > p:first-child{color:#fff;font-size:var(--t-md);line-height:1.6}
+.callout .prose strong{color:#fff}
+.callout .prose a{color:#8ecbf0;text-decoration-color:rgba(142,203,240,.5)}
+.callout .prose a:hover{color:#fff}
+.callout .prose ul{padding-left:var(--s5)}
+.callout .prose li::marker{color:var(--tone,var(--accent))}
+
+/* text-led card grid: same cards, left-aligned, for prose rather than icons */
+.cards-left > .card{text-align:left}
+
+/* image inside a prose section - the ~700 article pages will want this too */
+.prose-figure{margin:0 0 var(--s5);border-radius:var(--r-md);overflow:hidden;max-width:46rem}
+.prose-figure img{display:block;width:100%;height:auto}
+
+
+@media (max-width:1000px){
+  :root{--t-3xl:44px; --t-2xl:29px; --s9:72px}
+  /* Form moves directly under the headline; supporting copy drops below it,
+     so the thing that earns money is never buried under a wall of text. */
+  .hero .container{
+    grid-template-columns:1fr;
+    grid-template-areas:"lede" "form" "support";
+    gap:var(--s6);
+  }
+  .hero-lede,.hero-support{max-width:none}
+  .hero::before{
+    background:linear-gradient(180deg,
+      rgba(8,20,38,.92) 0%, rgba(8,20,38,.86) 55%, rgba(8,20,38,.9) 100%);
+  }
+  .cards > .card{flex:0 1 calc((100% - var(--s5)) / 2)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .mission{grid-template-columns:1fr;gap:var(--s7)}
+  .mission-copy{max-width:none}
+  .footer-top{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cluster-row{grid-template-columns:minmax(0,1fr);gap:var(--s2)}
+  .nav{display:none}
+  .nav-toggle{
+    display:inline-flex;margin-left:auto;background:none;border:1px solid var(--line-strong);
+    border-radius:var(--r-md);padding:var(--s3);cursor:pointer;color:var(--navy-800);
+  }
+}
+@media (max-width:680px){
+  :root{
+    --t-3xl:33px; --t-2xl:25px; --t-xl:22px; --t-lg:19px;
+    --s9:56px; --s8:40px; --s7:32px;
+  }
+  .container{padding-inline:var(--s4)}
+  .utility{font-size:var(--t-xs)}
+  .utility .container{justify-content:center;min-height:38px;padding-block:var(--s2);gap:var(--s3)}
+  /* One line on a phone: everything drops except the phone number */
+  .utility-facts > :not(.u-keep){display:none}
+  .hero-lead{font-size:var(--t-base)}
+  .header-bar{min-height:66px;padding-inline:var(--s4)}
+  .brand img{height:36px}
+  .hero .container{padding-block:var(--s7)}
+  .form-card{padding:var(--s5)}
+  /* Single column keeps every field a full-width tap target on a phone */
+  .form-grid{grid-template-columns:1fr}
+  .cards > .card{flex:1 1 100%}
+  .steps{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s6) var(--s4)}
+  .footer-brand{flex-direction:column;align-items:flex-start}
+  .stats{grid-template-columns:minmax(0,1fr)}
+  .card-featured::after{display:none}
+}
+
+/* Motion is opt-out, always. */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms;animation-iteration-count:1;
+    transition-duration:.01ms;scroll-behavior:auto;
+  }
+  .card:hover{transform:none}
+}
+
+/* ==========================================================================
+   INTERIOR PAGE HERO — shorter than the homepage, no form
+   ========================================================================== */
+.hero-compact{
+  position:relative;isolation:isolate;background:var(--navy-900);overflow:hidden;
+}
+.hero-compact .hero-media{position:absolute;inset:0;z-index:-2}
+.hero-compact .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.hero-compact::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(105deg,
+    rgba(8,20,38,.94) 0%, rgba(8,20,38,.88) 42%,
+    rgba(8,20,38,.66) 72%, rgba(8,20,38,.52) 100%);
+}
+.hero-compact .container{padding-block:var(--s9);max-width:var(--container)}
+.hero-compact .inner{max-width:44rem}
+.hero-compact h1{color:#fff;font-size:var(--t-3xl);margin:var(--s4) 0 var(--s5)}
+.hero-compact .lede{font-size:var(--t-md);line-height:1.55;color:#cbd8e8;margin-bottom:var(--s6)}
+.hero-compact .actions{display:flex;gap:var(--s4);flex-wrap:wrap;align-items:center}
+/* the bullet list carries margin:0, so with checks present the CTA sat flush
+   against the last bullet. The gap belongs under the list, not on .actions -
+   putting it there would double up with the lede's margin on heroes that have
+   no bullets. */
+.hero-compact .hero-checks{margin:0 0 var(--s6)}
+.hero-compact .call{font-size:var(--t-sm);color:#cbd8e8}
+.hero-compact .call a{color:#fff;font-weight:700;text-decoration:none}
+.hero-compact .call a:hover{color:var(--accent)}
+
+/* group heading inside a long page - lighter than a section head */
+.group-head{
+  display:flex;align-items:baseline;gap:var(--s4);
+  border-bottom:1px solid var(--line);padding-bottom:var(--s3);
+  margin-bottom:var(--s6);
+}
+.group-head h2{font-size:var(--t-xl);margin:0}
+.group-head p{font-size:var(--t-sm);color:var(--muted);margin:0}
+.group + .group{margin-top:var(--s9)}
+@media (max-width:680px){
+  .group-head{flex-direction:column;gap:var(--s2)}
+}
+
+/* ==========================================================================
+   PROGRAMS PAGE
+   ========================================================================== */
+
+/* "where to start" — orientation, not another card grid */
+
+/* at-a-glance comparison — the reference layer, and the most citable block */
+.compare{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface)}
+.compare table{border-collapse:collapse;width:100%;min-width:660px;font-size:var(--t-sm)}
+.compare th{
+  text-align:left;padding:var(--s4) var(--s5);background:var(--navy-800);color:#fff;
+  font-size:var(--t-xs);letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  white-space:nowrap;
+}
+.compare td{padding:var(--s4) var(--s5);border-bottom:1px solid var(--line);vertical-align:top;color:var(--body)}
+.compare tbody tr:last-child td{border-bottom:none}
+.compare tbody tr:hover{background:var(--ground)}
+.compare td:first-child{white-space:nowrap}
+.compare td:first-child a{color:var(--ink);font-weight:700;text-decoration:none}
+.compare td:first-child a:hover{color:var(--accent)}
+.compare td.num{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink);font-weight:600}
+
+/* specialist programs — deliberately lighter than the core cards */
+.slim{display:grid;grid-template-columns:1fr 1fr;gap:0 var(--s7)}
+.slim a{
+  display:grid;grid-template-columns:1fr auto;gap:var(--s4);align-items:baseline;
+  padding:var(--s5) 0;border-bottom:1px solid var(--line);text-decoration:none;
+  transition:padding-inline-start var(--dur) var(--ease);
+}
+.slim a:hover{padding-inline-start:var(--s3)}
+.slim .n{display:block;font-weight:700;color:var(--ink);font-size:var(--t-base)}
+.slim .d{display:block;font-size:var(--t-sm);color:var(--muted);margin-top:2px}
+.slim .arrow{color:var(--accent);font-weight:700;flex:none}
+
+@media (max-width:1000px){
+  .slim{grid-template-columns:1fr;gap:0}
+}
+@media (max-width:680px){
+}
+
+/* ==========================================================================
+   IMAGE BAND — full-bleed relief between dense sections.
+   This is where photography belongs on a comparison page: one large,
+   confident image, not thirteen thumbnails competing inside cards.
+   ========================================================================== */
+.band{position:relative;isolation:isolate;background:var(--navy-900);overflow:hidden}
+.band-media{position:absolute;inset:0;z-index:-2}
+.band-media img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.band::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg,
+    rgba(8,20,38,.93) 0%, rgba(8,20,38,.82) 45%, rgba(8,20,38,.45) 100%);
+}
+.band .container{padding-block:var(--s9)}
+.band .inner{max-width:40rem}
+.band h2{color:#fff;font-size:var(--t-2xl);margin-bottom:var(--s4)}
+.band p{color:#cbd8e8;font-size:var(--t-md);line-height:1.6;margin-bottom:var(--s6)}
+.band p:last-of-type{margin-bottom:0}
+.band .band-actions{display:flex;gap:var(--s4);flex-wrap:wrap;align-items:center}
+.band .call{font-size:var(--t-sm);color:#cbd8e8}
+.band .call a{color:#fff;font-weight:700;text-decoration:none}
+.band .call a:hover{color:var(--accent)}
+@media (max-width:1000px){
+  .band::before{background:linear-gradient(180deg,rgba(8,20,38,.92) 0%,rgba(8,20,38,.86) 100%)}
+}
+
+/* ==========================================================================
+   GROUP TONES
+   Each group carries a hue across four surfaces: the section ground (a very
+   light tint), the icon disc, the button, and the featured/hover card fill.
+   Matched saturation keeps the five reading as one family. Cards stay white
+   so they lift off their tinted ground.
+   ========================================================================== */
+.group{
+  --tone:var(--accent);
+  --tone-soft:var(--accent-100);
+  --tone-bg:#f6f9fc;
+  --tone-deep:var(--navy-800);
+}
+/* A tone is just four custom properties, so anything can carry one. Putting
+   data-tone on an individual card or tile lets the boxes inside a single band
+   differ from each other instead of reading as six copies of one box. */
+[data-tone="blue"]  {--tone:#2d7fb8;--tone-soft:#dcecf8;--tone-bg:#f2f8fc;--tone-deep:#123a5c}
+[data-tone="teal"]  {--tone:#1f7566;--tone-soft:#d8ebe6;--tone-bg:#f1f8f6;--tone-deep:#0f3d35}
+[data-tone="indigo"]{--tone:#5560a6;--tone-soft:#e2e5f5;--tone-bg:#f4f5fc;--tone-deep:#2b3167}
+[data-tone="bronze"]{--tone:#9a6c26;--tone-soft:#f2e6cf;--tone-bg:#fbf7ef;--tone-deep:#5a3d10}
+[data-tone="rust"]  {--tone:#96473a;--tone-soft:#f5dcd7;--tone-bg:#fcf5f3;--tone-deep:#5a251c}
+.group[data-tone="blue"]  {--tone:#2d7fb8;--tone-soft:#dcecf8;--tone-bg:#f2f8fc;--tone-deep:#123a5c}
+.group[data-tone="teal"]  {--tone:#1f7566;--tone-soft:#d8ebe6;--tone-bg:#f1f8f6;--tone-deep:#0f3d35}
+.group[data-tone="indigo"]{--tone:#5560a6;--tone-soft:#e2e5f5;--tone-bg:#f4f5fc;--tone-deep:#2b3167}
+.group[data-tone="bronze"]{--tone:#9a6c26;--tone-soft:#f2e6cf;--tone-bg:#fbf7ef;--tone-deep:#5a3d10}
+.group[data-tone="rust"]  {--tone:#96473a;--tone-soft:#f5dcd7;--tone-bg:#fcf5f3;--tone-deep:#5a251c}
+
+/* the section takes the group's tint */
+.group-section{padding-block:var(--s9)}
+.group-section:has(.group[data-tone="blue"])  {background:#f2f8fc}
+.group-section:has(.group[data-tone="teal"])  {background:#f1f8f6}
+.group-section:has(.group[data-tone="indigo"]){background:#f4f5fc}
+.group-section:has(.group[data-tone="bronze"]){background:#fbf7ef}
+.group-section:has(.group[data-tone="rust"])  {background:#fcf5f3}
+.group-section .group + .group{margin-top:0}
+
+.group .group-head{border-bottom-color:var(--tone)}
+.group .card{background:var(--surface);border-color:rgba(0,0,0,.06)}
+.group .card-icon{background:var(--tone-soft);color:var(--tone)}
+.group .card h3{color:var(--tone)}
+.group .card-cta{background:var(--tone);border-color:var(--tone)}
+.group .card-specs li{border-bottom-color:var(--line)}
+
+/* hover and the merchandised card both fill with the group's deep tone,
+   so the interaction stays inside the section's colour rather than
+   jumping to navy every time */
+.group .cards > .card:hover{background:var(--tone-deep);border-color:var(--tone-deep)}
+.group .cards > .card:hover .card-icon{background:rgba(255,255,255,.14);color:#fff}
+.group .cards > .card:hover h3{color:#fff}
+.group .cards > .card:hover > p{color:rgba(255,255,255,.82)}
+.group .cards > .card:hover .card-specs li{color:rgba(255,255,255,.9);border-bottom-color:rgba(255,255,255,.22)}
+.group .cards > .card:hover .card-specs{border-top-color:rgba(255,255,255,.22)}
+.group .cards > .card:hover .card-cta{background:#fff;color:var(--tone-deep);border-color:#fff}
+
+.group .card-featured{background:var(--tone-deep);border-color:var(--tone-deep)}
+.group .card-featured .card-icon{background:rgba(255,255,255,.14);color:#fff}
+.group .card-featured h3{color:#fff}
+.group .card-featured > p{color:rgba(255,255,255,.82)}
+.group .card-featured .card-specs{border-top-color:rgba(255,255,255,.22)}
+.group .card-featured .card-specs li{color:rgba(255,255,255,.9);border-bottom-color:rgba(255,255,255,.22)}
+.group .card-featured .card-cta{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+.group .card-featured:hover .card-cta{background:#fff;color:var(--tone-deep);border-color:#fff}
+
+/* ==========================================================================
+   INDUSTRY CARDS
+   Photo on top, text on a solid surface underneath. Never text over the
+   image - that is what makes the current page unreadable and clips titles.
+   Here the photography earns its place: a truck or a kitchen tells you in
+   one glance whether the page is yours.
+   ========================================================================== */
+.inds{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--s5)}
+.ind{
+  flex:0 1 calc((100% - var(--s5) * 3) / 4);min-width:250px;
+  display:flex;flex-direction:column;text-decoration:none;overflow:hidden;
+  background:var(--surface);border:1px solid rgba(0,0,0,.06);
+  border-radius:var(--r-lg);box-shadow:var(--sh-1);
+  transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease);
+}
+.ind-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--ground-2)}
+.ind-media img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 320ms var(--ease);
+}
+.ind:hover{transform:translateY(-3px);box-shadow:var(--sh-3)}
+.ind:hover .ind-media img{transform:scale(1.045)}
+/* thin tone bar joins the photo to the text block */
+.ind-media::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--tone);
+}
+.ind-body{padding:var(--s5);display:flex;flex-direction:column;flex:1}
+.ind-body h3{
+  font-family:"Inter",sans-serif;font-size:var(--t-base);font-weight:700;
+  letter-spacing:.01em;color:var(--ink);margin-bottom:var(--s2);
+}
+.ind-body p{font-size:var(--t-sm);color:var(--muted);line-height:1.5;flex:1}
+.ind-go{
+  display:inline-flex;align-items:center;gap:var(--s2);margin-top:var(--s4);
+  font-size:var(--t-sm);font-weight:700;color:var(--tone);
+  transition:gap var(--dur) var(--ease);
+}
+.ind:hover .ind-go{gap:var(--s3)}
+
+@media (max-width:1000px){
+  .ind{flex:0 1 calc((100% - var(--s5)) / 2)}
+}
+@media (max-width:680px){
+  .ind{flex:1 1 100%}
+  .ind-media{aspect-ratio:16/9}
+}
+
+/* ==========================================================================
+   INDUSTRY GRID — orphan-row correction
+   A 4-up basis is right for 4 and 7 cards (4, and 4+3). It is wrong for 3
+   (one dead column) and actively bad for 5 (a single orphan card marooned
+   under a full row). Switch those counts to a 3-up basis so they resolve
+   to 3 and 3+2. Counting with :has + nth-child(n):last-child keeps this in
+   CSS rather than asking the template to hard-code a column count.
+   ========================================================================== */
+.inds:has(> .ind:nth-child(3):last-child) > .ind,
+.inds:has(> .ind:nth-child(5):last-child) > .ind{
+  flex:0 1 calc((100% - var(--s5) * 2) / 3);
+}
+
+/* ==========================================================================
+   SECTOR JUMP NAV
+   Nineteen cards is a long scroll before the first relevant one. This puts
+   the four groups one click away, directly under the hero, so a roofer is
+   not scrolling past trucking to find themselves.
+   ========================================================================== */
+.jump{border-bottom:1px solid var(--line);background:var(--surface)}
+.jump .container{
+  display:flex;align-items:center;flex-wrap:wrap;
+  gap:var(--s3) var(--s4);padding-block:var(--s4);
+}
+.jump-label{
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin-right:var(--s2);
+}
+.jump a{
+  display:inline-flex;align-items:center;gap:var(--s2);
+  padding:var(--s2) var(--s4);border-radius:100px;
+  border:1px solid var(--line);background:var(--surface);
+  font-size:var(--t-sm);font-weight:600;color:var(--ink);text-decoration:none;
+  transition:border-color var(--dur) var(--ease),background var(--dur) var(--ease),
+             color var(--dur) var(--ease);
+}
+.jump a:hover{border-color:var(--accent);background:var(--accent-100);color:var(--accent-600)}
+.jump a .n{color:var(--muted);font-weight:400;font-variant-numeric:tabular-nums}
+.jump a:hover .n{color:var(--accent-600)}
+
+/* Anchored groups must clear the sticky header when jumped to. */
+.group-section{scroll-margin-top:var(--s7)}
+
+@media (max-width:680px){
+  /* Horizontal scroll beats wrapping to three ragged lines on a phone. */
+  .jump .container{
+    flex-wrap:nowrap;overflow-x:auto;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  }
+  .jump .container::-webkit-scrollbar{display:none}
+  .jump a{flex:none}
+  .jump-label{display:none}
+}
+
+/* ==========================================================================
+   LEGACY ALIASES
+   The equipment-for-sale component (.efs, generated by
+   scripts/equipment-for-sale/build.py) predates this system and references a
+   handful of the old stylesheet's globals. Mapping them here lets those pages
+   drop styles.css entirely instead of loading 232KB to resolve nine values.
+   CAREFUL: .efs redefines --ink, --body and --line on itself, so aliasing
+   those back to the v2 names would be circular (--line: var(--border-color)
+   meeting --border-color: var(--line)) and both resolve to nothing. The three
+   below therefore carry literal values, matching the v2 tokens exactly.
+   ========================================================================== */
+:root{
+  --accent-color:var(--accent);
+  --accent-dark:var(--navy-600);
+  --text-primary:#1a1a1a;     /* = --ink,  literal to avoid a cycle */
+  --text-secondary:#4a4a4a;   /* = --body, literal to avoid a cycle */
+  --text-tertiary:var(--muted);
+  --border-color:#e2e8f0;     /* = --line, literal to avoid a cycle */
+  --bg-card:var(--surface);
+  --bg-secondary:var(--ground);
+  --bg-nav:var(--surface);
+}
+
+/* ==========================================================================
+   MATCH / APPLICATION PAGE
+   Structure restored from the original: a photo hero, a 1200px container, and
+   ONE wide card holding the form and the sidebar together (grid 1fr 260px).
+   My first pass narrowed this to 900px and split it into two floating boxes
+   on flat navy - thinner and worse. Don't do that again.
+
+   The four steps are driven by script.js toggling .form-step-active, and below
+   768px stepping deliberately flattens to one scroll. Those rules came from
+   critical.css and are load-bearing. Every id here is read by script.js.
+   ========================================================================== */
+.match-hero-wrap{position:relative;width:100%;min-width:0;background:var(--navy-900)}
+.match-hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:linear-gradient(180deg,rgba(8,20,38,.72) 0,rgba(8,20,38,.55) 45%,rgba(8,20,38,.85) 100%),
+             url('/assets/match-hero.webp') center/cover no-repeat;
+}
+.match-content-hero{position:relative;z-index:1}
+
+.match-container{width:100%;max-width:1200px;margin:0 auto;padding-inline:var(--s5)}
+.match-lede{text-align:center;padding-block:var(--s8) var(--s6);color:#cbd8e8;position:relative;z-index:1}
+.match-lede h1{color:#fff;font-size:var(--t-2xl);margin-bottom:var(--s3)}
+.match-lede p{font-size:var(--t-md);max-width:50ch;margin:0 auto}
+
+/* Two panels side by side, each wrapping its own content. One shared card
+   made the whole thing as tall as the sidebar, which left a dead hole under
+   a 3-field step. */
+.match-main{
+  display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--s6);
+  align-items:start;padding-block:var(--s7) var(--s9);
+}
+.match-form-area{
+  background:var(--surface);border-radius:var(--r-lg);
+  padding:var(--s7);box-shadow:var(--sh-3);border-top:4px solid var(--accent);
+}
+.match-form-area h1{font-size:var(--t-2xl);margin:0 0 var(--s5);line-height:1.15}
+.match-form-area h2{font-size:var(--t-xl);margin-bottom:var(--s2)}
+
+.match-form-area label{display:block;font-size:var(--t-sm);font-weight:600;color:var(--ink);margin-bottom:var(--s2)}
+.match-form-area input[type=text],.match-form-area input[type=email],
+.match-form-area input[type=tel],.match-form-area select,.match-form-area textarea{
+  width:100%;font-family:inherit;font-size:var(--t-base);color:var(--ink);
+  padding:var(--s3) var(--s4);border:1px solid var(--line-strong);
+  border-radius:var(--r-md);background:var(--surface);min-height:46px;
+  transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease);
+}
+.match-form-area input:focus,.match-form-area select:focus,.match-form-area textarea:focus{
+  outline:none;border-color:var(--navy-600);box-shadow:0 0 0 3px var(--navy-100);
+}
+.match-form-area .form-group{margin-bottom:var(--s5)}
+.match-form-area .form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+
+/* --- step machinery ---
+   IMPORTANT: this form does NOT step. script.js only shows the Continue/Back
+   buttons when matchMedia('(max-width:768px)') matches, i.e. mobile only - so
+   hiding non-active steps on desktop strands the user on step 1 with no way
+   forward. The original page showed all four steps as one long form on every
+   viewport (verified against _backup-pre-v2-swap/match.html) and submitted via
+   the real Submit button. That is the behaviour reproduced here.
+   Do not add `.form-step{display:none}` without also fixing script.js. */
+.form-step{display:block}
+.form-step + .form-step{margin-top:var(--s5)}
+.form-step-indicator{display:none}
+.form-step-actions{display:none}
+.form-step-next,.match-form-area button[type=submit]{
+  min-height:52px;padding:14px var(--s7);border:0;border-radius:var(--r-md);
+  font-family:inherit;font-size:var(--t-md);font-weight:700;color:#fff;
+  background:var(--navy-800);cursor:pointer;transition:background var(--dur) var(--ease)}
+.form-step-next:hover,.match-form-area button[type=submit]:hover{background:var(--navy-600)}
+.match-form-area button[type=submit]{width:100%;margin-top:var(--s3)}
+
+/* --- sidebar, inside the card --- */
+.match-info-sticker{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:var(--s6);position:sticky;top:120px;box-shadow:var(--sh-2);
+}
+.match-info-sticker h2,.match-info-sticker h3{font-size:var(--t-md);margin-bottom:var(--s3);color:var(--ink)}
+.match-info-sticker p{font-size:var(--t-sm);line-height:1.55;color:var(--body);margin-bottom:var(--s4)}
+.match-info-sticker ul{list-style:none;margin:0 0 var(--s4);padding:0;display:grid;gap:var(--s2)}
+.match-info-sticker li{font-size:var(--t-sm);color:var(--body);padding-left:var(--s4);position:relative}
+.match-info-sticker li::before{content:"";position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.match-proof{font-weight:600;color:var(--ink)}
+.match-response-time{font-size:var(--t-sm);color:var(--muted)}
+.match-sticker-cta{margin-top:var(--s5)}
+.match-sticker-cta .btn-primary{
+  display:block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;
+  padding:var(--s4);border-radius:var(--r-md);font-weight:700;line-height:1.3;
+  transition:background var(--dur) var(--ease)}
+.match-sticker-cta .btn-primary:hover{background:var(--accent-600)}
+.match-form-trust{margin-top:var(--s4);font-size:var(--t-sm);color:var(--muted);text-align:center}
+
+@media (max-width:1000px){
+  .match-main{grid-template-columns:1fr;gap:var(--s5)}
+  .match-form-area{padding:var(--s6)}
+  .match-info-sticker{position:static}
+}
+@media (max-width:768px){
+  .match-form-area{padding:var(--s5)}
+  .match-form-area .form-row{grid-template-columns:1fr}
+}
+
+/* script.js still injects the pre-v2 mobile overlay; axiant-v2.js owns the
+   menu now, so the injected one is dead markup with no styles of its own. */
+.mobile-nav-overlay{display:none}
+
+/* ==========================================================================
+   CALCULATOR + REFERRAL
+   calculator.js reads 26 element ids and 3 class hooks (.calc-field-residual,
+   .calc-intro-loan, .calc-intro-lease). Restyle freely; do not rename.
+   ========================================================================== */
+.calculator-hero-wrap,.referral-hero-wrap{position:relative;width:100%;background:var(--navy-900)}
+.calculator-hero,.referral-hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:linear-gradient(180deg,rgba(8,20,38,.74) 0,rgba(8,20,38,.58) 45%,rgba(8,20,38,.88) 100%),
+             url('/assets/match-hero.webp') center/cover no-repeat;
+}
+.calculator-content,.referral-content{position:relative;z-index:1}
+.calculator-container,.referral-container{width:100%;max-width:1200px;margin:0 auto;padding-inline:var(--s5)}
+
+.calculator-main,.referral-main{
+  display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--s6);
+  align-items:start;padding-block:var(--s7) var(--s9);
+}
+.referral-main{grid-template-columns:minmax(0,1fr)}
+.referral-content .referral-container{padding-block:var(--s7) var(--s9)}
+.calculator-main-inner,.calculator-form,.referral-body,.referral-header{min-width:0}
+.calculator-main-inner{
+  background:var(--surface);border-radius:var(--r-lg);padding:var(--s7);
+  box-shadow:var(--sh-3);border-top:4px solid var(--accent);
+}
+/* One panel, not three floating cards with gaps between them. */
+.referral-main{
+  max-width:76rem;margin:0 auto;
+  background:var(--surface);border-radius:var(--r-lg);
+  box-shadow:var(--sh-3);border-top:4px solid var(--accent);
+  padding:var(--s8) var(--s8) var(--s7);
+}
+.referral-header,.referral-body,.referral-actions{background:none;box-shadow:none;padding:0}
+.referral-header{padding-bottom:var(--s5);margin-bottom:var(--s6);border-bottom:1px solid var(--line)}
+/* the first heading inside .referral-body carries its own 32px top margin,
+   which stacked on the header's padding + margin for ~96px of dead space */
+/* two columns so four short sections don't make a long scroll */
+.referral-body{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6) var(--s8)}
+.referral-section > *:first-child{margin-top:0}
+.referral-section ul,.referral-section ol{margin-bottom:0}
+@media (max-width:820px){ .referral-body{grid-template-columns:1fr;gap:var(--s6)} }
+.referral-actions{margin-top:var(--s7);padding-top:var(--s6);border-top:1px solid var(--line);gap:var(--s3)}
+.referral-header h1{font-size:var(--t-2xl);margin-bottom:var(--s4)}
+.referral-body h2,.referral-body h3{font-size:var(--t-lg);margin:var(--s6) 0 var(--s3)}
+.referral-body p,.referral-body li{color:var(--body);line-height:1.65}
+.referral-body ul,.referral-body ol{padding-left:1.2em;margin-bottom:var(--s4)}
+.referral-body li{margin-bottom:var(--s2)}
+.referral-pills{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s5)}
+.referral-pills span,.referral-pills a{
+  font-size:var(--t-sm);font-weight:600;padding:var(--s2) var(--s4);
+  border-radius:100px;background:var(--accent-100);color:var(--accent-600);text-decoration:none;
+}
+.referral-actions{display:flex;gap:var(--s4);flex-wrap:wrap;align-items:center}
+
+/* --- calculator form --- */
+.calc-form-grid{display:grid;gap:var(--s5)}
+.calc-form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.calc-form-full{grid-column:1 / -1}
+.calculator-form label{display:block;font-size:var(--t-sm);font-weight:600;color:var(--ink);margin-bottom:var(--s2)}
+.calculator-form input,.calculator-form select{
+  width:100%;font-family:inherit;font-size:var(--t-base);color:var(--ink);
+  padding:var(--s3) var(--s4);border:1px solid var(--line-strong);
+  border-radius:var(--r-md);background:var(--surface);min-height:46px;
+  transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease);
+}
+.calculator-form input:focus,.calculator-form select:focus{
+  outline:none;border-color:var(--navy-600);box-shadow:0 0 0 3px var(--navy-100);
+}
+.calc-form-actions{display:flex;gap:var(--s4);flex-wrap:wrap;margin-top:var(--s3)}
+.calc-form-actions button{
+  min-height:52px;padding:14px var(--s7);border:0;border-radius:var(--r-md);
+  font-family:inherit;font-size:var(--t-md);font-weight:700;cursor:pointer;
+  background:var(--navy-800);color:#fff;transition:background var(--dur) var(--ease);
+}
+.calc-form-actions button:hover{background:var(--navy-600)}
+.calc-form-actions button[type=button]{background:none;border:1px solid var(--line-strong);color:var(--body);font-weight:600}
+.calc-form-actions button[type=button]:hover{border-color:var(--muted);color:var(--ink);background:none}
+
+/* Loan / Lease toggle - ported from the page's own inline block */
+.calc-mode-toggle{display:flex;gap:0;margin-bottom:var(--s5);border-radius:var(--r-md);
+  overflow:hidden;border:2px solid var(--line-strong);width:fit-content}
+.calc-mode-btn{padding:10px var(--s5);font-size:var(--t-base);font-weight:600;border:0;
+  background:var(--ground);color:var(--body);cursor:pointer;transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
+.calc-mode-btn:hover{color:var(--ink);background:var(--surface)}
+.calc-mode-btn.active{background:var(--accent);color:#fff}
+
+.calc-info-sticker{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:var(--s6);position:sticky;top:120px;box-shadow:var(--sh-2);
+}
+.calc-info-sticker h2,.calc-info-sticker h3{font-size:var(--t-md);margin-bottom:var(--s3)}
+.calc-info-sticker p,.calc-info-sticker li{font-size:var(--t-sm);color:var(--body);line-height:1.55}
+
+/* --- results modal --- */
+.calc-results-modal{position:fixed;inset:0;z-index:200;align-items:center;justify-content:center;padding:var(--s5)}
+.calc-results-modal-backdrop{position:absolute;inset:0;background:rgba(8,20,38,.72)}
+.calc-results-modal-box{
+  position:relative;background:var(--surface);border-radius:var(--r-lg);
+  box-shadow:var(--sh-3);padding:var(--s7);max-width:40rem;width:100%;
+  max-height:86vh;overflow-y:auto;
+}
+.result-card{display:grid;gap:var(--s3)}
+.result-item{display:flex;justify-content:space-between;gap:var(--s4);
+  padding:var(--s3) 0;border-bottom:1px dashed var(--line-strong);font-size:var(--t-sm)}
+.result-item:last-child{border-bottom:none}
+.result-item span:last-child{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+
+@media (max-width:1000px){
+  .calculator-main{grid-template-columns:1fr;gap:var(--s5)}
+  .calc-info-sticker{position:static}
+}
+@media (max-width:680px){
+  .calculator-main-inner{padding:var(--s5)}
+  .referral-main{padding:var(--s5)}
+  .calc-form-row{grid-template-columns:1fr}
+}
+
+/* ==========================================================================
+   HUB CHROME
+   The pass that made the hub pages feel designed rather than assembled.
+   Layout and colour only - not one word of copy changes here. It leans on
+   the existing tone system (.group[data-tone]) instead of inventing a
+   second palette.
+   ========================================================================== */
+
+/* Orphan rows. .cards is a 3-up basis, which strands a lone card at counts
+   of 2 and 4 - three across and one marooned underneath. Same correction
+   .inds already carries, applied to the text grid. */
+.cards:has(> .card:nth-child(2):last-child) > .card,
+.cards:has(> .card:nth-child(4):last-child) > .card{
+  flex:0 1 calc((100% - var(--s5)) / 2);
+}
+/* 7 resolves as 4+3 on a 4-up basis; on the 3-up basis it is 3+3+1 */
+.cards:has(> .card:nth-child(7):last-child) > .card{
+  flex:0 1 calc((100% - var(--s5) * 3) / 4);
+}
+
+/* Text-led grid: it reads as prose, so it starts at the left margin and
+   keeps a restrained hover. Flipping ninety words of body copy to
+   white-on-navy is far too much movement for a card you are reading. */
+.cards-left{justify-content:flex-start}
+.cards-left > .card{text-align:left;border-top:3px solid var(--tone,var(--accent))}
+.cards-left .card h3{
+  text-transform:none;letter-spacing:0;
+  font-size:var(--t-lg);line-height:1.25;
+  color:var(--tone-deep,var(--navy-800));
+}
+.cards-left .card:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
+.group .cards-left .card:hover{background:var(--surface);border-color:var(--tone)}
+.group .cards-left .card:hover h3{color:var(--tone)}
+.group .cards-left .card:hover > p{color:var(--body)}
+
+/* the "01" on a step card, as a badge rather than a floating label */
+.cards-left .card > .eyebrow{
+  width:40px;height:40px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--tone-soft,var(--accent-100));color:var(--tone,var(--accent));
+  font-size:var(--t-sm);letter-spacing:.04em;margin-bottom:var(--s4);
+}
+
+/* a band carrying a heading and little else should not get the same 96px
+   of air as a 470-word one */
+.section-tight{padding-block:var(--s7)}
+
+/* left-aligned action row - replaces inline styles */
+.cta-actions-left{justify-content:flex-start;margin-top:var(--s6)}
+
+.prose-figure{box-shadow:var(--sh-2);border:1px solid var(--line)}
+
+
+.stat{transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+.stat:hover{border-left-color:var(--tone-deep,var(--navy-800));box-shadow:var(--sh-2)}
+
+/* --- icons and per-box tone ------------------------------------------- */
+/* the icon disc is centred for the homepage's icon cards; a left-aligned
+   text card wants it on the left margin and a size smaller */
+.cards-left .card-icon{margin-left:0;margin-right:0;width:56px;height:56px}
+.cards-left .card-icon svg{width:26px;height:26px}
+.cards-left .card{border-top-color:var(--tone,var(--accent))}
+
+/* stat tile: icon beside the label rather than a bare coloured edge */
+.stat{
+  display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:var(--s4);align-items:center;border-left-color:var(--tone,var(--accent));
+}
+.stat-icon{
+  width:42px;height:42px;border-radius:var(--r-md);display:grid;place-items:center;
+  background:var(--tone-soft,var(--accent-100));color:var(--tone,var(--accent));
+}
+.stat-icon svg{width:22px;height:22px}
+.stat:hover{border-left-color:var(--tone-deep,var(--navy-800))}
+.stat-key{color:var(--tone-deep,var(--navy-800))}
+
+/* comparison tables inside prose. Wide content scrolls inside its own box so
+   the page body never scrolls sideways. */
+.table-wrap{overflow-x:auto;margin:0 0 var(--s5);border:1px solid var(--line);border-radius:var(--r-md)}
+.table-wrap table{border-collapse:collapse;width:100%;min-width:34rem;font-size:var(--t-sm)}
+.table-wrap th,.table-wrap td{
+  padding:var(--s4) var(--s5);text-align:left;
+  border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5;
+}
+.table-wrap thead th{
+  background:var(--navy-800);color:#fff;font-weight:700;white-space:nowrap;
+  font-size:var(--t-xs);text-transform:uppercase;letter-spacing:.06em;
+  border-bottom:0;
+}
+/* the row label carries the weight; the comparison columns stay readable */
+.table-wrap tbody th,.table-wrap tbody td:first-child{
+  font-weight:700;color:var(--navy-800);white-space:nowrap;
+}
+.table-wrap tbody tr:nth-child(even){background:rgba(13,31,60,.025)}
+.table-wrap tbody tr:hover{background:var(--accent-100)}
+.table-wrap tbody tr:last-child td,.table-wrap tbody tr:last-child th{border-bottom:0}
+.table-wrap a{color:var(--accent);font-weight:600}
+.table-wrap caption{caption-side:top;text-align:left;padding:0 0 var(--s3);color:var(--muted);font-size:var(--t-sm)}
+
+/* ==========================================================================
+   PAYMENT ESTIMATOR
+   Styled as a small instrument rather than a form: navy console, recessed
+   display, tabular digits. The readout is the point - it should look like a
+   number a machine produced. Presentation only; the markup, ids and wrapper
+   classes are untouched because the inline script binds to them.
+   ========================================================================== */
+.card.inline-calc,.card.calc{
+  text-align:left;max-width:54rem;margin-inline:auto;padding:var(--s5);
+  background:linear-gradient(160deg,var(--calc-face) 0%,var(--calc-bg) 100%);
+  border:1px solid var(--navy-700);border-radius:var(--r-lg);
+  box-shadow:var(--sh-3), inset 0 1px 0 rgba(255,255,255,.06);
+  color:var(--calc-text);
+}
+.ic-wrap{display:grid;grid-template-columns:minmax(0,1fr) 15rem;gap:var(--s5);align-items:stretch}
+.ic-controls,.calc-grid{display:grid;gap:var(--s4);margin:0;align-content:start}
+.ic-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.calc-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ic-field,.calc-field,.calc-grid label{display:grid;gap:var(--s2)}
+.ic-field > span,.calc-field > span,.calc-grid label > span{
+  font-size:var(--t-xs);font-weight:700;color:var(--calc-label);
+  letter-spacing:.10em;text-transform:uppercase;
+}
+
+/* fields sit slightly below the face, like recessed keys */
+.ic-field input[type=text],.ic-field input[type=number],.ic-field select,
+.calc-grid input,.calc-grid select{
+  width:100%;padding:var(--s3) var(--s4);font:inherit;font-size:var(--t-base);
+  font-variant-numeric:tabular-nums;
+  color:#fff;background:rgba(0,0,0,.28);
+  border:1px solid var(--calc-line);border-radius:var(--r-md);
+  box-shadow:inset 0 2px 4px rgba(0,0,0,.35);
+  transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease);
+}
+.ic-field select,.calc-grid select{appearance:none;padding-right:var(--s6)}
+.ic-field input:focus,.ic-field select:focus,.calc-grid input:focus,.calc-grid select:focus{
+  outline:none;border-color:var(--calc-digit);
+  box-shadow:inset 0 2px 4px rgba(0,0,0,.35), 0 0 0 3px rgba(127,212,255,.22);
+}
+.ic-field input::placeholder{color:var(--calc-label)}
+
+/* slider: dark channel, accent fill, chunky thumb */
+.ic-field input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;background:transparent;
+  margin:var(--s1) 0;padding:0;border:0;box-shadow:none;
+}
+.ic-field input[type=range]::-webkit-slider-runnable-track{
+  height:6px;border-radius:100px;background:rgba(0,0,0,.4);
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.5);
+}
+.ic-field input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:20px;height:20px;margin-top:-7px;
+  border-radius:50%;background:var(--calc-digit);
+  border:3px solid var(--calc-bg);box-shadow:0 0 0 1px var(--calc-digit),0 2px 6px rgba(0,0,0,.5);
+  transition:transform var(--dur) var(--ease);
+}
+.ic-field input[type=range]:hover::-webkit-slider-thumb{transform:scale(1.12)}
+.ic-field input[type=range]::-moz-range-track{height:6px;border-radius:100px;background:rgba(0,0,0,.4)}
+.ic-field input[type=range]::-moz-range-thumb{
+  width:16px;height:16px;border-radius:50%;background:var(--calc-digit);
+  border:3px solid var(--calc-bg);box-shadow:0 0 0 1px var(--calc-digit);
+}
+
+/* the readout - recessed, faint scanlines, tabular digits */
+.ic-result{
+  position:relative;overflow:hidden;
+  background:var(--calc-display);
+  border:1px solid var(--calc-line);border-radius:var(--r-md);
+  padding:var(--s5) var(--s4);text-align:center;
+  display:grid;align-content:center;gap:var(--s2);
+  box-shadow:inset 0 2px 10px rgba(0,0,0,.55);
+}
+.ic-result::before,.calc-out .outbox::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(127,212,255,.05) 0 1px,transparent 1px 3px);
+}
+.ic-result-label{
+  font-size:var(--t-xs);color:var(--calc-label);
+  text-transform:uppercase;letter-spacing:.12em;
+}
+.ic-monthly,.calc-out strong{
+  font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  font-size:var(--t-2xl);font-weight:700;line-height:1.05;
+  color:var(--calc-digit);font-variant-numeric:tabular-nums;
+  text-shadow:0 0 14px rgba(127,212,255,.45);
+}
+.ic-sub{font-size:var(--t-xs);color:var(--calc-label);font-variant-numeric:tabular-nums}
+.ic-cta,.calc-cta{margin-top:var(--s4);position:relative}
+.ic-cta .btn,.ic-cta a,.calc-cta .btn,.calc-cta a{font-size:var(--t-xs);padding:var(--s3) var(--s5)}
+.card .ic-disclaimer,.card .calc-note,.ic-disclaimer,.calc-note{
+  font-size:var(--t-xs);color:var(--calc-label);line-height:1.55;
+  margin:var(--s5) 0 0;max-width:46rem;
+}
+@media (max-width:1000px){
+  .ic-wrap{grid-template-columns:minmax(0,1fr)}
+  .calc-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  .ic-row,.calc-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .ic-field input[type=range]:hover::-webkit-slider-thumb{transform:none}
+}
+
+/* ==========================================================================
+   TILES - a list of links that deserves to be tappable.
+   "Industries we serve" was a bulleted list of ten links: correct markup,
+   dismal target size, no scent. auto-fit sizing means no orphan row at any
+   count, so it works for 3 links or 12.
+   ========================================================================== */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(11.5rem,1fr));gap:var(--s3);margin:0 0 var(--s5)}
+.tile{
+  display:flex;align-items:center;gap:var(--s3);
+  padding:var(--s3) var(--s4);
+  background:var(--surface);color:var(--ink);text-decoration:none;
+  font-size:var(--t-sm);font-weight:600;line-height:1.25;
+  border:1px solid var(--line);border-left:3px solid var(--tone,var(--accent));
+  border-radius:var(--r-md);
+  transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease),
+             border-color var(--dur) var(--ease),background var(--dur) var(--ease);
+}
+.tile:hover{transform:translateY(-2px);box-shadow:var(--sh-2);background:var(--tone-soft,var(--accent-100))}
+.tile-icon{
+  width:32px;height:32px;flex:none;border-radius:var(--r-sm);
+  display:grid;place-items:center;
+  background:var(--tone-soft,var(--accent-100));color:var(--tone,var(--accent));
+}
+.tile-icon svg{width:18px;height:18px}
+
+/* ==========================================================================
+   SPLIT - copy on the left, supporting image on the right.
+   A full-width photo stacked above its own paragraph pushes the substance
+   below the fold and reads as decoration. Side by side, the image supports
+   the text instead of interrupting it.
+   ========================================================================== */
+.split{
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:var(--s6);align-items:center;
+}
+.split > .prose{max-width:none}
+/* centred rather than pinned to the top: beside a seven-row table a
+   top-aligned image left a column of dead space under it */
+.split .prose-figure{margin:0;align-self:center}
+.split .prose-figure img{width:100%;height:auto;display:block}
+@media (max-width:1000px){
+  .split{grid-template-columns:minmax(0,1fr);gap:var(--s5)}
+  .split .prose-figure{position:static;order:-1}
+}
+
+/* data table built from a list of "label - amount - purpose" bullets. A table
+   is also the better shape for answer engines: the values are addressable
+   instead of buried in prose. */
+.data-table{width:100%;border-collapse:collapse;font-size:var(--t-sm)}
+.data-table th,.data-table td{padding:var(--s3) var(--s4);text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.data-table thead th{
+  background:var(--tone-soft,var(--ground));color:var(--tone-deep,var(--ink));
+  font-weight:700;font-size:var(--t-xs);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;
+}
+.data-table tbody tr:last-child td{border-bottom:0}
+.data-table tbody tr:hover{background:var(--tone-soft,var(--ground))}
+.data-table td:nth-child(2){white-space:nowrap;font-weight:600;color:var(--tone-deep,var(--navy-800))}
+.data-table a{color:var(--accent);font-weight:600}
+
+/* --- darker accents across the hubs -----------------------------------
+   The palette had drifted pale: tinted bands, tinted tiles, tinted table
+   headers, everything at the same low contrast. These few elements carry
+   navy so a long page has somewhere for the eye to land. */
+.data-table thead th{background:var(--navy-800);color:#fff;border-bottom-color:var(--navy-800)}
+.data-table td:nth-child(2){color:var(--navy-800)}
+
+/* section rules read as structure, not hairlines */
+.group-head{border-bottom-width:2px}
+.group .group-head{border-bottom-color:var(--tone-deep,var(--navy-800))}
+.group-head h2{color:var(--navy-800)}
+
+/* stat tiles: navy figure, tone edge */
+.stat-key{color:var(--navy-800)}
+.stat{border-left-width:4px}
+
+/* tiles get a navy label so the icon carries the colour, not the text */
+.tile{color:var(--navy-800)}
+.tile:hover{border-color:var(--tone-deep,var(--navy-800))}
+
+/* card headings sit in the band's deep tone rather than its light one */
+.cards-left .card h3{color:var(--tone-deep,var(--navy-800))}
+.cards-left > .card{border-top-width:4px}
+
+/* --- card internals: less air, larger type ----------------------------
+   Text cards were set at the small size with a 24px gap under the icon and a
+   trailing margin under the last paragraph, so a short card was mostly empty
+   space. Body copy goes up to the base size and the gaps come in. */
+.cards-left > .card{padding:var(--s5)}
+.cards-left .card-icon{margin-bottom:var(--s4)}
+.cards-left .card h3{margin-bottom:var(--s3)}
+.cards-left .card > p{
+  font-size:var(--t-base);line-height:1.6;color:var(--body);
+  margin-bottom:var(--s3);
+}
+.cards-left .card > p:last-child{margin-bottom:0}
+.cards-left .card > .eyebrow{margin-bottom:var(--s3)}
+
+/* --- estimator: the .calc family --------------------------------------
+   Same instrument, different markup: .fld fields and three .outbox cells
+   rather than one .ic-result panel. Styled to match so both calculators read
+   as the same component across the site. */
+.card.calc p.sub,.card.inline-calc p.sub{font-size:var(--t-sm);color:#8fa6c4;margin:0 0 var(--s5);max-width:46rem}
+.calc-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4);margin:0 0 var(--s5)}
+.calc-grid .fld{display:grid;gap:var(--s2)}
+.calc-grid .fld label{
+  font-size:var(--t-xs);font-weight:700;color:var(--calc-label);
+  letter-spacing:.10em;text-transform:uppercase;
+}
+.calc-grid .fld input{
+  width:100%;padding:var(--s3) var(--s4);font:inherit;font-size:var(--t-base);
+  font-variant-numeric:tabular-nums;color:#fff;background:rgba(0,0,0,.28);
+  border:1px solid var(--calc-line);border-radius:var(--r-md);
+  box-shadow:inset 0 2px 4px rgba(0,0,0,.35);
+  transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease);
+}
+.calc-grid .fld input:focus{
+  outline:none;border-color:var(--calc-digit);
+  box-shadow:inset 0 2px 4px rgba(0,0,0,.35), 0 0 0 3px rgba(127,212,255,.22);
+}
+
+/* three readouts across, the payment loudest */
+.calc-out{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3);
+  background:none;border:0;padding:0;box-shadow:none;
+}
+.calc-out .outbox{
+  position:relative;overflow:hidden;text-align:center;
+  background:var(--calc-display);border:1px solid var(--calc-line);
+  border-radius:var(--r-md);padding:var(--s4);
+  box-shadow:inset 0 2px 10px rgba(0,0,0,.55);
+}
+.calc-out .k{
+  font-size:var(--t-xs);color:var(--calc-label);
+  text-transform:uppercase;letter-spacing:.10em;margin-bottom:var(--s2);
+}
+.calc-out .v{
+  font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  font-size:var(--t-xl);font-weight:700;line-height:1.05;
+  color:var(--calc-digit);font-variant-numeric:tabular-nums;
+  text-shadow:0 0 14px rgba(127,212,255,.45);
+}
+/* the supporting totals stay quieter than the payment */
+.calc-out .outbox.flag .v{font-size:var(--t-lg);color:#a9c4dc;text-shadow:none}
+.card .calc-note{color:var(--calc-label);margin-top:var(--s5)}
+.card .calc-note a{color:var(--calc-digit);text-decoration-color:rgba(127,212,255,.5)}
+.card .calc-note a:hover{color:#fff}
+@media (max-width:680px){
+  .calc-out{grid-template-columns:1fr}
+}
+
+/* headings inside a quick answer, where the source nests its Q/A pairs */
+.callout h3,.callout h4{color:#fff;font-size:var(--t-md);margin:var(--s5) 0 var(--s2);line-height:1.3}
+.callout > .prose > *:first-child{margin-top:0}
+
+/* ==========================================================================
+   ASIDE MARK - hatched panel carrying the section's symbol, for text-only
+   bands that would otherwise leave half the row blank. Decorative: hidden
+   from assistive tech, dropped on narrow screens.
+   ========================================================================== */
+.aside-mark{
+  position:sticky;top:var(--s7);
+  display:grid;place-items:center;min-height:15rem;
+  border:1px solid var(--line);border-radius:var(--r-lg);
+  color:var(--tone,var(--accent));
+  background:
+    repeating-linear-gradient(135deg,
+      var(--tone-soft,var(--accent-100)) 0 2px, transparent 2px 11px),
+    var(--surface);
+}
+.aside-mark svg{width:108px;height:108px;stroke-width:1.1;opacity:.9}
+@media (max-width:1000px){ .aside-mark{display:none} }
+
+/* ==========================================================================
+   SPLIT MEDIA - picture left, boxes right. For bands pairing one image with a
+   set of range cards; stacked, they left the right half of the row empty.
+   ========================================================================== */
+.split-media{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);align-items:start}
+.split-media > .prose-figure{position:sticky;top:var(--s7);max-width:none;margin:0}
+.split-media > .media-col{display:flex;flex-direction:column;gap:var(--s5);min-width:0}
+.split-media .prose{max-width:none}
+.split-media .cards{display:grid;grid-template-columns:1fr;gap:var(--s4)}
+.split-media .cards > .card{min-width:0}
+.split-media .card{
+  display:grid;grid-template-columns:auto minmax(0,1fr);
+  column-gap:var(--s4);align-items:start;padding:var(--s5)
+}
+.split-media .card > .card-icon{grid-column:1;grid-row:1/span 2;margin:0}
+.split-media .card > :not(.card-icon){grid-column:2;margin:0 0 var(--s2)}
+.split-media .card > :last-child{margin-bottom:0}
+@media (max-width:1000px){
+  .split-media{grid-template-columns:1fr}
+  .split-media > .prose-figure{position:static}
+}
+
+/* ==========================================================================
+   HUB LEAD - the back link is a breadcrumb, not a button, and the intro line
+   is the page's lead paragraph. As an outlined button above plain body copy
+   it read as a stray control floating in white space.
+   ========================================================================== */
+/* article breadcrumbs: two small pill buttons, each in its own tone, instead
+   of two links run together into one long uppercase line */
+.crumb-row{display:flex;flex-wrap:wrap;gap:var(--s3);margin:0 0 var(--s4)}
+.crumb{
+  display:inline-flex;align-items:center;gap:var(--s2);
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.06em;
+  padding:var(--s2) var(--s4);border-radius:999px;text-decoration:none;
+  color:var(--tone,var(--accent));
+  background:var(--tone-soft,var(--accent-100));
+  border:1px solid transparent;
+  transition:border-color var(--dur) var(--ease),background var(--dur) var(--ease);
+}
+.crumb:hover{border-color:var(--tone,var(--accent))}
+.hub-back{margin:0 0 var(--s4)}
+.hub-back a{
+  display:inline-flex;align-items:center;gap:var(--s2);
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--tone,var(--accent));text-decoration:none;
+  border-bottom:1px solid transparent;padding-bottom:3px;
+}
+.hub-back a:hover{border-bottom-color:currentColor}
+.prose .lead{font-size:var(--t-md);line-height:1.7;margin:0}
+.prose .lead a{font-weight:600}
+
+/* ==========================================================================
+   ARTICLE - long-form guide layout: body column plus a sticky rail carrying
+   the table of contents, the quick facts and the CTA. The legacy template put
+   a second rail on the left holding a back link and a date; those belong with
+   the article, not in a column of their own.
+   ========================================================================== */
+.article-container{max-width:84rem}      /* wider than a marketing band: the
+                                            rail needs room or every contents
+                                            entry wraps onto two lines */
+.article-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(15rem,22rem);
+  gap:var(--s6);align-items:start;
+}
+.article-body{max-width:52rem;min-width:0}
+.article-body > *:first-child{margin-top:0}
+.article-body p,.article-body li{font-size:var(--t-base);line-height:1.8}
+.article-body h2{
+  font-size:var(--t-xl);margin:var(--s7) 0 var(--s4);
+  padding-top:var(--s5);border-top:1px solid var(--line);scroll-margin-top:6.5rem;
+}
+.article-body h2:first-of-type{border-top:0;padding-top:0}
+.article-body h3{font-size:var(--t-md);margin:var(--s5) 0 var(--s2)}
+/* a heading the writer used as a group divider, with no copy of its own */
+.article-body .section-label{
+  font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:var(--tone,var(--accent));margin:var(--s7) 0 0;padding-top:var(--s5);
+  border-top:1px solid var(--line);max-width:42rem;scroll-margin-top:6.5rem;
+}
+.article-body .section-label + h2{border-top:0;padding-top:0;margin-top:var(--s3)}
+.article-body ul,.article-body ol{margin:0 0 var(--s5);padding-left:1.15em}
+.article-body li{margin-bottom:var(--s2)}
+.article-body li strong{color:var(--ink)}
+.article-body > p{margin:0 0 var(--s4)}
+/* The column is wide so tables, figures and the callout have room; running
+   text keeps a readable measure inside it rather than 100-character lines. */
+.article-body > p,.article-body > ul,.article-body > ol,
+.article-body > h2,.article-body > h3,.article-body > .faq,
+.article-body > .hub-back,.article-body > .dateline{max-width:42rem}
+.article-body > .callout,.article-body > .table-wrap,
+.article-body > .article-figure{max-width:none}
+.article-body .callout{margin-bottom:var(--s6);scroll-margin-top:6.5rem}
+
+/* the opening paragraph carries a drop cap in the band's own tone */
+.article-body .lede-para::first-letter{
+  float:left;font-family:"Playfair Display",Georgia,serif;font-weight:700;
+  font-size:3.6em;line-height:.78;margin:.04em .1em 0 0;color:var(--tone,var(--accent));
+}
+
+.dateline{
+  font-size:var(--t-xs);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 var(--s5);
+}
+.dateline::first-line{letter-spacing:.08em}
+/* the article's own one-line summary, under the title */
+.article-body .standfirst{
+  font-size:var(--t-md);line-height:1.65;color:var(--muted);
+  margin:0 0 var(--s6);max-width:42rem;
+  padding-left:var(--s4);border-left:2px solid var(--tone,var(--accent));
+}
+.article-figure{margin:0 0 var(--s6);border-radius:var(--r-md);overflow:hidden}
+.article-figure img{display:block;width:100%;height:auto}
+.article-figure figcaption{
+  font-size:var(--t-sm);color:var(--muted);padding:var(--s3) var(--s1) 0;
+}
+
+/* --- the rail --- */
+.article-rail{
+  /* clears the sticky site header, so the buttons and the whole contents
+     list stay visible the entire way down the article */
+  position:sticky;top:5.5rem;display:flex;flex-direction:column;gap:var(--s5);
+  /* one scrolling surface for the whole rail. A max-height on the TOC alone
+     cut the list mid-item inside its own little scrollbox. */
+  max-height:calc(100vh - 7rem);overflow-y:auto;overscroll-behavior:contain;
+  scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent;
+  padding-right:4px;
+}
+.article-rail::-webkit-scrollbar{width:6px}
+.article-rail::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px}
+.article-rail::-webkit-scrollbar-track{background:transparent}
+.rail-card{
+  border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:var(--s5);background:var(--surface);
+}
+.rail-card h3,.toc h3{
+  font-size:var(--t-xs);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 var(--s3);font-family:inherit;font-weight:700;
+}
+.rail-card p{font-size:var(--t-sm);line-height:1.6;margin:0 0 var(--s3)}
+.rail-card p:last-child{margin-bottom:0}
+.toc{
+  border:1px solid var(--line);border-left:3px solid var(--tone,var(--accent));
+  border-radius:var(--r-lg);padding:var(--s4) var(--s5);background:var(--surface);
+}
+/* a table of contents IS a sequence, so the numerals carry real information */
+.toc ol,.toc ul{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;border-top:1px solid var(--line)}
+.toc li:first-child{border-top:0}
+.toc a{
+  display:grid;grid-template-columns:1.7em minmax(0,1fr);align-items:baseline;
+  gap:var(--s2);font-size:var(--t-xs);line-height:1.4;
+  color:var(--ink);text-decoration:none;padding:var(--s2) 0;
+}
+.toc a::before{
+  content:counter(toc,decimal-leading-zero);
+  font-size:10px;font-variant-numeric:tabular-nums;
+  color:var(--muted);letter-spacing:.04em;
+}
+.toc a:hover{color:var(--tone,var(--accent))}
+.toc a:hover::before{color:var(--tone,var(--accent))}
+/* the section you are reading, lit as you scroll (article-toc.js) */
+.toc ul,.toc ol{margin-inline:calc(var(--s3) * -1)}
+.toc li{position:relative;border-radius:var(--r-sm)}
+.toc a{
+  padding-inline:var(--s3);border-radius:var(--r-sm);
+  transition:background var(--dur) var(--ease),color var(--dur) var(--ease);
+}
+.toc a.is-current{
+  color:var(--tone,var(--accent));font-weight:600;
+  background:var(--tone-soft,var(--accent-100));
+}
+.toc a.is-current::before{color:var(--tone,var(--accent));font-weight:700}
+/* the marker sits in the list's own gutter, so it never clips the numeral */
+.toc li::before{
+  content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:2px;
+  background:var(--tone,var(--accent));opacity:0;transition:opacity var(--dur) var(--ease);
+}
+.toc li:has(> a.is-current)::before{opacity:1}
+@media (prefers-reduced-motion:reduce){ .toc a,.toc li::before{transition:none} }
+
+/* ...and the matching heading in the article carries the same mark */
+.article-body h2{position:relative}
+@media (min-width:1001px){
+  .article-body h2::before{
+    content:"";position:absolute;left:-1.1rem;top:calc(var(--s5) + .22em);
+    width:3px;height:1.05em;border-radius:2px;background:var(--tone,var(--accent));
+    opacity:0;transform:scaleY(.4);transform-origin:top;
+    transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);
+  }
+  .article-body h2.is-reading::before{opacity:1;transform:scaleY(1)}
+  @media (prefers-reduced-motion:reduce){
+    .article-body h2::before{transition:none;transform:none}
+  }
+}
+.rail-cta .btn{width:100%;justify-content:center;text-align:center}
+
+/* --- rail actions: two controls, side by side, above the contents --- */
+.rail-actions{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.rail-actions .btn{
+  width:100%;padding:var(--s3) var(--s3);font-size:var(--t-xs);
+  letter-spacing:.04em;text-align:center;line-height:1.25;
+}
+.btn-quiet{
+  border-color:var(--line-strong);color:var(--ink);background:var(--surface);
+}
+.btn-quiet:hover{border-color:var(--tone,var(--accent));color:var(--tone,var(--accent))}
+@media (max-width:1000px){ .rail-actions{grid-template-columns:1fr} }
+
+@media (max-width:1000px){
+  .article-grid{grid-template-columns:1fr;gap:var(--s6)}
+  .article-rail{position:static;order:-1}
+  .toc{max-height:none}
+  .article-body{max-width:none}
+}
+
+/* ==========================================================================
+   TABLES ON A PHONE - a three-column table cannot fit 360px, and a sideways
+   scrollbar hides half the data. Below 680px each row becomes its own block
+   and every cell carries its column name.
+   ========================================================================== */
+@media (max-width:680px){
+  .table-wrap{overflow-x:visible;border:0;box-shadow:none}
+  .table-wrap table{display:block;width:100%;min-width:0;border-collapse:separate}
+  .table-wrap thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .table-wrap thead th{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;border:0;
+    overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;
+  }
+  .table-wrap tbody{display:block}
+  .table-wrap td,.table-wrap th{min-width:0;overflow-wrap:anywhere}
+  .table-wrap tr{
+    display:block;margin:0 0 var(--s4);padding:var(--s4);
+    border:1px solid var(--line);border-left:3px solid var(--tone,var(--accent));
+    border-radius:var(--r-md);background:var(--surface);
+  }
+  .table-wrap td{
+    display:grid;grid-template-columns:minmax(6.5rem,38%) 1fr;gap:var(--s3);
+    align-items:baseline;padding:var(--s2) 0;border:0;
+    border-top:1px solid var(--line);font-size:var(--t-sm);
+  }
+  .table-wrap tr td:first-child{border-top:0;font-weight:600}
+  .table-wrap td::before{
+    content:attr(data-label);font-size:var(--t-xs);font-weight:600;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+  }
+  .table-wrap td:not([data-label]){grid-template-columns:1fr}
+  .table-wrap td:not([data-label])::before{content:none}
+}
+
+/* a plain document page - policy, terms, a partner page. One column, generous
+   measure, headings that step down cleanly. */
+.prose-doc{max-width:46rem}
+.prose-doc h2{font-size:var(--t-lg);margin:var(--s7) 0 var(--s3);padding-top:var(--s5);border-top:1px solid var(--line)}
+.prose-doc h2:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose-doc h3{font-size:var(--t-md);margin:var(--s5) 0 var(--s2)}
+.prose-doc p,.prose-doc li{line-height:1.75}
+.prose-doc ul,.prose-doc ol{margin:0 0 var(--s5);padding-left:1.15em}
+
+/* ==========================================================================
+   LINK CARDS - a whole card wrapped in an <a>. The anchor colour was cascading
+   into the heading and flattening every card to accent blue, so a grid of five
+   tones rendered as one. Let each card's own tone show.
+   ========================================================================== */
+a.card{color:inherit;text-decoration:none}
+.group a.card h3{color:var(--tone,var(--accent))}
+.group .cards > a.card{border-top:3px solid var(--tone,var(--accent))}
+.group a.card:hover h3{color:var(--tone-deep,var(--accent))}
+
+/* ==========================================================================
+   MOBILE MENU - the panel .nav-toggle opens below 1000px. The markup shipped
+   in the header component but nothing here styled it, so opening the menu
+   dropped raw stacked links into the page flow and pushed the hero down.
+   Behaviour (hidden, data-open, body[data-menu-open], Escape, scrim, focus)
+   lives in axiant-v2.js; this is purely its appearance.
+   ========================================================================== */
+.mobile-menu{
+  position:fixed;inset:0;z-index:100;
+  display:flex;justify-content:flex-end;
+  background:rgba(10,22,40,.55);
+}
+.mobile-menu[hidden]{display:none}
+.mobile-menu-panel{
+  width:min(21rem,86vw);height:100%;overflow-y:auto;
+  background:var(--surface);
+  display:flex;flex-direction:column;gap:var(--s5);
+  padding:var(--s5) var(--s5) var(--s7);
+  box-shadow:-14px 0 34px rgba(10,22,40,.20);
+}
+@media (prefers-reduced-motion:no-preference){
+  .mobile-menu[data-open="true"] .mobile-menu-panel{
+    animation:menu-slide-in var(--dur) var(--ease);
+  }
+  @keyframes menu-slide-in{
+    from{transform:translateX(16px);opacity:.4}
+    to{transform:none;opacity:1}
+  }
+}
+.mobile-menu-head{display:flex;align-items:center;justify-content:space-between;gap:var(--s4)}
+.mobile-menu-head img{display:block;height:34px;width:auto}
+.mobile-menu-close{
+  display:grid;place-items:center;flex:0 0 auto;width:42px;height:42px;
+  border:1px solid var(--line);border-radius:var(--r-md);
+  background:var(--surface);color:var(--ink);cursor:pointer;
+}
+.mobile-menu-close:hover{border-color:var(--accent);color:var(--accent)}
+.mobile-menu nav{display:flex;flex-direction:column}
+.mobile-menu nav a{
+  display:block;padding:var(--s4) 0;min-height:48px;   /* a real tap target */
+  font-size:var(--t-md);font-weight:600;line-height:1.4;
+  color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);
+}
+.mobile-menu nav a:hover,.mobile-menu nav a:focus-visible{color:var(--accent)}
+.mobile-menu .btn{width:100%;justify-content:center}
+.mobile-menu-call{
+  font-size:var(--t-sm);color:var(--muted);margin:0;text-align:center;
+}
+.mobile-menu-call a{color:var(--accent);font-weight:600}
+/* the page behind must not scroll while the sheet is open */
+body[data-menu-open="true"]{overflow:hidden}
+/* Those pages also put a transform on <body>, which makes body the containing
+   block for fixed children - the sheet then sized to the document (4,300px)
+   instead of the viewport. Clear it only while the menu is open, so whatever
+   the old stylesheet wanted the transform for is untouched the rest of the time. */
+body[data-menu-open="true"]{transform:none}
+@media (min-width:1001px){ .mobile-menu{display:none} }
+
+/* ==========================================================================
+   CHROME ON LEGACY PAGES - the calculators, the matcher and the get-matched
+   flows keep their old stylesheet for the body, and that sheet styles bare
+   `header` and `footer` elements. 120px of padding landed on the v2 header,
+   making it 325px tall and swallowing clicks meant for the hamburger. Pin the
+   chrome's own box so the page's CSS cannot reach into it.
+   ========================================================================== */
+/* `body > ` outranks the legacy `header{padding:...}` rules, including the
+   ones inside the old sheet's media queries, without needing !important. */
+body > header.header{
+  padding:0;margin:0;border-radius:0;max-width:none;min-height:0;
+  background-image:none;text-align:left;
+}
+header.header::before,header.header::after{content:none}
+.footer{padding:0;margin:0;border-radius:0;max-width:none}
+.utility{padding:0;margin:0}
+.mobile-menu nav{padding:0;margin:0;background:none}
+
+/* ==========================================================================
+   FORMS - the contact page's form came through the conversion with its markup
+   intact but no styling, because the old sheet that styled it is gone. These
+   are the v2 equivalents for the same class names.
+   ========================================================================== */
+.contact-form{display:flex;flex-direction:column;gap:var(--s5);max-width:42rem}
+.contact-form .form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5)}
+.contact-form .form-group{display:flex;flex-direction:column;gap:var(--s2);min-width:0}
+.contact-form label{font-size:var(--t-sm);font-weight:600;color:var(--ink)}
+.contact-form input,.contact-form select,.contact-form textarea{
+  font-family:inherit;font-size:var(--t-base);color:var(--ink);
+  padding:var(--s3) var(--s4);border:1px solid var(--line-strong);
+  border-radius:var(--r-md);background:var(--surface);width:100%;
+}
+.contact-form textarea{min-height:9rem;resize:vertical;line-height:1.6}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{
+  outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent);
+}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--muted)}
+.contact-form button{align-self:flex-start}
+.contact-thank-you{
+  border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:var(--r-lg);padding:var(--s6);background:var(--surface);
+  display:flex;flex-direction:column;gap:var(--s3);align-items:flex-start;max-width:42rem;
+}
+.contact-thank-you h3{margin:0;font-size:var(--t-lg)}
+.contact-thank-you p{margin:0;color:var(--muted)}
+@media (max-width:680px){ .contact-form .form-row{grid-template-columns:1fr} }
