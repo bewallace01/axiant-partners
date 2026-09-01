@@ -1,3 +1,60 @@
+# ---------------------------------------------------------------------------
+# Private paths - working directories, build tooling and internal docs.
+# These files are committed, so on Netlify they are DEPLOYED unless blocked
+# here. robots.txt is a request, not access control, and .htaccess is inert on
+# Netlify. These rules are the actual block. _redirects is first-match-wins,
+# so this stays at the top of the file.
+#
+# _backup-pre-v2-swap holds 786 pre-conversion copies of live pages, each with
+# a canonical and "index, follow" pointing at the real URL. Published, they
+# would be crawlable stale duplicates of the entire site.
+# ---------------------------------------------------------------------------
+/_backup-pre-v2-swap/*  /404.html  404!
+/_preview/*             /404.html  404!
+/_analysis/*            /404.html  404!
+/_outreach/*            /404.html  404!
+/_marketing/*           /404.html  404!
+/_components/*          /404.html  404!
+/scripts/*              /404.html  404!
+/tools/*                /404.html  404!
+/Axiant.zip             /404.html  404!
+# Netlify's splat is trailing-only: `/*.md` matches nothing. These are
+# internal strategy and setup docs; each needs its own rule.
+/docs/*                 /404.html  404!
+/BLOG_POST_TEMPLATE.md                /404.html  404!
+/COMPETITOR_KEYWORD_GAP_ANALYSIS.md   /404.html  404!
+/EMAILJS_SETUP.md                     /404.html  404!
+/INDUSTRY-PAGE-TEMPLATE.md            /404.html  404!
+/LONG_TAIL_PLANNING_BREAKDOWN.md      /404.html  404!
+/PERFORMANCE.md                       /404.html  404!
+/QUICK_CHECK.md                       /404.html  404!
+/README.md                            /404.html  404!
+/SEO-REVIEW.md                        /404.html  404!
+/SEO_ANALYSIS_REPORT.md               /404.html  404!
+/SEO_GUIDE.md                         /404.html  404!
+/SEO_PUBLISH_CHECKLIST.md             /404.html  404!
+/SEO_REPORT_2026.md                   /404.html  404!
+/SEO_REVIEW.md                        /404.html  404!
+/SITE_AUDIT_REPORT_2026-03-16.md      /404.html  404!
+/TROUBLESHOOTING.md                   /404.html  404!
+/VENDOR_INTEGRATION.md                /404.html  404!
+/WORKING_CAPITAL_LOANS_SEO_REVIEW.md  /404.html  404!
+/WORKLOG.md                           /404.html  404!
+/referral-partner-brochure.md         /404.html  404!
+# Build tooling and scratch files at the repo root. Each needs its own rule for
+# the same reason the .md files do: the splat is trailing-only.
+/package.json                    /404.html  404!
+/package-lock.json               /404.html  404!
+/purgecss.config.js              /404.html  404!
+/optimize-mobile-images.js       /404.html  404!
+/apply-mobile-optimizations.js   /404.html  404!
+/apply-mobile-optimizations.ps1  /404.html  404!
+/push-to-github.ps1              /404.html  404!
+/download-fonts.js               /404.html  404!
+/tmp_batch4_candidates.py        /404.html  404!
+/tmp_next10.py                   /404.html  404!
+/.qa-drafts.json                 /404.html  404!
+
 # Glossary removed - redirect to articles hub
 /glossary.html /blog.html 301
 

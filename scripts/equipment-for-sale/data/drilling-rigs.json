@@ -1,0 +1,129 @@
+{
+  "slug": "drilling-rigs",
+  "breadcrumb_label": "Drilling Rigs",
+  "_seo_note": "meta / schema / prose are preserved VERBATIM in the _*.html sidecars. This is a re-layout -- do not rewrite them here.",
+  "meta_file": "_drilling-rigs.meta.html",
+  "schema_file": "_drilling-rigs.schema.html",
+  "seo_sections_file": "_drilling-rigs.seo.html",
+  "dealer": {
+    "name": "Service King Manufacturing, Inc.",
+    "logo": "/assets/equipment/serviceking/logo.webp",
+    "logo_w": 158,
+    "logo_h": 52,
+    "blurb": "Manufacturer &middot; mobile workover, well-service &amp; drilling rigs &middot; Stroud, Oklahoma &middot; Made in the USA",
+    "phone": "&#9742; (918) 968-2899",
+    "phone_href": "tel:9189682899",
+    "website": "&#127760; servicekingmfg.com",
+    "website_href": "https://servicekingmfg.com/",
+    "inventory_url": "https://servicekingmfg.com/",
+    "disclosure": "Equipment is manufactured and sold by Service King Manufacturing, Inc. Axiant Partners is an independent financing partner and arranges equipment financing; rig pricing, specifications and availability are provided by the manufacturer. Financing is subject to credit approval."
+  },
+  "hero": {
+    "eyebrow": "Service King &middot; SK Series",
+    "h1": "Drilling Rigs",
+    "intro_html": "Truck- and trailer-mounted mobile <b>drilling rigs</b> rated to drill to 12,000 ft &mdash; the SK 775, SK 1000 and SK 1100 &mdash; each built to work over and complete wells as well as drill them. Every Service King drilling rig on this page can be financed through Axiant, new or used. Need a smaller service or workover unit instead?",
+    "intro_link": {
+      "href": "/equipment-for-sale/workover-rigs/",
+      "label": "See workover &amp; well service rigs &rarr;"
+    },
+    "image": "/assets/equipment/serviceking/sk-1000.jpg",
+    "image_alt": "Service King SK 1000 mobile drilling rig",
+    "image_caption": "Service King Manufacturing, Inc. &mdash; Drilling Rigs"
+  },
+  "finance_card": {
+    "eyebrow": "Finance with Axiant",
+    "title": "Finance any Service King drilling rig",
+    "body": "Pick your model, then finance it through Axiant &mdash; spread the cost over the rig's working life and keep your capital in the field.",
+    "cta": {
+      "label": "Get pre-approved &mdash; 24hr financing",
+      "href": "/match.html"
+    },
+    "cta2": {
+      "label": "Request a quote from Service King &#8599;",
+      "href": "https://servicekingmfg.com/"
+    },
+    "checks": [
+      "Approvals in as little as 24 hours",
+      "New &amp; used rigs financed",
+      "Terms structured to the equipment",
+      "Owner-operators &amp; established fleets"
+    ],
+    "estimator": {
+      "equip": "Drilling%20Rigs"
+    }
+  },
+  "models_section": {
+    "heading": "Drilling rig models",
+    "subhead": "All financeable through Axiant. Live inventory &amp; pricing on Service King Manufacturing, Inc..",
+    "view_all": {
+      "label": "View the full Service King rig lineup on servicekingmfg.com &#8599;",
+      "href": "https://servicekingmfg.com/"
+    },
+    "table_heading": "Full lineup &amp; specs"
+  },
+  "models": [
+    {
+      "name": "SK 775",
+      "capacity": "400,000# &middot; 10 lines",
+      "chips": [
+        "6-axle truck mount",
+        "service to 18,000 ft",
+        "drills to 10,000 ft"
+      ],
+      "spec": "6-axle truck mount &middot; service to 18,000 ft &middot; drills to 10,000 ft",
+      "image": "/assets/equipment/serviceking/sk-775.jpg",
+      "image_alt": "Service King Manufacturing, Inc. SK 775",
+      "inventory_url": "https://servicekingmfg.com/products/sk-775"
+    },
+    {
+      "name": "SK 1000",
+      "capacity": "450,000# &middot; 10 lines",
+      "chips": [
+        "7-axle truck mount (4-axle trailer option)",
+        "drills to 12,000 ft with 3&frac12;&quot; pipe"
+      ],
+      "spec": "7-axle truck mount (4-axle trailer option) &middot; drills to 12,000 ft with 3&frac12;&quot; pipe",
+      "image": "/assets/equipment/serviceking/sk-1000.jpg",
+      "image_alt": "Service King Manufacturing, Inc. SK 1000",
+      "inventory_url": "https://servicekingmfg.com/products/sk-1000"
+    },
+    {
+      "name": "SK 1100",
+      "capacity": "500,000# &middot; 8 lines",
+      "chips": [
+        "7-axle truck mount (4-axle trailer option)",
+        "drills to 12,000 ft with 3&frac12;&quot; pipe"
+      ],
+      "spec": "7-axle truck mount (4-axle trailer option) &middot; drills to 12,000 ft with 3&frac12;&quot; pipe",
+      "image": "/assets/equipment/serviceking/sk-1100.jpg",
+      "image_alt": "Service King Manufacturing, Inc. SK 1100",
+      "inventory_url": "https://servicekingmfg.com/products/sk-1100"
+    }
+  ],
+  "related": [
+    {
+      "href": "/equipment-for-sale/workover-rigs/",
+      "image": "/assets/equipment/serviceking/sk-675.jpg",
+      "alt": "Service King workover and well service rigs",
+      "name": "Workover &amp; Well Service Rigs"
+    }
+  ],
+  "related_heading": "Drilling rig models</h2><div class=\"mx-tblwrap\" style=\"overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px\"><table class=\"mx-modtbl\" style=\"min-width:520px\"><thead><tr><th>Model</th><th>Mast Capacity</th><th>Configuration</th><th style=\"text-align:right\">Specs</th></tr></thead><tbody><tr><td class=\"mdl\">SK 775</td><td class=\"cap\">400,000# &middot; 10 lines</td><td>6-axle truck mount &middot; service to 18,000 ft &middot; drills to 10,000 ft</td><td class=\"lk\"><a href=\"https://servicekingmfg.com/products/sk-775\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">SK 1000</td><td class=\"cap\">450,000# &middot; 10 lines</td><td>7-axle truck mount (4-axle trailer option) &middot; drills to 12,000 ft with 3&frac12;&quot; pipe</td><td class=\"lk\"><a href=\"https://servicekingmfg.com/products/sk-1000\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">SK 1100</td><td class=\"cap\">500,000# &middot; 8 lines</td><td>7-axle truck mount (4-axle trailer option) &middot; drills to 12,000 ft with 3&frac12;&quot; pipe</td><td class=\"lk\"><a href=\"https://servicekingmfg.com/products/sk-1100\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr></tbody></table></div><a class=\"mx-catlink\" href=\"https://servicekingmfg.com/\" target=\"_blank\" rel=\"noopener\">View the full Service King rig lineup on servicekingmfg.com &#8599;</a><div class=\"mx-fine\">Equipment is manufactured and sold by Service King Manufacturing, Inc. Axiant Partners is an independent financing partner and arranges equipment financing; rig pricing, specifications and availability are provided by the manufacturer. Financing is subject to credit approval.</div></section><section style=\"padding:24px 0 8px\"><h2 class=\"mx-sec-h serif\">What is a mobile drilling rig?</h2><p class=\"mx-intro\" style=\"max-width:80ch;margin:12px 0 0\">A mobile drilling rig bores the original hole &mdash; it drills a new well rather than servicing one that already produces. Service King's drilling rigs are truck- or trailer-mounted, so they move between locations under their own power instead of being assembled on site like a conventional land rig. The SK 775, SK 1000 and SK 1100 also carry enough mast capacity to complete and work over wells, so a single unit can drill, complete and service &mdash; a real advantage for operators who would rather not run a separate rig for every job.</p></section><section style=\"padding:16px 0 8px\"><h2 class=\"mx-sec-h serif\">What a drilling rig does &mdash; and why a mobile one earns its keep</h2><p class=\"mx-intro\" style=\"max-width:80ch;margin:12px 0 10px\">A drilling rig is the asset at the front of every well's life. Owning a mobile one keeps that work &mdash; and its revenue &mdash; in house:</p><ul class=\"mx-flist\" style=\"margin:0 0 14px;max-width:80ch\"><li><b>Drills your own wells</b> &mdash; run your program on your schedule instead of waiting on a contract rig</li><li><b>Moves fast</b> &mdash; truck- and trailer-mounted rigs rig up and down quickly and relocate on their own</li><li><b>Drills and works over</b> &mdash; deep enough to drill, strong enough to complete and service, so one asset covers several revenue lines</li><li><b>Commands a higher day rate</b> &mdash; drilling work pays more than service work, and you keep it in-house</li><li><b>Builds equity</b> &mdash; an owned rig earns while it pays itself down</li></ul><p class=\"mx-intro\" style=\"max-width:80ch;margin:0\">Drilling rigs are big-ticket assets, which is exactly why financing makes sense: structured over a longer term to match the rig's earning life, so the payment lines up with the revenue rather than draining your capital. <a href=\"/match.html\" style=\"color:var(--a);font-weight:600\">See what you qualify for</a> or <a href=\"/workover-rig-financing.html\" style=\"color:var(--a);font-weight:600\">read how rig financing works</a>.</p></section><section style=\"padding:16px 0 8px\"><h2 class=\"mx-sec-h serif\">Understanding drilling depth ratings</h2><p class=\"mx-intro\" style=\"max-width:80ch;margin:12px 0 0\">Drilling depth is quoted by drill-pipe size, because thinner pipe reaches deeper. The SK 1000, for instance, drills to 8,000 ft with 4&frac12;&quot; pipe or 12,000 ft with 3&frac12;&quot; pipe &mdash; so match the rating to your target formations. <b>Mast capacity</b>, from 400,000 to 500,000 lb across these rigs, sets how much drill string and casing the rig can handle, and the <b>carrier</b> &mdash; a 7-axle truck mount or a 4-axle trailer option &mdash; affects how you move and permit it. Deeper, heavier programs point to the SK 1100; a versatile drill-and-workover unit is the SK 1000 or the SK 775.</p></section><section style=\"padding:16px 0 8px\"><h2 class=\"mx-sec-h serif\">Drilling rig FAQs</h2><div style=\"margin:12px 0 0;max-width:82ch\"><div style=\"margin:0 0 16px\"><h3 class=\"serif\" style=\"font-size:1.06rem;color:var(--ink);margin:0 0 5px\">What is the difference between a drilling rig and a workover rig?</h3><p class=\"mx-intro\" style=\"margin:0\">A drilling rig bores the original well; a workover rig services and repairs a well that already produces. Service King's larger rigs do both &mdash; they drill, complete and work over &mdash; while the smaller SK models focus on well service and workover. <a href=\"/equipment-for-sale/workover-rigs/\" style=\"color:var(--a);font-weight:600\">See workover &amp; well service rigs</a>.</p></div><div style=\"margin:0 0 16px\"><h3 class=\"serif\" style=\"font-size:1.06rem;color:var(--ink);margin:0 0 5px\">How deep can these mobile drilling rigs drill?</h3><p class=\"mx-intro\" style=\"margin:0\">Up to 12,000 ft with 3&frac12;&quot; drill pipe on the SK 1000 and SK 1100, and to 10,000 ft on the SK 775. Reach depends on drill-pipe size, so the same rig goes deeper with thinner pipe.</p></div><div style=\"margin:0 0 16px\"><h3 class=\"serif\" style=\"font-size:1.06rem;color:var(--ink);margin:0 0 5px\">Can a mobile drilling rig also complete and work over wells?</h3><p class=\"mx-intro\" style=\"margin:0\">Yes. The SK 775, 1000 and 1100 carry the mast capacity to complete and service wells as well as drill them, which is why many operators run one rig across all three jobs.</p></div><div style=\"margin:0 0 16px\"><h3 class=\"serif\" style=\"font-size:1.06rem;color:var(--ink);margin:0 0 5px\">Can I finance a mobile drilling rig?</h3><p class=\"mx-intro\" style=\"margin:0\">Yes &mdash; new or used, on asset-based terms structured to the rig's earning life. <a href=\"/workover-rig-financing.html\" style=\"color:var(--a);font-weight:600\">See how rig financing works</a>, then <a href=\"/match.html\" style=\"color:var(--a);font-weight:600\">apply once to get matched</a>.</p></div></div></section><section style=\"padding-top:8px\"><h2 class=\"mx-sec-h serif\" style=\"font-size:1.3rem\">Service King drilling rigs",
+  "band": {
+    "title": "Ready to run your own drilling rig?",
+    "body": "Choose your Service King drilling rig and let Axiant structure the financing &mdash; new or used, terms built around the revenue the rig earns. Approvals in as little as 24 hours.",
+    "proofs": [
+      "24-hour approvals",
+      "New &amp; used",
+      "Asset-based &mdash; the equipment carries the deal"
+    ],
+    "cta": {
+      "label": "Get pre-approved &rarr;",
+      "href": "/match.html?type=equipment&amp;equipment=Drilling%20Rigs"
+    },
+    "phone": {
+      "label": "Call (561) 268-0465",
+      "href": "tel:+15612680465"
+    }
+  }
+}

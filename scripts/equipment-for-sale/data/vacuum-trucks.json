@@ -1,0 +1,122 @@
+{
+  "slug": "vacuum-trucks",
+  "breadcrumb_label": "Vacuum &amp; Septic Trucks",
+  "_seo_note": "title / meta description / canonical / og and the three JSON-LD blocks are preserved VERBATIM from the pre-redesign page in _vacuum-trucks.meta.html and _vacuum-trucks.schema.html. This is a re-layout, not a content change — do not edit those files when restyling.",
+  "meta_file": "_vacuum-trucks.meta.html",
+  "schema_file": "_vacuum-trucks.schema.html",
+  "seo_sections_file": "_vacuum-trucks.seo.html",
+  "dealer": {
+    "name": "Viking Truck",
+    "logo": "/assets/equipment/vikingtruck/logo.png",
+    "logo_w": 158,
+    "logo_h": 52,
+    "blurb": "Dealer &amp; upfitter &middot; septic, vacuum &amp; portable restroom trucks &middot; Forest Park, Georgia",
+    "phone": "(404) 844-8968",
+    "phone_href": "tel:4048448968",
+    "website": "vikingtruck.net",
+    "website_href": "https://www.vikingtruck.net/",
+    "inventory_url": "https://www.vikingtruck.net/inventory",
+    "disclosure": "Trucks are sold and upfitted by Viking Truck. Axiant Partners is an independent financing partner and arranges equipment financing; truck pricing, specifications and live availability are provided by the dealer. Financing is subject to credit approval."
+  },
+  "hero": {
+    "eyebrow": "Viking Truck &middot; Septic &amp; Vacuum",
+    "h1": "Vacuum &amp; Septic Trucks",
+    "intro_html": "Built-to-work <b>vacuum trucks</b> and <b>septic trucks</b> for pumping and hauling &mdash; from non-CDL 1,500-gallon units up to 6,000-gallon commercial rigs, plus dual-compartment portable restroom trucks. Viking upfits them on Kenworth, Freightliner, International, Mack and Western Star chassis with Masport and NVE vacuum systems, new and used. Every truck here can be financed through Axiant.",
+    "intro_link": {
+      "href": "/septic-business-financing/septic-vacuum-truck-financing/",
+      "label": "How financing works &rarr;"
+    },
+    "image": "/assets/equipment/vikingtruck/vacuum-truck-2500.webp",
+    "image_alt": "Viking Truck 2,500-gallon septic vacuum truck",
+    "image_caption": "Viking Truck &mdash; vacuum rig"
+  },
+  "finance_card": {
+    "eyebrow": "Finance with Axiant",
+    "title": "Finance any vacuum truck",
+    "body": "Pick your truck, then finance it through Axiant &mdash; spread the cost over the routes it runs and keep your cash working the business.",
+    "cta": {
+      "label": "Get pre-approved &mdash; 24hr financing",
+      "href": "/match.html?type=equipment&amp;equipment=Vacuum%20%26%20Septic%20Truck"
+    },
+    "cta2": {
+      "label": "View live inventory at Viking &#8599;",
+      "href": "https://www.vikingtruck.net/inventory"
+    },
+    "checks": [
+      "Approvals in as little as 24 hours",
+      "New &amp; used trucks financed",
+      "Terms structured to the equipment",
+      "Owner-operators &amp; established fleets"
+    ],
+    "estimator": {
+      "equip": "Vacuum%20%26%20Septic%20Trucks"
+    }
+  },
+  "models_section": {
+    "heading": "Vacuum &amp; septic truck models",
+    "subhead": "Three build types, all financeable through Axiant. Live inventory &amp; pricing on Viking Truck.",
+    "view_all": {
+      "label": "View Viking Truck's full live inventory on vikingtruck.net &#8599;",
+      "href": "https://www.vikingtruck.net/inventory"
+    },
+    "table_heading": "Full lineup &amp; specs"
+  },
+  "models": [
+    {
+      "name": "Septic / Vacuum Truck",
+      "capacity": "1,500&ndash;2,500 gal",
+      "chips": [
+        "Masport &amp; NVE pumps",
+        "non-CDL options",
+        "Freightliner &middot; Int'l &middot; Kenworth &middot; Mack"
+      ],
+      "spec": "Masport &amp; NVE vacuum pumps &middot; Freightliner, International, Kenworth &amp; Mack &middot; non-CDL options",
+      "image": "/assets/equipment/vikingtruck/truck-a.jpg",
+      "image_alt": "Viking 1,500 to 2,500 gallon septic vacuum truck",
+      "inventory_url": "https://www.vikingtruck.net/inventory/2500-gallons"
+    },
+    {
+      "name": "Heavy Vacuum Truck",
+      "capacity": "3,500&ndash;6,000 gal",
+      "chips": [
+        "NVE 4310 blower &middot; 940 CFM",
+        "hydraulic dump",
+        "Western Star &middot; Int'l HX &middot; Kenworth"
+      ],
+      "spec": "NVE 4310 blower (940 CFM) &middot; Western Star, International HX &amp; Kenworth &middot; hydraulic dump, dual compartment",
+      "image": "/assets/equipment/vikingtruck/vacuum-truck-3500.webp",
+      "image_alt": "Viking 3,500 to 6,000 gallon vacuum truck",
+      "inventory_url": "https://www.vikingtruck.net/inventory/3500-5000-gallons"
+    },
+    {
+      "name": "Portable Restroom Truck",
+      "capacity": "1,200&ndash;2,000 gal",
+      "chips": [
+        "Dual waste + freshwater",
+        "Masport HD4 / HD75",
+        "International &middot; Mack chassis"
+      ],
+      "spec": "Dual-compartment waste + freshwater &middot; Masport HD4 / HD75 &middot; International &amp; Mack chassis",
+      "image": "/assets/equipment/vikingtruck/restroom-truck.jpg",
+      "image_alt": "Viking portable restroom service truck",
+      "inventory_url": "https://www.vikingtruck.net/inventory/portable-restroom-trucks"
+    }
+  ],
+  "band": {
+    "title": "The truck earns while you finance it",
+    "body": "A vacuum truck is the most expensive thing most septic operators buy. Financing spreads that cost across the routes it runs &mdash; so your cash stays free for fuel, disposal and payroll.",
+    "proofs": [
+      "24-hour approvals",
+      "New &amp; used",
+      "Asset-based &mdash; the truck carries the deal"
+    ],
+    "cta": {
+      "label": "Get pre-approved &rarr;",
+      "href": "/match.html?type=equipment&amp;equipment=Vacuum%20%26%20Septic%20Truck"
+    },
+    "phone": {
+      "label": "Call (561) 268-0465",
+      "href": "tel:+15612680465"
+    }
+  }
+}

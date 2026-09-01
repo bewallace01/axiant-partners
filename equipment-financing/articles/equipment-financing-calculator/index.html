@@ -1,24 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="theme-color" content="#0d1f3c">
-<style>
-  body { opacity: 0; }
-</style>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HZNSHH6NN0"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.body.style.opacity = '1';
-    document.body.style.transition = 'opacity 0.2s ease';
-  });
-</script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZNSHH6NN0"></script>
-    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -26,318 +17,406 @@
       gtag('config', 'G-HZNSHH6NN0');
       gtag('config', 'AW-18021105450');
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Equipment financing calculator: estimate your monthly payment, see what affects your rate, and compare lease vs loan. Use the calculator and get matched.">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <link rel="canonical" href="https://axiantpartners.com/equipment-financing/articles/equipment-financing-calculator/">
-    <meta property="og:title" content="Equipment Financing Calculator: Estimate Your Monthly Payment | Axiant">
-    <meta property="og:description" content="Estimate equipment loan payments before you apply: the payment math, a worked example, rate factors, lease vs loan, and down payment options. Run the calculator and get matched.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://axiantpartners.com/equipment-financing/articles/equipment-financing-calculator/">
-    <meta property="og:image" content="https://axiantpartners.com/assets/axiant-hero-branded.webp">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Axiant Partners">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Equipment Financing Calculator: Estimate Your Monthly Payment | Axiant">
-    <meta name="twitter:description" content="How to estimate equipment loan payments before you apply, plus a worked example and what affects your rate. Use the calculator and get matched.">
-    <meta property="article:published_time" content="2026-05-29"><meta property="article:modified_time" content="2026-05-29">
-    <title>Equipment Financing Calculator: Monthly Payments | Axiant</title>
-    <link rel="icon" type="image/webp" sizes="48x48" href="/favicon.webp"><link rel="icon" type="image/png" sizes="48x48" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
-    <style id="mobile-critical">
-/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
-:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--btn-from:#2b6cb0;--btn-to:#1e3a5f;--btn-outline:#255f91;--link-color:#255f91;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
-[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--btn-from:#2563eb;--btn-to:#1d4ed8;--btn-outline:#93c5fd;--link-color:#8cc0fc;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
-*{margin:0;padding:0;box-sizing:border-box}
-html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
-body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
-body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
-.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
-.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
-.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
-.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
-.nav-brand span{display:none !important}
-.nav-logo-dark{display:none !important}
-html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
-html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
-.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
-.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
-.hero-grid{min-height:280px}
-header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
-.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
-.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
-.btn-primary{background:linear-gradient(135deg,var(--btn-from) 0,var(--btn-to) 100%);color:#fff !important;border-color:transparent}
-.btn-secondary{background:var(--bg-card);color:var(--btn-outline) !important;border-color:var(--btn-outline)}
-.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
-.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
-.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
-.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
-.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
-.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
-</style>
-<link rel="stylesheet" href="../../../critical.css?v=202608011">
-<link rel="stylesheet" href="/blog-layout.css?v=2026033014">
-<link rel="stylesheet" href="/article-rail.css?v=2026040801">
-<link rel="stylesheet" href="../../../styles.css?v=202608011" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/article-layout.css">
-    <noscript><link rel="stylesheet" href="../../../styles.css?v=202608011"></noscript>
-    <script type="application/ld+json">
+<meta content="Equipment financing calculator: estimate your monthly payment, see what affects your rate, and compare lease vs loan. Use the calculator and get matched." name="description"/>
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link href="https://axiantpartners.com/equipment-financing/articles/equipment-financing-calculator/" rel="canonical"/>
+<meta content="Equipment Financing Calculator: Estimate Your Monthly Payment | Axiant" property="og:title"/>
+<meta content="Estimate equipment loan payments before you apply: the payment math, a worked example, rate factors, lease vs loan, and down payment options. Run the calculator and get matched." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://axiantpartners.com/equipment-financing/articles/equipment-financing-calculator/" property="og:url"/>
+<meta content="https://axiantpartners.com/assets/axiant-hero-branded.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Axiant Partners" property="og:site_name"/>
+<meta content="2026-05-29" property="article:published_time"/>
+<meta content="2026-05-29" property="article:modified_time"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Equipment Financing Calculator: Estimate Your Monthly Payment | Axiant" name="twitter:title"/>
+<meta content="How to estimate equipment loan payments before you apply, plus a worked example and what affects your rate. Use the calculator and get matched." name="twitter:description"/>
+<title>Equipment Financing Calculator: Monthly Payments | Axiant</title>
+
+<script type="application/ld+json">
     {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://axiantpartners.com/"}, {"@type": "ListItem", "position": 2, "name": "Equipment Financing", "item": "https://axiantpartners.com/equipment-financing.html"}, {"@type": "ListItem", "position": 3, "name": "Articles", "item": "https://axiantpartners.com/equipment-financing/articles/"}, {"@type": "ListItem", "position": 4, "name": "Equipment Financing Calculator: Estimate Your Monthly Payment", "item": "https://axiantpartners.com/equipment-financing/articles/equipment-financing-calculator/"}]}
     </script>
-    <script type="application/ld+json">
+<script type="application/ld+json">
     {"@context": "https://schema.org", "@type": "Article", "headline": "Equipment Financing Calculator: Estimate Your Monthly Payment", "description": "How to estimate equipment loan payments before you apply: the payment math, a worked example, rate factors, lease vs loan, and $0-down options.", "image": "https://axiantpartners.com/assets/axiant-hero-branded.webp", "url": "https://axiantpartners.com/equipment-financing/articles/equipment-financing-calculator/", "datePublished": "2026-05-29", "dateModified": "2026-05-29", "author": {"@type": "Organization", "name": "Axiant Partners"}, "publisher": {"@id": "https://axiantpartners.com/#organization"}, "keywords": "equipment financing calculator, equipment loan calculator, equipment financing monthly payment, equipment loan payment, equipment financing rates, lease vs loan"}
     </script>
-    <script type="application/ld+json">
+<script type="application/ld+json">
     {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate equipment loan payments?", "acceptedAnswer": {"@type": "Answer", "text": "Use the standard amortizing-loan formula. Take the amount financed (equipment price minus any down payment), the monthly interest rate (annual rate divided by 12), and the number of monthly payments (term in months). The payment equals principal times the monthly rate, divided by one minus (1 plus the monthly rate) raised to the negative number of payments. The fastest way is to enter your numbers into our calculator at /calculator.html for an instant estimate."}}, {"@type": "Question", "name": "What term length is typical for equipment financing?", "acceptedAnswer": {"@type": "Answer", "text": "Equipment loan terms commonly run 24 to 84 months, with 36 to 60 months being the most common. Lenders generally match the term to the useful life of the equipment, so longer-lived assets like heavy machinery can qualify for longer terms, while shorter-lived assets like computers are financed over shorter periods."}}, {"@type": "Question", "name": "How much down payment do I need for equipment financing?", "acceptedAnswer": {"@type": "Answer", "text": "Down payments typically range from 0% to 20%. Strong-credit borrowers and established businesses often qualify for $0-down or 10% down, while newer businesses or weaker credit profiles may need 10% to 20% down. A larger down payment lowers the amount financed and your monthly payment."}}, {"@type": "Question", "name": "Does the calculator guarantee my rate or payment?", "acceptedAnswer": {"@type": "Answer", "text": "No. The calculator produces an estimate only. Your actual rate and payment depend on credit score, time in business, equipment type, down payment, and the lender. Use the estimate for planning, then get matched to see real, lender-specific offers."}}, {"@type": "Question", "name": "Is a lease payment lower than a loan payment?", "acceptedAnswer": {"@type": "Answer", "text": "A lease payment is often lower month to month than a comparable loan payment because you're financing the use of the equipment rather than the full purchase price, and there may be a residual value at the end. However, a loan builds ownership and can be cheaper over the full life of the asset. The right choice depends on how long you plan to keep the equipment. <a href=\"/working-capital-loans.html\">Working capital loans</a> cover soft costs equipment financing typically won't."}}]}
     </script>
-    <script type="application/ld+json">
+<script type="application/ld+json">
     {"@context": "https://schema.org", "@type": "WebPage", "@id": "https://axiantpartners.com/equipment-financing/articles/equipment-financing-calculator/#webpage", "url": "https://axiantpartners.com/equipment-financing/articles/equipment-financing-calculator/", "name": "Equipment Financing Calculator: Estimate Your Monthly Payment", "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".quick-answer"]}}
     </script>
-    <meta name="author" content="Axiant Partners">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/axiant-v2.css?v=202609011423">
 </head>
 <body>
-    <div class="mobile-nav-overlay" id="mobileNavOverlay">
-    <div class="nav-top">
-        <picture><source srcset="/Axiant_light_logo.webp" type="image/webp"><img width="1177" height="350" src="/Axiant_light_logo.png" alt="Axiant Partners" style="height: 40px;"></picture>
-        <button class="nav-close" id="mobileNavClose" aria-label="Close menu">&#215;</button>
+<!-- AXIANT-HEADER:START — generated from _components/header-v2.html.
+     Do NOT edit inside these markers on a page. Edit the component, then run:
+       python scripts/sync-header-v2.py
+     That rewrites the block on every *-v2.html file. -->
+<div class="utility">
+  <div class="container">
+    <div class="utility-facts">
+      <span><span class="dot"></span> Serving all 50 states</span>
+      <span class="utility-sep" aria-hidden="true"></span>
+      <span><span class="dot"></span> Free to apply &middot; no hard credit pull</span>
+      <span class="utility-sep" aria-hidden="true"></span>
+      <span class="u-keep">Speak with a specialist: <a href="tel:+15612680465">(561)&nbsp;268-0465</a></span>
+      <span class="utility-sep" aria-hidden="true"></span>
+      <span><a href="/contact.html">Contact</a></span>
     </div>
-    <nav class="mobile-overlay-links" id="mobileOverlayNavLinks">
-        <!-- Links copied from main nav by JS -->
+  </div>
+</div>
+
+<header class="header">
+  <div class="header-bar">
+    <a class="brand" href="/" aria-label="Axiant Partners home">
+      <img src="/logo-horizontal-transparent.webp" alt="Axiant Partners" width="228" height="50">
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/services.html">Programs</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/equipment-for-sale/">Equipment</a>
+      <a href="/calculator.html">Calculators</a>
+      <a href="/referral.html">Referral</a>
+      <a class="btn btn-primary" href="/match.html">Find My Match</a>
     </nav>
-</div>
-<div class="container">
-        <nav class="main-nav">
-            <div class="nav-brand"><a href="/"><picture><source srcset="../../../logo-horizontal-transparent.webp" type="image/webp"><img src="../../../logo-horizontal-transparent.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-light" width="180" height="74"></picture><picture><source srcset="../../../Axiant_light_logo.webp" type="image/webp"><img src="../../../Axiant_light_logo.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-dark" width="180" height="74"></picture></a><span>Axiant Partners</span></div>
-            <button class="mobile-menu-toggle" id="mobileNavToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-            <div class="nav-links">
-                <a href="/equipment-for-sale/">Equipment for Sale</a>
-                <a href="/match.html">Find Match</a>
-                <div class="nav-dropdown nav-dropdown-desktop"><button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Services</button><div class="nav-dropdown-menu"></div></div><a href="/services.html" class="nav-link-mobile">Services</a>
-                <a href="/industries.html" class="nav-industries-hub-link">Industries</a>
-                <a href="/calculator.html">Calculator</a>
-                <a href="/contact.html">Contact</a>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
-            </div>
-        </nav>
-        <header>
-            <h1>Equipment Financing Calculator: Estimate Your Monthly Payment</h1>
-            <p class="tagline">How to estimate equipment loan payments before you apply</p>
-        </header>
-        <div class="form-container blog-post-content article-page">    <div class="blog-post-shell">
-      <aside class="blog-post-rail-left article-rail article-rail--left"><div class="article-rail__inner">
-        <div class="article-rail__block">
-          <p class="blog-rail-back"><a href="../">&larr; Back to Equipment Financing Articles</a></p>
-          <div class="blog-rail-meta-item"><span class="blog-rail-label">Updated</span> May 29, 2026</div>
-        </div>
-        <div class="article-rail__block">
-          <div class="blog-rail-quick-answer"><div class="blog-rail-quick-content"><h3>Quick Facts</h3><p>Estimate an equipment loan payment from the amount financed, rate, and term. Terms run 24-84 months; down payment 0-20%. The calculator gives an estimate, not a guaranteed rate.</p></div></div>
-        </div>
-        <div class="article-rail__block article-rail__block--cta blog-rail-cta">
-          <h3>Ready to get funded?</h3>
-          <p>Get matched with lenders who finance your equipment.</p>
-          <a href="/match.html" class="btn-primary">Get Matched for Equipment Financing</a>
-        </div>
-      </div></aside>
-      <main class="blog-post-main">
-<nav class="crumbs" aria-label="Breadcrumb" style="font-size:.84rem;color:var(--text-secondary);padding:1rem 0 .25rem;margin:0 0 .5rem;"><a href="/" style="color:var(--text-secondary);">Home</a> &rsaquo; <a href="/equipment-financing.html" style="color:var(--text-secondary);">Equipment Financing</a> &rsaquo; <a href="/equipment-financing/articles/" style="color:var(--text-secondary);">Articles</a> &rsaquo; <span aria-current="page">Equipment Financing Calculator: Estimate Your Monthly Payment</span></nav>
-<div class="quick-answer" style="background:var(--bg-card);border-left:4px solid var(--accent-color);padding:16px 18px;margin:0 0 28px;border-radius:10px;">
-  <strong style="display:block;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent-color);margin-bottom:6px;">Quick answer</strong>
-  <p style="margin:0;font-size:1rem;line-height:1.55;color:var(--text-primary);">Your equipment loan payment is driven by three numbers: the amount financed (price minus down payment), the interest rate, and the term in months. Most equipment terms run 24-84 months, down payments range from 0-20%, and rates depend on credit (roughly 550-700+ tiers). A $100,000 loan at an illustrative 9% over 60 months runs about $2,076 per month. These are estimates&mdash;your real rate comes from a lender.</p>
-  <p style="margin:12px 0 0;font-size:0.92rem;color:var(--text-secondary);"><a href="/calculator.html" style="color:var(--accent-color);font-weight:600;">Run the equipment financing calculator &rarr;</a> &nbsp;|&nbsp; <a href="/match.html" style="color:var(--accent-color);font-weight:600;">Get matched with lenders &rarr;</a></p>
-</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
 
-            <p><strong>Quick Answer:</strong> An equipment financing calculator estimates your monthly payment from the amount financed, the interest rate, and the loan term. This guide explains the math behind that estimate, walks through a worked example, and shows what moves your rate up or down. When you're ready to plug in your own numbers, use the interactive tool below. Then, to turn an estimate into a real offer, <a href="/match.html">get matched with equipment lenders</a> who price the deal to your business.</p>
-
-            <h2 id="calculator">Equipment Financing Calculator</h2>
-            <p>Enter a price, down payment, interest rate, and term to estimate your monthly payment. Switch to <strong>Lease</strong> mode and add a residual value to compare a lease against a loan. The calculator runs entirely in your browser&mdash;nothing is submitted.</p>
-            <div style="border:1px solid var(--border-color);border-radius:12px;overflow:hidden;margin:0 0 12px;background:var(--bg-secondary);">
-              <iframe src="/calculator-embed.html" title="Equipment financing payment calculator" loading="lazy" style="width:100%; min-height:820px; border:0; display:block;"></iframe>
-            </div>
-            <p style="font-size:0.85rem;color:var(--text-tertiary);margin:0 0 28px;">Results are illustrative estimates, not quotes. Your real rate and payment come from a lender. <a href="/match.html" style="color:var(--accent-color);font-weight:600;">Get matched to see real offers &rarr;</a></p>
-
-            <h2 id="how-payments-calculated">How Equipment Loan Payments Are Calculated</h2>
-            <p>Every fixed-rate equipment loan payment comes from the same amortization formula. Three inputs do all the work: the <strong>principal</strong> (the amount you finance, which is the equipment price minus any down payment), the <strong>interest rate</strong> (an annual percentage, converted to a monthly rate), and the <strong>term</strong> (the number of monthly payments). The lender spreads the principal and interest evenly across the term so your payment stays the same every month, with more of each early payment going to interest and more of each later payment going to principal.</p>
-            <p>The intuition is simple even if the formula looks dense. Start with the principal. Multiply it by the monthly interest rate (your annual rate divided by 12). Then divide that by a factor that accounts for the full term&mdash;specifically, one minus (1 plus the monthly rate) raised to the negative number of payments. The result is your level monthly payment. You don't need to do this by hand: enter the amount, rate, and term into the <a href="/calculator.html">calculator</a> and it returns the estimate instantly. What matters for planning is understanding the levers&mdash;a lower price, a larger down payment, a lower rate, or a longer term all reduce the monthly payment, though a longer term raises the total interest you pay over the life of the loan.</p>
-
-            <h2 id="worked-example">Worked Example</h2>
-            <p>Say you're financing a $100,000 piece of equipment with no money down, so the full $100,000 is the amount financed. The table below shows approximate monthly payments at a few illustrative rate and term combinations. These are estimates for comparison only&mdash;your actual rate depends on your profile and the lender.</p>
-            <table style="width:100%;border-collapse:collapse;margin:0 0 8px;">
-              <thead>
-                <tr style="text-align:left;border-bottom:2px solid var(--border-color);">
-                  <th style="padding:10px 8px;">Amount financed</th>
-                  <th style="padding:10px 8px;">Rate (illustrative)</th>
-                  <th style="padding:10px 8px;">Term</th>
-                  <th style="padding:10px 8px;">Est. monthly payment</th>
-                  <th style="padding:10px 8px;">Est. total of payments</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom:1px solid var(--border-color);">
-                  <td style="padding:10px 8px;">$100,000</td><td style="padding:10px 8px;">7%</td><td style="padding:10px 8px;">36 months</td><td style="padding:10px 8px;">~$3,088</td><td style="padding:10px 8px;">~$111,168</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--border-color);">
-                  <td style="padding:10px 8px;">$100,000</td><td style="padding:10px 8px;">9%</td><td style="padding:10px 8px;">60 months</td><td style="padding:10px 8px;">~$2,076</td><td style="padding:10px 8px;">~$124,560</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--border-color);">
-                  <td style="padding:10px 8px;">$100,000</td><td style="padding:10px 8px;">12%</td><td style="padding:10px 8px;">60 months</td><td style="padding:10px 8px;">~$2,224</td><td style="padding:10px 8px;">~$133,440</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--border-color);">
-                  <td style="padding:10px 8px;">$100,000</td><td style="padding:10px 8px;">9%</td><td style="padding:10px 8px;">84 months</td><td style="padding:10px 8px;">~$1,609</td><td style="padding:10px 8px;">~$135,156</td>
-                </tr>
-              </tbody>
-            </table>
-            <p style="font-size:0.85rem;color:var(--text-tertiary);margin:0 0 18px;">Figures are illustrative estimates, rounded, for comparison only. They aren't quotes and do not reflect any specific lender, fees, or your actual rate.</p>
-            <p>Two patterns stand out. First, a <em>longer term lowers the monthly payment but raises total cost</em>: stretching the 9% loan from 60 to 84 months drops the payment by roughly $467 but adds about $10,600 in interest over the life of the loan. Second, the <em>rate matters more as the term lengthens</em>: the jump from 9% to 12% on a 60-month loan adds about $148 a month. Use the <a href="/calculator.html">calculator</a> to test your own price, down payment, rate, and term so you can find the payment that fits your cash flow.</p>
-
-            <h2 id="what-affects-rate">What Affects Your Rate and Payment</h2>
-            <p>The rate you actually receive&mdash;and therefore your payment&mdash;depends on how a lender reads your risk. The biggest factors are:</p>
-            <ul>
-                <li><strong>Credit score</strong> &mdash; this is the single largest driver. Borrowers in the 700+ tier see the lowest rates; the 650-699 tier sees mid-range pricing; and 550-649 borrowers can still qualify but at higher rates or with more down. See <a href="../what-credit-score-needed-equipment-financing/">what credit score you need for equipment financing</a>.</li>
-                <li><strong>Time in business</strong> &mdash; established businesses (2+ years) qualify for better terms; startups face higher rates or larger down payments.</li>
-                <li><strong>Equipment type</strong> &mdash; widely resalable, long-lived assets (machinery, trucks, medical equipment) are easier to finance than specialized or fast-depreciating gear, because the equipment itself is the lender's collateral.</li>
-                <li><strong>Down payment</strong> &mdash; more money down lowers the amount financed, the lender's risk, and your monthly payment. See <a href="/equipment-financing.html">whether you need a down payment</a>.</li>
-                <li><strong>Term length</strong> &mdash; lenders match the term to the equipment's useful life; a longer term lowers the payment but raises total interest.</li>
-            </ul>
-            <p>For a deeper look at where rates land today, see <a href="/equipment-financing.html">typical equipment financing rates</a>.</p>
-
-            <h2 id="lease-vs-loan">Lease vs Loan Payments</h2>
-            <p>The calculator estimates loan payments, but leasing is a common alternative with a different payment profile. With a <strong>loan</strong>, you finance the full purchase price, build ownership with each payment, and own the equipment outright at the end. With a <strong>lease</strong>, you finance the <em>use</em> of the equipment over the term; payments are often lower month to month because you are not paying down the full value, and many leases end with a buyout (a $1 buyout or a fair-market-value option). A lease can preserve cash and simplify upgrades for equipment that ages quickly, while a loan is usually cheaper over the full life of a long-lived asset you intend to keep. If you expect to replace the equipment in a few years, the lower lease payment may win; if you will run it for a decade, ownership through a loan often costs less overall. Compare the two in detail in <a href="../equipment-leasing-vs-loan-which-is-better/">equipment leasing vs loan: which is better</a>.</p>
-
-            <h2 id="down-payment">Down Payment and $0-Down Options</h2>
-            <p>Your down payment directly changes the amount financed, so it's one of the easiest levers for adjusting your payment. Down payments on equipment financing typically range from <strong>0% to 20%</strong>. Strong-credit, established businesses frequently qualify for <strong>$0-down</strong> or 10%-down programs, while newer businesses or lower credit tiers may need 10%-20% down to offset the lender's risk. Putting more down lowers both the payment and the total interest, but it ties up cash you might prefer to keep as working capital&mdash;so the right amount is a cash-flow decision, not just a math one. If preserving cash is the priority, explore <a href="../equipment-financing-no-money-down/">$0-down equipment financing</a> and weigh the slightly higher payment against keeping capital in the business.</p>
-
-            <h2 id="compare">Equipment Financing vs SBA Loan vs Business Term Loan</h2>
-            <p>If you're financing equipment, three products can fit. The right one depends on your time horizon, credit profile, and how fast you need to close. The ranges below are typical across U.S. lenders as of 2026; your actual terms depend on your profile.</p>
-            <div style="overflow-x:auto;margin:0 0 8px;">
-            <table>
-              <thead>
-                <tr><th scope="col">Feature</th><th scope="col">Equipment Financing</th><th scope="col">SBA 7(a) / 504</th><th scope="col">Business Term Loan</th></tr>
-              </thead>
-              <tbody>
-                <tr><td><strong>Typical APR</strong></td><td>8&ndash;18%</td><td>Prime + 2.75% (&approx;11&ndash;13%)</td><td>10&ndash;25%</td></tr>
-                <tr><td><strong>Term length</strong></td><td>36&ndash;84 months</td><td>10&ndash;25 years</td><td>12&ndash;60 months</td></tr>
-                <tr><td><strong>Down payment</strong></td><td>0&ndash;20%</td><td>10&ndash;20%</td><td>0% (unsecured)</td></tr>
-                <tr><td><strong>Time to fund</strong></td><td>3&ndash;10 business days</td><td>30&ndash;90 days</td><td>3&ndash;14 days</td></tr>
-                <tr><td><strong>Collateral</strong></td><td>The equipment itself</td><td>All business assets + PG</td><td>Often unsecured</td></tr>
-                <tr><td><strong>Min. credit (typical)</strong></td><td>600+ (some 550)</td><td>680+</td><td>650+</td></tr>
-                <tr><td><strong>Best for</strong></td><td>Fast acquisition of one machine</td><td>Long-term cost on large assets</td><td>General growth capital, not asset-tied</td></tr>
-              </tbody>
-            </table>
-            </div>
-            <p style="font-size:0.85rem;color:var(--text-tertiary);margin:0 0 24px;">Illustrative ranges, not quotes. Compare related options in <a href="../equipment-financing-vs-sba-loan/">equipment financing vs SBA loan</a>. <a href="/match.html" style="color:var(--accent-color);">Get a real quote &rarr;</a></p>
-
-            <h2 id="use-the-calculator">Use the Calculator, Then Get Matched</h2>
-            <p>An estimate is the starting point, not the finish line. Use the <a href="/calculator.html">equipment financing calculator</a> to test combinations of price, down payment, rate, and term until you find a monthly payment that fits your budget. Treat the rate you enter as a placeholder based on your credit tier&mdash;the real number comes from a lender. When the estimate looks workable, the next step is to see actual offers: <a href="/match.html">get matched with equipment lenders</a> who will price the deal to your credit, time in business, and equipment. Comparing several offers, rather than accepting the first one, is the most reliable way to lower your real payment.</p>
-            <p style="margin:0 0 24px;"><a href="/match.html" class="btn-primary" style="display:inline-flex;">Get matched with equipment lenders &rarr;</a></p>
-
-            <h2 id="next-steps">Next Steps</h2>
-            <p>Pin down your equipment price and the down payment you're comfortable with, then run a few scenarios in the <a href="/calculator.html">calculator</a> to see how rate and term change the payment. Check where your credit tier likely places your rate, decide whether a loan or a lease fits how long you'll keep the asset, and gather basics like time in business and a recent bank statement. When you're ready for real numbers, <a href="/match.html">get matched</a> to compare lender offers side by side. For more background, start with our <a href="/equipment-financing.html">equipment financing overview</a> or read <a href="../how-to-apply-equipment-financing/">how to apply for equipment financing</a>.</p>
-
-            <section class="about-section" id="faqs" aria-label="Frequently asked questions">
-                <h2 id="faq">Frequently Asked Questions</h2>
-                <h3>How do I calculate equipment loan payments?</h3>
-                <p>Use the standard amortizing-loan formula. Take the amount financed (equipment price minus any down payment), the monthly interest rate (annual rate divided by 12), and the number of monthly payments (term in months). The payment equals principal times the monthly rate, divided by one minus (1 plus the monthly rate) raised to the negative number of payments. The fastest way is to enter your numbers into our calculator at /calculator.html for an instant estimate.</p>
-                <h3>What term length is typical for equipment financing?</h3>
-                <p>Equipment loan terms commonly run 24 to 84 months, with 36 to 60 months being the most common. Lenders generally match the term to the useful life of the equipment, so longer-lived assets like heavy machinery can qualify for longer terms, while shorter-lived assets like computers are financed over shorter periods.</p>
-                <h3>How much down payment do I need for equipment financing?</h3>
-                <p>Down payments typically range from 0% to 20%. Strong-credit borrowers and established businesses often qualify for $0-down or 10% down, while newer businesses or weaker credit profiles may need 10% to 20% down. A larger down payment lowers the amount financed and your monthly payment.</p>
-                <h3>Does the calculator guarantee my rate or payment?</h3>
-                <p>No. The calculator produces an estimate only. Your actual rate and payment depend on credit score, time in business, equipment type, down payment, and the lender. Use the estimate for planning, then get matched to see real, lender-specific offers.</p>
-                <h3>Is a lease payment lower than a loan payment?</h3>
-                <p>A lease payment is often lower month to month than a comparable loan payment because you're financing the use of the equipment rather than the full purchase price, and there may be a residual value at the end. However, a loan builds ownership and can be cheaper over the full life of the asset. The right choice depends on how long you plan to keep the equipment.</p>
-        <p class="ax-related-cross-cluster" style="margin-top:1.25rem;"><a href="/working-capital-loans.html">Working capital loans</a> cover soft costs equipment financing typically won't.</p>
-      
-            </section>
-
-
-<section class="related-resources" aria-label="Related resources">
-                <h2>Related Resources</h2>
-                <ul>
-                    <li><a href="/equipment-financing.html">What Are Typical Equipment Financing Rates?</a></li>
-                    <li><a href="/equipment-financing.html">Do You Need a Down Payment for Equipment Financing?</a></li>
-                    <li><a href="../equipment-financing-no-money-down/">Equipment Financing With No Money Down</a></li>
-                    <li><a href="../equipment-leasing-vs-loan-which-is-better/">Equipment Leasing vs Loan: Which Is Better?</a></li>
-                    <li><a href="../what-credit-score-needed-equipment-financing/">What Credit Score Is Needed for Equipment Financing?</a></li>
-                                    <li><a href="/equipment-financing/articles/commercial-mower-financing/">Commercial Mower & Lawn Equipment Financing</a></li>
-                    <li><a href="/equipment-financing/articles/warehouse-racking-storage-financing/">Warehouse Racking & Storage Equipment Financing (2026)</a></li>
-                                    <li><a href="/business-loan-calculator-guide/">Free Business Loan Calculator — Estimate Payments</a></li>
-                </ul>
-<div class="services-cta">
-                <a href="/match.html" class="btn-primary">Get Matched for Equipment Financing</a>
-            </div>
-      </section>
-</main>
-                  <aside class="blog-post-rail-right article-rail article-rail--right"><div class="article-rail__inner article-rail__inner--toc"><div class="blog-rail-toc">
-          <h3>On this page</h3>
-          <nav aria-label="On this page">
-            <ul class="blog-post-toc-list">
-              <li><a href="#calculator">Payment Calculator</a></li>
-              <li><a href="#how-payments-calculated">How Payments Are Calculated</a></li>
-              <li><a href="#worked-example">Worked Example</a></li>
-              <li><a href="#what-affects-rate">What Affects Your Rate</a></li>
-              <li><a href="#lease-vs-loan">Lease vs Loan Payments</a></li>
-              <li><a href="#down-payment">Down Payment &amp; $0-Down</a></li>
-              <li><a href="#compare">Equipment vs SBA vs Term</a></li>
-              <li><a href="#use-the-calculator">Use the Calculator</a></li>
-              <li><a href="#next-steps">Next Steps</a></li>
-              <li><a href="#faqs">FAQs</a></li></ul>
-          </nav>
-        </div></div></aside>
-    </div></div>
+<!-- The panel .nav-toggle opens. Below 1000px the desktop nav is display:none
+     and this is the only way to navigate, so it ships with the header rather
+     than being repeated per page. Styles: axiant-v2.css. Behaviour: axiant-v2.js. -->
+<div class="mobile-menu" id="mobileMenu" data-open="false" hidden>
+  <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="mobile-menu-head">
+      <img src="/logo-horizontal-transparent.webp" alt="Axiant Partners" width="164" height="36">
+      <button class="mobile-menu-close" id="navClose" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
     </div>
-    <footer class="site-footer">
-        <p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="/privacy-policy.html">Privacy Policy</a> | <a href="/terms-and-conditions.html">Terms and Conditions</a> | <a href="/vendors.html">Vendors</a></p>
-    </footer>
-    <script src="../../../language-switcher.js?v=202607021" defer></script>
-    <script src="/script.js?v=2026081401" defer></script>
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/sw.js');
-    });
-  }
-</script>
-<script>
-  const prefetched = new Set();
-  function prefetchPage(url) {
-    if (prefetched.has(url)) return;
-    prefetched.add(url);
-    const link = document.createElement('link');
-    link.rel = 'prefetch';
-    link.href = url;
-    document.head.appendChild(link);
-  }
-  document.addEventListener('mouseover', function(e) {
-    const anchor = e.target.closest('a');
-    if (!anchor) return;
-    const href = anchor.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
-    prefetchPage(href);
-  });
-  document.addEventListener('touchstart', function(e) {
-    const anchor = e.target.closest('a');
-    if (!anchor) return;
-    const href = anchor.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
-    prefetchPage(href);
-  }, { passive: true });
-</script>
-<script>
-  document.addEventListener('click', function(e) {
-    const anchor = e.target.closest('a');
-    if (!anchor) return;
-    const href = anchor.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || anchor.target === '_blank') return;
-    e.preventDefault();
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.15s ease';
-    setTimeout(() => { window.location.href = href; }, 150);
-  });
-</script>
-<script>
-if(window.innerWidth<=768){var ls=document.querySelectorAll('.about-section,.testimonials-section,.global-bottom-cta,.site-footer-enhanced,.services-grid,.blog-grid,.steps-grid,.benefits-grid');var so=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='none';so.unobserve(entry.target);}});},{rootMargin:'100px'});ls.forEach(function(s){s.style.opacity='0';s.style.transition='opacity 0.3s ease';so.observe(s);});}
-</script>
-<div class="mobile-cta-bar"><a href="/match.html" class="mcta-primary">See If You Qualify</a><a href="tel:+15612680465" class="mcta-phone" aria-label="Call (561) 268-0465">&#9742;</a></div>
+    <nav aria-label="Mobile">
+      <a href="/services.html">Programs</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/equipment-for-sale/">Equipment</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/referral.html">Referral Program</a>
+    </nav>
+    <a class="btn btn-primary btn-lg" href="/match.html">Find My Match</a>
+    <p class="mobile-menu-call">Or call <a href="tel:+15612680465">(561)&nbsp;268-0465</a></p>
+  </div>
+</div>
+
+<!-- Bump ?v= whenever axiant-v2.js changes, or browsers serve the old file.
+     Same convention the rest of the site uses for styles.css / script.js. -->
+<script src="/axiant-v2.js?v=202609011938" defer></script>
+<!-- AXIANT-HEADER:END -->
+
+<section class="hero-compact">
+  <div class="container">
+    <div class="inner">
+      <p class="eyebrow">Guide</p>
+      <h1>Equipment Financing Calculator: Estimate Your Monthly Payment</h1>
+      <p class="lede">How to estimate equipment loan payments before you apply</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-tight">
+  <div class="container">
+    <div class="group" data-tone="blue">
+      <div class="prose">
+        Equipment Financing Calculator: Estimate Your Monthly Payment
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section-alt section-tight">
+<div class="container article-container">
+<div class="article-grid">
+<div class="article-body">
+<div class="crumb-row">
+<a class="crumb" href="../">← Back to Equipment Financing Articles</a>
+</div>
+<p class="dateline">Updated May 29, 2026</p>
+<div class="callout" id="quick-answer">
+<p class="eyebrow">Quick answer</p>
+<div class="prose">
+<p>Your equipment loan payment is driven by three numbers: the amount financed (price minus down payment), the interest rate, and the term in months. Most equipment terms run 24-84 months, down payments range from 0-20%, and rates depend on credit (roughly 550-700+ tiers). A $100,000 loan at an illustrative 9% over 60 months runs about $2,076 per month. These are estimates—your real rate comes from a lender.</p>
+<p><a href="/calculator.html">Run the equipment financing calculator →</a>  |  <a href="/match.html">Get matched with lenders →</a></p>
+</div>
+</div>
+<nav aria-label="Breadcrumb" class="crumbs"><a href="/">Home</a> › <a href="/equipment-financing.html">Equipment Financing</a> › <a href="/equipment-financing/articles/">Articles</a> › <span aria-current="page">Equipment Financing Calculator: Estimate Your Monthly Payment</span></nav>
+<p class="lede-para"><strong>Quick Answer:</strong> An equipment financing calculator estimates your monthly payment from the amount financed, the interest rate, and the loan term. This guide explains the math behind that estimate, walks through a worked example, and shows what moves your rate up or down. When you're ready to plug in your own numbers, use the interactive tool below. Then, to turn an estimate into a real offer, <a href="/match.html">get matched with equipment lenders</a> who price the deal to your business.</p>
+<h2 id="calculator">Equipment Financing Calculator</h2>
+<p>Enter a price, down payment, interest rate, and term to estimate your monthly payment. Switch to <strong>Lease</strong> mode and add a residual value to compare a lease against a loan. The calculator runs entirely in your browser—nothing is submitted.</p>
+<div style="overflow:hidden">
+<iframe loading="lazy" src="/calculator-embed.html" style="display:block" title="Equipment financing payment calculator"></iframe>
+</div>
+<p>Results are illustrative estimates, not quotes. Your real rate and payment come from a lender. <a href="/match.html">Get matched to see real offers →</a></p>
+<h2 id="how-payments-calculated">How Equipment Loan Payments Are Calculated</h2>
+<p>Every fixed-rate equipment loan payment comes from the same amortization formula. Three inputs do all the work: the <strong>principal</strong> (the amount you finance, which is the equipment price minus any down payment), the <strong>interest rate</strong> (an annual percentage, converted to a monthly rate), and the <strong>term</strong> (the number of monthly payments). The lender spreads the principal and interest evenly across the term so your payment stays the same every month, with more of each early payment going to interest and more of each later payment going to principal.</p>
+<p>The intuition is simple even if the formula looks dense. Start with the principal. Multiply it by the monthly interest rate (your annual rate divided by 12). Then divide that by a factor that accounts for the full term—specifically, one minus (1 plus the monthly rate) raised to the negative number of payments. The result is your level monthly payment. You don't need to do this by hand: enter the amount, rate, and term into the <a href="/calculator.html">calculator</a> and it returns the estimate instantly. What matters for planning is understanding the levers—a lower price, a larger down payment, a lower rate, or a longer term all reduce the monthly payment, though a longer term raises the total interest you pay over the life of the loan.</p>
+<h2 id="worked-example">Worked Example</h2>
+<p>Say you're financing a $100,000 piece of equipment with no money down, so the full $100,000 is the amount financed. The table below shows approximate monthly payments at a few illustrative rate and term combinations. These are estimates for comparison only—your actual rate depends on your profile and the lender.</p>
+<div class="table-wrap"><table style="width:100%">
+<thead>
+<tr>
+<th>Amount financed</th>
+<th>Rate (illustrative)</th>
+<th>Term</th>
+<th>Est. monthly payment</th>
+<th>Est. total of payments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Amount financed">$100,000</td><td data-label="Rate (illustrative)">7%</td><td data-label="Term">36 months</td><td data-label="Est. monthly payment">~$3,088</td><td data-label="Est. total of payments">~$111,168</td>
+</tr>
+<tr>
+<td data-label="Amount financed">$100,000</td><td data-label="Rate (illustrative)">9%</td><td data-label="Term">60 months</td><td data-label="Est. monthly payment">~$2,076</td><td data-label="Est. total of payments">~$124,560</td>
+</tr>
+<tr>
+<td data-label="Amount financed">$100,000</td><td data-label="Rate (illustrative)">12%</td><td data-label="Term">60 months</td><td data-label="Est. monthly payment">~$2,224</td><td data-label="Est. total of payments">~$133,440</td>
+</tr>
+<tr>
+<td data-label="Amount financed">$100,000</td><td data-label="Rate (illustrative)">9%</td><td data-label="Term">84 months</td><td data-label="Est. monthly payment">~$1,609</td><td data-label="Est. total of payments">~$135,156</td>
+</tr>
+</tbody>
+</table></div>
+<p>Figures are illustrative estimates, rounded, for comparison only. They aren't quotes and do not reflect any specific lender, fees, or your actual rate.</p>
+<p>Two patterns stand out. First, a <em>longer term lowers the monthly payment but raises total cost</em>: stretching the 9% loan from 60 to 84 months drops the payment by roughly $467 but adds about $10,600 in interest over the life of the loan. Second, the <em>rate matters more as the term lengthens</em>: the jump from 9% to 12% on a 60-month loan adds about $148 a month. Use the <a href="/calculator.html">calculator</a> to test your own price, down payment, rate, and term so you can find the payment that fits your cash flow.</p>
+<h2 id="what-affects-rate">What Affects Your Rate and Payment</h2>
+<p>The rate you actually receive—and therefore your payment—depends on how a lender reads your risk. The biggest factors are:</p>
+<ul>
+<li><strong>Credit score</strong> — this is the single largest driver. Borrowers in the 700+ tier see the lowest rates; the 650-699 tier sees mid-range pricing; and 550-649 borrowers can still qualify but at higher rates or with more down. See <a href="../what-credit-score-needed-equipment-financing/">what credit score you need for equipment financing</a>.</li>
+<li><strong>Time in business</strong> — established businesses (2+ years) qualify for better terms; startups face higher rates or larger down payments.</li>
+<li><strong>Equipment type</strong> — widely resalable, long-lived assets (machinery, trucks, medical equipment) are easier to finance than specialized or fast-depreciating gear, because the equipment itself is the lender's collateral.</li>
+<li><strong>Down payment</strong> — more money down lowers the amount financed, the lender's risk, and your monthly payment. See <a href="/equipment-financing.html">whether you need a down payment</a>.</li>
+<li><strong>Term length</strong> — lenders match the term to the equipment's useful life; a longer term lowers the payment but raises total interest.</li>
+</ul>
+<p>For a deeper look at where rates land today, see <a href="/equipment-financing.html">typical equipment financing rates</a>.</p>
+<h2 id="lease-vs-loan">Lease vs Loan Payments</h2>
+<p>The calculator estimates loan payments, but leasing is a common alternative with a different payment profile. With a <strong>loan</strong>, you finance the full purchase price, build ownership with each payment, and own the equipment outright at the end. With a <strong>lease</strong>, you finance the <em>use</em> of the equipment over the term; payments are often lower month to month because you are not paying down the full value, and many leases end with a buyout (a $1 buyout or a fair-market-value option). A lease can preserve cash and simplify upgrades for equipment that ages quickly, while a loan is usually cheaper over the full life of a long-lived asset you intend to keep. If you expect to replace the equipment in a few years, the lower lease payment may win; if you will run it for a decade, ownership through a loan often costs less overall. Compare the two in detail in <a href="../equipment-leasing-vs-loan-which-is-better/">equipment leasing vs loan: which is better</a>.</p>
+<h2 id="down-payment">Down Payment and $0-Down Options</h2>
+<p>Your down payment directly changes the amount financed, so it's one of the easiest levers for adjusting your payment. Down payments on equipment financing typically range from <strong>0% to 20%</strong>. Strong-credit, established businesses frequently qualify for <strong>$0-down</strong> or 10%-down programs, while newer businesses or lower credit tiers may need 10%-20% down to offset the lender's risk. Putting more down lowers both the payment and the total interest, but it ties up cash you might prefer to keep as working capital—so the right amount is a cash-flow decision, not just a math one. If preserving cash is the priority, explore <a href="../equipment-financing-no-money-down/">$0-down equipment financing</a> and weigh the slightly higher payment against keeping capital in the business.</p>
+<h2 id="compare">Equipment Financing vs SBA Loan vs Business Term Loan</h2>
+<p>If you're financing equipment, three products can fit. The right one depends on your time horizon, credit profile, and how fast you need to close. The ranges below are typical across U.S. lenders as of 2026; your actual terms depend on your profile.</p>
+<div style="overflow-x:auto">
+<div class="table-wrap"><table>
+<thead>
+<tr><th scope="col">Feature</th><th scope="col">Equipment Financing</th><th scope="col">SBA 7(a) / 504</th><th scope="col">Business Term Loan</th></tr>
+</thead>
+<tbody>
+<tr><td data-label="Feature"><strong>Typical APR</strong></td><td data-label="Equipment Financing">8–18%</td><td data-label="SBA 7(a) / 504">Prime + 2.75% (≈11–13%)</td><td data-label="Business Term Loan">10–25%</td></tr>
+<tr><td data-label="Feature"><strong>Term length</strong></td><td data-label="Equipment Financing">36–84 months</td><td data-label="SBA 7(a) / 504">10–25 years</td><td data-label="Business Term Loan">12–60 months</td></tr>
+<tr><td data-label="Feature"><strong>Down payment</strong></td><td data-label="Equipment Financing">0–20%</td><td data-label="SBA 7(a) / 504">10–20%</td><td data-label="Business Term Loan">0% (unsecured)</td></tr>
+<tr><td data-label="Feature"><strong>Time to fund</strong></td><td data-label="Equipment Financing">3–10 business days</td><td data-label="SBA 7(a) / 504">30–90 days</td><td data-label="Business Term Loan">3–14 days</td></tr>
+<tr><td data-label="Feature"><strong>Collateral</strong></td><td data-label="Equipment Financing">The equipment itself</td><td data-label="SBA 7(a) / 504">All business assets + PG</td><td data-label="Business Term Loan">Often unsecured</td></tr>
+<tr><td data-label="Feature"><strong>Min. credit (typical)</strong></td><td data-label="Equipment Financing">600+ (some 550)</td><td data-label="SBA 7(a) / 504">680+</td><td data-label="Business Term Loan">650+</td></tr>
+<tr><td data-label="Feature"><strong>Best for</strong></td><td data-label="Equipment Financing">Fast acquisition of one machine</td><td data-label="SBA 7(a) / 504">Long-term cost on large assets</td><td data-label="Business Term Loan">General growth capital, not asset-tied</td></tr>
+</tbody>
+</table></div>
+</div>
+<p>Illustrative ranges, not quotes. Compare related options in <a href="../equipment-financing-vs-sba-loan/">equipment financing vs SBA loan</a>. <a href="/match.html">Get a real quote →</a></p>
+<h2 id="use-the-calculator">Use the Calculator, Then Get Matched</h2>
+<p>An estimate is the starting point, not the finish line. Use the <a href="/calculator.html">equipment financing calculator</a> to test combinations of price, down payment, rate, and term until you find a monthly payment that fits your budget. Treat the rate you enter as a placeholder based on your credit tier—the real number comes from a lender. When the estimate looks workable, the next step is to see actual offers: <a href="/match.html">get matched with equipment lenders</a> who will price the deal to your credit, time in business, and equipment. Comparing several offers, rather than accepting the first one, is the most reliable way to lower your real payment.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Pin down your equipment price and the down payment you're comfortable with, then run a few scenarios in the <a href="/calculator.html">calculator</a> to see how rate and term change the payment. Check where your credit tier likely places your rate, decide whether a loan or a lease fits how long you'll keep the asset, and gather basics like time in business and a recent bank statement. When you're ready for real numbers, <a href="/match.html">get matched</a> to compare lender offers side by side. For more background, start with our <a href="/equipment-financing.html">equipment financing overview</a> or read <a href="../how-to-apply-equipment-financing/">how to apply for equipment financing</a>.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<details>
+<summary>How do I calculate equipment loan payments?</summary>
+<div class="answer"><p>Use the standard amortizing-loan formula. Take the amount financed (equipment price minus any down payment), the monthly interest rate (annual rate divided by 12), and the number of monthly payments (term in months). The payment equals principal times the monthly rate, divided by one minus (1 plus the monthly rate) raised to the negative number of payments. The fastest way is to enter your numbers into our calculator at /calculator.html for an instant estimate.</p></div>
+</details>
+<details>
+<summary>What term length is typical for equipment financing?</summary>
+<div class="answer"><p>Equipment loan terms commonly run 24 to 84 months, with 36 to 60 months being the most common. Lenders generally match the term to the useful life of the equipment, so longer-lived assets like heavy machinery can qualify for longer terms, while shorter-lived assets like computers are financed over shorter periods.</p></div>
+</details>
+<details>
+<summary>How much down payment do I need for equipment financing?</summary>
+<div class="answer"><p>Down payments typically range from 0% to 20%. Strong-credit borrowers and established businesses often qualify for $0-down or 10% down, while newer businesses or weaker credit profiles may need 10% to 20% down. A larger down payment lowers the amount financed and your monthly payment.</p></div>
+</details>
+<details>
+<summary>Does the calculator guarantee my rate or payment?</summary>
+<div class="answer"><p>No. The calculator produces an estimate only. Your actual rate and payment depend on credit score, time in business, equipment type, down payment, and the lender. Use the estimate for planning, then get matched to see real, lender-specific offers.</p></div>
+</details>
+<details>
+<summary>Is a lease payment lower than a loan payment?</summary>
+<div class="answer"><p>A lease payment is often lower month to month than a comparable loan payment because you're financing the use of the equipment rather than the full purchase price, and there may be a residual value at the end. However, a loan builds ownership and can be cheaper over the full life of the asset. The right choice depends on how long you plan to keep the equipment.</p><p class="ax-related-cross-cluster"><a href="/working-capital-loans.html">Working capital loans</a> cover soft costs equipment financing typically won't.</p></div>
+</details>
+</div>
+<p class="cta-actions cta-actions-left"><a class="btn btn-primary" href="/match.html">Get Matched for Equipment Financing</a></p>
+</div>
+<aside class="article-rail">
+<div class="rail-actions">
+<a class="btn btn-quiet" href="#quick-answer">Quick answer</a>
+<a class="btn btn-primary" href="/match.html">Get Matched for Equipment Financing</a>
+</div>
+<nav aria-label="On this page" class="toc">
+<h3>On this page</h3>
+<ul>
+<li><a href="#calculator">Payment Calculator</a></li>
+<li><a href="#how-payments-calculated">How Payments Are Calculated</a></li>
+<li><a href="#worked-example">Worked Example</a></li>
+<li><a href="#what-affects-rate">What Affects Your Rate</a></li>
+<li><a href="#lease-vs-loan">Lease vs Loan Payments</a></li>
+<li><a href="#down-payment">Down Payment &amp; $0-Down</a></li>
+<li><a href="#compare">Equipment vs SBA vs Term</a></li>
+<li><a href="#use-the-calculator">Use the Calculator</a></li>
+<li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faqs">FAQs</a></li></ul>
+</nav>
+</aside>
+</div>
+</div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="group" data-tone="blue">
+      <div class="group-head"><h2>Ready to get funded?</h2></div>
+      <div class="prose">
+        <p>Get matched with lenders who finance your equipment.</p>
+      </div>
+    <p class="cta-actions cta-actions-left"><a class="btn btn-primary" href="/match.html">Get Matched for Equipment Financing</a></p>
+    </div>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
+    <div class="group" data-tone="blue">
+      <div class="group-head"><h2>Related Resources</h2></div>
+      <div class="tiles">
+      <a class="tile" data-tone="blue" href="/equipment-financing.html">
+        <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5h10v9H3z"/><path d="M13 10.5h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></span>
+        <span>What Are Typical Equipment Financing Rates?</span>
+      </a>
+      <a class="tile" data-tone="teal" href="/equipment-financing.html">
+        <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5h10v9H3z"/><path d="M13 10.5h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></span>
+        <span>Do You Need a Down Payment for Equipment Financing?</span>
+      </a>
+      <a class="tile" data-tone="indigo" href="../equipment-financing-no-money-down/">
+        <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5h10v9H3z"/><path d="M13 10.5h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></span>
+        <span>Equipment Financing With No Money Down</span>
+      </a>
+      <a class="tile" data-tone="bronze" href="../equipment-leasing-vs-loan-which-is-better/">
+        <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5h10v9H3z"/><path d="M13 10.5h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></span>
+        <span>Equipment Leasing vs Loan: Which Is Better?</span>
+      </a>
+      <a class="tile" data-tone="rust" href="../what-credit-score-needed-equipment-financing/">
+        <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2l7 3v5.9c0 4.1-2.9 7.8-7 8.7-4.1-.9-7-4.6-7-8.7V6.2l7-3Z"/><path d="M9.2 12.1l2 2 3.6-3.8"/></svg></span>
+        <span>What Credit Score Is Needed for Equipment Financing?</span>
+      </a>
+      <a class="tile" data-tone="blue" href="/equipment-financing/articles/commercial-mower-financing/">
+        <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5h10v9H3z"/><path d="M13 10.5h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></span>
+        <span>Commercial Mower & Lawn Equipment Financing</span>
+      </a>
+      <a class="tile" data-tone="teal" href="/equipment-financing/articles/warehouse-racking-storage-financing/">
+        <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5h10v9H3z"/><path d="M13 10.5h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></span>
+        <span>Warehouse Racking & Storage Equipment Financing (2026)</span>
+      </a>
+      <a class="tile" data-tone="indigo" href="/business-loan-calculator-guide/">
+        <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <span>Free Business Loan Calculator — Estimate Payments</span>
+      </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AXIANT-FOOTER:START — generated from _components/footer-v2.html.
+     Do NOT edit inside these markers on a page. Edit the component, then run:
+       python scripts/sync-footer-v2.py
+     Then, because equipment-for-sale/ is generated:
+       python scripts/equipment-for-sale/build.py
+
+     Deliberately small. A footer is not a sitemap - sitewide links read as
+     boilerplate, so the amount/credit/owner/compare clusters moved to
+     blog.html where they are topically at home.
+
+     Do NOT add the class "site-footer" to the <footer> below.
+     language-switcher.js runs enhanceGlobalFooter(), which does
+     querySelector('.site-footer') and REPLACES the whole innerHTML with the
+     legacy footer - silently wiping this markup at runtime. -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="footer-brand">
+      <img src="/Axiant_light_logo.webp" alt="Axiant Partners" width="180" height="40">
+      <div class="footer-brand-contact">
+        <div class="footer-brand-reach">
+          <span class="footer-brand-label">Speak with a specialist</span>
+          <a class="footer-phone" href="tel:+15612680465">(561)&nbsp;268-0465</a>
+          <p class="footer-brand-note">Serving all 50 states &middot; Free to apply, no hard credit pull</p>
+        </div>
+        <a class="btn btn-primary" href="/match.html">Find My Match</a>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="footer-col">
+        <h4>Financing</h4>
+        <ul>
+          <li><a href="/equipment-financing.html">Equipment Financing</a></li>
+          <li><a href="/sba-loans.html">SBA Loans</a></li>
+          <li><a href="/working-capital-loans.html">Working Capital</a></li>
+          <li><a href="/business-line-of-credit.html">Line of Credit</a></li>
+          <li><a href="/commercial-real-estate-loans.html">Commercial Real Estate</a></li>
+          <li><a href="/services.html">All 22 programs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="/construction-business-financing.html">Construction</a></li>
+          <li><a href="/trucking-business-financing.html">Trucking</a></li>
+          <li><a href="/manufacturing-business-financing.html">Manufacturing</a></li>
+          <li><a href="/restaurants-business-financing.html">Restaurants</a></li>
+          <li><a href="/medical-practices-business-financing.html">Healthcare</a></li>
+          <li><a href="/industries.html">All 19 industries</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides &amp; Tools</h4>
+        <ul>
+          <li><a href="/blog.html">Insights &amp; Guides</a></li>
+          <li><a href="/equipment.html">Equipment Guides</a></li>
+          <li><a href="/business-growth.html">Business Growth</a></li>
+          <li><a href="/equipment-for-sale/">Equipment for Sale</a></li>
+          <li><a href="/calculator.html">Payment Calculator</a></li>
+          <li><a href="/business-financing-glossary/">Financing Glossary</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/referral.html">Referral Program</a></li>
+          <li><a href="/vendors.html">For Vendors</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms-and-conditions.html">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Axiant Partners LLC. All rights reserved.</span>
+      <span>Axiant Partners is a financing brokerage, not a lender. All financing subject to lender approval.</span>
+    </div>
+  </div>
+</footer>
+<!-- AXIANT-FOOTER:END -->
+
+<script src="/article-toc.js?v=202609011423" defer></script>
+<script src="/language-switcher.js?v=202609011423" defer></script>
+<script src="/script.js?v=202609011423" defer></script>
 </body>
 </html>

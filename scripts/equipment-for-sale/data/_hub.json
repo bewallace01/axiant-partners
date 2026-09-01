@@ -1,0 +1,190 @@
+{
+  "_seo_note": "meta + JSON-LD preserved VERBATIM in _hub.meta.html / _hub.schema.html. Card photos, dealer badges and model counts are DERIVED from the 16 category data files, so adding a category updates the hub automatically.",
+  "meta_file": "_hub.meta.html",
+  "schema_file": "_hub.schema.html",
+  "hero": {
+    "eyebrow": "Axiant Partners &middot; Equipment",
+    "h1": "Financing-ready equipment for sale",
+    "intro_html": "Equipment from our partners across <b>restaurant &amp; foodservice</b>, <b>concrete &amp; construction</b>, <b>oil &amp; gas</b>, and <b>scrap, recycling &amp; forestry</b> &mdash; every listing backed by fast Axiant financing. Pick your industry, choose your equipment, and get pre-approved in about 24 hours. New and used, startups welcome.",
+    "stats": [
+      "<b>24-hour</b> approvals",
+      "<b>New &amp; used</b> equipment",
+      "<b>Startups</b> welcome",
+      "<b>Flexible</b> terms"
+    ]
+  },
+  "chips_label": "Browse by industry",
+  "groups": [
+    {
+      "anchor": "concrete",
+      "eyebrow": "Concrete &amp; Construction",
+      "heading": "Batch plants, mixers, silos &amp; tumblers",
+      "chip": "Concrete &amp; Construction",
+      "items": [
+        {
+          "slug": "wet-batch-plants",
+          "series": "Mix Right &middot; EZ Series",
+          "name": "Wet Batch Plants",
+          "tag": "On-demand concrete, every time.",
+          "count": "7 models"
+        },
+        {
+          "slug": "dry-batch-plants",
+          "series": "Mix Right &middot; 2CL Series",
+          "name": "Dry Batch Plants",
+          "tag": "Precision mixing, wherever you work.",
+          "count": "9 models"
+        },
+        {
+          "slug": "portable-concrete-mixers",
+          "series": "Mix Right &middot; 2DH Series",
+          "name": "Portable Concrete Mixers",
+          "tag": "Mix anywhere. No short-load fees.",
+          "count": "4 models"
+        },
+        {
+          "slug": "cement-silos",
+          "series": "Mix Right &middot; 7SL Series",
+          "name": "Portable Cement Silos",
+          "tag": "Secure storage that goes anywhere.",
+          "count": "5 models"
+        },
+        {
+          "slug": "rock-tumblers",
+          "series": "Mix Right &middot; Accessories",
+          "name": "Industrial Rock Tumblers",
+          "tag": "On-site material processing.",
+          "count": "5 models"
+        }
+      ]
+    },
+    {
+      "anchor": "restaurant",
+      "eyebrow": "Restaurant &amp; Foodservice",
+      "heading": "Commercial kitchen &amp; refrigeration",
+      "chip": "Restaurant &amp; Foodservice",
+      "items": [
+        {
+          "slug": "combi-ovens",
+          "series": "Vulcan &middot; Alto-Shaam",
+          "name": "Combi Ovens",
+          "tag": "Oven, steamer &amp; proof in one cabinet.",
+          "count": "7 models"
+        },
+        {
+          "slug": "walk-in-coolers",
+          "series": "Nor-Lake &middot; American Panel",
+          "name": "Walk-In Coolers &amp; Freezers",
+          "tag": "Cold storage that scales with you.",
+          "count": "7 models"
+        },
+        {
+          "slug": "commercial-dishwashers",
+          "series": "Hobart Conveyor",
+          "name": "Commercial Dishwashers",
+          "tag": "High-volume warewashing, less labor.",
+          "count": "4 models"
+        }
+      ]
+    },
+    {
+      "anchor": "oil-gas",
+      "eyebrow": "Oil &amp; Gas / Oilfield",
+      "heading": "Workover, well-service &amp; drilling rigs",
+      "chip": "Oil &amp; Gas",
+      "items": [
+        {
+          "slug": "workover-rigs",
+          "series": "Service King &middot; SK Series",
+          "name": "Workover &amp; Well Service Rigs",
+          "tag": "Well intervention, completion &amp; remedial work.",
+          "count": "8 models"
+        },
+        {
+          "slug": "drilling-rigs",
+          "series": "Service King &middot; SK Series",
+          "name": "Drilling Rigs",
+          "tag": "Truck &amp; trailer rigs rated to 12,000 ft.",
+          "count": "3 models"
+        }
+      ]
+    },
+    {
+      "anchor": "septic",
+      "eyebrow": "Septic &amp; Sanitation",
+      "heading": "Vacuum, septic &amp; portable restroom trucks",
+      "chip": "Septic &amp; Sanitation",
+      "items": [
+        {
+          "slug": "vacuum-trucks",
+          "series": "Viking Truck &middot; Septic &amp; Vacuum",
+          "name": "Vacuum &amp; Septic Trucks",
+          "tag": "Pump &amp; haul rigs, 1,500&ndash;6,000 gallon.",
+          "count": "3 types"
+        }
+      ]
+    },
+    {
+      "anchor": "scrap-forestry",
+      "eyebrow": "Scrap, Recycling &amp; Forestry",
+      "heading": "Material handlers, tree care handlers, loaders &amp; chippers",
+      "chip": "Scrap, Recycling &amp; Forestry",
+      "items": [
+        {
+          "slug": "material-handlers",
+          "series": "SENNEBOGEN &middot; E &amp; G Series",
+          "name": "Material Handlers",
+          "tag": "Scrap, recycling, waste &amp; timber handling.",
+          "count": "15 models"
+        },
+        {
+          "slug": "electric-material-handlers",
+          "series": "SENNEBOGEN &middot; eGreen",
+          "name": "Electric Material Handlers",
+          "tag": "Cable, battery &amp; dual-power. No fuel, no engine service.",
+          "count": "4 power options"
+        },
+        {
+          "slug": "tree-care-handlers",
+          "series": "SENNEBOGEN &middot; 718 / 728 / 738",
+          "name": "Tree Care Handlers",
+          "tag": "Fell and remove trees upright &mdash; no climber, no dropped wood.",
+          "count": "3 models"
+        },
+        {
+          "slug": "telescopic-wheel-loaders",
+          "series": "SENNEBOGEN &middot; 340 G / 360 G",
+          "name": "Telescopic Wheel Loaders",
+          "tag": "Telehandler reach, wheel-loader strength.",
+          "count": "2 models"
+        },
+        {
+          "slug": "wood-chippers",
+          "series": "Albach &middot; Diamant 2000",
+          "name": "Whole-Tree Wood Chippers",
+          "tag": "Self-propelled, self-feeding whole-tree chipping.",
+          "count": "1 model"
+        }
+      ]
+    }
+  ],
+  "band": {
+    "title": "Financing is the part we handle",
+    "body": "Pick the equipment, and let Axiant arrange the financing &mdash; new or used, approvals in as little as 24 hours. Your cash stays in the business while the machine goes to work.",
+    "proofs": [
+      "24-hour approvals",
+      "New &amp; used equipment",
+      "Startups welcome",
+      "Terms structured to the equipment"
+    ],
+    "cta": {
+      "label": "Get pre-approved &rarr;",
+      "href": "/match.html?type=equipment"
+    },
+    "phone": {
+      "label": "Call (561) 268-0465",
+      "href": "tel:+15612680465"
+    }
+  },
+  "fine": "Axiant Partners is an independent financing partner. Equipment is sold by the manufacturer or dealer; their contact and pricing are on each listing. Financing is subject to credit approval."
+}

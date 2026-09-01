@@ -1,0 +1,165 @@
+{
+  "slug": "rock-tumblers",
+  "breadcrumb_label": "Industrial Rock Tumblers",
+  "_seo_note": "meta / schema / prose are preserved VERBATIM in the _*.html sidecars. This is a re-layout -- do not rewrite them here.",
+  "meta_file": "_rock-tumblers.meta.html",
+  "schema_file": "_rock-tumblers.schema.html",
+  "seo_sections_file": "_rock-tumblers.seo.html",
+  "dealer": {
+    "name": "Right Manufacturing Systems, Inc. (Mix Right)",
+    "logo": "/assets/equipment/mixright/logo.jpg",
+    "logo_w": 158,
+    "logo_h": 52,
+    "blurb": "Manufacturer &middot; concrete batching, mixing &amp; storage equipment &middot; Made in the USA",
+    "phone": "&#9742; (801) 796-9641",
+    "phone_href": "tel:8017969641",
+    "website": "",
+    "website_href": "",
+    "inventory_url": "",
+    "disclosure": "Equipment is manufactured and sold by Right Manufacturing Systems, Inc. (Mix Right). Axiant Partners is an independent financing partner and arranges equipment financing; pricing and full specifications are provided by the manufacturer. Financing is subject to credit approval."
+  },
+  "hero": {
+    "eyebrow": "Mix Right &middot; Accessories",
+    "h1": "Industrial Rock Tumblers",
+    "intro_html": "High-capacity portable rotary rock tumblers and processing accessories that deploy in minutes on remote sites — plus conveyors and a thin-stone saw to round out the line.",
+    "intro_link": {
+      "href": "/equipment-financing.html",
+      "label": "How financing works &rarr;"
+    },
+    "image": "/assets/equipment/mixright/rock-tumblers.jpg",
+    "image_alt": "Mix Right Industrial Rock Tumblers",
+    "image_caption": "Right Manufacturing Systems, Inc. (Mix Right) &mdash; Industrial Rock Tumblers"
+  },
+  "finance_card": {
+    "eyebrow": "Finance with Axiant",
+    "title": "Finance any Industrial Rock Tumbler",
+    "body": "Choose your model, and finance it through Axiant &mdash; spread the cost and keep your cash working.",
+    "cta": {
+      "label": "Get pre-approved &mdash; 24hr financing",
+      "href": "/match.html"
+    },
+    "cta2": {
+      "label": "Request a quote from Mix Right &#8599;",
+      "href": "https://www.mixright.com/contact"
+    },
+    "checks": [
+      "Approvals in as little as 24 hours",
+      "New &amp; used equipment financed",
+      "Terms up to 60&ndash;72 months",
+      "Startups &amp; established businesses"
+    ],
+    "estimator": {
+      "equip": "Industrial%20Rock%20Tumblers"
+    }
+  },
+  "models_section": {
+    "heading": "Industrial Rock Tumblers models",
+    "subhead": "All financeable through Axiant. Live inventory &amp; pricing on Right Manufacturing Systems, Inc. (Mix Right).",
+    "view_all": {
+      "label": "View the full Industrial Rock Tumblers line on Mix Right &#8599;",
+      "href": "https://www.mixright.com/industrial-rock-tumblers"
+    },
+    "table_heading": "Full lineup &amp; specs"
+  },
+  "models": [
+    {
+      "name": "3DH",
+      "capacity": "8,000 lb capacity",
+      "chips": [
+        "Rotary rock tumbler · job-ready within 10 minutes"
+      ],
+      "spec": "Rotary rock tumbler · job-ready within 10 minutes",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/3dh-rock-tumbler"
+    },
+    {
+      "name": "4DH",
+      "capacity": "14,000 lb capacity",
+      "chips": [
+        "Rotary rock tumbler · deployable in 10 minutes"
+      ],
+      "spec": "Rotary rock tumbler · deployable in 10 minutes",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/4dh-rotary-rock-tumbler"
+    },
+    {
+      "name": "5VE",
+      "capacity": "Vibratory system",
+      "chips": [
+        "For thin tiles and pavers — stone, clay, veneer, porcelain, concrete"
+      ],
+      "spec": "For thin tiles and pavers — stone, clay, veneer, porcelain, concrete",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/5ve-vibratory-tumbler"
+    },
+    {
+      "name": "F3 / F4 Conveyor",
+      "capacity": "Belted chain conveyor",
+      "chips": [
+        "Transfers heavy or bulky finished product"
+      ],
+      "spec": "Transfers heavy or bulky finished product",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/f3-f4-product-conveyor"
+    },
+    {
+      "name": "SC-40",
+      "capacity": "Thin-stone saw",
+      "chips": [
+        "Precision cutting for thin stone and veneer"
+      ],
+      "spec": "Precision cutting for thin stone and veneer",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": "https://www.mixright.com/sc-40-thin-stone-saw"
+    }
+  ],
+  "related": [
+    {
+      "href": "/equipment-for-sale/wet-batch-plants/",
+      "image": "/assets/equipment/mixright/wet-batch-plants.jpg",
+      "alt": "Wet Batch Plants",
+      "name": "Wet Batch Plants"
+    },
+    {
+      "href": "/equipment-for-sale/dry-batch-plants/",
+      "image": "/assets/equipment/mixright/dry-batch-plants.jpg",
+      "alt": "Dry Batch Plants",
+      "name": "Dry Batch Plants"
+    },
+    {
+      "href": "/equipment-for-sale/portable-concrete-mixers/",
+      "image": "/assets/equipment/mixright/portable-concrete-mixers.jpg",
+      "alt": "Portable Concrete Mixers",
+      "name": "Portable Concrete Mixers"
+    },
+    {
+      "href": "/equipment-for-sale/cement-silos/",
+      "image": "/assets/equipment/mixright/cement-silos.jpg",
+      "alt": "Portable Cement Silos",
+      "name": "Portable Cement Silos"
+    }
+  ],
+  "related_heading": "Industrial Rock Tumblers models</h2><table class=\"mx-modtbl\"><thead><tr><th>Model</th><th>Capacity</th><th>Configuration</th><th style=\"text-align:right\">Specs</th></tr></thead><tbody><tr><td class=\"mdl\">3DH</td><td class=\"cap\">8,000 lb capacity</td><td>Rotary rock tumbler · job-ready within 10 minutes</td><td class=\"lk\"><a href=\"https://www.mixright.com/3dh-rock-tumbler\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">4DH</td><td class=\"cap\">14,000 lb capacity</td><td>Rotary rock tumbler · deployable in 10 minutes</td><td class=\"lk\"><a href=\"https://www.mixright.com/4dh-rotary-rock-tumbler\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">5VE</td><td class=\"cap\">Vibratory system</td><td>For thin tiles and pavers — stone, clay, veneer, porcelain, concrete</td><td class=\"lk\"><a href=\"https://www.mixright.com/5ve-vibratory-tumbler\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">F3 / F4 Conveyor</td><td class=\"cap\">Belted chain conveyor</td><td>Transfers heavy or bulky finished product</td><td class=\"lk\"><a href=\"https://www.mixright.com/f3-f4-product-conveyor\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr><tr><td class=\"mdl\">SC-40</td><td class=\"cap\">Thin-stone saw</td><td>Precision cutting for thin stone and veneer</td><td class=\"lk\"><a href=\"https://www.mixright.com/sc-40-thin-stone-saw\" target=\"_blank\" rel=\"noopener\">View &#8599;</a></td></tr></tbody></table><a class=\"mx-catlink\" href=\"https://www.mixright.com/industrial-rock-tumblers\" target=\"_blank\" rel=\"noopener\">View the full Industrial Rock Tumblers line on Mix Right &#8599;</a><div class=\"mx-fine\">Equipment is manufactured and sold by Right Manufacturing Systems, Inc. (Mix Right). Axiant Partners is an independent financing partner and arranges equipment financing; pricing and full specifications are provided by the manufacturer. Financing is subject to credit approval.</div></section><section style=\"padding-top:8px\"><h2 class=\"mx-sec-h serif\" style=\"font-size:1.3rem\">More Mix Right equipment",
+  "band": {
+    "title": "Finance any Industrial Rock Tumbler",
+    "body": "Choose your model, and finance it through Axiant &mdash; spread the cost and keep your cash working.",
+    "proofs": [
+      "24-hour approvals",
+      "New &amp; used",
+      "Asset-based &mdash; the equipment carries the deal"
+    ],
+    "cta": {
+      "label": "Get pre-approved &rarr;",
+      "href": "/match.html?type=equipment&amp;equipment=Industrial%20Rock%20Tumblers"
+    },
+    "phone": {
+      "label": "Call (561) 268-0465",
+      "href": "tel:+15612680465"
+    }
+  }
+}

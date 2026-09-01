@@ -1,0 +1,142 @@
+{
+  "slug": "commercial-dishwashers",
+  "breadcrumb_label": "Commercial Dishwashers",
+  "_seo_note": "meta / schema / prose are preserved VERBATIM in the _*.html sidecars. This is a re-layout -- do not rewrite them here.",
+  "meta_file": "_commercial-dishwashers.meta.html",
+  "schema_file": "_commercial-dishwashers.schema.html",
+  "seo_sections_file": "_commercial-dishwashers.seo.html",
+  "dealer": {
+    "name": "Restaurant Equipment World",
+    "logo": "/assets/equipment/rew/logo.jpg",
+    "logo_w": 158,
+    "logo_h": 52,
+    "blurb": "Dealer &middot; commercial kitchen, refrigeration &amp; warewashing equipment &middot; nationwide shipping",
+    "phone": "&#9742; (800) 821-9153",
+    "phone_href": "tel:8008219153",
+    "website": "&#9993; Request a quote",
+    "website_href": "https://www.rewonline.com/contact-us.html",
+    "inventory_url": "https://www.rewonline.com/contact-us.html",
+    "disclosure": "Equipment is sold by Restaurant Equipment World and the respective manufacturers. Axiant Partners is an independent financing partner and arranges equipment financing; pricing and full specifications are provided by the dealer/manufacturer. Financing is subject to credit approval."
+  },
+  "hero": {
+    "eyebrow": "Restaurant Equipment World &middot; Hobart Conveyor",
+    "h1": "Commercial Dishwashers",
+    "intro_html": "Conveyor and rack-conveyor warewashers built for high-volume kitchens &mdash; racks feed in one end and come out clean and sanitized, cutting labor at the dish pit. Two-tank electric machines with power prewash and build-up options to match your throughput.",
+    "intro_link": {
+      "href": "/equipment-financing.html",
+      "label": "How financing works &rarr;"
+    },
+    "image": "/assets/equipment/rew/commercial-dishwashers.jpg",
+    "image_alt": "Commercial Dishwashers at Restaurant Equipment World",
+    "image_caption": "Restaurant Equipment World &mdash; Commercial Dishwashers"
+  },
+  "finance_card": {
+    "eyebrow": "Finance with Axiant",
+    "title": "Finance any commercial dishwasher",
+    "body": "Pick your model, and finance it through Axiant &mdash; spread the cost over time and keep your cash working in the business.",
+    "cta": {
+      "label": "Get pre-approved &mdash; 24hr financing",
+      "href": "/match.html?type=equipment&amp;equipment=Commercial%20Dishwashers"
+    },
+    "cta2": {
+      "label": "Request pricing from REW &#8599;",
+      "href": "https://www.rewonline.com/contact-us.html"
+    },
+    "checks": [
+      "Approvals in as little as 24 hours",
+      "New &amp; used equipment financed",
+      "Terms up to 60&ndash;72 months",
+      "Startups &amp; established businesses"
+    ],
+    "estimator": {
+      "equip": "Commercial%20Dishwashers"
+    }
+  },
+  "models_section": {
+    "heading": "Commercial Dishwashers models",
+    "subhead": "All financeable through Axiant. Live inventory &amp; pricing on Restaurant Equipment World.",
+    "view_all": {
+      "label": "Browse the full Commercial Dishwashers line &amp; live pricing on REW &#8599;",
+      "href": "https://www.rewonline.com/category/2623/Conveyer-Dishwashers"
+    },
+    "table_heading": "Full lineup &amp; specs"
+  },
+  "models": [
+    {
+      "name": "Hobart CL44E",
+      "capacity": "44&quot; conveyor &middot; 2-tank",
+      "chips": [
+        "Electric rack-conveyor warewasher"
+      ],
+      "spec": "Electric rack-conveyor warewasher",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "Hobart CL54E",
+      "capacity": "54&quot; conveyor &middot; higher throughput",
+      "chips": [
+        "Build-up options for volume lines"
+      ],
+      "spec": "Build-up options for volume lines",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "Hobart CL64E",
+      "capacity": "64&quot; conveyor &middot; high volume",
+      "chips": [
+        "Extended conveyor warewasher"
+      ],
+      "spec": "Extended conveyor warewasher",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    },
+    {
+      "name": "Hobart CLPS86E",
+      "capacity": "86&quot; conveyor + power prewash",
+      "chips": [
+        "Top-capacity conveyor machine"
+      ],
+      "spec": "Top-capacity conveyor machine",
+      "image": null,
+      "image_alt": null,
+      "inventory_url": ""
+    }
+  ],
+  "related": [
+    {
+      "href": "/equipment-for-sale/combi-ovens/",
+      "image": "/assets/equipment/rew/combi-ovens.jpg",
+      "alt": "Combi Ovens",
+      "name": "Combi Ovens"
+    },
+    {
+      "href": "/equipment-for-sale/walk-in-coolers/",
+      "image": "/assets/equipment/rew/walk-in-coolers.jpg",
+      "alt": "Walk-In Coolers & Freezers",
+      "name": "Walk-In Coolers & Freezers"
+    }
+  ],
+  "related_heading": "Commercial Dishwashers models</h2><table class=\"mx-modtbl\"><thead><tr><th>Model</th><th>Type / Capacity</th><th>Configuration</th></tr></thead><tbody><tr><td class=\"mdl\">Hobart CL44E</td><td class=\"cap\">44&quot; conveyor &middot; 2-tank</td><td>Electric rack-conveyor warewasher</td></tr><tr><td class=\"mdl\">Hobart CL54E</td><td class=\"cap\">54&quot; conveyor &middot; higher throughput</td><td>Build-up options for volume lines</td></tr><tr><td class=\"mdl\">Hobart CL64E</td><td class=\"cap\">64&quot; conveyor &middot; high volume</td><td>Extended conveyor warewasher</td></tr><tr><td class=\"mdl\">Hobart CLPS86E</td><td class=\"cap\">86&quot; conveyor + power prewash</td><td>Top-capacity conveyor machine</td></tr></tbody></table><a class=\"mx-catlink\" href=\"https://www.rewonline.com/category/2623/Conveyer-Dishwashers\" target=\"_blank\" rel=\"noopener\">Browse the full Commercial Dishwashers line &amp; live pricing on REW &#8599;</a><div class=\"mx-fine\">Equipment is sold by Restaurant Equipment World and the respective manufacturers. Axiant Partners is an independent financing partner and arranges equipment financing; pricing and full specifications are provided by the dealer/manufacturer. Financing is subject to credit approval.</div></section><section style=\"padding-top:8px\"><h2 class=\"mx-sec-h serif\">Commercial Dishwashers financing &mdash; FAQ</h2><div class=\"rew-faq\"><details class=\"rew-fq\"><summary>How much does a commercial dishwasher cost?</summary><p>Undercounter and single-door machines are the most affordable, while high-volume rack-conveyor and flight-type warewashers are among the larger kitchen equipment investments and are typically quoted per configuration. Because conveyor machines carry a higher ticket, many operators finance them rather than pay cash.</p></details><details class=\"rew-fq\"><summary>Can I finance a commercial dishwasher through Axiant?</summary><p>Yes. Axiant arranges financing on new and used commercial dishwashers with terms up to 60 to 72 months and approvals in as little as 24 hours, subject to credit approval.</p></details><details class=\"rew-fq\"><summary>Conveyor or door-type — which do I need?</summary><p>Door and undercounter machines suit lower-volume kitchens, while rack-conveyor machines like the Hobart CL series handle high-throughput dish pits with far less labor. Both are financeable; choose by your covers per hour and we finance the quoted unit.</p></details><details class=\"rew-fq\"><summary>Does financing cover installation?</summary><p>Financing is arranged on the equipment price quoted by the dealer. Tell us about your full project and we will advise on what can be included, subject to approval.</p></details></div></section><section style=\"padding-top:8px\"><h2 class=\"mx-sec-h serif\" style=\"font-size:1.3rem\">More commercial kitchen equipment",
+  "band": {
+    "title": "Finance any commercial dishwasher",
+    "body": "Pick your model, and finance it through Axiant &mdash; spread the cost over time and keep your cash working in the business.",
+    "proofs": [
+      "24-hour approvals",
+      "New &amp; used",
+      "Asset-based &mdash; the equipment carries the deal"
+    ],
+    "cta": {
+      "label": "Get pre-approved &rarr;",
+      "href": "/match.html?type=equipment&amp;equipment=Commercial%20Dishwashers"
+    },
+    "phone": {
+      "label": "Call (561) 268-0465",
+      "href": "tel:+15612680465"
+    }
+  }
+}
