@@ -1,393 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="theme-color" content="#0d1f3c">
-<style>
-  body { opacity: 0; }
-</style>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.body.style.opacity = '1';
-    document.body.style.transition = 'opacity 0.2s ease';
-  });
-</script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZNSHH6NN0"></script>
-    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-HZNSHH6NN0');
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HZNSHH6NN0"></script>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-HZNSHH6NN0');
       gtag('config', 'AW-18021105450');</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Revenue-based financing for D2C brands: seasonality, ad spend, returns, and inventory cycles—and how funders underwrite CAC-heavy ecommerce cash flow.">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <meta name="author" content="Axiant Partners">
-    <link rel="canonical" href="https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-d2c-brands/">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:title" content="RBF for D2C Brands | Axiant Partners">
-    <meta property="og:description" content="RBF fit for direct-to-consumer—metrics lenders watch beyond top-line revenue.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-d2c-brands/">
-    <meta property="og:image" content="https://axiantpartners.com/assets/rbf-hero.webp">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Revenue-based financing for D2C brands">
-    <meta property="og:site_name" content="Axiant Partners">
-    <meta property="article:section" content="Revenue-Based Financing">
-    <meta property="article:published_time" content="2026-03-13">
-    <meta property="article:modified_time" content="2026-04-08">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image:alt" content="Revenue-based financing for D2C brands">
-    <meta name="twitter:title" content="RBF for D2C Brands | Axiant Partners">
-    <meta name="twitter:description" content="Revenue-based financing for D2C and ecommerce brands.">
-    <title>Revenue-Based Financing for D2C Brands | Axiant Partners</title>
-    <link rel="icon" type="image/webp" sizes="48x48" href="/favicon.webp"><link rel="icon" type="image/png" sizes="48x48" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
-    <style id="mobile-critical">
-/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
-:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
-[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
-*{margin:0;padding:0;box-sizing:border-box}
-html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
-body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
-body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
-.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
-.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
-.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
-.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
-.nav-brand span{display:none !important}
-.nav-logo-dark{display:none !important}
-html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
-html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
-.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
-.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
-.hero-grid{min-height:280px}
-header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
-.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
-.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
-.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
-.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
-.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
-.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
-.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
-.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
-.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
-.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
-</style>
-<link rel="stylesheet" href="../../../critical.css?v=2026032199">
-<link rel="stylesheet" href="/blog-layout.css?v=2026033014">
-<link rel="stylesheet" href="/article-rail.css?v=2026040801">
-    <style id="mobile-critical">
-/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
-:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
-[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
-*{margin:0;padding:0;box-sizing:border-box}
-html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
-body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
-body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
-.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
-.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
-.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
-.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
-.nav-brand span{display:none !important}
-.nav-logo-dark{display:none !important}
-html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
-html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
-.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
-.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
-.hero-grid{min-height:280px}
-header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
-.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
-.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
-.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
-.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
-.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
-.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
-.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
-.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
-.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
-.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
-</style>
-<link rel="stylesheet" href="../../../styles.css?v=202606221" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/article-layout.css">
-    <noscript><style id="mobile-critical">
-/* Mobile critical CSS - above-the-fold only, inline for zero network requests */
-:root{--bg-primary:linear-gradient(180deg,#f0f4f8 0,#e8f0f6 50%,#f5f8fb 100%);--bg-secondary:linear-gradient(180deg,#fff 0,#f8fafc 100%);--bg-nav:linear-gradient(180deg,rgba(255,255,255,0.98) 0,rgba(248,250,252,0.98) 100%);--bg-card:linear-gradient(180deg,#fff 0,#f0f4f8 100%);--text-primary:#1a1a1a;--text-secondary:#4a4a4a;--text-tertiary:#666;--border-color:rgba(45,127,184,0.2);--accent-color:#2d7fb8;--accent-dark:#1e3a5f;--shadow-color:rgba(30,58,95,0.15);--nav-shadow:rgba(30,58,95,0.1);--header-overlay:linear-gradient(135deg,rgba(30,58,95,0.85) 0,rgba(45,127,184,0.85) 100%);--pattern-opacity:.12}
-[data-theme="dark"]{--bg-primary:linear-gradient(180deg,#0f172a 0,#1e293b 50%,#0f172a 100%);--bg-secondary:linear-gradient(180deg,#1e293b 0,#334155 100%);--bg-nav:linear-gradient(180deg,rgba(30,41,59,0.98) 0,rgba(15,23,42,0.98) 100%);--bg-card:linear-gradient(180deg,#1e293b 0,#0f172a 100%);--text-primary:#f1f5f9;--text-secondary:#cbd5e1;--text-tertiary:#94a3b8;--border-color:rgba(45,127,184,0.3);--accent-color:#60a5fa;--accent-dark:#3b82f6;--shadow-color:rgba(0,0,0,0.5);--nav-shadow:rgba(0,0,0,0.3);--header-overlay:linear-gradient(135deg,rgba(15,23,42,0.9) 0,rgba(30,41,59,0.9) 100%);--pattern-opacity:.15}
-*{margin:0;padding:0;box-sizing:border-box}
-html{margin:0;padding:0;overflow-x:hidden;font-size:14px;text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:100%;width:100%}
-body{margin:0;padding:0;max-width:100%;overflow-x:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg-primary);min-height:100vh;line-height:1.6;color:var(--text-primary);font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;position:relative;width:100%}
-body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 20% 50%,rgba(45,127,184,var(--pattern-opacity)) 0,transparent 50%),radial-gradient(circle at 80% 80%,rgba(30,58,95,var(--pattern-opacity)) 0,transparent 50%);pointer-events:none;z-index:0}
-.container{width:100%;max-width:100%;margin:0;padding:0;position:relative;z-index:1;min-width:0}
-.main-nav{background:var(--bg-nav);border-bottom:1px solid var(--border-color);padding:12px 16px;position:sticky;top:0;z-index:1000;width:100%;max-width:100%;display:flex;justify-content:space-between;align-items:center;min-width:0;box-sizing:border-box}
-.nav-brand{display:flex;align-items:center;gap:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--text-primary)}
-.nav-logo,.nav-logo-light,.nav-logo-dark{height:64px;width:auto;max-height:64px;object-fit:contain;object-position:left center}
-.nav-brand span{display:none !important}
-.nav-logo-dark{display:none !important}
-html[data-theme="dark"] .main-nav .nav-logo-light{display:none !important;visibility:hidden !important;position:absolute !important;width:0 !important;height:0 !important;overflow:hidden !important}
-html[data-theme="dark"] .main-nav .nav-logo-dark{display:block !important;visibility:visible !important}
-.mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-width:48px;min-height:48px;padding:12px;border:0;background:0;cursor:pointer;color:var(--text-primary);-webkit-tap-highlight-color:transparent}
-.mobile-menu-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:1px}
-.hero-grid{min-height:280px}
-header{background:var(--header-overlay) center/cover no-repeat;text-align:center;color:#fff;padding:60px 20px 50px;margin:0;position:relative;overflow:hidden}
-.match-hero-wrap,.calculator-hero-wrap,.contact-hero-wrap,.referral-hero-wrap{position:relative;overflow-x:visible;overflow-y:visible;width:100%;min-width:0}
-.btn-primary,.btn-secondary{min-height:48px;padding:12px 20px;font-weight:600;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:2px solid;transition:all .2s ease}
-.btn-primary{background:linear-gradient(135deg,var(--accent-color) 0,var(--accent-dark) 100%);color:#fff !important;border-color:transparent}
-.btn-secondary{background:var(--bg-card);color:var(--accent-color) !important;border-color:var(--accent-color)}
-.mobile-nav-overlay,#mobileNavOverlay{position:fixed;inset:0;z-index:9999;background:#0d1f3c;display:none;flex-direction:column;align-items:stretch;padding:1rem 1rem 1rem 1.5rem;overflow-x:hidden;overflow-y:auto;width:100%;max-width:100%;box-sizing:border-box}
-.mobile-nav-overlay.open,#mobileNavOverlay.open{display:flex!important}
-.mobile-nav-overlay .nav-top,#mobileNavOverlay .nav-top{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:1rem;min-width:0}
-.mobile-nav-overlay .nav-close,#mobileNavOverlay .nav-close{background:0;border:0;color:rgba(255,255,255,.8);font-size:1.5rem;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
-.mobile-nav-overlay .mobile-overlay-links,#mobileNavOverlay .mobile-overlay-links{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;flex:0 1 auto!important;width:100%!important;min-width:0;padding-left:0;padding-top:0}
-.mobile-nav-overlay .mobile-overlay-links a,#mobileNavOverlay .mobile-overlay-links a{color:#fff!important;font-size:1.1rem!important;font-weight:600!important;text-align:left!important;padding:12px 0!important;display:block!important;width:100%!important;text-decoration:none!important;border-bottom:1px solid rgba(255,255,255,.15)!important;background:0!important}
-</style>
-<link rel="stylesheet" href="../../../styles.css?v=202606221"></noscript>
-    <script type="application/ld+json">
+<meta content="Revenue-based financing for D2C brands: seasonality, ad spend, returns, and inventory cycles—and how funders underwrite CAC-heavy ecommerce cash flow." name="description"/>
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link href="https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-d2c-brands/" rel="canonical"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="RBF for D2C Brands | Axiant Partners" property="og:title"/>
+<meta content="RBF fit for direct-to-consumer—metrics lenders watch beyond top-line revenue." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-d2c-brands/" property="og:url"/>
+<meta content="https://axiantpartners.com/assets/rbf-hero.webp" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Revenue-based financing for D2C brands" property="og:image:alt"/>
+<meta content="Axiant Partners" property="og:site_name"/>
+<meta content="Revenue-Based Financing" property="article:section"/>
+<meta content="2026-03-13" property="article:published_time"/>
+<meta content="2026-04-08" property="article:modified_time"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Revenue-based financing for D2C brands" name="twitter:image:alt"/>
+<meta content="RBF for D2C Brands | Axiant Partners" name="twitter:title"/>
+<meta content="Revenue-based financing for D2C and ecommerce brands." name="twitter:description"/>
+<title>Revenue-Based Financing for D2C Brands | Axiant Partners</title>
+
+<script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://axiantpartners.com/"},{"@type":"ListItem","position":2,"name":"Revenue-Based Financing","item":"https://axiantpartners.com/revenue-based-financing.html"},{"@type":"ListItem","position":3,"name":"Articles","item":"https://axiantpartners.com/revenue-based-financing/articles/"},{"@type":"ListItem","position":4,"name":"Revenue-Based Financing for D2C Brands","item":"https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-d2c-brands/"}]}
     </script>
-    <script type="application/ld+json">
+<script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Article","headline":"Revenue-Based Financing for D2C Brands","description":"Growth capital for D2C brands. Inventory, marketing, scaling. Repayment tied to sales.","image":{"@type":"ImageObject","url":"https://axiantpartners.com/assets/rbf-hero.webp","width":1200,"height":630},"url":"https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-d2c-brands/","datePublished":"2026-03-13","dateModified":"2026-04-08","author":{"@type":"Organization","name":"Axiant Partners","url":"https://axiantpartners.com"},"publisher":{"@id":"https://axiantpartners.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-d2c-brands/"},"articleSection":"Revenue-Based Financing","keywords":"RBF D2C, revenue-based financing ecommerce, D2C growth capital, ecommerce financing"}
     </script>
-    <script type="application/ld+json">
+<script type="application/ld+json">
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can D2C brands get revenue-based financing?","acceptedAnswer":{"@type":"Answer","text":"Yes. RBF is well-suited for D2C e-commerce. Lenders evaluate monthly revenue, growth trend, gross margin, and sales channels. Repayment is tied to revenue, which aligns with D2C sales cycles. Many RBF lenders work with Shopify, Amazon, and multi-channel brands."}},{"@type":"Question","name":"RBF vs MCA for D2C?","acceptedAnswer":{"@type":"Answer","text":"RBF typically has clearer terms and may offer better structures. MCA often uses daily or weekly percentage of sales with higher effective costs. Both tie repayment to revenue. RBF is often preferred by growth-oriented D2C brands. See RBF vs MCA for a full comparison."}},{"@type":"Question","name":"What revenue do D2C brands need for RBF?","acceptedAnswer":{"@type":"Answer","text":"Requirements vary. Many RBF lenders look for $20K-$50K+ in monthly revenue. Strong growth, healthy margins, and diversified channels support approval. Early-stage brands may find some lenders; others focus on $100K+ monthly."}},{"@type":"Question","name":"How is RBF used for D2C?","acceptedAnswer":{"@type":"Answer","text":"Common uses: inventory for peak season or new SKUs, paid acquisition (Meta, Google), influencer marketing, packaging and fulfillment, and expansion into new channels or categories."}},{"@type":"Question","name":"RBF for seasonal D2C?","acceptedAnswer":{"@type":"Answer","text":"RBF can work for seasonal brands. Repayment flexes with revenue: high during peak, lower in off-season. Plan for the full cycle. Some lenders may adjust advance or terms for highly seasonal businesses."}}]}
     </script>
-    <script type="application/ld+json">
+<script type="application/ld+json">
     {"@context":"https://schema.org","@type":"WebPage","@id":"https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-d2c-brands/#webpage","url":"https://axiantpartners.com/revenue-based-financing/articles/revenue-based-financing-d2c-brands/","name":"Revenue-Based Financing for D2C Brands","speakable":{"@type":"SpeakableSpecification","cssSelector":[".quick-answer"]}}
     </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/axiant-v2.css?v=202609011938">
 </head>
 <body>
-    <div class="mobile-nav-overlay" id="mobileNavOverlay">
-    <div class="nav-top">
-        <picture><source srcset="/Axiant_light_logo.webp" type="image/webp"><img width="1177" height="350" src="/Axiant_light_logo.png" alt="Axiant Partners" style="height: 40px;"></picture>
-        <button class="nav-close" id="mobileNavClose" aria-label="Close menu">&#215;</button>
+<!-- AXIANT-HEADER:START — generated from _components/header-v2.html.
+     Do NOT edit inside these markers on a page. Edit the component, then run:
+       python scripts/sync-header-v2.py
+     That rewrites the block on every *-v2.html file. -->
+<div class="utility">
+  <div class="container">
+    <div class="utility-facts">
+      <span><span class="dot"></span> Serving all 50 states</span>
+      <span class="utility-sep" aria-hidden="true"></span>
+      <span><span class="dot"></span> Free to apply &middot; no hard credit pull</span>
+      <span class="utility-sep" aria-hidden="true"></span>
+      <span class="u-keep">Speak with a specialist: <a href="tel:+15612680465">(561)&nbsp;268-0465</a></span>
+      <span class="utility-sep" aria-hidden="true"></span>
+      <span><a href="/contact.html">Contact</a></span>
     </div>
-    <nav class="mobile-overlay-links" id="mobileOverlayNavLinks">
-        <!-- Links copied from main nav by JS -->
+  </div>
+</div>
+
+<header class="header">
+  <div class="header-bar">
+    <a class="brand" href="/" aria-label="Axiant Partners home">
+      <img src="/logo-horizontal-transparent.webp" alt="Axiant Partners" width="228" height="50">
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/services.html">Programs</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/equipment-for-sale/">Equipment</a>
+      <a href="/calculator.html">Calculators</a>
+      <a href="/referral.html">Referral</a>
+      <a class="btn btn-primary" href="/match.html">Find My Match</a>
     </nav>
-</div>
-<div class="container">
-        <nav class="main-nav">
-            <div class="nav-brand"><a href="/"><picture><source srcset="../../../logo-horizontal-transparent.webp" type="image/webp"><img src="../../../logo-horizontal-transparent.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-light" width="180" height="74"></picture><picture><source srcset="../../../Axiant_light_logo.webp" type="image/webp"><img src="../../../Axiant_light_logo.png" alt="Axiant Partners Logo" class="nav-logo nav-logo-dark" width="180" height="74"></picture></a><span>Axiant Partners</span></div>
-            <button class="mobile-menu-toggle" id="mobileNavToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-            <div class="nav-links">
-                <a href="/equipment-for-sale/">Equipment for Sale</a>
-                <a href="/match.html">Find Match</a>
-                <div class="nav-dropdown nav-dropdown-desktop"><button type="button" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Services</button><div class="nav-dropdown-menu"></div></div><a href="/services.html" class="nav-link-mobile">Services</a>
-                <a href="/industries.html" class="nav-industries-hub-link">Industries</a>
-                <a href="/calculator.html">Calculator</a>
-                <a href="/contact.html">Contact</a>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
-            </div>
-        </nav>
-        <header>
-            <h1>Revenue-Based Financing for D2C Brands</h1>
-            <p class="tagline">Growth capital for inventory, marketing, and scaling</p>
-        </header>
-        <div class="form-container blog-post-content article-page">    <div class="blog-post-shell">
-      <aside class="blog-post-rail-left article-rail article-rail--left"><div class="article-rail__inner">
-        <div class="article-rail__block">
-          <p class="blog-rail-back"><a href="../">&larr; Back to Revenue-Based Financing Articles</a> | <a href="/blog.html">All Articles</a></p>
-          <div class="blog-rail-meta-item"><span class="blog-rail-label">Updated</span> April 8, 2026</div>
-        </div>
-        <div class="article-rail__block">
-          <div class="blog-rail-quick-answer"><div class="blog-rail-quick-content"><h3>Quick Facts</h3><p>Revenue-based financing for D2C brands: seasonality, ad spend, returns, and inventory cycles—and how funders underwrite CAC-heavy ecommerce cash flow.</p></div></div>
-        </div>
-        <div class="article-rail__block article-rail__block--cta blog-rail-cta">
-          <h3>Ready to get funded?</h3>
-          <p>Get matched with lenders who fit your business.</p>
-          <a href="/match.html" class="btn-primary">Get Matched for Revenue-Based Financing</a>
-        </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
 
-        
-      </div></aside>
-      <main class="blog-post-main">
-<div class="quick-answer" style="background:var(--bg-card);border-left:4px solid var(--accent-color);padding:16px 18px;margin:0 0 28px;border-radius:10px;">
-  <strong style="display:block;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent-color);margin-bottom:6px;">Quick answer</strong>
-  <p style="margin:0;font-size:1rem;line-height:1.55;color:var(--text-primary);">Revenue-based financing for D2C brands: seasonality, ad spend, returns, and inventory cycles—and how funders underwrite CAC-heavy ecommerce cash flow. Yes. RBF is well-suited for D2C e-commerce. Lenders evaluate monthly revenue, growth trend, gross margin, and sales channels. Repayment is tied to revenue, which aligns with D2C sales cycles.</p>
-  <p style="margin:12px 0 0;font-size:0.92rem;color:var(--text-secondary);"><a href="/match.html" style="color:var(--accent-color);font-weight:600;">Get matched for Assets &rarr;</a></p>
-</div>
-
-<h2 id="why-rbf-fits-d2c">Why RBF Fits D2C</h2>
-            <p>D2C has revenue data from Shopify, Amazon, and other platforms. RBF lenders connect to these channels to verify revenue. Repayment is a percentage of monthly sales, which aligns with D2C cash flow. When sales spike (e.g., Q4), you repay faster; when they dip, payments decrease. See <a href="../what-is-revenue-based-financing-how-does-it-work/">what revenue-based financing is and how it works</a>.</p>
-            <figure class="article-lead-visual">
-              <picture>
-                <source srcset="/assets/rbf-ecommerce-800w.webp" type="image/webp">
-                <img src="/assets/rbf-ecommerce-800w.webp" alt="Revenue-based financing for D2C and ecommerce brands" width="800" height="450" loading="eager" decoding="async" fetchpriority="high">
-              </picture>
-            </figure>
-<h2 id="typical-rbf-terms-for-d2c">Typical RBF Terms for D2C</h2>
-            <p>Structure varies. Common elements:</p>
-            <ul>
-                <li><strong>Advance:</strong> Often 1&ndash;3x monthly revenue. A brand with $75K monthly might qualify for $75K&ndash;$225K.</li>
-                <li><strong>Repayment:</strong> 3&ndash;8% of monthly revenue until a cap is reached.</li>
-                <li><strong>Speed:</strong> Funding in 3&ndash;10 business days. See <a href="../how-fast-can-you-get-revenue-based-financing/">how fast you can get RBF</a>.</li>
-            </ul>
-<h2 id="rbf-vs-mca-for-d2c">RBF vs MCA for D2C</h2>
-            <p><a href="../revenue-based-financing-vs-merchant-cash-advance/">RBF vs MCA</a>: RBF typically has clearer terms and may offer better structures. MCA often uses daily or weekly percentage of sales. Both tie repayment to revenue. RBF is often preferred by growth-oriented D2C brands.</p>
-<h2 id="common-uses-for-d2c-rbf">Common Uses for D2C RBF</h2>
-            <ul>
-                <li>Inventory for peak season or new SKUs</li>
-                <li>Paid acquisition (Meta, Google, TikTok)</li>
-                <li>Influencer and affiliate marketing</li>
-                <li>Packaging, fulfillment, and operations</li>
-                <li>Expansion into new channels or categories</li>
-            </ul>
-<h2 id="qualification-revenue-and-channels">Qualification: Revenue and Channels</h2>
-            <p>Many RBF lenders look for $20K&ndash;$50K+ in monthly revenue. Strong growth, healthy margins, and diversified channels support approval. Lenders may integrate with Shopify, Amazon, or accounting software. See <a href="/revenue-based-financing.html">what lenders look for in RBF</a> and <a href="../how-much-can-you-qualify-for-revenue-based-financing/">how much you can qualify for</a>.</p>
-<h2 id="seasonal-considerations">Seasonal Considerations</h2>
-            <p>RBF can work for seasonal D2C. Repayment flexes with revenue. Plan for the full cycle: fund before peak, repay during peak. Some lenders may adjust for highly seasonal businesses. See <a href="/working-capital-loans/articles/working-capital-loan-seasonal-businesses/">working capital for seasonal businesses</a> for related options.</p>
-<h2 id="worked-example">Worked Example: Funding a Q4 Inventory Build</h2>
-            <p>A direct-to-consumer apparel brand does $120,000 a month through Shopify, climbing to $200,000 in November and December. To stock up for the holidays it needs to place a $150,000 inventory order with its overseas manufacturer in August &mdash; months before the revenue arrives. A bank term loan is too slow and too rigid for a seasonal, inventory-light balance sheet, and the founders do not want to give up equity for a one-time working-capital need.</p>
-            <p>Revenue-based financing fits because repayment flexes with sales: the brand draws capital against its proven Shopify and payment-processor revenue, places the order, and repays a fixed share of daily revenue. When December sales spike, more is repaid; in the slower January stretch, less is. The capital is sized to the revenue the platform can already verify, so the brand scales inventory without a personal-guarantee-heavy bank loan or a dilutive raise.</p>
-            <h2 id="d2c-qualification-detail">What D2C Underwriters Actually Look At</h2>
-            <p>For an e-commerce brand, the bank statement is only half the picture. Lenders increasingly read the platform data directly:</p>
-            <ul>
-                <li><strong>Processor and platform revenue</strong> &mdash; Shopify, Stripe, PayPal, and Amazon payouts, which show gross sales before the bank net.</li>
-                <li><strong>Refund and chargeback rate</strong> &mdash; high return rates shrink the "true" revenue an underwriter will lend against.</li>
-                <li><strong>Marketing efficiency</strong> &mdash; a stable blended ROAS signals that new capital deployed into ad spend should produce predictable revenue rather than burn.</li>
-                <li><strong>Revenue concentration</strong> &mdash; a brand reliant on a single SKU or a single channel (e.g., only Amazon) is read as higher risk than a diversified one.</li>
-            </ul>
-<h2 id="bottom-line">Bottom Line</h2>
-            <p>RBF is a strong fit for D2C brands with consistent revenue. It provides growth capital with repayment tied to sales. Prepare revenue data, channel metrics, and a clear use of funds. <a href="/match.html">Get matched</a> with RBF lenders for D2C, or explore <a href="/revenue-based-financing.html">revenue-based financing options</a>.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
-            <h3>Why does revenue-based financing fit D2C brands?</h3>
-            <p>Because D2C revenue runs through trackable channels like Shopify, Stripe, and Amazon with recurring, verifiable sales, which RBF underwrites directly &mdash; and repayment that flexes with revenue suits the swings of e-commerce.</p>
-            <h3>What can D2C brands use RBF for?</h3>
-            <p>Most commonly inventory builds and paid-marketing scale-ups, where the spend drives revenue that then repays the advance. Funding inventory and ads together ahead of a peak season is a classic use.</p>
-            <h3>Is RBF better than an MCA for a D2C brand?</h3>
-            <p>Usually. RBF typically uses monthly revenue with more transparent terms than a daily-remittance MCA, which fits recurring online revenue better and is often cheaper for the same need.</p>
-            <h3>What do D2C underwriters look at?</h3>
-            <p>Revenue volume and trend across your sales channels, gross margin, ad efficiency, returns and chargebacks, and seasonality. Clean, connected platform data is what unlocks the best offer.</p>
-<h2 id="faq">Frequently Asked Questions</h2>
-            <div class="article-faq">
-                <h3>Can D2C brands get revenue-based financing?</h3>
-                <p>Yes. RBF is well-suited for D2C e-commerce. Lenders evaluate monthly revenue, growth trend, gross margin, and sales channels. Repayment is tied to revenue, which aligns with D2C sales cycles. Many RBF lenders work with Shopify, Amazon, and multi-channel brands.</p>
-                <h3>RBF vs MCA for D2C?</h3>
-                <p>RBF typically has clearer terms and may offer better structures. MCA often uses daily or weekly percentage of sales with higher effective costs. Both tie repayment to revenue. RBF is often preferred by growth-oriented D2C brands. See RBF vs MCA for a full comparison.</p>
-                <h3>What revenue do D2C brands need for RBF?</h3>
-                <p>Requirements vary. Many RBF lenders look for $20K-$50K+ in monthly revenue. Strong growth, healthy margins, and diversified channels support approval. Early-stage brands may find some lenders; others focus on $100K+ monthly.</p>
-                <h3>How is RBF used for D2C?</h3>
-                <p>Common uses: inventory for peak season or new SKUs, paid acquisition (Meta, Google), influencer marketing, packaging and fulfillment, and expansion into new channels or categories.</p>
-                <h3>RBF for seasonal D2C?</h3>
-                <p>RBF can work for seasonal brands. Repayment flexes with revenue: high during peak, lower in off-season. Plan for the full cycle. Some lenders may adjust advance or terms for highly seasonal businesses.</p>
-            </div>
-
-<section class="related-resources" aria-label="Related resources">
-                <h2>Related Resources</h2>
-                <ul>
-                    <li><a href="../what-is-revenue-based-financing-how-does-it-work/">What Is Revenue-Based Financing and How Does It Work?</a></li>
-                    <li><a href="../revenue-based-financing-saas-companies/">Revenue-Based Financing for SaaS Companies</a></li>
-                    <li><a href="../revenue-based-financing-vs-merchant-cash-advance/">Revenue-Based Financing vs Merchant Cash Advance</a></li>
-                    <li><a href="../how-much-can-you-qualify-for-revenue-based-financing/">How Much Can You Qualify for with Revenue-Based Financing?</a></li>
-                                    <li><a href="/revenue-based-financing/articles/why-revenue-based-financing-advance-lower-than-needed/">Why Your Revenue-Based Financing Advance Is Lower Than You Needed</a></li>
-                </ul>
-<div class="services-cta">
-                <a href="/match.html" class="btn-primary">Get Matched for D2C RBF</a>
-            </div>
-      </section>
-</main>
-                  <aside class="blog-post-rail-right article-rail article-rail--right"><div class="article-rail__inner article-rail__inner--toc"><div class="blog-rail-toc">
-          <h3>On this page</h3>
-          <nav aria-label="On this page">
-            <ul class="blog-post-toc-list">
-              <li><a href="#why-rbf-fits-d2c">Why RBF Fits D2C</a></li>
-              <li><a href="#typical-rbf-terms-for-d2c">Typical RBF Terms for D2C</a></li>
-              <li><a href="#rbf-vs-mca-for-d2c">RBF vs MCA for D2C</a></li>
-              <li><a href="#common-uses-for-d2c-rbf">Common Uses for D2C RBF</a></li>
-              <li><a href="#qualification-revenue-and-channels">Qualification: Revenue and Channels</a></li>
-              <li><a href="#seasonal-considerations">Seasonal Considerations</a></li>
-              <li><a href="#bottom-line">Bottom Line</a></li>
-            </ul>
-          </nav>
-        </div></div></aside>
-    </div></div>
+<!-- The panel .nav-toggle opens. Below 1000px the desktop nav is display:none
+     and this is the only way to navigate, so it ships with the header rather
+     than being repeated per page. Styles: axiant-v2.css. Behaviour: axiant-v2.js. -->
+<div class="mobile-menu" id="mobileMenu" data-open="false" hidden>
+  <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="mobile-menu-head">
+      <img src="/logo-horizontal-transparent.webp" alt="Axiant Partners" width="164" height="36">
+      <button class="mobile-menu-close" id="navClose" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
     </div>
-    <footer class="site-footer">
-        <p>&copy; 2026 Axiant Partners. All rights reserved. | <a href="/privacy-policy.html">Privacy Policy</a> | <a href="/terms-and-conditions.html">Terms and Conditions</a> | <a href="/vendors.html">Vendors</a></p>
-    </footer>
-    <script src="../../../language-switcher.js?v=202607021" defer></script>
-    <script src="/script.js?v=2026032199" defer></script>
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/sw.js');
-    });
-  }
-</script>
-<script>
-  const prefetched = new Set();
-  function prefetchPage(url) {
-    if (prefetched.has(url)) return;
-    prefetched.add(url);
-    const link = document.createElement('link');
-    link.rel = 'prefetch';
-    link.href = url;
-    document.head.appendChild(link);
-  }
-  document.addEventListener('mouseover', function(e) {
-    const anchor = e.target.closest('a');
-    if (!anchor) return;
-    const href = anchor.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
-    prefetchPage(href);
-  });
-  document.addEventListener('touchstart', function(e) {
-    const anchor = e.target.closest('a');
-    if (!anchor) return;
-    const href = anchor.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
-    prefetchPage(href);
-  }, { passive: true });
-</script>
-<script>
-  document.addEventListener('click', function(e) {
-    const anchor = e.target.closest('a');
-    if (!anchor) return;
-    const href = anchor.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || anchor.target === '_blank') return;
-    e.preventDefault();
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.15s ease';
-    setTimeout(() => { window.location.href = href; }, 150);
-  });
-</script>
-<script>
-if(window.innerWidth<=768){var ls=document.querySelectorAll('.about-section,.testimonials-section,.global-bottom-cta,.site-footer-enhanced,.services-grid,.blog-grid,.steps-grid,.benefits-grid');var so=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='none';so.unobserve(entry.target);}});},{rootMargin:'100px'});ls.forEach(function(s){s.style.opacity='0';s.style.transition='opacity 0.3s ease';so.observe(s);});}
-</script>
-<div class="mobile-cta-bar"><a href="/match.html" class="mcta-primary">See If You Qualify</a><a href="tel:+15612680465" class="mcta-phone" aria-label="Call (561) 268-0465">&#9742;</a></div>
+    <nav aria-label="Mobile">
+      <a href="/services.html">Programs</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/equipment-for-sale/">Equipment</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/referral.html">Referral Program</a>
+    </nav>
+    <a class="btn btn-primary btn-lg" href="/match.html">Find My Match</a>
+    <p class="mobile-menu-call">Or call <a href="tel:+15612680465">(561)&nbsp;268-0465</a></p>
+  </div>
+</div>
+
+<!-- Bump ?v= whenever axiant-v2.js changes, or browsers serve the old file.
+     Same convention the rest of the site uses for styles.css / script.js. -->
+<script src="/axiant-v2.js?v=202609011938" defer></script>
+<!-- AXIANT-HEADER:END -->
+
+<section class="hero-compact">
+  <div class="container">
+    <div class="inner">
+      <p class="eyebrow">Guide</p>
+      <h1>Revenue-Based Financing for D2C Brands</h1>
+      <p class="lede">Growth capital for inventory, marketing, and scaling</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-tight">
+  <div class="container">
+    <div class="group" data-tone="blue">
+      <div class="prose">
+        Growth capital for inventory, marketing, and scaling
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section-alt section-tight">
+  <div class="container article-container">
+    <div class="article-grid">
+      <div class="article-body">
+        <div class="crumb-row">
+          <a class="crumb" href="../">← Back to Revenue-Based Financing Articles</a>
+          <a class="crumb" data-tone="bronze" href="/blog.html">All Articles</a>
+        </div>
+        <p class="dateline">Updated April 8, 2026</p>
+      <div class="callout" id="quick-answer">
+          <p class="eyebrow">Quick answer</p>
+        <div class="prose">
+          <p>Revenue-based financing for D2C brands: seasonality, ad spend, returns, and inventory cycles—and how funders underwrite CAC-heavy ecommerce cash flow. Yes. RBF is well-suited for D2C e-commerce. Lenders evaluate monthly revenue, growth trend, gross margin, and sales channels. Repayment is tied to revenue, which aligns with D2C sales cycles.</p>
+<p><a href="/match.html">Get matched for Assets →</a></p>
+        </div>
+      </div>
+        <h2 id="why-rbf-fits-d2c">Why RBF Fits D2C</h2>
+        <p class="lede-para">D2C has revenue data from Shopify, Amazon, and other platforms. RBF lenders connect to these channels to verify revenue. Repayment is a percentage of monthly sales, which aligns with D2C cash flow. When sales spike (e.g., Q4), you repay faster; when they dip, payments decrease. See <a href="../what-is-revenue-based-financing-how-does-it-work/">what revenue-based financing is and how it works</a>.</p>
+        <figure class="article-figure">
+<picture>
+<source srcset="/assets/rbf-ecommerce-800w.webp" type="image/webp"/>
+<img alt="Revenue-based financing for D2C and ecommerce brands" decoding="async" fetchpriority="high" height="450" loading="eager" src="/assets/rbf-ecommerce-800w.webp" width="800"/>
+</picture>
+</figure>
+        <h2 id="typical-rbf-terms-for-d2c">Typical RBF Terms for D2C</h2>
+        <p>Structure varies. Common elements:</p>
+        <ul>
+<li><strong>Advance:</strong> Often 1–3x monthly revenue. A brand with $75K monthly might qualify for $75K–$225K.</li>
+<li><strong>Repayment:</strong> 3–8% of monthly revenue until a cap is reached.</li>
+<li><strong>Speed:</strong> Funding in 3–10 business days. See <a href="../how-fast-can-you-get-revenue-based-financing/">how fast you can get RBF</a>.</li>
+</ul>
+        <h2 id="rbf-vs-mca-for-d2c">RBF vs MCA for D2C</h2>
+        <p><a href="../revenue-based-financing-vs-merchant-cash-advance/">RBF vs MCA</a>: RBF typically has clearer terms and may offer better structures. MCA often uses daily or weekly percentage of sales. Both tie repayment to revenue. RBF is often preferred by growth-oriented D2C brands.</p>
+        <h2 id="common-uses-for-d2c-rbf">Common Uses for D2C RBF</h2>
+        <ul>
+<li>Inventory for peak season or new SKUs</li>
+<li>Paid acquisition (Meta, Google, TikTok)</li>
+<li>Influencer and affiliate marketing</li>
+<li>Packaging, fulfillment, and operations</li>
+<li>Expansion into new channels or categories</li>
+</ul>
+        <h2 id="qualification-revenue-and-channels">Qualification: Revenue and Channels</h2>
+        <p>Many RBF lenders look for $20K–$50K+ in monthly revenue. Strong growth, healthy margins, and diversified channels support approval. Lenders may integrate with Shopify, Amazon, or accounting software. See <a href="/revenue-based-financing.html">what lenders look for in RBF</a> and <a href="../how-much-can-you-qualify-for-revenue-based-financing/">how much you can qualify for</a>.</p>
+        <h2 id="seasonal-considerations">Seasonal Considerations</h2>
+        <p>RBF can work for seasonal D2C. Repayment flexes with revenue. Plan for the full cycle: fund before peak, repay during peak. Some lenders may adjust for highly seasonal businesses. See <a href="/working-capital-loans/articles/working-capital-loan-seasonal-businesses/">working capital for seasonal businesses</a> for related options.</p>
+        <h2 id="worked-example">Worked Example: Funding a Q4 Inventory Build</h2>
+        <p>A direct-to-consumer apparel brand does $120,000 a month through Shopify, climbing to $200,000 in November and December. To stock up for the holidays it needs to place a $150,000 inventory order with its overseas manufacturer in August — months before the revenue arrives. A bank term loan is too slow and too rigid for a seasonal, inventory-light balance sheet, and the founders do not want to give up equity for a one-time working-capital need.</p>
+        <p>Revenue-based financing fits because repayment flexes with sales: the brand draws capital against its proven Shopify and payment-processor revenue, places the order, and repays a fixed share of daily revenue. When December sales spike, more is repaid; in the slower January stretch, less is. The capital is sized to the revenue the platform can already verify, so the brand scales inventory without a personal-guarantee-heavy bank loan or a dilutive raise.</p>
+        <h2 id="d2c-qualification-detail">What D2C Underwriters Actually Look At</h2>
+        <p>For an e-commerce brand, the bank statement is only half the picture. Lenders increasingly read the platform data directly:</p>
+        <ul>
+<li><strong>Processor and platform revenue</strong> — Shopify, Stripe, PayPal, and Amazon payouts, which show gross sales before the bank net.</li>
+<li><strong>Refund and chargeback rate</strong> — high return rates shrink the "true" revenue an underwriter will lend against.</li>
+<li><strong>Marketing efficiency</strong> — a stable blended ROAS signals that new capital deployed into ad spend should produce predictable revenue rather than burn.</li>
+<li><strong>Revenue concentration</strong> — a brand reliant on a single SKU or a single channel (e.g., only Amazon) is read as higher risk than a diversified one.</li>
+</ul>
+        <h2 id="bottom-line">Bottom Line</h2>
+        <p>RBF is a strong fit for D2C brands with consistent revenue. It provides growth capital with repayment tied to sales. Prepare revenue data, channel metrics, and a clear use of funds. <a href="/match.html">Get matched</a> with RBF lenders for D2C, or explore <a href="/revenue-based-financing.html">revenue-based financing options</a>.</p>
+        <p class="section-label" id="frequently-asked-questions">Frequently Asked Questions</p>
+        <h3>Why does revenue-based financing fit D2C brands?</h3>
+        <p>Because D2C revenue runs through trackable channels like Shopify, Stripe, and Amazon with recurring, verifiable sales, which RBF underwrites directly — and repayment that flexes with revenue suits the swings of e-commerce.</p>
+        <h3>What can D2C brands use RBF for?</h3>
+        <p>Most commonly inventory builds and paid-marketing scale-ups, where the spend drives revenue that then repays the advance. Funding inventory and ads together ahead of a peak season is a classic use.</p>
+        <h3>Is RBF better than an MCA for a D2C brand?</h3>
+        <p>Usually. RBF typically uses monthly revenue with more transparent terms than a daily-remittance MCA, which fits recurring online revenue better and is often cheaper for the same need.</p>
+        <h3>What do D2C underwriters look at?</h3>
+        <p>Revenue volume and trend across your sales channels, gross margin, ad efficiency, returns and chargebacks, and seasonality. Clean, connected platform data is what unlocks the best offer.</p>
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <div class="faq">
+          <details>
+            <summary>Can D2C brands get revenue-based financing?</summary>
+            <div class="answer"><p>Yes. RBF is well-suited for D2C e-commerce. Lenders evaluate monthly revenue, growth trend, gross margin, and sales channels. Repayment is tied to revenue, which aligns with D2C sales cycles. Many RBF lenders work with Shopify, Amazon, and multi-channel brands.</p></div>
+          </details>
+          <details>
+            <summary>RBF vs MCA for D2C?</summary>
+            <div class="answer"><p>RBF typically has clearer terms and may offer better structures. MCA often uses daily or weekly percentage of sales with higher effective costs. Both tie repayment to revenue. RBF is often preferred by growth-oriented D2C brands. See RBF vs MCA for a full comparison.</p></div>
+          </details>
+          <details>
+            <summary>What revenue do D2C brands need for RBF?</summary>
+            <div class="answer"><p>Requirements vary. Many RBF lenders look for $20K-$50K+ in monthly revenue. Strong growth, healthy margins, and diversified channels support approval. Early-stage brands may find some lenders; others focus on $100K+ monthly.</p></div>
+          </details>
+          <details>
+            <summary>How is RBF used for D2C?</summary>
+            <div class="answer"><p>Common uses: inventory for peak season or new SKUs, paid acquisition (Meta, Google), influencer marketing, packaging and fulfillment, and expansion into new channels or categories.</p></div>
+          </details>
+          <details>
+            <summary>RBF for seasonal D2C?</summary>
+            <div class="answer"><p>RBF can work for seasonal brands. Repayment flexes with revenue: high during peak, lower in off-season. Plan for the full cycle. Some lenders may adjust advance or terms for highly seasonal businesses.</p></div>
+          </details>
+        </div>
+  <p class="cta-actions cta-actions-left"><a class="btn btn-primary" href="/match.html">Get Matched for D2C RBF</a></p>
+      </div>
+      <aside class="article-rail">
+        <div class="rail-actions">
+          <a class="btn btn-quiet" href="#quick-answer">Quick answer</a>
+          <a class="btn btn-primary" href="/match.html">Get Matched for Revenue-Based Financing</a>
+        </div>
+        <nav class="toc" aria-label="On this page">
+          <h3>On this page</h3>
+          <ul>
+<li><a href="#why-rbf-fits-d2c">Why RBF Fits D2C</a></li>
+<li><a href="#typical-rbf-terms-for-d2c">Typical RBF Terms for D2C</a></li>
+<li><a href="#rbf-vs-mca-for-d2c">RBF vs MCA for D2C</a></li>
+<li><a href="#common-uses-for-d2c-rbf">Common Uses for D2C RBF</a></li>
+<li><a href="#qualification-revenue-and-channels">Qualification: Revenue and Channels</a></li>
+<li><a href="#seasonal-considerations">Seasonal Considerations</a></li>
+<li><a href="#bottom-line">Bottom Line</a></li>
+</ul>
+        </nav>
+      </aside>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="group" data-tone="blue">
+      <div class="group-head"><h2>Ready to get funded?</h2></div>
+      <div class="prose">
+        <p>Get matched with lenders who fit your business.</p>
+      </div>
+    <p class="cta-actions cta-actions-left"><a class="btn btn-primary" href="/match.html">Get Matched for Revenue-Based Financing</a></p>
+    </div>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
+    <div class="group" data-tone="blue">
+      <div class="group-head"><h2>Related Resources</h2></div>
+      <div class="tiles">
+      <a class="tile" data-tone="blue" href="../what-is-revenue-based-financing-how-does-it-work/">
+        <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <span>What Is Revenue-Based Financing and How Does It Work?</span>
+      </a>
+      <a class="tile" data-tone="teal" href="../revenue-based-financing-saas-companies/">
+        <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <span>Revenue-Based Financing for SaaS Companies</span>
+      </a>
+      <a class="tile" data-tone="indigo" href="../revenue-based-financing-vs-merchant-cash-advance/">
+        <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 10v4M18 10v4"/></svg></span>
+        <span>Revenue-Based Financing vs Merchant Cash Advance</span>
+      </a>
+      <a class="tile" data-tone="bronze" href="../how-much-can-you-qualify-for-revenue-based-financing/">
+        <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.2 12.3l2.6 2.6 5-5.2"/></svg></span>
+        <span>How Much Can You Qualify for with Revenue-Based Financing?</span>
+      </a>
+      <a class="tile" data-tone="rust" href="/revenue-based-financing/articles/why-revenue-based-financing-advance-lower-than-needed/">
+        <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 10v4M18 10v4"/></svg></span>
+        <span>Why Your Revenue-Based Financing Advance Is Lower Than You Needed</span>
+      </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AXIANT-FOOTER:START — generated from _components/footer-v2.html.
+     Do NOT edit inside these markers on a page. Edit the component, then run:
+       python scripts/sync-footer-v2.py
+     Then, because equipment-for-sale/ is generated:
+       python scripts/equipment-for-sale/build.py
+
+     Deliberately small. A footer is not a sitemap - sitewide links read as
+     boilerplate, so the amount/credit/owner/compare clusters moved to
+     blog.html where they are topically at home.
+
+     Do NOT add the class "site-footer" to the <footer> below.
+     language-switcher.js runs enhanceGlobalFooter(), which does
+     querySelector('.site-footer') and REPLACES the whole innerHTML with the
+     legacy footer - silently wiping this markup at runtime. -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="footer-brand">
+      <img src="/Axiant_light_logo.webp" alt="Axiant Partners" width="180" height="40">
+      <div class="footer-brand-contact">
+        <div class="footer-brand-reach">
+          <span class="footer-brand-label">Speak with a specialist</span>
+          <a class="footer-phone" href="tel:+15612680465">(561)&nbsp;268-0465</a>
+          <p class="footer-brand-note">Serving all 50 states &middot; Free to apply, no hard credit pull</p>
+        </div>
+        <a class="btn btn-primary" href="/match.html">Find My Match</a>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="footer-col">
+        <h4>Financing</h4>
+        <ul>
+          <li><a href="/equipment-financing.html">Equipment Financing</a></li>
+          <li><a href="/sba-loans.html">SBA Loans</a></li>
+          <li><a href="/working-capital-loans.html">Working Capital</a></li>
+          <li><a href="/business-line-of-credit.html">Line of Credit</a></li>
+          <li><a href="/commercial-real-estate-loans.html">Commercial Real Estate</a></li>
+          <li><a href="/services.html">All 22 programs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="/construction-business-financing.html">Construction</a></li>
+          <li><a href="/trucking-business-financing.html">Trucking</a></li>
+          <li><a href="/manufacturing-business-financing.html">Manufacturing</a></li>
+          <li><a href="/restaurants-business-financing.html">Restaurants</a></li>
+          <li><a href="/medical-practices-business-financing.html">Healthcare</a></li>
+          <li><a href="/industries.html">All 19 industries</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides &amp; Tools</h4>
+        <ul>
+          <li><a href="/blog.html">Insights &amp; Guides</a></li>
+          <li><a href="/equipment.html">Equipment Guides</a></li>
+          <li><a href="/business-growth.html">Business Growth</a></li>
+          <li><a href="/equipment-for-sale/">Equipment for Sale</a></li>
+          <li><a href="/calculator.html">Payment Calculator</a></li>
+          <li><a href="/business-financing-glossary/">Financing Glossary</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/referral.html">Referral Program</a></li>
+          <li><a href="/vendors.html">For Vendors</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms-and-conditions.html">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Axiant Partners LLC. All rights reserved.</span>
+      <span>Axiant Partners is a financing brokerage, not a lender. All financing subject to lender approval.</span>
+    </div>
+  </div>
+</footer>
+<!-- AXIANT-FOOTER:END -->
+
+<script src="/article-toc.js?v=202609011938" defer></script>
+<script src="/language-switcher.js?v=202609011423" defer></script>
+<script src="/script.js?v=202609011423" defer></script>
 </body>
 </html>
-
-
-
-
