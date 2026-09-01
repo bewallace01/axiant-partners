@@ -67,3 +67,8 @@ _analysis/site-audit-history.json
 # Entire _analysis dir is local working scratch (GSC exports, DataForSEO creds,
 # link-building kit, daily reports) — never commit. Blanket-ignore it.
 _analysis/
+_preview/
+
+# Converter run state (transient)
+.reconvert-state
+.qa-todo

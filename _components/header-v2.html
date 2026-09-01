@@ -1,0 +1,64 @@
+<!-- AXIANT-HEADER:START — generated from _components/header-v2.html.
+     Do NOT edit inside these markers on a page. Edit the component, then run:
+       python scripts/sync-header-v2.py
+     That rewrites the block on every *-v2.html file. -->
+<div class="utility">
+  <div class="container">
+    <div class="utility-facts">
+      <span><span class="dot"></span> Serving all 50 states</span>
+      <span class="utility-sep" aria-hidden="true"></span>
+      <span><span class="dot"></span> Free to apply &middot; no hard credit pull</span>
+      <span class="utility-sep" aria-hidden="true"></span>
+      <span class="u-keep">Speak with a specialist: <a href="tel:+15612680465">(561)&nbsp;268-0465</a></span>
+      <span class="utility-sep" aria-hidden="true"></span>
+      <span><a href="/contact.html">Contact</a></span>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="header-bar">
+    <a class="brand" href="/" aria-label="Axiant Partners home">
+      <img src="/logo-horizontal-transparent.webp" alt="Axiant Partners" width="228" height="50">
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/services.html">Programs</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/equipment-for-sale/">Equipment</a>
+      <a href="/calculator.html">Calculators</a>
+      <a href="/referral.html">Referral</a>
+      <a class="btn btn-primary" href="/match.html">Find My Match</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- The panel .nav-toggle opens. Below 1000px the desktop nav is display:none
+     and this is the only way to navigate, so it ships with the header rather
+     than being repeated per page. Styles: axiant-v2.css. Behaviour: axiant-v2.js. -->
+<div class="mobile-menu" id="mobileMenu" data-open="false" hidden>
+  <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="mobile-menu-head">
+      <img src="/logo-horizontal-transparent.webp" alt="Axiant Partners" width="164" height="36">
+      <button class="mobile-menu-close" id="navClose" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav aria-label="Mobile">
+      <a href="/services.html">Programs</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/equipment-for-sale/">Equipment</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/referral.html">Referral Program</a>
+    </nav>
+    <a class="btn btn-primary btn-lg" href="/match.html">Find My Match</a>
+    <p class="mobile-menu-call">Or call <a href="tel:+15612680465">(561)&nbsp;268-0465</a></p>
+  </div>
+</div>
+
+<!-- Bump ?v= whenever axiant-v2.js changes, or browsers serve the old file.
+     Same convention the rest of the site uses for styles.css / script.js. -->
+<script src="/axiant-v2.js?v=202609011938" defer></script>
+<!-- AXIANT-HEADER:END -->
