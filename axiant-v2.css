@@ -361,7 +361,9 @@ a{color:inherit}
   transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
 }
 .card-cta{
-  align-self:center;display:inline-flex;align-items:center;justify-content:center;
+  /* margin-top:auto pins the button to the bottom of the card, so a row of
+     cards with different amounts of copy still has its buttons on one line. */
+  align-self:center;margin-top:auto;display:inline-flex;align-items:center;justify-content:center;
   padding:var(--s3) var(--s6);border-radius:100px;
   font-size:var(--t-sm);font-weight:700;letter-spacing:.08em;text-transform:uppercase;
   background:var(--accent);color:#fff;border:1px solid var(--accent);
