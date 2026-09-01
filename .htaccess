@@ -2,7 +2,10 @@
 # Enable RewriteEngine
 RewriteEngine On
 RewriteBase /
-
+# Working directories that must never be crawled or served: the pre-conversion
+# page backups (the converter reads them; they duplicate live pages word for
+# word), local previews, and the header/footer partials.
+RewriteRule ^_(backup-pre-v2-swap|preview|components)/ - [R=404,L]
 # Gzip compression for faster delivery
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
