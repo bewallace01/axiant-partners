@@ -18,7 +18,29 @@
 /scripts/*              /404.html  404!
 /tools/*                /404.html  404!
 /Axiant.zip             /404.html  404!
-/*.md                   /404.html  404!
+# Netlify's splat is trailing-only: `/*.md` matches nothing. These are
+# internal strategy and setup docs; each needs its own rule.
+/docs/*                 /404.html  404!
+/BLOG_POST_TEMPLATE.md                /404.html  404!
+/COMPETITOR_KEYWORD_GAP_ANALYSIS.md   /404.html  404!
+/EMAILJS_SETUP.md                     /404.html  404!
+/INDUSTRY-PAGE-TEMPLATE.md            /404.html  404!
+/LONG_TAIL_PLANNING_BREAKDOWN.md      /404.html  404!
+/PERFORMANCE.md                       /404.html  404!
+/QUICK_CHECK.md                       /404.html  404!
+/README.md                            /404.html  404!
+/SEO-REVIEW.md                        /404.html  404!
+/SEO_ANALYSIS_REPORT.md               /404.html  404!
+/SEO_GUIDE.md                         /404.html  404!
+/SEO_PUBLISH_CHECKLIST.md             /404.html  404!
+/SEO_REPORT_2026.md                   /404.html  404!
+/SEO_REVIEW.md                        /404.html  404!
+/SITE_AUDIT_REPORT_2026-03-16.md      /404.html  404!
+/TROUBLESHOOTING.md                   /404.html  404!
+/VENDOR_INTEGRATION.md                /404.html  404!
+/WORKING_CAPITAL_LOANS_SEO_REVIEW.md  /404.html  404!
+/WORKLOG.md                           /404.html  404!
+/referral-partner-brochure.md         /404.html  404!
 
 # Glossary removed - redirect to articles hub
 /glossary.html /blog.html 301
