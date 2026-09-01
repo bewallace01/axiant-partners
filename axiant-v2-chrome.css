@@ -88,7 +88,7 @@
   display:flex;align-items:center;gap:var(--s6);
   min-height:84px;}
 .header-bar > .nav{margin-left:auto;align-items:center}
-.header .nav .btn{margin-left:var(--s4);align-self:center}
+.header .nav .btn{margin-left:var(--s4);align-self:center;margin-block:0}
 .brand{flex:none;display:flex;align-items:center;margin-right:auto}
 .brand img{height:50px;width:auto}
 .nav{display:flex;align-items:center;gap:var(--s6);

@@ -135,7 +135,13 @@ a{color:inherit}
 /* the CTA is the tallest thing in the bar; centre it on the row and keep it
    off the right edge rather than letting it sit flush against the viewport */
 .header-bar > .nav{margin-left:auto;align-items:center}
-.header .nav .btn{margin-left:var(--s4);align-self:center}
+/* margin-block:0 is load-bearing on the legacy pages (calculators, matcher,
+   get-matched, print pieces). They also load styles.css, whose
+   `.btn-primary,.btn-secondary,a.btn-primary,a.btn-secondary` rule carries
+   margin-top:20px for standalone CTAs in page content. align-self:center
+   centres the MARGIN box, so that 20px pushed the header CTA exactly 10px
+   below the nav links it should sit level with. */
+.header .nav .btn{margin-left:var(--s4);align-self:center;margin-block:0}
 .brand{flex:none;display:flex;align-items:center;margin-right:auto}
 .brand img{height:50px;width:auto}
 .nav{
