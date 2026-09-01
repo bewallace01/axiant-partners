@@ -41,6 +41,19 @@
 /WORKING_CAPITAL_LOANS_SEO_REVIEW.md  /404.html  404!
 /WORKLOG.md                           /404.html  404!
 /referral-partner-brochure.md         /404.html  404!
+# Build tooling and scratch files at the repo root. Each needs its own rule for
+# the same reason the .md files do: the splat is trailing-only.
+/package.json                    /404.html  404!
+/package-lock.json               /404.html  404!
+/purgecss.config.js              /404.html  404!
+/optimize-mobile-images.js       /404.html  404!
+/apply-mobile-optimizations.js   /404.html  404!
+/apply-mobile-optimizations.ps1  /404.html  404!
+/push-to-github.ps1              /404.html  404!
+/download-fonts.js               /404.html  404!
+/tmp_batch4_candidates.py        /404.html  404!
+/tmp_next10.py                   /404.html  404!
+/.qa-drafts.json                 /404.html  404!
 
 # Glossary removed - redirect to articles hub
 /glossary.html /blog.html 301
