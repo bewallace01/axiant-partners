@@ -58,3 +58,4 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 14:22 — Make the speakable schema on 613 pages resolve to something (`f0ce0de74`) — Alex Solopenkov
 - 14:28 — Titles inside the SERP cut, and a dateModified on every indexable page (`6b9be0869`) — Alex Solopenkov
 - 14:31 — Put all nine clusters on the map assistants actually read (`d6bbe0469`) — Alex Solopenkov
+- 14:44 — Show the update date on the pillars, and fix the callout it exposed (`335ac6298`) — Alex Solopenkov
