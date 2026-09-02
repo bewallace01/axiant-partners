@@ -11,6 +11,7 @@
 # ---------------------------------------------------------------------------
 /_backup-pre-v2-swap/*  /404.html  404!
 /_preview/*             /404.html  404!
+/_incoming/*            /404.html  404!
 /_analysis/*            /404.html  404!
 /_outreach/*            /404.html  404!
 /_marketing/*           /404.html  404!
@@ -770,3 +771,9 @@
 /startup-financing  /startup-financing.html  301!
 /towing-business-financing  /towing-business-financing.html  301!
 /trucking-business-financing  /trucking-business-financing.html  301!
+
+# DSCR articles moved out of the CRE cluster and under the DSCR
+# pillar they belong to (de-cannibalisation). Both ranked 69+ with
+# zero clicks, so there was no equity to protect.
+/commercial-real-estate-loans/articles/dscr-loan-vs-conventional-mortgage/  /dscr-loans/articles/dscr-loan-vs-conventional-mortgage/  301
+/commercial-real-estate-loans/articles/dscr-rental-loans-real-estate-investors/  /dscr-loans/articles/dscr-rental-loans-real-estate-investors/  301
