@@ -296,6 +296,17 @@ SKIP_EXACT = {"trust-stat","trust-band-item","trust-band-num","trust-band-label"
               "trust-stat-label","blog-card-link"}
 SKIP_RE = re.compile(r"-card(-img|-with-img)?$|-ctas?$|-phone-cta$")
 
+# SKIP_RE drops anything whose class ends in -cta, which is right for the button
+# rows it was written for (hero-ctas, ef-hero-ctas, ic-cta, -phone-cta): those
+# are chrome, and the v2 template supplies its own.
+#
+# It is wrong for ax-inline-cta. That class marks a SENTENCE with a link in it -
+# "Pricing moves with the ratio and the market. Get matched to compare real
+# quotes." - not a row of buttons. Matching on the -cta suffix silently deleted
+# five of them from dscr-loans.html, 3.7% of the page, along with the sibling
+# links they carried. They are prose and belong in the prose.
+KEEP_EXACT = {"ax-inline-cta", "ax-related-cross-cluster"}
+
 def is_button_row(el):
     """A container whose element children are all button links.
 
@@ -326,6 +337,8 @@ def in_component(el):
         if is_button_row(p):
             return True
         for c in (p.get("class") or []):
+            if c in KEEP_EXACT:
+                return False
             if c in SKIP_EXACT or SKIP_RE.search(c):
                 return True
     return False
@@ -1743,6 +1756,55 @@ def convert(path: Path, dry=False):
                     '    </div>\n  </div>\n</section>' % (tone, inner))
                 kinds.append("body")
 
+    # --- orphan sweep ---------------------------------------------------
+    # The rule at the top of this file is that every word and link is carried
+    # over. Nothing enforced it, and content that sits OUTSIDE the wrapper the
+    # band walk reads was being dropped in silence.
+    #
+    # dscr-loans.html is the case that exposed it: five sibling links -
+    # dscr-lenders, dscr-loan-requirements, dscr-loan-rates, dscr-loan-texas,
+    # dscr-loan-florida - live in <p class="ax-related-cross-cluster"> and
+    # <p class="ax-inline-cta"> paragraphs appended after the wrapper closes.
+    # Converting cost 6.4% of the words and the entire DSCR cluster's internal
+    # linking, which is exactly the wiring this site has been adding by hand.
+    #
+    # So: after the bands are built, any body-level element still holding an
+    # internal link the bands do not have gets swept into a closing prose band.
+    # Matching on links rather than text keeps it conservative - a stray
+    # sentence duplicated from a band will not trigger it, a lost link always
+    # will.
+    def _internal_links(fragment):
+        return {h for h in re.findall(r'href="(/[^"#?]*)"', fragment)}
+
+    banded_links = _internal_links("\n".join(bands))
+    orphans, seen_txt = [], set()
+    for el in s.find_all(["p", "ul", "ol"]):
+        if el.find_parent(["nav", "header", "footer"]) is not None:
+            continue
+        if any(el.find_parent(class_=lambda c: has_class(c, cls)) is not None
+               for cls in ("main-nav", "site-footer", "mobile-cta-bar",
+                           "mobile-nav-overlay", "nav-links")):
+            continue
+        frag = str(el)
+        missing = _internal_links(frag) - banded_links
+        if not missing:
+            continue
+        txt = " ".join(el.get_text(" ").split())
+        if not txt or txt in seen_txt:
+            continue
+        seen_txt.add(txt)
+        _clean_styles(el)
+        orphans.append(str(el))
+        banded_links |= _internal_links(frag)
+
+    if orphans:
+        bands.append(
+            '<section class="section">\n  <div class="container">\n'
+            '    <div class="group" data-tone="%s">\n'
+            '      <div class="prose">\n        %s\n      </div>\n'
+            '    </div>\n  </div>\n</section>' % (tone, "\n        ".join(orphans)))
+        kinds.append("body")
+
     # --- order ---------------------------------------------------------
     # The quick answer opens the page: it is the summary a reader and an
     # answer engine both want first. The estimator is a tool, not an
@@ -1806,13 +1868,23 @@ def convert(path: Path, dry=False):
     nl = "\n"
     preload = ('<link rel="preload" href="%s" as="image" type="image/webp">\n' % heroimg) if heroimg else ""
 
+    # The head and tail below track what main actually ships. Three things this
+    # template used to emit have since been removed sitewide, and leaving them
+    # here would mean every future conversion silently reverted them:
+    #
+    #   language-switcher.js  91.4 KB of v1 code whose only remaining effect on
+    #                         a v2 page was injecting an Organization node and a
+    #                         duplicate mobile nav overlay (a8c891fde)
+    #   the Google Fonts      two render-blocking third-party round-trips ahead
+    #   stylesheet + hints    of first paint; the faces are self-hosted now, and
+    #                         the two preloads below replace them (abb6d8c55)
+    #
+    # script.js stays: it is live code, not legacy.
     out = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="dns-prefetch" href="https://fonts.googleapis.com">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="theme-color" content="#0d1f3c">
@@ -1825,9 +1897,8 @@ def convert(path: Path, dry=False):
 <title>{title}</title>
 {nl.join(icons)}
 {preload}{nl.join(ld)}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/playfair-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/axiant-v2.css?v={VERSION}">
 </head>
 <body>
@@ -1849,7 +1920,6 @@ def convert(path: Path, dry=False):
 {footer}
 {nl.join(inline_calc)}
 {'<script src="/article-toc.js?v=%s" defer></script>' % VERSION if shell is not None else ""}
-<script src="/language-switcher.js?v={VERSION}" defer></script>
 <script src="/script.js?v={VERSION}" defer></script>
 </body>
 </html>
