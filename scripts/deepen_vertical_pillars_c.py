@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Third deepening pass. After pass two: aircraft 1,692, marine 1,529,
-drone 1,471, data centre 1,856 (in band). This closes the remaining three."""
+drone 1,471, data center 1,856 (in band). This closes the remaining three."""
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from deepen_vertical_pillars import table, deepen

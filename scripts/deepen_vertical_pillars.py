@@ -78,7 +78,7 @@ PAGES["aircraft-financing.html"] = [
      "lenders price it.</li>"
      "<li><strong>Engine programme enrolment.</strong> Being on a maintenance "
      "programme converts a lumpy future cost into a predictable one, which "
-     "lenders view favourably.</li>"
+     "lenders view favorably.</li>"
      "<li><strong>Damage history.</strong> Disclosed and repaired is workable; "
      "undisclosed and discovered at pre-buy is usually fatal to the deal.</li>"
      "<li><strong>Logbook completeness.</strong> Gaps in the records reduce value "
@@ -135,7 +135,7 @@ PAGES["commercial-marine-financing.html"] = [
     ("Where Permits and Certification Sit in the Value",
      "<p>The feature that makes marine lending different from other equipment "
      "finance: on some vessels, a large part of the value is not the boat.</p>"
-     "<p>Fishing permits, licences and quota can be worth a substantial "
+     "<p>Fishing permits, licenses and quota can be worth a substantial "
      "proportion of a commercial fishing operation, and they are transferable "
      "assets in their own right in many fisheries. A lender financing the vessel "
      "alone may be securing considerably less than the business is worth &mdash; "
@@ -181,7 +181,7 @@ PAGES["drone-financing.html"] = [
           "Yes &mdash; high value and identifiable by serial"],
          ["Ground control and RTK base stations", "Moderate", "Sometimes, bundled"],
          ["Batteries and consumables", "Recurring", "No &mdash; treat as operating cost"],
-         ["Processing software and licences", "Recurring", "No &mdash; nothing to recover"],
+         ["Processing software and licenses", "Recurring", "No &mdash; nothing to recover"],
          ["Vehicles and trailers", "Varies", "Yes &mdash; titled and liquid"],
      ])
      + "<p>The practical implication: a lender will look past the drone to the "
@@ -218,10 +218,10 @@ PAGES["drone-financing.html"] = [
      "equipment specification.</p>"),
 ]
 
-# ------------------------------------------------------------ data centre --
+# ------------------------------------------------------------ data center --
 PAGES["data-center-financing.html"] = [
-    ("Where the Money Goes in a Data Centre Build",
-     "<p>Data centre spend divides into categories that finance very "
+    ("Where the Money Goes in a Data Center Build",
+     "<p>Data center spend divides into categories that finance very "
      "differently, and treating them as one number is why budgets and facilities "
      "so often fail to line up.</p>"
      + table(["Category", "Examples", "How it is usually funded"], [
@@ -258,7 +258,7 @@ PAGES["data-center-financing.html"] = [
      "<p>It also avoids the position where a refresh is due and the previous "
      "generation is still being paid for &mdash; the point at which growth "
      "stops being fundable from cash flow.</p>"),
-    ("What Lenders Ask a Data Centre Operator",
+    ("What Lenders Ask a Data Center Operator",
      "<p>Because much of the value is in fast-depreciating hardware, "
      "underwriting leans on the contracts around it:</p>"
      "<ul>"

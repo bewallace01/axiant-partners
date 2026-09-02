@@ -349,7 +349,7 @@ ARTICLES = [
              "Claims history most of all, then whether officers are armed, what is "
              "being guarded, and payroll size &mdash; workers' compensation scales "
              "with wages, so growth raises it automatically. Documented screening and "
-             "training standards work in your favour at renewal."),
+             "training standards work in your favor at renewal."),
             ("Can I finance an insurance premium?",
              "Premium finance is common and spreads an annual premium into monthly "
              "instalments, turning a lump sum into a run rate. For mobilisation costs "

@@ -82,7 +82,7 @@ MORE = [
              "entire cost of the HELOC.</p>"
              "<p>Run it as total interest over the years you expect to hold the "
              "property, not as a monthly payment comparison. The monthly figure can "
-             "favour the refinance while the total cost does not, because a refinance "
+             "favor the refinance while the total cost does not, because a refinance "
              "usually restarts the amortisation.</p>"),
             ("When the Refinance Still Wins",
              "<ul>"
@@ -377,14 +377,14 @@ MORE = [
              "<li><strong>What each draw funded</strong>, with supporting invoices</li>"
              "<li>The <strong>account trail</strong> from draw to expenditure</li>"
              "<li>Your <strong>entity structure</strong>, since treatment can depend "
-             "on how the business is organised</li>"
+             "on how the business is organized</li>"
              "</ul>"
              "<p>Without those, an accountant is guessing, and a guess is not a "
              "position you would want to defend.</p>"),
             ("Do Not Let the Tax Question Drive the Decision",
              "<p>A closing caution, because it is a real pattern.</p>"
              "<p>The treatment of the interest is a second-order consideration next to "
-             "the fact that the borrowing is secured by your home. A favourable "
+             "the fact that the borrowing is secured by your home. A favorable "
              "treatment does not make an unwise loan wise, and the difference it makes "
              "is small relative to what is at stake if the business does not work "
              "&mdash; see "
@@ -421,7 +421,7 @@ MORE = [
              "at year-end."),
             ("Should the tax treatment decide whether I use a HELOC?",
              "No. It is a second-order consideration next to the fact that the "
-             "borrowing is secured by your home. A favourable treatment does not make "
+             "borrowing is secured by your home. A favorable treatment does not make "
              "an unwise loan wise. Decide on the merits of the borrowing, then ask "
              "your CPA how to treat the interest."),
         ],

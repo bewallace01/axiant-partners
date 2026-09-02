@@ -79,3 +79,6 @@ Axiant.zip
 
 # Raw generated art staged for scripts/ingest-images.py - never deployed
 _incoming/
+
+# _incoming extraction markers
+*.zip.done

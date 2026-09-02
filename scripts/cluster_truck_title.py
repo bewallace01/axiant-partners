@@ -54,7 +54,7 @@ SBCS = ("https://www.fedsmallbusiness.org/",
 BTS = ("https://www.bts.gov/",
        "Bureau of Transportation Statistics",
        "Federal freight and trucking data - the public record behind claims "
-       "about rates, volumes and utilisation.")
+       "about rates, volumes and utilization.")
 
 ARTICLES = [
     {

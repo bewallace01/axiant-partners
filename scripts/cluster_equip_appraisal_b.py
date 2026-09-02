@@ -29,7 +29,7 @@ MORE = [
         "keywords": "equipment appraiser credentials, USPAP appraisal, certified "
                     "machinery appraiser, who appraises equipment",
         "quick_answer": "Lenders want an <strong>independent, credentialed</strong> "
-                        "appraiser working to recognised standards &mdash; in the "
+                        "appraiser working to recognized standards &mdash; in the "
                         "United States that usually means work written to "
                         "<strong>USPAP</strong>, from someone holding a machinery and "
                         "equipment credential. A dealer's trade-in offer, a price "

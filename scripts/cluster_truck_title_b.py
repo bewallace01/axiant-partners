@@ -80,7 +80,7 @@ MORE = [
              "<li>You need more cash than a title advance releases</li>"
              "<li>You are unlocking several units at once rather than one</li>"
              "<li>Monthly cost matters more to you than the ownership position</li>"
-             "<li>Your accountant has a view on treatment that favours it</li>"
+             "<li>Your accountant has a view on treatment that favors it</li>"
              "</ul>"
              "<p>The trade is real. Ownership passes, the buyout has to be exercised "
              "to get the truck back, and the paperwork is heavier. Read the buyout "

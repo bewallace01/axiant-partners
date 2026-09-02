@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Second deepening pass on the four vertical pillars.
 
-After pass one: aircraft 1,543, marine 1,206, drone 1,173, data centre 1,714.
+After pass one: aircraft 1,543, marine 1,206, drone 1,173, data center 1,714.
 The target is 1,800-2,500, so this pass is weighted to the thinnest two.
 """
 import sys, os
@@ -90,12 +90,12 @@ PAGES["drone-financing.html"] = [
      "behind it from the first month</li>"
      "<li><strong>Keep the term inside the contract</strong> where you can, "
      "rather than carrying payments past the work that justified them</li>"
-     "<li><strong>Add capability incrementally</strong> as utilisation "
+     "<li><strong>Add capability incrementally</strong> as utilization "
      "justifies it</li>"
      "</ul>"
      "<p>This is also what a lender wants to see, so the discipline that makes "
      "the business work is the same discipline that gets the application "
-     "approved. An operator who can show utilisation on existing kit is a "
+     "approved. An operator who can show utilization on existing kit is a "
      "straightforward file; one buying speculatively is not.</p>"),
 ]
 
@@ -116,7 +116,7 @@ PAGES["aircraft-financing.html"] = [
      "policy at the same time.</li>"
      "<li><strong>Charter revenue is not guaranteed revenue.</strong> Where an "
      "owner plans to offset costs by placing the aircraft on a charter "
-     "certificate, lenders discount projected utilisation heavily. Build the "
+     "certificate, lenders discount projected utilization heavily. Build the "
      "case on what you can carry without it.</li>"
      "</ul>"),
 ]
