@@ -33,7 +33,7 @@
 <meta content="Browse equipment financing by type and learn costs, rates, and approval timelines across major industries." name="twitter:description"/>
 <title>Equipment Financing Guides | Axiant Partners</title>
 <link as="image" href="/assets/equipment-financing-hero.webp?v=4" rel="preload" type="image/webp"/>
-<link href="/axiant-v2.css?v=202609021025" rel="stylesheet"/>
+<link href="/axiant-v2.css?v=202609021037" rel="stylesheet"/>
 <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"CollectionPage","name":"Equipment Financing Guides","description":"Browse equipment financing by equipment type: construction, forklifts, medical, restaurant, trucks, manufacturing. Find lenders for your equipment needs.","url":"https://axiantpartners.com/equipment.html","provider":{"@id":"https://axiantpartners.com/#organization"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","name":"Construction Equipment"},{"@type":"ListItem","name":"Forklifts"},{"@type":"ListItem","name":"Medical Equipment"},{"@type":"ListItem","name":"Restaurant Equipment"},{"@type":"ListItem","name":"Semi-Trucks"},{"@type":"ListItem","name":"Manufacturing Equipment"}]}}
     </script><script type="application/ld+json">
@@ -47,61 +47,64 @@
        python scripts/sync-header-v2.py
      That rewrites the block on every *-v2.html file. -->
 <div class="utility">
-<div class="container">
-<div class="utility-facts">
-<span><span class="dot"></span> Serving all 50 states</span>
-<span aria-hidden="true" class="utility-sep"></span>
-<span><span class="dot"></span> Free to apply · no hard credit pull</span>
-<span aria-hidden="true" class="utility-sep"></span>
-<span class="u-keep">Speak with a specialist: <a href="tel:+15612680465">(561) 268-0465</a></span>
-<span aria-hidden="true" class="utility-sep"></span>
-<span><a href="/contact.html">Contact</a></span>
+  <div class="container">
+    <div class="utility-facts">
+      <span><span class="dot"></span> Serving all 50 states</span>
+      <span class="utility-sep" aria-hidden="true"></span>
+      <span><span class="dot"></span> Free to apply &middot; no hard credit pull</span>
+      <span class="utility-sep" aria-hidden="true"></span>
+      <span class="u-keep">Speak with a specialist: <a href="tel:+15612680465">(561)&nbsp;268-0465</a></span>
+      <span class="utility-sep" aria-hidden="true"></span>
+      <span><a href="/contact.html">Contact</a></span>
+    </div>
+  </div>
 </div>
-</div>
-</div>
+
 <header class="header">
-<div class="header-bar">
-<a aria-label="Axiant Partners home" class="brand" href="/">
-<img alt="Axiant Partners" height="50" src="/logo-horizontal-transparent.webp" width="228"/>
-</a>
-<nav aria-label="Main" class="nav">
-<a href="/services.html">Programs</a>
-<a href="/industries.html">Industries</a>
-<a href="/equipment-for-sale/">Equipment</a>
-<a href="/calculator.html">Calculators</a>
-<a href="/referral.html">Referral</a>
-<a class="btn btn-primary" href="/match.html">Find My Match</a>
-</nav>
-<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="nav-toggle" id="navToggle">
-<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="22"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
-</button>
-</div>
+  <div class="header-bar">
+    <a class="brand" href="/" aria-label="Axiant Partners home">
+      <img src="/logo-horizontal-transparent.webp" alt="Axiant Partners" width="228" height="50">
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/services.html">Programs</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/equipment-for-sale/">Equipment</a>
+      <a href="/calculator.html">Calculators</a>
+      <a href="/referral.html">Referral</a>
+      <a class="btn btn-primary" href="/match.html">Find My Match</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
 </header>
+
 <!-- The panel .nav-toggle opens. Below 1000px the desktop nav is display:none
      and this is the only way to navigate, so it ships with the header rather
      than being repeated per page. Styles: axiant-v2.css. Behaviour: axiant-v2.js. -->
-<div class="mobile-menu" data-open="false" hidden="" id="mobileMenu">
-<div aria-label="Menu" aria-modal="true" class="mobile-menu-panel" role="dialog">
-<div class="mobile-menu-head">
-<img alt="Axiant Partners" height="36" src="/logo-horizontal-transparent.webp" width="164"/>
-<button aria-label="Close menu" class="mobile-menu-close" id="navClose">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M18 6 6 18M6 6l12 12"></path></svg>
-</button>
+<div class="mobile-menu" id="mobileMenu" data-open="false" hidden>
+  <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="mobile-menu-head">
+      <img src="/logo-horizontal-transparent.webp" alt="Axiant Partners" width="164" height="36">
+      <button class="mobile-menu-close" id="navClose" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav aria-label="Mobile">
+      <a href="/services.html">Programs</a>
+      <a href="/industries.html">Industries</a>
+      <a href="/equipment-for-sale/">Equipment</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/referral.html">Referral Program</a>
+    </nav>
+    <a class="btn btn-primary btn-lg" href="/match.html">Find My Match</a>
+    <p class="mobile-menu-call">Or call <a href="tel:+15612680465">(561)&nbsp;268-0465</a></p>
+  </div>
 </div>
-<nav aria-label="Mobile">
-<a href="/services.html">Programs</a>
-<a href="/industries.html">Industries</a>
-<a href="/equipment-for-sale/">Equipment</a>
-<a href="/contact.html">Contact</a>
-<a href="/referral.html">Referral Program</a>
-</nav>
-<a class="btn btn-primary btn-lg" href="/match.html">Find My Match</a>
-<p class="mobile-menu-call">Or call <a href="tel:+15612680465">(561) 268-0465</a></p>
-</div>
-</div>
+
 <!-- Bump ?v= whenever axiant-v2.js changes, or browsers serve the old file.
      Same convention the rest of the site uses for styles.css / script.js. -->
-<script defer="" src="/axiant-v2.js?v=202609021025"></script>
+<script src="/axiant-v2.js?v=202609021037" defer></script>
 <!-- AXIANT-HEADER:END -->
 <section class="hero-compact">
 <div class="hero-media">
@@ -128,412 +131,78 @@
      Do NOT add the class "site-footer" to the <footer> below.
      language-switcher.js runs enhanceGlobalFooter(), which does
      querySelector('.site-footer') and REPLACES the whole innerHTML with the
-     legacy footer - silently wiping this markup at runtime. -->
-<section class="section">
-<div class="container">
-<div class="group" data-tone="blue">
-<div class="group-head"><h2 id="equipment-financing-guides">Equipment financing guides</h2></div>
-<div class="cards cards-left">
-<a class="card" data-tone="blue" href="/equipment/alignment-racks/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/alignment-rack-equipment.webp?v=4" width="1920"/></div>
-<h3>Alignment Rack Financing</h3>
-<p>Alignment rack financing for auto shops: loans, leases, and SBA. How to finance wheel alignment systems.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="teal" href="/equipment/auto-lifts/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/auto-lift-equipment.webp?v=4" width="1920"/></div>
-<h3>Lifts &amp; Hoists Financing</h3>
-<p>Auto lift financing for auto shops: how to get loans or leases for two-post and four-post lifts.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="indigo" href="/equipment/backhoes/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/backhoe-equipment.webp?v=4" width="1920"/></div>
-<h3>Backhoe Financing</h3>
-<p>Backhoe financing for contractors: how to get loans or leases for new or used equipment.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="bronze" href="/equipment/box-trucks/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/box-truck-equipment.webp?v=4" width="1920"/></div>
-<h3>Box Truck Financing</h3>
-<p>Complete box truck financing guide: equipment loans, leases, SBA. for new or used box trucks.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="rust" href="/equipment/brake-rotor-equipment/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/brake-lathe-equipment.webp?v=4" width="1920"/></div>
-<h3>Brake &amp; Rotor Equipment Financing</h3>
-<p>Brake and rotor equipment financing for auto shops. Compare loans and leases for brake lathes and disc grinders with fast approvals and flexible down payments.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="blue" href="/equipment/bucket-trucks/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/forestry-bucket-truck-equipment.webp?v=4" width="1920"/></div>
-<h3>Bucket Truck Financing</h3>
-<p>Bucket truck financing for utility contractors: how to get loans or leases for aerial lifts.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="teal" href="/equipment/bulldozers/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/bulldozer-equipment.webp?v=4" width="1920"/></div>
-<h3>Bulldozer Financing</h3>
-<p>Bulldozer financing for new or used equipment. Compare loans, leases, and SBA options with fast approvals and flexible down payments for contractors.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="indigo" href="/equipment/cargo-vans/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/cargo-van-equipment.webp?v=5" width="1920"/></div>
-<h3>Cargo Van Financing</h3>
-<p>Cargo van financing hub: equipment loans and leases for Ford Transit, Mercedes Sprinter, RAM ProMaster, and full-size vans.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="bronze" href="/equipment/cnc-machines/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/cnc-machine-equipment.webp?v=4" width="1920"/></div>
-<h3>CNC Machine Financing</h3>
-<p>CNC machine financing: equipment loans, leases, SBA. $50K-$500K+ new, 24-48 hr approvals, credit 600+, 0-20% down.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="rust" href="/equipment/combines/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/combine-equipment.webp?v=4" width="1920"/></div>
-<h3>Finance Your Combine</h3>
-<p>Combine financing for farmers: how to get loans or leases for new or used harvesters.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="blue" href="/equipment/commercial-kitchen/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/commercial-kitchen-equipment.webp?v=4" width="1920"/></div>
-<h3>Commercial Kitchen Financing</h3>
-<p>Commercial kitchen financing: ranges, ovens $5K-$200K+. Equipment loans, leases, 24-48 hr approvals, credit 600+.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="teal" href="/equipment/commercial-mowers/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/commercial-mower-equipment.webp?v=4" width="1920"/></div>
-<h3>Commercial Mower Financing</h3>
-<p>Commercial mower financing for landscapers: walk-behind and stand-on. How to get loans or leases.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="indigo" href="/equipment/conveyor-systems/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/conveyor-logistics-equipment.webp?v=4" width="1920"/></div>
-<h3>Conveyor Systems Financing</h3>
-<p>Conveyor system financing for warehouses: how to get loans or leases for conveyor equipment.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="bronze" href="/equipment/dental-equipment/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/dental-equipment.webp?v=4" width="1920"/></div>
-<h3>Dental Equipment Financing</h3>
-<p>Dental equipment financing: chairs, CEREC, digital scanners $15K-$100K+.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="rust" href="/equipment/diagnostic-devices-medical/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/diagnostic-equipment.webp?v=4" width="1920"/></div>
-<h3>Diagnostic Devices Financing</h3>
-<p>Diagnostic devices financing for healthcare practices: ultrasound, EKG, spirometers.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="blue" href="/equipment/diagnostic-equipment-auto/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/diagnostic-scan-tool-equipment.webp?v=4" width="1920"/></div>
-<h3>Diagnostic Equipment Financing</h3>
-<p>Diagnostic equipment financing: OBD scanners, scan tools $2K-$30K+. Equipment loans, leases, 24-48 hr approvals, credit 600+, 0-20% down.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="teal" href="/equipment/dishwashers-warewashing/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/commercial-dishwasher-equipment.webp?v=4" width="1920"/></div>
-<h3>Commercial Dishwashers Financing</h3>
-<p>Commercial dishwasher financing for restaurants: how to get loans or leases for warewashing equipment.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="indigo" href="/equipment/dock-equipment/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/forklift-logistics-equipment.webp?v=4" width="1920"/></div>
-<h3>Dock Equipment Financing</h3>
-<p>Dock equipment financing for warehouses: how to get loans or leases for levelers, doors, and truck restraints.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="bronze" href="/equipment/dump-trucks/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/dump-truck-equipment.webp?v=4" width="1920"/></div>
-<h3>Dump Truck Financing</h3>
-<p>Dump truck financing with equipment loans and leases for construction and hauling.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="rust" href="/equipment/exam-procedure-equipment/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/exam-equipment.webp?v=4" width="1920"/></div>
-<h3>Exam &amp; Procedure Equipment Financing</h3>
-<p>Exam and procedure equipment financing: exam tables, procedure lights Equipment loans, leases, 24 48 hr approvals, credit 600+.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="blue" href="/equipment/excavators/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/excavator-equipment.webp?v=4" width="1920"/></div>
-<h3>Excavator Financing</h3>
-<p>Excavator financing for new or used equipment. Compare loans, leases, and SBA options with fast approvals and flexible down payments for contractors.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="teal" href="/equipment/flatbed-trucks/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/flatbed-truck-equipment.webp?v=4" width="1920"/></div>
-<h3>Flatbed Truck Financing</h3>
-<p>Flatbed truck financing for haulers: how to get loans or leases for flatbeds and step-decks.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="indigo" href="/equipment/forklifts/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/forklift-manufacturing-equipment.webp?v=4" width="1920"/></div>
-<h3>Forklift Financing</h3>
-<p>Forklift financing for warehouses: how to get loans or leases for new or used lift trucks.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="bronze" href="/equipment/grain-equipment/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/grain-equipment.webp?v=4" width="1920"/></div>
-<h3>Grain Equipment Financing</h3>
-<p>Grain equipment financing for U.S. farmers: bins, augers, conveyors, dryers.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="rust" href="/equipment/greenhouses/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/agriculture-hero-bg.webp" width="1920"/></div>
-<h3>Greenhouse Financing</h3>
-<p>Greenhouse financing for commercial growers and nurseries: loans and leases for structures, climate control, lighting, and hydroponic systems.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="blue" href="/equipment/hay-balers/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/hay-baler-equipment.webp?v=4" width="1920"/></div>
-<h3>Hay Baler Financing</h3>
-<p>Hay baler financing: equipment loans, leases, SBA. new, Fast approvals, flexible terms.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="teal" href="/equipment/industrial-robots/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/industrial-robot-equipment.webp?v=4" width="1920"/></div>
-<h3>Industrial Robot Financing</h3>
-<p>Industrial robot financing for manufacturers: how to get loans or leases for automation equipment.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="indigo" href="/equipment/injection-molding/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/injection-molding-equipment.webp?v=4" width="1920"/></div>
-<h3>Injection Molding Financing</h3>
-<p>Injection molding financing guide: $50K-$500K+ new, equipment loans and leases.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="bronze" href="/equipment/lab-equipment-medical/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/lab-equipment-medical.webp?v=4" width="1920"/></div>
-<h3>Lab Equipment Financing</h3>
-<p>Medical lab equipment financing for healthcare practices: how to get loans or leases for analyzers and lab gear.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="rust" href="/equipment/landscape-trailers/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/landscape-trailer-equipment.webp?v=4" width="1920"/></div>
-<h3>Landscape Trailer Financing</h3>
-<p>Landscape trailer financing: dump, utility. $3K $25K+ new, 24 48 hr approvals, credit 600+, 0 20% down.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="blue" href="/equipment/lathes-milling-machines/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/lathe-equipment.webp?v=4" width="1920"/></div>
-<h3>Lathe &amp; Milling Machine Financing</h3>
-<p>Lathe and milling machine financing: equipment loans, leases, SBA. new, Fast approvals, flexible terms.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="teal" href="/equipment/log-trucks/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/forestry-log-truck-equipment.webp?v=4" width="1920"/></div>
-<h3>Log Truck Financing</h3>
-<p>Log truck financing for new or used equipment. Compare loans, leases, and SBA options with fast approvals and flexible down payments for operators For operators</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="indigo" href="/equipment/medical-imaging/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/medical-imaging-equipment.webp?v=4" width="1920"/></div>
-<h3>Finance Imaging Equipment Without Tying Up Your Practice's Cash</h3>
-<p>Medical imaging &amp; radiology equipment financing for X-ray, MRI, CT, and ultrasound.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="bronze" href="/equipment/mini-excavators/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/mini-excavator-equipment.webp?v=4" width="1920"/></div>
-<h3>Mini Excavator Financing</h3>
-<p>Mini excavator financing for new or used machines. Compare loans, leases, and SBA options with fast approvals and flexible down payments for contractors.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="rust" href="/equipment/pallet-jacks/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/pallet-jack-equipment.webp?v=4" width="1920"/></div>
-<h3>Pallet Jack Financing</h3>
-<p>Pallet jack financing for warehouses: loans and leases per unit. How to finance pallet jacks.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="blue" href="/equipment/pallet-racking/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/pallet-racking-equipment.webp?v=4" width="1920"/></div>
-<h3>Pallet Racking Financing</h3>
-<p>Pallet racking financing for warehouses: how to get loans or leases for rack systems.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="teal" href="/equipment/pos-systems-restaurant/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/restaurant-pos-equipment.webp?v=4" width="1920"/></div>
-<h3>POS System Financing</h3>
-<p>POS system financing for restaurants: how to get loans or leases for point-of-sale and tablets.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="indigo" href="/equipment/prep-equipment-restaurant/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/restaurant-prep-equipment.webp?v=4" width="1920"/></div>
-<h3>Prep Equipment Financing</h3>
-<p>Restaurant prep equipment financing: prep tables, mixers. How to get loans or leases for kitchen prep.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="bronze" href="/equipment/press-brakes/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/press-brake-equipment.webp?v=4" width="1920"/></div>
-<h3>Press Brake Financing</h3>
-<p>Press brake financing for metal fabricators: loans and leases. How to finance press brakes.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="rust" href="/equipment/refrigerated-trucks/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/reefer-truck-equipment.webp?v=4" width="1920"/></div>
-<h3>Refrigerated Truck Financing</h3>
-<p>Refrigerated truck financing for new or used equipment. Compare loans, leases, and SBA options with fast approvals and flexible down payments for fleets For fle</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="blue" href="/equipment/restaurant-refrigeration/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/restaurant-refrigeration.webp?v=4" width="1920"/></div>
-<h3>Restaurant Refrigeration Financing</h3>
-<p>Restaurant refrigeration financing for U.S. restaurants: how to get loans or leases for walk-ins and reach-ins.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="teal" href="/equipment/scanning-wms/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/warehouse-scanner-equipment.webp?v=4" width="1920"/></div>
-<h3>Scanning &amp; WMS Financing</h3>
-<p>Scanning and WMS financing for warehouses: how to get loans or leases for barcode scanners and mobile computers.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="indigo" href="/equipment/semi-trucks/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/semi-truck-equipment.webp?v=4" width="1920"/></div>
-<h3>Semi Truck Financing</h3>
-<p>Semi truck financing for owner-operators: how to get loans or leases for new or used rigs.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="bronze" href="/equipment/shop-tools-storage/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/shop-tools-equipment.webp?v=4" width="1920"/></div>
-<h3>Shop Tools &amp; Storage Financing</h3>
-<p>Shop tools and storage financing: tool chests, air compressors $5K-$50K+.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="rust" href="/equipment/skid-steers/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/skid-steer-equipment.webp?v=4" width="1920"/></div>
-<h3>Skid Steer Financing</h3>
-<p>Skid steer financing for new or used machines. Compare loans, leases, and SBA options with fast approvals and flexible down payments for contractors.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="blue" href="/equipment/sprayers/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/sprayer-equipment.webp?v=4" width="1920"/></div>
-<h3>Sprayer Financing</h3>
-<p>Sprayer financing for U.S. agriculture: equipment loans, leases, SBA. How to finance crop sprayers.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="teal" href="/equipment/stump-grinders/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/stump-grinder-equipment.webp?v=4" width="1920"/></div>
-<h3>Stump Grinder Financing</h3>
-<p>Stump grinder financing for new or used equipment. Compare loans, leases, and SBA options with fast approvals and flexible down payments for tree care For tree</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="indigo" href="/equipment/surgical-equipment/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/surgical-equipment.webp?v=4" width="1920"/></div>
-<h3>Surgical &amp; Procedure Equipment Financing</h3>
-<p>Surgical equipment financing for healthcare and ASCs: lights, tables, scopes.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="bronze" href="/equipment/tanker-trucks/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/tanker-truck-equipment.webp?v=4" width="1920"/></div>
-<h3>Tanker Truck Financing</h3>
-<p>Tanker truck financing for carriers: how to get loans or leases for fuel and chemical hauling.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="rust" href="/equipment/tire-changers-balancers/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/tire-changer-equipment.webp?v=4" width="1920"/></div>
-<h3>Tire Changers &amp; Balancers Financing</h3>
-<p>Tire changer and balancer financing for auto shops: how to get loans or leases for alignment and tire equipment.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="blue" href="/equipment/tractors/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/tractor-equipment.webp?v=4" width="1920"/></div>
-<h3>Tractor Financing</h3>
-<p>Tractor financing for farmers: how to get loans or leases for new or used tractors.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="teal" href="/equipment/trailers/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/trailer-equipment.webp?v=4" width="1920"/></div>
-<h3>Trailer Financing</h3>
-<p>Trailer financing for utility and semi-trailers with equipment loans and leases.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="indigo" href="/equipment/ventilation-hood-systems/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/commercial-ventilation-equipment.webp?v=4" width="1920"/></div>
-<h3>Ventilation &amp; Hood Systems Financing</h3>
-<p>Ventilation and hood financing for restaurants: how to get loans or leases for exhaust hoods.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="bronze" href="/equipment/wheel-loaders/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/wheel-loader-equipment.webp?v=4" width="1920"/></div>
-<h3>Wheel Loader Financing</h3>
-<p>Wheel loader financing with equipment loans and leases for construction and material handling.</p>
-<span class="card-cta">Read →</span>
-</a>
-<a class="card" data-tone="rust" href="/equipment/zero-turn-mowers/">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/zero-turn-mower-equipment.webp?v=4" width="1920"/></div>
-<h3>Zero-Turn Mower Financing</h3>
-<p>Zero-turn mower financing for landscapers: how to get loans or leases for commercial mowers.</p>
-<span class="card-cta">Read →</span>
-</a>
-</div>
-</div>
-</div>
-</section><footer class="footer">
-<div class="container">
-<div class="footer-brand">
-<img alt="Axiant Partners" height="40" src="/Axiant_light_logo.webp" width="180"/>
-<div class="footer-brand-contact">
-<div class="footer-brand-reach">
-<span class="footer-brand-label">Speak with a specialist</span>
-<a class="footer-phone" href="tel:+15612680465">(561) 268-0465</a>
-<p class="footer-brand-note">Serving all 50 states · Free to apply, no hard credit pull</p>
-</div>
-<a class="btn btn-primary" href="/match.html">Find My Match</a>
-</div>
-</div>
-<div class="footer-top">
-<div class="footer-col">
-<h4>Financing</h4>
-<ul>
-<li><a href="/equipment-financing.html">Equipment Financing</a></li>
-<li><a href="/sba-loans.html">SBA Loans</a></li>
-<li><a href="/working-capital-loans.html">Working Capital</a></li>
-<li><a href="/business-line-of-credit.html">Line of Credit</a></li>
-<li><a href="/commercial-real-estate-loans.html">Commercial Real Estate</a></li>
-<li><a href="/services.html">All 22 programs</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h4>Industries</h4>
-<ul>
-<li><a href="/construction-business-financing.html">Construction</a></li>
-<li><a href="/trucking-business-financing.html">Trucking</a></li>
-<li><a href="/manufacturing-business-financing.html">Manufacturing</a></li>
-<li><a href="/restaurants-business-financing.html">Restaurants</a></li>
-<li><a href="/medical-practices-business-financing.html">Healthcare</a></li>
-<li><a href="/industries.html">All 19 industries</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h4>Guides &amp; Tools</h4>
-<ul>
-<li><a href="/blog.html">Insights &amp; Guides</a></li>
-<li><a href="/equipment.html">Equipment Guides</a></li>
-<li><a href="/business-growth.html">Business Growth</a></li>
-<li><a href="/equipment-for-sale/">Equipment for Sale</a></li>
-<li><a href="/calculator.html">Payment Calculator</a></li>
-<li><a href="/business-financing-glossary/">Financing Glossary</a></li>
-<li><a href="/faq.html">FAQ</a></li>
-</ul>
-</div>
-<div class="footer-col">
-<h4>Company</h4>
-<ul>
-<li><a href="/contact.html">Contact</a></li>
-<li><a href="/referral.html">Referral Program</a></li>
-<li><a href="/vendors.html">For Vendors</a></li>
-<li><a href="/privacy-policy.html">Privacy Policy</a></li>
-<li><a href="/terms-and-conditions.html">Terms &amp; Conditions</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<span>© 2026 Axiant Partners LLC. All rights reserved.</span>
-<span>Axiant Partners is a financing brokerage, not a lender. All financing subject to lender approval.</span>
-</div>
-</div>
+     legacy footer - silently wiping this markup at runtime. That script no
+     longer ships on v2 pages, but 28 legacy pages still load it for the
+     sticky mobile CTA bar, and this component renders on those too. -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="footer-brand">
+      <img src="/Axiant_light_logo.webp" alt="Axiant Partners" width="180" height="40">
+      <div class="footer-brand-contact">
+        <div class="footer-brand-reach">
+          <span class="footer-brand-label">Speak with a specialist</span>
+          <a class="footer-phone" href="tel:+15612680465">(561)&nbsp;268-0465</a>
+          <p class="footer-brand-note">Serving all 50 states &middot; Free to apply, no hard credit pull</p>
+        </div>
+        <a class="btn btn-primary" href="/match.html">Find My Match</a>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="footer-col">
+        <h4>Financing</h4>
+        <ul>
+          <li><a href="/equipment-financing.html">Equipment Financing</a></li>
+          <li><a href="/sba-loans.html">SBA Loans</a></li>
+          <li><a href="/working-capital-loans.html">Working Capital</a></li>
+          <li><a href="/business-line-of-credit.html">Line of Credit</a></li>
+          <li><a href="/commercial-real-estate-loans.html">Commercial Real Estate</a></li>
+          <li><a href="/services.html">All 22 programs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="/construction-business-financing.html">Construction</a></li>
+          <li><a href="/trucking-business-financing.html">Trucking</a></li>
+          <li><a href="/manufacturing-business-financing.html">Manufacturing</a></li>
+          <li><a href="/restaurants-business-financing.html">Restaurants</a></li>
+          <li><a href="/medical-practices-business-financing.html">Healthcare</a></li>
+          <li><a href="/industries.html">All 19 industries</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guides &amp; Tools</h4>
+        <ul>
+          <li><a href="/blog.html">Insights &amp; Guides</a></li>
+          <li><a href="/equipment.html">Equipment Guides</a></li>
+          <li><a href="/business-growth.html">Business Growth</a></li>
+          <li><a href="/equipment-for-sale/">Equipment for Sale</a></li>
+          <li><a href="/calculator.html">Payment Calculator</a></li>
+          <li><a href="/business-financing-glossary/">Financing Glossary</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/referral.html">Referral Program</a></li>
+          <li><a href="/vendors.html">For Vendors</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms-and-conditions.html">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Axiant Partners LLC. All rights reserved.</span>
+      <span>Axiant Partners is a financing brokerage, not a lender. All financing subject to lender approval.</span>
+    </div>
+  </div>
 </footer>
 <!-- AXIANT-FOOTER:END -->
-<script defer="" src="/language-switcher.js?v=202609011423"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script defer="" src="/script.js?v=202609011423"></script>
 </body>
