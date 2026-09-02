@@ -64,3 +64,4 @@ A running, timestamped log of what shipped — appended automatically on every c
 
 ## 2026-09-02
 - 15:16 — Log the DSCR sources commit in WORKLOG (`13d691903`) — Alex Solopenkov
+- 15:37 — Stop the body fade animation breaking position:fixed site-wide (`c3d609518`) — Alex Solopenkov

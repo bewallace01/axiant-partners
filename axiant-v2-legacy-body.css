@@ -55,18 +55,28 @@
 /* v2 sets h1 and h2 in Playfair 700 and everything else in Inter. The v1
    sheet sets both in Inter, which is the single biggest reason these pages
    read as a different site. */
+/* Font only, deliberately no colour. These are bare element selectors at
+   (0,1,1), which ties with every rule the pages and the chrome already use to
+   set light text on a dark ground - .ef-hero-copy h1, .footer h4 - and this
+   sheet loads last, so a tie here silently wins. It did: the pillar hero H1
+   and bullets, the calculator and referral hero headings, and every footer
+   column heading all computed to #1a1a1a on a dark background and vanished.
+
+   Dropping colour costs nothing. --v2-ink is #1a1a1a and --v2-copy is #4a4a4a,
+   the identical values styles.css already gives --text-primary and
+   --text-secondary, so light-background copy is unchanged. */
 .v2-body h1,
 .v2-body h2{
   font-family:"Playfair Display",Georgia,serif;
-  font-weight:700;letter-spacing:-.015em;line-height:1.1;color:var(--v2-ink);
+  font-weight:700;letter-spacing:-.015em;line-height:1.1;
 }
 .v2-body h3,
 .v2-body h4{
   font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  font-weight:600;color:var(--v2-ink);letter-spacing:-.005em;
+  font-weight:600;letter-spacing:-.005em;
 }
 .v2-body p,
-.v2-body li{color:var(--v2-copy);line-height:1.6;}
+.v2-body li{line-height:1.6;}
 .v2-body .eyebrow,
 .v2-body .ef-eyebrow{
   font-size:12px;font-weight:600;letter-spacing:.14em;
@@ -145,7 +155,18 @@
   outline:none;border-color:var(--v2-accent);
   box-shadow:0 0 0 3px var(--v2-accent-100);
 }
-.v2-body .form-container{
+/* Decorate the form card - but NOT the variants styles.css deliberately makes
+   transparent. Those are hero overlays: the card sits inset:0 over the hero
+   image with background:transparent so the photograph shows through. That rule
+   is (0,2,0), the same as `.v2-body .form-container`, and this sheet loads
+   last, so the blanket version won and painted an opaque white box over the
+   hero. calculator.html and referral.html both rendered as a blank white slab
+   with the headline invisible inside it.
+
+   The exclusions are exactly the classes styles.css sets to transparent;
+   ef-content is deliberately NOT excluded, because styles.css gives it no
+   override and the 13 pillar pages that use it want the card treatment. */
+.v2-body .form-container:not(.calculator-content):not(.match-content):not(.referral-content):not(.contact-content):not(.services-content):not(.blog-content):not(.blog-post-content):not(.equipment-financing-content):not(.business-line-of-credit-content):not(.business-term-loans-content):not(.fix-and-flip-content):not(.working-capital-loans-content):not(.sba-loans-content){
   background:var(--v2-surface);
   border:1px solid var(--v2-line);border-radius:var(--v2-r-lg);
   box-shadow:var(--v2-sh-2);
