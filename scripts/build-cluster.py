@@ -15,7 +15,7 @@ The hub is generated from what is on disk rather than from ARTICLES, so its
 cards cannot fall behind the articles - the failure that left
 generate_sitemap.py 188 URLs behind the site.
 """
-import argparse, importlib, io, os, re, sys
+import argparse, html, importlib, io, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import article_v2 as A
@@ -44,7 +44,12 @@ def build(name, apply_changes):
         seen.add(a["slug"])
         out = A.render(a, c, v, header, footer)
         w = words(out)
-        flag = "  " if 1200 <= w <= 1800 else "!!"
+        # a title past ~60 characters is truncated in the SERP, and the tail
+        # that gets cut is the part the reader was meant to act on
+        tl = len(html.unescape(a["title"]))
+        flag = "  " if 1200 <= w <= 1800 and tl <= 60 else "!!"
+        if tl > 60:
+            print(f"  !! {a['slug']:46} title is {tl} chars, cut at ~60")
         if apply_changes:
             d = os.path.join(hub_dir, a["slug"])
             os.makedirs(d, exist_ok=True)

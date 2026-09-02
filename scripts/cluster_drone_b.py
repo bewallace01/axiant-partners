@@ -162,8 +162,7 @@ MORE = [
     {
         "slug": "drone-fleet-financing-inspection-surveying",
         "crumb": "Drone Fleet Financing",
-        "title": "Drone Fleet Financing for Inspection and Surveying | Axiant "
-                 "Partners",
+        "title": "Drone Fleet Financing for Inspection Work",
         "og_title": "Drone Fleet Financing for Inspection and Surveying",
         "h1": "Drone Fleet Financing for Inspection and Surveying",
         "headline": "Drone Fleet Financing for Inspection and Surveying",

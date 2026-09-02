@@ -253,6 +253,9 @@ def build_hub(c, v, header, footer):
                    "item": f"{BASE}/{hub}/"}]}
     coll = {"@context": "https://schema.org", "@type": "CollectionPage",
             "name": c["hub_h1"], "description": c["hub_desc"], "url": f"{BASE}/{hub}/",
+            # the audit's GEO check reads dateModified out of the page's own
+            # JSON-LD; without it a hub looks undated to every assistant
+            "dateModified": TODAY.isoformat(),
             "isPartOf": {"@id": f"{BASE}/#organization"},
             "hasPart": [{"@type": "Article", "headline": n, "url": f"{BASE}/{hub}/{s}/"}
                         for s, n, _ in arts]}

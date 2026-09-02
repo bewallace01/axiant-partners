@@ -16,8 +16,7 @@ CLUSTER = {
     "crumb": "Data Center Financing",
     "cta_inline": "See what your deployment supports",
     "cta_button": "Get Matched for Data Center Financing",
-    "hub_title": "Data Center and IT Infrastructure Financing Guides | Axiant "
-                 "Partners",
+    "hub_title": "Data Center Financing Guides | Axiant Partners",
     "hub_h1": "Data Center Financing Articles",
     "hub_lede": "Compute, colocation, GPUs and the power layer - financed on "
                 "different clocks",

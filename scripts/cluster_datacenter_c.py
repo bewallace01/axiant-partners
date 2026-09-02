@@ -8,8 +8,7 @@ MORE = [
     {
         "slug": "power-cooling-and-ups-infrastructure-financing",
         "crumb": "Power, Cooling and UPS",
-        "title": "Power, Cooling and UPS Infrastructure Financing | Axiant "
-                 "Partners",
+        "title": "Power, Cooling and UPS Financing for Data Centers",
         "og_title": "Power, Cooling and UPS Infrastructure Financing",
         "h1": "Power, Cooling and UPS Infrastructure Financing",
         "headline": "Power, Cooling and UPS Infrastructure Financing",

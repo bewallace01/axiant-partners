@@ -55,3 +55,4 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 14:05 — Sweep British spellings out of the site copy (`bfb63e48a`) — Alex Solopenkov
 - 14:05 — Four thin-vertical clusters: aircraft, marine, drone, data center (`4eeba0f70`) — Alex Solopenkov
 - 14:06 — Link every cluster pillar down to its own articles (`e5affd34b`) — Alex Solopenkov
+- 14:22 — Make the speakable schema on 613 pages resolve to something (`f0ce0de74`) — Alex Solopenkov
