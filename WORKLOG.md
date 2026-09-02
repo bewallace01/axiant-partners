@@ -39,3 +39,4 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 10:51 — Log the four commits in WORKLOG (`734ff7c5c`) — Alex Solopenkov
 - 11:08 — Stop the article engine backdating every page it generates to 27 May (`d42364b4a`) — Alex Solopenkov
 - 11:18 — Wire the MCA cluster to its four pillars (Priority 0) (`b515088e1`) — Alex Solopenkov
+- 11:40 — Fix three ways the converter lost content, then convert the DSCR group (`b6b9a69e0`) — Alex Solopenkov

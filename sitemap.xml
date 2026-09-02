@@ -1687,18 +1687,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://axiantpartners.com/commercial-real-estate-loans/articles/dscr-loan-vs-conventional-mortgage/</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://axiantpartners.com/commercial-real-estate-loans/articles/dscr-rental-loans-real-estate-investors/</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://axiantpartners.com/commercial-real-estate-loans/articles/hotel-financing-sba-cmbs-conventional/</loc>
     <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
@@ -4005,6 +3993,42 @@
   <url>
     <loc>https://axiantpartners.com/dscr-loans.html</loc>
     <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/dscr-loans/articles/</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/dscr-loans/articles/dscr-loan-vs-conventional-mortgage/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/dscr-loans/articles/dscr-loans-short-term-rentals/</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/dscr-loans/articles/dscr-rental-loans-real-estate-investors/</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/dscr-loans/articles/how-dscr-is-calculated/</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://axiantpartners.com/dscr-loans/articles/what-counts-as-rental-income-dscr/</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
