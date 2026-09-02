@@ -202,8 +202,26 @@ def render(a, v, header, footer):
 """
 
 
+def load_articles():
+    """Every batch module, in order. Adding a batch means adding it here."""
+    import importlib
+    out = []
+    for mod in ("dscr_articles_batch1", "dscr_articles_batch2",
+                "dscr_articles_batch3"):
+        try:
+            out.extend(importlib.import_module(mod).ARTICLES)
+        except ModuleNotFoundError:
+            pass
+    seen = set()
+    for a in out:
+        if a["slug"] in seen:
+            raise SystemExit(f"duplicate slug across batches: {a['slug']}")
+        seen.add(a["slug"])
+    return out
+
+
 def main(apply_changes, only=None):
-    from dscr_articles_batch1 import ARTICLES
+    ARTICLES = load_articles()
     v = version()
     header = open(os.path.join(ROOT, "_components", "header-v2.html"),
                   encoding="utf-8").read().strip().replace("{{VERSION}}", v)

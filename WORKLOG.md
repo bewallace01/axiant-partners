@@ -40,3 +40,5 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 11:08 — Stop the article engine backdating every page it generates to 27 May (`d42364b4a`) — Alex Solopenkov
 - 11:18 — Wire the MCA cluster to its four pillars (Priority 0) (`b515088e1`) — Alex Solopenkov
 - 11:40 — Fix three ways the converter lost content, then convert the DSCR group (`b6b9a69e0`) — Alex Solopenkov
+- 11:56 — Add the image ingest pipeline, so generated art becomes shipped WebP in one command (`a55ac4fbf`) — Claude
+- 12:01 — DSCR cluster: the hub and the first three articles (`6a8fdef5a`) — Alex Solopenkov
