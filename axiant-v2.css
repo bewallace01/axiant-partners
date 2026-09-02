@@ -100,6 +100,7 @@
    ========================================================================== */
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
+
 body{
   margin:0;
   background:var(--surface);
@@ -228,12 +229,12 @@ a{color:inherit}
    HERO  — full-bleed image, directional scrim, form sitting ON the image
    ========================================================================== */
 .hero{position:relative;isolation:isolate;background:var(--navy-900);overflow:hidden}
-.hero-media{position:absolute;inset:0;z-index:-2}
+.hero-media{position:absolute;inset:0;z-index:0}
 .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
 /* Two scrims: a directional one so the left copy stays legible, and a base
    one so the whole image sits back behind the content. */
 .hero::before{
-  content:"";position:absolute;inset:0;z-index:-1;
+  content:"";position:absolute;inset:0;z-index:1;
   background:
     linear-gradient(100deg,
       rgba(8,20,38,.95) 0%,
@@ -721,10 +722,20 @@ a{color:inherit}
 .hero-compact{
   position:relative;isolation:isolate;background:var(--navy-900);overflow:hidden;
 }
-.hero-compact .hero-media{position:absolute;inset:0;z-index:-2}
+/* Media layers paint at 0/1/2, never below zero.
+   These were z-index:-2 for the photo and -1 for the scrim, which only
+   worked while <body> happened to form a stacking context - it got one
+   free from the transform the pageFadeIn animation left behind. Removing
+   that transform was right on its own terms (it anchored every
+   position:fixed element to the document) but it took the stacking context
+   with it, and every hero and band photograph on the site began painting
+   behind the canvas background. Positive layers do not depend on an
+   ancestor forming a context, so this cannot regress the same way. */
+.hero-compact .hero-media{position:absolute;inset:0;z-index:0}
+.hero-compact>.container,.hero>.container,.band>.container{position:relative;z-index:2}
 .hero-compact .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
 .hero-compact::before{
-  content:"";position:absolute;inset:0;z-index:-1;
+  content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(105deg,
     rgba(8,20,38,.94) 0%, rgba(8,20,38,.88) 42%,
     rgba(8,20,38,.66) 72%, rgba(8,20,38,.52) 100%);
@@ -802,10 +813,10 @@ a{color:inherit}
    confident image, not thirteen thumbnails competing inside cards.
    ========================================================================== */
 .band{position:relative;isolation:isolate;background:var(--navy-900);overflow:hidden}
-.band-media{position:absolute;inset:0;z-index:-2}
+.band-media{position:absolute;inset:0;z-index:0}
 .band-media img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
 .band::before{
-  content:"";position:absolute;inset:0;z-index:-1;
+  content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(90deg,
     rgba(8,20,38,.93) 0%, rgba(8,20,38,.82) 45%, rgba(8,20,38,.45) 100%);
 }
