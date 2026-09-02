@@ -24,7 +24,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SKIP = {"node_modules", "_backup-pre-v2-swap", ".git"}
-PATTERN = re.compile(r"((?:axiant-v2|axiant-v2-chrome|article-toc)\.(?:css|js)\?v=)[0-9A-Za-z]+")
+PATTERN = re.compile(r"((?:axiant-v2|axiant-v2-chrome|axiant-v2-legacy-body|article-toc)\.(?:css|js)\?v=)[0-9A-Za-z]+")
 
 
 def main():

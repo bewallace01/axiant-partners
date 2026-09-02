@@ -11,7 +11,9 @@
      Do NOT add the class "site-footer" to the <footer> below.
      language-switcher.js runs enhanceGlobalFooter(), which does
      querySelector('.site-footer') and REPLACES the whole innerHTML with the
-     legacy footer - silently wiping this markup at runtime. -->
+     legacy footer - silently wiping this markup at runtime. That script no
+     longer ships on v2 pages, but 28 legacy pages still load it for the
+     sticky mobile CTA bar, and this component renders on those too. -->
 <footer class="footer">
   <div class="container">
 

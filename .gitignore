@@ -76,3 +76,9 @@ _preview/
 # Converter source of truth - local only, never deployed (786 stale page copies)
 _backup-pre-v2-swap/
 Axiant.zip
+
+# Raw generated art staged for scripts/ingest-images.py - never deployed
+_incoming/
+
+# _incoming extraction markers
+*.zip.done

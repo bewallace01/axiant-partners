@@ -4,8 +4,6 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<link href="https://fonts.googleapis.com" rel="dns-prefetch"/>
-<link href="https://fonts.gstatic.com" rel="dns-prefetch"/>
 <link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="#0d1f3c" name="theme-color"/>
@@ -33,13 +31,12 @@
 <meta content="Industry-by-industry financing guides for U.S. businesses: equipment, SBA, working capital, and lines of credit." name="twitter:description"/>
 <title>Industry Financing Guides by Sector | Axiant Partners</title>
 <link as="image" href="/assets/construction-hero-bg.webp?v=4" rel="preload" type="image/webp"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="/axiant-v2.css?v=202609012143" rel="stylesheet"/>
+<link href="/axiant-v2.css?v=202609021442" rel="stylesheet"/>
 <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"WebPage","name":"Industries We Support - Axiant Partners","description":"Industry-specific business financing for construction, trucking, restaurants, healthcare, manufacturing, agriculture, landscaping, auto repair, and logistics. Equipment financing, SBA loans, and working capital tailored to your industry.","url":"https://axiantpartners.com/industries.html","publisher":{"@type":"Organization","name":"Axiant Partners","url":"https://axiantpartners.com"}}
-    </script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://axiantpartners.com/industries.html","dateModified":"2026-07-01"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://axiantpartners.com/industries.html#speakable", "url": "https://axiantpartners.com/industries.html", "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".quick-answer"]}}</script></head>
+    </script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://axiantpartners.com/industries.html","dateModified":"2026-07-01"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://axiantpartners.com/industries.html#speakable", "url": "https://axiantpartners.com/industries.html", "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1"]}}</script><link as="font" crossorigin="" href="/fonts/inter-400.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/fonts/playfair-700.woff2" rel="preload" type="font/woff2"/>
+</head>
 <body>
 <!-- AXIANT-HEADER:START — generated from _components/header-v2.html.
      Do NOT edit inside these markers on a page. Edit the component, then run:
@@ -100,7 +97,7 @@
 </div>
 <!-- Bump ?v= whenever axiant-v2.js changes, or browsers serve the old file.
      Same convention the rest of the site uses for styles.css / script.js. -->
-<script defer="" src="/axiant-v2.js?v=202609012143"></script>
+<script defer="" src="/axiant-v2.js?v=202609021442"></script>
 <!-- AXIANT-HEADER:END -->
 <section class="hero-compact">
 <div class="hero-media">
@@ -127,11 +124,13 @@
      Do NOT add the class "site-footer" to the <footer> below.
      language-switcher.js runs enhanceGlobalFooter(), which does
      querySelector('.site-footer') and REPLACES the whole innerHTML with the
-     legacy footer - silently wiping this markup at runtime. -->
+     legacy footer - silently wiping this markup at runtime. That script no
+     longer ships on v2 pages, but 28 legacy pages still load it for the
+     sticky mobile CTA bar, and this component renders on those too. -->
 <section class="section">
 <div class="container">
 <div class="group" data-tone="blue">
-<div class="group-head"><h2 id="financing-by-industry">Financing by industry</h2></div>
+<div class="group-head"><h2>Financing by industry</h2></div>
 <div class="cards cards-left">
 <a class="card" data-tone="blue" href="/construction-business-financing.html">
 <div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/construction-hero-bg.webp?v=4" width="1920"/></div>
@@ -160,7 +159,7 @@
 <a class="card" data-tone="rust" href="/fencing-business-financing.html">
 <div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/skid-steer-hero-bg.webp" width="1920"/></div>
 <h3>Fencing Contractor Financing</h3>
-<p>Fencing contractor financing for U.S. fence companies: equipment loans for augers and skid steers, SBA, and working capital to front materials and bridge net-30/60 jobs.</p>
+<p>Fencing contractor financing for U.S. fence companies: equipment loans for augers and skid steers, SBA, and working capital to front materials and bridge.</p>
 <span class="card-cta">Read →</span>
 </a>
 <a class="card" data-tone="blue" href="/landscaping-business-financing.html">
@@ -178,7 +177,7 @@
 <a class="card" data-tone="indigo" href="/trucking-business-financing.html">
 <div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/trucking-hero-bg.webp?v=4" width="1920"/></div>
 <h3>Financing Built for Trucking</h3>
-<p>Trucking business financing for owner-operators and fleets: semi truck loans 8–14%, trailer financing, working capital for fuel + payroll, and SBA paths.</p>
+<p>Trucking business financing for trucks, trailers and working capital: owner-operators to small fleets, with fuel, payroll and maintenance gaps covered.</p>
 <span class="card-cta">Read →</span>
 </a>
 <a class="card" data-tone="bronze" href="/towing-business-financing.html">
@@ -193,50 +192,56 @@
 <p>Logistics and warehousing financing for U.S. businesses: forklifts, conveyor, SBA loans, and working capital.</p>
 <span class="card-cta">Read →</span>
 </a>
-<a class="card" data-tone="blue" href="/moving-company-business-financing.html">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/box-truck-hero-bg.webp" width="1920"/></div>
+<a class="card" data-tone="blue" href="/security-guard-business-financing.html">
+<span class="card-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"></path><path d="M14 3v5h5"></path><path d="M9 13h6M9 17h4"></path></svg></span>
+<h3>Security Guard Company Financing</h3>
+<p>Financing for security guard companies: invoice factoring, payroll funding, working capital, and lines of credit built for net-30 to net-60 contracts.</p>
+<span class="card-cta">Read →</span>
+</a>
+<a class="card" data-tone="teal" href="/moving-company-business-financing.html">
+<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/moving-company-hero.webp" width="1920"/></div>
 <h3>Moving Company Financing</h3>
 <p>Moving company financing for U.S. movers: box-truck and van financing, SBA loans, and working capital for peak-season payroll, fuel, and crew ramp.</p>
 <span class="card-cta">Read →</span>
 </a>
-<a class="card" data-tone="teal" href="/manufacturing-business-financing.html">
+<a class="card" data-tone="indigo" href="/manufacturing-business-financing.html">
 <div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/manufacturing-hero-bg.webp?v=4" width="1920"/></div>
 <h3>Manufacturing Business Financing</h3>
 <p>Manufacturing business financing for U.S. companies: equipment loans, SBA, and working capital for machinery and expansion.</p>
 <span class="card-cta">Read →</span>
 </a>
-<a class="card" data-tone="indigo" href="/agriculture-business-financing.html">
+<a class="card" data-tone="bronze" href="/agriculture-business-financing.html">
 <div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/agriculture-hero-bg.webp?v=4" width="1920"/></div>
 <h3>Agriculture Business Financing</h3>
 <p>Agriculture financing for U.S. farms and agribusiness: equipment loans, SBA loans, and working capital.</p>
 <span class="card-cta">Read →</span>
 </a>
-<a class="card" data-tone="bronze" href="/forestry-business-financing.html">
+<a class="card" data-tone="rust" href="/forestry-business-financing.html">
 <div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/forestry-hero-bg.webp?v=4" width="1920"/></div>
 <h3>Forestry Business Financing</h3>
 <p>Forestry business financing for U.S. loggers and timber operations: equipment loans, SBA, and working capital.</p>
 <span class="card-cta">Read →</span>
 </a>
-<a class="card" data-tone="rust" href="/medical-practices-business-financing.html">
+<a class="card" data-tone="blue" href="/medical-practices-business-financing.html">
 <div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/medical-practices-hero-bg.webp?v=4" width="1920"/></div>
 <h3>Medical Practice Financing</h3>
 <p>Medical practices financing for U.S. healthcare: equipment loans, SBA, and working capital for practices and clinics.</p>
 <span class="card-cta">Read →</span>
 </a>
-<a class="card" data-tone="blue" href="/restaurants-business-financing.html">
+<a class="card" data-tone="teal" href="/restaurants-business-financing.html">
 <div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/restaurants-hero-bg.webp?v=4" width="1920"/></div>
 <h3>Restaurant Business Financing</h3>
 <p>Restaurant financing for U.S. operators: SBA loans, kitchen equipment, and working capital.</p>
 <span class="card-cta">Read →</span>
 </a>
-<a class="card" data-tone="teal" href="/auto-repair-business-financing.html">
+<a class="card" data-tone="indigo" href="/auto-repair-business-financing.html">
 <div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/auto-repair-hero-bg.webp?v=4" width="1920"/></div>
 <h3>Auto Repair Business Financing</h3>
 <p>Auto repair shop financing for U.S. businesses: lifts, diagnostic equipment, SBA loans, and working capital.</p>
 <span class="card-cta">Read →</span>
 </a>
-<a class="card" data-tone="indigo" href="/cleaning-business-financing.html">
-<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/landscaping-hero-bg.webp?v=1" width="1920"/></div>
+<a class="card" data-tone="bronze" href="/cleaning-business-financing.html">
+<div class="card-media"><img alt="" decoding="async" height="1071" loading="lazy" src="/assets/cleaning-hero.webp?v=1" width="1920"/></div>
 <h3>Cleaning Business Financing</h3>
 <p>Cleaning company financing for U.S. operators: equipment loans, SBA, and working capital for floor scrubbers, vehicles, and crew expansion.</p>
 <span class="card-cta">Read →</span>
@@ -310,7 +315,6 @@
 </div>
 </footer>
 <!-- AXIANT-FOOTER:END -->
-<script defer="" src="/language-switcher.js?v=202609011423"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script defer="" src="/script.js?v=202609011423"></script>
 </body>

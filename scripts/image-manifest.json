@@ -1,0 +1,299 @@
+{
+ "variants": [
+  400,
+  560,
+  800,
+  1200
+ ],
+ "quality": 86,
+ "realism_strength": 1.0,
+ "images": [
+  {
+   "asset": "btl-hero",
+   "type": "replace",
+   "w": 1920,
+   "h": 1071,
+   "alt": "Business owner reviewing term loan paperwork"
+  },
+  {
+   "asset": "mca-hero",
+   "type": "replace",
+   "w": 1920,
+   "h": 1071,
+   "alt": "Small business owner reconciling card receipts at closing"
+  },
+  {
+   "asset": "rbf-hero",
+   "type": "replace",
+   "w": 1920,
+   "h": 1071,
+   "alt": "Business partners at an office window at dusk"
+  },
+  {
+   "asset": "sbl-hero",
+   "type": "replace",
+   "w": 1920,
+   "h": 1071,
+   "alt": "Investor considering securities-backed borrowing"
+  },
+  {
+   "asset": "medical-practices-hero-bg",
+   "type": "replace",
+   "w": 1920,
+   "h": 1071,
+   "alt": "Practice manager walking a clinic corridor"
+  },
+  {
+   "asset": "moving-company-hero",
+   "type": "new-hero",
+   "w": 1920,
+   "h": 1071,
+   "page": "moving-company-business-financing.html",
+   "alt": "Movers loading an unmarked box truck on a residential driveway",
+   "note": "page currently uses box-truck-hero-bg.webp, shared with a box-truck page"
+  },
+  {
+   "asset": "cleaning-hero",
+   "type": "new-hero",
+   "w": 1920,
+   "h": 1071,
+   "page": "cleaning-business-financing.html",
+   "alt": "Commercial cleaner buffing an office lobby floor before opening",
+   "note": "page currently reuses landscaping-hero-bg.webp byte for byte"
+  },
+  {
+   "asset": "inventory-financing-hero",
+   "type": "new-hero",
+   "w": 1920,
+   "h": 1071,
+   "page": "inventory-financing.html",
+   "alt": "Business owner scanning stock in a warehouse aisle",
+   "note": "page has no hero and no photographs at all"
+  },
+  {
+   "asset": "manufacturing-equipment-financing",
+   "type": "replace",
+   "w": 1376,
+   "h": 768,
+   "alt": "CNC machinist inspecting a part in the machine",
+   "also_update_refs": true,
+   "note": "existing file is 0 bytes and referenced as .png"
+  },
+  {
+   "asset": "manufacturing-working-capital-seasonal",
+   "type": "replace",
+   "w": 1376,
+   "h": 768,
+   "alt": "Steel stock on pallet racking in a manufacturing warehouse",
+   "also_update_refs": true,
+   "note": "existing file is 0 bytes and referenced as .png"
+  },
+  {
+   "asset": "roofing-crew-tearoff",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "roofing-business-financing.html",
+   "section_match": "Why Roofing Contractors Need Financing",
+   "alt": "Roofing crew tearing off shingles on a residential roof"
+  },
+  {
+   "asset": "hvac-rooftop-unit",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "hvac-business-financing.html",
+   "section_match": "Why HVAC Contractors Need Financing",
+   "alt": "HVAC technician servicing a rooftop package unit"
+  },
+  {
+   "asset": "plumbing-service-van",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "plumbing-business-financing.html",
+   "section_match": "Why Plumbing Contractors Need Financing",
+   "alt": "Plumber pulling a drain snake from a service van"
+  },
+  {
+   "asset": "fencing-post-setting",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "fencing-business-financing.html",
+   "section_match": "Financing for Fence Companies",
+   "alt": "Installers setting a wooden fence post in concrete"
+  },
+  {
+   "asset": "fencing-chain-link-commercial",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "fencing-business-financing.html",
+   "section_match": "Financing Options for Fencing Contractors",
+   "alt": "Chain-link fence being installed around a commercial yard"
+  },
+  {
+   "asset": "septic-pump-truck",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "septic-business-financing.html",
+   "section_match": "Septic & Portable Sanitation Financing",
+   "alt": "Septic pumping truck working a rural driveway"
+  },
+  {
+   "asset": "septic-drainfield-install",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "septic-business-financing.html",
+   "section_match": "Financing Options for Septic",
+   "alt": "Excavator digging a drainfield trench"
+  },
+  {
+   "asset": "towing-heavy-recovery",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "towing-business-financing.html",
+   "section_match": "Towing & Recovery Financing",
+   "alt": "Heavy-duty rotator recovering a truck at dusk"
+  },
+  {
+   "asset": "towing-light-duty-flatbed",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "towing-business-financing.html",
+   "section_match": "Financing Options for Towing",
+   "alt": "Flatbed tow truck winching a car at night"
+  },
+  {
+   "asset": "moving-long-distance-load",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "moving-company-business-financing.html",
+   "section_match": "Moving Company Financing",
+   "alt": "Movers securing a load inside a moving truck"
+  },
+  {
+   "asset": "moving-commercial-office",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "moving-company-business-financing.html",
+   "section_match": "Financing Options for Moving Companies",
+   "alt": "Office move staged in an empty open-plan floor"
+  },
+  {
+   "asset": "manufacturing-line-overview",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "manufacturing-business-financing.html",
+   "section_match": "Manufacturing Equipment Financing",
+   "alt": "Operators working a production line"
+  },
+  {
+   "asset": "cleaning-janitorial-crew",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "cleaning-business-financing.html",
+   "section_match": "Cleaning Business Financing for Janitorial",
+   "alt": "Janitorial crew restocking a supply cart"
+  },
+  {
+   "asset": "cleaning-window-facade",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "cleaning-business-financing.html",
+   "section_match": "Financing Options for Cleaning Companies",
+   "alt": "Workers cleaning a commercial glass frontage"
+  },
+  {
+   "asset": "backhoe-machine",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "equipment/backhoes/index.html",
+   "section_match": "What Is a",
+   "alt": "Backhoe loader parked on a dirt job site"
+  },
+  {
+   "asset": "box-truck-machine",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "equipment/box-trucks/index.html",
+   "section_match": "What Is a",
+   "alt": "Plain white box truck at a loading dock"
+  },
+  {
+   "asset": "bucket-truck-machine",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "equipment/bucket-trucks/index.html",
+   "section_match": "What Is a",
+   "alt": "Bucket truck with boom raised to a utility pole"
+  },
+  {
+   "asset": "bulldozer-machine",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "equipment/bulldozers/index.html",
+   "section_match": "What Is a",
+   "alt": "Crawler dozer pushing a spoil pile"
+  },
+  {
+   "asset": "dump-truck-machine",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "equipment/dump-trucks/index.html",
+   "section_match": "What Is a",
+   "alt": "Tandem dump truck discharging gravel"
+  },
+  {
+   "asset": "flatbed-truck-machine",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "equipment/flatbed-trucks/index.html",
+   "section_match": "What Is a",
+   "alt": "Flatbed semi loaded with strapped lumber"
+  },
+  {
+   "asset": "log-truck-machine",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "equipment/log-trucks/index.html",
+   "section_match": "What Is a",
+   "alt": "Loaded log truck on a forest haul road"
+  },
+  {
+   "asset": "mini-excavator-machine",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "equipment/mini-excavators/index.html",
+   "section_match": "What Is a",
+   "alt": "Mini excavator working a tight back yard"
+  },
+  {
+   "asset": "skid-steer-machine",
+   "type": "band",
+   "w": 1376,
+   "h": 768,
+   "page": "equipment/skid-steers/index.html",
+   "section_match": "What Is a",
+   "alt": "Skid steer with bucket on a landscaping site"
+  }
+ ]
+}

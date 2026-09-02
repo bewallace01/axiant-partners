@@ -1,6 +1,9 @@
 """Shared engine for batch article builds. Import from this."""
-import pathlib, re
+import datetime, pathlib, re
 REPO = pathlib.Path(__file__).resolve().parent.parent
+
+# Default for datePublished / dateModified when a caller supplies neither.
+_TODAY = datetime.date.today().isoformat()
 
 TEMPLATE_CANONICAL = "https://axiantpartners.com/equipment-financing/articles/medical-imaging-financing-radiology-practices/"
 TEMPLATE_TITLE_TAG = "Medical Imaging Financing for Radiology Practices ($50K–$2M) | Axiant"
@@ -21,10 +24,21 @@ def make_breadcrumb_schema(a):
         f'{{"@type":"ListItem","position":4,"name":"{a["breadcrumb_article_name"]}","item":"{a["canonical"]}"}}]}}')
 
 def make_article_schema(a):
+    # Both dates were hardcoded to "2026-05-27", so every article the engine has
+    # ever emitted claims to have been published and last modified on the same
+    # day in May regardless of when it was written. Left alone, a fourteen-article
+    # cluster built in September would ship fourteen pages backdated four months --
+    # and dateModified is the field the sitemap's lastmod is now derived from, so a
+    # wrong date here propagates straight into the sitemap.
+    #
+    # Callers may pass either key; both fall back to today, which is the right
+    # answer for a page being generated now.
+    published = a.get("date_published") or _TODAY
+    modified = a.get("date_modified") or published
     return ('{"@context":"https://schema.org","@type":"Article",'
         f'"headline":"{a["article_headline"]}","description":"{a["article_desc"]}",'
         f'"image":{{"@type":"ImageObject","url":"{a["image_url"]}","width":1200,"height":630}},'
-        f'"url":"{a["canonical"]}","datePublished":"2026-05-27","dateModified":"2026-05-27",'
+        f'"url":"{a["canonical"]}","datePublished":"{published}","dateModified":"{modified}",'
         '"author":{"@type":"Organization","name":"Axiant Partners","url":"https://axiantpartners.com"},'
         '"publisher":{"@id":"https://axiantpartners.com/#organization"},'
         f'"mainEntityOfPage":{{"@type":"WebPage","@id":"{a["canonical"]}"}},'
