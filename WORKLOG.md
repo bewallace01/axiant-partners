@@ -30,3 +30,9 @@ A running, timestamped log of what shipped — appended automatically on every c
 ## 2026-07-14
 - 09:56 — Add SENNEBOGEN as partner #5 on /equipment-for-sale/ (`84d9324af`) — Alex Solopenkov
 - 10:41 — Fix invisible SENNEBOGEN logo: use their official white-on-green lockup (`35e27c926`) — Alex Solopenkov
+
+## 2026-09-02
+- 10:24 — Stop the sitemap contradicting the pages it points at (`e66e4ed85`) — Alex Solopenkov
+- 10:28 — Self-host the fonts, and stop faking bold on the v1 pages (`abb6d8c55`) — Alex Solopenkov
+- 10:38 — Stop shipping 91 KB of legacy JS to 761 pages that do not use it (`a8c891fde`) — Alex Solopenkov
+- 10:42 — Give the pages that rank and never get clicked something to cite (`dac81683b`) — Alex Solopenkov
