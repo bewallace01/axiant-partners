@@ -192,15 +192,24 @@
 .v2-body .ba-table tr:last-child td{border-bottom:none;}
 
 /* ---- the quick answer block ------------------------------------------- */
-/* v2 renders this as a dark callout, which is the most recognisable single
-   element of the new design. */
+/* v2 renders this as a dark callout, the most recognisable single element of
+   the new design.
+
+   !important is load-bearing here, not laziness. 24 of the 33 .quick-answer
+   elements on these pages carry an inline
+       style="background:var(--bg-card);border-left:...;padding:...;border-radius:10px"
+   and an inline declaration beats any stylesheet rule that is not !important.
+   Without it the colour below applied and the background did not, which put
+   light text on a light panel - unreadable. Every property overridden here is
+   one that inline style sets; nothing else is forced. */
 .v2-body .quick-answer{
-  background:linear-gradient(135deg,var(--v2-navy-800) 0%,var(--v2-navy-900) 100%);
+  background:linear-gradient(135deg,var(--v2-navy-800) 0%,var(--v2-navy-900) 100%) !important;
   color:#dbe5f1;
-  border:1px solid var(--v2-navy-700);
-  border-left:4px solid var(--v2-accent);
-  border-radius:var(--v2-r-lg);
-  padding:var(--v2-s6);box-shadow:var(--v2-sh-2);
+  border:1px solid var(--v2-navy-700) !important;
+  border-left:4px solid var(--v2-accent) !important;
+  border-radius:var(--v2-r-lg) !important;
+  padding:var(--v2-s6) !important;
+  box-shadow:var(--v2-sh-2);
   text-align:left;
 }
 .v2-body .quick-answer p,

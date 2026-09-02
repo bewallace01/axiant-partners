@@ -44,3 +44,4 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 12:01 — DSCR cluster: the hub and the first three articles (`6a8fdef5a`) — Alex Solopenkov
 - 12:12 — Build the first 27 generated images into WebP assets (`96c0cdbfd`) — Claude
 - 12:13 — DSCR cluster: articles 4-14, completing the fourteen (`35fc2baed`) — Alex Solopenkov
+- 12:32 — Give the 37 legacy-body pages the v2 look, without touching their markup (`aa5336b3f`) — Alex Solopenkov
