@@ -36,3 +36,5 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 10:28 — Self-host the fonts, and stop faking bold on the v1 pages (`abb6d8c55`) — Alex Solopenkov
 - 10:38 — Stop shipping 91 KB of legacy JS to 761 pages that do not use it (`a8c891fde`) — Alex Solopenkov
 - 10:42 — Give the pages that rank and never get clicked something to cite (`dac81683b`) — Alex Solopenkov
+- 10:51 — Log the four commits in WORKLOG (`734ff7c5c`) — Alex Solopenkov
+- 11:08 — Stop the article engine backdating every page it generates to 27 May (`d42364b4a`) — Alex Solopenkov
