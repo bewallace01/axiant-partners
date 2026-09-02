@@ -45,3 +45,4 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 12:12 — Build the first 27 generated images into WebP assets (`96c0cdbfd`) — Claude
 - 12:13 — DSCR cluster: articles 4-14, completing the fourteen (`35fc2baed`) — Alex Solopenkov
 - 12:32 — Give the 37 legacy-body pages the v2 look, without touching their markup (`aa5336b3f`) — Alex Solopenkov
+- 12:42 — Fix the quick answer rendering light-on-light, and version the new sheet (`d777d5e11`) — Alex Solopenkov
