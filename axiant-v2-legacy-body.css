@@ -262,6 +262,40 @@
 .v2-body .quick-answer li em{color:#fff !important;}
 .v2-body .quick-answer a{color:#9ecbec !important;}
 
+/* ---- content column ----------------------------------------------------
+   These pages do not load axiant-v2.css, so .container keeps the definition
+   styles.css gives it: width:100%, max-width:100%, padding:0. Every other
+   page on the site gets the v2 definition instead - max-width:1200px,
+   margin:0 auto, padding-inline:24px - which is why the pillars read as a
+   different site. The breadcrumb, the dateline and the quick answer are
+   direct children of that container, so they sat hard against the viewport
+   edge and clipped their first characters ("Home" rendered as "me").
+
+   .container itself is deliberately NOT restyled here - the ef-hero is
+   inside it and has to stay full-bleed. Only the content siblings are
+   brought into the column.
+
+   .about-section needs !important because styles.css sets
+   `width:100% !important;max-width:none !important` on it globally, which
+   also defeats that sheet's own `width:min(1360px,100%)` a few rules later.
+   1200px matches --container on the rest of the site. */
+.v2-body .container > .crumbs,
+.v2-body .container > .dateline,
+.v2-body .container > .quick-answer{
+  max-width:1200px;
+  /* !important because the breadcrumb and the quick answer both carry an
+     inline style="...margin:0 0 .5rem" / "margin:0 0 28px", and an inline
+     declaration beats any stylesheet rule that is not !important. Without it
+     they kept max-width but stayed pinned to the left edge. Only the inline
+     axis is forced; the vertical margins those inline styles set are left
+     alone. */
+  margin-inline:auto !important;
+}
+.v2-body .about-section{
+  width:min(1200px,100%) !important;max-width:1200px !important;
+  margin-inline:auto !important;
+}
+
 /* ---- breadcrumbs and rail --------------------------------------------- */
 .v2-body .crumbs{font-size:13px;color:var(--v2-muted);}
 .v2-body .crumbs a{color:var(--v2-accent);text-decoration:none;}
