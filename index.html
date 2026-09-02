@@ -143,6 +143,25 @@
 <p class="sub">Takes about 60 seconds. No documents needed to start.</p>
 <form action="https://formspree.io/f/mbdzegkd" class="form-grid" id="quoteForm" method="POST"><input name="_next" type="hidden" value="https://axiantpartners.com/thank-you.html"/>
 <input name="_cc" type="hidden" value="jerry@axiantpartners.com"/>
+<!-- HONEYPOT. Formspree discards any submission that arrives with `_gotcha`
+     filled in, and answers the sender with a success so the bot has no signal to
+     retry against. No human ever sees this field; a bot that fills every input
+     in the form does.
+
+     Hidden four ways on purpose, because the failure mode of a honeypot is
+     silently binning a real enquiry: display:none keeps it out of the .form-grid
+     entirely (no phantom cell), tabindex="-1" keeps it off the keyboard path,
+     aria-hidden hides it from screen readers, and autocomplete="off" stops a
+     browser filling it in on someone's behalf.
+
+     The underscore matters twice over — Formspree treats `_`-prefixed fields as
+     directives rather than data, so it never appears in the notification email
+     the CRM parses, and the Netlify mirror below skips every `_` key, so it
+     stays out of that submission too.
+
+     Not a captcha: no puzzle, no third-party script, nothing a real applicant
+     can fail. -->
+<input aria-hidden="true" autocomplete="off" name="_gotcha" style="display:none" tabindex="-1" type="text"/>
 <input autocomplete="given-name" name="firstName" placeholder="First Name" required="" type="text"/>
 <input autocomplete="family-name" name="lastName" placeholder="Last Name" required="" type="text"/>
 <input autocomplete="email" name="email" placeholder="Email Address" required="" type="email"/>
