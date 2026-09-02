@@ -68,3 +68,6 @@ A running, timestamped log of what shipped — appended automatically on every c
 
 ## 2026-09-02
 - 15:55 — Stop the v2 body sheet overriding pages that already own their styling (`cfafc31e7`) — Alex Solopenkov
+
+## 2026-09-02
+- 16:10 — Put the hybrid pillar pages in the same content column as the rest of the site (`9a575a8f5`) — Alex Solopenkov
