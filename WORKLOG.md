@@ -52,3 +52,6 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 13:17 — Equipment appraisal cluster, 5 articles (`bdc765d16`) — Alex Solopenkov
 - 13:32 — Security guard cluster, 4 articles, and register the pillar in INDUSTRIES (`6f7e14353`) — Alex Solopenkov
 - 13:39 — Deepen the four thin vertical pillars before building their clusters (`8764b2573`) — Alex Solopenkov
+- 14:05 — Sweep British spellings out of the site copy (`bfb63e48a`) — Alex Solopenkov
+- 14:05 — Four thin-vertical clusters: aircraft, marine, drone, data center (`4eeba0f70`) — Alex Solopenkov
+- 14:06 — Link every cluster pillar down to its own articles (`e5affd34b`) — Alex Solopenkov
