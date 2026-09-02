@@ -60,3 +60,4 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 14:31 — Put all nine clusters on the map assistants actually read (`d6bbe0469`) — Alex Solopenkov
 - 14:44 — Show the update date on the pillars, and fix the callout it exposed (`335ac6298`) — Alex Solopenkov
 - 14:49 — Write the image brief and close out the daily report (`dc431c926`) — Alex Solopenkov
+- 15:00 — Cite federal sources on the two DSCR articles that had none (`f2c310f65`) — Alex Solopenkov
