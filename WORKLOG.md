@@ -61,3 +61,6 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 14:44 — Show the update date on the pillars, and fix the callout it exposed (`335ac6298`) — Alex Solopenkov
 - 14:49 — Write the image brief and close out the daily report (`dc431c926`) — Alex Solopenkov
 - 15:00 — Cite federal sources on the two DSCR articles that had none (`f2c310f65`) — Alex Solopenkov
+
+## 2026-09-02
+- 15:16 — Log the DSCR sources commit in WORKLOG (`13d691903`) — Alex Solopenkov
