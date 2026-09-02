@@ -15,9 +15,46 @@ import re, sys, glob, os
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 LEGACY = re.compile(r'href="/?(?:styles|critical|blog-layout|article-rail|article-layout)\.css')
 
+# --- TWO VALID MODES -------------------------------------------------------
+# FULL   : all styling from /axiant-v2.css, no legacy sheets. The default.
+# HYBRID : v2 chrome + a .v2-body-scoped sheet over the ORIGINAL legacy body.
+#
+# Hybrid exists because scripts/convert-program-page.py rebuilds a body out of
+# content "bands", and a form is not a band. Measured: match.html 2 forms -> 0,
+# 25 fields -> 0; calculator.html 34 element ids -> 3. Loading axiant-v2.css
+# alongside styles.css is also not an option - they collide on .container,
+# which is full-width in styles.css and max-width-centred in v2, so the page
+# loses its structure. So the tool/article pages keep their markup exactly and
+# only their appearance changes, via rules every one of which is prefixed
+# .v2-body and tokens declared on .v2-body rather than :root.
+#
+# THE OPT-IN IS LOad-BEARING: axiant-v2-legacy-body.css does nothing at all
+# unless <body> carries class="v2-body". It shipped once without it and all 84
+# rules were dead - the CTA buttons rendered with a transparent background.
+# Do NOT "fix" a hybrid page by stripping its legacy sheets. That destroys the
+# forms. Check the opt-in class instead.
+def is_hybrid(s):
+    return "axiant-v2-legacy-body.css" in s
+
 def check(path):
     s = open(path, encoding="utf-8", errors="replace").read()
     fails, warns = [], []
+
+    if is_hybrid(s):
+        if not re.search(r'<body[^>]*class="[^"]*\bv2-body\b', s):
+            fails.append('links axiant-v2-legacy-body.css but <body> has no class="v2-body" '
+                         '- the whole sheet is dead, buttons will render transparent')
+        if "axiant-v2-chrome.css" not in s:
+            fails.append("hybrid page missing axiant-v2-chrome.css (the header half)")
+        i_leg, i_v2 = s.find("styles.css"), s.find("axiant-v2-legacy-body.css")
+        if i_leg != -1 and i_v2 != -1 and i_v2 < i_leg:
+            fails.append("axiant-v2-legacy-body.css must load AFTER styles.css")
+        if not re.search(r'rel="canonical"', s): fails.append("no canonical link")
+        if s.count("AXIANT-HEADER") != 2:
+            fails.append("missing the AXIANT-HEADER block (sync-header-v2.py owns the nav)")
+        if "<footer" not in s: warns.append("no footer element")
+        if "application/ld+json" not in s: warns.append("no JSON-LD")
+        return fails, warns
 
     n = len(LEGACY.findall(s))
     if n: fails.append(f"{n} legacy stylesheet link(s) - must be 0")
@@ -61,7 +98,8 @@ def main():
                  # checking the template flags a canonical that is supplied
                  # 17 times over in the pages it generates
                  and "{{" not in open(p, encoding="utf-8", errors="replace").read()
-                 and "axiant-v2.css" in open(p, encoding="utf-8", errors="replace").read()]
+                 and re.search(r"axiant-v2(?:-chrome)?\.css",
+                               open(p, encoding="utf-8", errors="replace").read())]
 
     bad = 0
     for p in sorted(pages):

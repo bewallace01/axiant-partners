@@ -7,7 +7,7 @@
   "seo_sections_file": "_vacuum-trucks.seo.html",
   "dealer": {
     "name": "Viking Truck",
-    "logo": "/assets/equipment/vikingtruck/logo.png",
+    "logo": "/assets/equipment/vikingtruck/logo.webp",
     "logo_w": 158,
     "logo_h": 52,
     "blurb": "Dealer &amp; upfitter &middot; septic, vacuum &amp; portable restroom trucks &middot; Forest Park, Georgia",
@@ -71,7 +71,7 @@
         "Freightliner &middot; Int'l &middot; Kenworth &middot; Mack"
       ],
       "spec": "Masport &amp; NVE vacuum pumps &middot; Freightliner, International, Kenworth &amp; Mack &middot; non-CDL options",
-      "image": "/assets/equipment/vikingtruck/truck-a.jpg",
+      "image": "/assets/equipment/vikingtruck/truck-a.webp",
       "image_alt": "Viking 1,500 to 2,500 gallon septic vacuum truck",
       "inventory_url": "https://www.vikingtruck.net/inventory/2500-gallons"
     },
@@ -97,7 +97,7 @@
         "International &middot; Mack chassis"
       ],
       "spec": "Dual-compartment waste + freshwater &middot; Masport HD4 / HD75 &middot; International &amp; Mack chassis",
-      "image": "/assets/equipment/vikingtruck/restroom-truck.jpg",
+      "image": "/assets/equipment/vikingtruck/restroom-truck.webp",
       "image_alt": "Viking portable restroom service truck",
       "inventory_url": "https://www.vikingtruck.net/inventory/portable-restroom-trucks"
     }

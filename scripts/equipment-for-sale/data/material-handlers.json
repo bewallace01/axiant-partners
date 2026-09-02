@@ -26,7 +26,7 @@
       "href": "/equipment-financing.html",
       "label": "How equipment financing works &rarr;"
     },
-    "image": "/assets/equipment/sennebogen/material-handlers.jpg",
+    "image": "/assets/equipment/sennebogen/material-handlers.webp",
     "image_alt": "SENNEBOGEN 825 E material handler loading scrap with an orange-peel grapple",
     "image_caption": "SENNEBOGEN &mdash; Material Handlers"
   },
@@ -96,7 +96,7 @@
         "battery, cable or diesel"
       ],
       "spec": "The scrap-yard workhorse &middot; scrap, recycling &amp; industrial &middot; battery, cable or diesel",
-      "image": "/assets/equipment/sennebogen/825-e-series.jpg",
+      "image": "/assets/equipment/sennebogen/825-e-series.webp",
       "image_alt": "SENNEBOGEN 825 E",
       "inventory_url": "https://sennebogen-na.com/se-products/825-e-series/"
     },
@@ -131,7 +131,7 @@
         "Port, scrap &amp; bulk material"
       ],
       "spec": "Port, scrap &amp; bulk material",
-      "image": "/assets/equipment/sennebogen/840-e-series.jpg",
+      "image": "/assets/equipment/sennebogen/840-e-series.webp",
       "image_alt": "SENNEBOGEN 840 E",
       "inventory_url": "https://sennebogen-na.com/se-products/840-e-series/"
     },
@@ -242,7 +242,7 @@
   "related": [
     {
       "href": "https://sennebogen-na.com/products/material-handlers/",
-      "image": "/assets/equipment/sennebogen/electric-material-handlers.jpg",
+      "image": "/assets/equipment/sennebogen/electric-material-handlers.webp",
       "alt": "SENNEBOGEN electric material handler in a recycling plant",
       "name": "View All Models &rarr;"
     }

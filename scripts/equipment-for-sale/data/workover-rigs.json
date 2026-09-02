@@ -26,7 +26,7 @@
       "href": "/workover-rig-financing.html",
       "label": "How rig financing works &rarr;"
     },
-    "image": "/assets/equipment/serviceking/sk-675.jpg",
+    "image": "/assets/equipment/serviceking/sk-675.webp",
     "image_alt": "Service King SK 675 mobile workover and well service rig",
     "image_caption": "Service King Manufacturing, Inc. &mdash; Workover &amp; Well Service Rigs"
   },
@@ -109,7 +109,7 @@
         "service to 12,000 ft"
       ],
       "spec": "5-axle truck mount &middot; service to 12,000 ft",
-      "image": "/assets/equipment/serviceking/sk-475.jpg",
+      "image": "/assets/equipment/serviceking/sk-475.webp",
       "image_alt": "Service King Manufacturing, Inc. SK 475",
       "inventory_url": "https://servicekingmfg.com/products/sk-475"
     },
@@ -122,7 +122,7 @@
         "workover to 10,000 ft"
       ],
       "spec": "5-axle truck mount &middot; service to 16,000 ft &middot; workover to 10,000 ft",
-      "image": "/assets/equipment/serviceking/sk-575.jpg",
+      "image": "/assets/equipment/serviceking/sk-575.webp",
       "image_alt": "Service King Manufacturing, Inc. SK 575",
       "inventory_url": "https://servicekingmfg.com/products/sk-575"
     },
@@ -135,7 +135,7 @@
         "workover to 14,000 ft"
       ],
       "spec": "6-axle truck mount &middot; service to 18,000 ft &middot; workover to 14,000 ft",
-      "image": "/assets/equipment/serviceking/sk-675.jpg",
+      "image": "/assets/equipment/serviceking/sk-675.webp",
       "image_alt": "Service King Manufacturing, Inc. SK 675",
       "inventory_url": "https://servicekingmfg.com/products/sk-675"
     },
@@ -169,7 +169,7 @@
   "related": [
     {
       "href": "/equipment-for-sale/drilling-rigs/",
-      "image": "/assets/equipment/serviceking/sk-1000.jpg",
+      "image": "/assets/equipment/serviceking/sk-1000.webp",
       "alt": "Service King drilling rigs",
       "name": "Drilling Rigs &rarr;"
     }

@@ -26,7 +26,7 @@
       "href": "/equipment-for-sale/workover-rigs/",
       "label": "See workover &amp; well service rigs &rarr;"
     },
-    "image": "/assets/equipment/serviceking/sk-1000.jpg",
+    "image": "/assets/equipment/serviceking/sk-1000.webp",
     "image_alt": "Service King SK 1000 mobile drilling rig",
     "image_caption": "Service King Manufacturing, Inc. &mdash; Drilling Rigs"
   },
@@ -71,7 +71,7 @@
         "drills to 10,000 ft"
       ],
       "spec": "6-axle truck mount &middot; service to 18,000 ft &middot; drills to 10,000 ft",
-      "image": "/assets/equipment/serviceking/sk-775.jpg",
+      "image": "/assets/equipment/serviceking/sk-775.webp",
       "image_alt": "Service King Manufacturing, Inc. SK 775",
       "inventory_url": "https://servicekingmfg.com/products/sk-775"
     },
@@ -83,7 +83,7 @@
         "drills to 12,000 ft with 3&frac12;&quot; pipe"
       ],
       "spec": "7-axle truck mount (4-axle trailer option) &middot; drills to 12,000 ft with 3&frac12;&quot; pipe",
-      "image": "/assets/equipment/serviceking/sk-1000.jpg",
+      "image": "/assets/equipment/serviceking/sk-1000.webp",
       "image_alt": "Service King Manufacturing, Inc. SK 1000",
       "inventory_url": "https://servicekingmfg.com/products/sk-1000"
     },
@@ -95,7 +95,7 @@
         "drills to 12,000 ft with 3&frac12;&quot; pipe"
       ],
       "spec": "7-axle truck mount (4-axle trailer option) &middot; drills to 12,000 ft with 3&frac12;&quot; pipe",
-      "image": "/assets/equipment/serviceking/sk-1100.jpg",
+      "image": "/assets/equipment/serviceking/sk-1100.webp",
       "image_alt": "Service King Manufacturing, Inc. SK 1100",
       "inventory_url": "https://servicekingmfg.com/products/sk-1100"
     }
@@ -103,7 +103,7 @@
   "related": [
     {
       "href": "/equipment-for-sale/workover-rigs/",
-      "image": "/assets/equipment/serviceking/sk-675.jpg",
+      "image": "/assets/equipment/serviceking/sk-675.webp",
       "alt": "Service King workover and well service rigs",
       "name": "Workover &amp; Well Service Rigs"
     }

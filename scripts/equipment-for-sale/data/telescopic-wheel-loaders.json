@@ -26,7 +26,7 @@
       "href": "/equipment-financing/articles/telehandler-financing/",
       "label": "How telehandler financing works &rarr;"
     },
-    "image": "/assets/equipment/sennebogen/telescopic-wheel-loaders.jpg",
+    "image": "/assets/equipment/sennebogen/telescopic-wheel-loaders.webp",
     "image_alt": "SENNEBOGEN 340 G telescopic wheel loader with an elevating cab loading material",
     "image_caption": "SENNEBOGEN &mdash; Telescopic Wheel Loaders"
   },
@@ -84,7 +84,7 @@
         "elevating Multicab"
       ],
       "spec": "28 ft vertical reach &middot; 27,558 lb operating weight &middot; elevating Multicab",
-      "image": "/assets/equipment/sennebogen/360-g-series.jpg",
+      "image": "/assets/equipment/sennebogen/360-g-series.webp",
       "image_alt": "SENNEBOGEN 360 G",
       "inventory_url": "https://sennebogen-na.com/se-products/360-g-series/"
     }
@@ -92,13 +92,13 @@
   "related": [
     {
       "href": "https://sennebogen-na.com/products/material-handlers/",
-      "image": "/assets/equipment/sennebogen/825-e-series.jpg",
+      "image": "/assets/equipment/sennebogen/825-e-series.webp",
       "alt": "SENNEBOGEN 825 E material handler",
       "name": "Material Handlers"
     },
     {
       "href": "https://sennebogen-na.com/products/telescopic-wheel-loaders/",
-      "image": "/assets/equipment/sennebogen/840-e-series.jpg",
+      "image": "/assets/equipment/sennebogen/840-e-series.webp",
       "alt": "SENNEBOGEN machine line-up",
       "name": "View All Models &rarr;"
     }

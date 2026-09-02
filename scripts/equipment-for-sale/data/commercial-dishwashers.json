@@ -7,7 +7,7 @@
   "seo_sections_file": "_commercial-dishwashers.seo.html",
   "dealer": {
     "name": "Restaurant Equipment World",
-    "logo": "/assets/equipment/rew/logo.jpg",
+    "logo": "/assets/equipment/rew/logo.webp",
     "logo_w": 158,
     "logo_h": 52,
     "blurb": "Dealer &middot; commercial kitchen, refrigeration &amp; warewashing equipment &middot; nationwide shipping",
@@ -26,7 +26,7 @@
       "href": "/equipment-financing.html",
       "label": "How financing works &rarr;"
     },
-    "image": "/assets/equipment/rew/commercial-dishwashers.jpg",
+    "image": "/assets/equipment/rew/commercial-dishwashers.webp",
     "image_alt": "Commercial Dishwashers at Restaurant Equipment World",
     "image_caption": "Restaurant Equipment World &mdash; Commercial Dishwashers"
   },
@@ -110,13 +110,13 @@
   "related": [
     {
       "href": "/equipment-for-sale/combi-ovens/",
-      "image": "/assets/equipment/rew/combi-ovens.jpg",
+      "image": "/assets/equipment/rew/combi-ovens.webp",
       "alt": "Combi Ovens",
       "name": "Combi Ovens"
     },
     {
       "href": "/equipment-for-sale/walk-in-coolers/",
-      "image": "/assets/equipment/rew/walk-in-coolers.jpg",
+      "image": "/assets/equipment/rew/walk-in-coolers.webp",
       "alt": "Walk-In Coolers & Freezers",
       "name": "Walk-In Coolers & Freezers"
     }

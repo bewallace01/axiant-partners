@@ -26,7 +26,7 @@
       "href": "/forestry-business-financing.html",
       "label": "Forestry &amp; tree service financing &rarr;"
     },
-    "image": "/assets/equipment/sennebogen/tree-care-handlers.jpg",
+    "image": "/assets/equipment/sennebogen/tree-care-handlers.webp",
     "image_alt": "SENNEBOGEN 728 E tree care handler working a tree line",
     "image_caption": "SENNEBOGEN &mdash; Tree Care Handlers"
   },
@@ -71,7 +71,7 @@
         "the compact one &mdash; roadside clearing, urban woodlots, storm cleanup"
       ],
       "spec": "160 hp Cummins QSB 4.5 T4F &middot; crawler or mobile &middot; the compact one &mdash; roadside clearing, urban woodlots, storm cleanup",
-      "image": "/assets/equipment/sennebogen/718-e-series.jpg",
+      "image": "/assets/equipment/sennebogen/718-e-series.webp",
       "image_alt": "SENNEBOGEN 718 E",
       "inventory_url": "https://sennebogen-na.com/se-products/718-e-series/"
     },
@@ -84,7 +84,7 @@
         "self-loads onto a standard low-boy and travels public roads without waivers"
       ],
       "spec": "173 hp Cummins QSB 6.7 T4F &middot; crawler or mobile &middot; self-loads onto a standard low-boy and travels public roads without waivers",
-      "image": "/assets/equipment/sennebogen/728-e-series.jpg",
+      "image": "/assets/equipment/sennebogen/728-e-series.webp",
       "image_alt": "SENNEBOGEN 728 E",
       "inventory_url": "https://sennebogen-na.com/se-products/728-e-series/"
     },
@@ -97,7 +97,7 @@
         "the reach machine &mdash; heavy land clearing and right-of-way maintenance"
       ],
       "spec": "225 hp Cummins QSB 6.7 T4F &middot; mobile &middot; the reach machine &mdash; heavy land clearing and right-of-way maintenance",
-      "image": "/assets/equipment/sennebogen/738-e-series.jpg",
+      "image": "/assets/equipment/sennebogen/738-e-series.webp",
       "image_alt": "SENNEBOGEN 738 E",
       "inventory_url": "https://sennebogen-na.com/se-products/738-e-series/"
     }
@@ -105,7 +105,7 @@
   "related": [
     {
       "href": "https://sennebogen-na.com/products/tree-care-handlers/",
-      "image": "/assets/equipment/sennebogen/728-brush-clearing.jpg",
+      "image": "/assets/equipment/sennebogen/728-brush-clearing.webp",
       "alt": "SENNEBOGEN tree care handler clearing brush",
       "name": "View All Models &rarr;"
     }

@@ -82,3 +82,10 @@ _incoming/
 
 # _incoming extraction markers
 *.zip.done
+
+# Local safety copies from the v2 conversion - do not commit
+_backup-fullv2/
+_backup-images/
+_backup-v2body/
+_backup-pre-v2-swap/
+_to_delete/

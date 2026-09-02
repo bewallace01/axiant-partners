@@ -80,3 +80,4 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 17:28 — Revert the hero :has() rule - it broke every page it was meant to help (`d4c88d02a`) — Alex Solopenkov
 - 17:36 — Paint hero and band media at positive z-index, not below zero (`8989b898a`) — Alex Solopenkov
 - 17:49 — Send /program/ to the program page, not to its articles hub (`558d18313`) — Alex Solopenkov
+- 18:25 — Put the breadcrumb, dateline and quick answer inside the content column (`ee6fa1b93`) — Alex Solopenkov

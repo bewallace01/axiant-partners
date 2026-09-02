@@ -7,7 +7,7 @@
   "seo_sections_file": "_cement-silos.seo.html",
   "dealer": {
     "name": "Right Manufacturing Systems, Inc. (Mix Right)",
-    "logo": "/assets/equipment/mixright/logo.jpg",
+    "logo": "/assets/equipment/mixright/logo.webp",
     "logo_w": 158,
     "logo_h": 52,
     "blurb": "Manufacturer &middot; concrete batching, mixing &amp; storage equipment &middot; Made in the USA",
@@ -26,7 +26,7 @@
       "href": "/equipment-financing.html",
       "label": "How financing works &rarr;"
     },
-    "image": "/assets/equipment/mixright/cement-silos.jpg",
+    "image": "/assets/equipment/mixright/cement-silos.webp",
     "image_alt": "Mix Right Portable Cement Silos",
     "image_caption": "Right Manufacturing Systems, Inc. (Mix Right) &mdash; Portable Cement Silos"
   },
@@ -121,25 +121,25 @@
   "related": [
     {
       "href": "/equipment-for-sale/wet-batch-plants/",
-      "image": "/assets/equipment/mixright/wet-batch-plants.jpg",
+      "image": "/assets/equipment/mixright/wet-batch-plants.webp",
       "alt": "Wet Batch Plants",
       "name": "Wet Batch Plants"
     },
     {
       "href": "/equipment-for-sale/dry-batch-plants/",
-      "image": "/assets/equipment/mixright/dry-batch-plants.jpg",
+      "image": "/assets/equipment/mixright/dry-batch-plants.webp",
       "alt": "Dry Batch Plants",
       "name": "Dry Batch Plants"
     },
     {
       "href": "/equipment-for-sale/portable-concrete-mixers/",
-      "image": "/assets/equipment/mixright/portable-concrete-mixers.jpg",
+      "image": "/assets/equipment/mixright/portable-concrete-mixers.webp",
       "alt": "Portable Concrete Mixers",
       "name": "Portable Concrete Mixers"
     },
     {
       "href": "/equipment-for-sale/rock-tumblers/",
-      "image": "/assets/equipment/mixright/rock-tumblers.jpg",
+      "image": "/assets/equipment/mixright/rock-tumblers.webp",
       "alt": "Industrial Rock Tumblers",
       "name": "Industrial Rock Tumblers"
     }
