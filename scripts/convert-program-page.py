@@ -64,6 +64,7 @@ INDUSTRIES = [
     "trucking-business-financing",
     "towing-business-financing",
     "logistics-warehousing-business-financing",
+    "security-guard-business-financing",
     "moving-company-business-financing",
     "manufacturing-business-financing",
     "agriculture-business-financing",
