@@ -212,3 +212,32 @@ body{padding-bottom:76px}
    has almost no background contrast to sit on and the border is the only thing
    that defines its edge. Removing it would make the card vanish in dark mode. */
 .article-faq{margin:32px 0 24px;padding:18px 20px;background:var(--bg-card);border-radius:10px;border:1px solid var(--border-color)}
+
+/* hero-card overflow fix -----------------------------------------------
+   The hero cards on referral / contact / calculator / match are absolutely
+   positioned inside a wrap whose only height is min-height:100vh. An absolute
+   child contributes nothing to its parent's height, so as soon as the card is
+   taller than the viewport it runs straight out of the wrap and the bottom is
+   clipped. Adding the Quick answer block to /referral.html pushed it 178px
+   over and made it obvious.
+
+   The mobile breakpoint already solves this (min-height:auto; position:static
+   below 768px); desktop never got the same treatment. These rules take the
+   card out of the absolute flow so the wrap grows with it, and keep the
+   min-height:100vh + vertical centring so a short card still fills the hero
+   exactly as before. */
+.referral-hero-wrap .form-container.referral-content.referral-content-hero,
+.contact-hero-wrap .form-container.contact-content.contact-content-hero,
+.calculator-hero-wrap .form-container.contact-content.contact-content-hero,
+.match-hero-wrap .form-container.match-content.match-content-hero{
+  position:relative;inset:auto;top:auto;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+}
+@media (max-width:768px){
+  .referral-hero-wrap .form-container.referral-content.referral-content-hero,
+  .contact-hero-wrap .form-container.contact-content.contact-content-hero,
+  .calculator-hero-wrap .form-container.contact-content.contact-content-hero,
+  .match-hero-wrap .form-container.match-content.match-content-hero{
+    min-height:auto;display:block;
+  }
+}
