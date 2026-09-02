@@ -71,3 +71,11 @@ A running, timestamped log of what shipped — appended automatically on every c
 
 ## 2026-09-02
 - 16:10 — Put the hybrid pillar pages in the same content column as the rest of the site (`9a575a8f5`) — Alex Solopenkov
+
+## 2026-09-02
+- 16:32 — v2 contract: the 17 generated catalog pages, and two canonicals (`ede1d8988`) — Alex Solopenkov
+- 17:14 — Convert the last 14 legacy pages onto the v2 design system (`ff76235b8`) — Alex Solopenkov
+- 17:20 — Stop the hero background painting over the hero photograph (`df517ab5f`) — Alex Solopenkov
+- 17:25 — Give the 14 converted pages a cache-buster on axiant-v2.css (`53351c59f`) — Alex Solopenkov
+- 17:28 — Revert the hero :has() rule - it broke every page it was meant to help (`d4c88d02a`) — Alex Solopenkov
+- 17:36 — Paint hero and band media at positive z-index, not below zero (`8989b898a`) — Alex Solopenkov
