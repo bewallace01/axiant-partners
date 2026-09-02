@@ -42,3 +42,5 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 11:40 — Fix three ways the converter lost content, then convert the DSCR group (`b6b9a69e0`) — Alex Solopenkov
 - 11:56 — Add the image ingest pipeline, so generated art becomes shipped WebP in one command (`a55ac4fbf`) — Claude
 - 12:01 — DSCR cluster: the hub and the first three articles (`6a8fdef5a`) — Alex Solopenkov
+- 12:12 — Build the first 27 generated images into WebP assets (`96c0cdbfd`) — Claude
+- 12:13 — DSCR cluster: articles 4-14, completing the fourteen (`35fc2baed`) — Alex Solopenkov

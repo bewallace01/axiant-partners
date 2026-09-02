@@ -1,0 +1,230 @@
+/* axiant-v2-legacy-body.css - the v2 look for pages that keep the v1 body.
+   Companion to axiant-v2-chrome.css, same reasoning, other half of the page.
+
+   WHY THIS EXISTS RATHER THAN A CONVERSION
+   scripts/convert-program-page.py rebuilds a body out of content "bands". A
+   form is not a band, so running it on the tool pages collapses them: measured
+   on match.html it took 2 forms -> 0 and 25 fields -> 0, and on calculator.html
+   1 form -> 0 and all 34 element ids -> 3. That is the same failure 069cdac8a
+   ("Restore the EmailJS library the v2 conversion dropped") had to repair. So
+   these pages keep their markup exactly as it is, and only their appearance
+   changes.
+
+   WHY NOT JUST LOAD axiant-v2.css
+   Because it was tried and it flattened these layouts - the reason
+   build-chrome-css.py exists. The two sheets collide on generic names, most
+   destructively .container, which is a full-width no-padding wrapper in
+   styles.css and a max-width centred one in v2. Loading v2 last redefines it
+   and the page loses its structure.
+
+   HOW THIS AVOIDS THAT
+   Every rule below is prefixed .v2-body, and the tokens are declared on
+   .v2-body rather than :root, so nothing here can reach a page that has not
+   opted in. .container is never styled. Nothing is restyled by element name
+   where a v1 class already owns it.
+
+   Load AFTER styles.css. Regenerate nothing - this file is hand-maintained
+   against the component rules in axiant-v2.css. */
+
+.v2-body{
+  /* ---- colour: identical values to axiant-v2.css, scoped ---------------- */
+  --v2-navy-900:#0a1830;
+  --v2-navy-800:#0d1f3c;
+  --v2-navy-700:#16304f;
+  --v2-navy-600:#1e3a5f;
+  --v2-accent:#2d7fb8;
+  --v2-accent-600:#1f5f8d;
+  --v2-accent-100:#e8f1f8;
+  --v2-ink:#1a1a1a;
+  --v2-copy:#4a4a4a;
+  --v2-muted:#666;
+  --v2-surface:#fff;
+  --v2-ground:#f0f4f8;
+  --v2-line:#e2e8f0;
+
+  /* ---- scale ----------------------------------------------------------- */
+  --v2-s2:8px;  --v2-s3:12px; --v2-s4:16px; --v2-s5:24px;
+  --v2-s6:32px; --v2-s7:48px; --v2-s8:64px; --v2-s9:96px;
+  --v2-r-sm:4px; --v2-r-md:8px; --v2-r-lg:14px;
+  --v2-sh-1:0 1px 2px rgba(15,26,39,.06), 0 1px 3px rgba(15,26,39,.08);
+  --v2-sh-2:0 4px 12px rgba(15,26,39,.08), 0 2px 4px rgba(15,26,39,.06);
+  --v2-dur:.18s; --v2-ease:cubic-bezier(.4,0,.2,1);
+}
+
+/* ---- type ------------------------------------------------------------- */
+/* v2 sets h1 and h2 in Playfair 700 and everything else in Inter. The v1
+   sheet sets both in Inter, which is the single biggest reason these pages
+   read as a different site. */
+.v2-body h1,
+.v2-body h2{
+  font-family:"Playfair Display",Georgia,serif;
+  font-weight:700;letter-spacing:-.015em;line-height:1.1;color:var(--v2-ink);
+}
+.v2-body h3,
+.v2-body h4{
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-weight:600;color:var(--v2-ink);letter-spacing:-.005em;
+}
+.v2-body p,
+.v2-body li{color:var(--v2-copy);line-height:1.6;}
+.v2-body .eyebrow,
+.v2-body .ef-eyebrow{
+  font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--v2-accent);margin:0;
+}
+
+/* ---- sections --------------------------------------------------------- */
+/* .about-section is the workhorse wrapper on every one of these pages. */
+.v2-body .about-section{
+  padding-block:var(--v2-s8);
+  background:var(--v2-surface);
+}
+.v2-body .about-section:nth-of-type(even){background:var(--v2-ground);}
+.v2-body .about-section > h2{margin-top:0;}
+
+/* ---- buttons ---------------------------------------------------------- */
+.v2-body .btn-primary,
+.v2-body .btn-secondary,
+.v2-body .mcta-primary,
+.v2-body .ef-phone-cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--v2-s2);
+  font-family:inherit;font-size:14px;font-weight:600;
+  padding:var(--v2-s3) var(--v2-s5);border-radius:var(--v2-r-md);
+  border:1px solid transparent;cursor:pointer;text-decoration:none;
+  transition:background var(--v2-dur) var(--v2-ease),
+             border-color var(--v2-dur) var(--v2-ease),
+             transform var(--v2-dur) var(--v2-ease);
+}
+.v2-body .btn-primary,
+.v2-body .mcta-primary{
+  background:var(--v2-accent);color:#fff;
+  box-shadow:0 1px 2px rgba(13,31,60,.2), 0 4px 12px -4px rgba(45,127,184,.5);
+}
+.v2-body .btn-primary:hover,
+.v2-body .mcta-primary:hover{background:var(--v2-accent-600);}
+.v2-body .btn-secondary,
+.v2-body .ef-phone-cta{
+  background:transparent;color:var(--v2-accent);
+  border-color:var(--v2-line);
+}
+.v2-body .btn-secondary:hover,
+.v2-body .ef-phone-cta:hover{
+  border-color:var(--v2-accent);background:var(--v2-accent-100);
+}
+
+/* ---- forms ------------------------------------------------------------ */
+/* Scoped to the form wrappers so no stray input on the page is caught. */
+.v2-body .form-group label,
+.v2-body .form-row label{
+  display:block;font-size:14px;font-weight:600;
+  color:var(--v2-ink);margin-bottom:var(--v2-s2);
+}
+.v2-body .form-group input:not([type=checkbox]):not([type=radio]),
+.v2-body .form-group select,
+.v2-body .form-group textarea,
+.v2-body .form-row input:not([type=checkbox]):not([type=radio]),
+.v2-body .form-row select,
+.v2-body .form-row textarea,
+.v2-body .calc-form-row input:not([type=checkbox]):not([type=radio]),
+.v2-body .calc-form-row select{
+  width:100%;box-sizing:border-box;
+  font-family:inherit;font-size:16px;color:var(--v2-ink);
+  padding:var(--v2-s3) var(--v2-s4);
+  background:var(--v2-surface);
+  border:1px solid var(--v2-line);border-radius:var(--v2-r-md);
+  transition:border-color var(--v2-dur) var(--v2-ease),
+             box-shadow var(--v2-dur) var(--v2-ease);
+}
+.v2-body .form-group input:focus,
+.v2-body .form-group select:focus,
+.v2-body .form-group textarea:focus,
+.v2-body .form-row input:focus,
+.v2-body .form-row select:focus,
+.v2-body .calc-form-row input:focus,
+.v2-body .calc-form-row select:focus{
+  outline:none;border-color:var(--v2-accent);
+  box-shadow:0 0 0 3px var(--v2-accent-100);
+}
+.v2-body .form-container{
+  background:var(--v2-surface);
+  border:1px solid var(--v2-line);border-radius:var(--v2-r-lg);
+  box-shadow:var(--v2-sh-2);
+}
+
+/* ---- cards ------------------------------------------------------------ */
+.v2-body .blog-card,
+.v2-body .benefit-card,
+.v2-body .service-card,
+.v2-body .step-card{
+  background:var(--v2-surface);
+  border:1px solid var(--v2-line);border-radius:var(--v2-r-lg);
+  box-shadow:var(--v2-sh-1);
+  transition:border-color var(--v2-dur) var(--v2-ease),
+             box-shadow var(--v2-dur) var(--v2-ease),
+             transform var(--v2-dur) var(--v2-ease);
+}
+.v2-body .blog-card:hover,
+.v2-body .benefit-card:hover,
+.v2-body .service-card:hover{
+  border-color:var(--v2-accent);box-shadow:var(--v2-sh-2);transform:translateY(-2px);
+}
+.v2-body .blog-card-title{
+  font-family:"Inter",sans-serif;font-weight:600;color:var(--v2-ink);
+}
+.v2-body .blog-card-excerpt{color:var(--v2-copy);}
+
+/* ---- tables ----------------------------------------------------------- */
+.v2-body .ba-table-wrap,
+.v2-body .table-wrap{
+  overflow-x:auto;margin:0 0 var(--v2-s5);
+  border:1px solid var(--v2-line);border-radius:var(--v2-r-md);
+}
+.v2-body .ba-table{border-collapse:collapse;width:100%;font-size:15px;}
+.v2-body .ba-table th{
+  text-align:left;font-weight:600;font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--v2-muted);
+  padding:var(--v2-s3) var(--v2-s4);border-bottom:1px solid var(--v2-line);
+}
+.v2-body .ba-table td{
+  padding:var(--v2-s3) var(--v2-s4);border-bottom:1px solid var(--v2-line);
+  color:var(--v2-copy);
+}
+.v2-body .ba-table tr:last-child td{border-bottom:none;}
+
+/* ---- the quick answer block ------------------------------------------- */
+/* v2 renders this as a dark callout, which is the most recognisable single
+   element of the new design. */
+.v2-body .quick-answer{
+  background:linear-gradient(135deg,var(--v2-navy-800) 0%,var(--v2-navy-900) 100%);
+  color:#dbe5f1;
+  border:1px solid var(--v2-navy-700);
+  border-left:4px solid var(--v2-accent);
+  border-radius:var(--v2-r-lg);
+  padding:var(--v2-s6);box-shadow:var(--v2-sh-2);
+  text-align:left;
+}
+.v2-body .quick-answer p,
+.v2-body .quick-answer li{color:#dbe5f1;}
+.v2-body .quick-answer strong{color:#fff;}
+.v2-body .quick-answer a{color:#9ecbec;}
+
+/* ---- breadcrumbs and rail --------------------------------------------- */
+.v2-body .crumbs{font-size:13px;color:var(--v2-muted);}
+.v2-body .crumbs a{color:var(--v2-accent);text-decoration:none;}
+.v2-body .article-rail__block{
+  background:var(--v2-surface);
+  border:1px solid var(--v2-line);border-radius:var(--v2-r-lg);
+  box-shadow:var(--v2-sh-1);
+}
+
+/* ---- focus ------------------------------------------------------------ */
+.v2-body a:focus-visible,
+.v2-body button:focus-visible,
+.v2-body input:focus-visible,
+.v2-body select:focus-visible{
+  outline:2px solid var(--v2-accent);outline-offset:2px;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .v2-body *{transition:none !important;}
+}
