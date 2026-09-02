@@ -72,6 +72,11 @@ INDUSTRIES = [
     "restaurants-business-financing",
     "auto-repair-business-financing",
     "cleaning-business-financing",
+    # Added after the v2 list was first written. main links to both from
+    # industries.html, so leaving them out drops two internal links from
+    # the hub every time it is rebuilt.
+    "security-guard-business-financing",
+    "dental-practice-financing",
 ]
 TONE.update({
     "construction-business-financing": "bronze",

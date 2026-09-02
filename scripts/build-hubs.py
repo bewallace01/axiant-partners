@@ -141,10 +141,26 @@ def build(target):
                      "%s.html" % name) for name, _ in hubs])
         cs += cards([("/articles/", "articles/index.html")], base_tone=len(cs))
         bands.append(band("Guides by program", cs))
-    anchor = o.find("footer") or o.body.find_all(recursive=False)[-1]
+    # WHERE THE BAND GOES. The sweep above only clears section.section, which
+    # is the v2 shape. industries.html and services.html carry the pre-v2 one -
+    # div.container > div.form-container > div.industries-grid > a.industry-tile,
+    # inside no <section> at all - so nothing was cleared and the band landed
+    # before the footer instead. Both pages shipped two competing grids of the
+    # same links: 20 tiles above 18 cards, 15 above 16.
+    #
+    # Replace the legacy grid where it stands rather than appending after it.
+    # Its wrapper is deliberately left alone - it also holds the intro copy and
+    # the 'more guides' link list, which are real internal links.
     frag = BeautifulSoup("\n".join(bands), "html.parser")
-    for node in list(frag.contents):
-        anchor.insert_before(node)
+    legacy = o.select_one(".industries-grid")
+    if legacy is not None:
+        for node in list(frag.contents):
+            legacy.insert_before(node)
+        legacy.decompose()
+    else:
+        anchor = o.find("footer") or o.body.find_all(recursive=False)[-1]
+        for node in list(frag.contents):
+            anchor.insert_before(node)
     f.write_text(str(o), encoding="utf-8")
     n = len(BeautifulSoup("\n".join(bands), "html.parser").select(".card"))
     print("%-18s rebuilt: %d bands, %d cards" % (target, len(bands), n))
