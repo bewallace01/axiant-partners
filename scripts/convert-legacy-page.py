@@ -102,7 +102,10 @@ def convert(path, apply_changes):
     s = re.sub(r'<noscript>\s*<link[^>]+styles\.css[^>]*>\s*</noscript>\s*',
                "", s)
     s = re.sub(r'<link[^>]+axiant-v2-legacy-body\.css[^>]*>',
-               '<link href="/axiant-v2.css" rel="stylesheet"/>', s)
+               # the ?v= placeholder is rewritten by bump-asset-version.py. Without it
+               # the browser serves a stale sheet, which is how the hero fix
+               # shipped and did nothing on live.
+               '<link href="/axiant-v2.css?v=1" rel="stylesheet"/>', s)
     s = re.sub(r"<style[^>]*>.*?</style>\s*", "", s, flags=re.S)
 
     # Unwrap the page-level <div class="container">. On this template it wraps
