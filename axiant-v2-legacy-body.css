@@ -212,10 +212,34 @@
   box-shadow:var(--v2-sh-2);
   text-align:left;
 }
+/* The same inline-style trap one level down, and it bit. The inner paragraphs
+   carry style="color:var(--text-primary)" and style="color:var(--text-secondary)"
+   and the link carries style="color:var(--accent-color)" - all light-page
+   values. Forcing the panel dark without forcing these left near-black body
+   text on a navy panel: the answer was invisible on all 24 of these pages,
+   with only the un-styled <strong> showing through. Measured after the fix:
+   every text node in all 24 panels is at or above 4.5:1. */
 .v2-body .quick-answer p,
-.v2-body .quick-answer li{color:#dbe5f1;}
+.v2-body .quick-answer li{color:#dbe5f1 !important;}
+/* The eyebrow <strong> is a direct child and carries its own inline accent
+   colour, so it is left alone and stays blue. The <strong> runs inside the
+   answer text are a different matter: blog-layout.css sets
+   ".form-container.blog-post-content .blog-post-main p strong" to
+   var(--text-primary), which at (0,3,2) outranks anything scoped .v2-body
+   .quick-answer, so they computed to #1a1a1a on the navy panel and vanished.
+   Descendant-of-p/li is the precise target - it can never reach the
+   eyebrow. */
+/* The eyebrow keeps its accent, but not the light-page value: #2d7fb8 on the
+   navy panel measures 4.08:1, and at 12px uppercase that is below AA. #8ecbf0
+   is the exact colour axiant-v2.css gives ".callout .eyebrow", so the two
+   templates now render the same eyebrow. */
+.v2-body .quick-answer > strong:first-child{color:#8ecbf0 !important;}
 .v2-body .quick-answer strong{color:#fff;}
-.v2-body .quick-answer a{color:#9ecbec;}
+.v2-body .quick-answer p strong,
+.v2-body .quick-answer li strong,
+.v2-body .quick-answer p em,
+.v2-body .quick-answer li em{color:#fff !important;}
+.v2-body .quick-answer a{color:#9ecbec !important;}
 
 /* ---- breadcrumbs and rail --------------------------------------------- */
 .v2-body .crumbs{font-size:13px;color:var(--v2-muted);}
@@ -224,6 +248,17 @@
   background:var(--v2-surface);
   border:1px solid var(--v2-line);border-radius:var(--v2-r-lg);
   box-shadow:var(--v2-sh-1);
+}
+
+/* ---- dateline ---------------------------------------------------------
+   The article template carries "Updated <date>" and axiant-v2.css styles it,
+   but these pillars load chrome + this sheet, not axiant-v2.css, so the class
+   would render as an unstyled paragraph. Same declaration, same visual result,
+   rebuilt on the tokens that exist here (--t-xs is 12px in v2, --muted is
+   #666, --s5 is 24px). */
+.v2-body .dateline{
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--v2-muted);margin:0 0 var(--v2-s5);
 }
 
 /* ---- focus ------------------------------------------------------------ */
