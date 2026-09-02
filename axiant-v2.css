@@ -1954,3 +1954,29 @@ header.header::before,header.header::after{content:none}
 .contact-thank-you h3{margin:0;font-size:var(--t-lg)}
 .contact-thank-you p{margin:0;color:var(--muted)}
 @media (max-width:680px){ .contact-form .form-row{grid-template-columns:1fr} }
+
+/* Contact page: form beside the details, not stacked under it -------------
+   contact.html used to load styles.css, which carried .contact-main's grid
+   and the bordered .contact-info-sticker box. The v2 conversion left the
+   markup in place but the page now loads only this sheet, so both rendered
+   as bare blocks - the "Contact Us" panel fell underneath the Send Message
+   button and collided with it. Restated here in v2 tokens. */
+.contact-main{
+  display:grid;grid-template-columns:minmax(0,1fr) 300px;
+  gap:var(--s6);align-items:start;
+}
+.contact-info-sticker{
+  background:var(--surface-2,rgba(15,26,39,.03));
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  padding:var(--s5) var(--s5);
+  position:sticky;top:calc(84px + var(--s4));
+}
+.contact-info-sticker h2{margin-top:0;font-size:20px;}
+.contact-info-sticker p{margin-bottom:var(--s3);}
+.contact-info-sticker :last-child{margin-bottom:0;}
+
+@media (max-width:900px){
+  .contact-main{grid-template-columns:minmax(0,1fr);}
+  .contact-info-sticker{position:static;}
+}
