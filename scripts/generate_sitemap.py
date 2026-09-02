@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Generate sitemap.xml with final URLs only (no redirect sources)."""
+import re
 import sys
 from pathlib import Path
 from datetime import date
@@ -47,6 +48,31 @@ def _git_dates():
 _GIT_DATES = _git_dates()
 
 
+_DATE_MODIFIED = re.compile(r'"dateModified"\s*:\s*"(\d{4}-\d\d-\d\d)')
+
+
+def _declared_date(f):
+    """The dateModified the page states about itself, latest one wins.
+
+    Preferred over the git date because the two must not disagree. The v2
+    rebuild rewrote every page's markup in one commit, so git dates every page
+    to that day, while the JSON-LD dateModified still says when the *content*
+    last changed -- 2026-03 through 2026-07. Publishing the git date left the
+    sitemap claiming a September edit on a page whose own schema said March.
+    A lastmod that contradicts the page it points at is worse than a stale one:
+    it teaches Google to stop trusting the signal.
+
+    So the page's own declared date is the source of truth, and git is the
+    fallback for pages that declare none.
+    """
+    try:
+        s = f.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return None
+    found = _DATE_MODIFIED.findall(s)
+    return max(found) if found else None
+
+
 def _lastmod(loc_path):
     """When the page actually last changed. W3C format YYYY-MM-DD.
 
@@ -56,6 +82,9 @@ def _lastmod(loc_path):
     tells Google there is nothing to re-look at.
     """
     f = _file_for_path(loc_path)
+    declared = _declared_date(f) if f.exists() else None
+    if declared:
+        return declared
     rel = f.relative_to(BASE).as_posix() if f.is_relative_to(BASE) else None
     if rel and rel in _GIT_DATES:
         return _GIT_DATES[rel]
@@ -66,6 +95,63 @@ def _lastmod(loc_path):
         except OSError:
             pass
     return TODAY
+
+_SKIP_DIRS = {
+    "_backup-pre-v2-swap", "node_modules", ".git", "_preview", "_analysis",
+    "_outreach", "_marketing", "_components", "tools", "scripts", "docs",
+    "__pycache__", "fonts", "assets",
+}
+_ROBOTS = re.compile(r'<meta[^>]*\bname=["\']robots["\'][^>]*\bcontent=["\']([^"\']*)', re.I)
+_ROBOTS_ALT = re.compile(r'<meta[^>]*\bcontent=["\']([^"\']*)["\'][^>]*\bname=["\']robots["\']', re.I)
+_CANONICAL = re.compile(r'<link[^>]*\brel=["\']canonical["\'][^>]*\bhref=["\']([^"\']*)', re.I)
+_CANONICAL_ALT = re.compile(r'<link[^>]*\bhref=["\']([^"\']*)["\'][^>]*\brel=["\']canonical["\']', re.I)
+
+
+def _url_for_file(f):
+    """The URL a file is served at: /a/b/index.html -> /a/b/, /a.html -> /a.html"""
+    rel = f.relative_to(BASE).as_posix()
+    if rel == "index.html":
+        return "/"
+    if rel.endswith("/index.html"):
+        return "/" + rel[: -len("index.html")]
+    return "/" + rel
+
+
+def _indexable_pages():
+    """Every live page that is indexable and canonical to itself.
+
+    Two exclusions, both read off the page rather than hard-coded, so neither
+    needs maintaining as the site changes:
+
+      noindex          -- the page has opted out
+      canonical != self -- the page says the real URL is somewhere else, so
+                           listing it would tell Google to crawl a duplicate
+
+    Attribute order varies across the site (the v2 converter emits
+    href-before-rel), hence the two patterns per tag.
+    """
+    for f in BASE.rglob("*.html"):
+        if any(part in _SKIP_DIRS for part in f.relative_to(BASE).parts[:-1]):
+            continue
+        try:
+            head = f.read_text(encoding="utf-8", errors="replace")[:8000]
+        except OSError:
+            continue
+
+        m = _ROBOTS.search(head) or _ROBOTS_ALT.search(head)
+        if m and "noindex" in m.group(1).lower():
+            continue
+
+        url = _url_for_file(f)
+        c = _CANONICAL.search(head) or _CANONICAL_ALT.search(head)
+        if c:
+            canon = c.group(1).strip()
+            canon_path = canon[len(BASE_URL):] if canon.startswith(BASE_URL) else canon
+            if canon_path.rstrip("/") != url.rstrip("/"):
+                continue
+
+        yield url
+
 
 def _escape_xml(s):
     """Escape XML special chars in URL for valid sitemap output."""
@@ -91,8 +177,18 @@ def main():
     urls = []
     seen = set()
 
+    indexable = set(_indexable_pages())
+
     def add(loc_path, **kwargs):
         if loc_path in seen:
+            return
+        # A noindex page in the sitemap is a contradiction: it asks Google to
+        # spend crawl budget on a URL you have told it not to index. The four
+        # /get-matched/ landers were being force-listed here with a comment
+        # calling it "optional sitemap inclusion for GSC" while every one of
+        # them carries "noindex, follow" -- so the check lives here rather than
+        # trusting each caller to have got it right.
+        if loc_path not in indexable:
             return
         seen.add(loc_path)
         urls.append(url_entry(loc_path, **kwargs))
@@ -104,6 +200,11 @@ def main():
     add("/faq.html")
     add("/contact.html")
     add("/calculator.html")
+    # The "put our calculator on your site" offer. It was noindex, so the one
+    # asset built to earn embeds and links back could not be found. Indexable
+    # now, so it belongs in the sitemap. (The iframe payload it hands out,
+    # /calculator-embed.html, stays out -- that one is correctly noindex.)
+    add("/embed-calculator.html", priority="0.6")
     add("/equipment-financing-calculator.html", priority="0.9")
     add("/blog.html", changefreq="weekly")
     add("/referral.html", priority="0.7")
@@ -222,6 +323,21 @@ def main():
     add("/rightmfgsystems.html", priority="0.6")
     add("/privacy-policy.html", changefreq="yearly", priority="0.4")
     add("/terms-and-conditions.html", changefreq="yearly", priority="0.4")
+
+    # Everything the hand-written list above missed.
+    #
+    # That list had drifted 188 URLs behind the site -- running this script
+    # would have silently dropped a quarter of the sitemap, which is what the
+    # shrink guard at the bottom exists to catch. Curating page-by-page does
+    # not survive contact with a site that grows every week, so the list above
+    # now only decides *priority*; this sweep decides *membership*.
+    #
+    # A page belongs in the sitemap when it is indexable and speaks for itself:
+    # not noindex, and not canonicalised at some other URL. That excludes the
+    # legacy *-blog.html stubs and the bare-directory stubs (both canonical to
+    # their /articles/ hub) and the iframe payloads, without naming any of them.
+    for path in sorted(_indexable_pages()):
+        add(path, priority="0.6")
 
     urlset_attrs = (
         'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
