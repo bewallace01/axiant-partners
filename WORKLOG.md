@@ -48,3 +48,4 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 12:42 — Fix the quick answer rendering light-on-light, and version the new sheet (`d777d5e11`) — Alex Solopenkov
 - 12:51 — Place the generated images, and make every asset actually WebP (`46f90f0b6`) — Alex Solopenkov
 - 13:01 — Asset equity 1 of 3: the truck title cluster, 8 articles (`9b6c98c58`) — Alex Solopenkov
+- 13:12 — Asset equity 2 and 3 of 3: real-estate-secured and HELOC, 11 articles (`55c1a3a3a`) — Alex Solopenkov

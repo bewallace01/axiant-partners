@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import article_v2 as A
 
 ROOT = A.ROOT
-CLUSTERS = ["truck_title", "res_business_loan", "heloc"]
+CLUSTERS = ["truck_title", "res_business_loan", "heloc", "equip_appraisal"]
 
 
 def words(s):
