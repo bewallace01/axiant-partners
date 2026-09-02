@@ -68,11 +68,23 @@
 
 ## Raising cash from assets the business already owns
 
-- [Commercial truck title loan](https://axiantpartners.com/commercial-truck-title-loan.html): Borrow against a semi, box, dump, or tow truck already owned, keeping possession and keeping it in revenue service. Business-purpose only, and distinct from a consumer car title loan. Also covers cash-out and rate-and-term truck refinancing.
-- [Real estate secured business loan](https://axiantpartners.com/real-estate-secured-business-loan.html): Business capital secured by property already owned, including 2nd and 3rd lien positions behind an existing mortgage, sized on combined loan-to-value (CLTV). Commercial, multifamily, residential investment, and infill land.
-- [HELOC for business](https://axiantpartners.com/heloc-for-business.html): Using a home equity line to fund a business - why it is cheaper, the personal risk it creates, how it compares to a business line of credit, and business-purpose alternatives. Axiant does not originate or broker home equity loans.
-- [Equipment appraisal and valuation](https://axiantpartners.com/equipment-appraisal.html): Fair market vs. orderly vs. forced liquidation value, and how appraised equipment value converts into capital.
+- [Commercial truck title loan](https://axiantpartners.com/commercial-truck-title-loan.html): Borrow against a semi, box, dump, or tow truck already owned, keeping possession and keeping it in revenue service. Business-purpose only, and distinct from a consumer car title loan. Also covers cash-out and rate-and-term truck refinancing. [8 guides](https://axiantpartners.com/commercial-truck-title-loan/articles/).
+- [Real estate secured business loan](https://axiantpartners.com/real-estate-secured-business-loan.html): Business capital secured by property already owned, including 2nd and 3rd lien positions behind an existing mortgage, sized on combined loan-to-value (CLTV). Commercial, multifamily, residential investment, and infill land. [6 guides](https://axiantpartners.com/real-estate-secured-business-loan/articles/).
+- [HELOC for business](https://axiantpartners.com/heloc-for-business.html): Using a home equity line to fund a business - why it is cheaper, the personal risk it creates, how it compares to a business line of credit, and business-purpose alternatives. Axiant does not originate or broker home equity loans. [5 guides](https://axiantpartners.com/heloc-for-business/articles/).
+- [Equipment appraisal and valuation](https://axiantpartners.com/equipment-appraisal.html): Fair market vs. orderly vs. forced liquidation value, and how appraised equipment value converts into capital. [5 guides](https://axiantpartners.com/equipment-appraisal/articles/).
 - [Equipment sale-leaseback](https://axiantpartners.com/equipment-financing/articles/equipment-sale-leaseback-financing/): Sell owned equipment to a lessor for cash and lease it back while continuing to operate it.
+
+## Specialist asset and vertical financing
+
+Deep guides on assets and trades that finance differently from general
+business credit. Each pillar links to a hub of supporting articles.
+
+- [DSCR loans](https://axiantpartners.com/dscr-loans.html): Rental-property loans underwritten on the property's debt service coverage ratio rather than the borrower's personal income. [16 guides](https://axiantpartners.com/dscr-loans/articles/).
+- [Security guard company financing](https://axiantpartners.com/security-guard-business-financing.html): Payroll-heavy contract security firms paying guards weekly while clients pay net-30 to net-60. [4 guides](https://axiantpartners.com/security-guard-business-financing/articles/).
+- [Aircraft financing](https://axiantpartners.com/aircraft-financing.html): Piston through jet, plus how Part 91 private operation versus Part 135 charter changes the file. [5 guides](https://axiantpartners.com/aircraft-financing/articles/).
+- [Commercial marine financing](https://axiantpartners.com/commercial-marine-financing.html): Vessels in a trade - charter, commercial fishing, workboats and tugs - where the survey and the permits often decide the deal. [5 guides](https://axiantpartners.com/commercial-marine-financing/articles/).
+- [Drone and UAV financing](https://axiantpartners.com/drone-financing.html): Commercial drone operations, where the aircraft is cheap and the payload and the contracts carry the loan. [4 guides](https://axiantpartners.com/drone-financing/articles/).
+- [Data center and IT infrastructure financing](https://axiantpartners.com/data-center-financing.html): Compute, colocation build-outs, GPU clusters and the power and cooling layer - each financed on a different clock. [4 guides](https://axiantpartners.com/data-center-financing/articles/).
 
 ## By use of funds
 
