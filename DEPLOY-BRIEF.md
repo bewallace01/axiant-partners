@@ -1,159 +1,173 @@
-# Deploy brief — take the v2 conversion live
+# Deploy brief #2 — contrast fix, section tones, 113 photos
 
 Repo: `axiant-partners` (origin `bewallace01/axiant-partners`, branch `main`).
-`HEAD == origin/main` — **none of this work is committed yet.** It is all sitting
-in the working tree, reviewed and verified. Your job is to get it live without
-losing anything and without shipping 44 MB of backups.
+The previous push (`1ca5fcdf3`, the v2 conversion + responsive images) is already
+live. This is the next batch, sitting uncommitted in the working tree.
+
+**741 files changed, plus 4 untracked paths.**
 
 ---
 
 ## The one thing that will break the site if you get it wrong
 
-There are **184 untracked new image files** in `assets/`. They are the responsive
-variants (`-560w.webp`, `-800w.webp`, `-1200w.webp`, `-1600w.webp`) plus 41
-JPG/PNG→WebP conversions.
+`assets/aside/` is **untracked, and git reports it as a single line** —
+`?? assets/aside/` — not as 113 separate files. It holds all 113 photos, and
+**113 `<img>` tags across 69 pages point at them.**
 
-**3,829 `srcset` URLs across the HTML now point at those files.** If you commit
-only the modified tracked files, every one of those becomes a 404 and images
-vanish sitewide. `git add -A` (after the ignore step below) is required — do not
-use `git add -u`.
+`git add -A` picks it up. **`git add -u` does not**, and would ship 113 broken
+images. Use `-A`.
+
+The same applies to `_photo-manifest/` (64 KB of manifest/prompt files, worth
+keeping) and the two new scripts.
 
 ---
 
-## Step 1 — keep the backups out of the commit
+## What is in this push
 
-Five untracked folders totalling ~44 MB are local safety copies. They must not
-ship. Append to `.gitignore`:
+**1. Quick-answer contrast fix — this one is urgent.**
+Right now, live, **705 article pages render their "Quick answer" box as white
+text on pale blue**, which is unreadable. That was a regression introduced by the
+previous push: the legacy-markup port gave `.quick-answer` a pale background
+without realising `.callout` already supplies a navy gradient with light text.
 
-```
-# Local safety copies from the v2 conversion — do not commit
-_backup-fullv2/
-_backup-images/
-_backup-v2body/
-_backup-pre-v2-swap/
-_to_delete/
-```
+It could not just be reverted — **558 other pages use bare
+`class="quick-answer"`** and genuinely needed that rule. The fix scopes it to
+`.quick-answer:not(.callout)`. Measured after the change: dark boxes **7.5:1**,
+light boxes **17.4:1**. Both pass WCAG AA.
 
-(`_analysis/` is already tracked in the repo — leave it alone.)
+**2. One tone per section.**
+Cards each carried their own `data-tone`, so a single grid cycled
+blue → teal → indigo → bronze → rust and read as a rainbow. Two changes:
 
-## Step 2 — stage everything else
+- a CSS block (`ONE TONE PER SECTION`) makes cards inherit their section's tone
+  by specificity — `.group[data-tone="x"] .card` (0,2,0) beats the card's own
+  `[data-tone="y"]` (0,1,0). No markup touched; delete the block to revert.
+- `.group` sections now rotate through the five tones down each page
+  (739 pages, 4,432 sections), because 789 pages previously had *every* section
+  set to blue and the card cycling was the only source of colour.
+
+**3. 113 aside photos.**
+The decorative hatched `.aside-mark` panels are replaced with real photography on
+69 pages. `assets/aside/` is 113 WebP files, 5.0 MB, every one 1064×480 (2× the
+532×240 slot). Pages without a photo would keep the hatched fallback — there are
+none left.
+
+Also new: `scripts/slice-grids.py` and `scripts/apply-aside-photos.py`, plus
+`_photo-manifest/` (the CSV, prompts and batch plan that drive them).
+
+---
+
+## Verify before you commit
+
+All four already pass locally. Re-run them after staging.
 
 ```bash
-git add -A
-git status --short | head -40
-```
-
-## Step 3 — verify BEFORE you commit
-
-Run all four. Do not commit if any fails.
-
-```bash
-# 1. every page conforms to the design system  -> expect "877/877 pages conformant"
+# 1. design system         -> expect "877/877 pages conformant"
 python3 scripts/check-page.py
 
-# 2. no backup folder crept in  -> expect no output
+# 2. photos are staged     -> expect 113
+git diff --cached --name-only | grep -c 'assets/aside/.*\.webp$'
+
+# 3. no backups crept in   -> expect no output
 git diff --cached --name-only | grep -E '^_backup|^_to_delete'
 
-# 3. the new image files are staged  -> expect ~184
-git diff --cached --name-only | grep -cE 'assets/.*\.webp$'
-
-# 4. every srcset target is actually staged or already tracked -> expect 0 broken
+# 4. every image ref resolves -> expect "0 broken"
 python3 - <<'PY'
-import re, glob, os, subprocess
-staged = set(subprocess.run(['git','ls-files'],capture_output=True,text=True).stdout.split('\n'))
-staged |= set(subprocess.run(['git','diff','--cached','--name-only'],capture_output=True,text=True).stdout.split('\n'))
-bad = 0
+import re, glob, os
+miss = chk = 0
 for p in glob.glob('**/*.html', recursive=True):
-    if any(x in p for x in ('node_modules','_backup','_to_delete','_analysis')): continue
+    if any(x in p for x in ('node_modules','_backup','_to_delete','_preview')): continue
     s = open(p, encoding='utf-8', errors='replace').read()
-    for m in re.finditer(r'srcset="([^"]+)"', s):
+    for m in re.finditer(r'(?:src|srcset)="([^"]+)"', s):
         for part in m.group(1).split(','):
             u = part.strip().split()[0].split('?')[0].lstrip('/')
-            if u and not u.startswith('http') and u not in staged and not os.path.exists(u):
-                bad += 1; print('MISSING', u)
-print(f'{bad} broken srcset targets')
+            if not u or u.startswith(('http','data:')): continue
+            if not u.lower().endswith(('.webp','.png','.jpg','.jpeg','.svg')): continue
+            chk += 1
+            if not os.path.exists(u): miss += 1
+print(f'{chk} image refs checked, {miss} broken')
 PY
 ```
 
-## Step 4 — commit and push
+Current local state: **877/877 conformant, 8,275 image refs, 0 broken,
+113/113 photo slots filled, 0 hatched.**
+
+---
+
+## Commit and push
 
 ```bash
+git add -A
+git status --short | head -20
+
 git commit -m "$(cat <<'EOF'
-Convert the tool and article pages to the v2 design system
+Fix the quick-answer contrast regression, one tone per section, 113 aside photos
 
-Twenty-three pages (match, the five calculators, referral, get-matched/*,
-*/articles/*, small-business-financing-report, rightmfgsystems, consolidate)
-were running v2 chrome over a legacy body via .v2-body-scoped rules, so their
-bodies still rendered from the 239KB styles.css and looked like the old site
-next to the converted pages.
+The legacy-markup port in 1ca5fcdf3 gave .quick-answer a pale accent-100
+background without accounting for .callout, which already supplies a navy
+gradient with light text. The result was white text on pale blue on the 705
+pages using `class="callout quick-answer"`. Deleting the rule was not an option
+because 558 pages use bare `class="quick-answer"` and rely on it, so it is now
+scoped .quick-answer:not(.callout). Measured: 7.5:1 dark, 17.4:1 light.
 
-Swapping the stylesheet with the markup untouched was measured in a headless
-browser and preserves the forms the band-based converter would have destroyed:
-match.html holds at 2 forms / 38 fields / 28 ids. Container goes 1440px
-full-bleed to 1200px centred, no overflow at 1440px or 390px.
+Cards and tiles each carried their own data-tone, so one grid cycled through
+five colours and read as a rainbow. Cards now inherit their section's tone by
+specificity, and because 789 pages had every section set to blue, the sections
+themselves now rotate through the five tones down the page. 532 pages show
+three tones and 153 show five, against 789 single-tone before.
 
-axiant-v2.css gains two sections: 23 legacy-markup component rules, each one
-measured losing its fill or border without them, and 32KB of page-scoped CSS
-lifted out of ten per-page <style> blocks with their !important removed.
+The decorative hatched .aside-mark panels read as unfinished placeholders, so
+all 113 slots across 69 pages now carry real photography: 1064x480 WebP at 2x
+the rendered 532x240 box, 5.0MB total, object-fit cover so nothing reflows.
+scripts/slice-grids.py cuts 4K grid renders into the individual files and
+scripts/apply-aside-photos.py swaps them in; both are idempotent and skip slots
+whose file is absent.
 
-Also serves the responsive image variants that already existed unused on disk:
-181 card and hero images gain srcset, 145 missing variants generated, the last
-38 JPGs and 3 PNGs converted to WebP with the equipment-for-sale JSON source
-data repointed so build.py will not undo it. equipment.html drops from 37.9MB
-to 3.7MB.
-
-877/877 pages conformant. axiant-v2-chrome.css and axiant-v2-legacy-body.css
-are now referenced by zero pages.
+877/877 pages conformant. 8,275 image references, none broken.
 EOF
 )"
 
 git push origin main
 ```
 
-## Step 5 — verify live
+---
 
-Deployment is push-to-`main` (the only workflow in `.github/workflows/` is
-`indexnow.yml`, which pings IndexNow — it does not build the site).
+## Verify live
 
-After the deploy lands, check on **https://axiantpartners.com/match.html**:
+Deployment is push-to-`main` (the only workflow is `indexnow.yml`, which pings
+IndexNow — it does not build the site).
 
-- **View source** — exactly one stylesheet, `/axiant-v2.css?v=202609030001`.
-  No `styles.css`, no `critical.css`, no `axiant-v2-chrome.css`, no
-  `axiant-v2-legacy-body.css`.
-- The form renders in a centred white card ~1200px wide, submit button in
-  accent blue `#2d7fb8`, and **the form still submits** (2 forms, 38 fields).
-- **https://axiantpartners.com/equipment.html** — DevTools ▸ Network ▸ Img.
-  Total transferred should be roughly 3–4 MB, not 38 MB. Card images should
-  request `-800w.webp`, not the bare `.webp`.
-- Spot-check one article page (`/equipment-financing/articles/affirm-vs-cherry/`)
-  and one landing page (`/get-matched/working-capital/`) — on the latter the
-  loan-type dropdown must still be hidden.
+- **https://axiantpartners.com/dscr-loans/articles/dscr-loans-no-seasoning/** —
+  the "Quick answer" box at the top should be a **navy panel with light text**,
+  clearly readable. This is the fix that matters most.
+- **https://axiantpartners.com/equipment/excavators/** — beside the body copy
+  there should be a **photograph of an excavator**, not a hatched grey box.
+- **https://axiantpartners.com/dscr-loans/articles/** — the card grid should be
+  one colour per section, not five colours in one grid.
+- Any article page — confirm images load (DevTools ▸ Network ▸ Img, no 404s
+  under `/assets/aside/`).
 
 ---
 
 ## Do NOT do these
 
-- **Do not run `scripts/convert-program-page.py` on any of these pages.** It
-  rebuilds a body out of content "bands" and a form is not a band — measured, it
-  takes match.html from 2 forms to 0 and 25 fields to 0.
-- **Do not re-add the legacy stylesheets** to any page that now loads
-  `axiant-v2.css`. `check-page.py` will fail you, correctly.
-- **Do not set `.form-step{display:none}`** on match.html. The step machinery is
-  dead code — `script.js` only shows the Continue button on mobile
-  (`nextBtn.style.display = isMobile() ? 'inline-flex' : 'none'`), so hiding the
-  steps makes the desktop form unsubmittable. All four steps are meant to show
-  at once on desktop. There is a comment in `axiant-v2.css` saying so.
+- **Do not `git add -u`.** It misses `assets/aside/` and ships 113 broken images.
+- **Do not delete the `.quick-answer:not(.callout)` scoping** and "simplify" it
+  back to `.quick-answer`. That is the exact bug being fixed here.
+- **Do not run `scripts/convert-program-page.py`** on the tool or article pages.
+  It rebuilds a body out of content "bands" and a form is not a band — measured,
+  it takes match.html from 2 forms to 0 and 25 fields to 0.
+- **Do not set `.form-step{display:none}`** on match.html. `script.js` only shows
+  the Continue button on mobile, so hiding the steps makes the desktop form
+  unsubmittable. All four steps are meant to show at once on desktop.
 - **Do not change the `$300M+ funded` / `Since 2020` copy** on match.html. Alex
   has been told twice it conflicts with the company's age and has chosen to keep
-  it. Leave it.
-- **Do not delete `styles.css` in this commit.** It is down to 3 referencing
-  files but that is Alex's call to make after he has seen the site live.
+  it.
 
-## Optional follow-ups, only if Alex asks
+## Optional, only if Alex asks
 
 - `styles.css` (239 KB), `axiant-v2-chrome.css` and `axiant-v2-legacy-body.css`
-  are effectively dead and can be removed later.
+  are referenced by zero real pages and can be deleted — but as a **separate
+  commit**, so rollback stays easy.
 - `assets/` holds ~1.1 GB of PNG `<picture>` fallbacks. No modern browser
-  downloads them, so they cost deploy size, not page speed.
-- Pre-existing bugs, unrelated to this work: `calculator.js` prints
-  "per monthly"; `.calc-intro-loan` / `.calc-intro-lease` are dead selectors.
+  downloads them; they cost deploy size, not page speed.

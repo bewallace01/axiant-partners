@@ -1,0 +1,274 @@
+AXIANT ASIDE PHOTOS - grid prompt pack
+62 distinct subjects covering 113 slots, in 18 generations.
+Generate each at 3840x2160 (4K). Save exactly as named, then run:
+    python3 scripts/slice-grids.py && python3 scripts/apply-aside-photos.py
+
+==============================================================================
+batch-01   [equipment]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: a backhoe at work on a real jobsite - operator in hi-vis, daylight, no logos.
+  TOP-RIGHT: a box truck at work on a real jobsite - operator in hi-vis, daylight, no logos.
+  BOTTOM-LEFT: a bucket truck at work on a real jobsite - operator in hi-vis, daylight, no logos.
+  BOTTOM-RIGHT: a bulldozer at work on a real jobsite - operator in hi-vis, daylight, no logos.
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-01.png
+
+==============================================================================
+batch-02   [equipment]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: a cargo van at work on a real jobsite - operator in hi-vis, daylight, no logos.
+  TOP-RIGHT: a dump truck at work on a real jobsite - operator in hi-vis, daylight, no logos.
+  BOTTOM-LEFT: a excavator at work on a real jobsite - operator in hi-vis, daylight, no logos.
+  BOTTOM-RIGHT: a flatbed truck at work on a real jobsite - operator in hi-vis, daylight, no logos.
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-02.png
+
+==============================================================================
+batch-03   [equipment]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: a mini excavator at work on a real jobsite - operator in hi-vis, daylight, no logos.
+  TOP-RIGHT: a semi truck at work on a real jobsite - operator in hi-vis, daylight, no logos.
+  BOTTOM-LEFT: a skid steer at work on a real jobsite - operator in hi-vis, daylight, no logos.
+  BOTTOM-RIGHT: a stump grinder at work on a real jobsite - operator in hi-vis, daylight, no logos.
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-03.png
+
+==============================================================================
+batch-04   [equipment]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: a tanker truck at work on a real jobsite - operator in hi-vis, daylight, no logos.
+  TOP-RIGHT: a trailer at work on a real jobsite - operator in hi-vis, daylight, no logos.
+  BOTTOM-LEFT: a wheel loader at work on a real jobsite - operator in hi-vis, daylight, no logos.
+  BOTTOM-RIGHT: mixed equipment on a dealer lot, buyer inspecting.
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-04.png
+
+==============================================================================
+batch-05   [states]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: Atlanta small-business main street or a recognisable local storefront, daytime.
+  TOP-RIGHT: California small-business main street or a recognisable local storefront, daytime.
+  BOTTOM-LEFT: Florida small-business main street or a recognisable local storefront, daytime.
+  BOTTOM-RIGHT: Georgia small-business main street or a recognisable local storefront, daytime.
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-05.png
+
+==============================================================================
+batch-06   [states]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: Illinois small-business main street or a recognisable local storefront, daytime.
+  TOP-RIGHT: New York small-business main street or a recognisable local storefront, daytime.
+  BOTTOM-LEFT: North Carolina small-business main street or a recognisable local storefront, daytime.
+  BOTTOM-RIGHT: Pennsylvania small-business main street or a recognisable local storefront, daytime.
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-06.png
+
+==============================================================================
+batch-07   [states]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: Texas small-business main street or a recognisable local storefront, daytime.
+  TOP-RIGHT: (unused - anything, this quadrant is discarded)
+  BOTTOM-LEFT: (unused - anything, this quadrant is discarded)
+  BOTTOM-RIGHT: (unused - anything, this quadrant is discarded)
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-07.png
+
+==============================================================================
+batch-08   [property]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: exterior of a small rental property (duplex or 1-4 unit), investor with keys - no people-heavy staging.
+  TOP-RIGHT: renovation mid-progress - stud walls, contractor and investor walking it.
+  BOTTOM-LEFT: (unused - anything, this quadrant is discarded)
+  BOTTOM-RIGHT: (unused - anything, this quadrant is discarded)
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-08.png
+
+==============================================================================
+batch-09   [owners]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: couple reviewing figures with a lender at a desk.
+  TOP-RIGHT: owner at a kitchen table with statements, calm not distressed.
+  BOTTOM-LEFT: owner in their own premises reviewing figures - scale matched to the loan size.
+  BOTTOM-RIGHT: small team reviewing numbers together in a back office.
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-09.png
+
+==============================================================================
+batch-10   [owners]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: two owners shaking hands across a desk, folder open.
+  TOP-RIGHT: (unused - anything, this quadrant is discarded)
+  BOTTOM-LEFT: (unused - anything, this quadrant is discarded)
+  BOTTOM-RIGHT: (unused - anything, this quadrant is discarded)
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-10.png
+
+==============================================================================
+batch-11   [medical]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: clinician using practice equipment in a modern clinic.
+  TOP-RIGHT: dental operatory with chair and equipment, dentist prepping.
+  BOTTOM-LEFT: (unused - anything, this quadrant is discarded)
+  BOTTOM-RIGHT: (unused - anything, this quadrant is discarded)
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-11.png
+
+==============================================================================
+batch-12   [logistics]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: commercial building or fleet asset, wide establishing shot.
+  TOP-RIGHT: movers carrying boxes into a boxtruck outside a home.
+  BOTTOM-LEFT: tow truck loading a vehicle roadside.
+  BOTTOM-RIGHT: warehouse dispatch desk - paperwork, laptop, forklift behind.
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-12.png
+
+==============================================================================
+batch-13   [general]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: editorial image supporting: A realistic rebuild timeline.
+  TOP-RIGHT: editorial image supporting: How lenders turn your numbers into a loan amount.
+  BOTTOM-LEFT: editorial image supporting: How much can a self-employed borrower get?.
+  BOTTOM-RIGHT: editorial image supporting: How to actually talk to your lender.
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-13.png
+
+==============================================================================
+batch-14   [general]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: editorial image supporting: Key terms, in plain English.
+  TOP-RIGHT: editorial image supporting: Match by what you need.
+  BOTTOM-LEFT: editorial image supporting: Payroll taxes and state debt: a special warning.
+  BOTTOM-RIGHT: editorial image supporting: Quick wins in the next 30 days.
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-14.png
+
+==============================================================================
+batch-15   [general]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: editorial image supporting: Start with the use, not the number.
+  TOP-RIGHT: editorial image supporting: The 6 steps to clean separation.
+  BOTTOM-LEFT: editorial image supporting: The 7 levers lenders actually weigh.
+  BOTTOM-RIGHT: editorial image supporting: The path, in six steps.
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-15.png
+
+==============================================================================
+batch-16   [general]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: editorial image supporting: Three mistakes that send people to the wrong loan.
+  TOP-RIGHT: editorial image supporting: What is APR — and why it's different.
+  BOTTOM-LEFT: editorial image supporting: What opens up, and roughly when.
+  BOTTOM-RIGHT: editorial image supporting: What to do now.
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-16.png
+
+==============================================================================
+batch-17   [general]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: editorial image supporting: Why this is the lever that quietly decides applications.
+  TOP-RIGHT: editorial image supporting: Your real options.
+  BOTTOM-LEFT: factory floor - CNC or assembly line, worker in safety glasses.
+  BOTTOM-RIGHT: friendly advisor at a desk, mid-conversation.
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-17.png
+
+==============================================================================
+batch-18   [general]   3840x2160, 2x2 grid
+==============================================================================
+A 2x2 grid of FOUR completely separate photographs, four equal quadrants,
+each quadrant a different scene:
+
+  TOP-LEFT: independent shop owner opening up for the day.
+  TOP-RIGHT: neutral office detail - desk, documents, soft daylight. Deliberately low-key.
+  BOTTOM-LEFT: retail or cafe counter, card terminal, owner serving a customer.
+  BOTTOM-RIGHT: workover rig on a lease site, crew in FR coveralls.
+
+Editorial commercial photography, natural daylight, shallow depth of field, muted realistic colour with cool navy-blue undertones, no text, no logos, no watermarks, no brand marks, candid not posed, photojournalistic.
+
+  -> save as _photo-manifest/grids/batch-18.png

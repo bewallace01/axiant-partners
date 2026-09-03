@@ -81,3 +81,7 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 17:36 — Paint hero and band media at positive z-index, not below zero (`8989b898a`) — Alex Solopenkov
 - 17:49 — Send /program/ to the program page, not to its articles hub (`558d18313`) — Alex Solopenkov
 - 18:25 — Put the breadcrumb, dateline and quick answer inside the content column (`ee6fa1b93`) — Alex Solopenkov
+- 19:57 — Convert the tool and article pages to the v2 design system (`1ca5fcdf3`) — Alex Solopenkov
+
+## 2026-09-03
+- 11:48 — Let the form-page hero images run the full width of the page (`3f0d7c451`) — Alex

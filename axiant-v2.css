@@ -2309,7 +2309,10 @@ header.efs-crumbhead{background:var(--surface);padding:0;margin:0;
 .blog-post-rail-left,.blog-post-rail-right{width:100%}
 .article-faq{margin:var(--s6) 0 var(--s5);padding:var(--s4) var(--s5);background:var(--surface);
   border-radius:var(--r-md);border:1px solid var(--line)}
-.quick-answer{border:1px solid var(--line-strong);background:var(--accent-100);
+/* Bare .quick-answer only. 705 pages use `callout quick-answer`, where .callout
+   already supplies the navy gradient and light text - painting a pale background
+   here left white text on pale blue and made those boxes unreadable. */
+.quick-answer:not(.callout){border:1px solid var(--line-strong);background:var(--accent-100);
   border-radius:var(--r-md);padding:var(--s5)}
 .related-resources{border:1px solid var(--line);background:var(--accent-100);
   border-radius:var(--r-md);padding:var(--s5)}
@@ -2851,3 +2854,35 @@ header.efs-crumbhead{background:var(--surface);padding:0;margin:0;
    inline style="" attributes that needed !important to beat .btn-primary. */
 .btn-primary.btn-invert{background:var(--surface);color:var(--accent-600);border-color:var(--surface)}
 .btn-primary.btn-invert:hover{background:var(--accent-100);color:var(--accent-600);border-color:var(--accent-100)}
+
+
+/* ==========================================================================
+   ONE TONE PER SECTION
+   --------------------------------------------------------------------------
+   Cards and tiles carry their own data-tone, which made a single grid cycle
+   blue -> teal -> indigo -> bronze -> rust and read as a rainbow rather than
+   as one brand. The tone system stays: each BAND still gets its own colour
+   and tinted ground. Inside a band, the boxes now take the band's colour,
+   which is what "make the box colours match the colour of the sides" asked
+   for.
+
+   Done here rather than in markup because it is 7,127 cards across 706 pages.
+   Specificity does the work: `.group[data-tone="x"] .card` is (0,2,0) and beats
+   the card's own `[data-tone="y"]` at (0,1,0). No HTML changed, and deleting
+   this block restores the per-card tones exactly.
+   ========================================================================== */
+.group[data-tone="blue"]   .card,.group[data-tone="blue"]   .tile{--tone:#2d7fb8;--tone-soft:#dcecf8;--tone-bg:#f2f8fc;--tone-deep:#123a5c}
+.group[data-tone="teal"]   .card,.group[data-tone="teal"]   .tile{--tone:#1f7566;--tone-soft:#d8ebe6;--tone-bg:#f1f8f6;--tone-deep:#0f3d35}
+.group[data-tone="indigo"] .card,.group[data-tone="indigo"] .tile{--tone:#5560a6;--tone-soft:#e2e5f5;--tone-bg:#f4f5fc;--tone-deep:#2b3167}
+.group[data-tone="bronze"] .card,.group[data-tone="bronze"] .tile{--tone:#9a6c26;--tone-soft:#f2e6cf;--tone-bg:#fbf7ef;--tone-deep:#5a3d10}
+.group[data-tone="rust"]   .card,.group[data-tone="rust"]   .tile{--tone:#96473a;--tone-soft:#f5dcd7;--tone-bg:#fcf5f3;--tone-deep:#5a251c}
+
+
+/* ==========================================================================
+   ASIDE PHOTO - a real image in the slot .aside-mark otherwise fills with a
+   hatched panel. Same box (532x240 desktop, 2.22:1), so nothing reflows.
+   Pages without a photo keep the hatched fallback, so this can be filled in
+   page by page. scripts/apply-aside-photos.py does the swap.
+   ========================================================================== */
+.aside-mark.has-photo{padding:0;background:none;border:1px solid var(--line);overflow:hidden}
+.aside-mark.has-photo img{width:100%;height:100%;min-height:15rem;object-fit:cover;display:block}

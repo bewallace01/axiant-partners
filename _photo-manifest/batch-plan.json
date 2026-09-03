@@ -1,0 +1,577 @@
+[
+ {
+  "batch": "batch-01",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "a backhoe at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-backhoes-1.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "a box truck at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-box-trucks-1.webp"
+    ]
+   },
+   {
+    "quadrant": 2,
+    "subject": "a bucket truck at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-bucket-trucks-1.webp"
+    ]
+   },
+   {
+    "quadrant": 3,
+    "subject": "a bulldozer at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-bulldozers-1.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-02",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "a cargo van at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-cargo-vans-1.webp",
+     "assets/aside/equipment-cargo-vans-2.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "a dump truck at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-dump-trucks-1.webp",
+     "assets/aside/equipment-dump-trucks-2.webp"
+    ]
+   },
+   {
+    "quadrant": 2,
+    "subject": "a excavator at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-excavators-1.webp",
+     "assets/aside/equipment-excavators-2.webp"
+    ]
+   },
+   {
+    "quadrant": 3,
+    "subject": "a flatbed truck at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-flatbed-trucks-1.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-03",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "a mini excavator at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-mini-excavators-1.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "a semi truck at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-semi-trucks-1.webp",
+     "assets/aside/equipment-semi-trucks-2.webp"
+    ]
+   },
+   {
+    "quadrant": 2,
+    "subject": "a skid steer at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-skid-steers-1.webp"
+    ]
+   },
+   {
+    "quadrant": 3,
+    "subject": "a stump grinder at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-stump-grinders-1.webp",
+     "assets/aside/equipment-stump-grinders-2.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-04",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "a tanker truck at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-tanker-trucks-1.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "a trailer at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-trailers-1.webp"
+    ]
+   },
+   {
+    "quadrant": 2,
+    "subject": "a wheel loader at work on a real jobsite - operator in hi-vis, daylight, no logos",
+    "files": [
+     "assets/aside/equipment-wheel-loaders-1.webp",
+     "assets/aside/equipment-wheel-loaders-2.webp"
+    ]
+   },
+   {
+    "quadrant": 3,
+    "subject": "mixed equipment on a dealer lot, buyer inspecting",
+    "files": [
+     "assets/aside/equipment-financing-1.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-05",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "Atlanta small-business main street or a recognisable local storefront, daytime",
+    "files": [
+     "assets/aside/business-loans-atlanta-1.webp",
+     "assets/aside/business-loans-atlanta-2.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "California small-business main street or a recognisable local storefront, daytime",
+    "files": [
+     "assets/aside/business-loans-california-1.webp",
+     "assets/aside/business-loans-california-2.webp"
+    ]
+   },
+   {
+    "quadrant": 2,
+    "subject": "Florida small-business main street or a recognisable local storefront, daytime",
+    "files": [
+     "assets/aside/business-loans-florida-1.webp",
+     "assets/aside/business-loans-florida-2.webp"
+    ]
+   },
+   {
+    "quadrant": 3,
+    "subject": "Georgia small-business main street or a recognisable local storefront, daytime",
+    "files": [
+     "assets/aside/business-loans-georgia-1.webp",
+     "assets/aside/business-loans-georgia-2.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-06",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "Illinois small-business main street or a recognisable local storefront, daytime",
+    "files": [
+     "assets/aside/business-loans-illinois-1.webp",
+     "assets/aside/business-loans-illinois-2.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "New York small-business main street or a recognisable local storefront, daytime",
+    "files": [
+     "assets/aside/business-loans-new-york-1.webp",
+     "assets/aside/business-loans-new-york-2.webp"
+    ]
+   },
+   {
+    "quadrant": 2,
+    "subject": "North Carolina small-business main street or a recognisable local storefront, daytime",
+    "files": [
+     "assets/aside/business-loans-north-carolina-1.webp",
+     "assets/aside/business-loans-north-carolina-2.webp"
+    ]
+   },
+   {
+    "quadrant": 3,
+    "subject": "Pennsylvania small-business main street or a recognisable local storefront, daytime",
+    "files": [
+     "assets/aside/business-loans-pennsylvania-1.webp",
+     "assets/aside/business-loans-pennsylvania-2.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-07",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "Texas small-business main street or a recognisable local storefront, daytime",
+    "files": [
+     "assets/aside/business-loans-texas-1.webp",
+     "assets/aside/business-loans-texas-2.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-08",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "exterior of a small rental property (duplex or 1-4 unit), investor with keys - no people-heavy staging",
+    "files": [
+     "assets/aside/dscr-lenders-1.webp",
+     "assets/aside/dscr-lenders-2.webp",
+     "assets/aside/dscr-loan-florida-1.webp",
+     "assets/aside/dscr-loan-florida-2.webp",
+     "assets/aside/dscr-loan-rates-1.webp",
+     "assets/aside/dscr-loan-rates-2.webp",
+     "assets/aside/dscr-loan-requirements-1.webp",
+     "assets/aside/dscr-loan-requirements-2.webp",
+     "assets/aside/dscr-loan-texas-1.webp",
+     "assets/aside/dscr-loan-texas-2.webp",
+     "assets/aside/dscr-loans-1.webp",
+     "assets/aside/dscr-loans-2.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "renovation mid-progress - stud walls, contractor and investor walking it",
+    "files": [
+     "assets/aside/fix-and-flip-1.webp",
+     "assets/aside/fix-and-flip-2.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-09",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "couple reviewing figures with a lender at a desk",
+    "files": [
+     "assets/aside/down-payment-assistance-1.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "owner at a kitchen table with statements, calm not distressed",
+    "files": [
+     "assets/aside/business-debt-consolidation-1.webp",
+     "assets/aside/business-debt-consolidation-2.webp",
+     "assets/aside/business-debt-relief-1.webp",
+     "assets/aside/business-debt-relief-2.webp"
+    ]
+   },
+   {
+    "quadrant": 2,
+    "subject": "owner in their own premises reviewing figures - scale matched to the loan size",
+    "files": [
+     "assets/aside/150000-business-loan-1.webp",
+     "assets/aside/150000-business-loan-2.webp",
+     "assets/aside/2-million-business-loan-1.webp",
+     "assets/aside/2-million-business-loan-2.webp",
+     "assets/aside/25000-business-loan-1.webp",
+     "assets/aside/25000-business-loan-2.webp",
+     "assets/aside/5-million-business-loan-1.webp",
+     "assets/aside/5-million-business-loan-2.webp"
+    ]
+   },
+   {
+    "quadrant": 3,
+    "subject": "small team reviewing numbers together in a back office",
+    "files": [
+     "assets/aside/business-growth-financing-borrow-to-grow-not-to-survive-the-right-way-to-use-business-capital-1.webp",
+     "assets/aside/business-growth-financing-growth-capital-for-e-commerce-scale-ads-and-inventory-together-1.webp",
+     "assets/aside/business-growth-financing-how-to-finance-inventory-for-peak-season-without-stockouts-1.webp",
+     "assets/aside/business-growth-financing-how-to-use-financing-to-grow-revenue-without-creating-a-cash-flow-crisis-1.webp",
+     "assets/aside/business-growth-1.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-10",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "two owners shaking hands across a desk, folder open",
+    "files": [
+     "assets/aside/business-acquisition-financing-1.webp",
+     "assets/aside/business-acquisition-financing-2.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-11",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "clinician using practice equipment in a modern clinic",
+    "files": [
+     "assets/aside/medical-practices-business-financing-grow-your-practice-faster-with-smart-equipment-financing-1.webp",
+     "assets/aside/medical-practices-business-financing-how-to-finance-new-equipment-and-increase-revenue-per-patient-1.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "dental operatory with chair and equipment, dentist prepping",
+    "files": [
+     "assets/aside/dental-practice-financing-1.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-12",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "commercial building or fleet asset, wide establishing shot",
+    "files": [
+     "assets/aside/corporate-and-asset-finance-1.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "movers carrying boxes into a boxtruck outside a home",
+    "files": [
+     "assets/aside/moving-company-business-financing-1.webp",
+     "assets/aside/moving-company-business-financing-2.webp"
+    ]
+   },
+   {
+    "quadrant": 2,
+    "subject": "tow truck loading a vehicle roadside",
+    "files": [
+     "assets/aside/towing-business-financing-1.webp",
+     "assets/aside/towing-business-financing-2.webp"
+    ]
+   },
+   {
+    "quadrant": 3,
+    "subject": "warehouse dispatch desk - paperwork, laptop, forklift behind",
+    "files": [
+     "assets/aside/invoice-factoring-1.webp",
+     "assets/aside/invoice-factoring-2.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-13",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "editorial image supporting: A realistic rebuild timeline",
+    "files": [
+     "assets/aside/articles-business-loans-after-bankruptcy-2.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "editorial image supporting: How lenders turn your numbers into a loan amount",
+    "files": [
+     "assets/aside/articles-how-much-should-you-borrow-business-loan-2.webp"
+    ]
+   },
+   {
+    "quadrant": 2,
+    "subject": "editorial image supporting: How much can a self-employed borrower get?",
+    "files": [
+     "assets/aside/articles-self-employed-business-loans-1.webp"
+    ]
+   },
+   {
+    "quadrant": 3,
+    "subject": "editorial image supporting: How to actually talk to your lender",
+    "files": [
+     "assets/aside/articles-business-loans-behind-on-payments-2.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-14",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "editorial image supporting: Key terms, in plain English",
+    "files": [
+     "assets/aside/articles-first-time-business-borrower-guide-2.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "editorial image supporting: Match by what you need",
+    "files": [
+     "assets/aside/articles-which-business-loan-is-right-for-you-1.webp"
+    ]
+   },
+   {
+    "quadrant": 2,
+    "subject": "editorial image supporting: Payroll taxes and state debt: a special warning",
+    "files": [
+     "assets/aside/articles-business-loan-to-pay-irs-back-taxes-2.webp"
+    ]
+   },
+   {
+    "quadrant": 3,
+    "subject": "editorial image supporting: Quick wins in the next 30 days",
+    "files": [
+     "assets/aside/articles-improve-business-loan-approval-odds-2.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-15",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "editorial image supporting: Start with the use, not the number",
+    "files": [
+     "assets/aside/articles-how-much-should-you-borrow-business-loan-1.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "editorial image supporting: The 6 steps to clean separation",
+    "files": [
+     "assets/aside/articles-separate-business-personal-finances-2.webp"
+    ]
+   },
+   {
+    "quadrant": 2,
+    "subject": "editorial image supporting: The 7 levers lenders actually weigh",
+    "files": [
+     "assets/aside/articles-improve-business-loan-approval-odds-1.webp"
+    ]
+   },
+   {
+    "quadrant": 3,
+    "subject": "editorial image supporting: The path, in six steps",
+    "files": [
+     "assets/aside/articles-first-time-business-borrower-guide-1.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-16",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "editorial image supporting: Three mistakes that send people to the wrong loan",
+    "files": [
+     "assets/aside/articles-which-business-loan-is-right-for-you-2.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "editorial image supporting: What is APR \u2014 and why it's different",
+    "files": [
+     "assets/aside/articles-factor-rate-vs-apr-business-loan-cost-1.webp"
+    ]
+   },
+   {
+    "quadrant": 2,
+    "subject": "editorial image supporting: What opens up, and roughly when",
+    "files": [
+     "assets/aside/articles-business-loans-after-bankruptcy-1.webp"
+    ]
+   },
+   {
+    "quadrant": 3,
+    "subject": "editorial image supporting: What to do now",
+    "files": [
+     "assets/aside/articles-business-loan-to-pay-irs-back-taxes-1.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-17",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "editorial image supporting: Why this is the lever that quietly decides applications",
+    "files": [
+     "assets/aside/articles-separate-business-personal-finances-1.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "editorial image supporting: Your real options",
+    "files": [
+     "assets/aside/articles-business-loans-behind-on-payments-1.webp"
+    ]
+   },
+   {
+    "quadrant": 2,
+    "subject": "factory floor - CNC or assembly line, worker in safety glasses",
+    "files": [
+     "assets/aside/manufacturing-business-financing-1.webp"
+    ]
+   },
+   {
+    "quadrant": 3,
+    "subject": "friendly advisor at a desk, mid-conversation",
+    "files": [
+     "assets/aside/faq-1.webp",
+     "assets/aside/faq-2.webp"
+    ]
+   }
+  ]
+ },
+ {
+  "batch": "batch-18",
+  "cells": [
+   {
+    "quadrant": 0,
+    "subject": "independent shop owner opening up for the day",
+    "files": [
+     "assets/aside/best-small-business-loans-1.webp"
+    ]
+   },
+   {
+    "quadrant": 1,
+    "subject": "neutral office detail - desk, documents, soft daylight. Deliberately low-key",
+    "files": [
+     "assets/aside/privacy-policy-1.webp",
+     "assets/aside/privacy-policy-2.webp",
+     "assets/aside/terms-and-conditions-1.webp",
+     "assets/aside/terms-and-conditions-2.webp"
+    ]
+   },
+   {
+    "quadrant": 2,
+    "subject": "retail or cafe counter, card terminal, owner serving a customer",
+    "files": [
+     "assets/aside/merchant-cash-advance-1.webp",
+     "assets/aside/merchant-cash-advance-2.webp"
+    ]
+   },
+   {
+    "quadrant": 3,
+    "subject": "workover rig on a lease site, crew in FR coveralls",
+    "files": [
+     "assets/aside/workover-rig-financing-1.webp"
+    ]
+   }
+  ]
+ }
+]
