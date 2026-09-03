@@ -2886,3 +2886,66 @@ header.efs-crumbhead{background:var(--surface);padding:0;margin:0;
    ========================================================================== */
 .aside-mark.has-photo{padding:0;background:none;border:1px solid var(--line);overflow:hidden}
 .aside-mark.has-photo img{width:100%;height:100%;min-height:15rem;object-fit:cover;display:block}
+
+
+/* ==========================================================================
+   AX-FAQ
+   --------------------------------------------------------------------------
+   The FAQ block on 107 pages is a flat <section class="ax-faq"> holding an h2
+   and alternating .ax-faq__q / .ax-faq__a paragraphs. It carries NO .container
+   of its own - not one of the 107 has one - and had no rules anywhere, so it
+   rendered full-bleed edge to edge with questions and answers run together.
+
+   The section therefore does its own centring rather than relying on a
+   container that is not there. Spacing, type and colour come from the same
+   tokens as .section / .container / .prose, so it sits in the same rhythm as
+   the bands above it.
+   ========================================================================== */
+.ax-faq{
+  padding-block:var(--s9);
+  padding-inline:var(--s5);
+  background:var(--ground);
+}
+.ax-faq > *{max-width:46rem;margin-inline:auto}
+
+.ax-faq > h2{
+  font-size:var(--t-xl);
+  color:var(--navy-800);
+  margin:0 auto var(--s7);
+  text-align:center;
+}
+
+.ax-faq__q{
+  font-size:var(--t-md);
+  font-weight:650;
+  color:var(--ink);
+  line-height:1.4;
+  margin:var(--s6) auto var(--s2);
+  padding-top:var(--s6);
+  border-top:1px solid var(--line);
+}
+.ax-faq__q:first-of-type{margin-top:0;padding-top:0;border-top:0}
+
+.ax-faq__a{
+  font-size:var(--t-base);
+  line-height:1.7;
+  color:var(--body);
+  margin:0 auto;
+}
+
+.ax-faq__cta{
+  margin:var(--s8) auto 0;
+  padding:var(--s5);
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  text-align:center;
+  font-size:var(--t-sm);
+  color:var(--body);
+}
+.ax-faq__cta a{color:var(--accent-600);font-weight:600}
+
+@media (max-width:640px){
+  .ax-faq{padding-block:var(--s8)}
+  .ax-faq > h2{margin-bottom:var(--s6)}
+}

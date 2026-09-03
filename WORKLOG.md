@@ -87,3 +87,5 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 11:48 — Let the form-page hero images run the full width of the page (`3f0d7c451`) — Alex
 - 14:15 — Fix the quick-answer contrast regression, one tone per section, 113 aside photos (`4dcd0fb13`) — Alex
 - 14:27 — Bump the axiant-v2.css cache-bust so the contrast fix actually reaches people (`a712494f7`) — Alex
+- 15:35 — Give each aside slot its own photo where a page repeated one (`e591aed6c`) — Alex
+- 15:48 — Cache-bust the 36 replaced aside photos so the de-duplication is visible (`b8919375f`) — Alex
