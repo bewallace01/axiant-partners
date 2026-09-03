@@ -89,3 +89,4 @@ A running, timestamped log of what shipped — appended automatically on every c
 - 14:27 — Bump the axiant-v2.css cache-bust so the contrast fix actually reaches people (`a712494f7`) — Alex
 - 15:35 — Give each aside slot its own photo where a page repeated one (`e591aed6c`) — Alex
 - 15:48 — Cache-bust the 36 replaced aside photos so the de-duplication is visible (`b8919375f`) — Alex
+- 16:30 — Style the ax-faq block, which had no rules on 107 pages (`724d8a118`) — Alex
