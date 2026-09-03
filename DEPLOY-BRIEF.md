@@ -1,96 +1,82 @@
-# Deploy brief #2 — contrast fix, section tones, 113 photos
+# Deploy brief — de-duplicate the aside photos
 
 Repo: `axiant-partners` (origin `bewallace01/axiant-partners`, branch `main`).
-The previous push (`1ca5fcdf3`, the v2 conversion + responsive images) is already
-live. This is the next batch, sitting uncommitted in the working tree.
 
-**741 files changed, plus 4 untracked paths.**
+**The previous batch is already live.** Commits `4dcd0fb13` (contrast fix, section
+tones, 113 photos) and `a712494f7` (cache-bust bump) are pushed, and HEAD equals
+origin/main. Nothing in this brief re-does that work.
 
----
-
-## The one thing that will break the site if you get it wrong
-
-`assets/aside/` is **untracked, and git reports it as a single line** —
-`?? assets/aside/` — not as 113 separate files. It holds all 113 photos, and
-**113 `<img>` tags across 69 pages point at them.**
-
-`git add -A` picks it up. **`git add -u` does not**, and would ship 113 broken
-images. Use `-A`.
-
-The same applies to `_photo-manifest/` (64 KB of manifest/prompt files, worth
-keeping) and the two new scripts.
+What remains is one small follow-up.
 
 ---
 
-## What is in this push
+## What this changes
 
-**1. Quick-answer contrast fix — this one is urgent.**
-Right now, live, **705 article pages render their "Quick answer" box as white
-text on pale blue**, which is unreadable. That was a regression introduced by the
-previous push: the legacy-markup port gave `.quick-answer` a pale background
-without realising `.callout` already supplies a navy gradient with light text.
+36 pages were showing **the same photograph twice on the same page** — both aside
+slots resolved to one image, which reads as a mistake rather than a design. The
+worst example was `towing-business-financing.html`, with the identical tow-truck
+shot in both slots.
 
-It could not just be reverted — **558 other pages use bare
-`class="quick-answer"`** and genuinely needed that rule. The fix scopes it to
-`.quick-answer:not(.callout)`. Measured after the change: dark boxes **7.5:1**,
-light boxes **17.4:1**. Both pass WCAG AA.
+Every duplicated slot now has a different, thematically adjacent photo, taken
+from grid quadrants that were generated but never used:
 
-**2. One tone per section.**
-Cards each carried their own `data-tone`, so a single grid cycled
-blue → teal → indigo → bronze → rust and read as a rainbow. Two changes:
+- **6 DSCR pages** → a second property shot (multi-unit house, brick apartment,
+  renovation) instead of repeating the duplex
+- **4 loan-size pages** → different owner scenes (lender at a desk, kitchen
+  table, team, calculator)
+- **9 state pages** → rotated across nine different business scenes, so they
+  don't repeat each other either
+- **6 equipment pages** → dealer lot, tradesperson in a van, underwriter, etc.
+- **11 others** — debt, acquisition, factoring, moving, towing, FAQ, legal pages
 
-- a CSS block (`ONE TONE PER SECTION`) makes cards inherit their section's tone
-  by specificity — `.group[data-tone="x"] .card` (0,2,0) beats the card's own
-  `[data-tone="y"]` (0,1,0). No markup touched; delete the block to revert.
-- `.group` sections now rotate through the five tones down each page
-  (739 pages, 4,432 sections), because 789 pages previously had *every* section
-  set to blue and the card cycling was the only source of colour.
-
-**3. 113 aside photos.**
-The decorative hatched `.aside-mark` panels are replaced with real photography on
-69 pages. `assets/aside/` is 113 WebP files, 5.0 MB, every one 1064×480 (2× the
-532×240 slot). Pages without a photo would keep the hatched fallback — there are
-none left.
-
-Also new: `scripts/slice-grids.py` and `scripts/apply-aside-photos.py`, plus
-`_photo-manifest/` (the CSV, prompts and batch plan that drive them).
+**Only image file contents changed. No HTML, no CSS.** Each slot already had its
+own filename, so the fix was to overwrite the file the second slot points at.
 
 ---
 
-## Verify before you commit
+## The change set
 
-All four already pass locally. Re-run them after staging.
+```
+36 modified files, all under assets/aside/*.webp
+ 1 modified WORKLOG.md   (2 lines — Claude Code's own log)
+```
+
+Everything else `git status` reports is CRLF churn with no content change
+(`git diff --ignore-cr-at-eol` shows nothing for those files).
+
+Because these are **modifications to already-tracked files**, plain `git add -u`
+is sufficient here — unlike the previous push, where `assets/aside/` was
+untracked and needed `-A`. `git add -A` is still fine.
+
+---
+
+## Verify before committing
+
+Both already pass locally.
 
 ```bash
-# 1. design system         -> expect "877/877 pages conformant"
-python3 scripts/check-page.py
-
-# 2. photos are staged     -> expect 113
-git diff --cached --name-only | grep -c 'assets/aside/.*\.webp$'
-
-# 3. no backups crept in   -> expect no output
-git diff --cached --name-only | grep -E '^_backup|^_to_delete'
-
-# 4. every image ref resolves -> expect "0 broken"
+# 1. no page repeats an image  -> expect 0
 python3 - <<'PY'
-import re, glob, os
-miss = chk = 0
+import re, glob, hashlib, os
+bad = slots = 0
 for p in glob.glob('**/*.html', recursive=True):
     if any(x in p for x in ('node_modules','_backup','_to_delete','_preview')): continue
     s = open(p, encoding='utf-8', errors='replace').read()
-    for m in re.finditer(r'(?:src|srcset)="([^"]+)"', s):
-        for part in m.group(1).split(','):
-            u = part.strip().split()[0].split('?')[0].lstrip('/')
-            if not u or u.startswith(('http','data:')): continue
-            if not u.lower().endswith(('.webp','.png','.jpg','.jpeg','.svg')): continue
-            chk += 1
-            if not os.path.exists(u): miss += 1
-print(f'{chk} image refs checked, {miss} broken')
+    srcs = re.findall(r'class="aside-mark has-photo"><img src="([^"]+)"', s)
+    slots += len(srcs)
+    if len(srcs) < 2: continue
+    h = [hashlib.md5(open(x.lstrip('/'),'rb').read()).hexdigest()
+         for x in srcs if os.path.exists(x.lstrip('/'))]
+    if len(set(h)) < len(h): bad += 1
+print(f'{slots} photo slots, {bad} pages repeating an image')
 PY
+
+# 2. design system            -> expect "877/877 pages conformant"
+python3 scripts/check-page.py
 ```
 
-Current local state: **877/877 conformant, 8,275 image refs, 0 broken,
-113/113 photo slots filled, 0 hatched.**
+Current local state: **113 photo slots, 0 pages repeating, 877/877 conformant,
+113 aside refs with 0 broken.**
 
 ---
 
@@ -98,32 +84,23 @@ Current local state: **877/877 conformant, 8,275 image refs, 0 broken,
 
 ```bash
 git add -A
-git status --short | head -20
+git status --short | grep -v '^ M ' | head
 
 git commit -m "$(cat <<'EOF'
-Fix the quick-answer contrast regression, one tone per section, 113 aside photos
+Give each aside slot its own photo where a page repeated one
 
-The legacy-markup port in 1ca5fcdf3 gave .quick-answer a pale accent-100
-background without accounting for .callout, which already supplies a navy
-gradient with light text. The result was white text on pale blue on the 705
-pages using `class="callout quick-answer"`. Deleting the rule was not an option
-because 558 pages use bare `class="quick-answer"` and rely on it, so it is now
-scoped .quick-answer:not(.callout). Measured: 7.5:1 dark, 17.4:1 light.
+Thirty-six pages resolved both of their aside slots to the same image, which
+reads as a mistake rather than a design - towing-business-financing.html showed
+the identical tow-truck shot twice.
 
-Cards and tiles each carried their own data-tone, so one grid cycled through
-five colours and read as a rainbow. Cards now inherit their section's tone by
-specificity, and because 789 pages had every section set to blue, the sections
-themselves now rotate through the five tones down the page. 532 pages show
-three tones and 153 show five, against 789 single-tone before.
+Each duplicated slot now draws a different, thematically adjacent photo from
+grid quadrants that were generated but never used: the DSCR pages get a second
+property shot rather than repeating the duplex, the loan-size pages get
+different owner scenes, and the nine state pages rotate across nine scenes so
+they do not repeat each other either.
 
-The decorative hatched .aside-mark panels read as unfinished placeholders, so
-all 113 slots across 69 pages now carry real photography: 1064x480 WebP at 2x
-the rendered 532x240 box, 5.0MB total, object-fit cover so nothing reflows.
-scripts/slice-grids.py cuts 4K grid renders into the individual files and
-scripts/apply-aside-photos.py swaps them in; both are idempotent and skip slots
-whose file is absent.
-
-877/877 pages conformant. 8,275 image references, none broken.
+Only file contents changed - every slot already had its own filename, so no
+markup was touched. 113 slots, 64 visually distinct images, no page repeating.
 EOF
 )"
 
@@ -134,40 +111,34 @@ git push origin main
 
 ## Verify live
 
-Deployment is push-to-`main` (the only workflow is `indexnow.yml`, which pings
-IndexNow — it does not build the site).
-
-- **https://axiantpartners.com/dscr-loans/articles/dscr-loans-no-seasoning/** —
-  the "Quick answer" box at the top should be a **navy panel with light text**,
-  clearly readable. This is the fix that matters most.
-- **https://axiantpartners.com/equipment/excavators/** — beside the body copy
-  there should be a **photograph of an excavator**, not a hatched grey box.
-- **https://axiantpartners.com/dscr-loans/articles/** — the card grid should be
-  one colour per section, not five colours in one grid.
-- Any article page — confirm images load (DevTools ▸ Network ▸ Img, no 404s
-  under `/assets/aside/`).
+- **https://axiantpartners.com/towing-business-financing.html** — scroll through
+  both aside images. The first is the tow truck; the second should now be an
+  owner working at a laptop, **not** a second tow truck and **not** a lot full
+  of excavators.
+- **https://axiantpartners.com/dscr-loans.html** — the two property images
+  should be different buildings.
+- **https://axiantpartners.com/business-loans-texas.html** — second image should
+  be a business scene, not a repeat of the Texas street.
 
 ---
 
+## One thing worth knowing
+
+Three images still appear on **four or more different pages** — unavoidable with
+62 generated subjects covering 113 slots, and invisible unless someone opens two
+pages side by side. Same-page repetition, the thing that actually looked wrong,
+is gone. If you want those thinned out too, it needs more generated scenes, not
+a code change.
+
 ## Do NOT do these
 
-- **Do not `git add -u`.** It misses `assets/aside/` and ships 113 broken images.
-- **Do not delete the `.quick-answer:not(.callout)` scoping** and "simplify" it
-  back to `.quick-answer`. That is the exact bug being fixed here.
-- **Do not run `scripts/convert-program-page.py`** on the tool or article pages.
-  It rebuilds a body out of content "bands" and a form is not a band — measured,
-  it takes match.html from 2 forms to 0 and 25 fields to 0.
-- **Do not set `.form-step{display:none}`** on match.html. `script.js` only shows
-  the Continue button on mobile, so hiding the steps makes the desktop form
-  unsubmittable. All four steps are meant to show at once on desktop.
-- **Do not change the `$300M+ funded` / `Since 2020` copy** on match.html. Alex
-  has been told twice it conflicts with the company's age and has chosen to keep
-  it.
-
-## Optional, only if Alex asks
-
-- `styles.css` (239 KB), `axiant-v2-chrome.css` and `axiant-v2-legacy-body.css`
-  are referenced by zero real pages and can be deleted — but as a **separate
-  commit**, so rollback stays easy.
-- `assets/` holds ~1.1 GB of PNG `<picture>` fallbacks. No modern browser
-  downloads them; they cost deploy size, not page speed.
+- **Do not regenerate the photos from `_photo-manifest/PROMPTS.txt` expecting the
+  current set.** Batches 13-17 were rewritten by hand after that file was
+  written; the file holds the earlier, weaker prompts.
+- **Do not run `scripts/apply-aside-photos.py` expecting it to fix duplicates.**
+  It only fills empty slots — it skips any slot that already carries an `<img>`.
+  The de-duplication was done by replacing file contents.
+- The standing rules from the last brief still hold: no
+  `scripts/convert-program-page.py` on tool/article pages, no
+  `.form-step{display:none}` on match.html, and leave the `$300M+ funded` copy
+  alone.
