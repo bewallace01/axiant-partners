@@ -47,6 +47,33 @@
     return a;
   }
   var attr=capture();
+  /**
+   * The referral partner token from /page?ref=TOKEN, held for the whole session.
+   *
+   * Nothing about a submission says which partner sent it except this token, and
+   * it lives only in the URL — so a visitor who lands on a partner link, reads a
+   * page or two and comes back to apply would otherwise submit with the token
+   * gone and the attribution silently lost. That failure passes every hand test
+   * (you apply straight away) and fails for real partners, so it is stored.
+   *
+   * Two sources, because either alone has a hole: the current URL catches a land
+   * directly on /match.html?ref=..., and `attr.landing_page` — first-touch and
+   * never overwritten, see capture() above — catches a land on /?ref=... followed
+   * by navigation to the form.
+   */
+  var REF_KEY='axp_ref';
+  (function(){
+    var p=readParams();
+    var token=(p&&p.get('ref')||'').trim();
+    if(!token&&attr&&attr.landing_page){
+      try{ token=(new URL(attr.landing_page,location.origin).searchParams.get('ref')||'').trim(); }catch(e){}
+    }
+    if(token){ try{ sessionStorage.setItem(REF_KEY,token); }catch(e){} }
+  })();
+  /** The stored token, or null. The CRM treats an unknown token as no referral. */
+  window.__axRef=function(){
+    try{ return sessionStorage.getItem(REF_KEY)||null; }catch(e){ return null; }
+  };
   /** Flat params for EmailJS / Netlify. `lead_source` is the one-line summary. */
   window.__axAttr=function(){
     var a=attr||{}, bits=[];
@@ -135,6 +162,21 @@ function handleApplicationSubmit(e,isLeadForm){e.preventDefault();const agreeToT
 if(!agreeToTerms.checked){alert('Please agree to the Privacy Policy and Terms and Conditions to continue.');agreeToTerms.focus();return;}
 if(typeof emailjs==='undefined'){alert('Email service is not available. Please refresh the page and try again.');console.error('EmailJS is not loaded');return;}
 const customerData={fullName:document.getElementById('fullName').value,email:document.getElementById('email').value,phone:document.getElementById('phone').value,loanAmount:document.getElementById('loanAmount').value,businessName:document.getElementById('businessName').value,loanType:document.getElementById('loanType').value,creditScore:document.getElementById('creditScore').value,revenue:document.getElementById('revenue').value,yearsInBusiness:document.getElementById('yearsInBusiness').value,equipmentDescription:document.getElementById('equipmentDescription').value};const referenceNumber=generateReferenceNumber();var refEl=document.getElementById('referenceNumber');var leadRefEl=document.getElementById('leadFormReference');if(refEl)refEl.textContent=referenceNumber;if(leadRefEl)leadRefEl.textContent=referenceNumber;const submitButton=e.target.querySelector('button[type="submit"]');const originalButtonText=submitButton.textContent;submitButton.textContent='Submitting...';submitButton.disabled=true;console.log('Sending application email with data:',customerData);const isCobrandedPage=window.location.pathname.includes('rightmfgsystems.html');const urlParams=new URLSearchParams(window.location.search);const vendorEmail=urlParams.get('vendor');if(vendorEmail){console.log('Vendor email detected:',vendorEmail);}else{console.log('No vendor email in URL');}
+/* Direct path into the CRM, via the Netlify function that holds the intake key
+   (netlify/functions/apply.mjs). Fire-and-forget and deliberately BEFORE the
+   EmailJS branches: it must not gate the success UI, and a CRM outage must not
+   cost us the email copy of a lead.
+
+   EmailJS still runs during the cutover, so every application arrives twice. The
+   two collapse into ONE lead only because `referenceNumber` is sent: the CRM keys
+   loan_app dedupe on `referenceNumber ?? AXP-<timestamp>`, and the timestamp
+   fallback would make every submission unique — i.e. double every applicant.
+   Do not drop that field while both paths are live.
+
+   `revenue` is the site's ANNUAL revenue select (match.html: "Annual Business
+   Revenue"), so it maps to annualRevenue, not monthlyRevenue. The CRM discards
+   "Not specified" / "N/A" itself, so values go over raw. */
+try{fetch('/.netlify/functions/apply',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({form_type:'loan_app',name:customerData.fullName,email:customerData.email,phone:customerData.phone,businessName:customerData.businessName,loanAmount:customerData.loanAmount,loanType:customerData.loanType,creditScore:customerData.creditScore,annualRevenue:customerData.revenue,yearsInBusiness:customerData.yearsInBusiness,equipmentDescription:customerData.equipmentDescription,referenceNumber:referenceNumber,ref:(typeof window.__axRef==='function'?window.__axRef():null),page_url:window.location.href})}).then(function(r){console.log('CRM intake:',r.status);}).catch(function(err){console.error('CRM intake failed (EmailJS still sent):',err);});}catch(err){console.error('CRM intake threw:',err);}
 const emailData={full_name:customerData.fullName,email:customerData.email,phone:customerData.phone,loan_amount:customerData.loanAmount||'Not specified',business_name:customerData.businessName||'Not specified',loan_type:customerData.loanType,credit_score:customerData.creditScore,revenue:customerData.revenue||'Not specified',years_in_business:customerData.yearsInBusiness||'Not specified',equipment_description:customerData.equipmentDescription||'N/A',reference_number:referenceNumber,to_email:'alex@axiantpartners.com',...(typeof window.__axAttr==='function'?window.__axAttr():{})};if(vendorEmail){const decodedVendorEmail=decodeURIComponent(vendorEmail);const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;if(!emailRegex.test(decodedVendorEmail)){console.error('Invalid vendor email format:',decodedVendorEmail);alert('Invalid vendor email in URL. Please contact support.');submitButton.textContent=originalButtonText;submitButton.disabled=false;return;}
 console.log('Sending emails to Axiant Partners and vendor:',decodedVendorEmail);console.log('Full URL:',window.location.href);console.log('URL params:',window.location.search);const emailDataWithVendor={...emailData,vendor_email:decodedVendorEmail,vendor_note:`\n\n---\nThis application was submitted through a vendor partnership.\nVendor Email: ${decodedVendorEmail}\nPlease forward this application to the vendor.`};const email1=emailjs.send('service_jweh7na','template_dmwg1ey',{...emailDataWithVendor,to_email:'alex@axiantpartners.com'}).then(function(response){console.log('Email 1 (Axiant) sent successfully:',response);console.log('Response status:',response.status);console.log('Response text:',response.text);return response;}).catch(function(error){console.error('Email 1 (Axiant) failed:',error);console.error('Error status:',error.status);console.error('Error text:',error.text);throw{email:'Axiant',error:error};});const email2=emailjs.send('service_jweh7na','template_dmwg1ey',{...emailData,to_email:decodedVendorEmail}).then(function(response){console.log('Email 2 (Vendor) sent successfully:',response);console.log('Response status:',response.status);console.log('Response text:',response.text);return response;}).catch(function(error){console.error('Email 2 (Vendor) failed:',error);console.error('Vendor email used:',decodedVendorEmail);console.error('Error status:',error.status);console.error('Error text:',error.text);console.error('Note: If this fails, the vendor email may need to be whitelisted in EmailJS service settings.');throw{email:'Vendor',error:error};});Promise.allSettled([email1,email2]).then(function(results){console.log('Email sending results:',results);const axiantResult=results[0];const vendorResult=results[1];if(axiantResult.status==='fulfilled'){console.log('Axiant email sent successfully');}else{console.error('Axiant email failed:',axiantResult.reason);}
 if(vendorResult.status==='fulfilled'){console.log('Vendor email sent successfully');}else{console.error('Vendor email failed:',vendorResult.reason);console.error('This might be due to EmailJS template configuration. Make sure the template uses {{to_email}} variable.');}

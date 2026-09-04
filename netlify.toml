@@ -1,0 +1,6 @@
+# Only the functions directory is declared here. `publish` and `build` are
+# deliberately absent so the existing Netlify UI settings for the static deploy
+# keep applying — a key present in this file overrides the UI, and this site has
+# been deploying from those settings for a long time.
+[functions]
+  directory = "netlify/functions"
