@@ -2288,7 +2288,7 @@ header.efs-crumbhead{background:var(--surface);padding:0;margin:0;
 .match-thank-you-backdrop{position:absolute;inset:0;background:rgba(8,20,38,.55)}
 .match-thank-you-box{position:relative;background:var(--surface);border:1px solid var(--line);
   border-radius:var(--r-lg);padding:var(--s7) var(--s7);box-shadow:var(--sh-3);
-  max-width:720px;width:100%;margin:var(--s4)}
+  max-width:720px;width:100%;margin:auto}
 .match-thank-you-box .success-message{max-width:none;padding:0;box-shadow:none}
 .match-thank-you-box .match-thank-you-steps-title{color:var(--ink);text-align:center}
 .match-thank-you-box .match-thank-you-closing{font-size:var(--t-sm);color:var(--muted)}
@@ -2949,3 +2949,47 @@ header.efs-crumbhead{background:var(--surface);padding:0;margin:0;
   .ax-faq{padding-block:var(--s8)}
   .ax-faq > h2{margin-bottom:var(--s6)}
 }
+
+/* Time-cost line under the match form heading. An unbounded time cost reads as
+   larger than a stated one, so the form says up front what it will take. */
+.form-timecost{
+  margin:calc(var(--s2) * -1) 0 var(--s5);
+  font-size:var(--t-sm);
+  color:var(--muted);
+  text-align:center;
+}
+
+
+/* ==========================================================================
+   THANK-YOU MODAL - three gaps left by the legacy-markup port
+   --------------------------------------------------------------------------
+   .match-thank-you-modal had no rules at all, so the backdrop covered the
+   viewport while the box sat at its natural position against the left edge.
+   script.js sets display:flex inline on it (ty.style.display = ... 'flex'),
+   so only the centring properties are needed here.
+
+   .success-icon is an EMPTY div in the markup - the port gave it a blue disc
+   but nothing to draw inside it, so it rendered as a plain circle. The tick is
+   drawn with a rotated border.
+
+   .info-row had no rules either, while the markup carries inline
+   `flex: 0 0 50px` on its label - so it needs to be a flex row for the
+   numbered steps to sit beside their text instead of stacking.
+   ========================================================================== */
+.match-thank-you-modal{
+  position:fixed;inset:0;z-index:1000;
+  align-items:center;justify-content:center;
+  padding:var(--s4);overflow-y:auto;
+}
+.success-icon::after{
+  content:"";width:26px;height:46px;
+  border:solid #fff;border-width:0 5px 5px 0;
+  border-radius:2px;
+  transform:rotate(45deg) translate(-2px,-5px);
+}
+.info-row{
+  display:flex;align-items:flex-start;gap:var(--s3);
+  margin:0 0 var(--s4);text-align:left;
+}
+.info-row .label{color:var(--accent);font-weight:700;line-height:1.25}
+.info-row .value{color:var(--body);line-height:1.6}
