@@ -34,8 +34,21 @@ KNOWN_EXCLUDED = {
     "/dscr-calculator-embed.html",
 }
 
-ROBOTS_RE = re.compile(r'<meta\s+name=["\']robots["\']\s+content=["\']([^"\']*)["\']', re.I)
-CANON_RE = re.compile(r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']*)["\']', re.I)
+# Attribute order is not consistent across the site: the v2 template emits
+# content-first (<meta content="noindex, follow" name="robots">) while older pages
+# emit name-first. Matching only one order made 34 noindex pages look like they were
+# missing from the sitemap, which is what this screen exists to rule out.
+ROBOTS_RE = re.compile(
+    r'<meta\s+(?:name=["\']robots["\']\s+content=["\']([^"\']*)["\']'
+    r'|content=["\']([^"\']*)["\']\s+name=["\']robots["\'])',
+    re.I,
+)
+# Same for canonical: v2 emits <link href="..." rel="canonical">.
+CANON_RE = re.compile(
+    r'<link\s+(?:rel=["\']canonical["\']\s+href=["\']([^"\']*)["\']'
+    r'|href=["\']([^"\']*)["\']\s+rel=["\']canonical["\'])',
+    re.I,
+)
 
 
 def url_for(path):
@@ -67,13 +80,14 @@ def main():
         u = url_for(f)
         if u in KNOWN_EXCLUDED:
             continue
-        robots = (ROBOTS_RE.search(s).group(1) if ROBOTS_RE.search(s) else "")
+        rm = ROBOTS_RE.search(s)
+        robots = ((rm.group(1) or rm.group(2) or "") if rm else "")
         if "noindex" in robots.lower():
             noindexed.append(u)
             continue
         cm = CANON_RE.search(s)
         if cm:
-            canon = cm.group(1).replace(SITE, "")
+            canon = (cm.group(1) or cm.group(2) or "").replace(SITE, "")
             if (canon.rstrip("/") or "/") != (u.rstrip("/") or "/"):
                 canon_elsewhere.append((u, canon))
                 continue

@@ -25,7 +25,28 @@ CLUSTERS = {
 CLUSTER_SERVICE_PAGES = {f"/{c}.html" for c in CLUSTERS}
 
 # Match the body-content container the BLOG_POST_TEMPLATE specifies.
-MAIN_RX = re.compile(r'<main\b[^>]*class="[^"]*\bblog-post-main\b[^"]*"[^>]*>(.*?)</main>', re.DOTALL | re.IGNORECASE)
+# Two templates coexist. The pre-v2 pages wrap body copy in
+# <main class="blog-post-main">...</main>; the v2 rebuild uses
+# <div class="article-body"> which is closed by a matching </div> that a lazy
+# regex cannot find, so for v2 we read up to the article rail that always follows it.
+# Matching only the old container dropped this audit from ~500 articles to 12.
+MAIN_RX = re.compile(
+    r'<main\b[^>]*class="[^"]*\bblog-post-main\b[^"]*"[^>]*>(.*?)</main>',
+    re.DOTALL | re.IGNORECASE,
+)
+V2_BODY_RX = re.compile(
+    r'<div\b[^>]*class="[^"]*\barticle-body\b[^"]*"[^>]*>(.*?)<aside\b[^>]*class="[^"]*\barticle-rail\b',
+    re.DOTALL | re.IGNORECASE,
+)
+
+
+def body_of(text):
+    """Body copy for either template, or None if neither container is present."""
+    m = MAIN_RX.search(text)
+    if m:
+        return m.group(1)
+    m = V2_BODY_RX.search(text)
+    return m.group(1) if m else None
 HREF_RX = re.compile(r'<a\b[^>]*\bhref="([^"]+)"', re.IGNORECASE)
 NAV_RX = re.compile(r'<nav\b[^>]*>.*?</nav>', re.DOTALL | re.IGNORECASE)
 HEADER_RX = re.compile(r'<header\b[^>]*>.*?</header>', re.DOTALL | re.IGNORECASE)
@@ -78,10 +99,9 @@ def link_target_cluster(href: str):
 def audit_article(html_path: Path):
     rel = html_path.relative_to(BASE).as_posix()
     text = html_path.read_text(encoding="utf-8", errors="ignore")
-    main_m = MAIN_RX.search(text)
-    if not main_m:
-        return None  # not an article using this template
-    body = main_m.group(1)
+    body = body_of(text)
+    if body is None:
+        return None  # not an article using either template
     # Strip nested nav/header/footer that may sit inside <main> (e.g. breadcrumbs)
     body = NAV_RX.sub("", body)
     body = HEADER_RX.sub("", body)
