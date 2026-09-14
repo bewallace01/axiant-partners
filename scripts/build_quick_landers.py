@@ -1,0 +1,512 @@
+"""Build the short "quick match" ad landers under get-matched/.
+
+Three NEW pages only - match.html, script.js and axiant-v2.css are not touched.
+The pages reuse script.js unchanged, so every submission takes the exact same
+path as match.html: OpenAI + Meta pixels, CRM POST via /.netlify/functions/apply
+(server-side conversions), EmailJS copy, and partial-lead capture.
+
+script.js reads these ids with getElementById(...).value and throws if any is
+missing, so every page carries all ten, as hidden inputs where not asked:
+  fullName email phone loanAmount businessName loanType creditScore revenue
+  yearsInBusiness equipmentDescription
+plus agreeToTerms, applicationForm, thankYouContainer, referenceNumber,
+newApplication, matchThankYouBackdrop.
+
+The pages deliberately do NOT use .form-step: script.js's initFormSteps() returns
+early without it, and the page runs its own two-step flow instead.
+
+Usage: python build_quick_landers.py <site_root>
+"""
+import sys
+from pathlib import Path
+from html import escape
+
+ROOT = Path(sys.argv[1])
+
+YIB = [  # label shown, value script.js/CRM already use (match.html select values)
+    ("Under 1", "less than 1 year"),
+    ("1-2", "1 to 2"),
+    ("3-4", "3 to 4"),
+    ("5-6", "5 to 6"),
+    ("7-9", "7 to 9"),
+    ("10+", "over 10"),
+]
+
+CREDIT = [  # label shown, value match.html's creditScore select already sends
+    ("800+", "800+"),
+    ("750-799", "799-750"),
+    ("700-749", "749-700"),
+    ("650-699", "699-650"),
+    ("600-649", "649-600"),
+    ("Under 600", "599-below"),
+]
+
+CONSENT = (
+    'I agree to the <a href="/privacy-policy.html" target="_blank">Privacy Policy</a> and '
+    '<a href="/terms-and-conditions.html" target="_blank">Terms and Conditions</a>, and I consent '
+    "to receive calls and SMS text messages from Axiant Partners at the phone number I provided, "
+    "including through automated technology, about my inquiry and financing options. Consent is "
+    "not a condition of any purchase. Message and data rates may apply, and message frequency "
+    "varies. Reply STOP to opt out or HELP for help."
+)
+
+PAGES = [
+    {
+        "slug": "equipment-quick",
+        "title": "Equipment Financing - Quick Match | Axiant Partners",
+        "desc": "Finance new, used or auction equipment. Two quick steps and a specialist calls you the same day.",
+        "loan_type": "equipment",
+        "eyebrow": "Equipment financing",
+        "h1": "Finance your next machine",
+        "sub": "New, used or auction equipment. Two quick steps, and a specialist calls you the same day.",
+        "amount_label": "How much do you need?",
+        "amount_ph": "75,000",
+        "fields": [
+            {"kind": "text", "id": "qEquipment", "label": "What equipment?",
+             "ph": "e.g., skid steer, dump truck, mini excavator", "required": True},
+            {"kind": "yib", "label": "Years in business"},
+            {"kind": "credit", "label": "Estimated FICO score", "hint": "An estimate is fine."},
+        ],
+        # JS expression building #equipmentDescription from the page's own fields
+        "compose": "v('qEquipment')",
+        # Existing site photo (CAT 336 on a job site) - same machine family as the ChatGPT ad creative.
+        "hero_img": ("/assets/excavator-equipment-800w.webp", "/assets/excavator-equipment-1200w.webp"),
+        "hero_pos": "38% 40%",
+        "bullets": [
+            "New, used and auction equipment",
+            "Contractors, owner-operators, farms and fleets",
+            "One application, matched to lenders that fit your deal",
+        ],
+        "ty_lead": "We've received your equipment financing request.",
+    },
+    {
+        "slug": "invoice-factoring",
+        "title": "Invoice Factoring - Quick Match | Axiant Partners",
+        "desc": "Turn unpaid B2B and government invoices into working capital. Two quick steps and a specialist calls you the same day.",
+        "loan_type": "invoice-factoring",
+        "eyebrow": "Invoice factoring",
+        "h1": "Turn unpaid invoices into cash",
+        "sub": "Stop waiting 30 to 90 days on customers. Two quick steps, and a specialist calls you the same day.",
+        "amount_label": "Monthly invoice volume",
+        "amount_ph": "100,000",
+        "fields": [
+            {"kind": "chips", "id": "qCustomers", "label": "Who do you invoice?", "required": True,
+             "options": ["Other businesses", "Government", "Both"]},
+            {"kind": "text", "id": "qIndustry", "label": "Your industry",
+             "ph": "e.g., staffing, manufacturing, janitorial", "required": False},
+            {"kind": "yib", "label": "Years in business"},
+        ],
+        # Existing site photo: a stack of invoices and a calculator on a desk.
+        "hero_img": ("/assets/bloc-receivables-800w.webp", "/assets/bloc-receivables-1200w.webp"),
+        "hero_pos": "35% 85%",
+        "compose": "'Invoice factoring. Monthly invoice volume: $'+v('loanAmount')+'. Invoices: '+v('qCustomers')+(v('qIndustry')?'. Industry: '+v('qIndustry'):'')",
+        "bullets": [
+            "Approval leans on your customers' credit, not just yours",
+            "B2B and government receivables",
+            "Matched to factors that fit your industry and volume",
+        ],
+        "ty_lead": "We've received your invoice factoring request.",
+    },
+    {
+        "slug": "freight-factoring",
+        "title": "Freight Factoring for Carriers - Quick Match | Axiant Partners",
+        "desc": "Freight factoring for owner-operators and small fleets. Get paid on delivered loads without the 30-day wait.",
+        "loan_type": "freight-factoring",
+        "eyebrow": "Freight factoring",
+        "h1": "Get paid for your loads without the 30-day wait",
+        "sub": "For owner-operators and small fleets. Two quick steps, and a specialist calls you the same day.",
+        "amount_label": "Monthly freight billing",
+        "amount_ph": "40,000",
+        "fields": [
+            {"kind": "chips", "id": "qTrucks", "label": "Trucks in your fleet", "required": True,
+             "options": ["1", "2-5", "6-20", "21+"]},
+            {"kind": "yib", "label": "Years operating"},
+            {"kind": "text", "id": "qMc", "label": "MC or DOT number (optional)",
+             "ph": "e.g., MC 123456", "required": False, "inputmode": "text"},
+        ],
+        # Existing site photo: a semi truck on the highway (only a 1600w exists, 53 KB).
+        "hero_img": ("/assets/hero-trucking-business-financing.webp", "/assets/hero-trucking-business-financing.webp"),
+        "hero_pos": "72% 50%",
+        "compose": "'Freight factoring. Monthly freight billing: $'+v('loanAmount')+'. Trucks: '+v('qTrucks')+(v('qMc')?'. MC/DOT: '+v('qMc'):'')",
+        "bullets": [
+            "Owner-operators and small fleets welcome",
+            "Invoices to brokers and shippers",
+            "Matched to factors that fit your lanes and volume",
+        ],
+        "ty_lead": "We've received your freight factoring request.",
+    },
+]
+
+
+def field_html(f):
+    if f["kind"] == "text":
+        req = ' required=""' if f["required"] else ""
+        im = f' inputmode="{f["inputmode"]}"' if f.get("inputmode") else ""
+        return (f'<div class="q-group"><label for="{f["id"]}">{escape(f["label"])}</label>'
+                f'<input id="{f["id"]}" type="text" placeholder="{escape(f["ph"])}" autocomplete="off"{im}{req}/></div>')
+    if f["kind"] == "chips":
+        chips = "".join(
+            f'<button type="button" class="q-chip" data-target="{f["id"]}" data-value="{escape(o)}" aria-pressed="false">{escape(o)}</button>'
+            for o in f["options"])
+        req = ' data-required="1"' if f["required"] else ""
+        return (f'<div class="q-group"><span class="q-label" id="{f["id"]}Label">{escape(f["label"])}</span>'
+                f'<div class="q-chips q-chips-{len(f["options"])}" role="group" aria-labelledby="{f["id"]}Label"{req} data-for="{f["id"]}">{chips}</div>'
+                f'<input type="hidden" id="{f["id"]}"/></div>')
+    if f["kind"] == "yib":
+        chips = "".join(
+            f'<button type="button" class="q-chip" data-target="yearsInBusiness" data-value="{v}" aria-pressed="false">{escape(l)}</button>'
+            for l, v in YIB)
+        return (f'<div class="q-group"><span class="q-label" id="yibLabel">{escape(f["label"])}</span>'
+                f'<div class="q-chips q-chips-6" role="group" aria-labelledby="yibLabel" data-required="1" data-for="yearsInBusiness">{chips}</div></div>')
+    if f["kind"] == "credit":
+        chips = "".join(
+            f'<button type="button" class="q-chip" data-target="creditScore" data-value="{v}" aria-pressed="false">{escape(l)}</button>'
+            for l, v in CREDIT)
+        return (f'<div class="q-group"><span class="q-label" id="ficoLabel">{escape(f["label"])}</span>'
+                f'<div class="q-chips q-chips-6" role="group" aria-labelledby="ficoLabel" data-required="1" data-for="creditScore">{chips}</div>'
+                f'<input type="hidden" id="creditScore" value=""/>'
+                f'<p class="q-hint">{escape(f["hint"])}</p></div>')
+    raise ValueError(f["kind"])
+
+
+HEAD = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#0d1f3c" name="theme-color"/>
+<title>{title}</title>
+<meta content="{desc}" name="description"/>
+<!-- Paid-traffic lander: noindex so it never competes with the SEO pages.
+     generate_sitemap.py skips noindex pages automatically. -->
+<meta content="noindex, follow" name="robots"/>
+<link href="https://axiantpartners.com/get-matched/{slug}/" rel="canonical"/>
+{preload}<link href="/favicon.webp" rel="icon" sizes="48x48" type="image/webp"/><link href="/favicon.png" rel="icon" sizes="48x48" type="image/png"/><link href="/favicon.png" rel="apple-touch-icon"/>
+<!-- Google tag (gtag.js) - copied from match.html -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HZNSHH6NN0"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){{dataLayer.push(arguments);}}
+      gtag('js', new Date());
+      gtag('config', 'G-HZNSHH6NN0');
+      gtag('config', 'AW-18021105450');
+    </script>
+<script>
+    function gtag_report_conversion(url) {{
+      var callback = function () {{
+        if (typeof(url) != 'undefined') {{
+          window.location = url;
+        }}
+      }};
+      gtag('event', 'conversion', {{
+          'send_to': 'AW-18021105450/zhCsCN_qoZAcEKr-kJFD',
+          'event_callback': callback
+      }});
+      return false;
+    }}
+    </script>
+<link rel="stylesheet" href="/axiant-v2.css?v=202609042140">
+<!-- Microsoft UET tag (ti 97267443) - copied from match.html -->
+<script>
+(function(w,d,t,u,o){{w[u]=w[u]||[],o.ts=(new Date).getTime();var n=d.createElement(t);
+n.src="https://bat.bing.net/bat.js?ti="+o.ti+("uetq"!=u?"&q="+u:""),n.async=1,
+n.onload=n.onreadystatechange=function(){{var s=this.readyState;s&&"loaded"!==s&&"complete"!==s||
+(o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad"),n.onload=n.onreadystatechange=null)}};
+var i=d.getElementsByTagName(t)[0];i.parentNode.insertBefore(n,i)}})
+(window,document,"script","uetq",{{ti:"97267443",enableAutoSpaTracking:true}});
+</script>
+<!-- Meta pixel (id 1269109058680441) - copied from match.html.
+     PageView only; the Lead event is fired from script.js on application submit. -->
+<script>
+!function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1269109058680441');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></noscript>
+<!-- OpenAI Ads pixel (F5EEdLVA6WthrKjN3WYkKc) - copied from match.html.
+     The lead_created event is fired from script.js on application submit. -->
+<script>!function(w,d,s,u){{if(w.oaiq)return;var q=function(){{q.q.push(arguments)}};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{{pixelId:"F5EEdLVA6WthrKjN3WYkKc",debug:true}});</script>
+<style>
+/* Page-scoped. Mobile first: one column, 16px inputs (no iOS zoom), 48px+ tap
+   targets. Nothing here is shared with any other page. */
+.q-body{{background:var(--navy-900);min-height:100vh;margin:0}}
+/* Optional photo behind the hero and the top of the card, fading into navy so
+   the white card and the headline stay readable. */
+.q-hero-wrap{{position:relative}}
+.q-hero-wrap.has-img::before{{content:"";position:absolute;left:0;right:0;top:0;height:340px;z-index:0;
+  background:linear-gradient(180deg,rgba(8,20,38,.30) 0,rgba(8,20,38,.55) 55%,var(--navy-900) 100%),var(--q-img-sm) var(--q-pos,center)/cover no-repeat}}
+.q-hero-wrap.has-img > *{{position:relative;z-index:1}}
+.q-hero-wrap.has-img .q-hero{{padding-top:120px}}
+.q-hero-wrap.has-img .q-hero h1,.q-hero-wrap.has-img .q-hero p,.q-hero-wrap.has-img .q-eyebrow{{text-shadow:0 1px 12px rgba(0,0,0,.55)}}
+.q-hero-wrap.has-img .q-hero p{{color:#fff}}
+@media (min-width:700px){{
+  .q-hero-wrap.has-img::before{{height:560px;background:linear-gradient(180deg,rgba(8,20,38,.25) 0,rgba(8,20,38,.55) 60%,var(--navy-900) 100%),var(--q-img-lg) center 40%/cover no-repeat}}
+  .q-hero-wrap.has-img .q-hero{{padding-top:170px}}
+}}
+.q-hint{{font-size:13px;color:var(--muted);margin:6px 0 0}}
+.q-top{{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px max(16px,env(safe-area-inset-left));background:var(--surface);border-bottom:1px solid var(--line)}}
+.q-top img{{height:32px;width:auto;display:block}}
+.q-call{{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border-radius:var(--r-md);
+  border:1px solid var(--line-strong);color:var(--navy-800);font-weight:700;font-size:15px;text-decoration:none;white-space:nowrap}}
+.q-call svg{{flex:none}}
+.q-hero{{padding:16px 16px 4px;color:#cbd8e8;max-width:560px;margin:0 auto}}
+.q-eyebrow{{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7fd4ff;margin-bottom:6px}}
+.q-hero h1{{color:#fff;font-size:25px;line-height:1.15;margin:0 0 6px}}
+.q-hero p{{font-size:15px;line-height:1.45;margin:0}}
+.q-wrap{{padding:12px 12px 32px;max-width:560px;margin:0 auto}}
+.q-card{{background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--sh-3);padding:20px 16px 24px;border-top:4px solid var(--accent)}}
+.q-progress{{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:14px}}
+.q-bar{{flex:1;height:4px;border-radius:2px;background:var(--line);margin-left:12px;overflow:hidden}}
+.q-bar span{{display:block;height:100%;width:50%;background:var(--accent);transition:width .25s ease}}
+.q-step[hidden]{{display:none}}
+.q-group{{margin-bottom:16px}}
+.q-group label,.q-label{{display:block;font-size:15px;font-weight:600;color:var(--ink);margin-bottom:8px}}
+.q-card input[type=text],.q-card input[type=email],.q-card input[type=tel]{{
+  width:100%;box-sizing:border-box;font-family:inherit;font-size:16px;color:var(--ink);
+  min-height:50px;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r-md);background:#fff}}
+.q-card input:focus{{outline:none;border-color:var(--navy-600);box-shadow:0 0 0 3px var(--navy-100)}}
+.q-money{{position:relative}}
+.q-money span{{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:16px;pointer-events:none}}
+.q-card .q-money input{{padding-left:30px}}
+.q-chips{{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}}
+.q-chips-4{{grid-template-columns:repeat(4,1fr)}}
+.q-chip{{min-height:48px;padding:6px 4px;border:1px solid var(--line-strong);border-radius:var(--r-md);background:#fff;
+  font-family:inherit;font-size:15px;font-weight:600;color:var(--navy-800);cursor:pointer;-webkit-tap-highlight-color:transparent}}
+.q-chip[aria-pressed=true]{{background:var(--navy-800);border-color:var(--navy-800);color:#fff}}
+.q-err{{display:none;color:#b42318;font-size:14px;margin:-8px 0 14px}}
+.q-err.on{{display:block}}
+.q-invalid{{border-color:#b42318}}
+.q-btn{{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;border:0;border-radius:var(--r-md);
+  background:var(--accent);color:#fff;font-family:inherit;font-size:18px;font-weight:700;cursor:pointer}}
+.q-btn:active{{background:var(--accent-600)}}
+.q-btn[disabled]{{opacity:.7}}
+.q-back{{display:inline-block;background:none;border:0;padding:8px 0;margin-bottom:6px;font-family:inherit;font-size:15px;color:var(--accent);cursor:pointer}}
+.q-consent{{display:flex;gap:10px;align-items:flex-start;margin:4px 0 16px}}
+.q-consent input{{flex:none;width:22px;height:22px;margin:2px 0 0;accent-color:var(--navy-800)}}
+.q-consent span{{font-size:12px;line-height:1.5;color:var(--body)}}
+.q-consent a{{color:var(--accent)}}
+.q-trust{{text-align:center;font-size:13px;color:var(--muted);margin:12px 0 0}}
+.q-points{{list-style:none;margin:20px 4px 0;padding:0;display:grid;gap:10px}}
+.q-points li{{position:relative;padding-left:26px;color:#dbe6f3;font-size:15px;line-height:1.45}}
+.q-points li::before{{content:"";position:absolute;left:0;top:3px;width:16px;height:16px;border-radius:50%;
+  background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.2l2.6 2.6L12 5.4' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}}
+.q-foot{{padding:24px 16px calc(24px + env(safe-area-inset-bottom));text-align:center;color:var(--footer-muted);font-size:12px;line-height:1.6}}
+.q-foot a{{color:var(--footer-text)}}
+/* script.js adds its own sticky submit bar below 768px; this page has its own
+   button, and that bar has no v2 styles. */
+#matchStickySubmit{{display:none}}
+@media (min-width:700px){{
+  .q-hero{{padding-top:48px}}
+  .q-hero h1{{font-size:36px}}
+  .q-hero p{{font-size:17px}}
+  .q-card{{padding:28px 28px 32px}}
+}}
+</style>
+</head>
+"""
+
+BODY = """<body class="v2-body q-body">
+<header class="q-top">
+  <img src="/logo-horizontal-transparent.webp" alt="Axiant Partners" width="146" height="32">
+  <a class="q-call" href="tel:+15612680465" aria-label="Call Axiant Partners at (561) 268-0465">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+    Call us
+  </a>
+</header>
+
+<div{hero_style}>
+<section class="q-hero">
+  <span class="q-eyebrow">{eyebrow}</span>
+  <h1>{h1}</h1>
+  <p>{sub}</p>
+</section>
+
+<main class="q-wrap">
+<div class="form-container" id="applicationForm">
+<div class="q-card">
+<form id="loanForm" novalidate>
+  <div class="q-progress" aria-live="polite"><span id="qStepText">Step 1 of 2</span><div class="q-bar"><span id="qBar"></span></div></div>
+
+  <!-- Fields script.js reads that this page does not ask for. -->
+  <input type="hidden" id="loanType" value="{loan_type}"/>
+{credit_hidden}  <input type="hidden" id="revenue" value=""/>
+  <input type="hidden" id="yearsInBusiness" value=""/>
+  <input type="hidden" id="equipmentDescription" value=""/>
+
+  <div class="q-step" id="qStep1">
+    <div class="q-group">
+      <label for="loanAmount">{amount_label}</label>
+      <div class="q-money"><span>$</span><input id="loanAmount" type="text" inputmode="numeric" placeholder="{amount_ph}" autocomplete="off" required=""/></div>
+    </div>
+    {fields}
+    <p class="q-err" id="qErr1">Please answer the questions above to continue.</p>
+    <button type="button" class="q-btn" id="qNext">Continue</button>
+  </div>
+
+  <div class="q-step" id="qStep2" hidden>
+    <button type="button" class="q-back" id="qBack">&larr; Back</button>
+    <div class="q-group"><label for="fullName">Your name</label>
+      <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="John Doe" required=""/></div>
+    <div class="q-group"><label for="businessName">Business name</label>
+      <input id="businessName" name="businessName" type="text" autocomplete="organization" placeholder="e.g., Acme Construction LLC" required=""/></div>
+    <div class="q-group"><label for="phone">Mobile phone</label>
+      <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 123-4567" required=""/></div>
+    <div class="q-group"><label for="email">Email</label>
+      <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="john@example.com" required=""/></div>
+    <label class="q-consent"><input id="agreeToTerms" type="checkbox" required=""/><span>{consent}</span></label>
+    <p class="q-err" id="qErr2">Please fill in every field and check the box.</p>
+    <button type="submit" class="q-btn" id="qSubmit">See my options</button>
+    <p class="q-trust">$300M+ funded since 2020 &middot; Same-day response &middot; Free</p>
+  </div>
+</form>
+</div>
+<ul class="q-points">
+{bullets}
+</ul>
+</div>
+</main>
+</div>
+
+<div aria-hidden="true" class="match-thank-you-modal match-thank-you" id="thankYouContainer" style="display: none;">
+<div class="match-thank-you-backdrop" id="matchThankYouBackdrop"></div>
+<div class="match-thank-you-box">
+<div class="success-message">
+<div class="success-icon"></div>
+<h2>Thank you!</h2>
+<p>{ty_lead} A specialist will call you the same day to talk through your options.</p>
+<p style="margin-top: 20px;"><strong>Reference:</strong> <span id="referenceNumber"></span></p>
+<p class="match-thank-you-closing">Need us sooner? Call <a href="tel:+15612680465">(561)&nbsp;268-0465</a>.</p>
+<button class="btn-primary" id="newApplication">Close</button>
+</div>
+</div>
+</div>
+
+<footer class="q-foot">
+  <div>&copy; 2026 Axiant Partners LLC &middot; <a href="/privacy-policy.html">Privacy</a> &middot; <a href="/terms-and-conditions.html">Terms</a></div>
+  <div>Axiant Partners is a financing brokerage, not a lender. All financing subject to lender approval.</div>
+</footer>
+
+<!-- Page flow. Runs before script.js (deferred), and only touches this page's
+     own elements plus the hidden inputs above. Submission itself is 100% script.js. -->
+<script>
+(function(){{
+  function $(id){{return document.getElementById(id);}}
+  function v(id){{var e=$(id);return e&&e.value?String(e.value).trim():'';}}
+  var form=$('loanForm'), s1=$('qStep1'), s2=$('qStep2');
+
+  /* Keep #equipmentDescription in sync on every change, so it is already
+     correct whenever script.js reads it - no dependency on listener order. */
+  function compose(){{try{{$('equipmentDescription').value={compose};}}catch(e){{}}}}
+
+  /* Money field: digits only, shown with commas. */
+  var amt=$('loanAmount');
+  amt.addEventListener('input',function(){{
+    var d=amt.value.replace(/[^0-9]/g,'').replace(/^0+/,'').slice(0,9);
+    amt.value=d?Number(d).toLocaleString('en-US'):'';
+    amt.classList.remove('q-invalid');compose();
+  }});
+
+  /* Chips write their value into the hidden input they target. */
+  document.querySelectorAll('.q-chip').forEach(function(c){{
+    c.addEventListener('click',function(){{
+      var t=c.getAttribute('data-target');
+      document.querySelectorAll('.q-chip[data-target="'+t+'"]').forEach(function(o){{o.setAttribute('aria-pressed','false');}});
+      c.setAttribute('aria-pressed','true');
+      $(t).value=c.getAttribute('data-value');
+      $('qErr1').classList.remove('on');compose();
+    }});
+  }});
+  document.querySelectorAll('#qStep1 input[type=text]').forEach(function(i){{
+    i.addEventListener('input',function(){{i.classList.remove('q-invalid');compose();}});
+  }});
+
+  function stepValid(step){{
+    var ok=true;
+    step.querySelectorAll('input[required]').forEach(function(i){{
+      var bad=i.type==='checkbox'?!i.checked:!i.value.trim();
+      if(!bad&&i.type==='email')bad=!/.+@.+\\..+/.test(i.value.trim());
+      if(!bad&&i.type==='tel')bad=i.value.replace(/[^0-9]/g,'').length<10;
+      if(bad){{ok=false;if(i.type!=='checkbox')i.classList.add('q-invalid');}}
+    }});
+    step.querySelectorAll('[data-required]').forEach(function(g){{
+      if(!$(g.getAttribute('data-for')).value)ok=false;
+    }});
+    return ok;
+  }}
+  function show(n){{
+    s1.hidden=n!==1; s2.hidden=n!==2;
+    $('qStepText').textContent='Step '+n+' of 2';
+    $('qBar').style.width=n===1?'50%':'100%';
+    /* Step 2 always scrolls the card to the top so name, phone, email and the
+       submit button share one phone screen; step 1 only scrolls back up. */
+    var top=$('applicationForm').getBoundingClientRect().top+window.pageYOffset-8;
+    if(n===2||window.pageYOffset>top)window.scrollTo({{top:top,behavior:'smooth'}});
+  }}
+  $('qNext').addEventListener('click',function(){{
+    compose();
+    if(!stepValid(s1)){{$('qErr1').classList.add('on');return;}}
+    $('qErr1').classList.remove('on');
+    show(2);
+    try{{$('fullName').focus({{preventScroll:true}});}}catch(e){{}}
+  }});
+  $('qBack').addEventListener('click',function(){{show(1);}});
+  /* script.js's Close button resets the form; reset this page's own state too. */
+  $('newApplication').addEventListener('click',function(){{
+    document.querySelectorAll('.q-chip').forEach(function(o){{o.setAttribute('aria-pressed','false');}});
+    ['yearsInBusiness','equipmentDescription'].concat(Array.prototype.map.call(document.querySelectorAll('.q-chips'),function(g){{return g.getAttribute('data-for');}})).forEach(function(id){{if($(id))$(id).value='';}});
+    show(1);
+  }});
+  /* Enter on step 1 advances instead of submitting a half-empty form. */
+  s1.addEventListener('keydown',function(e){{if(e.key==='Enter'){{e.preventDefault();$('qNext').click();}}}});
+  s2.querySelectorAll('input').forEach(function(i){{i.addEventListener('input',function(){{i.classList.remove('q-invalid');$('qErr2').classList.remove('on');}});}});
+
+  /* Registered at parse time, so it runs BEFORE script.js's submit handler
+     (added on DOMContentLoaded). Blocking here stops an incomplete submit
+     before any pixel, CRM post or email fires. */
+  form.addEventListener('submit',function(e){{
+    compose();
+    if(!stepValid(s1)){{e.preventDefault();e.stopImmediatePropagation();show(1);$('qErr1').classList.add('on');return;}}
+    if(!stepValid(s2)){{e.preventDefault();e.stopImmediatePropagation();$('qErr2').classList.add('on');return;}}
+  }});
+}})();
+</script>
+
+<!-- EmailJS SDK + the site's shared form handler, exactly as match.html loads them -->
+<script defer="" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" type="text/javascript"></script>
+<script defer="" src="/script.js?v=202609091746"></script>
+</body>
+</html>
+"""
+
+for p in PAGES:
+    fields = "\n    ".join(field_html(f) for f in p["fields"])
+    bullets = "\n".join(f"  <li>{escape(b)}</li>" for b in p["bullets"])
+    img = p.get("hero_img")
+    asks_credit = any(f["kind"] == "credit" for f in p["fields"])
+    if not img:
+        preload = ""
+    elif img[0] == img[1]:
+        preload = f'<link rel="preload" as="image" href="{img[0]}"/>\n'
+    else:
+        preload = (f'<link rel="preload" as="image" href="{img[0]}" media="(max-width:699px)"/>'
+                   f'<link rel="preload" as="image" href="{img[1]}" media="(min-width:700px)"/>\n')
+    hero_style = (f' class="q-hero-wrap has-img" style="--q-img-sm:url({img[0]});--q-img-lg:url({img[1]});--q-pos:{p.get("hero_pos", "center")}"'
+                  if img else ' class="q-hero-wrap"')
+    html = HEAD.format(title=escape(p["title"]), desc=escape(p["desc"]), slug=p["slug"], preload=preload) + BODY.format(
+        hero_style=hero_style,
+        credit_hidden="" if asks_credit else '  <input type="hidden" id="creditScore" value=""/>\n',
+        eyebrow=escape(p["eyebrow"]), h1=escape(p["h1"]), sub=escape(p["sub"]),
+        loan_type=p["loan_type"], amount_label=escape(p["amount_label"]), amount_ph=p["amount_ph"],
+        fields=fields, consent=CONSENT, compose=p["compose"], bullets=bullets, ty_lead=escape(p["ty_lead"]),
+    )
+    out = ROOT / "get-matched" / p["slug"] / "index.html"
+    if out.exists() and "q-body" not in out.read_text(encoding="utf-8"):
+        raise SystemExit(f"refusing to overwrite a page this script did not build: {out}")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(html, encoding="utf-8", newline="\n")
+    print("wrote", out, len(html))
