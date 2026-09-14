@@ -1,6 +1,9 @@
 """Build the short "quick match" ad landers under get-matched/.
 
-Three NEW pages only - match.html, script.js and axiant-v2.css are not touched.
+The invoice- and freight-factoring landers were removed 2026-09-14 when the ChatGPT
+ads they served were paused; only the equipment lander remains.
+
+NEW pages only - match.html, script.js and axiant-v2.css are not touched.
 The pages reuse script.js unchanged, so every submission takes the exact same
 path as match.html: OpenAI + Meta pixels, CRM POST via /.netlify/functions/apply
 (server-side conversions), EmailJS copy, and partial-lead capture.
@@ -78,62 +81,6 @@ PAGES = [
             "One application, matched to lenders that fit your deal",
         ],
         "ty_lead": "We've received your equipment financing request.",
-    },
-    {
-        "slug": "invoice-factoring",
-        "title": "Invoice Factoring - Quick Match | Axiant Partners",
-        "desc": "Turn unpaid B2B and government invoices into working capital. Two quick steps and a specialist calls you the same day.",
-        "loan_type": "invoice-factoring",
-        "eyebrow": "Invoice factoring",
-        "h1": "Turn unpaid invoices into cash",
-        "sub": "Stop waiting 30 to 90 days on customers. Two quick steps, and a specialist calls you the same day.",
-        "amount_label": "Monthly invoice volume",
-        "amount_ph": "100,000",
-        "fields": [
-            {"kind": "chips", "id": "qCustomers", "label": "Who do you invoice?", "required": True,
-             "options": ["Other businesses", "Government", "Both"]},
-            {"kind": "text", "id": "qIndustry", "label": "Your industry",
-             "ph": "e.g., staffing, manufacturing, janitorial", "required": False},
-            {"kind": "yib", "label": "Years in business"},
-        ],
-        # Existing site photo: a stack of invoices and a calculator on a desk.
-        "hero_img": ("/assets/bloc-receivables-800w.webp", "/assets/bloc-receivables-1200w.webp"),
-        "hero_pos": "35% 85%",
-        "compose": "'Invoice factoring. Monthly invoice volume: $'+v('loanAmount')+'. Invoices: '+v('qCustomers')+(v('qIndustry')?'. Industry: '+v('qIndustry'):'')",
-        "bullets": [
-            "Approval leans on your customers' credit, not just yours",
-            "B2B and government receivables",
-            "Matched to factors that fit your industry and volume",
-        ],
-        "ty_lead": "We've received your invoice factoring request.",
-    },
-    {
-        "slug": "freight-factoring",
-        "title": "Freight Factoring for Carriers - Quick Match | Axiant Partners",
-        "desc": "Freight factoring for owner-operators and small fleets. Get paid on delivered loads without the 30-day wait.",
-        "loan_type": "freight-factoring",
-        "eyebrow": "Freight factoring",
-        "h1": "Get paid for your loads without the 30-day wait",
-        "sub": "For owner-operators and small fleets. Two quick steps, and a specialist calls you the same day.",
-        "amount_label": "Monthly freight billing",
-        "amount_ph": "40,000",
-        "fields": [
-            {"kind": "chips", "id": "qTrucks", "label": "Trucks in your fleet", "required": True,
-             "options": ["1", "2-5", "6-20", "21+"]},
-            {"kind": "yib", "label": "Years operating"},
-            {"kind": "text", "id": "qMc", "label": "MC or DOT number (optional)",
-             "ph": "e.g., MC 123456", "required": False, "inputmode": "text"},
-        ],
-        # Existing site photo: a semi truck on the highway (only a 1600w exists, 53 KB).
-        "hero_img": ("/assets/hero-trucking-business-financing.webp", "/assets/hero-trucking-business-financing.webp"),
-        "hero_pos": "72% 50%",
-        "compose": "'Freight factoring. Monthly freight billing: $'+v('loanAmount')+'. Trucks: '+v('qTrucks')+(v('qMc')?'. MC/DOT: '+v('qMc'):'')",
-        "bullets": [
-            "Owner-operators and small fleets welcome",
-            "Invoices to brokers and shippers",
-            "Matched to factors that fit your lanes and volume",
-        ],
-        "ty_lead": "We've received your freight factoring request.",
     },
 ]
 
