@@ -5,11 +5,21 @@
 # Netlify. These rules are the actual block. _redirects is first-match-wins,
 # so this stays at the top of the file.
 #
-# _backup-pre-v2-swap holds 786 pre-conversion copies of live pages, each with
-# a canonical and "index, follow" pointing at the real URL. Published, they
-# would be crawlable stale duplicates of the entire site.
+# The _backup-* directories hold pre-conversion copies of live pages, each
+# carrying a canonical and "index, follow" pointing at the real URL: 786 in
+# _backup-pre-v2-swap, 126 in _backup-images, 23 in _backup-fullv2, 22 in
+# _backup-v2body. All four are gitignored, so a git-based deploy should never
+# carry them and the rules below are a backstop, not the actual block - they
+# only bite if a copy is ever force-added. Left in deliberately: published,
+# these would be crawlable stale duplicates of most of the site.
+#
+# Not mirrored into robots.txt on purpose - a Disallow would stop Google
+# recrawling and seeing the 404, which is what drops an indexed URL.
 # ---------------------------------------------------------------------------
 /_backup-pre-v2-swap/*  /404.html  404!
+/_backup-images/*       /404.html  404!
+/_backup-fullv2/*       /404.html  404!
+/_backup-v2body/*       /404.html  404!
 /_preview/*             /404.html  404!
 /_incoming/*            /404.html  404!
 /_analysis/*            /404.html  404!
