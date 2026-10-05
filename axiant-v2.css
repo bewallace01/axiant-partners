@@ -2011,6 +2011,19 @@ header.header::before,header.header::after{content:none}
 .contact-info-sticker p{margin-bottom:var(--s3);}
 .contact-info-sticker :last-child{margin-bottom:0;}
 
+/* THE CONTACT BLOCK IS NOT AN ARTICLE.
+   It sits inside `.prose.prose-doc`, whose `max-width:46rem` is the reading
+   measure — correct for body text, wrong for a form beside an info card. It
+   pinned the whole two-column grid into the leftmost 736px and left the rest
+   of a wide screen empty. `.prose-wide` releases the measure for this block
+   only; `.contact-container` then takes a width of its own, because a text
+   input stretched across 1900px is worse than one at 700px, not better. */
+.prose-wide{max-width:none}
+.contact-container{max-width:1120px;margin-inline:auto}
+@media (min-width:1100px){
+  .contact-main{grid-template-columns:minmax(0,1fr) 360px;gap:var(--s8)}
+}
+
 @media (max-width:900px){
   .contact-main{grid-template-columns:minmax(0,1fr);}
   .contact-info-sticker{position:static;}
@@ -2501,7 +2514,32 @@ header.efs-crumbhead{background:var(--surface);padding:0;margin:0;
       .mca-modal-cols>.mca-content{min-width:0}
       @media(max-width:760px){.mca-modal-cols{grid-template-columns:1fr;gap:4px}}
 /* ---- referral.html ---- */
-.referral-hero-wrap { min-height: 100vh; }
+/* No forced viewport height. `min-height:100vh` stretched the dark wrap to a
+   full screen regardless of how much content sat in it, so on a laptop the
+   card ended at the buttons and left a band of empty navy between it and the
+   footer. The content decides the height; the wrap keeps its background. */
+.referral-hero-wrap { min-height: 0; }
+
+/* The portal sign-in is for people who ALREADY joined — a different audience
+   from the four buttons above it, so it reads as a quiet outline control on
+   its own line rather than a fifth primary. */
+.referral-signin{
+  margin:var(--s5) 0 0;display:flex;align-items:center;gap:var(--s3);
+  flex-wrap:wrap;font-size:var(--t-sm);color:var(--muted);
+}
+.referral-signin .btn-portal{
+  display:inline-flex;align-items:center;gap:var(--s2);
+  padding:9px var(--s4);border-radius:var(--r-md);
+  font-size:var(--t-sm);font-weight:650;text-decoration:none;
+  color:var(--ink);border:1px solid var(--line);background:transparent;
+  transition:border-color .14s,background-color .14s;
+}
+.referral-signin .btn-portal::after{content:"\2192"}
+.referral-signin .btn-portal:hover{
+  border-color:var(--accent-color,currentColor);
+  background:var(--surface-2,rgba(15,26,39,.04));
+}
+@media (max-width:768px){ .referral-signin{justify-content:center} }
         /* Desktop: match calculator page layout */
         @media (min-width: 769px) {
             .referral-hero-wrap .referral-body { text-align: left; }
