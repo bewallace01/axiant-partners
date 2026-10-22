@@ -139,6 +139,9 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <!-- Bump ?v= whenever axiant-v2.js changes, or browsers serve the old file.
      Same convention the rest of the site uses for styles.css / script.js. -->
 <script src="/axiant-v2.js?v=202610051019" defer></script>
+<!-- First-touch lead attribution. The homepage does not load script.js, so without this a
+     visitor who lands here and applies on /match.html is recorded as "internal". -->
+<script src="/attribution.js?v=202610221200" defer></script>
 <!-- AXIANT-HEADER:END -->
 <!-- =============================== HERO ================================ -->
 <section class="hero">
@@ -169,8 +172,7 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <div class="form-card">
 <h2 id="see-what-you-qualify-for">See what you qualify for</h2>
 <p class="sub">Takes about 60 seconds. No documents needed to start.</p>
-<form action="https://formspree.io/f/mbdzegkd" class="form-grid" id="quoteForm" method="POST"><input name="_next" type="hidden" value="https://axiantpartners.com/thank-you.html"/>
-<input name="_cc" type="hidden" value="jerry@axiantpartners.com"/>
+<form class="form-grid" id="quoteForm">
 <input autocomplete="given-name" name="firstName" placeholder="First Name" required="" type="text"/>
 <input autocomplete="family-name" name="lastName" placeholder="Last Name" required="" type="text"/>
 <input autocomplete="email" name="email" placeholder="Email Address" required="" type="email"/>
@@ -471,8 +473,51 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
   </div>
 </footer>
 <!-- AXIANT-FOOTER:END -->
-<form aria-hidden="true" data-netlify="true" hidden="" name="homepage-quote" netlify-honeypot="bot-field"><input name="firstName" type="text"/><input name="lastName" type="text"/><input name="email" type="text"/><input name="phone" type="text"/><input name="creditScore" type="text"/><input name="monthlyRevenue" type="text"/><input name="lead_type" type="text"/><input name="page_url" type="text"/></form><script>/* Formspree stays the primary delivery. This mirrors the same submission into
-   Netlify Forms so a Formspree outage or quota cap cannot lose a lead silently.
-   Fire-and-forget: it never blocks or delays the real submit. */
-(function(){var f=document.getElementById('quoteForm');if(!f)return;f.addEventListener('submit',function(){try{var d=new URLSearchParams();d.append('form-name','homepage-quote');new FormData(f).forEach(function(v,k){if(k.charAt(0)!=='_')d.append(k,v);});d.append('lead_type','homepage-quote');d.append('page_url',location.pathname);fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:d.toString(),keepalive:true}).catch(function(){});}catch(e){}});})();</script></body>
+<form aria-hidden="true" data-netlify="true" hidden="" name="homepage-quote" netlify-honeypot="bot-field"><input name="firstName" type="text"/><input name="lastName" type="text"/><input name="email" type="text"/><input name="phone" type="text"/><input name="creditScore" type="text"/><input name="monthlyRevenue" type="text"/><input name="lead_type" type="text"/><input name="page_url" type="text"/><input name="lead_source" type="text"/><input name="lead_channel" type="text"/><input name="lead_referrer" type="text"/><input name="lead_landing_page" type="text"/><input name="lead_submitted_from" type="text"/><input name="utm_source" type="text"/><input name="utm_medium" type="text"/><input name="utm_campaign" type="text"/><input name="utm_term" type="text"/><input name="utm_content" type="text"/><input name="gclid" type="text"/><input name="fbclid" type="text"/><input name="msclkid" type="text"/><input name="bot-field"/></form><script>/* Homepage quote form -> the CRM, like every other form on the site.
+   POSTs to /.netlify/functions/apply as a front_page lead (the same type the
+   match form's partial capture uses; if a full application follows, the CRM
+   upgrades that lead) with the first-touch attribution from attribution.js.
+   Netlify Forms gets a copy in parallel, so if the CRM is down the lead is
+   still stored. Only if BOTH fail does the visitor see an error. */
+(function(){
+  var f=document.getElementById('quoteForm'); if(!f) return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=f.querySelector('button[type="submit"]'), label=btn?btn.textContent:'';
+    if(btn){btn.disabled=true;btn.textContent='Sending...';}
+    var v=function(n){var el=f.elements[n];return el&&el.value?String(el.value).trim():'';};
+    var attr=(typeof window.__axAttr==='function'?window.__axAttr():{});
+    var name=(v('firstName')+' '+v('lastName')).trim();
+    var details=[];
+    if(v('creditScore')) details.push('Credit score: '+v('creditScore'));
+    if(v('monthlyRevenue')) details.push('Monthly revenue: '+v('monthlyRevenue'));
+    var crm=fetch('/.netlify/functions/apply',{method:'POST',keepalive:true,
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify(Object.assign({
+        form_type:'front_page',
+        lead_type:'homepage-quote',
+        name:name, email:v('email'), phone:v('phone'),
+        creditScore:v('creditScore'), monthlyRevenue:v('monthlyRevenue'),
+        message:'Homepage quote form'+(details.length?' | '+details.join(' | '):''),
+        page_url:location.href,
+        ref:(typeof window.__axRef==='function'?window.__axRef():null)
+      },attr))
+    }).then(function(r){return !!(r&&r.ok);}).catch(function(){return false;});
+    var backup;
+    try{
+      var d=new URLSearchParams(); d.append('form-name','homepage-quote');
+      new FormData(f).forEach(function(val,k){d.append(k,val);});
+      d.append('lead_type','homepage-quote'); d.append('page_url',location.pathname);
+      Object.keys(attr).forEach(function(k){d.append(k,attr[k]);});
+      backup=fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:d.toString(),keepalive:true})
+        .then(function(r){return !!(r&&r.ok);}).catch(function(){return false;});
+    }catch(err){ backup=Promise.resolve(false); }
+    Promise.all([crm,backup]).then(function(res){
+      if(!res[0]) console.error('Homepage quote: CRM intake failed'+(res[1]?' (Netlify Forms copy stored)':''));
+      if(res[0]||res[1]){ location.href='/thank-you.html'; return; }
+      if(btn){btn.disabled=false;btn.textContent=label;}
+      alert('Sorry, something went wrong sending your request. Please call us at (561) 268-0465 or try again.');
+    });
+  });
+})();</script></body>
 </html>
