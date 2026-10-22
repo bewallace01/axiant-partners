@@ -61,10 +61,9 @@ SBCS = ("https://www.fedsmallbusiness.org/",
         "Federal Reserve Small Business Credit Survey",
         "Survey data on how small firms fund themselves, including the use of "
         "personal finances and owner assets.")
-FTC = ("https://www.ftc.gov/business-guidance/credit-finance-trade",
-       "FTC Business Credit and Finance Guidance",
-       "Guidance on fee disclosure and the warning signs of predatory business "
-       "credit.")
+FTC = ("https://www.ftc.gov/business-guidance/blog/2020/08/protecting-small-businesses-seeking-financing-during-pandemic",
+       "FTC: Protecting Small Businesses Seeking Financing",
+       "The FTC's guidance to lenders, brokers and merchant cash advance providers on misrepresented costs, unlawful collection and false claims of government affiliation.")
 
 ARTICLES = [
     {

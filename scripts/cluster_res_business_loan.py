@@ -45,10 +45,9 @@ CFPB_MTG = ("https://www.consumerfinance.gov/consumer-tools/mortgages/",
             "CFPB Mortgages",
             "Consumer Financial Protection Bureau guidance on mortgage products, "
             "closing process and borrower protections.")
-FTC = ("https://www.ftc.gov/business-guidance/credit-finance-trade",
-       "FTC Business Credit and Finance Guidance",
-       "Federal Trade Commission guidance on fee disclosure and the warning "
-       "signs of predatory business credit.")
+FTC = ("https://www.ftc.gov/business-guidance/blog/2020/08/protecting-small-businesses-seeking-financing-during-pandemic",
+       "FTC: Protecting Small Businesses Seeking Financing",
+       "The FTC's guidance to lenders, brokers and merchant cash advance providers on misrepresented costs, unlawful collection and false claims of government affiliation.")
 IRS_527 = ("https://www.irs.gov/publications/p527",
            "IRS Publication 527: Residential Rental Property",
            "The federal treatment of rental income and expenses - what an "

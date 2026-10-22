@@ -45,10 +45,9 @@ CFPB = ("https://www.consumerfinance.gov/data-research/small-business-lending/",
         "CFPB Small Business Lending Research",
         "Research and rulemaking on business credit disclosure, including how "
         "terms and costs are presented to borrowers.")
-FTC = ("https://www.ftc.gov/business-guidance/credit-finance-trade",
-       "FTC Business Credit and Finance Guidance",
-       "Guidance on fee disclosure and the warning signs of predatory business "
-       "credit.")
+FTC = ("https://www.ftc.gov/business-guidance/blog/2020/08/protecting-small-businesses-seeking-financing-during-pandemic",
+       "FTC: Protecting Small Businesses Seeking Financing",
+       "The FTC's guidance to lenders, brokers and merchant cash advance providers on misrepresented costs, unlawful collection and false claims of government affiliation.")
 SLOOS = ("https://www.federalreserve.gov/data/sloos.htm",
          "Federal Reserve Senior Loan Officer Opinion Survey",
          "Quarterly survey of bank lending standards, including how collateral "

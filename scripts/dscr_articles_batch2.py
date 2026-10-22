@@ -8,10 +8,9 @@ testimonials, no named lender rates. One entity: Axiant Partners,
 """
 from dscr_articles_batch1 import SLOOS, CFPB, IRS_527, HUD_MF, CENSUS_HV, SBA_NOTE
 
-FTC = ("https://www.ftc.gov/business-guidance/credit-finance-trade",
-       "FTC Business Credit and Finance Guidance",
-       "Federal Trade Commission guidance on fee disclosure and the warning "
-       "signs of predatory business credit.")
+FTC = ("https://www.ftc.gov/business-guidance/blog/2020/08/protecting-small-businesses-seeking-financing-during-pandemic",
+       "FTC: Protecting Small Businesses Seeking Financing",
+       "The FTC's guidance to lenders, brokers and merchant cash advance providers on misrepresented costs, unlawful collection and false claims of government affiliation.")
 FINCEN_BOI = ("https://www.fincen.gov/boi",
               "FinCEN Beneficial Ownership Information",
               "The federal reporting regime for LLCs and other reporting "

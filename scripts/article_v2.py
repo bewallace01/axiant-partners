@@ -33,6 +33,22 @@ def version():
     return m.group(1) if m else "1"
 
 
+def script_version():
+    """script.js?v= as the live pages carry it. It is bumped separately from the
+    stylesheet, so reusing version() would point new pages at an older cached
+    script.js than every other page (the 2026-09-05 attribution fix lived there)."""
+    s = io.open(os.path.join(ROOT, "match.html"), encoding="utf-8").read()
+    m = re.search(r"script\.js\?v=([0-9A-Za-z]+)", s)
+    return m.group(1) if m else version()
+
+
+def tracking_tags():
+    """UET, Meta and OpenAI tags, added to live pages in Sep 2026 by sweeps that
+    never reached this renderer. Without them a fresh render ships untracked."""
+    return io.open(os.path.join(ROOT, "_components", "tracking-tags.html"),
+                   encoding="utf-8").read().strip()
+
+
 def chrome():
     v = version()
     head = io.open(os.path.join(ROOT, "_components", "header-v2.html"),
@@ -142,6 +158,7 @@ def render(a, c, v, header, footer):
 <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/playfair-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/axiant-v2.css?v={v}">
+{tracking_tags()}
 </head>
 <body>
 {header}
@@ -213,7 +230,7 @@ def render(a, c, v, header, footer):
 </section>
 
 {footer}
-<script src="/script.js?v={v}" defer></script>
+<script src="/script.js?v={script_version()}" defer></script>
 </body>
 </html>
 """
@@ -299,6 +316,7 @@ def build_hub(c, v, header, footer):
 <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/playfair-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/axiant-v2.css?v={v}">
+{tracking_tags()}
 </head>
 <body>
 {header}
@@ -344,7 +362,7 @@ def build_hub(c, v, header, footer):
 </section>
 
 {footer}
-<script src="/script.js?v={v}" defer></script>
+<script src="/script.js?v={script_version()}" defer></script>
 </body>
 </html>
 """

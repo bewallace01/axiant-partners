@@ -68,10 +68,9 @@ CENSUS_CONST = ("https://www.census.gov/constructionspending/",
                 "U.S. Census Bureau: Construction Spending",
                 "Monthly national construction put-in-place data -- the context "
                 "for how contractor receivables and job volume move.")
-FTC = ("https://www.ftc.gov/business-guidance/credit-finance-trade",
-       "FTC Business Credit and Finance Guidance",
-       "Federal Trade Commission guidance on fair lending practice, fee "
-       "disclosure and the warning signs of predatory business credit.")
+FTC = ("https://www.ftc.gov/business-guidance/blog/2020/08/protecting-small-businesses-seeking-financing-during-pandemic",
+       "FTC: Protecting Small Businesses Seeking Financing",
+       "The FTC's guidance to lenders, brokers and merchant cash advance providers on misrepresented costs, unlawful collection and false claims of government affiliation.")
 
 PAGES = {
     "commercial-real-estate-loans/articles/how-much-down-payment-required-commercial-property-loan/index.html":
