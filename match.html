@@ -356,7 +356,32 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <script>
   /* Prefill from calculator widgets: /match.html?amount=150000&type=equipment */
   (function(){
+    /* Continuing from the get-matched block on a cited article (_components/get-matched.html):
+       name/email/phone arrive in sessionStorage, never the URL, because this page loads the
+       Meta, Microsoft and Google tags. The block already sent them to the CRM as a front_page
+       lead, so the partial capture is switched off here and the full application upgrades that
+       same lead instead of creating a second one. Read once, then removed; ignored after 30 min. */
+    function prefillContact(){
+      try{
+        var raw=sessionStorage.getItem('ax_prefill'); if(!raw) return;
+        sessionStorage.removeItem('ax_prefill');
+        var c=JSON.parse(raw);
+        if(!c||!c.at||Date.now()-c.at>30*60*1000) return;
+        var set=function(id,val){var el=document.getElementById(id);if(el&&val&&!el.value)el.value=val;};
+        set('fullName',c.name); set('email',c.email); set('phone',c.phone);
+        window.__axPartialSent=true;
+        var form=document.getElementById('loanForm');
+        if(form && !document.getElementById('prefillBanner')){
+          var b=document.createElement('div');
+          b.id='prefillBanner';
+          b.setAttribute('style','margin:0 0 18px;padding:12px 14px;border:1px solid var(--border-color);border-left:3px solid var(--accent-color);border-radius:8px;background:var(--bg-card);font-size:0.92rem;line-height:1.45;color:var(--text-primary);');
+          b.innerHTML='Thanks, we have your contact details. Add a few details about the business below and we&rsquo;ll match you with lenders &mdash; no obligation.';
+          form.insertBefore(b, form.firstChild);
+        }
+      }catch(e){}
+    }
     function init(){
+      prefillContact();
       try{
         var p=new URLSearchParams(window.location.search);
         var amt=p.get('amount'), type=p.get('type'), eq=p.get('equipment');
