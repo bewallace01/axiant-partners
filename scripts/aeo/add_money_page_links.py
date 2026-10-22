@@ -21,6 +21,7 @@ RE = "/real-estate-secured-business-loan.html"
 TOW = "/towing-business-financing.html"
 SG = "/security-guard-business-financing.html"
 MAR = "/commercial-marine-financing.html"
+HEQ = "/heavy-equipment-equity-loan.html"
 
 
 def a(href, text):
@@ -108,6 +109,29 @@ LINKS = [
     ("/aircraft-financing.html", MAR,
      "lenders can underwrite it efficiently once the airframe, engine times, and logs check out.",
      f"Commercial vessels are financed on similar lines, with a marine survey in place of the logs: see {a(MAR, 'commercial boat and vessel financing')}."),
+
+    # Heavy equipment equity (AEO 2b, 2026-10-22): owners of paid-off machines on the purchase pages
+    ("/equipment/excavators/", HEQ,
+     "can strain reserves and limit your ability to bid on new work or cover payroll during slow periods.",
+     f"If you already own excavators outright, you can also {a(HEQ, 'borrow against the excavators you own')} instead of paying cash for the next one."),
+    ("/equipment/bulldozers/", HEQ,
+     "paying cash ties up capital you need for payroll, materials, and growth.",
+     f"Already own a paid-off dozer? You can {a(HEQ, 'borrow against the dozer’s equity')} and keep it on the job."),
+    ("/equipment/wheel-loaders/", HEQ,
+     "paying cash ties up capital you need for payroll, materials, and growth.",
+     f"Own a loader outright? See {a(HEQ, 'borrowing against construction equipment you own')}."),
+    ("/equipment/skid-steers/", HEQ,
+     "paying cash ties up capital you need for payroll, materials, and growth.",
+     f"If your skid steers are paid off, {a(HEQ, 'their equity can back a loan')} while they keep working."),
+    ("/equipment/backhoes/", HEQ,
+     "paying cash ties up capital you need for payroll, materials, and growth.",
+     f"If a backhoe in your fleet is paid off, see {a(HEQ, 'borrowing against heavy equipment you own')}."),
+    ("/equipment-financing/articles/equipment-refinancing/", HEQ,
+     "This is what you want if the payment is straining cash flow.",
+     f"To raise cash against machines you own outright, see {a(HEQ, 'heavy equipment equity loans')}."),
+    ("/equipment-financing.html", HEQ,
+     "Construction companies use equipment financing to expand fleets, replace aging machinery, and take on larger projects.",
+     f"Contractors who already own their machines can {a(HEQ, 'borrow against that equipment’s equity')} instead."),
 ]
 
 def page_file(url):

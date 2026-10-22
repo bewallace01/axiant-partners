@@ -8,7 +8,7 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 
 ---
 
-## STATUS — read this first (last updated 2026-10-22)
+## STATUS — read this first (last updated 2026-10-22, session 2)
 
 **Rule for every session:** do the first unchecked item in "Next up", follow sections 0.2–0.8, ship it, then update this STATUS block (tick it, add a log line, move the next item up) in the same push. Stop after one item and report.
 
@@ -24,8 +24,12 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 - [x] **ITIN fact fix** (`327057750`): SBA now requires 100% owners US citizens/nationals (since 2026-03-01); the ITIN article said "majority, citizens or LPRs".
 - [x] All of the above pushed 2026-10-22 as 21 single-commit pushes; every IndexNow run succeeded.
 
+- [x] **2b. `/heavy-equipment-equity-loan.html`** + 5 spokes + hub (2026-10-22). Pillar: `python scripts/build_heavy_equity_pillar.py --apply` (FAQ/FAQPage and HowTo from one list; uses `.table-wrap`). Spokes: `scripts/cluster_heavy_equity.py` via `python scripts/build-cluster.py heavy_equity --apply`. Linked from excavators, bulldozers, wheel loaders, skid steers, backhoes, equipment refinancing, equipment-financing pillar (7 outside links). Key angle: most yellow iron has no title, lenders file a UCC-1. Rebuilding either re-dates the pages: only rebuild for a real content change.
+- [x] **Renderer fix** (2026-10-22): `scripts/article_v2.py` now emits UET/Meta/OpenAI tags from `_components/tracking-tags.html` and `script.js` at the live `?v=`. Before this, any fresh render shipped with no ad conversion tracking.
+- [x] **FTC source fix** (2026-10-22): `ftc.gov/business-guidance/credit-finance-trade` had become an empty listing; 113 pages + 10 modules repointed to the FTC's small-business-financing guidance (`scripts/aeo/fix_ftc_source.py`).
+
 ### Next up (in order; one per session)
-1. [ ] **2b. `/heavy-equipment-equity-loan.html`** + cluster `heavy-equipment-equity-loan/articles/` (5–8 spokes: valuation, existing lien, equipment title loan vs sale-leaseback, vs MCA, default). Validated: clear gap. Model on `scripts/cluster_truck_title*.py`. Link it from excavator/loader/dozer/skid-steer equipment pages and `mca-consolidation-loan.html`.
+1. [ ] **Fix unstyled tables on older money pages.** `ba-table` / `ba-table-wrap` have no CSS anywhere (truck title, real-estate secured, marine, MCA consolidation, etc. show plain unbordered tables). Swap to the v2 `.table-wrap` component; on phones its first-column cells do not wrap, so keep first-column text under ~26 characters. Check each page at 390px for horizontal overflow (Playwright, `document.documentElement.scrollWidth` must equal 390). Money pages are cited: one push for all, then the 7-day watch.
 2. [ ] **2b. Dump truck title loan spoke** under `commercial-truck-title-loan/articles/` (validated: Bing cites consumer title lenders at $100–$25K). Then box truck and tow truck spokes (tow truck spoke must link `/towing-business-financing.html`).
 3. [ ] **2a. `/vending-machine-financing.html`** pillar (validated: no finance specialist cited). The existing spoke earns non-brand clicks: keep it as a spoke unless a check shows it is uncited, and link it in.
 4. [ ] **2a. Car wash:** merge `articles/how-to-finance-buy-a-car-wash/` + `sba-loans/articles/car-wash-financing/` into `/car-wash-financing.html`, 301 both (check neither is Bing-cited first).
@@ -56,6 +60,7 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 
 ### Log
 - 2026-10-22: Section 0, Batch 1 (1a–1f), Batch 2 validation, ITIN fix. All live.
+- 2026-10-22: Heavy equipment equity pillar + 5 spokes + hub; renderer tracking-tags fix; FTC source repointed on 113 pages. Found: `ba-table` money-page tables are unstyled (now Next up #1).
 
 ---
 
