@@ -468,4 +468,5 @@ ARTICLES = [
 from cluster_truck_title_b import MORE as _B
 from cluster_truck_title_c import MORE as _C
 from cluster_truck_title_d import MORE as _D
-ARTICLES = ARTICLES + _B + _C + _D
+from cluster_truck_title_e import MORE as _E
+ARTICLES = ARTICLES + _B + _C + _D + _E

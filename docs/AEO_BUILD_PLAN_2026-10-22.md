@@ -8,7 +8,7 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 
 ---
 
-## STATUS — read this first (last updated 2026-10-26, session 4)
+## STATUS — read this first (last updated 2026-10-26, session 5)
 
 **Rule for every session:** do the first unchecked item in "Next up", follow sections 0.2–0.8, ship it, then update this STATUS block (tick it, add a log line, move the next item up) in the same push. Stop after one item and report.
 
@@ -29,11 +29,12 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 - [x] **FTC source fix** (2026-10-22): `ftc.gov/business-guidance/credit-finance-trade` had become an empty listing; 113 pages + 10 modules repointed to the FTC's small-business-financing guidance (`scripts/aeo/fix_ftc_source.py`).
 - [x] **2b. Truck-class title loan spokes** (2026-10-26): dump, box and tow truck spokes under `commercial-truck-title-loan/articles/` from `scripts/cluster_truck_title_d.py`. Built with `python scripts/build-cluster.py truck_title --only dump-truck-title-loan,box-truck-title-loan,tow-truck-title-loan --apply`: the new `--only` flag stops a rebuild from re-dating the 8 cited spokes. Each spoke has its own price table (from the matching equipment page), where that class sits in the site's existing 50–80%-of-FLV range, lender types, a class-specific appraisal table and "wrong tool" cases; worked examples labelled illustrative. Sources: OCC ABL handbook (liquidation value), FHWA bridge formula, DOE weight classes, 49 CFR 383.91 (26,001 lb CDL line). Linked from `/equipment/dump-trucks/`, `/equipment/box-trucks/`, the tow truck & wrecker guide (no tow-truck equipment page exists); tow spoke links `/towing-business-financing.html`. Hub, sitemap, llms.txt updated.
 - [x] **2a. `/vending-machine-financing.html`** + 4 spokes + hub (2026-10-26). Pillar: `python scripts/build_vending_pillar.py --apply`; spokes: `scripts/cluster_vending.py` via `python scripts/build-cluster.py vending --apply` (typical rates 2026, lease vs loan vs pay-later checkout, micro-market financing, buying a vending route). The old spoke `equipment-financing/articles/vending-machine-financing/` stays put (earns non-brand clicks), is listed in the pillar's guides and links up to the pillar (`add_money_page_links.py`, `VEND`). Rates reuse the site's 7-22% APR tiers; machine costs come from the old spoke. Specific facts with sources: FDA calorie labeling at 20+ machines (21 CFR 101.8), Smart Snacks in schools (7 CFR 210.11), Randolph-Sheppard priority on federal property, TILA business-purpose exemption (so ask for the APR), SBA 10% equity injection on a change of ownership, Form 8594 allocation. Added to `money-pages.txt`, sitemap, llms.txt. Only 1 outside link so far: add more after the Oct 29 check (candidates: `/equipment-financing.html`, `/startup-financing.html`, `/business-acquisition-financing.html`). Old spoke already overflowed to 408px at 390px before this change: fix it with the table pass.
+- [x] **2e. Truck title companions** (2026-10-26, moved ahead of car wash by Alex): `typical-truck-title-loan-rates-2026` and `truck-title-loan-vs-refinance-vs-equipment-loan` under `commercial-truck-title-loan/articles/`, from `scripts/cluster_truck_title_e.py`, built with `--only` (cited spokes not re-dated). The truck cluster had published no APR; the rates page uses ranges the site already publishes (7-22% APR equipment tiers, 50-80% of FLV and 24-72 months from equipment refinancing, 6-15% truck purchase from `/equipment/semi-trucks/`) and contrasts the CFPB 2016 consumer title study (~300% APR, ~1 in 5 sequences repossessed). **Alex: confirm 7-22% matches what lenders quote your truck-title leads.** Linked from the dump/box/tow spokes' Related lists; the money page is not edited (watch). Hub, sitemap, llms.txt (13 guides).
 
 ### Next up (in order; one per session)
 1. [ ] **2a. Car wash:** merge `articles/how-to-finance-buy-a-car-wash/` + `sba-loans/articles/car-wash-financing/` into `/car-wash-financing.html`, 301 both (check neither is Bing-cited first).
 2. [ ] **2a. NEMT:** do NOT move or 301 the spoke (Bing cites it). Strengthen it in place: typical rates/terms, a vs page, link from towing/ambulance pages.
-3. [ ] **2e. Companion pages:** "Typical truck title loan rates and terms 2026", "Truck title loan vs refinance vs equipment loan"; marine: "Typical commercial boat loan rates 2026", "Commercial vessel loan vs marine lease" (also lifts marine's link count); real-estate: "2nd-position business loan vs HELOC vs cash-out refi", "Typical rates on 2nd-lien business loans 2026".
+3. [ ] **2e. Companion pages** (truck title done 2026-10-26): marine: "Typical commercial boat loan rates 2026", "Commercial vessel loan vs marine lease" (also lifts marine's link count); real-estate: "2nd-position business loan vs HELOC vs cash-out refi", "Typical rates on 2nd-lien business loans 2026".
 4. [ ] **Batch 3** items, top of table first.
 5. [ ] **Batch 5** llms.txt lines for each money page shipped so far.
 6. [ ] Lower priority (specialists/Crestmont own the answer): fishing vessel (strengthen inside marine cluster, no new root), ambulance, marina.
@@ -42,6 +43,8 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 ### Dated tasks
 - **2026-10-29:** Bing Webmaster → AI Performance. Compare Copilot citations/day with the pre-push baseline (~3,000–4,500/day; 3-month total 252.9K). If they held, editing already-cited pages is safe again. Log the numbers here.
   - [ ] **Then, only if citations held:** **Fix unstyled tables on older money pages.** `ba-table` / `ba-table-wrap` have no CSS anywhere (truck title, real-estate secured, marine, MCA consolidation, etc. show plain unbordered tables). Swap to the v2 `.table-wrap` component; on phones its first-column cells do not wrap, so keep first-column text under ~26 characters. Check each page at 390px for horizontal overflow (Playwright, `document.documentElement.scrollWidth` must equal 390). Money pages are cited: one push for all, then a fresh 7-day watch. Skip it if citations dropped and log why. (Moved out of Next up on 2026-10-26: it edits cited pages inside the Oct 22 watch.)
+  - [ ] **Same condition:** link the money page `/commercial-truck-title-loan.html` to the two new companion pages, and add 2-3 outside links into `/vending-machine-financing.html`.
+  - [ ] **Check `/equipment-financing/articles/section-179-tax-strategy-2026/`:** it says a $1.16M limit and 60% bonus depreciation; the 2025 tax law appears to have raised these (about $2.5M, inflation-adjusted for 2026, and 100% bonus). Verify against IRS sources before editing; check whether it is cited first.
 - **~2026-12-15:** Batch 4 push 1 (top 3 cited pages to 2027). **~2026-12-26 to 2027-01-02:** remaining "2026" titles, ≤25 per push.
 
 ### Blocked / waiting on Alex
@@ -63,6 +66,7 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 - 2026-10-22: Heavy equipment equity pillar + 5 spokes + hub; renderer tracking-tags fix; FTC source repointed on 113 pages. Found: `ba-table` money-page tables are unstyled (now Next up #1).
 - 2026-10-26: Dump, box and tow truck title loan spokes + hub, sitemap, llms.txt, 3 equipment-page links; `build-cluster.py --only`. Table fix moved under the 2026-10-29 Bing check (cited pages, inside the watch). Next: vending machine pillar.
 - 2026-10-26: Vending machine financing pillar + 4 spokes + hub, sitemap, llms.txt; old vending spoke links up. Next: car wash merge.
+- 2026-10-26: Truck title companions (typical rates 2026; vs refinance vs equipment loan), hub, sitemap, llms.txt. Next: car wash merge.
 
 ---
 
