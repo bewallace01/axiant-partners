@@ -222,3 +222,6 @@ ARTICLES = ARTICLES + _B
 
 from cluster_marine_c import MORE as _C
 ARTICLES = ARTICLES + _C
+
+from cluster_marine_d import MORE as _D
+ARTICLES = ARTICLES + _D

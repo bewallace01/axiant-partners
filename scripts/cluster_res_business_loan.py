@@ -467,3 +467,6 @@ ARTICLES = [
 # Articles 4-6 live in a companion module to keep each file readable.
 from cluster_res_business_loan_b import MORE as _B
 ARTICLES = ARTICLES + _B
+
+from cluster_res_business_loan_c import MORE as _C
+ARTICLES = ARTICLES + _C
