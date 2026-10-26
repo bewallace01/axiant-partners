@@ -22,6 +22,7 @@ TOW = "/towing-business-financing.html"
 SG = "/security-guard-business-financing.html"
 MAR = "/commercial-marine-financing.html"
 HEQ = "/heavy-equipment-equity-loan.html"
+VEND = "/vending-machine-financing.html"
 
 
 def a(href, text):
@@ -132,6 +133,11 @@ LINKS = [
     ("/equipment-financing.html", HEQ,
      "Construction companies use equipment financing to expand fleets, replace aging machinery, and take on larger projects.",
      f"Contractors who already own their machines can {a(HEQ, 'borrow against that equipment’s equity')} instead."),
+
+    # Vending: the older spoke stays (it earns non-brand clicks) and points up to the pillar
+    ("/equipment-financing/articles/vending-machine-financing/", VEND,
+     "route expansion keeps pace with the locations you can land.",
+     f"Rates, lease-or-buy, micro-markets and buying a route are covered in {a(VEND, 'vending machine financing for operators')}."),
 ]
 
 def page_file(url):
