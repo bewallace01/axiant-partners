@@ -464,7 +464,8 @@ ARTICLES = [
     },
 ]
 
-# Articles 4-8 live in companion modules to keep each file readable.
+# Articles 4-11 live in companion modules to keep each file readable.
 from cluster_truck_title_b import MORE as _B
 from cluster_truck_title_c import MORE as _C
-ARTICLES = ARTICLES + _B + _C
+from cluster_truck_title_d import MORE as _D
+ARTICLES = ARTICLES + _B + _C + _D

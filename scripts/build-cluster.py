@@ -6,6 +6,7 @@ Build a v2 article cluster: the articles, then the hub, from one data module.
     python scripts/build-cluster.py truck_title
     python scripts/build-cluster.py truck_title --apply
     python scripts/build-cluster.py --all --apply
+    python scripts/build-cluster.py truck_title --only dump-truck-title-loan --apply
 
 A cluster module lives at scripts/cluster_<name>.py and exports CLUSTER (the
 pillar, hub path and copy) plus ARTICLES. The renderer is article_v2.py, shared
@@ -14,6 +15,10 @@ with every other cluster so the shape cannot drift between them.
 The hub is generated from what is on disk rather than from ARTICLES, so its
 cards cannot fall behind the articles - the failure that left
 generate_sitemap.py 188 URLs behind the site.
+
+--only writes just the named slugs (plus the hub). Rendering stamps today's
+date, so adding a spoke to a cluster must not re-date the cited articles
+already in it.
 """
 import argparse, html, importlib, io, os, re, sys
 
@@ -30,18 +35,23 @@ def words(s):
     return len(re.sub(r"<[^>]+>", " ", t).split())
 
 
-def build(name, apply_changes):
+def build(name, apply_changes, only=None):
     mod = importlib.import_module(f"cluster_{name}")
     c, arts = mod.CLUSTER, mod.ARTICLES
     v, header, footer = A.chrome()
     hub_dir = os.path.join(ROOT, c["hub"].replace("/", os.sep))
 
     print(f"\n=== {name}  ->  {c['hub']} ===")
+    missing = (only or set()) - {a["slug"] for a in arts}
+    if missing:
+        raise SystemExit(f"--only names no article in {name}: {', '.join(sorted(missing))}")
     seen = set()
     for a in arts:
         if a["slug"] in seen:
             raise SystemExit(f"duplicate slug in {name}: {a['slug']}")
         seen.add(a["slug"])
+        if only and a["slug"] not in only:
+            continue
         out = A.render(a, c, v, header, footer)
         w = words(out)
         # a title past ~60 characters is truncated in the SERP, and the tail
@@ -72,6 +82,7 @@ def main():
     ap.add_argument("cluster", nargs="?", default="")
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--only", default="", help="comma-separated slugs to write")
     a = ap.parse_args()
     names = CLUSTERS if a.all else ([a.cluster] if a.cluster else [])
     if not names:
@@ -81,7 +92,7 @@ def main():
     total = 0
     for n in names:
         try:
-            total += build(n, a.apply)
+            total += build(n, a.apply, set(filter(None, a.only.split(","))))
         except ModuleNotFoundError:
             print(f"\n=== {n} === not written yet (scripts/cluster_{n}.py)")
     print(f"\n  {total} article(s)")
