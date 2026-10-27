@@ -27,7 +27,8 @@ import article_v2 as A
 
 ROOT = A.ROOT
 CLUSTERS = ["truck_title", "res_business_loan", "heloc", "equip_appraisal", "security_guard",
-             "aircraft", "marine", "drone", "datacenter", "heavy_equity", "vending"]
+             "aircraft", "marine", "drone", "datacenter", "heavy_equity", "vending",
+            "construction_electrical"]
 
 
 def words(s):
@@ -68,6 +69,10 @@ def build(name, apply_changes, only=None):
         print(f"  {flag} {a['slug']:46} {w:5} words  {len(a['faqs'])} faqs  "
               f"{len(a['sections'])} sections")
 
+    if c.get("no_hub"):
+        # the folder has no Articles index; building one would add a new page
+        print("     hub: none (no_hub)")
+        return len(arts)
     n, hub = A.build_hub(c, v, header, footer)
     if apply_changes:
         os.makedirs(hub_dir, exist_ok=True)

@@ -86,16 +86,22 @@ def render(a, c, v, header, footer):
         f'<div class="answer"><p>{ans}</p></div>\n</details>'
         for q, ans in a["faqs"])
 
+    # no_hub: pages that sit straight under a folder with no Articles index
+    # (older clusters such as construction-business-financing/), where an
+    # "Articles" crumb would link to a 404
+    trail = [("Home", BASE + "/"), (c["crumb"], f"{BASE}/{c['pillar']}")]
+    if not c.get("no_hub"):
+        trail.append(("Articles", f"{BASE}/{hub}/"))
+    trail.append((a["crumb"], url))
     ld = [
         {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
-            {"@type": "ListItem", "position": 2, "name": c["crumb"],
-             "item": f"{BASE}/{c['pillar']}"},
-            {"@type": "ListItem", "position": 3, "name": "Articles", "item": f"{BASE}/{hub}/"},
-            {"@type": "ListItem", "position": 4, "name": a["crumb"], "item": url}]},
+            {"@type": "ListItem", "position": i, "name": n, "item": u}
+            for i, (n, u) in enumerate(trail, 1)]},
         {"@context": "https://schema.org", "@type": "Article",
          "headline": a["headline"], "description": a["article_desc"], "url": url,
-         "datePublished": TODAY.isoformat(), "dateModified": TODAY.isoformat(),
+         # date_published keeps a rewritten page's original publish date
+         "datePublished": a.get("date_published", TODAY.isoformat()),
+         "dateModified": TODAY.isoformat(),
          "author": {"@type": "Organization", "name": "Axiant Partners", "url": BASE},
          "publisher": {"@id": f"{BASE}/#organization"},
          "mainEntityOfPage": {"@type": "WebPage", "@id": url},
@@ -187,7 +193,7 @@ def render(a, c, v, header, footer):
 <p><a href="/match.html">{html.escape(c['cta_inline'])} &rarr;</a></p>
 </div>
 </div>
-<nav aria-label="Breadcrumb" class="crumbs"><a href="/">Home</a> &rsaquo; <a href="/{c['pillar']}">{html.escape(c['crumb'])}</a> &rsaquo; <a href="/{hub}/">Articles</a> &rsaquo; <span aria-current="page">{html.escape(a['crumb'])}</span></nav>
+<nav aria-label="Breadcrumb" class="crumbs"><a href="/">Home</a> &rsaquo; <a href="/{c['pillar']}">{html.escape(c['crumb'])}</a> &rsaquo; {'' if c.get('no_hub') else f'<a href="/{hub}/">Articles</a> &rsaquo; '}<span aria-current="page">{html.escape(a['crumb'])}</span></nav>
 {body}
 <h2 id="faq">Frequently Asked Questions</h2>
 <div class="faq">
