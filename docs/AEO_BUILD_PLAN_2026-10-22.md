@@ -36,7 +36,7 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 
 ### Next up (in order; one per session)
 1. [ ] **2e. Rates companions, waiting on Alex's ranges:** "Typical commercial boat loan rates 2026" (marine, slug `typical-commercial-boat-loan-rates-2026`) and "Typical rates on 2nd-lien business loans 2026" (real-estate, slug `typical-second-lien-business-loan-rates-2026`). Neither cluster nor the site publishes a boat-loan or 2nd-lien rate, so do not invent one: Alex to send APR range, term, max LTV/CLTV or down payment, fees, typical loan size from real deals. Add to `cluster_marine_d.py` / `cluster_res_business_loan_c.py`, build with `--only`, then link them from the two vs pages.
-2. [ ] **Batch 3** items, top of table first. Security guard and electrical rows done 2026-10-27. **All remaining rows touch cited pages** and go behind the 10-29 check: imaging merge waits: `patient-financing-imaging-centers` has 15 Copilot citations and the vs page is top-25, so it goes behind the 10-29 check. Construction-to-perm and owner-occupied are top-25 cited (same). The 5 Cs and new-business unsecured LOC rows are **not new pages** (already answered, see the table); waiting on Alex whether to strengthen the existing pages instead. Most remaining rows edit existing pages: check each is uncited first, or hold it for after 10-29.
+2. [ ] **Batch 3** items, top of table first. Security guard and electrical rows done 2026-10-27. **All remaining rows touch cited pages** and go behind the 10-29 check: imaging merge waits: `patient-financing-imaging-centers` has 15 Copilot citations and the vs page is top-25, so it goes behind the 10-29 check. Construction-to-perm and owner-occupied are top-25 cited (same). The 5 Cs and new-business unsecured LOC rows were **dropped by Alex on 2026-10-27** (see the note under the table).
 3. [x] **Batch 5 llms.txt key facts** (2026-10-27): one line per money page and every pillar/companion shipped since Oct 22, plus truck title, marine, real-estate secured, towing, security guard and MCA consolidation. Each line restates the page's own FAQ; no recommend-us language. Still open in Batch 5: homepage schema `areaServed`/`knowsAbout` (and `sameAs` once Alex sends the Google Business Profile URL), and the identical entity line everywhere.
 5. [ ] Lower priority (specialists/Crestmont own the answer): fishing vessel (strengthen inside marine cluster, no new root), ambulance, marina.
 6. [ ] **Skip:** ITIN pillar, funeral home pillar (specialists own them).
@@ -81,6 +81,7 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 - 2026-10-27: Batch 3 electrical contractor rewrite (v2 template, same URL, original datePublished kept); renderer `no_hub` / `date_published` options. Remaining Batch 3 rows all touch cited pages, so nothing safe is left in Batch 3 before 10-29. Next safe item: Batch 5 rest (key-facts lines for older money pages), or Alex's rates for the boat/2nd-lien companions.
 - 2026-10-27: Batch 5 llms.txt key facts for truck title, marine, real-estate secured, towing, security guard, MCA consolidation. No .html, so no IndexNow run. Next safe item: homepage schema `areaServed`/`knowsAbout` (homepage is cited: check first, else after 10-29).
 - 2026-10-27: Homepage is Bing-cited (rows 101-125 of 458 in AI Performance, 3 months), so its schema waits for 10-29. **Nothing safe is left before 10-29** except the rates companions, which wait on Alex's ranges.
+- 2026-10-27: Alex dropped the two duplicate Batch 3 rows (5 Cs; new-business unsecured LOC). Removed from the table, with a note under it.
 
 ---
 
@@ -205,8 +206,8 @@ The plan listed these as new pages; **most already exist**. Improve them instead
 | Electrical contractor funding (747 impr, pos 25.5) | `construction-business-financing/electrical-contractor-financing/` | **Done 2026-10-27.** Rewrite to the full page template; add numbers and FAQ. After 10-29: link it from `/construction-business-financing.html` (cited) |
 | Owner-occupied vs investment CRE by state (Copilot grounding; ID, AZ, UT cited) | `commercial-real-estate-loans/articles/owner-occupied-vs-investment-commercial-property-loan/` | Add 3 state spokes (Idaho, Arizona, Utah) **only with real state-specific content** (state SBA district, typical LTV/DSCR, property-tax and title differences). No find-and-replace state pages |
 | Construction-to-permanent (Copilot grounding) | `commercial-real-estate-loans/articles/construction-to-permanent-financing/` | Audit against template; add typical rates/timeline numbers |
-| 5 Cs of lending (Copilot grounding) | `/how-lenders-decide/` (title "The 5 C's of Credit"; Quick Answer + one section per C + lender-weighting table) | **Not a new page** (found 2026-10-27). Strengthen in place if anything; Alex to decide |
-| Unsecured LOC for startups/new businesses (Copilot grounding) | `business-line-of-credit/articles/business-line-of-credit-for-startups/` ("Startup Business Line of Credit: Under 2 Years", secured vs unsecured section) | **Not a new page** (found 2026-10-27). Strengthen in place if anything; Alex to decide |
+
+**Dropped 2026-10-27 (Alex):** "5 Cs of lending" and "Unsecured LOC for a new business (under 2 years)". Both questions are already answered (`/how-lenders-decide/` is the 5 Cs page; `business-line-of-credit/articles/business-line-of-credit-for-startups/` covers startups under 2 years). Do not build new pages or strengthen these two for this plan.
 
 ---
 
