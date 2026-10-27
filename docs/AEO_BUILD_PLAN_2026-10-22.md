@@ -8,7 +8,7 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 
 ---
 
-## STATUS — read this first (last updated 2026-10-26, session 7)
+## STATUS — read this first (last updated 2026-10-27, session 8)
 
 **Rule for every session:** do the first unchecked item in "Next up", follow sections 0.2–0.8, ship it, then update this STATUS block (tick it, add a log line, move the next item up) in the same push. Stop after one item and report.
 
@@ -34,15 +34,16 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 
 ### Next up (in order; one per session)
 1. [ ] **2e. Rates companions, waiting on Alex's ranges:** "Typical commercial boat loan rates 2026" (marine, slug `typical-commercial-boat-loan-rates-2026`) and "Typical rates on 2nd-lien business loans 2026" (real-estate, slug `typical-second-lien-business-loan-rates-2026`). Neither cluster nor the site publishes a boat-loan or 2nd-lien rate, so do not invent one: Alex to send APR range, term, max LTV/CLTV or down payment, fees, typical loan size from real deals. Add to `cluster_marine_d.py` / `cluster_res_business_loan_c.py`, build with `--only`, then link them from the two vs pages.
-2. [ ] **2a. NEMT:** do NOT move or 301 the spoke (Bing cites it). Strengthen it in place: typical rates/terms, a vs page, link from towing/ambulance pages.
-3. [ ] **Batch 3** items, top of table first.
-4. [ ] **Batch 5** llms.txt lines for each money page shipped so far.
+2. [ ] **Batch 3** items, top of table first. The 5 Cs and new-business unsecured LOC rows are **not new pages** (already answered, see the table); waiting on Alex whether to strengthen the existing pages instead. Most remaining rows edit existing pages: check each is uncited first, or hold it for after 10-29.
+3. [ ] **Batch 5, rest:** key-facts lines for the older money pages (truck title, marine, real-estate secured; MCA consolidation). Lines for everything shipped since Oct 22 went in on 2026-10-27.
 5. [ ] Lower priority (specialists/Crestmont own the answer): fishing vessel (strengthen inside marine cluster, no new root), ambulance, marina.
 6. [ ] **Skip:** ITIN pillar, funeral home pillar (specialists own them).
 
 ### Dated tasks
 - **2026-10-29:** Bing Webmaster → AI Performance. Compare Copilot citations/day with the pre-push baseline (~3,000–4,500/day; 3-month total 252.9K). If they held, editing already-cited pages is safe again. Log the numbers here.
-  - [ ] **Then, only if citations held:** **Fix unstyled tables on older money pages.** `ba-table` / `ba-table-wrap` have no CSS anywhere (truck title, real-estate secured, marine, MCA consolidation, etc. show plain unbordered tables). Swap to the v2 `.table-wrap` component; on phones its first-column cells do not wrap, so keep first-column text under ~26 characters. Check each page at 390px for horizontal overflow (Playwright, `document.documentElement.scrollWidth` must equal 390). Money pages are cited: one push for all, then a fresh 7-day watch. Skip it if citations dropped and log why. (Moved out of Next up on 2026-10-26: it edits cited pages inside the Oct 22 watch.)
+  - [ ] **Then, only if citations held (run these two first, moved here by Alex 2026-10-27):**
+  - [ ] **1. Fix unstyled tables on older money pages.** `ba-table` / `ba-table-wrap` have no CSS anywhere (truck title, real-estate secured, marine, MCA consolidation, etc. show plain unbordered tables). Swap to the v2 `.table-wrap` component; on phones its first-column cells do not wrap, so keep first-column text under ~26 characters. Check each page at 390px for horizontal overflow (Playwright, `document.documentElement.scrollWidth` must equal 390). Money pages are cited: one push for all, then a fresh 7-day watch. Skip it if citations dropped and log why. (Moved out of Next up on 2026-10-26: it edits cited pages inside the Oct 22 watch.)
+  - [ ] **2. 2a. NEMT, right after the table fix:** do NOT move or 301 the spoke (Bing cites it). Strengthen it in place: typical rates/terms, a vs page, link from towing/ambulance pages. It edits a cited page, so it sits behind the same check. Each of these two pushes edits cited pages; Alex wants both straight after 10-29, so ship them back to back and run one 7-day watch covering both.
   - [ ] **Same condition: car wash, strengthen in place (merge cancelled 2026-10-26).** Both `articles/how-to-finance-buy-a-car-wash/` and `sba-loans/articles/car-wash-financing/` are now Bing-cited (sources 1 and 2 of 4 for "how to finance buying a car wash"; see `_analysis/aeo-validation.md`). Do NOT merge or 301. Cross-link them (purchase guide <-> financing options), add a worked example and a sources block to the purchase guide, and give the SBA page the SOP 50 10 8 equity-injection detail. One push, then a fresh 7-day watch.
   - [ ] **Same condition:** link the money page `/commercial-truck-title-loan.html` to the two new companion pages, and add 2-3 outside links into `/vending-machine-financing.html`.
   - [ ] **CRE rate conflict:** `/commercial-real-estate-loans/articles/typical-commercial-real-estate-loan-rates-2026/` says bank CRE 6.5-8%; `/business-loan-rates-2026/` says commercial real estate 8-12%. Both cited. Ask Alex which is right, then align one push.
@@ -71,6 +72,7 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 - 2026-10-26: Truck title companions (typical rates 2026; vs refinance vs equipment loan), hub, sitemap, llms.txt. Next: car wash merge.
 - 2026-10-26: Car wash merge **cancelled**: Bing now cites both car wash pages (were uncited on 10-22). Logged in aeo-validation.md; moved to "strengthen in place" under the 10-29 task. Next: marine + real-estate companion pages.
 - 2026-10-26: Marine vessel loan vs lease; 2nd-position loan vs HELOC vs cash-out refi. Rates companions held for Alex's real ranges. Next: those two once ranges arrive, else NEMT after 10-29.
+- 2026-10-27: Batch 5: llms.txt key-facts lines for heavy equipment equity, vending (with rates and lease-vs-loan), dump/box/tow truck title, truck title rates + vs refinance, vessel loan vs lease, 2nd-position vs HELOC vs cash-out. No .html changed, so IndexNow did not run (workflow only watches .html/sitemap). Batch 3 new pages **not built**: both are duplicates (5 Cs = `/how-lenders-decide/` itself; new-business unsecured LOC = `business-line-of-credit/articles/business-line-of-credit-for-startups/`, titled "Under 2 Years"). NEMT moved behind the 10-29 check, after the table fix. No cited page edited.
 
 ---
 
@@ -195,8 +197,8 @@ The plan listed these as new pages; **most already exist**. Improve them instead
 | Electrical contractor funding (747 impr, pos 25.5) | `construction-business-financing/electrical-contractor-financing/` | Rewrite to the full page template; add numbers and FAQ |
 | Owner-occupied vs investment CRE by state (Copilot grounding; ID, AZ, UT cited) | `commercial-real-estate-loans/articles/owner-occupied-vs-investment-commercial-property-loan/` | Add 3 state spokes (Idaho, Arizona, Utah) **only with real state-specific content** (state SBA district, typical LTV/DSCR, property-tax and title differences). No find-and-replace state pages |
 | Construction-to-permanent (Copilot grounding) | `commercial-real-estate-loans/articles/construction-to-permanent-financing/` | Audit against template; add typical rates/timeline numbers |
-| 5 Cs of lending (Copilot grounding) | none found | **New** spoke under `/how-lenders-decide/` |
-| Unsecured LOC for startups/new businesses (Copilot grounding) | only vs-pages under `startup-financing/articles/` | **New** spoke: "Unsecured business line of credit for a new business (under 2 years)" |
+| 5 Cs of lending (Copilot grounding) | `/how-lenders-decide/` (title "The 5 C's of Credit"; Quick Answer + one section per C + lender-weighting table) | **Not a new page** (found 2026-10-27). Strengthen in place if anything; Alex to decide |
+| Unsecured LOC for startups/new businesses (Copilot grounding) | `business-line-of-credit/articles/business-line-of-credit-for-startups/` ("Startup Business Line of Credit: Under 2 Years", secured vs unsecured section) | **Not a new page** (found 2026-10-27). Strengthen in place if anything; Alex to decide |
 
 ---
 
