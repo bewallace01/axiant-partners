@@ -66,27 +66,32 @@ IRS_946 = ("https://www.irs.gov/publications/p946",
 ARTICLES = [
     {
         "slug": "guard-payroll-between-invoices",
-        "crumb": "Payroll Between Invoices",
-        "title": "Covering Guard Payroll Between Invoices | Axiant Partners",
-        "og_title": "Covering Guard Payroll Between Invoices",
-        "h1": "Covering Guard Payroll Between Invoices",
-        "headline": "Covering Guard Payroll Between Invoices",
-        "lede": "Wages weekly, invoices at sixty days - the structural gap that "
-                "defines this industry and the instruments built for it",
-        "meta_desc": "Guard companies pay wages weekly and get paid in 30 to 60 "
-                     "days. How invoice factoring, payroll funding and a line of "
-                     "credit compare for covering the gap, and which fits when.",
-        "article_desc": "How security guard companies finance the gap between "
-                        "weekly payroll and slow-paying contracts.",
+        "crumb": "Payroll Funding",
+        "title": "Security Guard Payroll Funding: Rates and Terms | Axiant",
+        "og_title": "Security Guard Payroll Funding: Rates, Terms and How It Works",
+        "h1": "Security Guard Payroll Funding: Rates, Terms and How It Works",
+        "headline": "Security Guard Payroll Funding: Rates, Terms and How It Works",
+        "lede": "Wages weekly, invoices at sixty days - how payroll funding "
+                "covers the gap, what it typically costs, and when a line of "
+                "credit fits better",
+        "meta_desc": "Security guard payroll funding advances commonly 80-95% of "
+                     "client invoices, for a fee of about 1-5% of invoice value. "
+                     "How it works, typical terms, and how it compares with a "
+                     "line of credit.",
+        "article_desc": "How payroll funding covers the gap between a security "
+                        "guard company's weekly payroll and net-30 to net-60 "
+                        "client payments, with typical rates and terms.",
         "keywords": "guard payroll funding, security company payroll finance, "
                     "invoice factoring security guards, net 60 payroll gap",
-        "quick_answer": "The gap is structural, not a sign of trouble: wages run "
-                        "<strong>weekly or fortnightly</strong> while commercial and "
-                        "municipal clients pay <strong>net-30 to net-60</strong>. "
-                        "<strong>Invoice factoring</strong> is the most common fit "
-                        "because it advances against the invoice itself and scales "
-                        "with billing; a line of credit is cheaper but harder to get "
-                        "early. Growth widens the gap rather than closing it.",
+        "quick_answer": "Security guard payroll funding is invoice factoring timed "
+                        "to the wage run: wages go out <strong>weekly or "
+                        "fortnightly</strong> while clients pay <strong>net-30 to "
+                        "net-60</strong>, so a funder advances commonly "
+                        "<strong>80-95%</strong> of each invoice and is repaid when "
+                        "the client pays. Fees commonly run about <strong>1-5% of "
+                        "invoice value</strong>, higher when clients pay slowly. "
+                        "These are typical ranges across funders, not a quote. A "
+                        "line of credit is cheaper but harder to get early.",
         "sections": [
             ("Why This Industry Feels It Worse",
              "<p>Almost every service business waits to be paid. Guard companies have "
@@ -127,6 +132,48 @@ ARTICLES = [
              "<em>your client's</em> ability to pay rather than yours. A young guard "
              "company billing a well-rated property manager can often factor when it "
              "could not get a line of credit.</p>"),
+            ("Typical Payroll Funding Rates and Terms",
+             "<p>Payroll funding is priced as a fee on each invoice rather than as "
+             "an interest rate. The ranges below are those conventional across "
+             "funders and lenders, not anyone's quote; your file decides where you "
+             "land.</p>"
+             '<div class="table-wrap"><table style="width:100%">'
+             "<thead><tr><th>Term</th><th>Payroll funding</th><th>Line of credit</th>"
+             "</tr></thead><tbody>"
+             '<tr><td data-label="Term">Advance</td>'
+             '<td data-label="Payroll funding">Commonly 80-95% of invoice value</td>'
+             '<td data-label="Line of credit">A set limit you draw against</td></tr>'
+             '<tr><td data-label="Term">Cost</td>'
+             '<td data-label="Payroll funding">About 1-5% of invoice value</td>'
+             '<td data-label="Line of credit">About 8-13% APR at banks; 14-30%+ '
+             "online</td></tr>"
+             '<tr><td data-label="Term">Speed</td>'
+             '<td data-label="Payroll funding">Setup takes a few business days; '
+             "then invoices often fund within 24 hours</td>"
+             '<td data-label="Line of credit">Weeks at a bank; faster online</td></tr>'
+             '<tr><td data-label="Term">Decided by</td>'
+             '<td data-label="Payroll funding">Mostly your clients&rsquo; credit</td>'
+             '<td data-label="Line of credit">Your credit, revenue and time in '
+             "business</td></tr>"
+             "</tbody></table></div>"
+             "<p><strong>What moves the fee.</strong> Slow-paying clients cost more, "
+             "because the fee grows with how long the invoice is outstanding; so do "
+             "small invoice volumes and concentration in one client. Recourse "
+             "funding, where you buy back an invoice the client never pays, usually "
+             "costs less than non-recourse, where the funder absorbs that credit "
+             "loss. See <a href=\"/invoice-factoring.html\">how invoice factoring "
+             "works</a> and <a href=\"/business-line-of-credit/articles/typical-business-line-of-credit-rates-2026/\">"
+             "typical line of credit rates</a> for the detail behind each column.</p>"
+             "<p><strong>Worked example (illustrative).</strong> A guard company "
+             "bills a property manager $60,000 at month end on net-45 terms. At an "
+             "85% advance it receives $51,000 within days of invoicing, which covers "
+             "the next payroll runs. If the fee works out at 3% of the invoice, "
+             "$1,800, the funder releases the remaining $7,200 once the client pays. "
+             "The numbers are an example, not a quote; your advance and fee depend "
+             "on your clients and volume.</p>"
+             "<p>To see which structure your contracts support, "
+             "<a href=\"/match.html\">get matched with funders that work with guard "
+             "companies</a>.</p>"),
             ("Growth Makes the Gap Wider, Not Narrower",
              "<p>The counter-intuitive part, and the thing that catches owners out.</p>"
              "<p>Winning a new contract means staffing posts immediately. Wages start "
@@ -179,6 +226,11 @@ ARTICLES = [
              "picture.</p>"),
         ],
         "faqs": [
+            ("How much does security guard payroll funding cost?",
+             "Commonly about 1-5% of invoice value, with the advance commonly 80-95% "
+             "of the invoice. Slow-paying clients, small volumes and reliance on one "
+             "client push the fee up. These are typical ranges across funders, not "
+             "a quote."),
             ("Why do security guard companies struggle with payroll?",
              "Because labour is nearly the entire cost, wages are legally time-bound, "
              "and commercial and municipal clients pay on net-30 to net-60 as "
