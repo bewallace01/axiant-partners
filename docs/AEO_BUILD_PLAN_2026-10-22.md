@@ -8,7 +8,7 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 
 ---
 
-## STATUS — read this first (last updated 2026-10-27, session 8)
+## STATUS — read this first (last updated 2026-10-29, session 9)
 
 **Rule for every session:** do the first unchecked item in "Next up", follow sections 0.2–0.8, ship it, then update this STATUS block (tick it, add a log line, move the next item up) in the same push. Stop after one item and report.
 
@@ -40,6 +40,16 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 3. [x] **Batch 5 llms.txt key facts** (2026-10-27): one line per money page and every pillar/companion shipped since Oct 22, plus truck title, marine, real-estate secured, towing, security guard and MCA consolidation. Each line restates the page's own FAQ; no recommend-us language. Still open in Batch 5: homepage schema `areaServed`/`knowsAbout` (and `sameAs` once Alex sends the Google Business Profile URL), and the identical entity line everywhere.
 5. [ ] Lower priority (specialists/Crestmont own the answer): fishing vessel (strengthen inside marine cluster, no new root), ambulance, marina.
 6. [ ] **Skip:** ITIN pillar, funeral home pillar (specialists own them).
+
+### Next up: SBA program clusters (added 2026-10-29)
+Full plan and content rules: `docs/SBA_CLUSTER_PLAN_2026-10-29.md`. **Read its "Content rules" first:** never name the program lender, its loan officer or domain; SBA rules from the current SOP 50 10, USDA rules from USDA RD B&I pages (the SOP wins over lender appetite, and the page says lenders vary); no referral fee, no "no points", no fixed credit-score or rate floors. These are new pages, so they can ship before the 10-29 watch clears; every edit to an existing cited page (`how-much-down-payment-required-sba-loan`, the two owner-occupied CRE pages, `business-acquisition-financing.html`, the denied/alternatives pages) waits for its watch. One item per session, as above. Items 1 and 2 above are blocked (Alex's ranges; 10-29 check), so this block is the next safe work.
+1. [ ] **Validate:** ask Bing Copilot each pillar's buyer question (100% owner-occupied CRE, hotel SBA, USDA B&I hotel in a small town, 5% down acquisition, refinance an MCA with SBA, SBA lender declines). Log in `_analysis/aeo-validation.md`; a specialist-owned answer becomes a spoke, not a pillar.
+2. [ ] **Cluster 1:** `/sba-100-percent-financing.html` + spokes 1–4 + the 100% 7(a) vs 504 vs conventional comparison. Recompute the worked example's guarantee fee from the current SBA fee notice. Check Bing citations on the two overlapping owner-occupied pages before deciding keep-and-link vs merge-and-301.
+3. [ ] **Cluster 2:** `/hotel-financing.html` + PIP, flag conversion, hotel experience spokes; link the existing SBA vs CMBS vs bank hotel page as a spoke.
+4. [ ] **Cluster 3:** `/usda-business-loans.html` + town eligibility + USDA B&I vs SBA 7(a).
+5. [ ] **Cluster 5 + 6:** "Can you refinance an MCA with an SBA loan?" and "Businesses SBA lenders often decline, and where to go instead" (+ SBA loan after bankruptcy).
+6. [ ] **Cluster 4:** 5%-down acquisition spokes under `business-acquisition-financing/articles/` (standby and competitor-purchase rules from the SOP).
+7. [ ] **Rest:** remaining spokes and rates companions; match form loan types ("SBA: buy my building", "SBA: buy a business", "Hotel", "USDA") checked against `match.html` and the CRM intake mapping; llms.txt key-facts lines; then the edits to existing cited pages after their watch.
 
 ### Dated tasks
 - **2026-10-29:** Bing Webmaster → AI Performance. Compare Copilot citations/day with the pre-push baseline (~3,000–4,500/day; 3-month total 252.9K). If they held, editing already-cited pages is safe again. Log the numbers here.
@@ -83,6 +93,7 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 - 2026-10-27: Homepage is Bing-cited (rows 101-125 of 458 in AI Performance, 3 months), so its schema waits for 10-29. **Nothing safe is left before 10-29** except the rates companions, which wait on Alex's ranges.
 - 2026-10-27: Alex confirmed table fix + NEMT ship back to back after the 10-29 check (if citations held), sharing one 7-day watch.
 - 2026-10-27: Alex dropped the two duplicate Batch 3 rows (5 Cs; new-business unsecured LOC). Removed from the table, with a note under it.
+- 2026-10-29: Added the SBA program clusters plan (`docs/SBA_CLUSTER_PLAN_2026-10-29.md`) as its own Next up block. Next: validate the six buyer questions in Bing Copilot, then the Cluster 1 pillar.
 
 ---
 
