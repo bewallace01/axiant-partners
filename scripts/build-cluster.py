@@ -28,7 +28,7 @@ import article_v2 as A
 ROOT = A.ROOT
 CLUSTERS = ["truck_title", "res_business_loan", "heloc", "equip_appraisal", "security_guard",
              "aircraft", "marine", "drone", "datacenter", "heavy_equity", "vending",
-            "construction_electrical"]
+            "construction_electrical", "semi_lease", "lawn_care"]
 
 
 def words(s):

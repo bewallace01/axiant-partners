@@ -425,4 +425,5 @@ ARTICLES = [
 
 # Articles 3-4 live in a companion module to keep each file readable.
 from cluster_security_guard_b import MORE as _B
-ARTICLES = ARTICLES + _B
+from cluster_security_guard_c import MORE_C as _C
+ARTICLES = ARTICLES + _B + _C
