@@ -42,9 +42,7 @@ MORE_C = [
         "lede": "Guards get paid weekly and clients pay in 30 to 60 days. What "
                 "factoring those invoices costs, what funders check, and when it "
                 "is the wrong tool",
-        "meta_desc": "Security guard factoring commonly advances 80-95% of an "
-                     "invoice for a fee of about 1-5%. How it works on net-30 to "
-                     "net-60 contracts, government invoices, and what funders check.",
+        "meta_desc": "Security guard factoring commonly advances 80-95% of an invoice for a fee of about 1-5%. How it works on net-30 to net-60 contracts and what funders check.",
         "article_desc": "How security guard companies factor client invoices to "
                         "meet weekly payroll, with typical advances, fees, a worked "
                         "example and the checks funders run.",

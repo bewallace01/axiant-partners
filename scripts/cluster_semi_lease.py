@@ -43,10 +43,7 @@ ARTICLES = [
         "headline": "How Much Down Payment Do You Need to Lease a Semi Truck?",
         "lede": "What a lease really asks for up front, why it is usually less than "
                 "a loan, and the cost you still carry at the end",
-        "meta_desc": "A semi truck lease commonly asks for about 0-10% down plus the "
-                     "first payment and fees, usually less than a loan. See a "
-                     "worked example, what moves the number, and the end-of-lease "
-                     "catch.",
+        "meta_desc": "A semi truck lease commonly asks about 0-10% down plus the first payment and fees, usually less than a loan. See a worked example and the end-of-lease catch.",
         "article_desc": "How much cash a semi truck lease takes up front, what raises "
                         "or lowers it, and how lease and loan totals compare on the "
                         "same truck.",

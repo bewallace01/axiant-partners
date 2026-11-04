@@ -42,10 +42,7 @@ ARTICLES = [
         "headline": "Lawn Care Business Loans: Options, Rates and What You Qualify For",
         "lede": "For owner-operators and small mowing crews: how to pay for a mower, "
                 "a trailer, or the slow months, and what lenders will want to see",
-        "meta_desc": "Lawn care business loans compared: mower financing about 6-15% "
-                     "with 0-20% down, SBA microloans up to $50,000, and lines of "
-                     "credit for winter. What small crews and new companies qualify "
-                     "for.",
+        "meta_desc": "Lawn care business loans compared: mower financing about 6-15% with 0-20% down, SBA microloans up to $50,000, and lines of credit for slow months.",
         "article_desc": "Financing options for lawn care owner-operators and small "
                         "crews, with typical rates, a worked example and what "
                         "lenders check.",
