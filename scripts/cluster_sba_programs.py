@@ -208,7 +208,7 @@ ARTICLES = [{
          "agreement is part of the franchise documents for a brand on the SBA's Franchise Directory.</p>"),
         ("SBA 7(a), SBA 504 and Other Options Compared",
          table(["", "SBA 7(a)", "SBA 504", "CMBS or bank"], [
-             ["Minimum equity", "10% on a change of ownership", "15%, or 20% with a new business", "Commonly 25-35%"],
+             ["Minimum equity", "10% on a change of ownership", "15%, or 20% with a new business", "Commonly 25-30%"],
              ["Maximum term", "Up to 25 years if 85%+ of costs are real estate", "10, 20 or 25 years", "Often 5-10 years"],
              ["Loan limit", "$5 million", "Depends on project and debenture limits", "Lender limit"],
              ["Covers goodwill or PIP", "Often both", "Fixed assets, not working capital", "Case by case"],
