@@ -36,6 +36,7 @@
 <meta content="SBA 7(a), term loans, seller carry, and securities-based lending to buy a business — compared. Down payment, rates, and how to get matched." name="twitter:description"/>
 <link as="image" href="/assets/bloc-hero-business-office.webp" rel="preload" type="image/webp">
 <link href="/axiant-v2.css?v=202610051019" rel="stylesheet"/>
+<link href="/axiant-v2-tools.css?v=202611051" rel="stylesheet"/>
 </link></meta></meta></meta></meta></meta><script type="application/ld+json">
     {"@context":"https://schema.org","@type":"FinancialService","name":"Business Acquisition Financing","description":"Financing to buy an existing business: SBA 7(a) acquisition loans, conventional term loans, seller financing, and securities-based lending. Typically $250K to $5M+ for U.S. buyers.","url":"https://axiantpartners.com/business-acquisition-financing.html","provider":{"@id":"https://axiantpartners.com/#organization"},"areaServed":"US"}
     </script>
@@ -282,17 +283,39 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <div class="group-head"><h2 id="estimate-your-acquisition-loan-payment">Estimate Your Acquisition Loan Payment</h2></div>
 <div class="prose">
 <p>Enter the purchase price and your down payment to see a rough monthly payment. This uses a standard amortized loan at an illustrative rate — adjust to fit your scenario.</p>
-<p><label for="baPrice">Purchase price ($)</label><input id="baPrice" inputmode="numeric" min="10000" step="10000" type="number" value="900000"/></p>
-<p><label for="baDown">Down payment (%)</label><input id="baDown" max="90" min="0" step="1" type="number" value="10"/></p>
-<p><label for="baRate">Illustrative APR (%)</label><input id="baRate" max="30" min="1" step="0.25" type="number" value="11.5"/></p>
-<p><label for="baTerm">Term (years)</label><input id="baTerm" max="25" min="1" step="1" type="number" value="10"/></p>
-<p>Loan amount</p>
-<p>$810,000</p>
-<p>Est. monthly payment</p>
-<p>$11,389</p>
-<p>Total interest</p>
-<p>$556,637</p>
-<p class="calc-note">Estimate only — illustrative rate, not a quote. SBA 7(a) rates are usually variable and tied to prime. <a href="/match.html?type=sba&amp;amount=810000" id="baCta">See if you qualify for $810,000 →</a><br/>Checking options won’t affect your credit · no obligation.</p>
+<div class="ba-est">
+                    <div class="ba-est-grid">
+                        <div><label for="baPrice">Purchase price ($)</label><input id="baPrice" type="number" inputmode="numeric" value="900000" min="10000" step="10000"></div>
+                        <div><label for="baDown">Down payment (%)</label><input id="baDown" type="number" value="10" min="0" max="90" step="1"></div>
+                        <div><label for="baRate">Illustrative APR (%)</label><input id="baRate" type="number" value="11.5" min="1" max="30" step="0.25"></div>
+                        <div><label for="baTerm">Term (years)</label><input id="baTerm" type="number" value="10" min="1" max="25" step="1"></div>
+                    </div>
+                    <div class="ba-est-out">
+                        <div class="ba-outbox"><div class="k">Loan amount</div><div class="v" id="baLoan">$810,000</div></div>
+                        <div class="ba-outbox"><div class="k">Est. monthly payment</div><div class="v" id="baPay">$11,389</div></div>
+                        <div class="ba-outbox"><div class="k">Total interest</div><div class="v" id="baInt">$556,637</div></div>
+                    </div>
+                    <p class="calc-note" style="margin-top:1rem;font-size:0.85rem;color:var(--text-tertiary);">Estimate only &mdash; illustrative rate, not a quote. SBA 7(a) rates are usually variable and tied to prime. <a id="baCta" href="/match.html?type=sba&amount=810000">See if you qualify for $810,000 &rarr;</a><br>Checking options won&rsquo;t affect your credit &middot; no obligation.</p>
+                </div>
+<script>
+                (function(){
+                    var price=document.getElementById('baPrice'),down=document.getElementById('baDown'),rate=document.getElementById('baRate'),term=document.getElementById('baTerm');
+                    var loanEl=document.getElementById('baLoan'),payEl=document.getElementById('baPay'),intEl=document.getElementById('baInt'),cta=document.getElementById('baCta');
+                    if(!price||!down||!rate||!term)return;
+                    function fmt(n){return '$'+Math.round(n).toLocaleString('en-US');}
+                    function pay(p,apr,n){var r=(apr/100)/12;return r>0?(p*r)/(1-Math.pow(1+r,-n)):p/n;}
+                    function calc(){
+                        var P=+price.value||0, d=Math.min(90,Math.max(0,+down.value||0));
+                        var loan=P*(1-d/100), n=Math.max(1,(+term.value||1)*12);
+                        var m=pay(loan,+rate.value||0,n), total=m*n;
+                        loanEl.textContent=fmt(loan); payEl.textContent=fmt(m); intEl.textContent=fmt(total-loan);
+                        var amt=Math.round(loan);
+                        cta.href='/match.html?type=sba&amount='+amt;
+                        cta.textContent='See if you qualify for '+fmt(loan)+' →';
+                    }
+                    [price,down,rate,term].forEach(function(el){el.addEventListener('input',calc);}); calc();
+                })();
+                </script>
 </div>
 </div>
 </div>

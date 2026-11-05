@@ -176,13 +176,13 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <nav aria-label="Breadcrumb" class="crumbs"><a href="/">Home</a> › <a href="/commercial-real-estate-loans.html">Commercial Real Estate Loans</a> › <a href="/commercial-real-estate-loans/articles/">Articles</a> › <span aria-current="page">Commercial Mortgage Calculator</span></nav>
 <h2 id="commercial-real-estate-loan-calculator">Commercial Mortgage Calculator</h2>
 <p class="lede-para">Enter the purchase price, pick a loan program (it fills a typical down payment you can edit), then set the rate and term. Figures are <strong>illustrative estimates, not a quote</strong> — your real numbers depend on credit, DSCR, occupancy, and the lender program. The payment shown is principal and interest only; taxes, insurance, and fees are separate.</p>
-<div id="cre-calc">
-<div style="display:flex">
-<label>Purchase price
-                  <input id="ccPrice" inputmode="numeric" style="display:block" type="text" value="$1,000,000"/>
+<div id="cre-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+<label style="flex:1 1 220px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Purchase price
+                  <input id="ccPrice" inputmode="numeric" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;" type="text" value="$1,000,000"/>
 </label>
-<label>Loan program
-                  <select id="ccProg" style="display:block">
+<label style="flex:1 1 220px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Loan program
+                  <select id="ccProg" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
 <option value="10">SBA 504 (owner-occupied) — ~10% down</option>
 <option value="15">SBA 7(a) (owner-occupied) — ~15% down</option>
 <option selected="" value="25">Conventional commercial — ~25% down</option>
@@ -191,53 +191,82 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 </select>
 </label>
 </div>
-<div style="display:flex">
-<label>Down payment %
-                  <input id="ccDown" max="90" min="0" step="1" style="display:block" type="number" value="25"/>
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+<label style="flex:1 1 130px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Down payment %
+                  <input id="ccDown" max="90" min="0" step="1" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;" type="number" value="25"/>
 </label>
-<label>Interest rate %
-                  <input id="ccRate" max="20" min="0" step="0.05" style="display:block" type="number" value="7.5"/>
+<label style="flex:1 1 130px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Interest rate %
+                  <input id="ccRate" max="20" min="0" step="0.05" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;" type="number" value="7.5"/>
 </label>
-<label>Amortization (yrs)
-                  <select id="ccAmort" style="display:block">
+<label style="flex:1 1 130px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Amortization (yrs)
+                  <select id="ccAmort" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
 <option>15</option><option>20</option><option selected="">25</option><option>30</option>
 </select>
 </label>
-<label>Balloon (yrs)
-                  <select id="ccBalloon" style="display:block">
+<label style="flex:1 1 130px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Balloon (yrs)
+                  <select id="ccBalloon" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
 <option value="0">None (fully amortizing)</option>
 <option value="5">5</option><option value="7">7</option><option selected="" value="10">10</option>
 </select>
 </label>
 </div>
-<div style="display:flex">
-<div>
-<div>Monthly payment</div>
-<div id="ccPay">—</div>
+<div style="display:flex;flex-wrap:wrap;gap:14px;">
+<div style="flex:1 1 160px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Monthly payment</div>
+<div id="ccPay" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
-<div>
-<div>Loan amount</div>
-<div id="ccLoan">—</div>
+<div style="flex:1 1 160px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Loan amount</div>
+<div id="ccLoan" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
-<div>
-<div>Down payment</div>
-<div id="ccDownAmt">—</div>
-</div>
-</div>
-<div style="display:flex">
-<div>
-<div>Total interest (to balloon)</div>
-<div id="ccInt">—</div>
-</div>
-<div>
-<div>Balloon balance due</div>
-<div id="ccBal">—</div>
+<div style="flex:1 1 160px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Down payment</div>
+<div id="ccDownAmt" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
 </div>
-<p>Illustrative estimate only, not a quote or offer of credit. Principal &amp; interest only.</p>
-<a class="btn-primary" href="/match.html?type=real-estate" id="ccCta">See real numbers — get matched</a>
-<p>Checking options won’t affect your credit · 24–48 hr decisions · no obligation.</p>
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;">
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Total interest (to balloon)</div>
+<div id="ccInt" style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Balloon balance due</div>
+<div id="ccBal" style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
+</div>
+</div>
+<p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only, not a quote or offer of credit. Principal &amp; interest only.</p>
+<a class="btn-primary" href="/match.html?type=real-estate" id="ccCta" style="margin-top:14px;">See real numbers — get matched</a>
+<p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won’t affect your credit · 24–48 hr decisions · no obligation.</p>
+</div>
+<script>
+            (function(){
+              var $=function(id){return document.getElementById(id);};
+              var price=$('ccPrice'),prog=$('ccProg'),down=$('ccDown'),rate=$('ccRate'),amort=$('ccAmort'),balloon=$('ccBalloon'),
+                  outPay=$('ccPay'),outLoan=$('ccLoan'),outDownAmt=$('ccDownAmt'),outInt=$('ccInt'),outBal=$('ccBal'),cta=$('ccCta');
+              if(!price) return;
+              var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+              var num=function(el){return parseFloat((el.value||'').replace(/[^0-9.]/g,''))||0;};
+              prog.addEventListener('change',function(){down.value=prog.value;calc();});
+              function calc(){
+                var p=num(price),d=Math.min(Math.max(num(down),0),90)/100,r=num(rate)/100/12,
+                    nAmort=(+amort.value)*12,balYrs=+balloon.value;
+                if(p<=0){[outPay,outLoan,outDownAmt,outInt,outBal].forEach(function(o){o.textContent='—';});return;}
+                var loan=p*(1-d),downAmt=p*d;
+                var pay=r>0?loan*r/(1-Math.pow(1+r,-nAmort)):loan/nAmort;
+                outLoan.textContent=fmt(loan);outDownAmt.textContent=fmt(downAmt);outPay.textContent=fmt(pay)+'/mo';
+                var months=balYrs>0?Math.min(balYrs*12,nAmort):nAmort;
+                var bal=r>0?loan*Math.pow(1+r,months)-pay*((Math.pow(1+r,months)-1)/r):loan-pay*months;
+                bal=Math.max(0,bal);
+                outInt.textContent=fmt(pay*months-(loan-bal));
+                outBal.textContent=balYrs>0?fmt(bal):'Paid off';
+                if(cta){cta.href='/match.html?type=real-estate&amount='+Math.round(loan);cta.textContent='See if you qualify for '+fmt(loan)+' →';}
+              }
+              [price,down,rate].forEach(function(el){el.addEventListener('input',calc);});
+              [amort,balloon].forEach(function(el){el.addEventListener('change',calc);});
+              price.addEventListener('blur',function(){var n=num(price);if(n>0)price.value=fmt(n);});
+              calc();
+            })();
+            </script>
 <h2 id="one-tool-many-names">Commercial Property Loan Calculator, Commercial Mortgage Calculator — Same Tool</h2>
 <p>These names all describe the same calculation, and lenders use them interchangeably. Whether you searched for a <strong>commercial mortgage calculator</strong>, a <strong>commercial real estate loan calculator</strong>, a <strong>commercial property loan calculator</strong>, or a <strong>commercial mortgage loan calculator</strong>, the math above is what you want: loan amount, rate, amortization, and the balloon at maturity. The only real distinction worth knowing is <em>mortgage</em> vs <em>loan</em> in a legal sense — a commercial mortgage is specifically secured by the property, while “commercial loan” can also mean unsecured or equipment-backed debt. For a purchase or refinance of a building, they mean the same thing.</p>
 <h2 id="how-the-payment-is-calculated">How a Commercial Mortgage Payment Is Calculated</h2>

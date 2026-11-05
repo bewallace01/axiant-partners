@@ -176,34 +176,57 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <nav aria-label="Breadcrumb" class="crumbs"><a href="/">Home</a> › <a href="/business-debt-relief.html">Business Debt Relief</a> › <a href="/business-debt-relief/articles/">Articles</a> › <span aria-current="page">Stacked-Debt Relief Calculator</span></nav>
 <h2 id="calculator">Estimate Your Consolidated Payment</h2>
 <p class="lede-para">Enter your numbers below. The estimate updates as you type.</p>
-<div id="sdr-calc">
-<div style="display:flex">
-<label>Total balance owed across all advances
-      <input id="sdrBal" inputmode="numeric" style="display:block" type="text" value="$150,000"/>
+<div id="sdr-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Total balance owed across all advances
+      <input id="sdrBal" inputmode="numeric" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;" type="text" value="$150,000"/>
 </label>
-<label>Combined weekly payment now
-      <input id="sdrPay" inputmode="numeric" style="display:block" type="text" value="$5,000"/>
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Combined weekly payment now
+      <input id="sdrPay" inputmode="numeric" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;" type="text" value="$5,000"/>
 </label>
-<label>Number of positions
-      <select id="sdrPos" style="display:block">
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Number of positions
+      <select id="sdrPos" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
 <option>1</option><option>2</option><option selected="">3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option>
 </select>
 </label>
 </div>
-<div style="display:flex">
-<div>
-<div>Estimated single weekly payment</div>
-<div id="sdrOutPay">—</div>
+<div style="display:flex;flex-wrap:wrap;gap:14px;">
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Estimated single weekly payment</div>
+<div id="sdrOutPay" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
-<div>
-<div>Estimated monthly cash freed up</div>
-<div id="sdrOutFreed">—</div>
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Estimated monthly cash freed up</div>
+<div id="sdrOutFreed" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
 </div>
-<p>Illustrative estimate based on a typical 40–60% payment reduction. Not a quote, approval, or offer of credit.</p>
-<a class="btn-primary" href="/match.html?type=refinance" id="sdrCta">Get a free debt review →</a>
-<p>No cost for match guidance · checking options won’t affect your credit · no obligation.</p>
+<p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate based on a typical 40–60% payment reduction. Not a quote, approval, or offer of credit.</p>
+<a class="btn-primary" href="/match.html?type=refinance" id="sdrCta" style="margin-top:14px;">Get a free debt review →</a>
+<p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">No cost for match guidance · checking options won’t affect your credit · no obligation.</p>
 </div>
+<script>
+(function(){
+  var bal=document.getElementById('sdrBal'),pay=document.getElementById('sdrPay'),pos=document.getElementById('sdrPos'),
+      outPay=document.getElementById('sdrOutPay'),outFreed=document.getElementById('sdrOutFreed'),cta=document.getElementById('sdrCta');
+  if(!pay) return;
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+  var num=function(el){return parseFloat((el.value||'').replace(/[^0-9.]/g,''))||0;};
+  var LO=0.40, HI=0.60; // typical payment-reduction band
+  function calc(){
+    var w=num(pay), b=num(bal);
+    if(w<=0){outPay.textContent='—';outFreed.textContent='—';if(cta){cta.href='/match.html?type=refinance';cta.textContent='Get a free debt review →';}return;}
+    var newLo=w*(1-HI), newHi=w*(1-LO);
+    outPay.textContent=fmt(newLo)+' – '+fmt(newHi)+' / wk';
+    var freedLo=(w-newHi)*4.33, freedHi=(w-newLo)*4.33;
+    outFreed.textContent=fmt(freedLo)+' – '+fmt(freedHi);
+    if(cta){cta.href='/match.html?type=refinance'+(b>0?'&amount='+Math.round(b):'');cta.textContent='See if you qualify to cut your payment →';}
+  }
+  pay.addEventListener('input',calc); bal.addEventListener('input',calc); pos.addEventListener('change',calc);
+  pay.addEventListener('blur',function(){var n=num(pay);if(n>0)pay.value=fmt(n);});
+  bal.addEventListener('blur',function(){var n=num(bal);if(n>0)bal.value=fmt(n);});
+  calc();
+})();
+</script>
 <h2 id="how-to-read">How To Read Your Estimate</h2>
 <p>The two numbers map to the two things that matter when you’re buried in stacked advances:</p>
 <ul>

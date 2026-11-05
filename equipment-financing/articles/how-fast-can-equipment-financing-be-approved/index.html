@@ -199,13 +199,13 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <p>Smaller transactions can close faster. Equipment financing is generally quicker than SBA loans because the asset serves as collateral and underwriting is more direct.</p>
 <h2 id="estimate-your-equipment-payment">Estimate Your Equipment Payment</h2>
 <p>While you line up a fast approval, here’s a quick illustrative monthly payment by equipment price and term. These use an <strong>illustrative 8–15% APR range, not a quote</strong> — your real rate depends on credit, the equipment, and time in business.</p>
-<div id="eq-calc">
-<div style="display:flex">
-<label>Equipment price
-                  <input id="eqPrice" inputmode="numeric" style="display:block" type="text" value="$100,000"/>
+<div id="eq-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Equipment price
+                  <input id="eqPrice" inputmode="numeric" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;" type="text" value="$100,000"/>
 </label>
-<label>Term
-                  <select id="eqTerm" style="display:block">
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Term
+                  <select id="eqTerm" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
 <option value="36">36 months</option>
 <option value="48">48 months</option>
 <option selected="" value="60">60 months</option>
@@ -213,16 +213,36 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 </select>
 </label>
 </div>
-<div style="display:flex">
-<div>
-<div>Estimated monthly payment</div>
-<div id="eqPay">—</div>
+<div style="display:flex;flex-wrap:wrap;gap:14px;">
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Estimated monthly payment</div>
+<div id="eqPay" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
 </div>
-<p>Illustrative estimate only (8–15% APR), excludes fees and any down payment. Not a quote or offer of credit.</p>
-<a class="btn-primary" href="/match.html?type=equipment" id="eqCta">See real equipment offers — get matched</a>
-<p>Checking options won’t affect your credit · 24–48 hr decisions · no obligation.</p>
+<p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only (8–15% APR), excludes fees and any down payment. Not a quote or offer of credit.</p>
+<a class="btn-primary" href="/match.html?type=equipment" id="eqCta" style="margin-top:14px;">See real equipment offers — get matched</a>
+<p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won’t affect your credit · 24–48 hr decisions · no obligation.</p>
 </div>
+<script>
+            (function(){
+              var price=document.getElementById('eqPrice'),term=document.getElementById('eqTerm'),
+                  out=document.getElementById('eqPay'),cta=document.getElementById('eqCta');
+              if(!price) return;
+              var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+              function pay(p,apr,n){var r=apr/12;return r>0?(p*r)/(1-Math.pow(1+r,-n)):p/n;}
+              function calc(){
+                var p=parseFloat((price.value||'').replace(/[^0-9.]/g,''))||0;
+                var n=+term.value;
+                if(p<=0){out.textContent='—';if(cta){cta.href='/match.html?type=equipment';cta.textContent='See real equipment offers — get matched';}return;}
+                out.textContent=fmt(pay(p,0.08,n))+' – '+fmt(pay(p,0.15,n));
+                if(cta){cta.href='/match.html?type=equipment&amount='+Math.round(p);cta.textContent='See if you qualify for '+fmt(p)+' →';}
+              }
+              price.addEventListener('input',calc);
+              price.addEventListener('blur',function(){var v=parseFloat((price.value||'').replace(/[^0-9.]/g,''));if(v>0)price.value=fmt(v);});
+              term.addEventListener('change',calc);
+              calc();
+            })();
+            </script>
 <h2 id="why-equipment-financing-is-faster-than-traditional-loans">Why Equipment Financing Is Faster Than Traditional Loans</h2>
 <p><a href="/equipment-financing.html">Equipment financing</a> is asset-backed. Lenders rely on equipment resale value, asset liquidity, and depreciation predictability. The collateral reduces risk, so lenders don't need to perform the same depth of financial analysis required for unsecured loans. Reduced underwriting complexity–since equipment serves as collateral–helps approvals move faster than unsecured or fully documented commercial loans. SBA loans, for example, involve government review and extensive documentation; equipment financing typically bypasses that complexity. Banks and specialized equipment lenders can often make credit decisions in hours or days rather than weeks.</p>
 <p class="section-label" id="what-factors-affect-approval-speed">What Factors Affect Approval Speed?</p>

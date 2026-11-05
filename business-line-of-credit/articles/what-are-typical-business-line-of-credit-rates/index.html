@@ -279,13 +279,13 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <p>Because pricing is tied to risk profile, the lowest advertised rate is not always what most borrowers receive. Some lenders also charge an annual fee or a fee per draw. These can add to your total cost, especially if you draw frequently in smaller amounts. Before accepting an offer, review the full fee schedule, including renewal fees, and factor them into your decision. Use our <a href="/calculator.html">loan calculator</a> to estimate monthly payments and total cost for different scenarios.</p>
 <h2 id="estimate-the-cost-of-a-draw">Estimate the Cost of a Draw</h2>
 <p>Enter a draw amount and pick a lender type to see the illustrative interest cost while that balance is outstanding. A line is revolving, so you generally pay interest only on what you draw. These figures use the <strong>illustrative ranges above, not a quote</strong> — your real APR depends on credit, revenue, structure, and current benchmark rates, and some lenders add draw or annual fees on top.</p>
-<div id="bloc-draw-calc">
-<div style="display:flex">
-<label>Draw amount outstanding
-                  <input id="blocDrawAmt" inputmode="numeric" style="display:block" type="text" value="$50,000"/>
+<div id="bloc-draw-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Draw amount outstanding
+                  <input id="blocDrawAmt" inputmode="numeric" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;" type="text" value="$50,000"/>
 </label>
-<label>Lender type (illustrative APR)
-                  <select id="blocDrawType" style="display:block">
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Lender type (illustrative APR)
+                  <select id="blocDrawType" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
 <option value="8,13">Bank / credit-union secured (8–13%)</option>
 <option selected="" value="10,18">Bank unsecured (10–18%)</option>
 <option value="15,60">Online / fintech (15–60%+)</option>
@@ -293,20 +293,41 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 </select>
 </label>
 </div>
-<div style="display:flex">
-<div>
-<div>Est. monthly interest</div>
-<div id="blocDrawMo">—</div>
+<div style="display:flex;flex-wrap:wrap;gap:14px;">
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Est. monthly interest</div>
+<div id="blocDrawMo" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
-<div>
-<div>Est. annual interest</div>
-<div id="blocDrawYr">—</div>
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Est. annual interest</div>
+<div id="blocDrawYr" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
 </div>
-<p>Illustrative interest only — excludes draw, annual, and renewal fees. Not a quote or offer of credit.</p>
-<a class="btn-primary" href="/match.html?type=line-of-credit" id="blocDrawCta">Compare real line-of-credit offers — get matched</a>
-<p>Checking options won’t affect your credit · 24–48 hr decisions · no obligation.</p>
+<p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative interest only — excludes draw, annual, and renewal fees. Not a quote or offer of credit.</p>
+<a class="btn-primary" href="/match.html?type=line-of-credit" id="blocDrawCta" style="margin-top:14px;">Compare real line-of-credit offers — get matched</a>
+<p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won’t affect your credit · 24–48 hr decisions · no obligation.</p>
 </div>
+<script>
+            (function(){
+              var amt=document.getElementById('blocDrawAmt'),type=document.getElementById('blocDrawType'),
+                  outM=document.getElementById('blocDrawMo'),outY=document.getElementById('blocDrawYr'),
+                  cta=document.getElementById('blocDrawCta');
+              if(!amt) return;
+              var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+              function calc(){
+                var p=parseFloat((amt.value||'').replace(/[^0-9.]/g,''))||0;
+                var r=type.value.split(','),lo=+r[0]/100,hi=+r[1]/100;
+                if(p<=0){outM.textContent='—';outY.textContent='—';if(cta){cta.href='/match.html?type=line-of-credit';cta.textContent='Compare real line-of-credit offers — get matched';}return;}
+                outM.textContent=fmt(p*lo/12)+' – '+fmt(p*hi/12);
+                outY.textContent=fmt(p*lo)+' – '+fmt(p*hi);
+                if(cta){cta.href='/match.html?type=line-of-credit&amount='+Math.round(p);cta.textContent='Get real rates on a '+fmt(p)+' line →';}
+              }
+              amt.addEventListener('input',calc);
+              amt.addEventListener('blur',function(){var n=parseFloat((amt.value||'').replace(/[^0-9.]/g,''));if(n>0)amt.value=fmt(n);});
+              type.addEventListener('change',calc);
+              calc();
+            })();
+            </script>
 <h2 id="why-the-lowest-rate-isn-t-always-the-best-option">Why the Lowest Rate Isn–t Always the Best Option</h2>
 <p>When evaluating offers, consider the full structure: repayment flexibility, available credit limit, renewals, draw speed, and total borrowing cost. A slightly higher rate with better access to capital can be more valuable than a lower rate tied to restrictive terms. For example, a line with a $250,000 limit and a slightly higher rate may be far more useful than a $50,000 line at a lower rate if your business regularly needs larger draws. Similarly, a facility that renews annually with minimal paperwork may save time and administrative cost over one that requires a full re-application. The goal is to align the product with how you actually use working capital.</p>
 <h2 id="how-established-businesses-secure-better-rates">How Established Businesses Secure Better Rates</h2>

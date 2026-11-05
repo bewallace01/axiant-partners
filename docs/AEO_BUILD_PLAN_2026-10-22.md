@@ -79,6 +79,7 @@ Full plan and content rules: `docs/SBA_CLUSTER_PLAN_2026-10-29.md`. **Read its "
 - Never put PII in URLs; never submit forms on production (it creates real CRM leads); never delete pages (merge + 301 instead).
 
 ### Log
+- 2026-11-05: Restored 23 dead tools (Jerry found one on the semi truck down payment page). The v2 conversion on 2026-09-01 kept tool controls but dropped their scripts, inline styles and page CSS. Includes the debt consolidation lead form, which had no submit handler. Tool blocks only, plus shared `axiant-v2-tools.css`; other page text unchanged. `convert-program-page.py` now keeps the script behind any kept control, and `check-page.py` fails a control with no script. Open: the positions dropdown on stacked-debt-relief-calculator never affected the math; phone table overflow on two pages is unrelated.
 - 2026-10-22: Section 0, Batch 1 (1a–1f), Batch 2 validation, ITIN fix. All live.
 - 2026-10-22: Heavy equipment equity pillar + 5 spokes + hub; renderer tracking-tags fix; FTC source repointed on 113 pages. Found: `ba-table` money-page tables are unstyled (now Next up #1).
 - 2026-10-26: Dump, box and tow truck title loan spokes + hub, sitemap, llms.txt, 3 equipment-page links; `build-cluster.py --only`. Table fix moved under the 2026-10-29 Bing check (cited pages, inside the watch). Next: vending machine pillar.

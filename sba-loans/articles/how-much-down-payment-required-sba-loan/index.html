@@ -245,13 +245,13 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <p>For a <strong>$1.5 million business acquisition</strong>, expect 10–20% equity: $150,000–$300,000. For a <strong>$2 million SBA 504 commercial property purchase</strong>, the 10% borrower portion is $200,000. For <strong>working capital or equipment</strong> under 7(a), down payment may be minimal–lenders focus on cash flow and collateral. A $500,000 equipment purchase might require 10–20% ($50,000–$100,000) or possibly less if the equipment secures the loan and cash flow is strong. Use our <a href="/calculator.html">loan calculator</a> to estimate monthly payments based on your loan amount and term.</p>
 <h2 id="estimate-your-sba-down-payment">Estimate Your SBA Down Payment</h2>
 <p>Enter a project amount and SBA use case to see an illustrative equity injection and financed amount. These use the <strong>typical equity ranges above, not a quote</strong> — your actual requirement depends on the deal, credit, collateral, and lender.</p>
-<div id="sbadp-calc">
-<div style="display:flex">
-<label>Project / loan amount
-                  <input id="sbaDpAmt" inputmode="numeric" style="display:block" type="text" value="$1,000,000"/>
+<div id="sbadp-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Project / loan amount
+                  <input id="sbaDpAmt" inputmode="numeric" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;" type="text" value="$1,000,000"/>
 </label>
-<label>SBA use case
-                  <select id="sbaDpType" style="display:block">
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">SBA use case
+                  <select id="sbaDpType" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
 <option value="10,10">504 owner-occupied real estate (10%)</option>
 <option selected="" value="10,20">7(a) business acquisition (10–20%)</option>
 <option value="10,20">7(a) equipment purchase (10–20%)</option>
@@ -259,20 +259,41 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 </select>
 </label>
 </div>
-<div style="display:flex">
-<div>
-<div>Estimated equity injection</div>
-<div id="sbaDpDown">—</div>
+<div style="display:flex;flex-wrap:wrap;gap:14px;">
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Estimated equity injection</div>
+<div id="sbaDpDown" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
-<div>
-<div>Estimated financed amount</div>
-<div id="sbaDpLoan">—</div>
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Estimated financed amount</div>
+<div id="sbaDpLoan" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
 </div>
-<p>Illustrative estimate only, not a quote or offer of credit.</p>
-<a class="btn-primary" href="/match.html?type=sba" id="sbaDpCta">See real SBA terms — get matched</a>
-<p>Checking options won’t affect your credit · no obligation · SBA timelines reward starting early.</p>
+<p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only, not a quote or offer of credit.</p>
+<a class="btn-primary" href="/match.html?type=sba" id="sbaDpCta" style="margin-top:14px;">See real SBA terms — get matched</a>
+<p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won’t affect your credit · no obligation · SBA timelines reward starting early.</p>
 </div>
+<script>
+            (function(){
+              var amt=document.getElementById('sbaDpAmt'),type=document.getElementById('sbaDpType'),
+                  outD=document.getElementById('sbaDpDown'),outL=document.getElementById('sbaDpLoan'),
+                  cta=document.getElementById('sbaDpCta');
+              if(!amt) return;
+              var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+              function calc(){
+                var p=parseFloat((amt.value||'').replace(/[^0-9.]/g,''))||0;
+                var r=type.value.split(','),lo=+r[0]/100,hi=+r[1]/100;
+                if(p<=0){outD.textContent='—';outL.textContent='—';if(cta){cta.href='/match.html?type=sba';cta.textContent='See real SBA terms — get matched';}return;}
+                outD.textContent=(lo===hi?fmt(p*lo):fmt(p*lo)+' – '+fmt(p*hi));
+                outL.textContent=(lo===hi?fmt(p*(1-lo)):fmt(p*(1-hi))+' – '+fmt(p*(1-lo)));
+                if(cta){cta.href='/match.html?type=sba&amount='+Math.round(p*(1-(lo+hi)/2));cta.textContent='See if you qualify for '+fmt(p*(1-(lo+hi)/2))+' →';}
+              }
+              amt.addEventListener('input',calc);
+              amt.addEventListener('blur',function(){var v=parseFloat((amt.value||'').replace(/[^0-9.]/g,''));if(v>0)amt.value=fmt(v);});
+              type.addEventListener('change',calc);
+              calc();
+            })();
+            </script>
 <h2 id="when-sba-down-payment-is-a-barrier">When SBA Down Payment Is a Barrier</h2>
 <p>If the required equity injection exceeds your available liquidity, consider:</p>
 <ul>
