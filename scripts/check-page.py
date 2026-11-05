@@ -69,6 +69,15 @@ def check(path):
         toks = set(re.findall(r"(--[\w-]+)\s*:", css))
         if toks: fails.append(f"{len(toks)} locally-defined --token(s) - the system owns tokens")
 
+    # A control with no script behind it looks fine and does nothing.
+    inline = " ".join(re.findall(r"<script(?![^>]*ld\+json)[^>]*>(.*?)</script>", s, re.S))
+    shared = " ".join(open(j, encoding="utf-8", errors="replace").read()
+                      for j in glob.glob(os.path.join(ROOT, "*.js")))
+    dead = [i for i in re.findall(r'<(?:input|select)\b[^>]*\bid="([A-Za-z][\w-]*)"', s)
+            if i not in inline and i not in shared
+            and not re.search(r"name|email|phone|message|company|search|newsletter|first|last|consent", i, re.I)]
+    if dead: fails.append(f"{len(dead)} control(s) with no script behind them: {', '.join(dead[:4])}")
+
     n = len(re.findall(r"!important", s))
     if n: fails.append(f"{n} !important - must be 0")
 

@@ -1842,6 +1842,10 @@ def convert(path: Path, dry=False):
     # every source script that references one.
     kept_markup = "".join(b for b in bands if "inline-calc" in b or 'class="card calc' in b)
     hooks = set(re.findall(r'id="([A-Za-z][\w-]*)"', kept_markup))
+    # A tool is not always marked inline-calc or card calc. Sept 2026: this filter
+    # dropped the scripts behind 23 tools whose controls survived in other bands,
+    # so their dropdowns did nothing. Any kept control keeps the script behind it.
+    hooks |= set(re.findall(r'<(?:input|select|textarea)\b[^>]*\bid="([A-Za-z][\w-]*)"', "".join(bands)))
     hooks |= {c for c in re.findall(r'class="([^"]+)"', kept_markup)
               for c in c.split() if c.startswith(("ic-", "calc-"))}
     inline_calc = []

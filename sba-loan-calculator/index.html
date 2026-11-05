@@ -36,6 +36,7 @@
 <meta content="Free SBA loan calculator for 7(a) and 504 loans: estimate monthly payment, total interest, and the SBA guaranty fee in seconds." name="twitter:description"/>
 <title>SBA Loan Calculator: Payment, Interest &amp; Guaranty Fee (Free)</title>
 <link href="/axiant-v2.css?v=202610051019" rel="stylesheet"/>
+<link href="/axiant-v2-tools.css?v=202611051" rel="stylesheet"/>
 <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://axiantpartners.com/"},{"@type":"ListItem","position":2,"name":"SBA Loans","item":"https://axiantpartners.com/sba-loans.html"},{"@type":"ListItem","position":3,"name":"SBA Loan Calculator","item":"https://axiantpartners.com/sba-loan-calculator/"}]}
     </script><script type="application/ld+json">
@@ -177,7 +178,7 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 </div>
 </div>
 <div class="sba-calc">
-<h2 id="calculator">SBA Loan Calculator</h2>
+<h2 id="calculator" style="margin:0 0 4px;">SBA Loan Calculator</h2>
 <p class="sba-calc-sub">Estimate your monthly payment, total interest, and the SBA guaranty fee. Results are estimates, not an offer — <a href="/match.html">get real terms here</a>.</p>
 <form id="sbaCalcForm" novalidate="">
 <div class="sba-calc-grid">
@@ -221,6 +222,55 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <p class="sba-calc-note" id="sbaNote"></p>
 </div>
 </div>
+<script>
+(function(){
+  var f=document.getElementById('sbaCalcForm');if(!f)return;
+  var $=function(id){return document.getElementById(id);};
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+  // live comma-formatting on the loan amount for readability
+  var amtEl=$('sbaAmount');
+  if(amtEl){amtEl.addEventListener('input',function(){var d=amtEl.value.replace(/[^0-9]/g,'');amtEl.value=d?parseInt(d,10).toLocaleString('en-US'):'';});}
+  function guarantyFee(amount){
+    // 7(a) upfront guaranty fee on the guaranteed portion (standard statutory schedule; SBA may adjust/waive yearly)
+    var gp=amount<=150000?0.85:0.75, ga=amount*gp, fee;
+    if(amount<=150000) fee=0.02*ga;
+    else if(amount<=700000) fee=0.03*ga;
+    else fee=0.035*Math.min(ga,1000000)+0.0375*Math.max(0,ga-1000000);
+    return fee;
+  }
+  function calc(e){
+    if(e)e.preventDefault();
+    var amount=parseFloat(($('sbaAmount').value||'').replace(/[^0-9.]/g,''));
+    var rate=parseFloat($('sbaRate').value);
+    var years=parseFloat($('sbaTerm').value);
+    var prog=$('sbaProgram').value;
+    var err=$('sbaError');err.textContent='';
+    if(!(amount>0)||!(years>0)||isNaN(rate)||rate<0){err.textContent='Enter a loan amount, an interest rate, and a term in years.';return;}
+    var n=years*12, r=rate/100/12, M;
+    if(r===0){M=amount/n;}else{var pow=Math.pow(1+r,n);M=amount*(r*pow)/(pow-1);}
+    var total=M*n, interest=total-amount;
+    var fee, feeLabel, note;
+    if(prog==='7a'){
+      fee=guarantyFee(amount);feeLabel='Estimated SBA 7(a) guaranty fee';
+      note='Guaranty fee is the standard 7(a) schedule on the guaranteed portion (85% up to $150K, 75% above). The SBA can change or waive fees each fiscal year, so confirm the current fee with your lender. Payment assumes full amortization with no balloon.';
+    }else{
+      fee=0.015*(amount*0.4);feeLabel='Estimated 504 CDC processing fee';
+      note='A 504 is two loans; this estimates the CDC processing fee (~1.5% of the ~40% debenture) and treats your rate as the blended rate for the payment. Real 504 pricing splits into a bank first mortgage and a fixed debenture &mdash; see our SBA 504 loan rates guide.';
+    }
+    $('sbaPayment').textContent=fmt(M);
+    $('sbaOutAmount').textContent=fmt(amount);
+    $('sbaTotal').textContent=fmt(total);
+    $('sbaInterest').textContent=fmt(interest);
+    $('sbaFeeLabel').textContent=feeLabel;
+    $('sbaFee').textContent=fmt(fee);
+    $('sbaAllIn').textContent=fmt(interest+fee);
+    $('sbaNote').textContent=note;
+    $('sbaResults').classList.add('show');
+  }
+  f.addEventListener('submit',calc);
+  $('sbaClear').addEventListener('click',function(){f.reset();$('sbaResults').classList.remove('show');$('sbaError').textContent='';});
+})();
+</script>
 <p class="lede-para">Most SBA calculators online give you a payment and stop there. They skip the guaranty fee, ignore the difference between a 7(a) and a 504, and never show the formula — so you cannot check whether a lender's quote is fair. This one estimates the fee, handles both programs, and explains the math below so the number is yours to verify, not just to trust.</p>
 <h2 id="how">How SBA Loan Payments Work</h2>
 <p>Both major SBA programs — the <a href="/sba-loans.html">7(a)</a> and the <a href="/sba-loans/articles/what-is-an-sba-504-loan/">504</a> — amortize, meaning every payment covers interest first and chips away at principal, and the balance reaches zero at the end of the term. The formula is the same one behind every mortgage:</p>

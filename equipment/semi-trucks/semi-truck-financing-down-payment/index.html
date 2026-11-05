@@ -188,33 +188,54 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <p>These ranges aren't hard rules. A lender may offer a lower down payment on one truck and require more on another simply because the equipment, mileage, or borrower profile changes the risk.</p>
 <h2 id="estimate-your-down-payment">Estimate your down payment</h2>
 <p>Enter a truck price and your buyer profile for an illustrative down payment and financed amount. These are <strong>estimates based on the ranges above, not a quote</strong> — your actual figures depend on credit, the truck, and the lender.</p>
-<div id="st-dp-calc">
-<div style="display:flex">
-<label>Truck price
- <input id="stDpPrice" inputmode="numeric" style="display:block" type="text" value="$120,000"/>
+<div id="st-dp-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Truck price
+ <input id="stDpPrice" inputmode="numeric" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;" type="text" value="$120,000"/>
 </label>
-<label>Buyer profile
- <select id="stDpType" style="display:block">
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Buyer profile
+ <select id="stDpType" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
 <option value="0,10">Established fleet, strong credit</option>
 <option selected="" value="10,15">Owner-operator with history</option>
 <option value="15,25">First-time buyer / used / weaker credit</option>
 </select>
 </label>
 </div>
-<div style="display:flex">
-<div>
-<div>Estimated down payment</div>
-<div id="stDpDown">—</div>
+<div style="display:flex;flex-wrap:wrap;gap:14px;">
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Estimated down payment</div>
+<div id="stDpDown" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
-<div>
-<div>Amount financed</div>
-<div id="stDpLoan">—</div>
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Amount financed</div>
+<div id="stDpLoan" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
 </div>
-<p>Illustrative estimate only, not a quote or offer of credit.</p>
-<a class="btn-primary" href="/match.html?type=equipment" id="stDpCta">See real numbers — get matched</a>
-<p>Checking options won’t affect your credit · 24–48 hr decisions · no obligation.</p>
+<p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only, not a quote or offer of credit.</p>
+<a class="btn-primary" href="/match.html?type=equipment" id="stDpCta" style="margin-top:14px;">See real numbers — get matched</a>
+<p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won’t affect your credit · 24–48 hr decisions · no obligation.</p>
 </div>
+<script>
+            (function(){
+              var price=document.getElementById('stDpPrice'),type=document.getElementById('stDpType'),
+                  outD=document.getElementById('stDpDown'),outL=document.getElementById('stDpLoan'),
+                  cta=document.getElementById('stDpCta');
+              if(!price) return;
+              var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+              function calc(){
+                var p=parseFloat((price.value||'').replace(/[^0-9.]/g,''))||0;
+                var r=type.value.split(','),lo=+r[0]/100,hi=+r[1]/100;
+                if(p<=0){outD.textContent='—';outL.textContent='—';if(cta){cta.href='/match.html?type=equipment';cta.textContent='See real numbers — get matched';}return;}
+                outD.textContent=(lo===0?fmt(0)+' – ':fmt(p*lo)+' – ')+fmt(p*hi);
+                outL.textContent=fmt(p*(1-hi))+' – '+fmt(p*(1-lo));
+                if(cta){var loan=p*(1-(lo+hi)/2);cta.href='/match.html?type=equipment&amount='+Math.round(loan);cta.textContent='See if you qualify for '+fmt(loan)+' →';}
+              }
+              price.addEventListener('input',calc);
+              price.addEventListener('blur',function(){var n=parseFloat((price.value||'').replace(/[^0-9.]/g,''));if(n>0)price.value=fmt(n);});
+              type.addEventListener('change',calc);
+              calc();
+            })();
+            </script>
 <p class="section-label" id="what-affects-the-down-payment-the-most">What affects the down payment the most?</p>
 <h3>1) Credit score</h3>
 <p>Better credit usually means lower down payment. A borrower in the high 600s often gets more flexibility than someone in the low 600s or below. See <a href="/equipment-financing/articles/what-credit-score-needed-equipment-financing/">credit score requirements</a>.</p>

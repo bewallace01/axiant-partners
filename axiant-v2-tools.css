@@ -1,0 +1,152 @@
+/* Interactive tool styles restored from before the Sept 2026 v2 rebuild. Linked only by the four pages that use them. */
+
+/* Debt consolidation intake form */
+.ci-section{background: var(--bg-secondary); padding: 2.5rem clamp(1.25rem, 5vw, 4rem) 3rem;}
+.ci-wrap{max-width: 920px; margin: 0 auto;}
+.ci-form{background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: clamp(1.25rem, 3vw, 2rem); box-shadow: 0 4px 18px var(--shadow-color);}
+.ci-grid{display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;}
+@media (max-width: 640px){.ci-grid{grid-template-columns: 1fr;}
+}
+.ci-field{display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem;}
+.ci-field label{font-size: 0.9rem; font-weight: 600; color: var(--text-primary);}
+.ci-field .req{color: #ef4444;}
+.ci-field input,.ci-field select{padding: 11px 12px; font-size: 1rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary, #fff); color: var(--text-primary); box-sizing: border-box; width: 100%; font-family: inherit;}
+.ci-field input:focus,.ci-field select:focus{outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(45,127,184,0.15);}
+.ci-row2{display: flex; gap: 0.6rem;}
+.ci-row2 input{flex: 1 1 auto;}
+.ci-row2 select{flex: 0 0 132px;}
+.ci-checks{display: flex; flex-wrap: wrap; gap: 10px; margin-top: 0.15rem;}
+.ci-check{display: inline-flex; align-items: center; gap: 7px; font-size: 0.92rem; color: var(--text-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 9px 13px; cursor: pointer;}
+.ci-check input{width: auto;}
+.ci-consent{display: flex; align-items: flex-start; gap: 9px; font-size: 0.9rem; color: var(--text-secondary); margin: 0.25rem 0 1.1rem;}
+.ci-consent input{width: auto; margin-top: 3px;}
+.ci-submit{width: 100%; font-size: 1.1rem; padding: 0.95rem 1.5rem;}
+.ci-error{display: none; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.4); color: #b91c1c; border-radius: 8px; padding: 11px 14px; margin-bottom: 1rem; font-size: 0.92rem;}
+.ci-fineprint{margin: 0.9rem 0 0; font-size: 0.82rem; color: var(--text-tertiary); text-align: center;}
+.ci-thanks{display: none; background: var(--bg-card); border: 1px solid var(--border-color); border-left: 4px solid var(--accent-color); border-radius: 14px; padding: 2rem; text-align: center; box-shadow: 0 4px 18px var(--shadow-color);}
+.ci-thanks h3{font-size: 1.4rem; margin: 0 0 0.6rem; color: var(--text-primary);}
+.ci-thanks p{color: var(--text-secondary); margin: 0 0 0.5rem;}
+
+/* Business acquisition payment estimator */
+.ba-table-wrap{overflow-x: auto; margin: 1rem 0 0.5rem;}
+.ba-table{width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 640px;}
+.ba-table th,.ba-table td{text-align: left; padding: 0.7rem 0.85rem; border-bottom: 1px solid var(--border-color); vertical-align: top;}
+.ba-table th{background: var(--bg-card); font-weight: 700; color: var(--text-primary);}
+.ba-table td{color: var(--text-secondary);}
+.ba-est{border: 1px solid var(--border-color); border-radius: 14px; background: var(--bg-card); padding: 1.25rem clamp(1rem, 3vw, 1.75rem); margin: 1rem 0; box-shadow: 0 2px 14px var(--shadow-color);}
+.ba-est-grid{display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.9rem; margin-bottom: 1rem;}
+.ba-est label{display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-tertiary); margin-bottom: 0.3rem;}
+.ba-est input{width: 100%; padding: 0.6rem 0.7rem; font: inherit; color: var(--text-primary); background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px;}
+.ba-est-out{display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.9rem;}
+.ba-outbox{background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 0.8rem 0.9rem;}
+.ba-outbox .k{font-size: 0.78rem; color: var(--text-tertiary); margin-bottom: 0.25rem;}
+.ba-outbox .v{font-size: 1.35rem; font-weight: 800; color: var(--accent-color);}
+
+/* Which business loan chooser */
+.chooser{--blue-light:#7dd3fc;--shadow:0 14px 40px -18px rgba(13,31,60,.35)}
+.chooser{background:radial-gradient(120% 130% at 0% 0%,#1e3a5f,#0d1f3c 70%);color:#fff;border-radius:20px;padding:clamp(1.4rem,3vw,2.2rem);margin:1.6rem 0;box-shadow:var(--shadow)}
+.chooser h2{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:.3rem}
+.chooser .sub{color:rgba(255,255,255,.8);margin-bottom:1.4rem;font-size:.96rem}
+.chooser .q{margin-bottom:1.3rem}
+.chooser .q-label{font-weight:700;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
+.chooser .q-num{width:24px;height:24px;border-radius:50%;background:var(--blue-light);color:#08152b;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800}
+.chooser .opts{display:flex;flex-wrap:wrap;gap:.5rem}
+.chooser .opt{cursor:pointer}
+.chooser .opt input{position:absolute;opacity:0;pointer-events:none}
+.chooser .opt span{display:inline-block;padding:.55rem 1rem;border:1.5px solid rgba(255,255,255,.3);border-radius:999px;font-size:.92rem;font-weight:600;transition:all .15s;color:#fff}
+.chooser .opt input:checked + span{background:var(--blue-light);color:#08152b;border-color:var(--blue-light)}
+.chooser .opt span:hover{border-color:#fff}
+.chooser-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.4rem}
+.chooser .dg-btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;font-weight:700;border-radius:11px;padding:.8rem 1.4rem;cursor:pointer;border:2px solid transparent;font-size:1rem;transition:filter .2s,transform .2s}
+.chooser .dg-btn-primary{background:linear-gradient(135deg,var(--blue-light),#38bdf8);color:#08152b!important}
+.chooser .dg-btn-primary:hover{text-decoration:none;transform:translateY(-1px)}
+.chooser .dg-btn-ghost{border-color:rgba(255,255,255,.55);color:#fff!important;background:transparent}
+.chooser .dg-btn-ghost:hover{text-decoration:none;background:rgba(255,255,255,.12)}
+.chooser .result{margin-top:1.4rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:1.2rem 1.3rem;display:none}
+.chooser .result.show{display:block}
+.chooser .result .pick{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:.3rem}
+.chooser .result .why{color:rgba(255,255,255,.85);font-size:.95rem;margin-bottom:1rem}
+.chooser .result a.go{display:inline-block;background:#fff;color:#0d1f3c!important;padding:.6rem 1.1rem;border-radius:9px;font-weight:700;margin-right:.5rem}
+.chooser .result a.go:hover{text-decoration:none;filter:brightness(.95)}
+.chooser .result .alt{color:rgba(255,255,255,.75);font-size:.88rem;margin-top:.8rem}
+.chooser .result .alt a{color:var(--blue-light)}
+.chooser .endcta .dg-btn-primary{background:linear-gradient(135deg,#f0bd55,#e0a82e);color:#2a1d00!important}
+.chooser .result a.go.go-ghost{background:transparent;color:#fff!important;border:1px solid rgba(255,255,255,.5);}
+
+/* Loan readiness checklist */
+.tool{--blue-light:#7dd3fc;--good:#1f9e8f;--low:#d8603a;--mid:#e0a82e;--shadow:0 14px 40px -18px rgba(13,31,60,.35)}
+.tool{background:radial-gradient(120% 130% at 0% 0%,#1e3a5f,#0d1f3c 70%);color:#fff;border-radius:20px;padding:clamp(1.4rem,3vw,2rem);margin:1.6rem 0;box-shadow:var(--shadow)}
+.tool h2{font-family:'Playfair Display',serif;font-size:1.45rem;margin-bottom:.3rem}
+.tool .sub{color:rgba(255,255,255,.8);margin-bottom:1.3rem;font-size:.95rem}
+.tool .check{display:flex;gap:.7rem;align-items:flex-start;padding:.7rem 0;border-bottom:1px dashed rgba(255,255,255,.16);cursor:pointer}
+.tool .check:last-of-type{border-bottom:0}
+.tool .check input{margin-top:.25rem;width:20px;height:20px;accent-color:var(--blue-light);flex:0 0 auto;cursor:pointer}
+.tool .check span{font-size:.96rem}
+.tool .check span small{display:block;color:rgba(255,255,255,.65);font-size:.82rem;font-weight:400}
+.tool .meter-wrap{margin-top:1.3rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:1.1rem 1.2rem}
+.tool .meter-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.5rem}
+.tool .meter-label{font-weight:700;font-size:1.05rem}
+.tool .meter-score{font-family:'Playfair Display',serif;font-size:1.3rem}
+.tool .bar{height:12px;border-radius:999px;background:rgba(255,255,255,.16);overflow:hidden}
+.tool .bar i{display:block;height:100%;width:0;border-radius:999px;background:var(--low);transition:width .35s ease,background .35s ease}
+.tool .meter-advice{margin-top:.8rem;color:rgba(255,255,255,.85);font-size:.92rem}
+.tool .meter-advice a{color:var(--blue-light)}
+
+/* SBA loan calculator */
+.sba-calc{background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:22px;margin:0 0 26px;}
+.sba-calc h2{margin:0 0 4px;font-size:1.25rem;}
+.sba-calc .sba-calc-sub{color:var(--text-secondary);font-size:0.92rem;margin:0 0 18px;}
+.sba-calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;}
+.sba-calc-field{display:flex;flex-direction:column;gap:6px;}
+.sba-calc-field.full{grid-column:1 / -1;}
+.sba-calc label{font-weight:600;font-size:0.9rem;color:var(--text-primary);}
+.sba-calc input,.sba-calc select{min-height:46px;padding:10px 12px;font-size:16px;border:1px solid var(--border-color);border-radius:10px;background:var(--bg-secondary);color:var(--text-primary);width:100%;}
+.sba-calc-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
+.sba-results{margin-top:20px;border-top:1px solid var(--border-color);padding-top:16px;display:none;}
+.sba-results.show{display:block;}
+.sba-result-row{display:flex;justify-content:space-between;gap:12px;padding:7px 0;font-size:0.98rem;border-bottom:1px dashed var(--border-color);}
+.sba-result-row .lbl{color:var(--text-secondary);}
+.sba-result-row .val{font-weight:600;color:var(--text-primary);}
+.sba-result-row.big .val{font-size:1.35rem;color:var(--accent-color);}
+.sba-calc-note{font-size:0.82rem;color:var(--text-secondary);margin-top:12px;line-height:1.5;}
+.sba-calc-error{color:#c0392b;font-size:0.9rem;margin-top:10px;min-height:1em;}
+.sba-results-title{font-size:0.78rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent-color);margin:0 0 10px;font-weight:700;}
+.sba-input-wrap{position:relative;}
+.sba-input-wrap .adorn{position:absolute;top:50%;transform:translateY(-50%);color:var(--text-tertiary);font-size:0.95rem;font-weight:600;pointer-events:none;}
+.sba-input-wrap .adorn-l{left:12px;}
+.sba-input-wrap .adorn-r{right:12px;}
+.sba-input-wrap input.pad-l{padding-left:24px;}
+.sba-input-wrap input.pad-r{padding-right:50px;}
+/* dark-mode readability safeguards for calculator text */
+[data-theme="dark"] .sba-calc .sba-calc-sub,[data-theme="dark"] .sba-calc .sba-calc-note{color:#cbd5e1;}
+[data-theme="dark"] .sba-calc .sba-result-row .val{color:#f1f5f9;}
+[data-theme="dark"] .sba-calc .sba-result-row.big .val{color:#60a5fa;}
+[data-theme="dark"] .sba-calc-error{color:#f87171;}
+@media(max-width:560px){.sba-calc-grid{grid-template-columns:1fr;}}
+
+/* Construction loan calculator */
+.cx-calc{background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:22px;margin:0 0 26px;}
+.cx-calc h2{margin:0 0 4px;font-size:1.25rem;}
+.cx-calc .cx-sub{color:var(--text-secondary);font-size:0.92rem;margin:0 0 18px;}
+.cx-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;}
+.cx-field{display:flex;flex-direction:column;gap:6px;}
+.cx-calc label{font-weight:600;font-size:0.9rem;color:var(--text-primary);}
+.cx-calc input{min-height:46px;padding:10px 12px;font-size:16px;border:1px solid var(--border-color);border-radius:10px;background:var(--bg-secondary);color:var(--text-primary);width:100%;}
+.cx-wrap{position:relative;}
+.cx-wrap .adorn{position:absolute;top:50%;transform:translateY(-50%);color:var(--text-tertiary);font-size:0.95rem;font-weight:600;pointer-events:none;}
+.cx-wrap .adorn-l{left:12px;} .cx-wrap .adorn-r{right:12px;}
+.cx-wrap input.pad-l{padding-left:24px;} .cx-wrap input.pad-r{padding-right:54px;}
+.cx-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
+.cx-results{margin-top:20px;border-top:1px solid var(--border-color);padding-top:16px;display:none;}
+.cx-results.show{display:block;}
+.cx-results-title{font-size:0.78rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent-color);margin:0 0 10px;font-weight:700;}
+.cx-row{display:flex;justify-content:space-between;gap:12px;padding:7px 0;font-size:0.98rem;border-bottom:1px dashed var(--border-color);}
+.cx-row .lbl{color:var(--text-secondary);} .cx-row .val{font-weight:600;color:var(--text-primary);}
+.cx-row.big .val{font-size:1.3rem;color:var(--accent-color);}
+.cx-note{font-size:0.82rem;color:var(--text-secondary);margin-top:12px;line-height:1.5;}
+.cx-error{color:#c0392b;font-size:0.9rem;margin-top:10px;min-height:1em;}
+[data-theme="dark"] .cx-calc .cx-sub,[data-theme="dark"] .cx-calc .cx-note{color:#cbd5e1;}
+[data-theme="dark"] .cx-calc .cx-row .val{color:#f1f5f9;}
+[data-theme="dark"] .cx-calc .cx-row.big .val{color:#60a5fa;}
+[data-theme="dark"] .cx-error{color:#f87171;}
+@media(max-width:560px){.cx-grid{grid-template-columns:1fr;}}

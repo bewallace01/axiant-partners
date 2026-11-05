@@ -196,29 +196,57 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <p class="lede-para">DSCR loans are the single most important financing product for real estate investors in the post-2020 era. Conventional rental loans (Fannie Mae 5–10 financed properties limit, debt-to-income ratio caps, two years of self-employed tax returns) lock most active investors out by the time they own 4–5 properties. DSCR loans solve that by qualifying on the asset, not the investor. This guide covers how DSCR loans actually work, what underwriting looks like, and when DSCR beats conventional. For related see <a href="/commercial-real-estate-loans/articles/multifamily-loan-down-payment/">multifamily loan down payment</a> and <a href="/fix-and-flip/articles/fix-and-flip-loan-purchase-plus-rehab/">fix-and-flip loans</a> (the typical pre-DSCR product).</p>
 <h2 id="dscr-calculator">DSCR Calculator</h2>
 <p>Enter the property's monthly market rent and monthly PITIA to see its DSCR and which pricing tier it lands in. This is an <strong>illustrative estimate, not a quote</strong> — the appraiser's Form 1007 rent and the lender's exact tiers set the real terms.</p>
-<div id="dscr-calc">
-<div style="display:flex">
-<label>Monthly market rent
-      <input id="dscrRent" inputmode="numeric" style="display:block" type="text" value="$2,500"/>
+<div id="dscr-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+<label style="flex:1 1 180px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Monthly market rent
+      <input id="dscrRent" inputmode="numeric" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;" type="text" value="$2,500"/>
 </label>
-<label>Monthly PITIA (P&amp;I + taxes + insurance + HOA)
-      <input id="dscrPitia" inputmode="numeric" style="display:block" type="text" value="$2,000"/>
+<label style="flex:1 1 180px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Monthly PITIA (P&amp;I + taxes + insurance + HOA)
+      <input id="dscrPitia" inputmode="numeric" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;" type="text" value="$2,000"/>
 </label>
 </div>
-<div style="display:flex">
-<div>
-<div>Your DSCR</div>
-<div id="dscrOut">—</div>
+<div style="display:flex;flex-wrap:wrap;gap:14px;">
+<div style="flex:1 1 140px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Your DSCR</div>
+<div id="dscrOut" style="font-size:1.6rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
-<div>
-<div>Indicative pricing tier</div>
-<div id="dscrTier">—</div>
+<div style="flex:2 1 220px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Indicative pricing tier</div>
+<div id="dscrTier" style="font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-top:4px;line-height:1.35;">—</div>
 </div>
 </div>
-<p>Illustrative estimate only, not a quote or offer of credit. Lenders qualify on the appraiser's rent estimate and their own tier thresholds.</p>
-<a class="btn-primary" href="/match.html?type=real-estate" id="dscrCta">See real DSCR offers — get matched</a>
-<p>No personal income docs · one application, competing offers · no obligation.</p>
+<p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only, not a quote or offer of credit. Lenders qualify on the appraiser's rent estimate and their own tier thresholds.</p>
+<a class="btn-primary" href="/match.html?type=real-estate" id="dscrCta" style="margin-top:14px;">See real DSCR offers — get matched</a>
+<p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">No personal income docs · one application, competing offers · no obligation.</p>
 </div>
+<script>
+(function(){
+  var rent=document.getElementById('dscrRent'),pitia=document.getElementById('dscrPitia'),
+      outR=document.getElementById('dscrOut'),outT=document.getElementById('dscrTier'),
+      cta=document.getElementById('dscrCta');
+  if(!rent) return;
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+  function tier(d){
+    if(d>=1.40) return 'Best pricing &middot; up to 80% LTV';
+    if(d>=1.25) return 'Standard pricing &middot; 75-80% LTV';
+    if(d>=1.00) return 'Rate premium &middot; 70-75% LTV';
+    if(d>=0.90) return 'Sub-1.0 programs only &middot; 65-70% LTV';
+    return 'Most lenders decline — the property does not cash flow';
+  }
+  function calc(){
+    var r=parseFloat((rent.value||'').replace(/[^0-9.]/g,''))||0;
+    var p=parseFloat((pitia.value||'').replace(/[^0-9.]/g,''))||0;
+    if(r<=0||p<=0){outR.innerHTML='&mdash;';outT.innerHTML='&mdash;';return;}
+    var d=r/p;
+    outR.textContent=d.toFixed(2);
+    outT.innerHTML=tier(d);
+  }
+  rent.addEventListener('input',calc);pitia.addEventListener('input',calc);
+  function blurFmt(el){return function(){var n=parseFloat((el.value||'').replace(/[^0-9.]/g,''));if(n>0)el.value=fmt(n);};}
+  rent.addEventListener('blur',blurFmt(rent));pitia.addEventListener('blur',blurFmt(pitia));
+  calc();
+})();
+</script>
 <h2 id="how-it-works">How DSCR Underwriting Works</h2>
 <p>The math is simple:</p>
 <p><strong>DSCR = Monthly Rental Income / Monthly PITIA</strong><br/>(PITIA = Principal + Interest + Taxes + Insurance + Association fees)</p>
