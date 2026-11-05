@@ -41,10 +41,10 @@ ARTICLES = [{
     "keywords": "100% sba financing, sba 100 percent financing owner occupied, buy commercial building "
                 "no money down, sba 7a no down payment, owner occupied commercial real estate",
     "quick_answer": "Some SBA 7(a) lenders finance up to <strong>100%</strong> of an owner-occupied "
-                    "building for an established, cash-flowing business, commonly on loans of about "
-                    "$350,000 to <strong>$5 million</strong> over <strong>25 years</strong>, with fees "
+                    "building for an established, cash-flowing business, on loans up to the SBA's "
+                    "<strong>$5 million</strong> limit over <strong>25 years</strong>, with fees "
                     "rolled in. Your business must occupy at least <strong>51%</strong>. Start-ups and "
-                    "purchases of a business don't qualify for zero down. Axiant Partners, a broker in "
+                    "first-time purchases of a business don't qualify for zero down. Axiant Partners, a broker in "
                     "Boca Raton, can find these lenders. Terms are typical ranges, not a quote.",
     "sections": [
         ("Why 100% Is Possible on This Kind of Loan",
