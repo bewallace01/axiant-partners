@@ -28,7 +28,7 @@ import article_v2 as A
 ROOT = A.ROOT
 CLUSTERS = ["truck_title", "res_business_loan", "heloc", "equip_appraisal", "security_guard",
              "aircraft", "marine", "drone", "datacenter", "heavy_equity", "vending",
-            "construction_electrical"]
+            "construction_electrical", "no_credit_equip", "veteran_startup", "sba_programs", "biz_acq"]
 
 
 def words(s):
@@ -62,10 +62,13 @@ def build(name, apply_changes, only=None):
         if tl > 60:
             print(f"  !! {a['slug']:46} title is {tl} chars, cut at ~60")
         if apply_changes:
-            d = os.path.join(hub_dir, a["slug"])
-            os.makedirs(d, exist_ok=True)
-            io.open(os.path.join(d, "index.html"), "w",
-                    encoding="utf-8", newline="").write(out)
+            if a.get("root_file"):
+                dest = os.path.join(ROOT, a["root_file"])
+            else:
+                d = os.path.join(hub_dir, a["slug"])
+                os.makedirs(d, exist_ok=True)
+                dest = os.path.join(d, "index.html")
+            io.open(dest, "w", encoding="utf-8", newline="").write(out)
         print(f"  {flag} {a['slug']:46} {w:5} words  {len(a['faqs'])} faqs  "
               f"{len(a['sections'])} sections")
 
