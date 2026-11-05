@@ -35,6 +35,7 @@
 <meta content="Business Debt Consolidation: Combine MCAs Into One | Axiant" name="twitter:title"/>
 <meta content="Combine stacked MCAs and high-cost business debt into one lower payment. Free, no-obligation consolidation review." name="twitter:description"/>
 <link href="/axiant-v2.css?v=202610051019" rel="stylesheet"/>
+<link href="/axiant-v2-tools.css?v=202611051" rel="stylesheet"/>
 </link></meta></meta></meta></meta></meta><script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://axiantpartners.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://axiantpartners.com/services.html"},{"@type":"ListItem","position":3,"name":"Business Debt Consolidation","item":"https://axiantpartners.com/business-debt-consolidation.html"}]}
     </script>
@@ -181,6 +182,7 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <h2 id="get-your-free-consolidation-review-2">Get Your Free Consolidation Review</h2>
 <p style="max-width:640px">Tell us about your current advances and loans. A specialist reviews your positions and maps the realistic ways to one lower payment—no obligation, and no hard credit pull to get started.</p>
 </div><form class="ci-form" id="consolidationForm" novalidate="">
+<div class="ci-error" id="ciError"></div>
 <div class="ci-grid">
 <div class="ci-field"><label for="ciName">Full name <span class="req">*</span></label><input autocomplete="name" id="ciName" placeholder="John Doe" required="" type="text"/></div>
 <div class="ci-field"><label for="ciEmail">Email <span class="req">*</span></label><input autocomplete="email" id="ciEmail" placeholder="john@example.com" required="" type="email"/></div>
@@ -262,6 +264,63 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <p>Your reference number: <strong id="ciRef"></strong></p>
 <p>Want to talk now? <a href="tel:+15612680465">Call (561) 268-0465</a></p>
 </div>
+<script>
+    (function(){
+      function ready(fn){ if(document.readyState!=='loading') fn(); else document.addEventListener('DOMContentLoaded',fn); }
+      ready(function(){
+        if(window.emailjs){ try{ emailjs.init("VCRoHGxbB5ZkCxxUg"); }catch(e){} }
+        var form=document.getElementById('consolidationForm');
+        if(!form) return;
+        var btn=document.getElementById('ciSubmit'), err=document.getElementById('ciError');
+        function fmtMoney(el){ var n=parseFloat((el.value||'').replace(/[^0-9.]/g,'')); if(n>0) el.value='$'+Math.round(n).toLocaleString('en-US'); }
+        ['ciBalance','ciPayment'].forEach(function(id){ var el=document.getElementById(id); if(el) el.addEventListener('blur',function(){ fmtMoney(el); }); });
+        function showErr(m){ err.textContent=m; err.style.display='block'; err.scrollIntoView({behavior:'smooth',block:'center'}); }
+        form.addEventListener('submit',function(e){
+          e.preventDefault();
+          err.style.display='none';
+          var name=document.getElementById('ciName').value.trim(),
+              email=document.getElementById('ciEmail').value.trim(),
+              phone=document.getElementById('ciPhone').value.trim(),
+              biz=document.getElementById('ciBusiness').value.trim(),
+              positions=document.getElementById('ciPositions').value,
+              balance=document.getElementById('ciBalance').value.trim(),
+              payment=document.getElementById('ciPayment').value.trim(),
+              freq=document.getElementById('ciPayFreq').value,
+              revenue=document.getElementById('ciRevenue').value,
+              years=document.getElementById('ciYears').value,
+              credit=document.getElementById('ciCredit').value,
+              consent=document.getElementById('ciConsent').checked;
+          var types=[].slice.call(document.querySelectorAll('input[name=ciDebtType]:checked')).map(function(c){ return c.value; });
+          if(!name||!email||!phone||!positions||!balance||!payment){ showErr('Please fill in your name, email, phone, number of debts, total balance, and current payment.'); return; }
+          if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ showErr('Please enter a valid email address.'); return; }
+          if(!consent){ showErr('Please agree to the Privacy Policy and Terms to continue.'); return; }
+          var ref='AXC-'+Math.random().toString(36).slice(2,7).toUpperCase();
+          var details='CONSOLIDATION REQUEST — Open positions: '+positions+
+                      ' | Total balance owed: '+balance+
+                      ' | Current payment: '+payment+' '+freq+
+                      ' | Debt types: '+(types.length?types.join(', '):'Not specified');
+          var params={ full_name:name, email:email, phone:phone, business_name:biz||'Not provided',
+            loan_type:'Debt Consolidation', loan_amount:balance, credit_score:credit||'Not provided',
+            revenue:revenue||'Not provided', years_in_business:years||'Not provided',
+            equipment_description:details, reference_number:ref, to_email:'alex@axiantpartners.com' };
+          btn.disabled=true; var orig=btn.textContent; btn.textContent='Submitting…';
+          function done(ok){
+            if(ok){
+              try{ if(window.gtag) gtag('event','generate_lead',{event_category:'consolidation',event_label:'business-debt-consolidation'}); }catch(e){}
+              document.getElementById('ciRef').textContent=ref;
+              form.style.display='none';
+              var ty=document.getElementById('ciThankYou'); ty.style.display='block'; ty.scrollIntoView({behavior:'smooth',block:'center'});
+            } else {
+              btn.disabled=false; btn.textContent=orig;
+              showErr('Something went wrong submitting your request. Please call (561) 268-0465 and we\'ll take it by phone.');
+            }
+          }
+          if(!window.emailjs){ done(false); return; }
+          emailjs.send('service_jweh7na','template_dmwg1ey',params).then(function(){ done(true); },function(){ done(false); });
+        });
+      });
+    })();
+    </script>
 </div>
 </div>
 </div>
@@ -399,19 +458,52 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <div class="group-head"><h2 id="estimate-your-new-payment">Estimate Your New Payment</h2></div>
 <div class="prose">
 <p>Enter your total balance owed across all advances and the combined weekly payment you send now to estimate a single, lower weekly payment and the monthly cash you could free up. Illustrative only — for real numbers, get a free review.</p>
-<p><label style="flex:1 1 200px">Total balance owed across all advances
-                      <input id="sdrBal" inputmode="numeric" style="display:block;width:100%;box-sizing:border-box" type="text" value="$150,000"/>
-</label>
-<label style="flex:1 1 200px">Combined weekly payment now
-                      <input id="sdrPay" inputmode="numeric" style="display:block;width:100%;box-sizing:border-box" type="text" value="$5,000"/>
-</label></p>
-<p>Estimated single weekly payment</p>
-<p>—</p>
-<p>Estimated monthly cash freed up</p>
-<p>—</p>
-<p>Illustrative estimate based on a typical 40–60% payment reduction. Not a quote, approval, or offer of credit. <a href="business-debt-relief/articles/stacked-debt-relief-calculator/">Open the full stacked-debt consolidation calculator →</a></p>
+<div id="sdr-calc" style="background:var(--bg-card);border:1px solid var(--border-default,var(--border-color));border-radius:12px;padding:18px 18px 20px;margin:0 0 8px;">
+                  <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+                    <label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Total balance owed across all advances
+ <input id="sdrBal" type="text" inputmode="numeric" value="$150,000" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                    </label>
+                    <label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Combined weekly payment now
+ <input id="sdrPay" type="text" inputmode="numeric" value="$5,000" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
+                    </label>
+                  </div>
+                  <div style="display:flex;flex-wrap:wrap;gap:14px;">
+                    <div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                      <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color,var(--accent));font-weight:700;">Estimated single weekly payment</div>
+                      <div id="sdrOutPay" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                    </div>
+                    <div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+                      <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color,var(--accent));font-weight:700;">Estimated monthly cash freed up</div>
+                      <div id="sdrOutFreed" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">&mdash;</div>
+                    </div>
+                  </div>
+                  <p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate based on a typical 40&ndash;60% payment reduction. Not a quote, approval, or offer of credit. <a href="business-debt-relief/articles/stacked-debt-relief-calculator/">Open the full stacked-debt consolidation calculator →</a></p>
+                  <a id="sdrCta" href="#consolidation-intake" class="btn-primary" style="margin-top:14px;">Get a free consolidation review &rarr;</a>
+                </div>
+<script>
+                (function(){
+                  var bal=document.getElementById('sdrBal'),pay=document.getElementById('sdrPay'),
+                      outPay=document.getElementById('sdrOutPay'),outFreed=document.getElementById('sdrOutFreed'),cta=document.getElementById('sdrCta');
+                  if(!pay) return;
+                  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+                  var num=function(el){return parseFloat((el.value||'').replace(/[^0-9.]/g,''))||0;};
+                  var LO=0.40, HI=0.60;
+                  function calc(){
+                    var w=num(pay), b=num(bal);
+                    if(w<=0){outPay.textContent='—';outFreed.textContent='—';if(cta){cta.href='/match.html?type=refinance';cta.textContent='Get a free consolidation review →';}return;}
+                    var newLo=w*(1-HI), newHi=w*(1-LO);
+                    outPay.textContent=fmt(newLo)+' – '+fmt(newHi)+' / wk';
+                    var freedLo=(w-newHi)*4.33, freedHi=(w-newLo)*4.33;
+                    outFreed.textContent=fmt(freedLo)+' – '+fmt(freedHi);
+                    if(cta){cta.href='/match.html?type=refinance'+(b>0?'&amount='+Math.round(b):'');cta.textContent='See if you qualify to cut your payment →';}
+                  }
+                  pay.addEventListener('input',calc); bal.addEventListener('input',calc);
+                  pay.addEventListener('blur',function(){var n=num(pay);if(n>0)pay.value=fmt(n);});
+                  bal.addEventListener('blur',function(){var n=num(bal);if(n>0)bal.value=fmt(n);});
+                  calc();
+                })();
+                </script>
 </div>
-<p class="cta-actions cta-actions-left"><a class="btn btn-primary" href="#consolidation-intake">Get a free consolidation review →</a></p>
 </div>
 </div>
 </section>

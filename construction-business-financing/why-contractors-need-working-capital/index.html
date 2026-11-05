@@ -232,13 +232,13 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <p>The discipline underneath it is separating cash <em>earned</em> from cash <em>collected</em>. Backlog is future opportunity, not spendable money. If your next two payrolls hinge on one aging receivable clearing on time, you are not liquid — no matter how full the schedule looks. If you can point to several expected inflows plus enough reserve to absorb one slipped check, you are. Lenders read it the same way, which is why a contractor who can show this math gets better terms than one who just names a number.</p>
 <h2 id="estimate-your-working-capital-gap">Estimate Your Working-Capital Gap</h2>
 <p>Enter what you typically front each month (materials, payroll, and subs) and how long you wait to get paid after billing. This returns an illustrative estimate of the cash tied up in the gap and a suggested cushion to survive one slipped payment — <strong>an estimate, not a quote</strong>. Your real need depends on job mix, retainage, and how concentrated your receivables are.</p>
-<div id="wc-gap-calc">
-<div style="display:flex">
-<label>Monthly costs you front
-                      <input id="wcGapCost" inputmode="numeric" style="display:block" type="text" value="$80,000"/>
+<div id="wc-gap-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Monthly costs you front
+                      <input id="wcGapCost" inputmode="numeric" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;" type="text" value="$80,000"/>
 </label>
-<label>Days until you get paid
-                      <select id="wcGapDays" style="display:block">
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Days until you get paid
+                      <select id="wcGapDays" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
 <option value="30">Net 30</option>
 <option selected="" value="45">Net 45</option>
 <option value="60">Net 60</option>
@@ -247,20 +247,42 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 </select>
 </label>
 </div>
-<div style="display:flex">
-<div>
-<div>Cash tied up in the gap</div>
-<div id="wcGapTied">—</div>
+<div style="display:flex;flex-wrap:wrap;gap:14px;">
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Cash tied up in the gap</div>
+<div id="wcGapTied" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
-<div>
-<div>Suggested cushion (survive one slip)</div>
-<div id="wcGapCushion">—</div>
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Suggested cushion (survive one slip)</div>
+<div id="wcGapCushion" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
 </div>
-<p>Illustrative estimate only, not a quote or offer of credit.</p>
-<a href="/match.html?type=working-capital" id="wcGapCta" style="display:block">See what you qualify for →</a>
-<p>Checking options won’t affect your credit · 24–48 hr decisions · no obligation.</p>
+<p style="margin:16px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only, not a quote or offer of credit.</p>
+<a href="/match.html?type=working-capital" id="wcGapCta" style="display:block;width:100%;box-sizing:border-box;text-align:center;margin:14px 0 0;padding:15px 18px;background:#1d4ed8;color:#ffffff;font-weight:700;font-size:1rem;border-radius:10px;text-decoration:none;line-height:1.2;">See what you qualify for →</a>
+<p style="margin:12px 0 0;font-size:0.8rem;color:var(--text-secondary);text-align:center;">Checking options won’t affect your credit · 24–48 hr decisions · no obligation.</p>
 </div>
+<script>
+                (function(){
+                  var cost=document.getElementById('wcGapCost'),days=document.getElementById('wcGapDays'),
+                      outT=document.getElementById('wcGapTied'),outC=document.getElementById('wcGapCushion'),
+                      cta=document.getElementById('wcGapCta');
+                  if(!cost) return;
+                  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+                  function calc(){
+                    var c=parseFloat((cost.value||'').replace(/[^0-9.]/g,''))||0;
+                    var d=+days.value;
+                    if(c<=0){outT.textContent='—';outC.textContent='—';if(cta){cta.href='/match.html?type=working-capital';cta.textContent='See what you qualify for — get matched';}return;}
+                    var tied=c*(d/30);
+                    outT.textContent=fmt(tied);
+                    outC.textContent=fmt(tied)+' – '+fmt(tied*1.5);
+                    if(cta){cta.href='/match.html?type=working-capital&amount='+Math.round(tied);cta.textContent='See if you qualify for '+fmt(tied)+' →';}
+                  }
+                  cost.addEventListener('input',calc);
+                  cost.addEventListener('blur',function(){var n=parseFloat((cost.value||'').replace(/[^0-9.]/g,''));if(n>0)cost.value=fmt(n);});
+                  days.addEventListener('change',calc);
+                  calc();
+                })();
+                </script>
 <h2 id="working-capital-and-growth-planning">Working Capital and Growth Planning</h2>
 <p>The highest-return use of working capital isn’t surviving a bad month — it’s funding a good one. Expanding into bigger contracts, a new territory, or a second crew always opens a window where costs jump before revenue catches up. Planned, that window is a smooth ramp; unplanned, the same expense feels like an emergency. Before you take on a step-change in volume, run a quick stress test: what happens to the account if first-payment timing slips three weeks, if one supplier tightens terms, and if an early change order is delayed?</p>
 <p>The answer tells you which structure fits. Recurring swings belong on <a href="/business-line-of-credit.html">a line of credit</a>; a defined ramp may justify a fixed-term facility; and keeping <a href="/equipment-financing.html">equipment financing</a> separate protects operating cash either way. The goal is never “more debt” — it’s matching the financing to how your cash actually behaves.</p>

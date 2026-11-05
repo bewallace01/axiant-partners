@@ -181,20 +181,20 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <p>Three steps: (1) a lender/lessor <strong>appraises and buys</strong> equipment you own, paying you a lump sum; (2) you immediately <strong>lease it back</strong> under a fixed-term lease and keep using it without interruption; (3) at the end of the lease you typically have an option to <strong>buy it back</strong> (often for a nominal or fair-market amount, depending on the lease type). Functionally it's a loan secured by equipment you already own — but structured as a lease, which changes the tax and balance-sheet treatment.</p>
 <h2 id="estimate">Estimate Your Sale-Leaseback</h2>
 <p>Enter your equipment's appraised value and profile to see an illustrative cash advance and monthly lease payment. These are <strong>planning estimates, not a quote</strong> — an appraisal and the lessor set the real figures.</p>
-<div id="slb-calc">
-<div style="display:flex">
-<label>Appraised equipment value
-                  <input id="slbVal" inputmode="numeric" style="display:block" type="text" value="$200,000"/>
+<div id="slb-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+<label style="flex:1 1 160px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Appraised equipment value
+                  <input id="slbVal" inputmode="numeric" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;" type="text" value="$200,000"/>
 </label>
-<label>Equipment profile
-                  <select id="slbAdv" style="display:block">
+<label style="flex:1 1 160px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Equipment profile
+                  <select id="slbAdv" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
 <option value="70,80">Late-model heavy equipment / trucks</option>
 <option selected="" value="55,70">Standard or mixed-age machinery</option>
 <option value="40,55">Older or specialized equipment</option>
 </select>
 </label>
-<label>Lease term
-                  <select id="slbTerm" style="display:block">
+<label style="flex:1 1 110px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Lease term
+                  <select id="slbTerm" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
 <option value="24">2 years</option>
 <option selected="" value="36">3 years</option>
 <option value="48">4 years</option>
@@ -202,20 +202,43 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 </select>
 </label>
 </div>
-<div style="display:flex">
-<div>
-<div>Cash you could unlock</div>
-<div id="slbCash">—</div>
+<div style="display:flex;flex-wrap:wrap;gap:14px;">
+<div style="flex:1 1 180px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Cash you could unlock</div>
+<div id="slbCash" style="font-size:1.35rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
-<div>
-<div>Est. monthly lease payment</div>
-<div id="slbPay">—</div>
+<div style="flex:1 1 180px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Est. monthly lease payment</div>
+<div id="slbPay" style="font-size:1.35rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
 </div>
-<p>Illustrative estimate only at an assumed ~11% lease rate, not a quote or offer of credit. <a href="/equipment-appraisal.html">Advance depends on appraisal, condition, and title</a>.</p>
-<a class="btn-primary" href="/match.html?type=working-capital" id="slbCta">See what your equipment frees up — get matched</a>
-<p>Checking options won’t affect your credit · no obligation.</p>
+<p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only at an assumed ~11% lease rate, not a quote or offer of credit. <a href="/equipment-appraisal.html">Advance depends on appraisal, condition, and title</a>.</p>
+<a class="btn-primary" href="/match.html?type=working-capital" id="slbCta" style="margin-top:14px;">See what your equipment frees up — get matched</a>
+<p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won’t affect your credit · no obligation.</p>
 </div>
+<script>
+            (function(){
+              var val=document.getElementById('slbVal'),adv=document.getElementById('slbAdv'),
+                  term=document.getElementById('slbTerm'),outC=document.getElementById('slbCash'),
+                  outP=document.getElementById('slbPay'),cta=document.getElementById('slbCta');
+              if(!val) return;
+              var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+              function pay(p,apr,n){var r=apr/12;return r>0?(p*r)/(1-Math.pow(1+r,-n)):p/n;}
+              function calc(){
+                var v=parseFloat((val.value||'').replace(/[^0-9.]/g,''))||0;
+                if(v<=0){outC.innerHTML='&mdash;';outP.innerHTML='&mdash;';if(cta){cta.href='/match.html?type=working-capital';cta.textContent='See what your equipment frees up — get matched';}return;}
+                var a=adv.value.split(','),lo=+a[0]/100,hi=+a[1]/100,n=+term.value;
+                var cashLo=v*lo,cashHi=v*hi;
+                outC.textContent=fmt(cashLo)+' – '+fmt(cashHi);
+                outP.textContent=fmt(pay(cashLo,0.11,n))+' – '+fmt(pay(cashHi,0.11,n));
+                if(cta){var mid=v*(lo+hi)/2;cta.href='/match.html?type=working-capital&amount='+Math.round(mid);cta.textContent='Unlock about '+fmt(mid)+' →';}
+              }
+              val.addEventListener('input',calc);
+              val.addEventListener('blur',function(){var n=parseFloat((val.value||'').replace(/[^0-9.]/g,''));if(n>0)val.value=fmt(n);});
+              adv.addEventListener('change',calc);term.addEventListener('change',calc);
+              calc();
+            })();
+            </script>
 <h2 id="when">When It Makes Sense</h2>
 <ul>
 <li><strong>You own valuable, paid-off equipment</strong> and need cash for growth, payroll, a slow season, or a big opportunity.</li>

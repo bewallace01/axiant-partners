@@ -36,6 +36,7 @@
 <meta content="Free construction loan calculator for construction-to-permanent loans: interest-only build payment plus the amortized permanent payment and total interest." name="twitter:description"/>
 <title>Construction Loan Calculator: Interest-Only + Permanent Payment</title>
 <link href="/axiant-v2.css?v=202610051019" rel="stylesheet"/>
+<link href="/axiant-v2-tools.css?v=202611051" rel="stylesheet"/>
 <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://axiantpartners.com/"},{"@type":"ListItem","position":2,"name":"Commercial Real Estate Loans","item":"https://axiantpartners.com/commercial-real-estate-loans.html"},{"@type":"ListItem","position":3,"name":"Construction Loan Calculator","item":"https://axiantpartners.com/construction-loan-calculator/"}]}
     </script><script type="application/ld+json">
@@ -177,7 +178,7 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 </div>
 </div>
 <div class="cx-calc">
-<h2 id="calculator">Construction Loan Calculator</h2>
+<h2 id="calculator" style="margin:0 0 4px;">Construction Loan Calculator</h2>
 <p class="cx-sub">Estimate your interest-only construction payment and your permanent (amortized) payment. Estimates only, not an offer — <a href="/match.html">get real terms here</a>.</p>
 <form id="cxForm" novalidate="">
 <div class="cx-grid">
@@ -204,6 +205,38 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <p class="cx-note">Construction-phase payment is interest-only on the full amount (a conservative, fully-drawn figure) — your early payments are usually lower because you draw funds in stages. Permanent payment assumes full amortization at the same rate; a fixed permanent rate may differ.</p>
 </div>
 </div>
+<script>
+(function(){
+  var f=document.getElementById('cxForm');if(!f)return;
+  var $=function(id){return document.getElementById(id);};
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+  var amt=$('cxAmount');
+  if(amt){amt.addEventListener('input',function(){var d=amt.value.replace(/[^0-9]/g,'');amt.value=d?parseInt(d,10).toLocaleString('en-US'):'';});}
+  function calc(e){
+    if(e)e.preventDefault();
+    var amount=parseFloat((amt.value||'').replace(/[^0-9.]/g,''));
+    var rate=parseFloat($('cxRate').value), build=parseFloat($('cxBuild').value), years=parseFloat($('cxTerm').value);
+    var err=$('cxError');err.textContent='';
+    if(!(amount>0)||isNaN(rate)||rate<0||!(years>0)){err.textContent='Enter a loan amount, an interest rate, and a permanent term in years.';return;}
+    if(isNaN(build)||build<0)build=0;
+    var mr=rate/100/12;
+    var io=amount*mr;                       // interest-only monthly (full drawn)
+    var buildInt=io*build;                  // interest paid during construction
+    var n=years*12, M;
+    if(mr===0){M=amount/n;}else{var pow=Math.pow(1+mr,n);M=amount*(mr*pow)/(pow-1);}
+    var permInt=M*n-amount;
+    $('cxIO').textContent=fmt(io)+'/mo';
+    $('cxPI').textContent=fmt(M)+'/mo';
+    $('cxOutAmt').textContent=fmt(amount);
+    $('cxBuildInt').textContent=fmt(buildInt);
+    $('cxPermInt').textContent=fmt(permInt);
+    $('cxTotInt').textContent=fmt(buildInt+permInt);
+    $('cxResults').classList.add('show');
+  }
+  f.addEventListener('submit',calc);
+  $('cxClear').addEventListener('click',function(){f.reset();$('cxResults').classList.remove('show');$('cxError').textContent='';});
+})();
+</script>
 <p class="lede-para">Most calculators only do a plain mortgage payment, which misses the whole point of a construction loan: the interest-only build phase and the amortized permanent phase are two different numbers. This one shows both so you can plan your cash flow through the build and after it. For how the loan itself works, see <a href="/commercial-real-estate-loans/articles/construction-to-permanent-financing/">construction-to-permanent financing</a>.</p>
 <h2 id="how">How the Math Works</h2>
 <p>A construction-to-permanent loan runs in two phases, each with its own payment math:</p>

@@ -74,7 +74,8 @@ def _dateline():
 def render(a, c, v, header, footer):
     """a = article dict, c = cluster dict."""
     hub = c["hub"]
-    url = f"{BASE}/{hub}/{a['slug']}/"
+    # root_file: a root money page rendered from the same template (/name.html)
+    url = f"{BASE}/{a['root_file']}" if a.get("root_file") else f"{BASE}/{hub}/{a['slug']}/"
     heads = [h for h, _ in a["sections"]]
     toc = "\n".join(f'<li><a href="#{slugify(h)}">{html.escape(h)}</a></li>'
                     for h in heads) + \
@@ -183,7 +184,7 @@ def render(a, c, v, header, footer):
 <div class="article-grid">
 <div class="article-body">
 <div class="crumb-row">
-<a class="crumb" href="../">&larr; Back to {html.escape(c['crumb'])} Articles</a>
+<a class="crumb" href="{c.get('back_href', '../')}">&larr; Back to {html.escape(c['crumb'])}{'' if c.get('back_href') else ' Articles'}</a>
 </div>
 <p class="dateline">Updated {_dateline()}</p>
 <div class="callout quick-answer" id="quick-answer">

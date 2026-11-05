@@ -33,6 +33,7 @@
 <meta content="How to Improve Your Business Loan Approval Odds | Axiant" name="twitter:title"/>
 <meta content="Improve your business loan approval odds: the 7 factors lenders weigh, a self-scoring readiness checklist, and 30-day fixes to make before you apply." name="twitter:description"/>
 <link href="/axiant-v2.css?v=202610051019" rel="stylesheet"/>
+<link href="/axiant-v2-tools.css?v=202611051" rel="stylesheet"/>
 </link></meta></meta></meta></meta></meta><script type="application/ld+json">
     {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://axiantpartners.com/"}, {"@type": "ListItem", "position": 2, "name": "Articles", "item": "https://axiantpartners.com/articles/"}, {"@type": "ListItem", "position": 3, "name": "Improve your approval odds", "item": "https://axiantpartners.com/articles/improve-business-loan-approval-odds/"}]}
     </script>
@@ -162,10 +163,33 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <div class="group" data-tone="teal">
 <div class="group-head"><h2 id="score-your-loan-readiness">Score your loan readiness</h2></div>
 <div class="prose">
-<p class="sub">Tick everything that's true today. Your score updates live — nothing is saved or sent.</p><label class="check"><input data-w="1" type="checkbox"/><span>My business has been operating 6+ months <small>Time in business is one of the first filters lenders apply.</small></span></label><label class="check"><input data-w="1" type="checkbox"/><span>I run revenue through a dedicated business bank account <small>Mixing personal and business funds makes cash flow unreadable.</small></span></label><label class="check"><input data-w="1" type="checkbox"/><span>My last 3–6 months of statements have few/no overdrafts or negative days <small>NSFs and negative balances are top decline reasons.</small></span></label><label class="check"><input data-w="1" type="checkbox"/><span>My monthly revenue is steady and at least ~$10k <small>Consistent deposits prove ability to repay.</small></span></label><label class="check"><input data-w="1" type="checkbox"/><span>My personal credit is 600+ (650+ for bank/SBA) <small>Score sets the floor for rate and product.</small></span></label><label class="check"><input data-w="1" type="checkbox"/><span>My existing debt payments leave room for a new one <small>Lenders check that cash flow covers total debt service.</small></span></label><label class="check"><input data-w="1" type="checkbox"/><span>I have docs ready: statements, tax returns, financials <small>Slow documents stall or sink applications.</small></span></label><label class="check"><input data-w="1" type="checkbox"/><span>I haven't shotgun-applied to many lenders recently <small>Stacked hard inquiries signal risk.</small></span></label><div class="meter-wrap">
+<p class="sub">Tick everything that's true today. Your score updates live — nothing is saved or sent.</p><div class="tool"><label class="check"><input data-w="1" type="checkbox"/><span>My business has been operating 6+ months <small>Time in business is one of the first filters lenders apply.</small></span></label><label class="check"><input data-w="1" type="checkbox"/><span>I run revenue through a dedicated business bank account <small>Mixing personal and business funds makes cash flow unreadable.</small></span></label><label class="check"><input data-w="1" type="checkbox"/><span>My last 3–6 months of statements have few/no overdrafts or negative days <small>NSFs and negative balances are top decline reasons.</small></span></label><label class="check"><input data-w="1" type="checkbox"/><span>My monthly revenue is steady and at least ~$10k <small>Consistent deposits prove ability to repay.</small></span></label><label class="check"><input data-w="1" type="checkbox"/><span>My personal credit is 600+ (650+ for bank/SBA) <small>Score sets the floor for rate and product.</small></span></label><label class="check"><input data-w="1" type="checkbox"/><span>My existing debt payments leave room for a new one <small>Lenders check that cash flow covers total debt service.</small></span></label><label class="check"><input data-w="1" type="checkbox"/><span>I have docs ready: statements, tax returns, financials <small>Slow documents stall or sink applications.</small></span></label><label class="check"><input data-w="1" type="checkbox"/><span>I haven't shotgun-applied to many lenders recently <small>Stacked hard inquiries signal risk.</small></span></label><div class="meter-wrap">
 <div class="meter-top"><span class="meter-label" id="aoLabel">Getting started</span><span class="meter-score" id="aoScore">0 / 8</span></div>
-<p class="meter-advice" id="aoAdvice">Tick the boxes above to see where you stand and what to fix first.</p>
-</div>
+<div class="bar"><i id="aoBar"></i></div> <p class="meter-advice" id="aoAdvice">Tick the boxes above to see where you stand and what to fix first.</p>
+</div></div>
+<script>
+(function(){
+var boxes=Array.prototype.slice.call(document.querySelectorAll('.check input[type=checkbox]'));
+  var bar=document.getElementById('aoBar'),score=document.getElementById('aoScore'),
+      label=document.getElementById('aoLabel'),advice=document.getElementById('aoAdvice');
+  var total=boxes.length;
+  function update(){
+    var n=boxes.filter(function(b){return b.checked;}).length;
+    var pct=Math.round(n/total*100);
+    bar.style.width=pct+'%';
+    score.textContent=n+' / '+total;
+    var col,lab,adv;
+    if(n<=3){col='var(--low)';lab='Needs work';adv='Focus on the basics first: a dedicated business account and clean bank statements. See lever #1 below.';}
+    else if(n<=5){col='var(--mid)';lab='Building';adv='You’re on the way. Close the remaining gaps — especially cash flow and documentation — before applying for the best terms.';}
+    else if(n<total){col='var(--good)';lab='Strong';adv='You’re in good shape. Tidy the last item or two, then <a href="/match.html">apply and compare offers</a>.';}
+    else{col='var(--good)';lab='Loan-ready';adv='Excellent — your file looks approvable. <a href="/match.html">Apply once and compare offers</a> across loan types.';}
+    bar.style.background=col;label.textContent=lab;advice.innerHTML=adv;
+    if(typeof gtag==='function'){gtag('event','readiness_score',{score:n});}
+  }
+  boxes.forEach(function(b){b.addEventListener('change',update);});
+  update();
+})();
+</script>
 </div>
 </div>
 </div>

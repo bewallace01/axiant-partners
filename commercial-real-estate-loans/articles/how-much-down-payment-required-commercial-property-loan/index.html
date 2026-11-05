@@ -281,13 +281,13 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 </table></div>
 <h2 id="estimate-your-down-payment">Estimate Your Down Payment</h2>
 <p class="lede-para">Enter a purchase price and loan type to see an illustrative down payment and loan amount. These are <strong>estimates based on the typical ranges above, not a quote</strong> — your actual figures depend on credit, occupancy, DSCR, and the lender program.</p>
-<div id="cre-dp-calc">
-<div style="display:flex">
-<label>Property purchase price
-                  <input id="creDpPrice" inputmode="numeric" style="display:block" type="text" value="$1,000,000"/>
+<div id="cre-dp-calc" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:18px 18px 20px;margin:0 0 28px;">
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;">
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Property purchase price
+                  <input id="creDpPrice" inputmode="numeric" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;" type="text" value="$1,000,000"/>
 </label>
-<label>Loan type
-                  <select id="creDpType" style="display:block">
+<label style="flex:1 1 200px;font-size:0.9rem;font-weight:600;color:var(--text-primary);">Loan type
+                  <select id="creDpType" style="display:block;width:100%;margin-top:6px;padding:10px 12px;font-size:1rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary,#fff);color:var(--text-primary);box-sizing:border-box;">
 <option value="10,15">SBA 504 (owner-occupied)</option>
 <option value="10,20">SBA 7(a) (owner-occupied)</option>
 <option selected="" value="20,35">Conventional commercial</option>
@@ -296,20 +296,41 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 </select>
 </label>
 </div>
-<div style="display:flex">
-<div>
-<div>Estimated down payment</div>
-<div id="creDpDown">—</div>
+<div style="display:flex;flex-wrap:wrap;gap:14px;">
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Estimated down payment</div>
+<div id="creDpDown" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
-<div>
-<div>Estimated loan amount</div>
-<div id="creDpLoan">—</div>
+<div style="flex:1 1 200px;background:var(--bg-secondary,#f8fafc);border-radius:8px;padding:12px 14px;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent-color);font-weight:700;">Estimated loan amount</div>
+<div id="creDpLoan" style="font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-top:2px;">—</div>
 </div>
 </div>
-<p>Illustrative estimate only, not a quote or offer of credit.</p>
-<a class="btn-primary" href="/match.html?type=real-estate" id="creDpCta">See real numbers — get matched</a>
-<p>Checking options won’t affect your credit · 24–48 hr decisions · no obligation.</p>
+<p style="margin:14px 0 0;font-size:0.85rem;color:var(--text-secondary);">Illustrative estimate only, not a quote or offer of credit.</p>
+<a class="btn-primary" href="/match.html?type=real-estate" id="creDpCta" style="margin-top:14px;">See real numbers — get matched</a>
+<p style="margin:8px 0 0;font-size:0.8rem;color:var(--text-secondary);">Checking options won’t affect your credit · 24–48 hr decisions · no obligation.</p>
 </div>
+<script>
+            (function(){
+              var price=document.getElementById('creDpPrice'),type=document.getElementById('creDpType'),
+                  outD=document.getElementById('creDpDown'),outL=document.getElementById('creDpLoan'),
+                  cta=document.getElementById('creDpCta');
+              if(!price) return;
+              var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+              function calc(){
+                var p=parseFloat((price.value||'').replace(/[^0-9.]/g,''))||0;
+                var r=type.value.split(','),lo=+r[0]/100,hi=+r[1]/100;
+                if(p<=0){outD.textContent='—';outL.textContent='—';if(cta){cta.href='/match.html?type=real-estate';cta.textContent='See real numbers — get matched';}return;}
+                outD.textContent=fmt(p*lo)+' – '+fmt(p*hi);
+                outL.textContent=fmt(p*(1-hi))+' – '+fmt(p*(1-lo));
+                if(cta){var loan=p*(1-(lo+hi)/2);cta.href='/match.html?type=real-estate&amount='+Math.round(loan);cta.textContent='See if you qualify for '+fmt(loan)+' →';}
+              }
+              price.addEventListener('input',calc);
+              price.addEventListener('blur',function(){var n=parseFloat((price.value||'').replace(/[^0-9.]/g,''));if(n>0)price.value=fmt(n);});
+              type.addEventListener('change',calc);
+              calc();
+            })();
+            </script>
 <h2 id="sba-504-loan-lower-equity-option">SBA 504 Loan (Lower Equity Option)</h2>
 <p>SBA 504 is frequently used for owner-occupied property because it can reduce upfront equity requirements for qualified businesses. The 50-40-10 structure–50% bank, 40% CDC/SBA, 10% borrower–means you can finance up to 90% of eligible project costs in many cases. Startups or special-use properties may face slightly higher equity requirements. For a full program comparison, see <a href="../sba-504-vs-conventional-commercial-real-estate-loan/">SBA 504 vs conventional commercial real estate loan</a>.</p>
 <ul>

@@ -31,6 +31,7 @@
 <meta content="Which Business Loan Is Right for You? | Axiant Partners" name="twitter:title">
 <meta content="Not sure which business loan you need? Use our quick chooser to match your need, speed, and credit to the right option, then compare them side by side." name="twitter:description"/>
 <link href="/axiant-v2.css?v=202610051019" rel="stylesheet"/>
+<link href="/axiant-v2-tools.css?v=202611051" rel="stylesheet"/>
 </link></meta></meta></meta></meta></meta><script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://axiantpartners.com/"}, {"@type": "ListItem", "position": 2, "name": "Articles", "item": "https://axiantpartners.com/articles/"}, {"@type": "ListItem", "position": 3, "name": "Which Business Loan Is Right for You?", "item": "https://axiantpartners.com/articles/which-business-loan-is-right-for-you/"}]}
 </script>
@@ -159,24 +160,100 @@ src="https://www.facebook.com/tr?id=1269109058680441&ev=PageView&noscript=1"/></
 <div class="group-head"><h2 id="quick-chooser">Quick chooser</h2></div>
 <div class="prose">
 <p class="sub">Answer three questions. We'll point you to the best-fit loan type — no email required.</p>
-<p><span class="q-num">1</span> What's the money mainly for?</p>
-<p><label class="opt"><input name="purpose" type="radio" value="cashflow"/><span>Cash flow / payroll / gaps</span></label>
-<label class="opt"><input name="purpose" type="radio" value="equipment"/><span>Equipment or vehicles</span></label>
-<label class="opt"><input name="purpose" type="radio" value="realestate"/><span>Real estate</span></label>
-<label class="opt"><input name="purpose" type="radio" value="project"/><span>One-time project / expansion</span></label>
-<label class="opt"><input name="purpose" type="radio" value="invoices"/><span>Waiting on unpaid invoices</span></label>
-<label class="opt"><input name="purpose" type="radio" value="startup"/><span>Brand-new business</span></label></p>
-<p><span class="q-num">2</span> How fast do you need it?</p>
-<p><label class="opt"><input name="speed" type="radio" value="now"/><span>ASAP (days)</span></label>
-<label class="opt"><input name="speed" type="radio" value="soon"/><span>Within a couple of weeks</span></label>
-<label class="opt"><input name="speed" type="radio" value="patient"/><span>I can wait for the best rate</span></label></p>
-<p><span class="q-num">3</span> How would you describe your credit &amp; history?</p>
-<p><label class="opt"><input name="credit" type="radio" value="strong"/><span>Strong (680+, 2+ yrs)</span></label>
-<label class="opt"><input name="credit" type="radio" value="fair"/><span>Fair (600-679)</span></label>
-<label class="opt"><input name="credit" type="radio" value="challenged"/><span>Challenged / rebuilding</span></label> <button class="dg-btn dg-btn-primary" id="dgGo" type="button">Show my best fit</button>
-<a class="dg-btn dg-btn-ghost" href="/match.html">Skip — just match me</a></p>
+<div class="chooser">
+
+    <div class="q">
+      <div class="q-label"><span class="q-num">1</span> What's the money mainly for?</div>
+      <div class="opts" data-group="purpose">
+        <label class="opt"><input type="radio" name="purpose" value="cashflow"><span>Cash flow / payroll / gaps</span></label>
+        <label class="opt"><input type="radio" name="purpose" value="equipment"><span>Equipment or vehicles</span></label>
+        <label class="opt"><input type="radio" name="purpose" value="realestate"><span>Real estate</span></label>
+        <label class="opt"><input type="radio" name="purpose" value="project"><span>One-time project / expansion</span></label>
+        <label class="opt"><input type="radio" name="purpose" value="invoices"><span>Waiting on unpaid invoices</span></label>
+        <label class="opt"><input type="radio" name="purpose" value="startup"><span>Brand-new business</span></label>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="q-label"><span class="q-num">2</span> How fast do you need it?</div>
+      <div class="opts" data-group="speed">
+        <label class="opt"><input type="radio" name="speed" value="now"><span>ASAP (days)</span></label>
+        <label class="opt"><input type="radio" name="speed" value="soon"><span>Within a couple of weeks</span></label>
+        <label class="opt"><input type="radio" name="speed" value="patient"><span>I can wait for the best rate</span></label>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="q-label"><span class="q-num">3</span> How would you describe your credit &amp; history?</div>
+      <div class="opts" data-group="credit">
+        <label class="opt"><input type="radio" name="credit" value="strong"><span>Strong (680+, 2+ yrs)</span></label>
+        <label class="opt"><input type="radio" name="credit" value="fair"><span>Fair (600-679)</span></label>
+        <label class="opt"><input type="radio" name="credit" value="challenged"><span>Challenged / rebuilding</span></label>
+      </div>
+    </div>
+
+    <div class="chooser-actions">
+      <button type="button" class="dg-btn dg-btn-primary" id="dgGo">Show my best fit</button>
+      <a href="/match.html" class="dg-btn dg-btn-ghost">Skip &mdash; just match me</a>
+    </div>
+
+    <div class="result" id="dgResult" role="status" aria-live="polite">
+      <div class="pick" id="dgPick"></div>
+      <div class="why" id="dgWhy"></div>
+      <a class="go" id="dgLink" href="/match.html">Learn more</a>
+      <a class="go go-ghost" href="/match.html">Apply &amp; compare offers</a>
+      <div class="alt" id="dgAlt"></div>
+    </div>
+  </div>
+<script>
+(function(){
+// ---- chooser logic ----
+  var PRODUCTS={
+    working:{name:'Working capital loan',url:'/working-capital-loans.html'},
+    loc:{name:'Business line of credit',url:'/business-line-of-credit.html'},
+    term:{name:'Business term loan',url:'/business-term-loans.html'},
+    sba:{name:'SBA loan',url:'/sba-loans.html'},
+    equip:{name:'Equipment financing',url:'/equipment-financing.html'},
+    cre:{name:'Commercial real estate loan',url:'/commercial-real-estate-loans.html'},
+    factor:{name:'Invoice factoring',url:'/invoice-factoring.html'},
+    rbf:{name:'Revenue-based financing',url:'/revenue-based-financing.html'},
+    startup:{name:'Startup financing',url:'/startup-financing.html'}
+  };
+  function val(g){var el=document.querySelector('input[name="'+g+'"]:checked');return el?el.value:null;}
+  function recommend(p,s,c){
+    // purpose drives the base pick
+    if(p==='invoices') return {pick:'factor',alt:'loc',why:'You have money locked in unpaid invoices. Factoring advances cash against those receivables now, instead of waiting on net-30/60 terms.'};
+    if(p==='equipment') return {pick:'equip',alt:'term',why:'The equipment itself serves as collateral, which keeps rates reasonable and approval more accessible than an unsecured loan.'};
+    if(p==='realestate') return {pick:(s==='patient'?'sba':'cre'),alt:'cre',why:(s==='patient'?'For property, an SBA 504 loan offers long terms and the lowest rates — worth the longer timeline since you can wait.':'A commercial real estate loan funds faster than SBA. If you can wait, compare an SBA 504 for a lower rate.')};
+    if(p==='startup') return {pick:'startup',alt:(c==='strong'?'loc':'working'),why:'With limited operating history, lenders lean on your personal credit and plan. Startup-focused options are built for that profile.'};
+    if(p==='cashflow'){
+      if(s==='now') return {pick:'working',alt:'loc',why:'For an urgent cash-flow gap, a short-term working capital loan funds fastest — often in 1-3 business days.'};
+      return {pick:'loc',alt:'working',why:'For ongoing or unpredictable cash-flow needs, a revolving line of credit lets you draw only what you need and pay interest only on that.'};
+    }
+    if(p==='project'){
+      if(s==='patient'&&(c==='strong'||c==='fair')) return {pick:'sba',alt:'term',why:'For a planned, one-time investment and a borrower who can wait, an SBA 7(a) loan gives you the lowest rate and longest term.'};
+      return {pick:'term',alt:'sba',why:'A term loan gives you a fixed lump sum and predictable payments for a one-time project — and funds far faster than SBA.'};
+    }
+    return {pick:'working',alt:'loc',why:'Based on your answers, a flexible short-term option is the most likely fit. Apply to compare real offers.'};
+  }
+  var goBtn=document.getElementById('dgGo');
+  if(goBtn){goBtn.addEventListener('click',function(){
+    var p=val('purpose'),s=val('speed'),c=val('credit');
+    if(!p){document.getElementById('dgPick').textContent='Pick at least question 1 to see a match';
+      document.getElementById('dgWhy').textContent='';document.getElementById('dgAlt').innerHTML='';
+      document.getElementById('dgResult').classList.add('show');return;}
+    var r=recommend(p,s,c),prod=PRODUCTS[r.pick],alt=PRODUCTS[r.alt];
+    document.getElementById('dgPick').textContent='Best fit: '+prod.name;
+    document.getElementById('dgWhy').textContent=r.why;
+    var link=document.getElementById('dgLink');link.href=prod.url;link.textContent='Explore '+prod.name.toLowerCase();
+    document.getElementById('dgAlt').innerHTML='Also worth a look: <a href="'+alt.url+'">'+alt.name+'</a>.';
+    var res=document.getElementById('dgResult');res.classList.add('show');
+    if(typeof gtag==='function'){gtag('event','loan_chooser_result',{loan_type:r.pick});}
+    res.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });}
+})();
+</script>
 </div>
-<p class="cta-actions cta-actions-left"><a class="btn btn-primary" href="/match.html">Skip — just match me</a></p>
 </div>
 </div>
 </section>
