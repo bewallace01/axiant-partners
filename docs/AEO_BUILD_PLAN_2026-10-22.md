@@ -8,7 +8,7 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 
 ---
 
-## STATUS — read this first (last updated 2026-11-05, session 11)
+## STATUS — read this first (last updated 2026-11-06, session 12)
 
 **Rule for every session:** do the first unchecked item in "Next up", follow sections 0.2–0.8, ship it, then update this STATUS block (tick it, add a log line, move the next item up) in the same push. Stop after one item and report.
 
@@ -101,6 +101,7 @@ Full plan and content rules: `docs/SBA_CLUSTER_PLAN_2026-10-29.md`. **Read its "
 - 2026-10-29: Added the SBA program clusters plan (`docs/SBA_CLUSTER_PLAN_2026-10-29.md`) as its own Next up block. Next: validate the six buyer questions in Bing Copilot, then the Cluster 1 pillar.
 - 2026-11-05: Removed `semi-truck-lease-down-payment`: `_redirects` has sent that URL to `semi-truck-financing-down-payment/#lease-down-payment` since the July semi cluster consolidation (f6cfe51fd), so the page was unreachable. Check `_redirects` before choosing a new URL.
 - 2026-11-04: Three new pages from the Search Console opportunity review (semi truck lease down payment, lawn care business loans, security guard invoice factoring), hub and sibling links, sitemap, llms.txt key facts. 10-29 citation check still unlogged, so cited pages stay untouched. Next: SBA Cluster 1, or the boat and 2nd-lien rates once Alex sends ranges.
+- 2026-11-06: Alex asked for two existing-page changes from Search Console, outside the "Next up" order: `equipment-financing-vs-business-credit-card` (which card types fit, plus limits on heavy machinery; 2 FAQs) and `small-fleet-truck-financing-under-10-trucks` (who finances fleets under 10; 1 FAQ). Neither is in `scripts/aeo/top25-cited.txt`; the Bing export wasn't available to rule out other citations. Edited as HTML because `generate_new_articles.py` would drop later batch edits on the fleet page. Numbers reuse each page's published ranges; no lender is named.
 - 2026-11-05: Five new pages (no credit check equipment, veteran startups, 100% SBA, hotels, 5% down), hubs, sitemap, llms.txt. Inbound links added only from low-traffic pages not named as cited. Copilot validation still open, and the 10-29 citation check remains unlogged. Next: validate, then the remaining SBA cluster spokes.
 
 ---
