@@ -288,6 +288,16 @@ def build_hub(c, v, header, footer):
         f'<h3>{html.escape(name)}</h3>\n<p>{html.escape(desc)}</p>\n'
         f'<span class="card-cta">Read more</span>\n</a>'
         for i, (slug, name, desc) in enumerate(arts))
+    # optional: a hub whose search query wants a direct answer can carry one
+    hub_qa = hub_speakable = ""
+    if c.get("hub_quick_answer"):
+        hub_qa = ('<div class="callout quick-answer" id="quick-answer">\n'
+                  '<p class="eyebrow">Quick answer</p>\n<div class="prose">\n'
+                  f'<p>{c["hub_quick_answer"]}</p>\n</div>\n</div>\n')
+        sp = {"@context": "https://schema.org", "@type": "WebPage",
+              "@id": f"{BASE}/{hub}/#webpage", "url": f"{BASE}/{hub}/", "name": c["hub_h1"],
+              "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".quick-answer"]}}
+        hub_speakable = f'<script type="application/ld+json">{json.dumps(sp, separators=(",", ":"))}</script>\n'
 
     return len(arts), f"""<!DOCTYPE html>
 <html lang="en">
@@ -320,7 +330,7 @@ def build_hub(c, v, header, footer):
 <title>{html.escape(c['hub_title'])}</title>
 <script type="application/ld+json">{json.dumps(crumbs, separators=(",", ":"))}</script>
 <script type="application/ld+json">{json.dumps(coll, separators=(",", ":"))}</script>
-<link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+{hub_speakable}<link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/playfair-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/axiant-v2.css?v={v}">
 {tracking_tags()}
@@ -342,7 +352,7 @@ def build_hub(c, v, header, footer):
 <div class="group" data-tone="blue">
 <div class="prose">
 <p class="hub-back"><a href="/blog.html">&larr; All Articles</a></p>
-<p class="lead">{c['hub_intro']}</p>
+{hub_qa}<p class="lead">{c['hub_intro']}</p>
 </div>
 </div>
 </div>

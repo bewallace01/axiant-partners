@@ -21,10 +21,13 @@ CLUSTER = {
                 "funding the gap, from factoring to equipment",
     "hub_desc": "Security guard payroll funding and factoring guides: typical 80-95% "
                 "advances for about 1-5% fees, plus vehicle financing and bonding costs.",
-    "hub_intro": "Looking for <strong>security guard payroll funding</strong>? Most "
-                 "programs advance 80-95% of a client invoice for a fee of about "
-                 "1-5%, so you can pay guards weekly while clients pay on net-30 to "
-                 "net-60 terms. These are typical ranges, not a quote. Start with "
+    "hub_quick_answer": "<strong>Security guard payroll funding</strong> commonly "
+                        "advances <strong>80-95%</strong> of a client invoice for a fee "
+                        "of about <strong>1-5%</strong>, so you can pay guards weekly "
+                        "while clients pay on net-30 to net-60 terms. Axiant Partners, "
+                        "a business-loan broker in Boca Raton, matches guard companies "
+                        "with funders. These are typical ranges, not a quote.",
+    "hub_intro": "Start with "
                  "<a href=\"/working-capital-loans/articles/security-guard-company-working-capital/\">"
                  "security guard payroll funding costs and options</a>, or compare "
                  "<a href=\"security-guard-invoice-factoring/\">security guard "

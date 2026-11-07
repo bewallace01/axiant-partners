@@ -47,7 +47,7 @@ ARTICLES = [{
                     "a schedule. On a <strong>$60,000</strong> van at an illustrative 9% over 60 months, a loan runs about "
                     "<strong>$1,246</strong> a month and a lease with a 25% residual about <strong>$1,047</strong>. Lease "
                     "to own costs about the same as the loan. Axiant Partners, a business-loan broker in Boca Raton, "
-                    "compares both. These are examples, not quotes.",
+                    "compares both. Typical van rates run 6-15%, so these are examples, not quotes.",
     "sections": [
         ("Loan, Lease or Lease to Own",
          "<p>These three get mixed up in ads. The difference is who carries the van's value at the end of the term. All "
@@ -62,7 +62,7 @@ ARTICLES = [{
          ])
          + "<p>Vans on our <a href=\"/equipment/cargo-vans/\">cargo van financing</a> page commonly run $35,000-$75,000 "
          "before upfit, with typical rates of 6-15%, terms of 24-72 months and 0-20% down, depending on credit and age.</p>"),
-        ("What the Payment Difference Looks Like",
+        ("Worked Example: A $60,000 Van on Each Structure",
          "<p><strong>Illustrative, not a quote.</strong> Assume a $60,000 van, nothing down, a 9% rate on each structure "
          "and 60 months. The lease assumes the van is worth 25% of its price ($15,000) at the end, which is an assumption, "
          "not a market figure.</p>"

@@ -49,8 +49,8 @@ ARTICLES = [{
                 "sba mca refinance rule, sop 50 10 8.1 merchant cash advance, sales-based repayment agreement",
     "quick_answer": "Generally <strong>no</strong>. Under SBA's SOP 50 10 8.1, effective October 1, 2026, an active "
                     "merchant cash advance isn't eligible for 7(a) refinancing. The exception: it was converted to a "
-                    "term loan, has amortized for at least <strong>24 months</strong>, and no new agreements have been "
-                    "added since. Factoring isn't eligible at all. Axiant Partners, a business-loan broker in Boca "
+                    "term loan, has amortized for at least <strong>24 months</strong>, no new agreements have been "
+                    "added since, and it was current for the last <strong>12 months</strong>. Factoring isn't eligible at all. Axiant Partners, a business-loan broker in Boca "
                     "Raton, can match you with non-SBA ways out. Lender requirements can go beyond these minimums.",
     "sections": [
         ("What the SBA Rule Says",
@@ -76,7 +76,7 @@ ARTICLES = [{
              ["June 1, 2025", "SOP 50 10 8", "Not eligible"],
              ["October 1, 2026", "SOP 50 10 8.1", "Only if converted, amortized 24 months, no new agreements"],
          ])
-         + "<p>Version 8.1 applies to applications issued an SBA loan number on or after October 1, 2026. If someone "
+         + "<p>Version 8.1 took effect October 1, 2026. If someone "
          "promises an SBA payoff of an active advance, ask them to show you the section. Lender overlays can be "
          "stricter than the SOP, and they can differ, but no lender can make an ineligible use of proceeds eligible.</p>"),
         ("The Other Tests a Converted MCA Must Pass",
@@ -96,6 +96,20 @@ ARTICLES = [{
          "</ul>"
          "<p>Ask for the conversion in writing as a real term loan with a fixed schedule. A modified holdback percentage "
          "may not be a conversion at all, so have the lender read the agreement before you count months.</p>"),
+        ("Worked Example: A Converted Advance Against Each Test",
+         "<p><strong>Illustrative, not a quote.</strong> Say a business had its only advance converted in writing to a "
+         "term loan 30 months ago, with a fixed $4,000 monthly payment and about $100,000 still owed. It's looking at a "
+         "new loan with a payment of about $2,224, which assumes 12% over five years.</p>"
+         + table(["Test", "This business", "Result"], [
+             ["Converted to a term loan", "Written conversion with a fixed schedule", "Passes, if the lender agrees"],
+             ["24 months of amortization", "30 months", "Passes"],
+             ["No new agreements since", "None", "Passes"],
+             ["Current for 12 months", "No payment over 29 days late", "Passes"],
+             ["10% lower payment", "$2,224 against a $3,600 limit", "Passes"],
+         ])
+         + "<p>Change one fact and the answer flips. Converted 14 months ago, the same business has to wait 10 more "
+         "months. If it took a new advance in month 20, it fails the no-new-agreements test however long it waits. "
+         "Passing only makes the debt eligible for refinancing. The lender still underwrites the whole file.</p>"),
         ("What to Do With an Active MCA",
          "<p>You can't wait 24 months on a debit that's choking the business, so the realistic paths are outside SBA:</p>"
          + table(["Option", "Fits when", "Watch for"], [

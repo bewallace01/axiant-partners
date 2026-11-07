@@ -64,7 +64,7 @@ ARTICLES = [{
          + table(["Fee", "Amount", "When and to whom"], [
              ["CDC processing", "Up to 1.5% of the net debenture", "One time, to the CDC"],
              ["CDC closing", "A reasonable fee; up to $10,000 may be financed", "One time, to the CDC"],
-             ["SBA guaranty", "0.50% for FY 2027", "One time, to SBA"],
+             ["SBA guaranty", "0.50% of the net debenture for FY 2027", "One time, to SBA"],
              ["Underwriter", "0.40% on 20- and 25-year debentures; 0.375% on 10-year", "One time, to the underwriter"],
              ["Funding", "0.25% of the net debenture", "One time, for trustee and agent costs"],
              ["Participation", "0.50% of the senior mortgage", "One time; the bank, CDC or borrower may pay"],
@@ -101,32 +101,35 @@ ARTICLES = [{
              ["CDC processing", "1.5% of net debenture", "$6,000"],
              ["Funding fee", "0.25% of net debenture", "$1,000"],
              ["CDC closing", "Assumed", "$2,500"],
-             ["SBA guaranty", "0.50% of gross debenture", "$2,066"],
-             ["Underwriter", "0.40% of gross debenture", "$1,653"],
-             ["Gross debenture", "Net plus the fees above", "$413,000"],
+             ["SBA guaranty", "0.50% of net debenture", "$2,000"],
+             ["Subtotal", "Net plus the four fees above", "$411,500"],
+             ["Gross debenture", "Subtotal divided by 0.996, rounded up to the next even thousand", "$414,000"],
+             ["Underwriter", "0.40% of gross debenture", "$1,656"],
+             ["Balance to you", "Left over from rounding up", "$844"],
              ["Participation fee", "0.50% of bank loan", "$2,500"],
          ])
          + "<p>So about <strong>$13,000</strong> of fees sits in the debenture, which is why you rarely write a "
          "check for them. The administrative costs aren't part of project cost: they're added to the net "
-         "debenture to reach the gross debenture, so they don't raise your 10%. Your out-of-pocket costs are "
+         "debenture to reach the gross debenture, so they don't raise your 10%. The steps follow the pricing "
+         "model in the SOP. Your out-of-pocket costs are "
          "different: settlement agent fees, delivery, and required certifications, plus the appraisal, "
          "environmental report and title work any commercial purchase needs.</p>"),
         ("Sample SBA 504 Amortization Schedule",
-         "<p>The debenture is fully amortizing with a fixed payment. Here is the same $413,000 over 25 years at an "
+         "<p>The debenture is fully amortizing with a fixed payment. Here is the same $414,000 over 25 years at an "
          "assumed 6.5% effective rate, inside the roughly 6-7% range on our "
          '<a href="/sba-loans/articles/sba-504-loan-rates/">SBA 504 loan rates</a> page. The payment is about '
-         "<strong>$2,789 a month</strong>.</p>"
+         "<strong>$2,795 a month</strong>.</p>"
          + table(["After year", "Balance left", "Paid down"], [
-             ["1", "$406,181", "$6,819"],
-             ["5", "$374,022", "$38,978"],
-             ["10", "$320,122", "$92,878"],
-             ["15", "$245,588", "$167,412"],
-             ["20", "$142,522", "$270,478"],
-             ["25", "$0", "$413,000"],
+             ["1", "$407,164", "$6,836"],
+             ["5", "$374,927", "$39,073"],
+             ["10", "$320,897", "$93,103"],
+             ["15", "$246,183", "$167,817"],
+             ["20", "$142,867", "$271,133"],
+             ["25", "$0", "$414,000"],
          ])
          + "<p>The bank piece runs on its own schedule. It often has a 5- to 10-year reset even when it amortizes "
          "over 20 to 25 years, so model it separately. As an illustration, $500,000 at 7.75% over 25 years is "
-         "about $3,777 a month, giving a combined payment near $6,565 until the bank rate changes. Run your own "
+         "about $3,777 a month, giving a combined payment near $6,572 until the bank rate changes. Run your own "
          'numbers with the <a href="/sba-loan-calculator/">SBA loan calculator</a>.</p>'),
         ("What an SBA Debenture Is",
          "<p>A debenture is the bond behind the CDC's loan. SBA guarantees it, and it's sold to investors, which is "
@@ -173,8 +176,8 @@ ARTICLES = [{
          "It's the SBA-guaranteed bond that funds the CDC's share of a 504 project, typically about 40%. It's sold to "
          "investors and carries a rate fixed for the full 10, 20 or 25 years."),
         ("Does a 504 loan have an amortization schedule?",
-         "Yes. The debenture amortizes fully with a fixed payment over its term. As an illustration, $413,000 at 6.5% "
-         "over 25 years is about $2,789 a month, with about $320,000 left after 10 years. The bank loan has its own "
+         "Yes. The debenture amortizes fully with a fixed payment over its term. As an illustration, $414,000 at 6.5% "
+         "over 25 years is about $2,795 a month, with about $321,000 left after 10 years. The bank loan has its own "
          "schedule and may reset."),
         ("What are the late fees on a 504 loan?",
          "Payments received after the 15th of the month may be charged 5% of the late payment or $100, whichever is greater."),

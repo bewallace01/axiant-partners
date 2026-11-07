@@ -45,8 +45,8 @@ ARTICLES = [{
     "quick_answer": "On a <strong>$150,000</strong> tandem at an illustrative 8% over 60 months, a loan runs about "
                     "<strong>$3,041</strong> a month and a TRAC lease about <strong>$2,327-$2,633</strong>, depending on the "
                     "residual. The catch: on a TRAC lease you generally stand behind that residual when the term ends. Axiant "
-                    "Partners, a business-loan broker in Boca Raton, compares dump truck lenders and lessors. These are "
-                    "examples, not quotes.",
+                    "Partners, a business-loan broker in Boca Raton, compares dump truck lenders and lessors. Typical rates "
+                    "run 6-15%, so these are examples, not quotes.",
     "sections": [
         ("How Dump Truck Leases Usually Work",
          "<p>When a hauler says “lease” it usually means a TRAC lease, or terminal rental adjustment clause. It sets a residual "
@@ -63,7 +63,7 @@ ARTICLES = [{
          ])
          + "<p>Many lessors are cautious about a true walk-away lease on a truck that spends its life on rough ground, which is "
          "why TRAC is the usual offer.</p>"),
-        ("The Math on a $150,000 Tandem",
+        ("Worked Example: The Math on a $150,000 Tandem",
          "<p><strong>Illustrative, not a quote.</strong> A $150,000 tandem, inside the $120,000-$180,000 we list for tandems on "
          "our <a href=\"/equipment/dump-trucks/\">dump truck financing</a> page, with nothing down, 8% and 60 months.</p>"
          + table(["Structure", "Monthly", "Paid over 60 months", "Owed at the end", "Total"], [
