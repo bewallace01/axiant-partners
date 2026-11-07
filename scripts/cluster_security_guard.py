@@ -15,21 +15,23 @@ CLUSTER = {
     "crumb": "Security Guard Company Financing",
     "cta_inline": "See what your contracts support",
     "cta_button": "Get Matched for Guard Company Financing",
-    "hub_title": "Security Guard Company Financing Guides | Axiant Partners",
-    "hub_h1": "Security Guard Company Financing Articles",
+    "hub_title": "Security Guard Payroll Funding and Factoring Guides | Axiant",
+    "hub_h1": "Security Guard Payroll Funding and Financing Guides",
     "hub_lede": "Payroll runs weekly, contracts pay in sixty days - guides to "
-                "financing the gap that defines this industry",
-    "hub_desc": "Guides to financing a security guard company: covering payroll "
-                "between invoices, vehicle and radio equipment, bonding and "
-                "insurance costs, and the cash needed to win larger contracts.",
-    "hub_intro": "Guard companies carry an unusually hard version of a common "
-                 "problem: payroll runs weekly and commercial or municipal clients "
-                 "pay on net-30 to net-60 terms. Growth makes it worse, because "
-                 "every new post is more wages before more revenue. These guides "
-                 "cover the instruments built for that gap. Start with "
-                 "<a href=\"/security-guard-business-financing.html\">security "
-                 "guard company financing</a>, or see "
-                 "<a href=\"/invoice-factoring.html\">invoice factoring</a>.",
+                "funding the gap, from factoring to equipment",
+    "hub_desc": "Security guard payroll funding and factoring guides: typical 80-95% "
+                "advances for about 1-5% fees, plus vehicle financing and bonding costs.",
+    "hub_intro": "Looking for <strong>security guard payroll funding</strong>? Most "
+                 "programs advance 80-95% of a client invoice for a fee of about "
+                 "1-5%, so you can pay guards weekly while clients pay on net-30 to "
+                 "net-60 terms. These are typical ranges, not a quote. Start with "
+                 "<a href=\"/working-capital-loans/articles/security-guard-company-working-capital/\">"
+                 "security guard payroll funding costs and options</a>, or compare "
+                 "<a href=\"security-guard-invoice-factoring/\">security guard "
+                 "factoring</a>. For every product, including equipment and growth "
+                 "capital, see <a href=\"/security-guard-business-financing.html\">"
+                 "security guard company financing</a>. The guides below cover "
+                 "each piece of the gap.",
     "hub_cta_h2": "Payroll due before the client pays?",
     "hub_cta_p": "Tell us your contract terms, your billing cycle and your weekly "
                  "payroll. We will show you which instruments actually fit.",
