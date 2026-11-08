@@ -183,3 +183,151 @@ ARTICLES = [{
     ],
     "sources": [CFPB, FCRA, FTC, IRS],
 }]
+
+# Low doc equipment financing - added 2026-11-08. Search Console (Oct 9 - Nov 6):
+# "low doc equipment finance" 26 impressions at position 19, plus "low doc
+# machinery finance", "low doc business equipment finance" and "low doc equipment
+# loans" (39 in all), every one answered by the no-money-down page, which is about
+# the down payment, not the paperwork. Application-only up to about $250,000,
+# 1-3 day decisions and 6-22% APR reuse what the EFA, crane and small construction
+# company pages already publish. No named lenders, no funded totals.
+SBCS = ("https://www.fedsmallbusiness.org/",
+        "Federal Reserve Small Business Credit Survey",
+        "Survey data on how small firms apply for credit, including approval rates and "
+        "the reasons applications are declined.")
+
+ARTICLES.append({
+    "slug": "low-doc-equipment-financing",
+    "crumb": "Low Doc Equipment Financing",
+    "title": "Low Doc Equipment Financing: Application-Only | Axiant",
+    "og_title": "Low Doc Equipment Financing: What Application-Only Means",
+    "h1": "Low Doc Equipment Financing: What Application-Only Really Means",
+    "headline": "Low Doc Equipment Financing: What Application-Only Really Means",
+    "lede": "How far a one-page application goes, who qualifies, and when a lender "
+            "will still ask for tax returns",
+    "meta_desc": "Low doc equipment financing: application-only approvals up to about "
+                 "$250,000 with bank statements and a quote, 1-3 day decisions, and when "
+                 "you'll need more.",
+    "article_desc": "What low doc or application-only equipment financing is, who "
+                    "qualifies, typical limits and costs, and when full financials are needed.",
+    "keywords": "low doc equipment finance, low doc equipment loans, application only "
+                "equipment financing, low doc machinery finance",
+    "quick_answer": "Low doc equipment financing, often called application-only, lets "
+                    "established businesses finance equipment up to about "
+                    "<strong>$250,000</strong> with a short application, an equipment quote "
+                    "and <strong>3-6 months</strong> of bank statements, without tax returns "
+                    "or financial statements. Lenders commonly look for about 600+ credit and "
+                    "two years in business, and decisions often come in <strong>1-3 "
+                    "days</strong>. Axiant Partners, a business-loan broker in Boca Raton, "
+                    "matches owners with equipment lenders. These are typical ranges, not a quote.",
+    "sections": [
+        ("What Low Doc Means on an Equipment Deal",
+         "<p>&ldquo;Low doc&rdquo; is about paperwork, not credit and not the down "
+         "payment. The lender decides on less evidence because the machine secures the "
+         "loan and the deal is small enough for that to be enough. The usual split:</p>"
+         + table(["", "Application-only", "Full documentation"], [
+             ["Typical size", "Up to about $250,000", "Above that, or any size for weaker files"],
+             ["What you send", "Application, quote, 3-6 months of bank statements, ID",
+              "Add 2-3 years of tax returns, interim P&amp;L, balance sheet, debt schedule"],
+             ["Typical decision", "1-3 days", "About 1-2 weeks, longer for large deals"],
+             ["Who it fits", "2+ years in business, about 600+ credit", "Newer, larger or more complex deals"],
+         ])
+         + "<p>The threshold is a lender policy, not a rule, and it moves with the "
+         "equipment, your credit and the lender. Some write smaller application-only "
+         "limits; some go higher for long-established customers. It is not the same as "
+         '<a href="../no-credit-check-equipment-financing/">no credit check equipment '
+         "financing</a>: an application-only lender still pulls credit.</p>"),
+        ("Who Qualifies for Application-Only Approval",
+         "<p>The lender is replacing financial statements with a few signals it trusts. "
+         "Each one you are missing makes a request for more documents likelier:</p>"
+         "<ul>"
+         "<li><strong>Time in business.</strong> About two years is the common line. "
+         "Startups are usually asked for more, or for a larger down payment.</li>"
+         "<li><strong>Owner credit.</strong> Roughly 600 or higher is typical; recent late "
+         "payments, liens or a bankruptcy usually end the application-only route.</li>"
+         "<li><strong>Bank statements.</strong> Steady deposits that cover the new "
+         "payment comfortably, with few overdrafts.</li>"
+         "<li><strong>The equipment.</strong> Machines with active resale markets, from an "
+         "established dealer, are easiest. Private-party sales and specialized equipment "
+         "draw more questions.</li>"
+         "<li><strong>Total exposure.</strong> Lenders commonly add the new deal to what "
+         "you already owe them. A second machine can push you over the threshold even when "
+         "each deal on its own is small.</li>"
+         "</ul>"),
+        ("What It Costs Compared With a Full-Doc Deal",
+         "<p>Less paperwork does not automatically mean a higher rate. For a strong "
+         "two-year-old business, an application-only deal often prices in line with a "
+         "full-doc one, because the lender is taking a small, well-secured risk. The rate "
+         "follows credit, time in business and the machine&rsquo;s age, across the roughly "
+         "<strong>6-22% APR</strong> range commonly seen on "
+         '<a href="../equipment-finance-agreement-efa/">equipment finance agreements</a>.</p>'
+         "<p>Where low doc can cost more is in the structure: a shorter term on used "
+         "equipment, a larger down payment when credit is thin, or documentation fees. Ask "
+         "for the APR and the total repayment in writing, not just the payment. The "
+         '<a href="https://www.ftc.gov/business-guidance/blog/2020/08/protecting-small-businesses-seeking-financing-during-pandemic" '
+         'rel="noopener nofollow" target="_blank">FTC</a> has warned financing companies '
+         "against misrepresenting terms to small businesses.</p>"),
+        ("Worked Example: One Machine Under the Line, One Over",
+         "<p><strong>Illustrative numbers, not a quote.</strong> A contractor with three "
+         "years in business and 690 credit buys two machines a year apart:</p>"
+         + table(["Deal", "Amount", "Documents asked for", "Payment at 9%, 60 months"], [
+             ["First machine", "$180,000", "Application, quote, 6 months of statements", "About $3,737"],
+             ["Second machine", "$140,000", "Same, plus 2 years of returns and a P&amp;L", "About $2,906"],
+         ])
+         + "<p>The second machine is smaller, but with the first still on the books the "
+         "lender&rsquo;s exposure is about $320,000, above its application-only line, so it "
+         "asks for full financials. Having returns and a current P&amp;L ready keeps the "
+         "second deal to days rather than weeks. Payments are computed at an assumed 9% and "
+         "do not include taxes or fees.</p>"),
+        ("How to Prepare a Low Doc Application",
+         "<ol>"
+         "<li><strong>Get a written quote</strong> with the year, make, model, serial "
+         "number or hours, and price.</li>"
+         "<li><strong>Download 3-6 months of business bank statements</strong> as PDFs "
+         "from the bank, not screenshots.</li>"
+         "<li><strong>Check your own credit first.</strong> Checking your own report "
+         "doesn&rsquo;t hurt it, and it shows whether a recent item will need explaining.</li>"
+         "<li><strong>Know what you already owe</strong> on other equipment, so you can "
+         "tell whether a deal will cross a lender&rsquo;s line.</li>"
+         "<li><strong>Keep last year&rsquo;s return ready anyway.</strong> If the lender asks, "
+         "sending it the same day keeps the decision fast.</li>"
+         "</ol>"
+         '<p>Then <a href="/match.html">get matched with equipment lenders</a>. If the down '
+         "payment is the bigger concern, read "
+         '<a href="../equipment-financing-no-money-down/">100% equipment financing</a>; for '
+         'the whole picture, see <a href="/equipment-financing.html">equipment financing</a>. '
+         "Equipment you finance may also qualify for Section 179 under "
+         '<a href="https://www.irs.gov/publications/p946" rel="noopener nofollow" '
+         'target="_blank">IRS Publication 946</a>; ask your accountant.</p>'),
+    ],
+    "faqs": [
+        ("What is low doc equipment financing?",
+         "Equipment financing approved on a short application, an equipment quote and "
+         "recent bank statements, without tax returns or financial statements. It is "
+         "commonly offered up to about $250,000 to businesses with about two years of "
+         "history and 600+ credit. These are typical ranges, not a quote."),
+        ("Does low doc mean no credit check?",
+         "No. Application-only lenders still review the owner's credit. Low doc only "
+         "means fewer financial documents."),
+        ("Is low doc equipment financing more expensive?",
+         "Not necessarily. For established businesses with good credit it often prices "
+         "like a full-doc deal. Costs rise with weaker credit, older equipment or a "
+         "shorter time in business."),
+        ("Can a startup get application-only equipment financing?",
+         "It is harder. With under two years of history, lenders usually ask for more "
+         "documents, a larger down payment or stronger personal credit."),
+        ("Why did the lender ask for tax returns on a small deal?",
+         "Usually because your total exposure with that lender crossed its "
+         "application-only limit, or because of something in the credit report, the bank "
+         "statements or the equipment itself."),
+    ],
+    "related": [
+        ("/equipment-financing.html", "Equipment financing"),
+        ("/equipment-financing/articles/equipment-financing-no-money-down/", "100% equipment financing"),
+        ("/equipment-financing/articles/no-credit-check-equipment-financing/", "No credit check equipment financing"),
+        ("/equipment-financing/articles/equipment-finance-agreement-efa/", "Equipment finance agreements (EFA)"),
+        ("/small-construction-company-equipment-financing/", "Small construction company equipment financing"),
+        ("/match.html", "Get matched with lenders"),
+    ],
+    "sources": [FTC, IRS, SBCS],
+})
