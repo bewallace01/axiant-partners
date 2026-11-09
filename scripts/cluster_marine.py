@@ -15,22 +15,34 @@ CLUSTER = {
     "crumb": "Commercial Marine Financing",
     "cta_inline": "See what the vessel supports",
     "cta_button": "Get Matched for Vessel Financing",
-    "hub_title": "Commercial Marine Financing Guides | Axiant Partners",
-    "hub_h1": "Commercial Marine Financing Articles",
-    "hub_lede": "Vessel requirements, surveys, permits and the trades that "
-                "finance differently",
-    "hub_desc": "Guides to financing a commercial vessel: what lenders require, "
-                "charter and fishing operations, what a marine survey covers, "
-                "and workboat and tug financing.",
-    "hub_intro": "Marine lending sits between equipment finance and specialist "
-                 "asset lending, and the vessel's trade decides which it looks "
-                 "more like. These guides cover what lenders ask for, why the "
-                 "survey decides deals, and where permits carry more value than "
-                 "the hull. Start with "
-                 "<a href=\"/commercial-marine-financing.html\">commercial "
-                 "marine financing</a>, or see "
-                 "<a href=\"/equipment-appraisal.html\">how assets are "
-                 "appraised</a>.",
+    # Hub copy retuned 2026-11-08: Search Console (Oct 9 - Nov 6) shows this hub
+    # answering "commercial boat loans/loan/finance/financing", "commercial marine
+    # loans", "vessel loan" and "marine vessel financing" (~460 impressions at about
+    # position 20). No boat-loan rates: none are published on the site yet.
+    "hub_title": "Commercial Boat Loans and Vessel Financing Guides | Axiant",
+    "hub_h1": "Commercial Boat Loans and Vessel Financing Guides",
+    "hub_lede": "Who lends on working boats, what they ask for, and the trades "
+                "that finance differently",
+    "hub_desc": "Commercial boat loans and vessel financing guides: who lends, SBA 7(a) "
+                "to $5 million, survey and mortgage rules, and fishing, charter and tug boats.",
+    "hub_quick_answer": "<strong>Commercial boat loans</strong> are usually secured by a "
+                        "preferred ship mortgage on a Coast Guard documented vessel, or a "
+                        "state lien on a smaller titled boat. They come from marine lenders, "
+                        "banks with marine customers and SBA 7(a) loans of up to "
+                        "<strong>$5 million</strong>; fishing boats can also use NOAA&rsquo;s "
+                        "Fisheries Finance Program, which lends up to <strong>80%</strong> of "
+                        "actual cost. Lenders commonly want a recent marine survey and the "
+                        "vessel&rsquo;s earnings history. Axiant Partners, a business-loan "
+                        "broker in Boca Raton, matches operators with marine lenders.",
+    "hub_intro": "Pick the guide that matches your boat. Buying a fishing vessel? Start "
+                 "with <a href=\"commercial-fishing-vessel-financing/\">commercial fishing "
+                 "boat loans</a>. Comparing a loan with a lease? See "
+                 "<a href=\"commercial-vessel-loan-vs-marine-lease/\">vessel loan vs marine "
+                 "lease</a>. For what every vessel lender checks, read "
+                 "<a href=\"commercial-vessel-loan-requirements/\">commercial vessel loan "
+                 "requirements</a>. Everything else, from repowers to refinancing, is on "
+                 "<a href=\"/commercial-marine-financing.html\">commercial marine "
+                 "financing</a>.",
     "hub_cta_h2": "Buying, repowering or refinancing a vessel?",
     "hub_cta_p": "Tell us the vessel, the trade and the amount. We will tell "
                  "you plainly what terms are realistic.",
