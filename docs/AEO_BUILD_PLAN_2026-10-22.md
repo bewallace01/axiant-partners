@@ -8,9 +8,9 @@ Full context: `axiant/Breakdown.md` and `axiant/Plan.md` in the AEO project.
 
 ---
 
-## STATUS — read this first (last updated 2026-11-06, session 12)
+## STATUS — read this first (last updated 2026-11-07, session 13)
 
-**Rule for every session:** do the first unchecked item in "Next up", follow sections 0.2–0.8, ship it, then update this STATUS block (tick it, add a log line, move the next item up) in the same push. Stop after one item and report.
+**Rule for every session:** do the first unchecked item in "Next up", follow sections 0.2–0.8, ship it, then update this STATUS block (tick it, add a log line, move the next item up) in the same push. Stop after one item and report. **Exception for pages (Alex, 2026-11-07):** the daily page batch replaces "one item per session" for pages; see the log. The watch on cited pages still applies.
 
 ### Done
 - [x] **0.** Pending attribution work committed and live (`64f1bd3fb`): homepage form → CRM, `attribution.js` on homepage + equipment-for-sale.
@@ -82,6 +82,8 @@ Full plan and content rules: `docs/SBA_CLUSTER_PLAN_2026-10-29.md`. **Read its "
 
 ### Log
 
+- **2026-11-07:** Alex's daily instruction ("improve 5 pages, build 5 pages for each site... based on data and is trying to get more inbounds through AI search and Google") replaces "one item per session" for pages. 5 and 5 is a target, not a quota. The watch on cited pages still applies: the 10-29 citation check is still unlogged because no Bing AI export exists, so nothing in the top-25 list or named as cited was edited. This batch: improved `/commercial-bridge-loans.html`, the value-add and rates spokes (Google was showing the value-add spoke for "commercial bridge loan"), the security guard articles hub and `security-guard-company-working-capital`. New: `sba-504-loan-fees`, `can-you-refinance-mca-with-sba-loan` (SBA Cluster 5), `construction-factoring-rates`, `cargo-van-lease-vs-loan`, `dump-truck-lease-vs-loan`. **Fact fix:** the MCA playbook, stacked MCA page and refinancing guide said SBA 7(a) can refinance active MCAs; SOP 50 10 8.1 Appendix 14 says it cannot, so those claims were corrected. The stacked MCA page still names lenders and settlement firms and needs its own pass. FY2027 504 fees were read from Notice 5000-881796 itself. Copilot validation still not done. Open for owners: `guard-payroll-between-invoices` and `security-guard-company-working-capital` target the same question and the first has 0 Search Console impressions, so a merge and 301 is worth deciding.
+- **2026-11-07 (PR #269 cleanup):** Page-card misses fixed. `/commercial-bridge-loans.html` no longer overflows at 390px (inline `min-width` removed). Removed the unsourced "150-200 bps" claim from the bridge rates page. Checked `sba-504-loan-fees` against Notice 5000-881796 and a copy of SOP 50 10 8.1 from colemanreport.com: the fee table held, but the worked example based the guaranty fee on the gross debenture, so it was corrected to the SOP's pricing steps (gross $414,000, not $413,000). The MCA page's "SBA loan number" applicability line wasn't in the SOP text, so it now says only that 8.1 took effect October 1, 2026. The guard hub gets an opt-in `hub_quick_answer` in `article_v2.py`.
 - **2026-11-05:** Optional property address field on the loan type dropdown when Commercial Real Estate is picked (`script.js`, version bumped on `match.html` and `rightmfgsystems.html`). Alex's request, so JYNi can name real estate deals by address. Not a plan item.
 - 2026-11-05: Restored 23 dead tools (Jerry found one on the semi truck down payment page). The v2 conversion on 2026-09-01 kept tool controls but dropped their scripts, inline styles and page CSS. Includes the debt consolidation lead form, which had no submit handler. Tool blocks only, plus shared `axiant-v2-tools.css`; other page text unchanged. `convert-program-page.py` now keeps the script behind any kept control, and `check-page.py` fails a control with no script. Open: the positions dropdown on stacked-debt-relief-calculator never affected the math; phone table overflow on two pages is unrelated.
 - 2026-10-22: Section 0, Batch 1 (1a–1f), Batch 2 validation, ITIN fix. All live.
