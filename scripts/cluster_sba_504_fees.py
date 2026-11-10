@@ -130,7 +130,8 @@ ARTICLES = [{
          + "<p>The bank piece runs on its own schedule. It often has a 5- to 10-year reset even when it amortizes "
          "over 20 to 25 years, so model it separately. As an illustration, $500,000 at 7.75% over 25 years is "
          "about $3,777 a month, giving a combined payment near $6,572 until the bank rate changes. Run your own "
-         'numbers with the <a href="/sba-loan-calculator/">SBA loan calculator</a>.</p>'),
+         'numbers with the <a href="/sba-loan-calculator/">SBA loan calculator</a>, or see every year, the 10- vs 25-year payments and the payoff premium on our '
+         '<a href="/sba-loans/articles/sba-504-loan-amortization-schedule/">full SBA 504 amortization schedule</a>.</p>'),
         ("What an SBA Debenture Is",
          "<p>A debenture is the bond behind the CDC's loan. SBA guarantees it, and it's sold to investors, which is "
          "what lets the CDC offer a long fixed rate. The net debenture is the amount that reaches your project. "
