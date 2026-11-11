@@ -78,6 +78,11 @@ def build(name, apply_changes, only=None):
         # the folder has no Articles index; building one would add a new page
         print("     hub: none (no_hub)")
         return len(arts)
+    if c.get("hub_by_hand"):
+        # the folder has an Articles index built some other way (by hand or by
+        # an older builder): keep the "Articles" crumb but don't overwrite it
+        print("     hub: left alone (hub_by_hand)")
+        return len(arts)
     n, hub = A.build_hub(c, v, header, footer)
     if apply_changes:
         os.makedirs(hub_dir, exist_ok=True)
