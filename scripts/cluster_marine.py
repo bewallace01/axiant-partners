@@ -24,16 +24,20 @@ CLUSTER = {
     "hub_lede": "Who lends on working boats, what they ask for, and the trades "
                 "that finance differently",
     "hub_desc": "Commercial boat loans and vessel financing guides: who lends, SBA 7(a) "
-                "to $5 million, survey and mortgage rules, and fishing, charter and tug boats.",
+                "to $5 million, survey and ship mortgage rules, and guides by trade.",
+    # 2026-11-12: the hub keeps the general searches (commercial boat loans/finance,
+    # commercial marine loans: ~600 impressions at 16-23) and stops answering the
+    # fishing ones, which go to commercial-fishing-vessel-financing. The NOAA program
+    # line moved out of this answer for that reason.
     "hub_quick_answer": "<strong>Commercial boat loans</strong> are usually secured by a "
-                        "preferred ship mortgage on a Coast Guard documented vessel, or a "
-                        "state lien on a smaller titled boat. They come from marine lenders, "
+                        "preferred ship mortgage on a Coast Guard documented vessel, which "
+                        "generally means a boat of at least <strong>5 net tons</strong>, or by "
+                        "a state lien on a smaller titled boat. They come from marine lenders, "
                         "banks with marine customers and SBA 7(a) loans of up to "
-                        "<strong>$5 million</strong>; fishing boats can also use NOAA&rsquo;s "
-                        "Fisheries Finance Program, which lends up to <strong>80%</strong> of "
-                        "actual cost. Lenders commonly want a recent marine survey and the "
-                        "vessel&rsquo;s earnings history. Axiant Partners, a business-loan "
-                        "broker in Boca Raton, matches operators with marine lenders.",
+                        "<strong>$5 million</strong>. Lenders commonly want a recent marine "
+                        "survey, the vessel&rsquo;s earnings history and proof of its trade "
+                        "endorsement. Axiant Partners, a business-loan broker in Boca Raton, "
+                        "matches operators with marine lenders.",
     "hub_intro": "Pick the guide that matches your boat. Buying a fishing vessel? Start "
                  "with <a href=\"commercial-fishing-vessel-financing/\">commercial fishing "
                  "boat loans</a>. Comparing a loan with a lease? See "

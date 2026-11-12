@@ -15,6 +15,15 @@ FISHERY_END = ("https://www.law.cornell.edu/uscode/text/46/12113",
                "46 U.S.C. 12113: Fishery endorsement",
                "Owner citizenship rules for a vessel's fishery endorsement.")
 
+TREASURY = ("https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+            "U.S. Treasury: Daily Treasury Par Yield Curve Rates",
+            "The 10- and 20-year yields used to illustrate the program's Treasury + 2% rate (November 10, 2026).")
+SBA_SOP = ("https://www.sba.gov/document/sop-50-10-lender-development-company-loan-programs",
+           "SBA SOP 50 10 8.1",
+           "The 7(a) rules, including the minimum equity injection for start-ups and changes of ownership.")
+TRE = ('<a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" '
+       'rel="noopener nofollow" target="_blank">Treasury yield curve</a>')
+
 MORE = [
     {
         # Search Console, Oct 9 - Nov 6 2026: "commercial fishing boat loans" 253
@@ -23,7 +32,13 @@ MORE = [
         # Strengthened 2026-11-08 inside the marine cluster (no new root). No boat
         # loan rates: the site publishes none and Alex's ranges aren't in yet. NOAA
         # Fisheries Finance Program terms from 50 CFR 253.11 and NOAA's program page.
+        # 2026-11-12 (Search Console Oct 13 - Nov 9): target page for "commercial
+        # fishing boat loans" 279 and "commercial fishing boat financing" 205, which
+        # were split with the Louisiana page (pos 39) and the marine hub (pos 27-31).
+        # Added: the program's rate at today's Treasury yields (computed), a first-time
+        # buyer section and two FAQs. The Louisiana page and hub now link here.
         "slug": "commercial-fishing-vessel-financing",
+        "date_published": "2026-11-08",
         "crumb": "Fishing Boat Loans",
         "title": "Commercial Fishing Boat Loans and Financing | Axiant",
         "og_title": "Commercial Fishing Boat Loans: Vessel, Permit and Lenders",
@@ -38,7 +53,7 @@ MORE = [
                         "Finance Program covers, and how permits and quota affect the loan.",
         "keywords": "commercial fishing boat loans, commercial fishing boat financing, "
                     "fishing vessel loan, fisheries finance program, fishing permit loan",
-        "quick_answer": "Commercial fishing boat loans come from marine lenders, banks with "
+        "quick_answer": "As of November 2026, commercial fishing boat loans come from marine lenders, banks with "
                         "fishing customers, SBA 7(a) loans of up to <strong>$5 million</strong>, "
                         "and NOAA&rsquo;s Fisheries Finance Program, which can lend up to "
                         "<strong>80%</strong> of the cost of an existing vessel at a fixed rate "
@@ -109,6 +124,44 @@ MORE = [
              "be pledged. The 80% figure is the program&rsquo;s ceiling. Private marine "
              "lenders set their own advance, so ask each one what share of the boat and "
              "the permit it will count.</p>"),
+            ("What the Federal Program's Rate Looks Like Today",
+             "<p>No private marine lender publishes a fishing boat rate, and we don&rsquo;t "
+             "either. The federal program is the exception, because its rate is a formula: "
+             "Treasury&rsquo;s cost of borrowing for a similar maturity, plus 2%. Treasury "
+             "sets that cost at closing, so the market yields below are a guide, not the "
+             "program&rsquo;s number. On November 10, 2026 the " + TRE + " showed:</p>"
+             + table(["Maturity", "Treasury yield", "Plus 2%", "Payment on $360,000"], [
+                 ["10 years", "4.98%", "About 6.98%", "About $4,176 a month"],
+                 ["20 years", "5.39%", "About 7.39%", "About $2,876 a month"],
+             ])
+             + "<p><strong>Illustrative, not a quote.</strong> The $360,000 is the loan from "
+             "the worked example below, paid monthly over the full term. The program sets "
+             "the maturity for each project, so a 20-year term may not be offered for your "
+             "boat. Over 10 years the interest adds about $141,000; over 20 years about "
+             "$330,000, which is the price of the lower payment. Private loans are priced "
+             "case by case and usually close faster.</p>"),
+            ("First-Time Buyers: From Deckhand to Owner",
+             "<p>Most first boats are bought by people who have fished for years on someone "
+             "else&rsquo;s deck. That experience is the qualification lenders ask about "
+             "first, because the program requires documented industry experience and private "
+             "lenders want the same comfort.</p>"
+             "<ul>"
+             "<li><strong>Show your seasons:</strong> settlement sheets, crew shares or a "
+             "letter from the captain you fished for stand in for an operating history.</li>"
+             "<li><strong>Expect to bring cash:</strong> the program lends at most 80% of "
+             "cost, and SBA 7(a) loans for a start-up or a change of ownership require an "
+             "equity injection of at least 10% under "
+             '<a href="https://www.sba.gov/document/sop-50-10-lender-development-company-loan-programs" '
+             'rel="noopener nofollow" target="_blank">SOP 50 10 8.1</a>.</li>'
+             "<li><strong>Ask the seller:</strong> a seller note on the permit is common when "
+             "a lender will finance only the hull.</li>"
+             "<li><strong>Price the first season:</strong> fuel, ice, bait, insurance and crew "
+             "before the first landing, which is a working capital need, not part of the "
+             "boat loan.</li>"
+             "</ul>"
+             "<p>If the boat comes with a business, such as a dock lease or a buyer "
+             "relationship, see <a href=\"/business-acquisition-financing.html\">business "
+             "acquisition financing</a>.</p>"),
             ("The Permit Is Part of the Business, and Sometimes Most of It",
              "<p>This is the feature that makes fishing vessel finance unlike "
              "any other marine lending.</p>"
@@ -196,6 +249,17 @@ MORE = [
              "require</a> first.</p>"),
         ],
         "faqs": [
+            ("What is the interest rate on a commercial fishing boat loan?",
+             "Private marine lenders price each boat and file, and none publish a fishing "
+             "rate. NOAA's Fisheries Finance Program is fixed at 2% above Treasury's cost "
+             "of borrowing for a similar maturity. With Treasury yields of 4.98% (10-year) "
+             "and 5.39% (20-year) on November 10, 2026, that is roughly 7.0-7.4%, set at "
+             "closing. This is an illustration, not a quote."),
+            ("Can a first-time buyer get a commercial fishing boat loan?",
+             "Yes, if you can document fishing experience, such as settlement sheets or crew "
+             "shares, and bring cash. The federal program lends at most 80% of cost, and "
+             "SBA 7(a) loans for a start-up or change of ownership need at least 10% equity. "
+             "A seller note on the permit often fills the gap."),
             ("Who gives loans for commercial fishing boats?",
              "Marine lenders, banks with fishing customers, SBA 7(a) lenders, NOAA's "
              "Fisheries Finance Program and sometimes the seller. Most general equipment "
@@ -237,7 +301,7 @@ MORE = [
              "Louisiana commercial fishing financing"),
             ("/match.html", "Get matched with marine lenders"),
         ],
-        "sources": [FFP, FFP_CFR, NOAA, USCG_NVDC, FISHERY_END, SBA_7A],
+        "sources": [FFP, FFP_CFR, TREASURY, NOAA, USCG_NVDC, FISHERY_END, SBA_7A, SBA_SOP],
     },
     {
         "slug": "workboat-and-tug-financing",
