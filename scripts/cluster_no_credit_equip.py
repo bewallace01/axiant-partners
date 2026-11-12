@@ -32,7 +32,13 @@ CLUSTER = {
 }
 
 ARTICLES = [{
+    # 2026-11-12: target page for "no credit check equipment financing" (119
+    # impressions Oct 13 - Nov 9, split: no-money-down page 81 at 25, bad-credit page
+    # 34 at 35, this page 4 at 9). Those two pages' headings no longer use the phrase
+    # and both link here. Added: dated answer, a leasing section ("no credit check
+    # equipment leasing" 20 impressions) and a rent-to-own FAQ.
     "slug": "no-credit-check-equipment-financing",
+    "date_published": "2026-11-05",
     "crumb": "No Credit Check Equipment Financing",
     "title": "No Credit Check Equipment Financing: Soft Pulls | Axiant",
     "og_title": "No Credit Check Equipment Financing: What Lenders Really Check",
@@ -45,7 +51,7 @@ ARTICLES = [{
                     "versus hard pulls, typical costs and warning signs.",
     "keywords": "no credit check equipment financing, equipment financing no credit "
                 "check, no credit check equipment leasing, soft pull equipment financing",
-    "quick_answer": "Truly no-credit-check equipment financing is rare: most legitimate "
+    "quick_answer": "As of November 2026, truly no-credit-check equipment financing is rare: most legitimate "
                     "programs still review credit, often with a <strong>soft pull</strong> "
                     "that doesn't affect your score. They lean on the equipment's value, "
                     "time in business and bank deposits. For weaker credit, expect about "
@@ -101,6 +107,22 @@ ARTICLES = [{
          + "<p>A lease works the same way. Some leases are easier to approve, but read the "
          "end-of-term terms: a $1 buyout and a fair market value lease cost very different "
          "amounts. Fees also move the total, so compare the full repayment, not the payment.</p>"),
+        ("No Credit Check Equipment Leasing and Rent-to-Own",
+         "<p>Leases and rent-to-own plans are where &ldquo;no credit check&rdquo; is advertised "
+         "most, because the lessor keeps title and can take the equipment back more easily. "
+         "What you give up for the easier approval differs by structure:</p>"
+         + table(["Structure", "Credit check", "What to watch"], [
+             ["$1 buyout lease", "Usually the same as a loan", "Priced like a loan; you own it at the end"],
+             ["Fair market value lease", "Sometimes lighter", "Low payment, but buying it at the end can cost a lot"],
+             ["Rent-to-own", "Often soft or none", "Monthly rent is high and only part counts toward buying"],
+             ["Rental", "Deposit and card", "No ownership; fine for a short job"],
+         ])
+         + "<p>Ask any lessor for the total of all payments plus the buyout, and compare it "
+         "with the equipment&rsquo;s cash price. If the plan is a "
+         '<a href="/equipment-financing/articles/trac-lease-benefits-saves-money/">TRAC lease</a> '
+         "on a truck or trailer, the end-of-term amount is set in the contract, which makes the "
+         "comparison easier. Rent-to-own is reasonable for a machine you need now and may not "
+         "keep; it is an expensive way to buy one you will keep for years.</p>"),
         ("Worked Example: A $60,000 Skid Steer and Attachments",
          "<p><strong>Illustrative numbers, not a quote.</strong> The same $60,000 purchase over "
          "48 months, with three different credit pictures:</p>"
@@ -169,6 +191,10 @@ ARTICLES = [{
         ("Is no credit check equipment leasing different from a loan?",
          "Some leases are easier to approve, but they use similar checks. Compare the total cost, "
          "including the end-of-term buyout, rather than the monthly payment alone."),
+        ("Is rent-to-own equipment a no credit check option?",
+         "Often, yes. Rent-to-own plans frequently use a soft check or none, because the owner keeps "
+         "title until you finish paying. The trade-off is cost: the monthly rent is high and only part "
+         "of it usually counts toward the purchase, so compare the total with the cash price."),
         ("How do I spot a scam?",
          "Be wary of guaranteed approval, fees before written terms, pressure to act immediately and "
          "offers that don't need to know what equipment you're buying."),

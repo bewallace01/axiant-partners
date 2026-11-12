@@ -9,32 +9,45 @@ terms. No funded totals, no years in business, no testimonials, no invented
 figures. One entity: Axiant Partners, (561) 268-0465, Boca Raton.
 """
 
+from cluster_table import table
+
 CLUSTER = {
     "pillar": "security-guard-business-financing.html",
     "hub": "security-guard-business-financing/articles",
     "crumb": "Security Guard Company Financing",
     "cta_inline": "See what your contracts support",
     "cta_button": "Get Matched for Guard Company Financing",
-    "hub_title": "Security Guard Payroll Funding and Factoring Guides | Axiant",
-    "hub_h1": "Security Guard Payroll Funding and Financing Guides",
-    "hub_lede": "Payroll runs weekly, contracts pay in sixty days - guides to "
-                "funding the gap, from factoring to equipment",
-    "hub_desc": "Security guard payroll funding and factoring guides: typical 80-95% "
-                "advances for about 1-5% fees, plus vehicle financing and bonding costs.",
-    "hub_quick_answer": "<strong>Security guard payroll funding</strong> commonly "
-                        "advances <strong>80-95%</strong> of a client invoice for a fee "
-                        "of about <strong>1-5%</strong>, so you can pay guards weekly "
-                        "while clients pay on net-30 to net-60 terms. Axiant Partners, "
-                        "a business-loan broker in Boca Raton, matches guard companies "
-                        "with funders. These are typical ranges, not a quote.",
-    "hub_intro": "Start with "
+    # Hub copy retuned 2026-11-12 to a plain index. Search Console Oct 13 - Nov 9:
+    # "security guard payroll funding" 663 + "payroll financing" 542 impressions, 0
+    # clicks, split between this hub, the working-capital article and the pillar after
+    # the Nov 7 batch gave all three "payroll funding" titles. Nov 8-10: hub 3.9,
+    # guard-payroll-between-invoices 4.4, working-capital article 35. One target now:
+    # guard-payroll-between-invoices. The hub routes to it instead of answering it.
+    "hub_title": "Security Guard Company Financing Guides | Axiant",
+    "hub_h1": "Security Guard Company Financing Guides",
+    "hub_lede": "Payroll, factoring, bonding, vehicles and bigger contracts: one guide "
+                "for each cash problem a guard company runs into",
+    "hub_desc": "Guides for security guard company owners: payroll funding, invoice "
+                "factoring, bonding and insurance costs, patrol vehicles and the cash "
+                "to win larger contracts.",
+    "hub_quick_answer": "Security guard companies usually finance three things: the gap "
+                        "between weekly payroll and clients who pay on <strong>net-30 to "
+                        "net-60</strong> terms, the up-front cost of winning a contract "
+                        "(bonding, insurance, recruiting), and patrol vehicles and radios. "
+                        "Each guide below covers one of them, and the payroll guide "
+                        "publishes typical advances of <strong>80-95%</strong> of an invoice. "
+                        "Axiant Partners, a business-loan broker in Boca Raton, matches "
+                        "guard companies with funders.",
+    "hub_intro": "Looking for <a href=\"guard-payroll-between-invoices/\">security guard "
+                 "payroll funding</a> or payroll financing? That guide has the rates, "
+                 "advances, a sizing table and setup steps. For factoring on its own, see "
+                 "<a href=\"security-guard-invoice-factoring/\">security guard invoice "
+                 "factoring</a>. For cash beyond payroll, such as contract ramp-ups and "
+                 "insurance renewals, read "
                  "<a href=\"/working-capital-loans/articles/security-guard-company-working-capital/\">"
-                 "security guard payroll funding costs and options</a>, or compare "
-                 "<a href=\"security-guard-invoice-factoring/\">security guard "
-                 "factoring</a>. For every product, including equipment and growth "
-                 "capital, see <a href=\"/security-guard-business-financing.html\">"
-                 "security guard company financing</a>. The guides below cover "
-                 "each piece of the gap.",
+                 "working capital for security guard companies</a>, and for every product "
+                 "see <a href=\"/security-guard-business-financing.html\">security guard "
+                 "company financing</a>.",
     "hub_cta_h2": "Payroll due before the client pays?",
     "hub_cta_p": "Tell us your contract terms, your billing cycle and your weekly "
                  "payroll. We will show you which instruments actually fit.",
@@ -68,35 +81,44 @@ IRS_946 = ("https://www.irs.gov/publications/p946",
            "The authority on Section 179 and depreciation for vehicles and "
            "equipment bought by the business.")
 
+UCC_9406 = ("https://www.law.cornell.edu/ucc/9/9-406",
+            "UCC 9-406: Discharge of account debtor; restrictions on assignment",
+            "Notice of assignment, and why a contract term banning assignment of a "
+            "receivable is generally ineffective.")
+
 ARTICLES = [
     {
+        # Target page for "security guard payroll funding" (663 impressions) and
+        # "security guard payroll financing" (542), Search Console Oct 13 - Nov 9;
+        # position 4.4 / 13.2 on Nov 8-10. Strengthened 2026-11-12: both names in the
+        # title, client-mix fee table (moved here from the working-capital article),
+        # a computed sizing table, setup steps, UCC 9-406 assignment rule.
         "slug": "guard-payroll-between-invoices",
+        "date_published": "2026-10-27",
         "crumb": "Payroll Funding",
-        "title": "Security Guard Payroll Funding: Rates and Terms | Axiant",
-        "og_title": "Security Guard Payroll Funding: Rates, Terms and How It Works",
-        "h1": "Security Guard Payroll Funding: Rates, Terms and How It Works",
-        "headline": "Security Guard Payroll Funding: Rates, Terms and How It Works",
-        "lede": "Wages weekly, invoices at sixty days - how payroll funding "
-                "covers the gap, what it typically costs, and when a line of "
-                "credit fits better",
-        "meta_desc": "Security guard payroll funding advances commonly 80-95% of "
-                     "client invoices, for a fee of about 1-5% of invoice value. "
-                     "How it works, typical terms, and how it compares with a "
-                     "line of credit.",
-        "article_desc": "How payroll funding covers the gap between a security "
-                        "guard company's weekly payroll and net-30 to net-60 "
-                        "client payments, with typical rates and terms.",
-        "keywords": "guard payroll funding, security company payroll finance, "
-                    "invoice factoring security guards, net 60 payroll gap",
-        "quick_answer": "Security guard payroll funding is invoice factoring timed "
-                        "to the wage run: wages go out <strong>weekly or "
-                        "fortnightly</strong> while clients pay <strong>net-30 to "
-                        "net-60</strong>, so a funder advances commonly "
-                        "<strong>80-95%</strong> of each invoice and is repaid when "
-                        "the client pays. Fees commonly run about <strong>1-5% of "
-                        "invoice value</strong>, higher when clients pay slowly. "
-                        "These are typical ranges across funders, not a quote. A "
-                        "line of credit is cheaper but harder to get early.",
+        "title": "Security Guard Payroll Funding &amp; Financing: Rates | Axiant",
+        "og_title": "Security Guard Payroll Funding and Financing: Rates, Terms, How It Works",
+        "h1": "Security Guard Payroll Funding and Financing: Rates, Terms, How It Works",
+        "headline": "Security Guard Payroll Funding and Financing: Rates, Terms, How It Works",
+        "lede": "Wages weekly, invoices at sixty days - what payroll funding typically "
+                "costs, how much your payroll needs, and how to set it up before the next "
+                "pay run",
+        "meta_desc": "Security guard payroll funding (or payroll financing) commonly advances "
+                     "80-95% of invoices for about 1-5%. See fees by client mix, a sizing "
+                     "table and setup steps.",
+        "article_desc": "How payroll funding covers the gap between a security guard "
+                        "company's weekly payroll and net-30 to net-60 client payments: "
+                        "typical rates and terms, sizing and setup.",
+        "keywords": "security guard payroll funding, security guard payroll financing, "
+                    "payroll funding guard companies, guard payroll factoring, net 60 payroll gap",
+        "quick_answer": "As of November 2026, security guard payroll funding (also sold as "
+                        "payroll financing) is usually invoice factoring timed to the wage run. "
+                        "A funder commonly advances <strong>80-95%</strong> of each client "
+                        "invoice, often within <strong>24 hours</strong> once the account is "
+                        "set up, and charges about <strong>1-5% of invoice value</strong>, "
+                        "more when clients pay slowly. Axiant Partners, a business-loan broker "
+                        "in Boca Raton, matches guard companies with these funders. These are "
+                        "typical ranges, not a quote.",
         "sections": [
             ("Why This Industry Feels It Worse",
              "<p>Almost every service business waits to be paid. Guard companies have "
@@ -137,6 +159,24 @@ ARTICLES = [
              "<em>your client's</em> ability to pay rather than yours. A young guard "
              "company billing a well-rated property manager can often factor when it "
              "could not get a line of credit.</p>"),
+            ("Payroll Funding or Payroll Financing? Same Product, Two Names",
+             "<p>Funders use both names, and searchers do too. In the guard business they "
+             "nearly always describe the same thing: money advanced against invoices you "
+             "have already issued, timed so the wage run is covered. The difference that "
+             "matters is not the name but the structure underneath it:</p>"
+             + table(["If the contract says", "What it is", "How it is priced"], [
+                 ["You sell or assign the invoice", "Factoring (payroll funding)",
+                  "A fee per invoice, rising the longer it stays unpaid"],
+                 ["You borrow against all receivables", "Accounts receivable line",
+                  "Interest on the balance you draw"],
+                 ["You borrow against your next pay run", "Payroll advance or loan",
+                  "A fixed fee or factor; ask for the APR"],
+             ])
+             + "<p>Ask any provider which of the three you are signing. The same "
+             "headline number, say 3%, is cheap as a fee on a 30-day invoice and very "
+             "expensive as a fee on a one-week advance. See "
+             "<a href=\"/working-capital-loans/articles/accounts-receivable-financing/\">"
+             "accounts receivable financing</a> for the second structure.</p>"),
             ("Typical Payroll Funding Rates and Terms",
              "<p>Payroll funding is priced as a fee on each invoice rather than as "
              "an interest rate. The ranges below are those conventional across "
@@ -161,7 +201,16 @@ ARTICLES = [
              '<td data-label="Line of credit">Your credit, revenue and time in '
              "business</td></tr>"
              "</tbody></table></div>"
-             "<p><strong>What moves the fee.</strong> Slow-paying clients cost more, "
+             "<p><strong>Fees by client mix.</strong> The same ranges, placed against "
+             "the kind of clients a guard company bills. They match our "
+             "<a href=\"/working-capital-loans/articles/invoice-factoring-rates/\">invoice "
+             "factoring rates</a> guide and are typical, not quotes.</p>"
+             + table(["Your client mix", "Likely fee", "Why"], [
+                 ["Strong clients, near net 30", "About 1-2%", "Good credit and faster pay"],
+                 ["Mixed clients, average pay", "About 2-3.5%", "Moderate volume and credit"],
+                 ["Slow payers, net 60-90", "About 3.5-5%", "More time in tiered pricing"],
+             ])
+             + "<p><strong>What moves the fee.</strong> Slow-paying clients cost more, "
              "because the fee grows with how long the invoice is outstanding; so do "
              "small invoice volumes and concentration in one client. Recourse "
              "funding, where you buy back an invoice the client never pays, usually "
@@ -179,6 +228,25 @@ ARTICLES = [
              "<p>To see which structure your contracts support, "
              "<a href=\"/match.html\">get matched with funders that work with guard "
              "companies</a>.</p>"),
+            ("Worked Example: How Much Funding Your Payroll Needs",
+             "<p>A simple way to size the gap: multiply your weekly payroll, including "
+             "taxes and workers&rsquo; comp, by the weeks between a guard&rsquo;s first "
+             "shift and the day the client pays for it. With monthly billing in arrears "
+             "that is about <strong>4.3 weeks</strong> of billing period plus the payment "
+             "terms. The table does the multiplication (rounded to the nearest "
+             "$1,000):</p>"
+             + table(["Weekly payroll", "Net 30 (8.6 wks)", "Net 45 (10.8 wks)",
+                      "Net 60 (12.9 wks)", "Factored at invoice (4.3 wks)"], [
+                 ["$10,000", "$86,000", "$108,000", "$129,000", "$43,000"],
+                 ["$25,000", "$215,000", "$269,000", "$323,000", "$108,000"],
+                 ["$50,000", "$431,000", "$538,000", "$645,000", "$217,000"],
+             ])
+             + "<p>The last column is the point of payroll funding. Once each invoice is "
+             "advanced the day it is issued, you only carry the month you have not billed "
+             "yet, plus the 5-20% the funder holds back until the client pays. Billing "
+             "every two weeks instead of monthly roughly halves that column again, where "
+             "the contract allows it. This is a planning estimate, not a credit limit; a "
+             "funder sizes the facility on your invoices and your clients.</p>"),
             ("Growth Makes the Gap Wider, Not Narrower",
              "<p>The counter-intuitive part, and the thing that catches owners out.</p>"
              "<p>Winning a new contract means staffing posts immediately. Wages start "
@@ -199,17 +267,41 @@ ARTICLES = [
              "carries most of the decision.</li>"
              "<li><strong>Concentration.</strong> One client at most of your revenue "
              "is a risk, however good that client is.</li>"
-             "<li><strong>Contract terms.</strong> Clean payment terms, and no "
-             "assignment prohibition &mdash; some contracts bar you from assigning "
-             "receivables at all, which stops factoring outright.</li>"
+             "<li><strong>Contract terms.</strong> Clean payment terms and who you "
+             "send the notice of assignment to. Under "
+             '<a href="https://www.law.cornell.edu/ucc/9/9-406" rel="noopener nofollow" '
+             'target="_blank">UCC 9-406</a> a clause banning assignment of a receivable is '
+             "generally ineffective, but many funders still pass on a contract that has "
+             "one, and federal contracts follow the Assignment of Claims Act instead.</li>"
              "<li><strong>Billing discipline.</strong> Invoices that go out late, or "
              "that clients dispute, undermine the whole structure.</li>"
              "<li><strong>Existing liens.</strong> A blanket UCC filing from an "
              "earlier lender can capture your receivables and has to be subordinated "
              "first.</li>"
              "</ul>"
-             "<p>Read the assignment clause in your contracts before assuming "
-             "factoring is available. It is a common and easily missed blocker.</p>"),
+             "<p>Read the assignment clause in your contracts before you apply. It "
+             "rarely makes factoring impossible, but it is a common reason a funder "
+             "slows down or says no.</p>"),
+            ("How to Set Up Payroll Funding Before the Next Pay Run",
+             "<ol>"
+             "<li><strong>List every client</strong> with its payment terms, average "
+             "monthly billing and how late it really pays.</li>"
+             "<li><strong>Pull your contracts</strong> and flag any assignment clause or "
+             "government client, since those change the paperwork.</li>"
+             "<li><strong>Run a UCC search</strong> on your company. An earlier lender "
+             "with a blanket lien has to release or subordinate the receivables "
+             "first.</li>"
+             "<li><strong>Apply with an aging report</strong> and recent invoices. The "
+             "funder checks your clients&rsquo; credit more closely than yours.</li>"
+             "<li><strong>Send notices of assignment</strong> so clients pay the funder "
+             "directly, or agree a different payment route if the funder allows it.</li>"
+             "<li><strong>Submit the first invoices</strong> two or three business days "
+             "before payroll, so the first advance lands in time.</li>"
+             "</ol>"
+             "<p>Setup commonly takes a few business days; after that, invoices often "
+             "fund within 24 hours. If you need cash before the account is live, a "
+             "<a href=\"/business-line-of-credit.html\">line of credit</a> or a short "
+             "working capital loan can carry one pay run.</p>"),
             ("Fixing the Cause as Well as the Symptom",
              "<p>Financing the gap is sensible. Narrowing it is cheaper, and several "
              "levers are within your control:</p>"
@@ -257,10 +349,22 @@ ARTICLES = [
              "arrives perhaps sixty days after that. The bigger the contract, the "
              "larger the hole before any revenue arrives."),
             ("What can stop me factoring my invoices?",
-             "Most often an assignment clause in the client contract prohibiting you "
-             "from assigning receivables, or an existing blanket UCC filing from an "
-             "earlier lender that already captures them. Both are checkable before you "
-             "apply."),
+             "Most often an existing blanket UCC filing from an earlier lender that "
+             "already captures your receivables, or a client contract with an "
+             "assignment clause. Under UCC 9-406 that clause is generally ineffective, "
+             "but some funders still decline the contract, and federal contracts follow "
+             "the Assignment of Claims Act. Both are checkable before you apply."),
+            ("Is payroll financing the same as payroll funding?",
+             "For guard companies, usually yes: both names describe advances against "
+             "invoices you have issued, timed to the wage run. Check the contract. If "
+             "you are selling invoices it is factoring, priced per invoice; if you are "
+             "borrowing against your next pay run it is a loan, and you should ask for "
+             "the APR."),
+            ("How much payroll funding does a guard company need?",
+             "Roughly your weekly payroll times the weeks from first shift to client "
+             "payment. With monthly billing on net-45 terms that is about 10.8 weeks, so "
+             "a $25,000 weekly payroll ties up about $269,000. Advancing each invoice "
+             "when issued cuts the gap to about the 4.3-week billing month."),
         ],
         "related": [
             ("/security-guard-business-financing.html", "Security guard company financing"),
@@ -270,7 +374,7 @@ ARTICLES = [
             ("../cash-requirements-to-win-larger-guard-contracts/",
              "Cash requirements to win larger contracts"),
         ],
-        "sources": [DOL_FLSA, SBCS, CFPB],
+        "sources": [DOL_FLSA, UCC_9406, SBCS, CFPB],
     },
     {
         "slug": "bonding-and-insurance-costs-for-guard-contracts",
