@@ -30,7 +30,8 @@ CLUSTERS = ["truck_title", "res_business_loan", "heloc", "equip_appraisal", "sec
              "aircraft", "marine", "drone", "datacenter", "heavy_equity", "vending",
             "construction_electrical", "lawn_care", "no_credit_equip", "veteran_startup",
             "sba_programs", "biz_acq", "sba_504_fees", "sba_mca_refi", "construction_factoring",
-            "cargo_lease", "dump_lease"]
+            "cargo_lease", "dump_lease", "sba_100_spokes", "hotel_spokes", "usda_pillar", "usda",
+            "biz_acq_spokes", "sba_refi_decline"]
 
 
 def words(s):
