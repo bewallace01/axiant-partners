@@ -168,6 +168,7 @@ ARTICLES = [{
         ("/mca-consolidation-loan.html", "MCA consolidation loans"),
         ("/merchant-cash-advance/articles/refinance-mca-to-term-loan-30-day-playbook/", "Refinance an MCA to a term loan"),
         ("/merchant-cash-advance/articles/how-to-get-out-of-an-mca/", "How to get out of an MCA"),
+        ("/sba-loans/articles/what-debt-can-sba-loan-refinance/", "What debt an SBA loan can refinance"),
         ("/sba-loans/articles/sba-loan-alternatives-when-you-dont-qualify/", "SBA loan alternatives"),
         ("/sba-loans.html", "SBA loans"),
         ("/match.html", "Get matched with lenders"),

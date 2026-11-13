@@ -92,7 +92,9 @@ ARTICLES = [{
          "<strong>1.25 to 1</strong> for an Initial Acquisition, based on the last fiscal year-end or a "
          "two-year average. Total eligible debt supporting the purchase, including seller debt that "
          "isn't on full standby, is limited to the business valuation. If the price is higher than the "
-         "valuation supports, the difference has to come from extra equity or full-standby funds.</p>"
+         "valuation supports, the difference has to come from extra equity or full-standby funds. The "
+         "full rule table by deal type is in <a href=\"/business-acquisition-financing/articles/sba-seller-note-equity-injection-rules/\">"
+         "full equity and seller note rules</a>.</p>"
          "<p>A business valuation is required, though the lender may do its own at $350,000 or less "
          "unless buyer and seller have a close relationship. Term is also tighter than people assume: "
          "acquisition loans amortize over 10 years at most. Real estate bought in the deal can run up "
@@ -116,7 +118,8 @@ ARTICLES = [{
          "will likely ask for a lower price or more equity. You also still need to pay yourself.</p>"),
         ("Already Own a Business? You May Need Less",
          "<p>A different category applies if you already own a company in the same four-digit NAICS "
-         "industry group. A <strong>Business Expansion</strong> needs two full fiscal years of operation "
+         "industry group, which is how <a href=\"/business-acquisition-financing/articles/buy-a-competitor-sba-loan/\">"
+         "buying a competitor with an SBA loan</a> works. A <strong>Business Expansion</strong> needs two full fiscal years of operation "
          "under current ownership and the purchase of 100% of the target. The minimum is still 10%, but "
          "the lender may reduce or eliminate it if you have enough liquidity and working capital and "
          "your balance sheet doesn't show negative net worth. The coverage test is 1.15 to 1. If "
@@ -160,6 +163,7 @@ ARTICLES = [{
         ("/sba-loans/articles/sba-loan-franchise-acquisition/", "SBA franchise acquisition"),
         ("/buying-a-business-financing-guide/", "Buying a business financing guide"),
         ("/sba-100-percent-financing.html", "100% SBA financing for your building"),
+        ("/business-acquisition-financing/articles/sba-seller-note-equity-injection-rules/", "SBA seller note and equity rules"),
     ],
     "sources": [SOP, FEES, SBA_7A, EQ],
 }]

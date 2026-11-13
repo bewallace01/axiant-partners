@@ -91,11 +91,12 @@ ARTICLES = [{
          ])
          + "<p>Sources: " + _A("https://www.law.cornell.edu/cfr/text/13/120.931", "13 CFR 120.931")
          + " for the 504 limits, " + _A("https://www.law.cornell.edu/cfr/text/7/5001.406", "7 CFR 5001.406")
-         + " for USDA B&amp;I. Most real deals combine two of these, for example a 504 loan for the "
+         + " for USDA B&amp;I (see <a href=\"/usda-business-loans.html\">USDA Business &amp; Industry loans</a>). Most real deals combine two of these, for example a 504 loan for the "
          "building and an asset-based line for working capital. If the project is property, start "
          "with <a href=\"/commercial-real-estate-loans.html\">commercial real estate loans</a>; for a "
          "purchase of a company, see <a href=\"/business-acquisition-financing.html\">business "
-         "acquisition financing</a>.</p>"),
+         "acquisition financing</a>, or <a href=\"/business-acquisition-financing/articles/large-business-acquisition-loan/\">"
+         "$1M-$5M acquisition loans</a> for deals inside the SBA limit.</p>"),
         ("Why $10 Million Is Different From $5 Million",
          "<p>Three things change once a request passes $5 million.</p>"
          "<p><strong>The SBA 7(a) door closes.</strong> The "
