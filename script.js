@@ -56,6 +56,22 @@
     return a;
   }
   var attr=capture();
+  /* The first visit ever, kept for 90 days. capture() is per-tab, so someone who
+   * finds us in ChatGPT and comes back through Google days later applies as
+   * "organic_search", and the AI visit that started it is lost. In Oct 16-31, 9 of
+   * the 11 truck-title applications came in tagged ai_assistant; in Nov 1-16, 11 of
+   * 13 came in tagged organic_search, and these fields are what tell a real shift
+   * from a return trip. The per-visit fields are unchanged. */
+  var FIRST_KEY='ax_first_touch';
+  var first=(function(){
+    try{
+      var f=JSON.parse(localStorage.getItem(FIRST_KEY)||'null');
+      if(f&&f.at&&Date.now()-f.at<90*864e5) return f;
+      f={channel:attr.channel, landing_page:attr.landing_page, at:Date.now()};
+      localStorage.setItem(FIRST_KEY,JSON.stringify(f));
+      return f;
+    }catch(e){ return null; }
+  })();
   /* Ad click ids, kept for 90 days (Google's click-through conversion window).
    * capture() is first-touch and per-tab, so a visitor who clicks an ad, leaves and
    * comes back later to apply would otherwise submit with no click id - and a
@@ -112,6 +128,7 @@
     bits.push('Landed on: '+(a.landing_page||'?'));
     bits.push('Referrer: '+(a.referrer||'(none)'));
     if(a.utm_source) bits.push('Campaign: '+a.utm_source+' / '+(a.utm_medium||'?')+(a.utm_campaign?' / '+a.utm_campaign:''));
+    if(first&&(first.channel!==a.channel||first.landing_page!==a.landing_page)) bits.push('First visit: '+(first.channel||'unknown')+' on '+new Date(first.at).toISOString().slice(0,10)+', landed on '+(first.landing_page||'?'));
     var out={
       lead_source:bits.join(' | '),
       lead_channel:a.channel||'unknown',
@@ -119,6 +136,11 @@
       lead_landing_page:a.landing_page||'',
       lead_submitted_from:location.pathname
     };
+    if(first){
+      out.lead_first_channel=first.channel||'unknown';
+      out.lead_first_landing_page=first.landing_page||'';
+      out.lead_first_seen=new Date(first.at).toISOString().slice(0,10);
+    }
     ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','gbraid','wbraid','fbclid','msclkid'].forEach(function(k){
       if(a[k]) out[k]=a[k];
     });
