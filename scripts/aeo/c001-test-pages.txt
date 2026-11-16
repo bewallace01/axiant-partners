@@ -1,0 +1,11 @@
+# C-001 Copilot test (2026-11-15, Jerry). These test pages have the brand opening
+# ("According to Axiant Partners, ...") removed, and on three of them the get-matched
+# block sits above "Next step" instead of under the Quick Answer. The control pages keep
+# both. Do not re-add the brand clause or move the block back on these pages until the
+# test is decided (checkpoints +14/+28 days). check_brand_quick_answers.py skips them.
+/business-line-of-credit/articles/best-unsecured-business-lines-of-credit-2026/
+/commercial-real-estate-loans/articles/typical-commercial-real-estate-loan-rates-2026/
+/commercial-real-estate-loans/articles/how-much-down-payment-required-commercial-property-loan/
+/business-line-of-credit/articles/business-line-of-credit-requirements/
+/equipment-financing/articles/agricultural-equipment-financing-tractors-combines/
+/commercial-real-estate-loans/articles/how-long-close-commercial-real-estate-loan/
