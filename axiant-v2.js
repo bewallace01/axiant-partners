@@ -87,18 +87,18 @@
   var MAIN_LINE = '5612680465';
 
   /* Some pages have no Google tag in their head, and a click there would go
-     nowhere. Load the same deferred tag those other pages use. */
+     nowhere. Queue the same js/config commands the head tag uses right away,
+     so a click before the tag loads still lands after config, then load the
+     tag once the page has finished loading. */
   if (typeof window.gtag !== 'function') {
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_ID);
     var loadTag = function () {
       var s = document.createElement('script');
       s.async = true;
       s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-      s.onload = function () {
-        window.gtag('js', new Date());
-        window.gtag('config', GA_ID);
-      };
       document.head.appendChild(s);
     };
     if (document.readyState === 'complete') loadTag();

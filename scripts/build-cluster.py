@@ -29,7 +29,9 @@ ROOT = A.ROOT
 CLUSTERS = ["truck_title", "res_business_loan", "heloc", "equip_appraisal", "security_guard",
              "aircraft", "marine", "drone", "datacenter", "heavy_equity", "vending",
             "construction_electrical", "lawn_care", "no_credit_equip", "veteran_startup",
-            "sba_programs", "biz_acq"]
+            "sba_programs", "biz_acq", "sba_504_fees", "sba_mca_refi", "construction_factoring",
+            "cargo_lease", "dump_lease", "sba_100_spokes", "hotel_spokes", "usda_pillar", "usda",
+            "biz_acq_spokes", "sba_refi_decline"]
 
 
 def words(s):
@@ -76,6 +78,11 @@ def build(name, apply_changes, only=None):
     if c.get("no_hub"):
         # the folder has no Articles index; building one would add a new page
         print("     hub: none (no_hub)")
+        return len(arts)
+    if c.get("hub_by_hand"):
+        # the folder has an Articles index built some other way (by hand or by
+        # an older builder): keep the "Articles" crumb but don't overwrite it
+        print("     hub: left alone (hub_by_hand)")
         return len(arts)
     n, hub = A.build_hub(c, v, header, footer)
     if apply_changes:

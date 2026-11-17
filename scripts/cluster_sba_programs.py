@@ -88,21 +88,33 @@ ARTICLES = [{
          "bars, vape shops, FedEx routes and fleet-heavy companies, along with standalone working capital "
          "and projections-only deals. If that's you, look at "
          '<a href="/real-estate-secured-business-loan.html">a real estate secured loan</a> or '
-         '<a href="/working-capital-loans.html">working capital</a> instead.</p>'),
+         '<a href="/working-capital-loans.html">working capital</a> instead, or read '
+         '<a href="/sba-loans/articles/businesses-sba-lenders-decline/">businesses SBA lenders decline</a>. '
+         "Guides by property type, including "
+         '<a href="/sba-100-percent-financing/articles/sba-loan-daycare-building/">daycare buildings</a> and '
+         '<a href="/sba-100-percent-financing/articles/assisted-living-facility-sba-loan/">assisted living '
+         'facilities</a>, are in <a href="/sba-100-percent-financing/articles/">100% SBA building '
+         "financing guides</a>.</p>"),
         ("The Occupancy Rule and What Owner-Occupied Means",
          '<p>Under <a href="https://www.law.cornell.edu/cfr/text/13/120.131" rel="noopener nofollow" '
          'target="_blank">13 CFR 120.131</a> and the SOP, you must permanently occupy and use at least '
          "<strong>51%</strong> of the rentable property in an existing building, and may lease out up to "
          "49%. For new construction it's <strong>60%</strong>, with stricter rules on the rest. An "
          "investor buying a building to rent doesn't qualify, so the owner-occupied test is what makes "
-         "this possible.</p>"
+         "this possible. How the space is measured, and what counts toward it, is in "
+         '<a href="/sba-100-percent-financing/articles/sba-51-percent-occupancy-rule/">the SBA 51% occupancy '
+         "rule</a>.</p>"
          "<ul>"
          "<li><strong>Holding companies.</strong> A related real estate company can own the building and "
          "lease all of it to your operating company, which must then meet the same occupancy test.</li>"
          "<li><strong>Extra land.</strong> Land in the purchase should be used by the business, for "
-         "example paved for parking or used as a yard. Lenders question excess land.</li>"
+         "example paved for parking or used as a yard. Lenders question excess land. See "
+         '<a href="/sba-100-percent-financing/articles/sba-loan-contractor-yard-land/">SBA loans for a '
+         "contractor yard or business land</a>.</li>"
          "<li><strong>Improvements.</strong> Small tenant improvements can often be included, but "
-         "lenders commonly want them funded within a few months.</li>"
+         "lenders commonly want them funded within a few months. See "
+         '<a href="/sba-100-percent-financing/articles/tenant-improvements-sba-building-purchase/">adding '
+         "improvements to an SBA building purchase</a>.</li>"
          "</ul>"),
         ("Worked Example: Buying a $3,000,000 Building",
          "<p><strong>Illustrative numbers, not a quote or an offer; rates and fees change, and every "
@@ -113,7 +125,7 @@ ARTICLES = [{
              ["Purchase price", "$3,000,000"],
              ["SBA guaranty fee (estimate)", "About $84,880"],
              ["7(a) packaging fee (estimate)", "$2,500"],
-             ["Appraisal, environmental, escrow, etc. (estimate)", "$19,500"],
+             ["Appraisal and reports (est.)", "$19,500"],
              ["<strong>Total project cost</strong>", "<strong>About $3,106,880</strong>"],
              ["Cash down", "$0 (0%)"],
              ["SBA 7(a) loan", "About $3,106,880"],
@@ -132,7 +144,9 @@ ARTICLES = [{
          "how much of the building you'll occupy.</li>"
          "<li><strong>Prequalify across lenders.</strong> Appetite for zero down varies widely.</li>"
          "<li><strong>Order third-party reports.</strong> Expect an appraisal and environmental review, "
-         "which is important for shops with lifts, tanks or chemicals.</li>"
+         "which is important for shops with lifts, tanks or chemicals (see "
+         '<a href="/sba-100-percent-financing/articles/buy-auto-repair-shop-building/">buying your auto '
+         "repair shop building</a>).</li>"
          "<li><strong>Close.</strong> SBA real estate deals usually take longer than a bank's. Plan for "
          "it in your purchase contract.</li>"
          "</ol>"
@@ -170,7 +184,9 @@ ARTICLES = [{
         ("/sba-loans.html", "SBA loans"),
         ("/sba-loans/articles/sba-loan-owner-occupied-commercial-property/", "SBA 7(a) vs 504 for your building"),
         ("/commercial-real-estate-loans/articles/100-percent-financing-owner-occupied-commercial-real-estate/", "100% owner-occupied financing"),
+        ("/sba-100-percent-financing/articles/", "100% SBA building guides"),
         ("/hotel-financing.html", "Hotel financing"),
+        ("/usda-business-loans.html", "USDA business loans"),
         ("/business-acquisition-financing/articles/buy-a-business-with-5-percent-down/", "Buying a business with 5% down"),
         ("/match.html", "Get matched with lenders"),
     ],
@@ -205,7 +221,10 @@ ARTICLES = [{
          "numbers early.</p>"
          "<p>A hotel run by an outside management company adds a question: lenders must make sure a "
          "management agreement doesn't make the applicant an ineligible passive business, unless the "
-         "agreement is part of the franchise documents for a brand on the SBA's Franchise Directory.</p>"),
+         "agreement is part of the franchise documents for a brand on the SBA's Franchise Directory. "
+         'How that plays out for a branded property versus a non-branded one is in '
+         '<a href="/hotel-financing/articles/flagged-vs-independent-hotel-sba-loans/">SBA loans for flagged '
+         "vs independent hotels</a>.</p>"),
         ("SBA 7(a), SBA 504 and Other Options Compared",
          table(["", "SBA 7(a)", "SBA 504", "CMBS or bank"], [
              ["Minimum equity", "10% on a change of ownership", "15%, or 20% with a new business", "Commonly 25-30%"],
@@ -219,7 +238,11 @@ ARTICLES = [{
          "7(a), lenders may allow up to about 85% loan to value and often set their own higher equity "
          "for hotels. For a deeper comparison of larger structures, see "
          '<a href="/commercial-real-estate-loans/articles/hotel-financing-sba-cmbs-conventional/">SBA vs '
-         "CMBS vs conventional hotel loans</a>. Figures are SBA rules or typical ranges, not a quote.</p>"),
+         "CMBS vs conventional hotel loans</a>, and for current pricing, "
+         '<a href="/hotel-financing/articles/typical-hotel-loan-rates-2026/">hotel loan rates for 2026</a>. '
+         "In towns under 50,000 people, "
+         '<a href="/usda-business-loans/articles/usda-hotel-loans/">USDA hotel loans</a> are another route. '
+         "Figures are SBA rules or typical ranges, not a quote.</p>"),
         ("Financing a PIP or a Flag Conversion",
          "<p>A <strong>property improvement plan</strong> is the brand's list of required upgrades, usually "
          "triggered by a sale, a new franchise agreement or a change of flag. It can cover rooms, "
@@ -238,7 +261,10 @@ ARTICLES = [{
          "</ul>"
          "<p>Many lenders won't finance ground-up hotel construction through these programs, so a new "
          'build is usually a different conversation. See <a href="/commercial-bridge-loans.html">bridge '
-         "loans</a> if a property needs repositioning before it can qualify.</p>"),
+         "loans</a> if a property needs repositioning before it can qualify. Budgets, draws and deadlines "
+         'are covered in <a href="/hotel-financing/articles/hotel-pip-financing/">hotel PIP financing</a>, '
+         'and brand changes in <a href="/hotel-financing/articles/hotel-flag-conversion-financing/">hotel '
+         "flag conversion financing</a>.</p>"),
         ("What Lenders Want From a Buyer",
          "<p>Hotels are a management business. Appendix 15 requires the lender to describe your industry "
          "experience and management team, including how daily operations will be run. Beyond that, these "
@@ -257,14 +283,16 @@ ARTICLES = [{
          "</ul>"
          "<p>Two rules help hotel buyers. On an owner-occupied special purpose purchase, the lender may rely "
          "on projections rather than history if the appraised value fully collateralizes the loan, and "
-         "no Quality of Earnings report is required. Lenders may still be stricter than that.</p>"),
+         "no Quality of Earnings report is required. Lenders may still be stricter than that. For how to "
+         'document a management team, see <a href="/hotel-financing/articles/hotel-experience-sba-loan/">how '
+         "much hotel experience lenders want</a>.</p>"),
         ("Worked Example: Buying a Flagged Hotel With a PIP",
          "<p><strong>Illustrative numbers, not a quote.</strong> An experienced operator buys a 70-room "
          "limited-service hotel for $3,400,000, with a $500,000 PIP and about $60,000 in closing costs. "
          f"The estimated guaranty fee, from the {_FEE_A}, adds about $94,430.</p>"
          + table(["Item", "Amount"], [
              ["Total project cost", "About $4,054,430"],
-             ["Buyer's equity (15%, above the 10% SBA minimum)", "About $608,160"],
+             ["Buyer's equity (15%)", "About $608,160"],
              ["SBA 7(a) loan (85%)", "About $3,446,260"],
              ["Assumed rate and term", "8.25%, 25 years"],
              ["Monthly principal and interest", "About $27,170"],
@@ -316,6 +344,8 @@ ARTICLES = [{
     "related": [
         ("/sba-loans.html", "SBA loans"),
         ("/commercial-real-estate-loans/articles/hotel-financing-sba-cmbs-conventional/", "SBA vs CMBS vs conventional"),
+        ("/hotel-financing/articles/", "Hotel financing guides"),
+        ("/usda-business-loans.html", "USDA business loans"),
         ("/sba-100-percent-financing.html", "100% SBA financing"),
         ("/business-acquisition-financing/articles/buy-a-business-with-5-percent-down/", "Buying a business with 5% down"),
         ("/commercial-bridge-loans.html", "Commercial bridge loans"),
