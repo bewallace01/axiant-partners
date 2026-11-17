@@ -20,8 +20,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 LISTS = [ROOT / "scripts/aeo/top25-cited.txt", ROOT / "scripts/aeo/money-pages.txt"]
-# C-001 test pages deliberately have no brand clause; skipped until the test is decided.
-SKIP = ROOT / "scripts/aeo/c001-test-pages.txt"
+# C-001 test pages and C-011 rollout pages deliberately have no brand clause.
+SKIP = [ROOT / "scripts/aeo/c001-test-pages.txt", ROOT / "scripts/aeo/c011-rollout-pages.txt"]
 
 CONTAINER = re.compile(
     r'<div[^>]*class="[^"]*\bquick-answer\b[^"]*"[^>]*>'
@@ -48,12 +48,12 @@ def answer(html):
 def main():
     urls = [line.strip() for f in LISTS for line in f.read_text(encoding="utf-8").splitlines()
             if line.startswith("/")]
-    skip = {line.strip() for line in SKIP.read_text(encoding="utf-8").splitlines()
-            if line.startswith("/")} if SKIP.exists() else set()
+    skip = {line.strip() for f in SKIP if f.exists() for line in f.read_text(encoding="utf-8").splitlines()
+            if line.startswith("/")}
     missing = 0
     for url in urls:
         if url in skip:
-            print(f"C-001 TEST, skip {url}")
+            print(f"NO BRAND (C-001/C-011), skip {url}")
             continue
         f = page_file(url)
         if not f.exists():
