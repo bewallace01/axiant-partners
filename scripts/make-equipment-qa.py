@@ -77,7 +77,7 @@ def build(slug):
     lead = ("%s financing covers purchases in the %s range." % (low, rng)) if rng else \
            ("%s financing is available nationwide." % low)
     mid  = ("Most %s use an equipment loan or lease rather than paying cash: decisions typically come in %s, "
-            "terms run %s, with %s down and credit from %s." % (buyer(slug), appr or "24-48 hours",
+            "terms run %s, with %s down and credit from %s." % (buyer(slug), appr or "24-72 hours",
                                                                 terms or "36-72 months",
                                                                 down or "0-20%", cred or "600+"))
     tail = ("Axiant matches you with lenders in all 50 states, and SBA programs stretch terms further on "

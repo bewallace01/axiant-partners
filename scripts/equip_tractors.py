@@ -47,10 +47,10 @@ PAGE = {
                      "annual and seasonal payment schedules, dealer promotions, leases and FSA loans."),
     "h1": "Tractor Financing: Loans, Leases &amp; Farm Loan Programs",
     "lede": ("New tractors typically cost $80,000-$400,000+ and used ones $25,000-$200,000. Finance one with "
-             "an equipment loan or lease, with payments that can follow harvest. Decisions in 24-48 hours "
+             "an equipment loan or lease, with payments that can follow harvest. Decisions in 24-72 hours "
              "for qualified applications."),
     "checks": [
-        "Equipment financing decisions in 24-48 hours",
+        "Equipment financing decisions in 24-72 hours",
         "New and used row-crop, utility and compact tractors",
         "Monthly, seasonal or annual payment schedules",
         "Typical terms 36-84 months; credit 550+",
@@ -68,7 +68,7 @@ PAGE = {
                      f"Boca Raton, compares equipment lenders. Typical ranges, not a quote."),
     "qa_link": "Get matched for tractor financing",
     "glance_h2": "Tractor Financing at a Glance",
-    "glance": [("$25K-$400K+", "New and used range"), ("24-48 hr", "Equipment approval"),
+    "glance": [("$25K-$400K+", "New and used range"), ("24-72 hr", "Equipment approval"),
                ("36-84 mo", "Typical terms"), ("0-20%", "Down payment"),
                ("550+", "Credit (typical)"), ("Annual", "Payments can follow harvest")],
     "sections": [
@@ -84,7 +84,7 @@ PAGE = {
          'the same approval if they are on the same invoice. Bought later, each is its own deal.</p>\n</div>', None),
         ("Tractor Payments by Price and Term",
          f'<div class="prose">\n<p>Illustrative monthly payments at an assumed {RATE:.0f}% before tax and fees, computed by '
-         'formula. Typical equipment rates run about 6-15% depending on credit, age of the tractor and down payment.</p>\n</div>\n'
+         'formula. Typical equipment rates run about 7-22% APR depending on credit, age of the tractor and down payment (7-9% with 720+ credit and 2+ years in business).</p>\n</div>\n'
          + table(["Amount financed", "Term", "About per month", "Total interest"], [
              pay_row(40_000, RATE, 60), pay_row(90_000, RATE, 72), pay_row(150_000, RATE, 84),
              pay_row(250_000, RATE, 84)])
@@ -161,7 +161,7 @@ PAGE = {
          '<li><strong>Guaranteed loans</strong> are made by a bank with an FSA guarantee; their limits are raised each '
          'year with the Prices Paid by Farmers Index.</li>'
          '<li><strong>Trade-off:</strong> FSA terms can be attractive, but approval takes longer than an equipment '
-         'lender&rsquo;s 24-48 hours, so it suits a planned purchase rather than a breakdown in planting season.</li></ul>\n</div>', None),
+         'lender&rsquo;s 24-72 hours, so it suits a planned purchase rather than a breakdown in planting season.</li></ul>\n</div>', None),
         ("Compact Tractors for Landscapers and Small Operations",
          '<div class="prose">\n<p>Landscapers, nurseries, horse farms and property-maintenance companies finance compact '
          'tractors with loaders and mowers as business equipment. Lenders look at the business&rsquo;s revenue rather than '
@@ -195,7 +195,7 @@ PAGE = {
          "Sometimes. Promotions may replace a cash rebate, so compare the rebate plus an outside loan against the "
          "promotional rate on total cost. Promotions usually apply to new tractors only."),
         ("What credit score do you need for tractor financing?",
-         "Many lenders look for about 550 or higher, with the best terms commonly at 680+. Farm income history and "
+         "Many lenders look for about 550 or higher, with the best terms commonly at 720+. Farm income history and "
          "a larger down payment can offset a lower score."),
     ],
     "sources": [

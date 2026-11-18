@@ -124,7 +124,7 @@ def main():
         # Strengthen final CTA section
         html = re.sub(
             r'(<h2>Apply for [^<]+ Financing</h2>\s*<p>)',
-            r'\1<strong>Applications are reviewed within 24–48 hours.</strong> ',
+            r'\1<strong>Applications are reviewed within 24–72 hours.</strong> ',
             html
         )
 
