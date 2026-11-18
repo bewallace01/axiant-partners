@@ -40,7 +40,7 @@ PAGE = {
                      "package example, refrigerated prep tables, child-labor rules on slicers and mixers, and payments."),
     "h1": "Restaurant Prep Equipment Financing: Mixers, Slicers and Prep Tables",
     "lede": ("Planetary mixers, slicers, vertical cutter mixers and refrigerated prep tables typically cost $500 to "
-             "$20,000+ each. Finance them together on one payment. Decisions in 24-48 hours for qualified applications."),
+             "$20,000+ each. Finance them together on one payment. Decisions in 24-72 hours for qualified applications."),
     "checks": [
         "Mixers, slicers, processors and prep tables",
         "One package, one payment",
@@ -59,7 +59,7 @@ PAGE = {
     "qa_link": "Get matched for prep equipment financing",
     "glance_h2": "Prep Equipment Financing at a Glance",
     "glance": [("$500-$20K+", "Per machine"), ("$30K+", "Full prep package"), ("36-60 mo", "Typical terms"),
-               ("0-20%", "Down payment"), ("600+", "Credit (typical)"), ("24-48 hr", "Equipment approval")],
+               ("0-20%", "Down payment"), ("600+", "Credit (typical)"), ("24-72 hr", "Equipment approval")],
     "sections": [
         ("Prep Machines by Menu",
          '<div class="prose">\n<p>Buy for the prep your menu actually does each morning. Price ranges are the ones this '
@@ -93,7 +93,7 @@ PAGE = {
          table(["", "Prep equipment alone", "Inside a full kitchen deal"], [
              ["Typical size", "Under $30,000", "Prep plus cooking line, refrigeration, hood"],
              ["Paperwork", "Application and quote; often no financials", "Financials and a build-out budget"],
-             ["Speed", "Often 24-48 hours", "Longer; tied to the opening"],
+             ["Speed", "Often 24-72 hours", "Longer; tied to the opening"],
              ["Best for", "Replacing or adding a machine", "New locations and remodels"],
          ])
          + '\n<div class="prose">\n<p>Opening a new restaurant? Prep equipment is usually a small share of the build-out; see '
