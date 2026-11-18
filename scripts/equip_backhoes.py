@@ -50,8 +50,8 @@ PAGE = {
              "utility and trench work, options and attachments, used backhoes, lease or loan."),
     "h1": "Backhoe Financing: Loans and Leases for Utility and Site Contractors",
     "lede": "Backhoe loaders typically cost $50,000-$180,000+ new, depending on class and options. Finance the "
-            "machine, its attachments and trench protection together. Decisions in 24-48 hours for qualified applications.",
-    "checks": ["Equipment financing decisions in 24-48 hours",
+            "machine, its attachments and trench protection together. Decisions in 24-72 hours for qualified applications.",
+    "checks": ["Equipment financing decisions in 24-72 hours",
                "New and used backhoe loaders and attachments",
                "Typical terms 36-72 months; SBA to 10+ years",
                "Credit 600+; 0-20% down payment"],
@@ -68,7 +68,7 @@ PAGE = {
                      "broker in Boca Raton, compares equipment lenders. Typical ranges, not a quote."),
     "qa_link": "Get matched for backhoe financing",
     "glance_h2": "Backhoe Financing at a Glance",
-    "glance": [("$50K-$180K+", "Typical new range"), ("24-48 hr", "Equipment approval"),
+    "glance": [("$50K-$180K+", "Typical new range"), ("24-72 hr", "Equipment approval"),
                ("36-72 mo", "Terms"), ("0-20%", "Down payment"), ("600+", "Credit (typical)"),
                ("50 states", "Nationwide")],
     "faq_h2": "Backhoe Financing FAQ",
@@ -161,7 +161,7 @@ PAGE = {
          "A backhoe has no title, so the lender files a UCC financing statement describing the machine, usually by "
          "serial number. A private seller should also show any earlier lien is released."),
         ("What credit score do you need for backhoe financing?",
-         "Most lenders look for about 600 or higher, with the best terms commonly at 680+. An award letter, steady "
+         "Most lenders look for about 600 or higher, with the best terms commonly at 720+. An award letter, steady "
          "deposits or a down payment can offset a lower score."),
         ("Is a backhoe or a mini excavator easier to finance?",
          "Both are common equipment deals. A backhoe is one larger payment; a mini excavator plus a skid steer is "
