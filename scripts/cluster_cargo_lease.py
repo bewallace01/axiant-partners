@@ -47,7 +47,7 @@ ARTICLES = [{
                     "a schedule. On a <strong>$60,000</strong> van at an illustrative 9% over 60 months, a loan runs about "
                     "<strong>$1,246</strong> a month and a lease with a 25% residual about <strong>$1,047</strong>. Lease "
                     "to own costs about the same as the loan. Axiant Partners, a business-loan broker in Boca Raton, "
-                    "compares both. Typical van rates run 6-15%, so these are examples, not quotes.",
+                    "compares both. Typical van rates run about 7-22% APR depending on credit (7-9% with 720+ credit and 2+ years in business), so these are examples, not quotes.",
     "sections": [
         ("Loan, Lease or Lease to Own",
          "<p>These three get mixed up in ads. The difference is who carries the van's value at the end of the term. All "
@@ -61,7 +61,7 @@ ARTICLES = [{
              ["Best fit", "Keep for years", "Replace on a cycle", "Own it, with lease paperwork"],
          ])
          + "<p>Vans on our <a href=\"/equipment/cargo-vans/\">cargo van financing</a> page commonly run $35,000-$75,000 "
-         "before upfit, with typical rates of 6-15%, terms of 24-72 months and 0-20% down, depending on credit and age.</p>"),
+         "before upfit, with typical rates of about 7-22% APR by credit, terms of 24-72 months and 0-20% down, depending on credit and age.</p>"),
         ("Worked Example: A $60,000 Van on Each Structure",
          "<p><strong>Illustrative, not a quote.</strong> Assume a $60,000 van, nothing down, a 9% rate on each structure "
          "and 60 months. The lease assumes the van is worth 25% of its price ($15,000) at the end, which is an assumption, "
@@ -151,7 +151,7 @@ ARTICLES = [{
         ("Can a lease include racks and refrigeration?",
          "Sometimes. Put the upfit on the invoice and ask how it's treated. Also ask who owns it at the end and what removal may cost."),
         ("What credit do I need to lease a cargo van?",
-         "Requirements are similar to a loan: most look for about 600 or higher, with the best terms from about 680. Newer businesses "
+         "Requirements are similar to a loan: most look for about 600 or higher, with the best terms from about 720. Newer businesses "
          "may need more down or a cosigner."),
     ],
     "related": [
