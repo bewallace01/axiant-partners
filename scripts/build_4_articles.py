@@ -6,9 +6,9 @@ REPO = pathlib.Path(__file__).resolve().parent.parent
 TEMPLATE_CANONICAL = "https://axiantpartners.com/equipment-financing/articles/medical-imaging-financing-radiology-practices/"
 TEMPLATE_TITLE_TAG = "Medical Imaging Financing for Radiology Practices ($50K–$2M) | Axiant"
 TEMPLATE_OG_TITLE = "Medical Imaging Financing for Radiology Practices ($50K–$2M)"
-TEMPLATE_OG_DESC = "Radiology practices finance MRI, CT, X-ray, and ultrasound from $50K–$2M+ via equipment loans, operating leases, or SBA 504. 24–48 hr approvals at 600+ FICO."
-TEMPLATE_META_DESC = "Medical imaging financing for radiology practices: MRI, CT, X-ray, ultrasound from $50K–$2M+ via equipment loans, leases, or SBA 504. 24–48 hr approvals at 600+ FICO, 0–20% down."
-TEMPLATE_TWITTER_DESC = "MRI, CT, X-ray, ultrasound financing for radiology practices: $50K–$2M+, 24–48 hr approvals, 600+ FICO, 0–20% down."
+TEMPLATE_OG_DESC = "Radiology practices finance MRI, CT, X-ray, and ultrasound from $50K–$2M+ via equipment loans, operating leases, or SBA 504. 24–72 hr approvals at 600+ FICO."
+TEMPLATE_META_DESC = "Medical imaging financing for radiology practices: MRI, CT, X-ray, ultrasound from $50K–$2M+ via equipment loans, leases, or SBA 504. 24–72 hr approvals at 600+ FICO, 0–20% down."
+TEMPLATE_TWITTER_DESC = "MRI, CT, X-ray, ultrasound financing for radiology practices: $50K–$2M+, 24–72 hr approvals, 600+ FICO, 0–20% down."
 TEMPLATE_IMAGE_URL = "https://axiantpartners.com/assets/medical-imaging-equipment.webp"
 TEMPLATE_H1 = "Medical Imaging Financing for Radiology Practices: MRI, CT, X-Ray, Ultrasound"
 TEMPLATE_TAGLINE = "How radiology practices and imaging centers finance $50K&ndash;$2M+ equipment &mdash; loans, leases, SBA 504, and the patient-financing piece practices add on top"
@@ -24,7 +24,7 @@ ALL = [
         "breadcrumb_article_name": "Business Loan Approval Timeline by Lender Type",
         "title_tag": "Business Loan Approval Timeline by Lender Type (24 Hr–6 Months, 2026) | Axiant",
         "og_title": "Business Loan Approval Timeline by Lender Type (24 Hr–6 Mo)",
-        "meta_desc": "Business loan approval timelines: online 24-72 hr, equipment 24-48 hr, bank LOCs 2-6 wk, SBA 7(a) 30-60 d, SBA 504 45-75 d, FHA multifamily 6-9 months. Match lender to deadline.",
+        "meta_desc": "Business loan approval timelines: online 24-72 hr, equipment 24-72 hr, bank LOCs 2-6 wk, SBA 7(a) 30-60 d, SBA 504 45-75 d, FHA multifamily 6-9 months. Match lender to deadline.",
         "og_desc": "Business loan timelines by lender: online 24-72 hr, banks 2-6 weeks, SBA 30-60 days, FHA multifamily 6-9 months. Match lender to deadline.",
         "twitter_desc": "Loan timelines: online 24-72 hr, banks 2-6 wk, SBA 30-60 d, FHA multifamily 6-9 mo. Match lender to deadline.",
         "section": "Articles",
@@ -366,7 +366,7 @@ ALL = [
         "breadcrumb_article_name": "Healthcare Equipment Financing: Dental, Vet, Optical",
         "title_tag": "Healthcare Equipment Financing: Dental, Vet, Optical, Lab (2026) | Axiant",
         "og_title": "Healthcare Equipment Financing Beyond Imaging: Dental, Vet, Optical",
-        "meta_desc": "Healthcare equipment financing for dental ($25K–$250K), vet ($30K–$200K), optical ($25K–$150K), lab ($20K–$300K) practices. Rates 7-12%, 600+ FICO, 24-48 hr approval.",
+        "meta_desc": "Healthcare equipment financing for dental ($25K–$250K), vet ($30K–$200K), optical ($25K–$150K), lab ($20K–$300K) practices. Rates 7-12%, 600+ FICO, 24-72 hr approval.",
         "og_desc": "Practice equipment financing across healthcare: dental chairs + CBCT + CAD/CAM, vet diagnostic + surgical, optical phoropters + edgers + OCT, lab analyzers + autoclaves. Rates + structure.",
         "twitter_desc": "Healthcare equipment financing: dental $25K-250K, vet $30K-200K, optical $25K-150K, lab $20K-300K. 7-12% APR, 600+ FICO.",
         "section": "Equipment Financing",
@@ -378,7 +378,7 @@ ALL = [
         "faqs": [
             ("What healthcare equipment can be financed beyond imaging?", "All major practice equipment qualifies. <strong>Dental</strong>: chairs/operatories ($25K&ndash;$60K each), CBCT scanners ($75K&ndash;$150K), CAD/CAM mills + 3D printers ($100K&ndash;$250K), digital X-ray ($15K&ndash;$35K). <strong>Veterinary</strong>: digital radiography ($30K&ndash;$80K), ultrasound ($25K&ndash;$70K), surgical tables + monitors ($15K&ndash;$50K). <strong>Optical</strong>: phoropters ($15K&ndash;$30K), edgers ($25K&ndash;$60K), OCT ($35K&ndash;$80K). <strong>Lab</strong>: analyzers ($25K&ndash;$200K), autoclaves ($5K&ndash;$25K), centrifuges, microscopes."),
             ("What rates do dental and veterinary practices get on equipment financing?", "Healthcare-specialty equipment lenders typically run <strong>7&ndash;12% APR</strong> on dental, vet, optical, and lab equipment &mdash; slightly better than generalist equipment rates (8&ndash;14%) because of low default history in healthcare practice lending. <strong>SBA 504</strong> for larger purchases ($500K+) drops to ~6% blended. <strong>OEM captive financing</strong> (Henry Schein Financial Services for dental, Patterson Veterinary for vet) often beats third-party rates on new equipment from major vendors."),
-            ("What credit score is needed for healthcare practice equipment financing?", "<strong>600+ FICO</strong> qualifies most established healthcare practitioners for equipment financing. <strong>680+</strong> gets best rates. <strong>New practitioners</strong> (within 1&ndash;2 years of school) often qualify on professional credentials alone (DDS, DVM, OD, MD) even at lower FICO &mdash; lenders weight the credential and income trajectory. The healthcare-specialty lenders are flexible on this."),
+            ("What credit score is needed for healthcare practice equipment financing?", "<strong>600+ FICO</strong> qualifies most established healthcare practitioners for equipment financing. <strong>720+</strong> gets best rates. <strong>New practitioners</strong> (within 1&ndash;2 years of school) often qualify on professional credentials alone (DDS, DVM, OD, MD) even at lower FICO &mdash; lenders weight the credential and income trajectory. The healthcare-specialty lenders are flexible on this."),
             ("Can I finance used dental or veterinary equipment?", "Yes &mdash; most healthcare-specialty lenders finance used equipment up to <strong>8&ndash;10 years old</strong> at the same rate as new with a 12-month warranty from a certified refurbisher. Direct private-party purchases (estate sales, practice closures) usually require 20&ndash;25% down. The major refurbishers in healthcare equipment finance routinely &mdash; Henry Schein, Patterson, Burkhart Dental, NCS Medical Equipment Brokers."),
             ("Should I use equipment financing or SBA for a dental/vet practice acquisition?", "<strong>Equipment loan for fast equipment refresh; SBA for practice acquisition.</strong> If you&apos;re acquiring an existing practice + buying its equipment, use <strong>SBA 7(a)</strong> for the practice goodwill + working capital + equipment in one combined loan. If you already own the practice and just need to refresh equipment, equipment financing closes in 24&ndash;48 hours vs SBA&apos;s 30&ndash;60 days. See <a href=\"../../sba-loans/articles/sba-loan-veterinary-practice/\">SBA loans for veterinary practices</a>."),
         ],
