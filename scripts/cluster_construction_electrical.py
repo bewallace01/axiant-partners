@@ -50,7 +50,7 @@ ARTICLES = [
                 "each typically costs",
         "meta_desc": "Electrical contractor funding compared: lines of credit "
                      "about 8-13% APR at banks, factoring advances of 80-95%, van "
-                     "and bucket truck loans about 6-15%. Retainage, pay apps and "
+                     "and bucket truck loans about 7-22% by credit. Retainage, pay apps and "
                      "what lenders check.",
         "article_desc": "How electrical contractors fund payroll, materials, "
                         "retainage and vehicles, with typical rates and terms for "
@@ -65,7 +65,7 @@ ARTICLES = [
                         "<strong>invoice factoring</strong> (advances of commonly "
                         "<strong>80-95%</strong> of approved invoices). Vans and "
                         "bucket trucks go on <strong>equipment loans</strong>, "
-                        "commonly about <strong>6-15%</strong> over 36-72 months. "
+                        "commonly <strong>about 7-22% APR</strong> depending on credit (7-9% with 720+ credit and 2+ years in business) over 36-72 months. "
                         "These are typical ranges across lenders, not a quote.",
         "sections": [
             ("Electrical Contractor Funding at a Glance",
@@ -86,11 +86,11 @@ ARTICLES = [
              "hours to 1 week once approved</td></tr>"
              '<tr><td data-label="Need">Service vans</td>'
              '<td data-label="Usual fit">Equipment loan or lease</td>'
-             '<td data-label="Typical range">About 6-15%; 36-72 months; 0-20% '
+             '<td data-label="Typical range">About 7-22% by credit; 36-72 months; 0-20% '
              "down</td></tr>"
              '<tr><td data-label="Need">Bucket trucks</td>'
              '<td data-label="Usual fit">Equipment loan or lease</td>'
-             '<td data-label="Typical range">About 6-15%; 24-72 months; truck '
+             '<td data-label="Typical range">About 7-22% by credit; 24-72 months; truck '
              "and aerial unit financed together</td></tr>"
              '<tr><td data-label="Need">Buying a shop or building</td>'
              '<td data-label="Usual fit">SBA 7(a)</td>'
@@ -225,7 +225,7 @@ ARTICLES = [
              "equipment financing fits vans, bucket trucks and field equipment."),
             ("What interest rate do electrical contractors pay?",
              "Commonly about 8-13% APR on bank lines of credit and 14-30%+ online, "
-             "and about 6-15% on van and bucket truck loans. Factoring is priced "
+             "and about 7-22% APR on van and bucket truck loans depending on credit (7-9% with 720+ credit and 2+ years in business). Factoring is priced "
              "as a fee of about 1-5% of invoice value. These are typical ranges "
              "across lenders, not a quote."),
             ("Can an electrical subcontractor factor pay applications?",
