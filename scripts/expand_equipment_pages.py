@@ -15,7 +15,7 @@ EXPANSION_BLOCK = '''
 
             <section class="about-section">
                 <h2>Application Checklist for {name} Financing</h2>
-                <p>Gather these before applying: 3–6 months of business bank statements; prior-year tax returns; current-year P&amp;L; a detailed equipment quote with specs and pricing; business formation documents (LLC, Corp); and proof of time in business. Multi-location or franchise operations may need additional documentation. Complete applications receive faster decisions—typically 24–48 hours for equipment financing. <a href="/equipment-financing/articles/what-do-lenders-look-at-equipment-financing-approval/">What lenders look at</a>.</p>
+                <p>Gather these before applying: 3–6 months of business bank statements; prior-year tax returns; current-year P&amp;L; a detailed equipment quote with specs and pricing; business formation documents (LLC, Corp); and proof of time in business. Multi-location or franchise operations may need additional documentation. Complete applications receive faster decisions—typically 24–72 hours for equipment financing. <a href="/equipment-financing/articles/what-do-lenders-look-at-equipment-financing-approval/">What lenders look at</a>.</p>
             </section>
 
             <section class="about-section">
