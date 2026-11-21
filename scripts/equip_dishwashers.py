@@ -39,7 +39,7 @@ PAGE = {
     "h1": "Commercial Dishwasher Financing: Lease, Rent or Buy",
     "lede": ("Commercial dishwashers typically cost $3,000 for an undercounter unit to $25,000+ for a conveyor. "
              "Finance the installed package, booster heater included, or compare a chemical-supplier rental. "
-             "Decisions in 24-48 hours for qualified applications."),
+             "Decisions in 24-72 hours for qualified applications."),
     "checks": [
         "Undercounter, door-type and conveyor machines",
         "Booster heaters, tables and install on one deal",
@@ -58,7 +58,7 @@ PAGE = {
                      f"compares equipment lenders. Typical ranges, not a quote."),
     "qa_link": "Get matched for dishwasher financing",
     "glance_h2": "Commercial Dishwasher Financing at a Glance",
-    "glance": [("$3K-$25K+", "Machine range"), ("24-48 hr", "Equipment approval"), ("36-60 mo", "Typical terms"),
+    "glance": [("$3K-$25K+", "Machine range"), ("24-72 hr", "Equipment approval"), ("36-60 mo", "Typical terms"),
                ("0-20%", "Down payment"), ("600+", "Credit (typical)"), ("Own or rent", "Two ways to get one")],
     "sections": [
         ("Which Dish Machine Fits Your Volume",
