@@ -50,7 +50,7 @@ PAGE = {
                      "options, custom applicator underwriting, annual payment schedules, licensing and used sprayer checks."),
     "h1": "Sprayer Financing: Self-Propelled, Pull-Type and Spray Drones",
     "lede": ("Pull-type sprayers typically cost $30,000-$150,000+ and self-propelled machines $250,000-$400,000+. "
-             "Pay monthly or once a year after harvest. Decisions in 24-48 hours for qualified applications."),
+             "Pay monthly or once a year after harvest. Decisions in 24-72 hours for qualified applications."),
     "checks": [
         "Self-propelled, pull-type and spray drones",
         "Annual, semi-annual or monthly payments",
@@ -62,7 +62,7 @@ PAGE = {
               '<a href="/equipment/grain-equipment/">grain equipment financing</a>, and turf spray rigs on '
               '<a href="/landscaping-business-financing.html">landscaping business financing</a>.</p>'),
     "quick_answer": (f"As of November 2026, an agricultural sprayer commonly finances over 24-84 months with 0-20% down and "
-                     f"600+ credit, at rates that typically run 6-15%. Pull-type sprayers cost about $30,000-$150,000+ and "
+                     f"600+ credit, at rates that typically run about 7-22% APR depending on credit (7-9% with 720+ credit and 2+ years in business). Pull-type sprayers cost about $30,000-$150,000+ and "
                      f"self-propelled machines $250,000-$400,000+. At an assumed 8%, a $150,000 sprayer is about "
                      f"<strong>{usd(pmt(150_000, RATE, 60))} a month</strong> over 60 months, and {usd(SP_FIN)} financed on a "
                      f"self-propelled unit is about <strong>{usd(SP_YR)} a year</strong> on six annual payments. Axiant "
@@ -70,7 +70,7 @@ PAGE = {
     "qa_link": "Get matched for sprayer financing",
     "glance_h2": "Sprayer Financing at a Glance",
     "glance": [("$30K-$400K+", "New sprayer range"), ("Annual", "Payments can follow harvest"), ("24-84 mo", "Typical terms"),
-               ("0-20%", "Down payment"), ("600+", "Credit (typical)"), ("24-48 hr", "Equipment approval")],
+               ("0-20%", "Down payment"), ("600+", "Credit (typical)"), ("24-72 hr", "Equipment approval")],
     "sections": [
         ("Pull-Type, Self-Propelled or Drone",
          table(["", "Pull-type", "Self-propelled", "Spray drone"], [
