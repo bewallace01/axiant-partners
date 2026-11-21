@@ -44,7 +44,7 @@ PAGE = {
                      "versus industrial arms, robot-as-a-service versus owning, used robots, safety standards and payback."),
     "h1": "Industrial Robot Financing: Cells, Cobots and Payback",
     "lede": ("A robot arm is often half the cost of a working cell. Finance the arm, tooling, guarding and integration "
-             "on one approval, typically over 36-72 months. Decisions in 24-48 hours for qualified applications."),
+             "on one approval, typically over 36-72 months. Decisions in 24-72 hours for qualified applications."),
     "checks": [
         "Welding, palletizing, machine tending and pick-and-place",
         "Arm, tooling, guarding and integration on one deal",
@@ -57,7 +57,7 @@ PAGE = {
               'Lift trucks are on <a href="/equipment/forklifts/">forklift financing</a> and conveyors on '
               '<a href="/equipment/conveyor-systems/">conveyor system financing</a>.</p>'),
     "quick_answer": (f"As of November 2026, an industrial robot cell commonly finances over 36-72 months with 0-20% down "
-                     f"and 600+ credit, at rates that typically run 6-15%. Collaborative robots run about $25,000-$50,000, "
+                     f"and 600+ credit, at rates that typically run about 7-22% APR depending on credit (7-9% with 720+ credit and 2+ years in business). Collaborative robots run about $25,000-$50,000, "
                      f"6-20 kg industrial arms $50,000-$100,000 and 50-200+ kg arms $100,000-$200,000+, and tooling, "
                      f"guarding and integration add <strong>20-50% or more</strong>. At an assumed 8%, a {usd(CELL_TOTAL)} welding cell is "
                      f"about <strong>{usd(CELL_MO)} a month</strong> over 60 months. Axiant Partners, a business-loan broker "
@@ -65,7 +65,7 @@ PAGE = {
     "qa_link": "Get matched for robot financing",
     "glance_h2": "Industrial Robot Financing at a Glance",
     "glance": [("$25K-$200K+", "Arm alone"), ("+20-50%", "Cell on top of the arm"), ("36-72 mo", "Typical terms"),
-               ("0-20%", "Down payment"), ("600+", "Credit (typical)"), ("24-48 hr", "Equipment approval")],
+               ("0-20%", "Down payment"), ("600+", "Credit (typical)"), ("24-72 hr", "Equipment approval")],
     "sections": [
         ("Which Robot for Which Job",
          '<div class="prose">\n<p>The application decides the payload, reach and tooling, and those decide the price. '
