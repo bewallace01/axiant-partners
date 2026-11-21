@@ -40,6 +40,12 @@ def check(path):
     s = open(path, encoding="utf-8", errors="replace").read()
     fails, warns = [], []
 
+    # redirect stubs (meta refresh + noindex) are not pages: _redirects answers
+    # their URL with a 301 before this file is ever served, so the v2 rules
+    # do not apply to them
+    if 'http-equiv="refresh"' in s and re.search(r'name="robots" content="noindex', s):
+        return fails, warns
+
     if is_hybrid(s):
         if not re.search(r'<body[^>]*class="[^"]*\bv2-body\b', s):
             fails.append('links axiant-v2-legacy-body.css but <body> has no class="v2-body" '
