@@ -1,0 +1,15 @@
+# C-011 (prepared 2026-11-17): the C-001 change rolled out to these pages' Quick Answers (brand opening
+# removed; on the two with the get-matched form, the block sits above the next-step heading).
+# Ships only if C-001's test pages recover against control. check_brand_quick_answers.py skips them.
+/business-term-loans/articles/term-loan-vs-line-of-credit/
+/commercial-real-estate-loans/articles/construction-to-permanent-financing/
+/commercial-real-estate-loans/articles/owner-occupied-vs-investment-commercial-property-loan/
+/ecommerce-business-financing-guide/
+/equipment-financing/articles/carecredit-vs-affirm/
+/equipment-financing/articles/trac-lease-benefits-saves-money/
+/heavy-equipment-equity-loan.html
+/real-estate-secured-business-loan.html
+/sba-loans/articles/what-is-an-sba-504-loan/
+/security-guard-business-financing.html
+/towing-business-financing.html
+/vending-machine-financing.html
