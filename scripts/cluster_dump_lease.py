@@ -46,7 +46,7 @@ ARTICLES = [{
                     "<strong>$3,041</strong> a month and a TRAC lease about <strong>$2,327-$2,633</strong>, depending on the "
                     "residual. The catch: on a TRAC lease you generally stand behind that residual when the term ends. Axiant "
                     "Partners, a business-loan broker in Boca Raton, compares dump truck lenders and lessors. Typical rates "
-                    "run 6-15%, so these are examples, not quotes.",
+                    "run about 7-22% APR depending on credit (7-9% with 720+ credit and 2+ years in business), so these are examples, not quotes.",
     "sections": [
         ("How Dump Truck Leases Usually Work",
          "<p>When a hauler says “lease” it usually means a TRAC lease, or terminal rental adjustment clause. It sets a residual "
