@@ -52,8 +52,8 @@ PAGE = {
              "quarry and aggregate deals, tires and buckets, used loaders, lease or loan."),
     "h1": "Wheel Loader Financing: Loans and Leases for Contractors, Quarries and Yards",
     "lede": "Compact, mid-size and large wheel loaders typically cost $80,000-$400,000+ new. Finance the "
-            "machine, the bucket and the tires on one approval. Decisions in 24-48 hours for qualified applications.",
-    "checks": ["Equipment financing decisions in 24-48 hours",
+            "machine, the bucket and the tires on one approval. Decisions in 24-72 hours for qualified applications.",
+    "checks": ["Equipment financing decisions in 24-72 hours",
                "New and used wheel loaders, buckets and couplers",
                "Typical terms 36-84 months; seasonal payment plans",
                "Credit 600+; 0-20% down payment"],
@@ -70,7 +70,7 @@ PAGE = {
                      "a business-loan broker in Boca Raton, compares equipment lenders. Typical ranges, not a quote."),
     "qa_link": "Get matched for wheel loader financing",
     "glance_h2": "Wheel Loader Financing at a Glance",
-    "glance": [("$80K-$400K+", "Typical new range"), ("24-48 hr", "Equipment approval"),
+    "glance": [("$80K-$400K+", "Typical new range"), ("24-72 hr", "Equipment approval"),
                ("36-84 mo", "Terms"), ("0-20%", "Down payment"), ("600+", "Credit (typical)"),
                ("50 states", "Nationwide")],
     "faq_h2": "Wheel Loader Financing FAQ",
@@ -160,7 +160,7 @@ PAGE = {
          "being replaced.</li><li><strong>Gather the file:</strong> 3-6 months of bank statements, plus tax returns and "
          "a profit and loss statement at larger tickets.</li><li><strong>Compare offers</strong> on total cost and the "
          "payoff at year three, not only the payment.</li><li><strong>Confirm insurance</strong> and the loss-payee "
-         "wording before funding day.</li></ol><p>Credit commonly starts around 600, with the best terms at 680+; see "
+         "wording before funding day.</li></ol><p>Credit commonly starts around 600, with the best terms at 720+; see "
          "<a href=\"/equipment-financing/articles/what-credit-score-needed-equipment-financing/\">credit needed for "
          "equipment financing</a>. Own a loader outright? See <a href=\"/heavy-equipment-equity-loan.html\">borrowing "
          "against equipment you own</a>.</p>\n</div>",
@@ -177,7 +177,7 @@ PAGE = {
          "Usually, if they are on the same quote as the machine. Tires, buckets, a quick coupler and forks bought "
          "later are normally a separate deal."),
         ("What credit score do you need to finance a wheel loader?",
-         "Most lenders look for about 600 or higher, with the best terms commonly at 680+. A site contract, strong "
+         "Most lenders look for about 600 or higher, with the best terms commonly at 720+. A site contract, strong "
          "bank deposits or a larger down payment can offset a lower score."),
         ("Can a quarry get seasonal payments on a loader?",
          "Often, yes. Some equipment lenders offer payment plans that skip or reduce slow months for aggregates, snow "
