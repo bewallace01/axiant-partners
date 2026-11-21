@@ -42,7 +42,7 @@ ARTICLES = [
         "headline": "Lawn Care Business Loans: Options, Rates and What You Qualify For",
         "lede": "For owner-operators and small mowing crews: how to pay for a mower, "
                 "a trailer, or the slow months, and what lenders will want to see",
-        "meta_desc": "Lawn care business loans compared: mower financing about 6-15% with 0-20% down, SBA microloans up to $50,000, and lines of credit for slow months.",
+        "meta_desc": "Lawn care business loans compared: mower financing 7-22% by credit with 0-20% down, SBA microloans up to $50,000, and lines of credit for slow months.",
         "article_desc": "Financing options for lawn care owner-operators and small "
                         "crews, with typical rates, a worked example and what "
                         "lenders check.",
@@ -51,7 +51,7 @@ ARTICLES = [
                     "lawn mowing business loan",
         "quick_answer": "Most lawn care businesses need one of two things. "
                         "<strong>Equipment financing</strong> pays for mowers and "
-                        "trailers, commonly about <strong>6-15%</strong> over 24-48 "
+                        "trailers, commonly <strong>about 7-22% APR</strong> depending on credit (7-9% with 720+ credit and 2+ years in business) over 24-48 "
                         "months with <strong>0-20% down</strong>. A "
                         "<strong>line of credit</strong> or small working capital loan "
                         "covers payroll and fuel in the slow months. New companies can "
@@ -67,10 +67,10 @@ ARTICLES = [
              "</tr></thead><tbody>"
              '<tr><td data-label="Need">Mower or stand-on</td>'
              '<td data-label="Usual fit">Equipment loan or lease</td>'
-             '<td data-label="Typical range">About 6-15%; 24-48 months; 0-20% down</td></tr>'
+             '<td data-label="Typical range">About 7-22% by credit; 24-48 months; 0-20% down</td></tr>'
              '<tr><td data-label="Need">Truck and trailer</td>'
              '<td data-label="Usual fit">Equipment or vehicle loan</td>'
-             '<td data-label="Typical range">About 6-15%; 36-72 months</td></tr>'
+             '<td data-label="Typical range">About 7-22% by credit; 36-72 months</td></tr>'
              '<tr><td data-label="Need">Slow-season payroll</td>'
              '<td data-label="Usual fit">Business line of credit</td>'
              '<td data-label="Typical range">About 8-13% APR at banks; 14-30%+ online</td></tr>'
@@ -211,7 +211,7 @@ ARTICLES = [
              "not a quote."),
             ("How much does it cost to finance a commercial mower?",
              "As an illustration, $14,000 at 8% over 48 months is about $342 a month. "
-             "Rates commonly run about 6-15% with 0-20% down, depending on credit, "
+             "Rates commonly run about 7-22% APR (7-9% with 720+ credit and 2+ years in business) with 0-20% down, depending on credit, "
              "time in business and whether the mower is new or used."),
             ("Can I start a lawn care business with no money?",
              "It is difficult to borrow with no cash and no history. Equipment "
