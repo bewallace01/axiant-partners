@@ -213,7 +213,7 @@ MORE = [
                  ["Sized on", "50-80% of liquidation value", "Liquidation value, less the payoff", "The purchase price"],
                  ["Typical term", "24-72 months", "24-72 months", "24-84 months"],
                  ["Typical down", "None", "None", "0-20%"],
-                 ["Typical rate", "About 7-22% APR", "About 7-22% APR", "About 6-15% on trucks"],
+                 ["Typical rate", "About 7-22% APR", "About 7-22% APR", "About 7-22% APR"],
              ])
              + "<p>Typical ranges across lenders, not quotes. Purchase financing tends "
              "to price best because the money buys a new asset at a known price; "

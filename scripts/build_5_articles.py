@@ -452,9 +452,9 @@ ARTICLES = [
         "breadcrumb_article_name": "Logging & Forestry Equipment Financing",
         "title_tag": "Logging & Forestry Equipment Financing: Skidders, Feller Bunchers, Log Trucks (2026) | Axiant",
         "og_title": "Logging Equipment Financing: Skidders, Feller Bunchers, Log Trucks",
-        "meta_desc": "Logging and forestry equipment financing for skidders ($150K–$500K), feller bunchers ($300K–$700K), log trucks ($80K–$200K), and processors. 24–48 hr approvals at 600+ FICO.",
+        "meta_desc": "Logging and forestry equipment financing for skidders ($150K–$500K), feller bunchers ($300K–$700K), log trucks ($80K–$200K), and processors. 24–72 hr approvals at 600+ FICO.",
         "og_desc": "Financing for the full logging fleet: skidders, feller bunchers, processors, delimbers, log trucks. $80K–$700K typical. Equipment loans 8–14%, 36–60 month terms.",
-        "twitter_desc": "Logging equipment financing: skidders $150–500K, feller bunchers $300–700K, log trucks $80–200K. 24–48 hr approval, 600+ FICO.",
+        "twitter_desc": "Logging equipment financing: skidders $150–500K, feller bunchers $300–700K, log trucks $80–200K. 24–72 hr approval, 600+ FICO.",
         "section": "Equipment Financing",
         "article_headline": "Logging & Forestry Equipment Financing",
         "article_desc": "Financing options for logging and forestry equipment: skidders, feller bunchers, log trucks, processors, delimbers. Loans, leases, costs, and approval requirements for logging operators.",
@@ -465,7 +465,7 @@ ARTICLES = [
             ("What logging equipment can you finance?",
              "All major logging and forestry equipment qualifies for equipment financing: <strong>skidders</strong> ($150K&ndash;$500K), <strong>feller bunchers</strong> ($300K&ndash;$700K), <strong>processors and harvesters</strong> ($350K&ndash;$650K), <strong>delimbers</strong> ($100K&ndash;$250K), <strong>log loaders</strong> ($120K&ndash;$280K), <strong>log trucks</strong> ($80K&ndash;$200K), <strong>chippers and grinders</strong> ($75K&ndash;$300K), and supporting equipment like forwarders and yarders. Used equipment finances at the same rate with a 12-month warranty."),
             ("What credit score do logging operators need?",
-             "<strong>600+ FICO</strong> qualifies most logging operators for equipment financing; <strong>680+</strong> gets best rates. Specialty heavy-equipment lenders are flexible on credit if the deal is well-structured &mdash; they care about <strong>experience</strong> (5+ years in logging), <strong>active mill or wood-yard contracts</strong>, and <strong>fuel/insurance history</strong> on prior equipment as much as personal FICO."),
+             "<strong>600+ FICO</strong> qualifies most logging operators for equipment financing; <strong>720+</strong> gets best rates. Specialty heavy-equipment lenders are flexible on credit if the deal is well-structured &mdash; they care about <strong>experience</strong> (5+ years in logging), <strong>active mill or wood-yard contracts</strong>, and <strong>fuel/insurance history</strong> on prior equipment as much as personal FICO."),
             ("Are logging equipment loan rates higher than other equipment financing?",
              "Slightly &mdash; logging equipment runs <strong>8&ndash;14% APR</strong> compared to 6&ndash;12% on more mainstream construction equipment. The premium reflects the seasonality of logging cash flow, exposure to lumber commodity prices, and the specialty repossession market (smaller resale pool for skidders and feller bunchers than for excavators). Brand-new equipment financed through OEM captives (John Deere, Caterpillar Forestry, Tigercat) often beats third-party rates."),
             ("How much down payment is required on logging equipment?",
@@ -544,7 +544,7 @@ ARTICLES = [
             '</ul>'
             '<h2 id="approval">Approval Requirements</h2>'
             '<ul>'
-            '<li><strong>FICO:</strong> 600+ minimum, 680+ for best rates. Specialty heavy-equipment lenders are flexible if the deal economics are strong.</li>'
+            '<li><strong>FICO:</strong> 600+ minimum, 720+ for best rates. Specialty heavy-equipment lenders are flexible if the deal economics are strong.</li>'
             '<li><strong>Time in business:</strong> 2+ years standard. New operators with strong personal credit can sometimes qualify with 25&ndash;30% down.</li>'
             '<li><strong>Mill or wood-yard contracts:</strong> Lenders want to see active contracts demonstrating revenue. Sole-proprietor independent logger without contracts is a tougher file than a corporate logger with a Weyerhaeuser or Georgia-Pacific contract.</li>'
             '<li><strong>Insurance:</strong> Workers comp, equipment insurance, general liability. Prior coverage history (claims, premiums) matters.</li>'
@@ -742,9 +742,9 @@ ARTICLES = [
 TEMPLATE_CANONICAL = "https://axiantpartners.com/equipment-financing/articles/medical-imaging-financing-radiology-practices/"
 TEMPLATE_TITLE_TAG = "Medical Imaging Financing for Radiology Practices ($50K–$2M) | Axiant"
 TEMPLATE_OG_TITLE = "Medical Imaging Financing for Radiology Practices ($50K–$2M)"
-TEMPLATE_OG_DESC = "Radiology practices finance MRI, CT, X-ray, and ultrasound from $50K–$2M+ via equipment loans, operating leases, or SBA 504. 24–48 hr approvals at 600+ FICO."
-TEMPLATE_META_DESC = "Medical imaging financing for radiology practices: MRI, CT, X-ray, ultrasound from $50K–$2M+ via equipment loans, leases, or SBA 504. 24–48 hr approvals at 600+ FICO, 0–20% down."
-TEMPLATE_TWITTER_DESC = "MRI, CT, X-ray, ultrasound financing for radiology practices: $50K–$2M+, 24–48 hr approvals, 600+ FICO, 0–20% down."
+TEMPLATE_OG_DESC = "Radiology practices finance MRI, CT, X-ray, and ultrasound from $50K–$2M+ via equipment loans, operating leases, or SBA 504. 24–72 hr approvals at 600+ FICO."
+TEMPLATE_META_DESC = "Medical imaging financing for radiology practices: MRI, CT, X-ray, ultrasound from $50K–$2M+ via equipment loans, leases, or SBA 504. 24–72 hr approvals at 600+ FICO, 0–20% down."
+TEMPLATE_TWITTER_DESC = "MRI, CT, X-ray, ultrasound financing for radiology practices: $50K–$2M+, 24–72 hr approvals, 600+ FICO, 0–20% down."
 TEMPLATE_IMAGE_URL = "https://axiantpartners.com/assets/medical-imaging-equipment.webp"
 TEMPLATE_H1 = "Medical Imaging Financing for Radiology Practices: MRI, CT, X-Ray, Ultrasound"
 TEMPLATE_TAGLINE = "How radiology practices and imaging centers finance $50K&ndash;$2M+ equipment &mdash; loans, leases, SBA 504, and the patient-financing piece practices add on top"
